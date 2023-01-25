@@ -54,6 +54,7 @@ members = [
     "examples/tls",
     "examples/transcribestreaming",
     "examples/using-native-tls-instead-of-rustls",
+    "examples/webassembly",
     "sdk/accessanalyzer",
     "sdk/account",
     "sdk/acm",

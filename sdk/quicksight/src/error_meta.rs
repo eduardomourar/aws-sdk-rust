@@ -395,6 +395,35 @@ impl From<crate::operation::create_action_connector::CreateActionConnectorError>
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_agent::CreateAgentError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_agent::CreateAgentError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_agent::CreateAgentError> for Error {
+    fn from(err: crate::operation::create_agent::CreateAgentError) -> Self {
+        match err {
+            crate::operation::create_agent::CreateAgentError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_agent::CreateAgentError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::create_agent::CreateAgentError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::create_agent::CreateAgentError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::create_agent::CreateAgentError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_agent::CreateAgentError::PreconditionNotMetException(inner) => Error::PreconditionNotMetException(inner),
+            crate::operation::create_agent::CreateAgentError::ResourceExistsException(inner) => Error::ResourceExistsException(inner),
+            crate::operation::create_agent::CreateAgentError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_agent::CreateAgentError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_analysis::CreateAnalysisError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -608,6 +637,35 @@ impl From<crate::operation::create_data_source::CreateDataSourceError> for Error
             crate::operation::create_data_source::CreateDataSourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::create_data_source::CreateDataSourceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::create_data_source::CreateDataSourceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_flow::CreateFlowError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_flow::CreateFlowError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_flow::CreateFlowError> for Error {
+    fn from(err: crate::operation::create_flow::CreateFlowError) -> Self {
+        match err {
+            crate::operation::create_flow::CreateFlowError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_flow::CreateFlowError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::create_flow::CreateFlowError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::create_flow::CreateFlowError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::create_flow::CreateFlowError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_flow::CreateFlowError::ResourceExistsException(inner) => Error::ResourceExistsException(inner),
+            crate::operation::create_flow::CreateFlowError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::create_flow::CreateFlowError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_flow::CreateFlowError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1002,6 +1060,34 @@ impl From<crate::operation::create_role_membership::CreateRoleMembershipError> f
             }
             crate::operation::create_role_membership::CreateRoleMembershipError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::create_role_membership::CreateRoleMembershipError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_space::CreateSpaceError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_space::CreateSpaceError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_space::CreateSpaceError> for Error {
+    fn from(err: crate::operation::create_space::CreateSpaceError) -> Self {
+        match err {
+            crate::operation::create_space::CreateSpaceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_space::CreateSpaceError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::create_space::CreateSpaceError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::create_space::CreateSpaceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::create_space::CreateSpaceError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_space::CreateSpaceError::ResourceExistsException(inner) => Error::ResourceExistsException(inner),
+            crate::operation::create_space::CreateSpaceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_space::CreateSpaceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1427,6 +1513,33 @@ impl From<crate::operation::delete_action_connector::DeleteActionConnectorError>
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_agent::DeleteAgentError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_agent::DeleteAgentError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_agent::DeleteAgentError> for Error {
+    fn from(err: crate::operation::delete_agent::DeleteAgentError) -> Self {
+        match err {
+            crate::operation::delete_agent::DeleteAgentError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_agent::DeleteAgentError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::delete_agent::DeleteAgentError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::delete_agent::DeleteAgentError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_agent::DeleteAgentError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_agent::DeleteAgentError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_agent::DeleteAgentError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_analysis::DeleteAnalysisError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -1757,6 +1870,33 @@ impl From<crate::operation::delete_default_q_business_application::DeleteDefault
             crate::operation::delete_default_q_business_application::DeleteDefaultQBusinessApplicationError::Unhandled(inner) => {
                 Error::Unhandled(inner)
             }
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_flow::DeleteFlowError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_flow::DeleteFlowError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_flow::DeleteFlowError> for Error {
+    fn from(err: crate::operation::delete_flow::DeleteFlowError) -> Self {
+        match err {
+            crate::operation::delete_flow::DeleteFlowError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_flow::DeleteFlowError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::delete_flow::DeleteFlowError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::delete_flow::DeleteFlowError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_flow::DeleteFlowError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_flow::DeleteFlowError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_flow::DeleteFlowError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2189,6 +2329,32 @@ impl From<crate::operation::delete_role_membership::DeleteRoleMembershipError> f
             }
             crate::operation::delete_role_membership::DeleteRoleMembershipError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::delete_role_membership::DeleteRoleMembershipError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_space::DeleteSpaceError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_space::DeleteSpaceError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_space::DeleteSpaceError> for Error {
+    fn from(err: crate::operation::delete_space::DeleteSpaceError) -> Self {
+        match err {
+            crate::operation::delete_space::DeleteSpaceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_space::DeleteSpaceError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::delete_space::DeleteSpaceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_space::DeleteSpaceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_space::DeleteSpaceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_space::DeleteSpaceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2809,6 +2975,77 @@ impl From<crate::operation::describe_action_connector_permissions::DescribeActio
             crate::operation::describe_action_connector_permissions::DescribeActionConnectorPermissionsError::Unhandled(inner) => {
                 Error::Unhandled(inner)
             }
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_agent::DescribeAgentError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_agent::DescribeAgentError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_agent::DescribeAgentError> for Error {
+    fn from(err: crate::operation::describe_agent::DescribeAgentError) -> Self {
+        match err {
+            crate::operation::describe_agent::DescribeAgentError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::describe_agent::DescribeAgentError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::describe_agent::DescribeAgentError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::describe_agent::DescribeAgentError::PreconditionNotMetException(inner) => Error::PreconditionNotMetException(inner),
+            crate::operation::describe_agent::DescribeAgentError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_agent::DescribeAgentError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::describe_agent::DescribeAgentError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_agent_permissions::DescribeAgentPermissionsError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_agent_permissions::DescribeAgentPermissionsError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_agent_permissions::DescribeAgentPermissionsError> for Error {
+    fn from(err: crate::operation::describe_agent_permissions::DescribeAgentPermissionsError) -> Self {
+        match err {
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::InternalFailureException(inner) => {
+                Error::InternalFailureException(inner)
+            }
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::PreconditionNotMetException(inner) => {
+                Error::PreconditionNotMetException(inner)
+            }
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::describe_agent_permissions::DescribeAgentPermissionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3718,6 +3955,32 @@ impl From<crate::operation::describe_default_q_business_application::DescribeDef
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_flow::DescribeFlowError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_flow::DescribeFlowError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_flow::DescribeFlowError> for Error {
+    fn from(err: crate::operation::describe_flow::DescribeFlowError) -> Self {
+        match err {
+            crate::operation::describe_flow::DescribeFlowError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::describe_flow::DescribeFlowError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::describe_flow::DescribeFlowError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_flow::DescribeFlowError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_flow::DescribeFlowError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::describe_flow::DescribeFlowError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_folder::DescribeFolderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -4369,6 +4632,73 @@ impl From<crate::operation::describe_self_upgrade_configuration::DescribeSelfUpg
                 Error::ThrottlingException(inner)
             }
             crate::operation::describe_self_upgrade_configuration::DescribeSelfUpgradeConfigurationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_space::DescribeSpaceError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_space::DescribeSpaceError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_space::DescribeSpaceError> for Error {
+    fn from(err: crate::operation::describe_space::DescribeSpaceError) -> Self {
+        match err {
+            crate::operation::describe_space::DescribeSpaceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::describe_space::DescribeSpaceError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::describe_space::DescribeSpaceError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::describe_space::DescribeSpaceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_space::DescribeSpaceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::describe_space::DescribeSpaceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_space_permissions::DescribeSpacePermissionsError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_space_permissions::DescribeSpacePermissionsError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_space_permissions::DescribeSpacePermissionsError> for Error {
+    fn from(err: crate::operation::describe_space_permissions::DescribeSpacePermissionsError) -> Self {
+        match err {
+            crate::operation::describe_space_permissions::DescribeSpacePermissionsError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::describe_space_permissions::DescribeSpacePermissionsError::InternalFailureException(inner) => {
+                Error::InternalFailureException(inner)
+            }
+            crate::operation::describe_space_permissions::DescribeSpacePermissionsError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::describe_space_permissions::DescribeSpacePermissionsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::describe_space_permissions::DescribeSpacePermissionsError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::describe_space_permissions::DescribeSpacePermissionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5194,6 +5524,34 @@ impl From<crate::operation::list_action_connectors::ListActionConnectorsError> f
             }
             crate::operation::list_action_connectors::ListActionConnectorsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::list_action_connectors::ListActionConnectorsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_agents::ListAgentsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_agents::ListAgentsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_agents::ListAgentsError> for Error {
+    fn from(err: crate::operation::list_agents::ListAgentsError) -> Self {
+        match err {
+            crate::operation::list_agents::ListAgentsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_agents::ListAgentsError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::list_agents::ListAgentsError::InvalidNextTokenException(inner) => Error::InvalidNextTokenException(inner),
+            crate::operation::list_agents::ListAgentsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_agents::ListAgentsError::PreconditionNotMetException(inner) => Error::PreconditionNotMetException(inner),
+            crate::operation::list_agents::ListAgentsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_agents::ListAgentsError::UnsupportedUserEditionException(inner) => Error::UnsupportedUserEditionException(inner),
+            crate::operation::list_agents::ListAgentsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6055,6 +6413,64 @@ impl From<crate::operation::list_self_upgrades::ListSelfUpgradesError> for Error
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_space_resources::ListSpaceResourcesError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_space_resources::ListSpaceResourcesError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_space_resources::ListSpaceResourcesError> for Error {
+    fn from(err: crate::operation::list_space_resources::ListSpaceResourcesError) -> Self {
+        match err {
+            crate::operation::list_space_resources::ListSpaceResourcesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_space_resources::ListSpaceResourcesError::InternalFailureException(inner) => {
+                Error::InternalFailureException(inner)
+            }
+            crate::operation::list_space_resources::ListSpaceResourcesError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::list_space_resources::ListSpaceResourcesError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_space_resources::ListSpaceResourcesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_space_resources::ListSpaceResourcesError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_spaces::ListSpacesError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_spaces::ListSpacesError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_spaces::ListSpacesError> for Error {
+    fn from(err: crate::operation::list_spaces::ListSpacesError) -> Self {
+        match err {
+            crate::operation::list_spaces::ListSpacesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_spaces::ListSpacesError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::list_spaces::ListSpacesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_spaces::ListSpacesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_spaces::ListSpacesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_spaces::ListSpacesError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -6669,6 +7085,33 @@ impl From<crate::operation::search_action_connectors::SearchActionConnectorsErro
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_agents::SearchAgentsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_agents::SearchAgentsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::search_agents::SearchAgentsError> for Error {
+    fn from(err: crate::operation::search_agents::SearchAgentsError) -> Self {
+        match err {
+            crate::operation::search_agents::SearchAgentsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::search_agents::SearchAgentsError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::search_agents::SearchAgentsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::search_agents::SearchAgentsError::PreconditionNotMetException(inner) => Error::PreconditionNotMetException(inner),
+            crate::operation::search_agents::SearchAgentsError::ResourceExistsException(inner) => Error::ResourceExistsException(inner),
+            crate::operation::search_agents::SearchAgentsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::search_agents::SearchAgentsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_analyses::SearchAnalysesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -6877,6 +7320,32 @@ impl From<crate::operation::search_groups::SearchGroupsError> for Error {
             crate::operation::search_groups::SearchGroupsError::ResourceUnavailableException(inner) => Error::ResourceUnavailableException(inner),
             crate::operation::search_groups::SearchGroupsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::search_groups::SearchGroupsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_spaces::SearchSpacesError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_spaces::SearchSpacesError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::search_spaces::SearchSpacesError> for Error {
+    fn from(err: crate::operation::search_spaces::SearchSpacesError) -> Self {
+        match err {
+            crate::operation::search_spaces::SearchSpacesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::search_spaces::SearchSpacesError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::search_spaces::SearchSpacesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::search_spaces::SearchSpacesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::search_spaces::SearchSpacesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::search_spaces::SearchSpacesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7411,6 +7880,81 @@ impl From<crate::operation::update_action_connector_permissions::UpdateActionCon
                 Error::UnsupportedUserEditionException(inner)
             }
             crate::operation::update_action_connector_permissions::UpdateActionConnectorPermissionsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_agent::UpdateAgentError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_agent::UpdateAgentError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_agent::UpdateAgentError> for Error {
+    fn from(err: crate::operation::update_agent::UpdateAgentError) -> Self {
+        match err {
+            crate::operation::update_agent::UpdateAgentError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::update_agent::UpdateAgentError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_agent::UpdateAgentError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::update_agent::UpdateAgentError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_agent::UpdateAgentError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::update_agent::UpdateAgentError::PreconditionNotMetException(inner) => Error::PreconditionNotMetException(inner),
+            crate::operation::update_agent::UpdateAgentError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_agent::UpdateAgentError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_agent::UpdateAgentError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_agent_permissions::UpdateAgentPermissionsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_agent_permissions::UpdateAgentPermissionsError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_agent_permissions::UpdateAgentPermissionsError> for Error {
+    fn from(err: crate::operation::update_agent_permissions::UpdateAgentPermissionsError) -> Self {
+        match err {
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::InternalFailureException(inner) => {
+                Error::InternalFailureException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::PreconditionNotMetException(inner) => {
+                Error::PreconditionNotMetException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::UnsupportedUserEditionException(inner) => {
+                Error::UnsupportedUserEditionException(inner)
+            }
+            crate::operation::update_agent_permissions::UpdateAgentPermissionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -8105,6 +8649,34 @@ impl From<crate::operation::update_default_q_business_application::UpdateDefault
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_flow::UpdateFlowError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_flow::UpdateFlowError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_flow::UpdateFlowError> for Error {
+    fn from(err: crate::operation::update_flow::UpdateFlowError) -> Self {
+        match err {
+            crate::operation::update_flow::UpdateFlowError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::update_flow::UpdateFlowError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_flow::UpdateFlowError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::update_flow::UpdateFlowError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_flow::UpdateFlowError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::update_flow::UpdateFlowError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_flow::UpdateFlowError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_flow::UpdateFlowError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_flow_permissions::UpdateFlowPermissionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -8768,6 +9340,115 @@ impl From<crate::operation::update_self_upgrade_configuration::UpdateSelfUpgrade
                 Error::ThrottlingException(inner)
             }
             crate::operation::update_self_upgrade_configuration::UpdateSelfUpgradeConfigurationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_space::UpdateSpaceError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_space::UpdateSpaceError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_space::UpdateSpaceError> for Error {
+    fn from(err: crate::operation::update_space::UpdateSpaceError) -> Self {
+        match err {
+            crate::operation::update_space::UpdateSpaceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::update_space::UpdateSpaceError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_space::UpdateSpaceError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::update_space::UpdateSpaceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_space::UpdateSpaceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_space::UpdateSpaceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_space::UpdateSpaceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_space_permissions::UpdateSpacePermissionsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_space_permissions::UpdateSpacePermissionsError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_space_permissions::UpdateSpacePermissionsError> for Error {
+    fn from(err: crate::operation::update_space_permissions::UpdateSpacePermissionsError) -> Self {
+        match err {
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::InternalFailureException(inner) => {
+                Error::InternalFailureException(inner)
+            }
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::UnsupportedUserEditionException(inner) => {
+                Error::UnsupportedUserEditionException(inner)
+            }
+            crate::operation::update_space_permissions::UpdateSpacePermissionsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_space_resources::UpdateSpaceResourcesError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_space_resources::UpdateSpaceResourcesError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_space_resources::UpdateSpaceResourcesError> for Error {
+    fn from(err: crate::operation::update_space_resources::UpdateSpaceResourcesError) -> Self {
+        match err {
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::InternalFailureException(inner) => {
+                Error::InternalFailureException(inner)
+            }
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::InvalidParameterValueException(inner) => {
+                Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::ResourceExistsException(inner) => {
+                Error::ResourceExistsException(inner)
+            }
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_space_resources::UpdateSpaceResourcesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

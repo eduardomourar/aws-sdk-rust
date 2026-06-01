@@ -75,6 +75,8 @@ pub use crate::types::_account_info::AccountInfoBuilder;
 
 pub use crate::types::_action_connector::ActionConnectorBuilder;
 
+pub use crate::types::_agent::AgentBuilder;
+
 pub use crate::types::_analysis::AnalysisBuilder;
 
 pub use crate::types::_asset_bundle_cloud_formation_override_property_configuration::AssetBundleCloudFormationOverridePropertyConfigurationBuilder;
@@ -109,6 +111,8 @@ pub use crate::types::_data_set_refresh_properties::DataSetRefreshPropertiesBuil
 
 pub use crate::types::_data_source::DataSourceBuilder;
 
+pub use crate::types::_flow_detail::FlowDetailBuilder;
+
 pub use crate::types::_folder::FolderBuilder;
 
 pub use crate::types::_iam_policy_assignment::IamPolicyAssignmentBuilder;
@@ -122,6 +126,8 @@ pub use crate::types::_namespace_info_v2::NamespaceInfoV2Builder;
 pub use crate::types::_o_auth_client_application::OAuthClientApplicationBuilder;
 
 pub use crate::types::_self_upgrade_configuration::SelfUpgradeConfigurationBuilder;
+
+pub use crate::types::_space_details::SpaceDetailsBuilder;
 
 pub use crate::types::_template::TemplateBuilder;
 
@@ -154,6 +160,10 @@ pub use crate::types::_invalid_topic_reviewed_answer::InvalidTopicReviewedAnswer
 pub use crate::types::_tag::TagBuilder;
 
 pub use crate::types::_resource_permission::ResourcePermissionBuilder;
+
+pub use crate::types::_custom_prompt_profile::CustomPromptProfileBuilder;
+
+pub use crate::types::_custom_prompt_input_parameters::CustomPromptInputParametersBuilder;
 
 pub use crate::types::_analysis_source_template::AnalysisSourceTemplateBuilder;
 
@@ -285,6 +295,8 @@ pub use crate::types::_web_proxy_credentials::WebProxyCredentialsBuilder;
 
 pub use crate::types::_o_auth_client_credentials::OAuthClientCredentialsBuilder;
 
+pub use crate::types::_permission::PermissionBuilder;
+
 pub use crate::types::_refresh_frequency::RefreshFrequencyBuilder;
 
 pub use crate::types::_template_source_analysis::TemplateSourceAnalysisBuilder;
@@ -304,6 +316,8 @@ pub use crate::types::_topic_config_options::TopicConfigOptionsBuilder;
 pub use crate::types::_action_connector_error::ActionConnectorErrorBuilder;
 
 pub use crate::types::_read_auth_config::ReadAuthConfigBuilder;
+
+pub use crate::types::_custom_prompt_interface::CustomPromptInterfaceBuilder;
 
 pub use crate::types::_analysis_error::AnalysisErrorBuilder;
 
@@ -341,6 +355,8 @@ pub use crate::types::_registered_customer_managed_key::RegisteredCustomerManage
 
 pub use crate::types::_namespace_error::NamespaceErrorBuilder;
 
+pub use crate::types::_space_contributor::SpaceContributorBuilder;
+
 pub use crate::types::_template_version::TemplateVersionBuilder;
 
 pub use crate::types::_template_error::TemplateErrorBuilder;
@@ -369,9 +385,9 @@ pub use crate::types::_registered_user_generative_qn_a_embedding_configuration::
 
 pub use crate::types::_registered_user_quick_chat_embedding_configuration::RegisteredUserQuickChatEmbeddingConfigurationBuilder;
 
-pub use crate::types::_permission::PermissionBuilder;
-
 pub use crate::types::_action_connector_summary::ActionConnectorSummaryBuilder;
+
+pub use crate::types::_agent_summary::AgentSummaryBuilder;
 
 pub use crate::types::_analysis_summary::AnalysisSummaryBuilder;
 
@@ -401,6 +417,10 @@ pub use crate::types::_authorized_targets_by_service::AuthorizedTargetsByService
 
 pub use crate::types::_o_auth_client_application_summary::OAuthClientApplicationSummaryBuilder;
 
+pub use crate::types::_space_resource_summary::SpaceResourceSummaryBuilder;
+
+pub use crate::types::_space_summary::SpaceSummaryBuilder;
+
 pub use crate::types::_template_summary::TemplateSummaryBuilder;
 
 pub use crate::types::_template_version_summary::TemplateVersionSummaryBuilder;
@@ -423,6 +443,8 @@ pub use crate::types::_generated_answer_result::GeneratedAnswerResultBuilder;
 
 pub use crate::types::_action_connector_search_filter::ActionConnectorSearchFilterBuilder;
 
+pub use crate::types::_agent_search_filter::AgentSearchFilterBuilder;
+
 pub use crate::types::_analysis_search_filter::AnalysisSearchFilterBuilder;
 
 pub use crate::types::_dashboard_search_filter::DashboardSearchFilterBuilder;
@@ -439,11 +461,19 @@ pub use crate::types::_folder_search_filter::FolderSearchFilterBuilder;
 
 pub use crate::types::_group_search_filter::GroupSearchFilterBuilder;
 
+pub use crate::types::_space_quicksight_search_filter::SpaceQuicksightSearchFilterBuilder;
+
 pub use crate::types::_topic_search_filter::TopicSearchFilterBuilder;
+
+pub use crate::types::_failed_to_update_association::FailedToUpdateAssociationBuilder;
 
 pub use crate::types::_failed_key_registration_entry::FailedKeyRegistrationEntryBuilder;
 
 pub use crate::types::_successful_key_registration_entry::SuccessfulKeyRegistrationEntryBuilder;
+
+pub use crate::types::_space_resource_operation::SpaceResourceOperationBuilder;
+
+pub use crate::types::_failed_space_resource_operation::FailedSpaceResourceOperationBuilder;
 
 pub use crate::types::_topic_ir::TopicIrBuilder;
 
@@ -638,6 +668,10 @@ pub use crate::types::_output_column::OutputColumnBuilder;
 pub use crate::types::_incremental_refresh::IncrementalRefreshBuilder;
 
 pub use crate::types::_refresh_failure_email_alert::RefreshFailureEmailAlertBuilder;
+
+pub use crate::types::_step_alias_mapping::StepAliasMappingBuilder;
+
+pub use crate::types::_space_quick_sight_resource::SpaceQuickSightResourceBuilder;
 
 pub use crate::types::_network_interface::NetworkInterfaceBuilder;
 

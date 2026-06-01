@@ -221,6 +221,16 @@ where
                                     .transpose()?,
                             );
                         }
+                        "KeyConfiguration" => {
+                            builder = builder.set_key_configuration(crate::protocol_serde::shape_key_configuration_type::de_key_configuration_type(
+                                tokens, _value,
+                            )?);
+                        }
+                        "IssuerConfiguration" => {
+                            builder = builder.set_issuer_configuration(
+                                crate::protocol_serde::shape_issuer_configuration_type::de_issuer_configuration_type(tokens, _value)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

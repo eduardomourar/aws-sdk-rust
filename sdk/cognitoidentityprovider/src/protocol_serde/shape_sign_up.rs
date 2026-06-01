@@ -189,6 +189,22 @@ pub fn de_sign_up_http_error(
             }
             tmp
         }),
+        "OperationNotEnabledException" => crate::operation::sign_up::SignUpError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::sign_up::SignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => crate::operation::sign_up::SignUpError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {

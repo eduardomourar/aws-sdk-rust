@@ -15,6 +15,12 @@ pub use crate::types::_auth_config::AuthConfig;
 
 pub use crate::types::_resource_status::ResourceStatus;
 
+pub use crate::types::_agent_lifecycle::AgentLifecycle;
+
+pub use crate::types::_custom_prompt_input::CustomPromptInput;
+
+pub use crate::types::_agent_status::AgentStatus;
+
 pub use crate::types::_parameters::Parameters;
 
 pub use crate::types::_analysis_source_entity::AnalysisSourceEntity;
@@ -119,6 +125,8 @@ pub use crate::types::_account_info::AccountInfo;
 
 pub use crate::types::_action_connector::ActionConnector;
 
+pub use crate::types::_agent::Agent;
+
 pub use crate::types::_analysis::Analysis;
 
 pub use crate::types::_asset_bundle_export_job_status::AssetBundleExportJobStatus;
@@ -169,6 +177,10 @@ pub use crate::types::_data_set_refresh_properties::DataSetRefreshProperties;
 
 pub use crate::types::_data_source::DataSource;
 
+pub use crate::types::_flow_publish_state::FlowPublishState;
+
+pub use crate::types::_flow_detail::FlowDetail;
+
 pub use crate::types::_folder::Folder;
 
 pub use crate::types::_iam_policy_assignment::IamPolicyAssignment;
@@ -187,6 +199,8 @@ pub use crate::types::_q_search_status::QSearchStatus;
 
 pub use crate::types::_self_upgrade_configuration::SelfUpgradeConfiguration;
 
+pub use crate::types::_space_details::SpaceDetails;
+
 pub use crate::types::_template::Template;
 
 pub use crate::types::_theme::Theme;
@@ -202,8 +216,6 @@ pub use crate::types::_anonymous_user_embedding_experience_configuration::Anonym
 pub use crate::types::_registered_user_embedding_experience_configuration::RegisteredUserEmbeddingExperienceConfiguration;
 
 pub use crate::types::_embedding_identity_type::EmbeddingIdentityType;
-
-pub use crate::types::_flow_publish_state::FlowPublishState;
 
 pub use crate::types::_user_identifier::UserIdentifier;
 
@@ -244,6 +256,10 @@ pub use crate::types::_connection_auth_type::ConnectionAuthType;
 pub use crate::types::_authentication_metadata::AuthenticationMetadata;
 
 pub use crate::types::_resource_permission::ResourcePermission;
+
+pub use crate::types::_custom_prompt_profile::CustomPromptProfile;
+
+pub use crate::types::_custom_prompt_input_parameters::CustomPromptInputParameters;
 
 pub use crate::types::_analysis_source_template::AnalysisSourceTemplate;
 
@@ -391,6 +407,8 @@ pub use crate::types::_web_proxy_credentials::WebProxyCredentials;
 
 pub use crate::types::_o_auth_client_credentials::OAuthClientCredentials;
 
+pub use crate::types::_permission::Permission;
+
 pub use crate::types::_refresh_frequency::RefreshFrequency;
 
 pub use crate::types::_template_source_analysis::TemplateSourceAnalysis;
@@ -414,6 +432,8 @@ pub use crate::types::_topic_schedule_type::TopicScheduleType;
 pub use crate::types::_action_connector_error::ActionConnectorError;
 
 pub use crate::types::_read_auth_config::ReadAuthConfig;
+
+pub use crate::types::_custom_prompt_interface::CustomPromptInterface;
 
 pub use crate::types::_analysis_error::AnalysisError;
 
@@ -457,6 +477,8 @@ pub use crate::types::_q_data_key_type::QDataKeyType;
 
 pub use crate::types::_namespace_error::NamespaceError;
 
+pub use crate::types::_space_contributor::SpaceContributor;
+
 pub use crate::types::_template_version::TemplateVersion;
 
 pub use crate::types::_template_error::TemplateError;
@@ -487,9 +509,9 @@ pub use crate::types::_registered_user_generative_qn_a_embedding_configuration::
 
 pub use crate::types::_registered_user_quick_chat_embedding_configuration::RegisteredUserQuickChatEmbeddingConfiguration;
 
-pub use crate::types::_permission::Permission;
-
 pub use crate::types::_action_connector_summary::ActionConnectorSummary;
+
+pub use crate::types::_agent_summary::AgentSummary;
 
 pub use crate::types::_analysis_summary::AnalysisSummary;
 
@@ -519,6 +541,10 @@ pub use crate::types::_authorized_targets_by_service::AuthorizedTargetsByService
 
 pub use crate::types::_o_auth_client_application_summary::OAuthClientApplicationSummary;
 
+pub use crate::types::_space_resource_summary::SpaceResourceSummary;
+
+pub use crate::types::_space_summary::SpaceSummary;
+
 pub use crate::types::_template_summary::TemplateSummary;
 
 pub use crate::types::_template_version_summary::TemplateVersionSummary;
@@ -543,6 +569,8 @@ pub use crate::types::_generated_answer_result::GeneratedAnswerResult;
 
 pub use crate::types::_action_connector_search_filter::ActionConnectorSearchFilter;
 
+pub use crate::types::_agent_search_filter::AgentSearchFilter;
+
 pub use crate::types::_analysis_search_filter::AnalysisSearchFilter;
 
 pub use crate::types::_dashboard_search_filter::DashboardSearchFilter;
@@ -559,13 +587,21 @@ pub use crate::types::_folder_search_filter::FolderSearchFilter;
 
 pub use crate::types::_group_search_filter::GroupSearchFilter;
 
+pub use crate::types::_space_quicksight_search_filter::SpaceQuicksightSearchFilter;
+
 pub use crate::types::_topic_search_filter::TopicSearchFilter;
+
+pub use crate::types::_failed_to_update_association::FailedToUpdateAssociation;
 
 pub use crate::types::_failed_key_registration_entry::FailedKeyRegistrationEntry;
 
 pub use crate::types::_successful_key_registration_entry::SuccessfulKeyRegistrationEntry;
 
 pub use crate::types::_self_upgrade_request_status::SelfUpgradeRequestStatus;
+
+pub use crate::types::_space_resource_operation::SpaceResourceOperation;
+
+pub use crate::types::_failed_space_resource_operation::FailedSpaceResourceOperation;
 
 pub use crate::types::_topic_ir::TopicIr;
 
@@ -791,9 +827,13 @@ pub use crate::types::_refresh_failure_email_alert::RefreshFailureEmailAlert;
 
 pub use crate::types::_data_source_error_info_type::DataSourceErrorInfoType;
 
+pub use crate::types::_step_alias_mapping::StepAliasMapping;
+
 pub use crate::types::_ingestion_error_type::IngestionErrorType;
 
 pub use crate::types::_namespace_error_type::NamespaceErrorType;
+
+pub use crate::types::_space_quick_sight_resource::SpaceQuickSightResource;
 
 pub use crate::types::_template_error_type::TemplateErrorType;
 
@@ -807,11 +847,19 @@ pub use crate::types::_registered_user_dashboard_feature_configurations::Registe
 
 pub use crate::types::_registered_user_console_feature_configurations::RegisteredUserConsoleFeatureConfigurations;
 
+pub use crate::types::_space_quick_sight_resource_type::SpaceQuickSightResourceType;
+
+pub use crate::types::_space_quick_sight_resource_details::SpaceQuickSightResourceDetails;
+
 pub use crate::types::_generated_answer_status::GeneratedAnswerStatus;
 
 pub use crate::types::_action_connector_search_filter_name_enum::ActionConnectorSearchFilterNameEnum;
 
 pub use crate::types::_filter_operator::FilterOperator;
+
+pub use crate::types::_agent_ownership_filter_attribute::AgentOwnershipFilterAttribute;
+
+pub use crate::types::_comparison_operator::ComparisonOperator;
 
 pub use crate::types::_analysis_filter_attribute::AnalysisFilterAttribute;
 
@@ -830,6 +878,10 @@ pub use crate::types::_folder_filter_attribute::FolderFilterAttribute;
 pub use crate::types::_group_filter_operator::GroupFilterOperator;
 
 pub use crate::types::_group_filter_attribute::GroupFilterAttribute;
+
+pub use crate::types::_space_quick_sight_search_filter_name::SpaceQuickSightSearchFilterName;
+
+pub use crate::types::_space_search_operator::SpaceSearchOperator;
 
 pub use crate::types::_topic_filter_operator::TopicFilterOperator;
 
@@ -2717,6 +2769,18 @@ mod _ad_hoc_filtering_option;
 
 mod _additional_notes;
 
+mod _agent;
+
+mod _agent_lifecycle;
+
+mod _agent_ownership_filter_attribute;
+
+mod _agent_search_filter;
+
+mod _agent_status;
+
+mod _agent_summary;
+
 mod _agg_function;
 
 mod _agg_type;
@@ -3205,6 +3269,8 @@ mod _comparison_method;
 
 mod _comparison_method_type;
 
+mod _comparison_operator;
+
 mod _computation;
 
 mod _conditional_formatting_color;
@@ -3300,6 +3366,14 @@ mod _custom_narrative_options;
 mod _custom_parameter_values;
 
 mod _custom_permissions;
+
+mod _custom_prompt_input;
+
+mod _custom_prompt_input_parameters;
+
+mod _custom_prompt_interface;
+
+mod _custom_prompt_profile;
 
 mod _custom_sql;
 
@@ -3635,6 +3709,10 @@ mod _export_with_hidden_fields_option;
 
 mod _failed_key_registration_entry;
 
+mod _failed_space_resource_operation;
+
+mod _failed_to_update_association;
+
 mod _field_bar_series_item;
 
 mod _field_based_tooltip;
@@ -3718,6 +3796,8 @@ mod _filter_text_field_control;
 mod _filter_visual_scope;
 
 mod _filters_operation;
+
+mod _flow_detail;
 
 mod _flow_publish_state;
 
@@ -4893,6 +4973,28 @@ mod _sort_direction;
 
 mod _source_table;
 
+mod _space_contributor;
+
+mod _space_details;
+
+mod _space_quick_sight_resource;
+
+mod _space_quick_sight_resource_details;
+
+mod _space_quick_sight_resource_type;
+
+mod _space_quick_sight_search_filter_name;
+
+mod _space_quicksight_search_filter;
+
+mod _space_resource_operation;
+
+mod _space_resource_summary;
+
+mod _space_search_operator;
+
+mod _space_summary;
+
 mod _spacing;
 
 mod _spark_parameters;
@@ -4926,6 +5028,8 @@ mod _static_file_source;
 mod _static_file_url_source_options;
 
 mod _status;
+
+mod _step_alias_mapping;
 
 mod _string_dataset_parameter;
 

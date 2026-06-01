@@ -129,6 +129,22 @@ pub fn de_verify_software_token_http_error(
             }
             tmp
         }),
+        "OperationNotEnabledException" => crate::operation::verify_software_token::VerifySoftwareTokenError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::verify_software_token::VerifySoftwareTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PasswordResetRequiredException" => crate::operation::verify_software_token::VerifySoftwareTokenError::PasswordResetRequiredException({
             #[allow(unused_mut)]
             let mut tmp = {

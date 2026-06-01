@@ -231,6 +231,8 @@ pub(crate) mod shape_configurable_upfront_pricing_term;
 
 pub(crate) mod shape_configurable_upfront_pricing_term_configuration;
 
+pub(crate) mod shape_entitlement_list;
+
 pub(crate) mod shape_expected_charge;
 
 pub(crate) mod shape_fixed_upfront_pricing_term;
@@ -270,6 +272,8 @@ pub(crate) mod shape_configurable_upfront_rate_card_list;
 pub(crate) mod shape_dimension;
 
 pub(crate) mod shape_document_list;
+
+pub(crate) mod shape_entitlement;
 
 pub(crate) mod shape_grant_list;
 

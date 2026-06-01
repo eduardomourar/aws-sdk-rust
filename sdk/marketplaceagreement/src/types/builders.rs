@@ -87,6 +87,8 @@ pub use crate::types::_variable_payment_term_configuration::VariablePaymentTermC
 
 pub use crate::types::_tax_breakdown_item::TaxBreakdownItemBuilder;
 
+pub use crate::types::_entitlement::EntitlementBuilder;
+
 pub use crate::types::_document_item::DocumentItemBuilder;
 
 pub use crate::types::_usage_based_rate_card_item::UsageBasedRateCardItemBuilder;

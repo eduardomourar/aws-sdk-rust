@@ -52,6 +52,11 @@ where
                                 ::aws_smithy_types::date_time::Format::EpochSeconds,
                             )?);
                         }
+                        "ReplicaRegions" => {
+                            builder = builder.set_replica_regions(crate::protocol_serde::shape_replica_regions_type::de_replica_regions_type(
+                                tokens, _value,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

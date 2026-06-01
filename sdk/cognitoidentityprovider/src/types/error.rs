@@ -5,6 +5,8 @@ pub use crate::types::error::_invalid_parameter_exception::InvalidParameterExcep
 
 pub use crate::types::error::_not_authorized_exception::NotAuthorizedException;
 
+pub use crate::types::error::_operation_not_enabled_exception::OperationNotEnabledException;
+
 pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundException;
 
 pub use crate::types::error::_too_many_requests_exception::TooManyRequestsException;
@@ -164,6 +166,8 @@ mod _managed_login_branding_exists_exception;
 mod _mfa_method_not_found_exception;
 
 mod _not_authorized_exception;
+
+mod _operation_not_enabled_exception;
 
 mod _password_history_policy_violation_exception;
 

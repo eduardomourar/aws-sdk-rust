@@ -76,6 +76,9 @@ where
                                     .transpose()?,
                             );
                         }
+                        "Routing" => {
+                            builder = builder.set_routing(crate::protocol_serde::shape_routing_type::de_routing_type(tokens, _value)?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

@@ -59,6 +59,10 @@ pub use crate::types::_username_configuration_type::UsernameConfigurationTypeBui
 
 pub use crate::types::_account_recovery_setting_type::AccountRecoverySettingTypeBuilder;
 
+pub use crate::types::_key_configuration_type::KeyConfigurationTypeBuilder;
+
+pub use crate::types::_issuer_configuration_type::IssuerConfigurationTypeBuilder;
+
 pub use crate::types::_user_pool_type::UserPoolTypeBuilder;
 
 pub use crate::types::_token_validity_units_type::TokenValidityUnitsTypeBuilder;
@@ -70,6 +74,10 @@ pub use crate::types::_refresh_token_rotation_type::RefreshTokenRotationTypeBuil
 pub use crate::types::_user_pool_client_type::UserPoolClientTypeBuilder;
 
 pub use crate::types::_custom_domain_config_type::CustomDomainConfigTypeBuilder;
+
+pub use crate::types::_routing_type::RoutingTypeBuilder;
+
+pub use crate::types::_user_pool_replica_type::UserPoolReplicaTypeBuilder;
 
 pub use crate::types::_risk_configuration_type::RiskConfigurationTypeBuilder;
 
@@ -124,6 +132,8 @@ pub use crate::types::_inbound_federation_lambda_type::InboundFederationLambdaTy
 pub use crate::types::_message_template_type::MessageTemplateTypeBuilder;
 
 pub use crate::types::_advanced_security_additional_flows_type::AdvancedSecurityAdditionalFlowsTypeBuilder;
+
+pub use crate::types::_failover_type::FailoverTypeBuilder;
 
 pub use crate::types::_provider_description::ProviderDescriptionBuilder;
 

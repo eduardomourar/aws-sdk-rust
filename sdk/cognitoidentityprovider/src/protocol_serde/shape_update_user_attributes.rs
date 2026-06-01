@@ -212,6 +212,22 @@ pub fn de_update_user_attributes_http_error(
             }
             tmp
         }),
+        "OperationNotEnabledException" => crate::operation::update_user_attributes::UpdateUserAttributesError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PasswordResetRequiredException" => crate::operation::update_user_attributes::UpdateUserAttributesError::PasswordResetRequiredException({
             #[allow(unused_mut)]
             let mut tmp = {

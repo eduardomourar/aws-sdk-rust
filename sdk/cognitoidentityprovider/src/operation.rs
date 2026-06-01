@@ -130,6 +130,9 @@ pub mod create_user_pool_client;
 /// Types for the `CreateUserPoolDomain` operation.
 pub mod create_user_pool_domain;
 
+/// Types for the `CreateUserPoolReplica` operation.
+pub mod create_user_pool_replica;
+
 /// Types for the `DeleteGroup` operation.
 pub mod delete_group;
 
@@ -162,6 +165,9 @@ pub mod delete_user_pool_client_secret;
 
 /// Types for the `DeleteUserPoolDomain` operation.
 pub mod delete_user_pool_domain;
+
+/// Types for the `DeleteUserPoolReplica` operation.
+pub mod delete_user_pool_replica;
 
 /// Types for the `DeleteWebAuthnCredential` operation.
 pub mod delete_web_authn_credential;
@@ -271,6 +277,9 @@ pub mod list_user_pool_client_secrets;
 /// Types for the `ListUserPoolClients` operation.
 pub mod list_user_pool_clients;
 
+/// Types for the `ListUserPoolReplicas` operation.
+pub mod list_user_pool_replicas;
+
 /// Types for the `ListUserPools` operation.
 pub mod list_user_pools;
 
@@ -360,6 +369,9 @@ pub mod update_user_pool_client;
 
 /// Types for the `UpdateUserPoolDomain` operation.
 pub mod update_user_pool_domain;
+
+/// Types for the `UpdateUserPoolReplica` operation.
+pub mod update_user_pool_replica;
 
 /// Types for the `VerifySoftwareToken` operation.
 pub mod verify_software_token;

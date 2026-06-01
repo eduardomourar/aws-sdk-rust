@@ -64,6 +64,9 @@ where
                                     .transpose()?,
                             );
                         }
+                        "entitlements" => {
+                            builder = builder.set_entitlements(crate::protocol_serde::shape_entitlement_list::de_entitlement_list(tokens, _value)?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

@@ -127,6 +127,8 @@ pub use crate::types::_timing::Timing;
 
 pub use crate::types::_tax_breakdown_item::TaxBreakdownItem;
 
+pub use crate::types::_entitlement::Entitlement;
+
 pub use crate::types::_payment_request_approval_strategy::PaymentRequestApprovalStrategy;
 
 pub use crate::types::_document_item::DocumentItem;
@@ -202,6 +204,8 @@ mod _constraints;
 mod _dimension;
 
 mod _document_item;
+
+mod _entitlement;
 
 mod _estimated_charges;
 

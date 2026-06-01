@@ -282,6 +282,8 @@ pub enum CreateUserImportJobError {
     LimitExceededException(crate::types::error::LimitExceededException),
     /// <p>This exception is thrown when a user isn't authorized.</p>
     NotAuthorizedException(crate::types::error::NotAuthorizedException),
+    /// <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+    OperationNotEnabledException(crate::types::error::OperationNotEnabledException),
     /// <p>This exception is thrown when a precondition is not met.</p>
     PreconditionNotMetException(crate::types::error::PreconditionNotMetException),
     /// <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
@@ -325,6 +327,7 @@ impl CreateUserImportJobError {
             Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::NotAuthorizedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::OperationNotEnabledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::PreconditionNotMetException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -347,6 +350,10 @@ impl CreateUserImportJobError {
     pub fn is_not_authorized_exception(&self) -> bool {
         matches!(self, Self::NotAuthorizedException(_))
     }
+    /// Returns `true` if the error kind is `CreateUserImportJobError::OperationNotEnabledException`.
+    pub fn is_operation_not_enabled_exception(&self) -> bool {
+        matches!(self, Self::OperationNotEnabledException(_))
+    }
     /// Returns `true` if the error kind is `CreateUserImportJobError::PreconditionNotMetException`.
     pub fn is_precondition_not_met_exception(&self) -> bool {
         matches!(self, Self::PreconditionNotMetException(_))
@@ -367,6 +374,7 @@ impl ::std::error::Error for CreateUserImportJobError {
             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
             Self::NotAuthorizedException(_inner) => ::std::option::Option::Some(_inner),
+            Self::OperationNotEnabledException(_inner) => ::std::option::Option::Some(_inner),
             Self::PreconditionNotMetException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::TooManyRequestsException(_inner) => ::std::option::Option::Some(_inner),
@@ -381,6 +389,7 @@ impl ::std::fmt::Display for CreateUserImportJobError {
             Self::InvalidParameterException(_inner) => _inner.fmt(f),
             Self::LimitExceededException(_inner) => _inner.fmt(f),
             Self::NotAuthorizedException(_inner) => _inner.fmt(f),
+            Self::OperationNotEnabledException(_inner) => _inner.fmt(f),
             Self::PreconditionNotMetException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
             Self::TooManyRequestsException(_inner) => _inner.fmt(f),
@@ -409,6 +418,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateUserImp
             Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::LimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::NotAuthorizedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::OperationNotEnabledException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::PreconditionNotMetException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::TooManyRequestsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

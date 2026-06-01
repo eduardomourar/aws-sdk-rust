@@ -148,6 +148,8 @@ mod create_account_subscription;
 
 mod create_action_connector;
 
+mod create_agent;
+
 mod create_analysis;
 
 mod create_brand;
@@ -159,6 +161,8 @@ mod create_dashboard;
 mod create_data_set;
 
 mod create_data_source;
+
+mod create_flow;
 
 mod create_folder;
 
@@ -179,6 +183,8 @@ mod create_o_auth_client_application;
 mod create_refresh_schedule;
 
 mod create_role_membership;
+
+mod create_space;
 
 mod create_template;
 
@@ -229,6 +235,8 @@ mod delete_account_subscription;
 
 mod delete_action_connector;
 
+mod delete_agent;
+
 mod delete_analysis;
 
 mod delete_brand;
@@ -246,6 +254,8 @@ mod delete_data_set_refresh_properties;
 mod delete_data_source;
 
 mod delete_default_q_business_application;
+
+mod delete_flow;
 
 mod delete_folder;
 
@@ -268,6 +278,8 @@ mod delete_refresh_schedule;
 mod delete_role_custom_permission;
 
 mod delete_role_membership;
+
+mod delete_space;
 
 mod delete_template;
 
@@ -300,6 +312,10 @@ mod describe_account_subscription;
 mod describe_action_connector;
 
 mod describe_action_connector_permissions;
+
+mod describe_agent;
+
+mod describe_agent_permissions;
 
 mod describe_analysis;
 
@@ -345,6 +361,8 @@ mod describe_data_source_permissions;
 
 mod describe_default_q_business_application;
 
+mod describe_flow;
+
 mod describe_folder;
 
 mod describe_folder_permissions;
@@ -376,6 +394,10 @@ mod describe_refresh_schedule;
 mod describe_role_custom_permission;
 
 mod describe_self_upgrade_configuration;
+
+mod describe_space;
+
+mod describe_space_permissions;
 
 mod describe_template;
 
@@ -420,6 +442,8 @@ mod get_identity_context;
 mod get_session_embed_url;
 
 mod list_action_connectors;
+
+mod list_agents;
 
 mod list_analyses;
 
@@ -469,6 +493,10 @@ mod list_role_memberships;
 
 mod list_self_upgrades;
 
+mod list_space_resources;
+
+mod list_spaces;
+
 mod list_tags_for_resource;
 
 mod list_template_aliases;
@@ -505,6 +533,8 @@ mod restore_analysis;
 
 mod search_action_connectors;
 
+mod search_agents;
+
 mod search_analyses;
 
 mod search_dashboards;
@@ -518,6 +548,8 @@ mod search_flows;
 mod search_folders;
 
 mod search_groups;
+
+mod search_spaces;
 
 mod search_topics;
 
@@ -544,6 +576,10 @@ mod update_account_settings;
 mod update_action_connector;
 
 mod update_action_connector_permissions;
+
+mod update_agent;
+
+mod update_agent_permissions;
 
 mod update_analysis;
 
@@ -579,6 +615,8 @@ mod update_data_source_permissions;
 
 mod update_default_q_business_application;
 
+mod update_flow;
+
 mod update_flow_permissions;
 
 mod update_folder;
@@ -610,6 +648,12 @@ mod update_role_custom_permission;
 mod update_self_upgrade;
 
 mod update_self_upgrade_configuration;
+
+mod update_space;
+
+mod update_space_permissions;
+
+mod update_space_resources;
 
 mod update_spice_capacity_configuration;
 

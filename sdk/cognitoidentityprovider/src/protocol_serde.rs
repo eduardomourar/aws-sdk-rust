@@ -109,6 +109,8 @@ pub(crate) mod shape_create_user_pool_client;
 
 pub(crate) mod shape_create_user_pool_domain;
 
+pub(crate) mod shape_create_user_pool_replica;
+
 pub(crate) mod shape_delete_group;
 
 pub(crate) mod shape_delete_identity_provider;
@@ -130,6 +132,8 @@ pub(crate) mod shape_delete_user_pool_client;
 pub(crate) mod shape_delete_user_pool_client_secret;
 
 pub(crate) mod shape_delete_user_pool_domain;
+
+pub(crate) mod shape_delete_user_pool_replica;
 
 pub(crate) mod shape_delete_web_authn_credential;
 
@@ -203,6 +207,8 @@ pub(crate) mod shape_list_user_pool_client_secrets;
 
 pub(crate) mod shape_list_user_pool_clients;
 
+pub(crate) mod shape_list_user_pool_replicas;
+
 pub(crate) mod shape_list_user_pools;
 
 pub(crate) mod shape_list_users;
@@ -262,6 +268,8 @@ pub(crate) mod shape_update_user_pool;
 pub(crate) mod shape_update_user_pool_client;
 
 pub(crate) mod shape_update_user_pool_domain;
+
+pub(crate) mod shape_update_user_pool_replica;
 
 pub(crate) mod shape_verify_software_token;
 
@@ -371,6 +379,8 @@ pub(crate) mod shape_create_user_pool_domain_input;
 
 pub(crate) mod shape_create_user_pool_input;
 
+pub(crate) mod shape_create_user_pool_replica_input;
+
 pub(crate) mod shape_delete_group_input;
 
 pub(crate) mod shape_delete_identity_provider_input;
@@ -392,6 +402,8 @@ pub(crate) mod shape_delete_user_pool_client_secret_input;
 pub(crate) mod shape_delete_user_pool_domain_input;
 
 pub(crate) mod shape_delete_user_pool_input;
+
+pub(crate) mod shape_delete_user_pool_replica_input;
 
 pub(crate) mod shape_delete_web_authn_credential_input;
 
@@ -501,6 +513,8 @@ pub(crate) mod shape_list_user_pool_client_secrets_input;
 
 pub(crate) mod shape_list_user_pool_clients_input;
 
+pub(crate) mod shape_list_user_pool_replicas_input;
+
 pub(crate) mod shape_list_user_pools_input;
 
 pub(crate) mod shape_list_users_in_group_input;
@@ -514,6 +528,8 @@ pub(crate) mod shape_managed_login_branding_exists_exception;
 pub(crate) mod shape_mfa_method_not_found_exception;
 
 pub(crate) mod shape_not_authorized_exception;
+
+pub(crate) mod shape_operation_not_enabled_exception;
 
 pub(crate) mod shape_password_history_policy_violation_exception;
 
@@ -600,6 +616,8 @@ pub(crate) mod shape_update_user_pool_client_input;
 pub(crate) mod shape_update_user_pool_domain_input;
 
 pub(crate) mod shape_update_user_pool_input;
+
+pub(crate) mod shape_update_user_pool_replica_input;
 
 pub(crate) mod shape_user_import_in_progress_exception;
 
@@ -695,6 +713,10 @@ pub(crate) mod shape_group_type;
 
 pub(crate) mod shape_identity_provider_type;
 
+pub(crate) mod shape_issuer_configuration_type;
+
+pub(crate) mod shape_key_configuration_type;
+
 pub(crate) mod shape_lambda_config_type;
 
 pub(crate) mod shape_list_of_string_types;
@@ -724,6 +746,8 @@ pub(crate) mod shape_resource_servers_list_type;
 pub(crate) mod shape_risk_configuration_type;
 
 pub(crate) mod shape_risk_exception_configuration_type;
+
+pub(crate) mod shape_routing_type;
 
 pub(crate) mod shape_schema_attribute_type;
 
@@ -764,6 +788,10 @@ pub(crate) mod shape_user_pool_client_type;
 pub(crate) mod shape_user_pool_list_type;
 
 pub(crate) mod shape_user_pool_policy_type;
+
+pub(crate) mod shape_user_pool_replica_list_type;
+
+pub(crate) mod shape_user_pool_replica_type;
 
 pub(crate) mod shape_user_pool_tags_type;
 
@@ -808,6 +836,8 @@ pub(crate) mod shape_custom_email_lambda_version_config_type;
 pub(crate) mod shape_custom_sms_lambda_version_config_type;
 
 pub(crate) mod shape_explicit_auth_flows_list_type;
+
+pub(crate) mod shape_failover_type;
 
 pub(crate) mod shape_firehose_configuration_type;
 
@@ -888,6 +918,8 @@ pub(crate) mod shape_event_risk_type;
 pub(crate) mod shape_notify_email_type;
 
 pub(crate) mod shape_recovery_mechanisms_type;
+
+pub(crate) mod shape_replica_regions_type;
 
 pub(crate) mod shape_skipped_ip_range_list_type;
 

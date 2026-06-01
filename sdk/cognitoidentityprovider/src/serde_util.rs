@@ -329,6 +329,16 @@ pub(crate) fn custom_domain_config_type_correct_errors(
     builder
 }
 
+pub(crate) fn failover_type_correct_errors(mut builder: crate::types::builders::FailoverTypeBuilder) -> crate::types::builders::FailoverTypeBuilder {
+    if builder.secondary_region.is_none() {
+        builder.secondary_region = Some(Default::default())
+    }
+    if builder.primary_route53_health_check_id.is_none() {
+        builder.primary_route53_health_check_id = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn refresh_token_rotation_type_correct_errors(
     mut builder: crate::types::builders::RefreshTokenRotationTypeBuilder,
 ) -> crate::types::builders::RefreshTokenRotationTypeBuilder {

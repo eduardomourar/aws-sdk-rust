@@ -100,6 +100,26 @@ pub fn de_get_tokens_from_refresh_token_http_error(
             }
             tmp
         }),
+        "OperationNotEnabledException" => {
+            crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::OperationNotEnabledException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "RefreshTokenReuseException" => {
             crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::RefreshTokenReuseException({
                 #[allow(unused_mut)]

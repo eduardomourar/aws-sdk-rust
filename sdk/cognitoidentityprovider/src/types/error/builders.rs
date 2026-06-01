@@ -5,6 +5,8 @@ pub use crate::types::error::_invalid_parameter_exception::InvalidParameterExcep
 
 pub use crate::types::error::_not_authorized_exception::NotAuthorizedExceptionBuilder;
 
+pub use crate::types::error::_operation_not_enabled_exception::OperationNotEnabledExceptionBuilder;
+
 pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
 
 pub use crate::types::error::_too_many_requests_exception::TooManyRequestsExceptionBuilder;

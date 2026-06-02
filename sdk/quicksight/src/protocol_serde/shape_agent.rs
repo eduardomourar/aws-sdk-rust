@@ -2,10 +2,16 @@
 pub(crate) fn de_agent<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::Agent>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -16,11 +22,19 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Spaces" => {
-                            builder = builder.set_spaces(crate::protocol_serde::shape_agent_spaces_list::de_agent_spaces_list(tokens, _value)?);
+                            builder = builder.set_spaces(crate::protocol_serde::shape_agent_spaces_list::de_agent_spaces_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ActionConnectors" => {
                             builder = builder.set_action_connectors(
-                                crate::protocol_serde::shape_agent_action_connectors_list::de_agent_action_connectors_list(tokens, _value)?,
+                                crate::protocol_serde::shape_agent_action_connectors_list::de_agent_action_connectors_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "Description" => {
@@ -45,8 +59,11 @@ where
                             );
                         }
                         "StarterPrompts" => {
-                            builder = builder
-                                .set_starter_prompts(crate::protocol_serde::shape_starter_prompt_list::de_starter_prompt_list(tokens, _value)?);
+                            builder = builder.set_starter_prompts(crate::protocol_serde::shape_starter_prompt_list::de_starter_prompt_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "WelcomeMessage" => {
                             builder = builder.set_welcome_message(
@@ -98,7 +115,7 @@ where
                         }
                         "CustomPromptInterface" => {
                             builder = builder.set_custom_prompt_interface(
-                                crate::protocol_serde::shape_custom_prompt_interface::de_custom_prompt_interface(tokens, _value)?,
+                                crate::protocol_serde::shape_custom_prompt_interface::de_custom_prompt_interface(tokens, _value, depth + 1)?,
                             );
                         }
                         "ErrorMessage" => {

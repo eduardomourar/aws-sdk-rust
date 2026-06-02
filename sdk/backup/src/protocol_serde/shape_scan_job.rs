@@ -2,10 +2,16 @@
 pub(crate) fn de_scan_job<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ScanJob>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -55,7 +61,11 @@ where
                             )?);
                         }
                         "CreatedBy" => {
-                            builder = builder.set_created_by(crate::protocol_serde::shape_scan_job_creator::de_scan_job_creator(tokens, _value)?);
+                            builder = builder.set_created_by(crate::protocol_serde::shape_scan_job_creator::de_scan_job_creator(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "CreationDate" => {
                             builder = builder.set_creation_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -134,7 +144,11 @@ where
                             );
                         }
                         "ScanResult" => {
-                            builder = builder.set_scan_result(crate::protocol_serde::shape_scan_result_info::de_scan_result_info(tokens, _value)?);
+                            builder = builder.set_scan_result(crate::protocol_serde::shape_scan_result_info::de_scan_result_info(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ScannerRoleArn" => {
                             builder = builder.set_scanner_role_arn(

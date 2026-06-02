@@ -27,10 +27,16 @@ pub fn ser_harness_skill(
 pub(crate) fn de_harness_skill<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::HarnessSkill>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -62,11 +68,11 @@ where
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'path' cannot be null"))?,
                         )),
                         "s3" => Some(crate::types::HarnessSkill::S3(
-                            crate::protocol_serde::shape_harness_skill_s3_source::de_harness_skill_s3_source(tokens, _value)?
+                            crate::protocol_serde::shape_harness_skill_s3_source::de_harness_skill_s3_source(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3' cannot be null"))?,
                         )),
                         "git" => Some(crate::types::HarnessSkill::Git(
-                            crate::protocol_serde::shape_harness_skill_git_source::de_harness_skill_git_source(tokens, _value)?
+                            crate::protocol_serde::shape_harness_skill_git_source::de_harness_skill_git_source(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'git' cannot be null"))?,
                         )),
                         _ => {

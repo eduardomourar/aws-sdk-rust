@@ -2,10 +2,16 @@
 pub(crate) fn de_array_value<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ArrayValue>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -31,27 +37,27 @@ where
                     }
                     variant = match key.as_ref() {
                         "booleanValues" => Some(crate::types::ArrayValue::BooleanValues(
-                            crate::protocol_serde::shape_boolean_array::de_boolean_array(tokens, _value)?.ok_or_else(|| {
+                            crate::protocol_serde::shape_boolean_array::de_boolean_array(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'booleanValues' cannot be null")
                             })?,
                         )),
                         "longValues" => Some(crate::types::ArrayValue::LongValues(
-                            crate::protocol_serde::shape_long_array::de_long_array(tokens, _value)?.ok_or_else(|| {
+                            crate::protocol_serde::shape_long_array::de_long_array(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'longValues' cannot be null")
                             })?,
                         )),
                         "doubleValues" => Some(crate::types::ArrayValue::DoubleValues(
-                            crate::protocol_serde::shape_double_array::de_double_array(tokens, _value)?.ok_or_else(|| {
+                            crate::protocol_serde::shape_double_array::de_double_array(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'doubleValues' cannot be null")
                             })?,
                         )),
                         "stringValues" => Some(crate::types::ArrayValue::StringValues(
-                            crate::protocol_serde::shape_string_array::de_string_array(tokens, _value)?.ok_or_else(|| {
+                            crate::protocol_serde::shape_string_array::de_string_array(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'stringValues' cannot be null")
                             })?,
                         )),
                         "arrayValues" => Some(crate::types::ArrayValue::ArrayValues(
-                            crate::protocol_serde::shape_array_of_array::de_array_of_array(tokens, _value)?.ok_or_else(|| {
+                            crate::protocol_serde::shape_array_of_array::de_array_of_array(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'arrayValues' cannot be null")
                             })?,
                         )),

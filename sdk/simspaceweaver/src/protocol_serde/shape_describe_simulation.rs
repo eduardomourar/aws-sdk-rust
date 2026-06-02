@@ -112,6 +112,8 @@ pub(crate) fn de_describe_simulation(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -146,12 +148,16 @@ pub(crate) fn de_describe_simulation(
                 }
                 "LiveSimulationState" => {
                     builder = builder.set_live_simulation_state(crate::protocol_serde::shape_live_simulation_state::de_live_simulation_state(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "LoggingConfiguration" => {
                     builder = builder.set_logging_configuration(crate::protocol_serde::shape_logging_configuration::de_logging_configuration(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "MaximumDuration" => {
@@ -183,10 +189,10 @@ pub(crate) fn de_describe_simulation(
                     );
                 }
                 "SchemaS3Location" => {
-                    builder = builder.set_schema_s3_location(crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value)?);
+                    builder = builder.set_schema_s3_location(crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?);
                 }
                 "SnapshotS3Location" => {
-                    builder = builder.set_snapshot_s3_location(crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value)?);
+                    builder = builder.set_snapshot_s3_location(crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?);
                 }
                 "StartError" => {
                     builder = builder.set_start_error(

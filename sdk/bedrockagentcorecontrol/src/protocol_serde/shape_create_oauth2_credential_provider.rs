@@ -241,6 +241,8 @@ pub(crate) fn de_create_oauth2_credential_provider(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -254,7 +256,7 @@ pub(crate) fn de_create_oauth2_credential_provider(
                     );
                 }
                 "clientSecretArn" => {
-                    builder = builder.set_client_secret_arn(crate::protocol_serde::shape_secret::de_secret(tokens, _value)?);
+                    builder = builder.set_client_secret_arn(crate::protocol_serde::shape_secret::de_secret(tokens, _value, depth + 1)?);
                 }
                 "clientSecretJsonKey" => {
                     builder = builder.set_client_secret_json_key(
@@ -286,7 +288,7 @@ pub(crate) fn de_create_oauth2_credential_provider(
                 }
                 "oauth2ProviderConfigOutput" => {
                     builder = builder.set_oauth2_provider_config_output(
-                        crate::protocol_serde::shape_oauth2_provider_config_output::de_oauth2_provider_config_output(tokens, _value)?,
+                        crate::protocol_serde::shape_oauth2_provider_config_output::de_oauth2_provider_config_output(tokens, _value, depth + 1)?,
                     );
                 }
                 "status" => {

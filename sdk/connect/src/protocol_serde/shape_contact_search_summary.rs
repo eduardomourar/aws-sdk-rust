@@ -2,10 +2,16 @@
 pub(crate) fn de_contact_search_summary<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ContactSearchSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -59,12 +65,20 @@ where
                         }
                         "QueueInfo" => {
                             builder = builder.set_queue_info(
-                                crate::protocol_serde::shape_contact_search_summary_queue_info::de_contact_search_summary_queue_info(tokens, _value)?,
+                                crate::protocol_serde::shape_contact_search_summary_queue_info::de_contact_search_summary_queue_info(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "AgentInfo" => {
                             builder = builder.set_agent_info(
-                                crate::protocol_serde::shape_contact_search_summary_agent_info::de_contact_search_summary_agent_info(tokens, _value)?,
+                                crate::protocol_serde::shape_contact_search_summary_agent_info::de_contact_search_summary_agent_info(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "InitiationTimestamp" => {
@@ -88,7 +102,9 @@ where
                         "SegmentAttributes" => {
                             builder = builder.set_segment_attributes(
                                 crate::protocol_serde::shape_contact_search_summary_segment_attributes::de_contact_search_summary_segment_attributes(
-                                    tokens, _value,
+                                    tokens,
+                                    _value,
+                                    depth + 1,
                                 )?,
                             );
                         }
@@ -100,15 +116,22 @@ where
                             );
                         }
                         "RoutingCriteria" => {
-                            builder =
-                                builder.set_routing_criteria(crate::protocol_serde::shape_routing_criteria::de_routing_criteria(tokens, _value)?);
+                            builder = builder.set_routing_criteria(crate::protocol_serde::shape_routing_criteria::de_routing_criteria(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "Tags" => {
-                            builder = builder.set_tags(crate::protocol_serde::shape_contact_tag_map::de_contact_tag_map(tokens, _value)?);
+                            builder = builder.set_tags(crate::protocol_serde::shape_contact_tag_map::de_contact_tag_map(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "GlobalResiliencyMetadata" => {
                             builder = builder.set_global_resiliency_metadata(
-                                crate::protocol_serde::shape_global_resiliency_metadata::de_global_resiliency_metadata(tokens, _value)?,
+                                crate::protocol_serde::shape_global_resiliency_metadata::de_global_resiliency_metadata(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -6,9 +6,9 @@
 pub struct ThingConnectivity {
     /// <p>True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not connected.</p>
     pub connected: ::std::option::Option<bool>,
-    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected.</p>
     pub timestamp: ::std::option::Option<i64>,
-    /// <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub disconnect_reason: ::std::option::Option<::std::string::String>,
     /// <p>The keep-alive interval in seconds that the client specified when establishing the connection.</p>
     pub keep_alive_duration: ::std::option::Option<i32>,
@@ -24,11 +24,11 @@ impl ThingConnectivity {
     pub fn connected(&self) -> ::std::option::Option<bool> {
         self.connected
     }
-    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected.</p>
     pub fn timestamp(&self) -> ::std::option::Option<i64> {
         self.timestamp
     }
-    /// <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn disconnect_reason(&self) -> ::std::option::Option<&str> {
         self.disconnect_reason.as_deref()
     }
@@ -83,31 +83,31 @@ impl ThingConnectivityBuilder {
     pub fn get_connected(&self) -> &::std::option::Option<bool> {
         &self.connected
     }
-    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected.</p>
     pub fn timestamp(mut self, input: i64) -> Self {
         self.timestamp = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected.</p>
     pub fn set_timestamp(mut self, input: ::std::option::Option<i64>) -> Self {
         self.timestamp = input;
         self
     }
-    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The epoch time (in milliseconds) when the thing last connected or disconnected.</p>
     pub fn get_timestamp(&self) -> &::std::option::Option<i64> {
         &self.timestamp
     }
-    /// <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn disconnect_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.disconnect_reason = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn set_disconnect_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.disconnect_reason = input;
         self
     }
-    /// <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn get_disconnect_reason(&self) -> &::std::option::Option<::std::string::String> {
         &self.disconnect_reason
     }

@@ -39,7 +39,7 @@ version = "1.2.14"
 [dependencies.aws-sigv4]
 path = "../aws-sigv4"
 features = ["http0-compat"]
-version = "1.4.4"
+version = "1.4.5"
 
 [dependencies.aws-smithy-async]
 path = "../aws-smithy-async"
@@ -62,12 +62,12 @@ version = "1.11.3"
 [dependencies.aws-smithy-runtime-api]
 path = "../aws-smithy-runtime-api"
 features = ["client", "http-1x"]
-version = "1.12.1"
+version = "1.12.3"
 
 [dependencies.aws-smithy-types]
 path = "../aws-smithy-types"
 features = ["http-body-1-x"]
-version = "1.4.8"
+version = "1.4.9"
 
 [dependencies.aws-types]
 path = "../aws-types"
@@ -124,12 +124,12 @@ version = "0.63.14"
 [dev-dependencies.aws-smithy-runtime-api]
 path = "../aws-smithy-runtime-api"
 features = ["test-util", "http-1x"]
-version = "1.12.1"
+version = "1.12.3"
 
 [dev-dependencies.aws-smithy-types]
 path = "../aws-smithy-types"
 features = ["test-util"]
-version = "1.4.8"
+version = "1.4.9"
 
 [dev-dependencies.futures-util]
 version = "0.3.29"

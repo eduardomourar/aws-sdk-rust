@@ -187,6 +187,8 @@ pub(crate) fn de_update_space_resources(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -194,7 +196,11 @@ pub(crate) fn de_update_space_resources(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "FailedResourceOperations" => {
                     builder = builder.set_failed_resource_operations(
-                        crate::protocol_serde::shape_failed_space_resource_operations::de_failed_space_resource_operations(tokens, _value)?,
+                        crate::protocol_serde::shape_failed_space_resource_operations::de_failed_space_resource_operations(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "RequestId" => {

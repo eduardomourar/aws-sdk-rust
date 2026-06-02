@@ -116,6 +116,8 @@ pub(crate) fn de_get_archive(
 {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -150,7 +152,11 @@ pub(crate) fn de_get_archive(
                     );
                 }
                 "Retention" => {
-                    builder = builder.set_retention(crate::protocol_serde::shape_archive_retention::de_archive_retention(tokens, _value)?);
+                    builder = builder.set_retention(crate::protocol_serde::shape_archive_retention::de_archive_retention(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "CreatedTimestamp" => {
                     builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

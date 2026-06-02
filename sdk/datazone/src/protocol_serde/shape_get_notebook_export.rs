@@ -134,6 +134,8 @@ pub(crate) fn de_get_notebook_export(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -167,7 +169,9 @@ pub(crate) fn de_get_notebook_export(
                 }
                 "error" => {
                     builder = builder.set_error(crate::protocol_serde::shape_notebook_export_error::de_notebook_export_error(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "fileFormat" => {
@@ -192,7 +196,11 @@ pub(crate) fn de_get_notebook_export(
                     );
                 }
                 "outputLocation" => {
-                    builder = builder.set_output_location(crate::protocol_serde::shape_output_location::de_output_location(tokens, _value)?);
+                    builder = builder.set_output_location(crate::protocol_serde::shape_output_location::de_output_location(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "owningProjectId" => {
                     builder = builder.set_owning_project_id(

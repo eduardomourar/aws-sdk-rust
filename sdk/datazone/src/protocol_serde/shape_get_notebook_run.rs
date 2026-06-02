@@ -132,13 +132,15 @@ pub(crate) fn de_get_notebook_run(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "cellOrder" => {
-                    builder = builder.set_cell_order(crate::protocol_serde::shape_cell_order::de_cell_order(tokens, _value)?);
+                    builder = builder.set_cell_order(crate::protocol_serde::shape_cell_order::de_cell_order(tokens, _value, depth + 1)?);
                 }
                 "completedAt" => {
                     builder = builder.set_completed_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -147,7 +149,8 @@ pub(crate) fn de_get_notebook_run(
                     )?);
                 }
                 "computeConfiguration" => {
-                    builder = builder.set_compute_configuration(crate::protocol_serde::shape_compute_config::de_compute_config(tokens, _value)?);
+                    builder =
+                        builder.set_compute_configuration(crate::protocol_serde::shape_compute_config::de_compute_config(tokens, _value, depth + 1)?);
                 }
                 "createdAt" => {
                     builder = builder.set_created_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -170,11 +173,18 @@ pub(crate) fn de_get_notebook_run(
                     );
                 }
                 "environmentConfiguration" => {
-                    builder = builder
-                        .set_environment_configuration(crate::protocol_serde::shape_environment_config::de_environment_config(tokens, _value)?);
+                    builder = builder.set_environment_configuration(crate::protocol_serde::shape_environment_config::de_environment_config(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "error" => {
-                    builder = builder.set_error(crate::protocol_serde::shape_notebook_run_error::de_notebook_run_error(tokens, _value)?);
+                    builder = builder.set_error(crate::protocol_serde::shape_notebook_run_error::de_notebook_run_error(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "id" => {
                     builder = builder.set_id(
@@ -184,10 +194,11 @@ pub(crate) fn de_get_notebook_run(
                     );
                 }
                 "metadata" => {
-                    builder = builder.set_metadata(crate::protocol_serde::shape_metadata::de_metadata(tokens, _value)?);
+                    builder = builder.set_metadata(crate::protocol_serde::shape_metadata::de_metadata(tokens, _value, depth + 1)?);
                 }
                 "networkConfiguration" => {
-                    builder = builder.set_network_configuration(crate::protocol_serde::shape_network_config::de_network_config(tokens, _value)?);
+                    builder =
+                        builder.set_network_configuration(crate::protocol_serde::shape_network_config::de_network_config(tokens, _value, depth + 1)?);
                 }
                 "notebookId" => {
                     builder = builder.set_notebook_id(
@@ -204,7 +215,7 @@ pub(crate) fn de_get_notebook_run(
                     );
                 }
                 "parameters" => {
-                    builder = builder.set_parameters(crate::protocol_serde::shape_parameters::de_parameters(tokens, _value)?);
+                    builder = builder.set_parameters(crate::protocol_serde::shape_parameters::de_parameters(tokens, _value, depth + 1)?);
                 }
                 "scheduleId" => {
                     builder = builder.set_schedule_id(
@@ -227,13 +238,15 @@ pub(crate) fn de_get_notebook_run(
                     );
                 }
                 "storageConfiguration" => {
-                    builder = builder.set_storage_configuration(crate::protocol_serde::shape_storage_config::de_storage_config(tokens, _value)?);
+                    builder =
+                        builder.set_storage_configuration(crate::protocol_serde::shape_storage_config::de_storage_config(tokens, _value, depth + 1)?);
                 }
                 "timeoutConfiguration" => {
-                    builder = builder.set_timeout_configuration(crate::protocol_serde::shape_timeout_config::de_timeout_config(tokens, _value)?);
+                    builder =
+                        builder.set_timeout_configuration(crate::protocol_serde::shape_timeout_config::de_timeout_config(tokens, _value, depth + 1)?);
                 }
                 "triggerSource" => {
-                    builder = builder.set_trigger_source(crate::protocol_serde::shape_trigger_source::de_trigger_source(tokens, _value)?);
+                    builder = builder.set_trigger_source(crate::protocol_serde::shape_trigger_source::de_trigger_source(tokens, _value, depth + 1)?);
                 }
                 "updatedAt" => {
                     builder = builder.set_updated_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

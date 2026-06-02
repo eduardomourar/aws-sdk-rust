@@ -2,10 +2,16 @@
 pub(crate) fn de_configuration_recorder<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ConfigurationRecorder>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -37,10 +43,18 @@ where
                             );
                         }
                         "recordingGroup" => {
-                            builder = builder.set_recording_group(crate::protocol_serde::shape_recording_group::de_recording_group(tokens, _value)?);
+                            builder = builder.set_recording_group(crate::protocol_serde::shape_recording_group::de_recording_group(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "recordingMode" => {
-                            builder = builder.set_recording_mode(crate::protocol_serde::shape_recording_mode::de_recording_mode(tokens, _value)?);
+                            builder = builder.set_recording_mode(crate::protocol_serde::shape_recording_mode::de_recording_mode(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "recordingScope" => {
                             builder = builder.set_recording_scope(

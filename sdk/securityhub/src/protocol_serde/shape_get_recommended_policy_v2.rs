@@ -146,6 +146,8 @@ pub(crate) fn de_get_recommended_policy_v2(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -153,7 +155,9 @@ pub(crate) fn de_get_recommended_policy_v2(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Error" => {
                     builder = builder.set_error(crate::protocol_serde::shape_recommendation_error::de_recommendation_error(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "NextToken" => {
@@ -165,7 +169,9 @@ pub(crate) fn de_get_recommended_policy_v2(
                 }
                 "RecommendationSteps" => {
                     builder = builder.set_recommendation_steps(crate::protocol_serde::shape_recommendation_steps::de_recommendation_steps(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "RecommendationType" => {

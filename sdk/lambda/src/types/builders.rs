@@ -19,6 +19,8 @@ pub use crate::types::_instance_requirements::InstanceRequirementsBuilder;
 
 pub use crate::types::_capacity_provider_scaling_config::CapacityProviderScalingConfigBuilder;
 
+pub use crate::types::_propagate_tags::PropagateTagsBuilder;
+
 pub use crate::types::_capacity_provider::CapacityProviderBuilder;
 
 pub use crate::types::_allowed_publishers::AllowedPublishersBuilder;

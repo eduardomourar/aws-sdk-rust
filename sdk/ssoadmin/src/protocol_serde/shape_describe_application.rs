@@ -137,6 +137,8 @@ pub(crate) fn de_describe_application(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -192,7 +194,7 @@ pub(crate) fn de_describe_application(
                     );
                 }
                 "PortalOptions" => {
-                    builder = builder.set_portal_options(crate::protocol_serde::shape_portal_options::de_portal_options(tokens, _value)?);
+                    builder = builder.set_portal_options(crate::protocol_serde::shape_portal_options::de_portal_options(tokens, _value, depth + 1)?);
                 }
                 "Description" => {
                     builder = builder.set_description(

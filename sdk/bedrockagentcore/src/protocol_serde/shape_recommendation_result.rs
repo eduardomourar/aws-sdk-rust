@@ -2,10 +2,16 @@
 pub(crate) fn de_recommendation_result<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::RecommendationResult>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -31,16 +37,22 @@ where
                     }
                     variant = match key.as_ref() {
                         "systemPromptRecommendationResult" => Some(crate::types::RecommendationResult::SystemPromptRecommendationResult(
-                            crate::protocol_serde::shape_system_prompt_recommendation_result::de_system_prompt_recommendation_result(tokens, _value)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                        "value for 'systemPromptRecommendationResult' cannot be null",
-                                    )
-                                })?,
+                            crate::protocol_serde::shape_system_prompt_recommendation_result::de_system_prompt_recommendation_result(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'systemPromptRecommendationResult' cannot be null",
+                                )
+                            })?,
                         )),
                         "toolDescriptionRecommendationResult" => Some(crate::types::RecommendationResult::ToolDescriptionRecommendationResult(
                             crate::protocol_serde::shape_tool_description_recommendation_result::de_tool_description_recommendation_result(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom(

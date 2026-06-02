@@ -39,10 +39,16 @@ pub fn ser_notification_action(
 pub(crate) fn de_notification_action<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::NotificationAction>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -54,16 +60,23 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "action" => {
                             builder = builder.set_action(crate::protocol_serde::shape_notification_target_actions::de_notification_target_actions(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "smsConfigurations" => {
-                            builder = builder
-                                .set_sms_configurations(crate::protocol_serde::shape_sms_configurations::de_sms_configurations(tokens, _value)?);
+                            builder = builder.set_sms_configurations(crate::protocol_serde::shape_sms_configurations::de_sms_configurations(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "emailConfigurations" => {
                             builder = builder.set_email_configurations(crate::protocol_serde::shape_email_configurations::de_email_configurations(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

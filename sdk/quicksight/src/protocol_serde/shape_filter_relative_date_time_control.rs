@@ -36,10 +36,16 @@ pub fn ser_filter_relative_date_time_control(
 pub(crate) fn de_filter_relative_date_time_control<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::FilterRelativeDateTimeControl>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -72,7 +78,7 @@ where
                         }
                         "DisplayOptions" => {
                             builder = builder.set_display_options(
-                                    crate::protocol_serde::shape_relative_date_time_control_display_options::de_relative_date_time_control_display_options(tokens, _value)?
+                                    crate::protocol_serde::shape_relative_date_time_control_display_options::de_relative_date_time_control_display_options(tokens, _value, depth + 1)?
                                 );
                         }
                         "CommitMode" => {
@@ -84,7 +90,7 @@ where
                         }
                         "ControlTitleFormatText" => {
                             builder = builder.set_control_title_format_text(
-                                crate::protocol_serde::shape_control_title_format_text::de_control_title_format_text(tokens, _value)?,
+                                crate::protocol_serde::shape_control_title_format_text::de_control_title_format_text(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

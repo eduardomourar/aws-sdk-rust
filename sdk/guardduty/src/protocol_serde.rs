@@ -851,6 +851,8 @@ pub(crate) mod shape_product_code;
 
 pub(crate) mod shape_public_access;
 
+pub(crate) mod shape_related_file_paths_list;
+
 pub(crate) mod shape_remote_account_details;
 
 pub(crate) mod shape_remote_ip_details;

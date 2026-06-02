@@ -2,10 +2,16 @@
 pub(crate) fn de_policy<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::Policy>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -37,20 +43,31 @@ where
                             );
                         }
                         "availabilitySlo" => {
-                            builder =
-                                builder.set_availability_slo(crate::protocol_serde::shape_availability_slo::de_availability_slo(tokens, _value)?);
+                            builder = builder.set_availability_slo(crate::protocol_serde::shape_availability_slo::de_availability_slo(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "multiAz" => {
-                            builder = builder.set_multi_az(crate::protocol_serde::shape_multi_az_targets::de_multi_az_targets(tokens, _value)?);
+                            builder = builder.set_multi_az(crate::protocol_serde::shape_multi_az_targets::de_multi_az_targets(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "multiRegion" => {
                             builder = builder.set_multi_region(crate::protocol_serde::shape_multi_region_targets::de_multi_region_targets(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "dataRecovery" => {
                             builder = builder.set_data_recovery(crate::protocol_serde::shape_data_recovery_targets::de_data_recovery_targets(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "kmsKeyId" => {
@@ -61,7 +78,7 @@ where
                             );
                         }
                         "tags" => {
-                            builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value)?);
+                            builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value, depth + 1)?);
                         }
                         "associatedServiceCount" => {
                             builder = builder.set_associated_service_count(

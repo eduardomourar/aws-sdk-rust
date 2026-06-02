@@ -2,10 +2,16 @@
 pub(crate) fn de_service<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::Service>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -38,7 +44,9 @@ where
                         }
                         "associatedSystems" => {
                             builder = builder.set_associated_systems(crate::protocol_serde::shape_associated_system_list::de_associated_system_list(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "policyArn" => {
@@ -49,28 +57,36 @@ where
                             );
                         }
                         "regions" => {
-                            builder = builder.set_regions(crate::protocol_serde::shape_region_list::de_region_list(tokens, _value)?);
+                            builder = builder.set_regions(crate::protocol_serde::shape_region_list::de_region_list(tokens, _value, depth + 1)?);
                         }
                         "permissionModel" => {
-                            builder =
-                                builder.set_permission_model(crate::protocol_serde::shape_permission_model::de_permission_model(tokens, _value)?);
+                            builder = builder.set_permission_model(crate::protocol_serde::shape_permission_model::de_permission_model(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "dependencyDiscovery" => {
                             builder = builder.set_dependency_discovery(
-                                crate::protocol_serde::shape_dependency_discovery_config::de_dependency_discovery_config(tokens, _value)?,
+                                crate::protocol_serde::shape_dependency_discovery_config::de_dependency_discovery_config(tokens, _value, depth + 1)?,
                             );
                         }
                         "effectivePolicyValues" => {
                             builder = builder.set_effective_policy_values(
-                                crate::protocol_serde::shape_effective_policy_values::de_effective_policy_values(tokens, _value)?,
+                                crate::protocol_serde::shape_effective_policy_values::de_effective_policy_values(tokens, _value, depth + 1)?,
                             );
                         }
                         "achievability" => {
-                            builder = builder.set_achievability(crate::protocol_serde::shape_achievability::de_achievability(tokens, _value)?);
+                            builder =
+                                builder.set_achievability(crate::protocol_serde::shape_achievability::de_achievability(tokens, _value, depth + 1)?);
                         }
                         "reportConfiguration" => {
                             builder = builder.set_report_configuration(
-                                crate::protocol_serde::shape_service_report_configuration::de_service_report_configuration(tokens, _value)?,
+                                crate::protocol_serde::shape_service_report_configuration::de_service_report_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "kmsKeyId" => {
@@ -81,15 +97,18 @@ where
                             );
                         }
                         "tags" => {
-                            builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value)?);
+                            builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value, depth + 1)?);
                         }
                         "estimatedAssessmentCost" => {
-                            builder = builder
-                                .set_estimated_assessment_cost(crate::protocol_serde::shape_assessment_cost::de_assessment_cost(tokens, _value)?);
+                            builder = builder.set_estimated_assessment_cost(crate::protocol_serde::shape_assessment_cost::de_assessment_cost(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "resourceDiscovery" => {
                             builder = builder.set_resource_discovery(
-                                crate::protocol_serde::shape_resource_discovery_status::de_resource_discovery_status(tokens, _value)?,
+                                crate::protocol_serde::shape_resource_discovery_status::de_resource_discovery_status(tokens, _value, depth + 1)?,
                             );
                         }
                         "assessmentStatus" => {

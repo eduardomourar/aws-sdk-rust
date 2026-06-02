@@ -128,6 +128,8 @@ pub(crate) fn de_get_address_list_import_job(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -176,7 +178,11 @@ pub(crate) fn de_get_address_list_import_job(
                     );
                 }
                 "ImportDataFormat" => {
-                    builder = builder.set_import_data_format(crate::protocol_serde::shape_import_data_format::de_import_data_format(tokens, _value)?);
+                    builder = builder.set_import_data_format(crate::protocol_serde::shape_import_data_format::de_import_data_format(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "AddressListId" => {
                     builder = builder.set_address_list_id(

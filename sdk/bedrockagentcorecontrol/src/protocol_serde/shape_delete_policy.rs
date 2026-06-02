@@ -137,6 +137,8 @@ pub(crate) fn de_delete_policy(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -149,7 +151,11 @@ pub(crate) fn de_delete_policy(
                     )?);
                 }
                 "definition" => {
-                    builder = builder.set_definition(crate::protocol_serde::shape_policy_definition::de_policy_definition(tokens, _value)?);
+                    builder = builder.set_definition(crate::protocol_serde::shape_policy_definition::de_policy_definition(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "description" => {
                     builder = builder.set_description(
@@ -195,7 +201,9 @@ pub(crate) fn de_delete_policy(
                 }
                 "statusReasons" => {
                     builder = builder.set_status_reasons(crate::protocol_serde::shape_policy_status_reasons::de_policy_status_reasons(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "updatedAt" => {

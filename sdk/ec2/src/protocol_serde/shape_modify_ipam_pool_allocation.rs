@@ -51,6 +51,8 @@ pub fn de_modify_ipam_pool_allocation(
     let mut decoder = doc.root_element()?;
     #[allow(unused_variables)]
     let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
     if !(start_el.matches("ModifyIpamPoolAllocationResponse")) {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
             "invalid root, expected ModifyIpamPoolAllocationResponse got {start_el:?}"
@@ -61,7 +63,7 @@ pub fn de_modify_ipam_pool_allocation(
             s if s.matches("ipamPoolAllocation") /* IpamPoolAllocation com.amazonaws.ec2.synthetic#ModifyIpamPoolAllocationOutput$IpamPoolAllocation */ =>  {
                 let var_1 =
                     Some(
-                        crate::protocol_serde::shape_ipam_pool_allocation::de_ipam_pool_allocation(&mut tag)
+                        crate::protocol_serde::shape_ipam_pool_allocation::de_ipam_pool_allocation(&mut tag, depth + 1)
                         ?
                     )
                 ;

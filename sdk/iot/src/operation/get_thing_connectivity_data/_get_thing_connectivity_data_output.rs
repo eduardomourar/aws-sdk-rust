@@ -7,9 +7,9 @@ pub struct GetThingConnectivityDataOutput {
     pub thing_name: ::std::option::Option<::std::string::String>,
     /// <p>A Boolean that indicates the connectivity status.</p>
     pub connected: ::std::option::Option<bool>,
-    /// <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The timestamp of when the device connected or disconnected.</p>
     pub timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub disconnect_reason: ::std::option::Option<crate::types::DisconnectReasonValue>,
     /// <p>The IP address of the client that initiated the connection.</p>
     pub source_ip: ::std::option::Option<::std::string::String>,
@@ -40,11 +40,11 @@ impl GetThingConnectivityDataOutput {
     pub fn connected(&self) -> ::std::option::Option<bool> {
         self.connected
     }
-    /// <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The timestamp of when the device connected or disconnected.</p>
     pub fn timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.timestamp.as_ref()
     }
-    /// <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn disconnect_reason(&self) -> ::std::option::Option<&crate::types::DisconnectReasonValue> {
         self.disconnect_reason.as_ref()
     }
@@ -165,31 +165,31 @@ impl GetThingConnectivityDataOutputBuilder {
     pub fn get_connected(&self) -> &::std::option::Option<bool> {
         &self.connected
     }
-    /// <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The timestamp of when the device connected or disconnected.</p>
     pub fn timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.timestamp = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The timestamp of when the device connected or disconnected.</p>
     pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.timestamp = input;
         self
     }
-    /// <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The timestamp of when the device connected or disconnected.</p>
     pub fn get_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.timestamp
     }
-    /// <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn disconnect_reason(mut self, input: crate::types::DisconnectReasonValue) -> Self {
         self.disconnect_reason = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn set_disconnect_reason(mut self, input: ::std::option::Option<crate::types::DisconnectReasonValue>) -> Self {
         self.disconnect_reason = input;
         self
     }
-    /// <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
+    /// <p>The reason that the client is disconnected.</p>
     pub fn get_disconnect_reason(&self) -> &::std::option::Option<crate::types::DisconnectReasonValue> {
         &self.disconnect_reason
     }

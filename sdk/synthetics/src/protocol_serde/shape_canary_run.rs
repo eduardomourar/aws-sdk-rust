@@ -2,10 +2,16 @@
 pub(crate) fn de_canary_run<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CanaryRun>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -44,10 +50,18 @@ where
                             );
                         }
                         "Status" => {
-                            builder = builder.set_status(crate::protocol_serde::shape_canary_run_status::de_canary_run_status(tokens, _value)?);
+                            builder = builder.set_status(crate::protocol_serde::shape_canary_run_status::de_canary_run_status(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "Timeline" => {
-                            builder = builder.set_timeline(crate::protocol_serde::shape_canary_run_timeline::de_canary_run_timeline(tokens, _value)?);
+                            builder = builder.set_timeline(crate::protocol_serde::shape_canary_run_timeline::de_canary_run_timeline(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ArtifactS3Location" => {
                             builder = builder.set_artifact_s3_location(
@@ -58,7 +72,11 @@ where
                         }
                         "DryRunConfig" => {
                             builder = builder.set_dry_run_config(
-                                crate::protocol_serde::shape_canary_dry_run_config_output::de_canary_dry_run_config_output(tokens, _value)?,
+                                crate::protocol_serde::shape_canary_dry_run_config_output::de_canary_dry_run_config_output(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "BrowserType" => {

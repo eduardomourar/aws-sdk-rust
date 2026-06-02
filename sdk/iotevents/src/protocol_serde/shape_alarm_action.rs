@@ -63,10 +63,16 @@ pub fn ser_alarm_action(
 pub(crate) fn de_alarm_action<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::AlarmAction>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -78,36 +84,55 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "sns" => {
                             builder = builder.set_sns(crate::protocol_serde::shape_sns_topic_publish_action::de_sns_topic_publish_action(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "iotTopicPublish" => {
                             builder = builder.set_iot_topic_publish(
-                                crate::protocol_serde::shape_iot_topic_publish_action::de_iot_topic_publish_action(tokens, _value)?,
+                                crate::protocol_serde::shape_iot_topic_publish_action::de_iot_topic_publish_action(tokens, _value, depth + 1)?,
                             );
                         }
                         "lambda" => {
-                            builder = builder.set_lambda(crate::protocol_serde::shape_lambda_action::de_lambda_action(tokens, _value)?);
+                            builder = builder.set_lambda(crate::protocol_serde::shape_lambda_action::de_lambda_action(tokens, _value, depth + 1)?);
                         }
                         "iotEvents" => {
-                            builder = builder.set_iot_events(crate::protocol_serde::shape_iot_events_action::de_iot_events_action(tokens, _value)?);
+                            builder = builder.set_iot_events(crate::protocol_serde::shape_iot_events_action::de_iot_events_action(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "sqs" => {
-                            builder = builder.set_sqs(crate::protocol_serde::shape_sqs_action::de_sqs_action(tokens, _value)?);
+                            builder = builder.set_sqs(crate::protocol_serde::shape_sqs_action::de_sqs_action(tokens, _value, depth + 1)?);
                         }
                         "firehose" => {
-                            builder = builder.set_firehose(crate::protocol_serde::shape_firehose_action::de_firehose_action(tokens, _value)?);
+                            builder = builder.set_firehose(crate::protocol_serde::shape_firehose_action::de_firehose_action(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "dynamoDB" => {
-                            builder = builder.set_dynamo_db(crate::protocol_serde::shape_dynamo_db_action::de_dynamo_db_action(tokens, _value)?);
+                            builder = builder.set_dynamo_db(crate::protocol_serde::shape_dynamo_db_action::de_dynamo_db_action(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "dynamoDBv2" => {
-                            builder =
-                                builder.set_dynamo_dbv2(crate::protocol_serde::shape_dynamo_dbv2_action::de_dynamo_dbv2_action(tokens, _value)?);
+                            builder = builder.set_dynamo_dbv2(crate::protocol_serde::shape_dynamo_dbv2_action::de_dynamo_dbv2_action(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "iotSiteWise" => {
                             builder = builder.set_iot_site_wise(crate::protocol_serde::shape_iot_site_wise_action::de_iot_site_wise_action(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

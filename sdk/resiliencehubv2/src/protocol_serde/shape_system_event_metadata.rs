@@ -2,10 +2,16 @@
 pub(crate) fn de_system_event_metadata<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::SystemEventMetadata>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -31,18 +37,20 @@ where
                     }
                     variant = match key.as_ref() {
                         "systemCreated" => Some(crate::types::SystemEventMetadata::SystemCreated(
-                            crate::protocol_serde::shape_system_created_metadata::de_system_created_metadata(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemCreated' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_system_created_metadata::de_system_created_metadata(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemCreated' cannot be null"),
+                            )?,
                         )),
                         "systemDeleted" => Some(crate::types::SystemEventMetadata::SystemDeleted(
-                            crate::protocol_serde::shape_system_deleted_metadata::de_system_deleted_metadata(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemDeleted' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_system_deleted_metadata::de_system_deleted_metadata(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemDeleted' cannot be null"),
+                            )?,
                         )),
                         "systemUserJourneyCreated" => Some(crate::types::SystemEventMetadata::SystemUserJourneyCreated(
                             crate::protocol_serde::shape_system_user_journey_created_metadata::de_system_user_journey_created_metadata(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemUserJourneyCreated' cannot be null")
@@ -50,7 +58,9 @@ where
                         )),
                         "systemUserJourneyUpdated" => Some(crate::types::SystemEventMetadata::SystemUserJourneyUpdated(
                             crate::protocol_serde::shape_system_user_journey_updated_metadata::de_system_user_journey_updated_metadata(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemUserJourneyUpdated' cannot be null")
@@ -58,21 +68,29 @@ where
                         )),
                         "systemUserJourneyDeleted" => Some(crate::types::SystemEventMetadata::SystemUserJourneyDeleted(
                             crate::protocol_serde::shape_system_user_journey_deleted_metadata::de_system_user_journey_deleted_metadata(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemUserJourneyDeleted' cannot be null")
                             })?,
                         )),
                         "systemServiceAssociated" => Some(crate::types::SystemEventMetadata::SystemServiceAssociated(
-                            crate::protocol_serde::shape_system_service_associated_metadata::de_system_service_associated_metadata(tokens, _value)?
-                                .ok_or_else(|| {
+                            crate::protocol_serde::shape_system_service_associated_metadata::de_system_service_associated_metadata(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemServiceAssociated' cannot be null")
                             })?,
                         )),
                         "systemServiceDisassociated" => Some(crate::types::SystemEventMetadata::SystemServiceDisassociated(
                             crate::protocol_serde::shape_system_service_disassociated_metadata::de_system_service_disassociated_metadata(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -81,16 +99,20 @@ where
                             })?,
                         )),
                         "systemPolicyAssociated" => Some(crate::types::SystemEventMetadata::SystemPolicyAssociated(
-                            crate::protocol_serde::shape_system_policy_associated_metadata::de_system_policy_associated_metadata(tokens, _value)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                        "value for 'systemPolicyAssociated' cannot be null",
-                                    )
-                                })?,
+                            crate::protocol_serde::shape_system_policy_associated_metadata::de_system_policy_associated_metadata(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'systemPolicyAssociated' cannot be null")
+                            })?,
                         )),
                         "systemPolicyDisassociated" => Some(crate::types::SystemEventMetadata::SystemPolicyDisassociated(
                             crate::protocol_serde::shape_system_policy_disassociated_metadata::de_system_policy_disassociated_metadata(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom(

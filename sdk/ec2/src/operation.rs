@@ -196,6 +196,9 @@ pub mod create_capacity_reservation;
 /// Types for the `CreateCapacityReservationBySplitting` operation.
 pub mod create_capacity_reservation_by_splitting;
 
+/// Types for the `CreateCapacityReservationCancellationQuote` operation.
+pub mod create_capacity_reservation_cancellation_quote;
+
 /// Types for the `CreateCapacityReservationFleet` operation.
 pub mod create_capacity_reservation_fleet;
 
@@ -849,6 +852,9 @@ pub mod describe_capacity_manager_data_exports;
 
 /// Types for the `DescribeCapacityReservationBillingRequests` operation.
 pub mod describe_capacity_reservation_billing_requests;
+
+/// Types for the `DescribeCapacityReservationCancellationQuotes` operation.
+pub mod describe_capacity_reservation_cancellation_quotes;
 
 /// Types for the `DescribeCapacityReservationFleets` operation.
 pub mod describe_capacity_reservation_fleets;

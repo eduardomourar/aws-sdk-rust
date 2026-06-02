@@ -1,10 +1,10 @@
 [workspace]
 resolver = "2"
 exclude = [
-    "tests/webassembly-wstd",
-    "tests/no-default-features",
     "tests/telemetry",
-    "tests/webassembly-no-os"
+    "tests/webassembly-wstd",
+    "tests/webassembly-no-os",
+    "tests/no-default-features"
 ]
 members = [
     "sdk/accessanalyzer",
@@ -387,6 +387,7 @@ members = [
     "sdk/sagemakeredge",
     "sdk/sagemakerfeaturestoreruntime",
     "sdk/sagemakergeospatial",
+    "sdk/sagemakerjobruntime",
     "sdk/sagemakermetrics",
     "sdk/sagemakerruntime",
     "sdk/sagemakerruntimehttp2",

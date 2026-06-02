@@ -2,10 +2,16 @@
 pub(crate) fn de_charge_summary<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ChargeSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -38,20 +44,31 @@ where
                         }
                         "expectedCharges" => {
                             builder = builder.set_expected_charges(crate::protocol_serde::shape_expected_charge_list::de_expected_charge_list(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "estimatedTaxes" => {
-                            builder = builder.set_estimated_taxes(crate::protocol_serde::shape_estimated_taxes::de_estimated_taxes(tokens, _value)?);
+                            builder = builder.set_estimated_taxes(crate::protocol_serde::shape_estimated_taxes::de_estimated_taxes(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "itemizedCharges" => {
                             builder = builder.set_itemized_charges(crate::protocol_serde::shape_itemized_charge_list::de_itemized_charge_list(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "invoicingEntity" => {
-                            builder =
-                                builder.set_invoicing_entity(crate::protocol_serde::shape_invoicing_entity::de_invoicing_entity(tokens, _value)?);
+                            builder = builder.set_invoicing_entity(crate::protocol_serde::shape_invoicing_entity::de_invoicing_entity(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

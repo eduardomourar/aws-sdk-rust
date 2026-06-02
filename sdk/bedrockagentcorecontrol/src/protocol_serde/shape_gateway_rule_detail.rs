@@ -2,10 +2,16 @@
 pub(crate) fn de_gateway_rule_detail<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::GatewayRuleDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -37,10 +43,10 @@ where
                             );
                         }
                         "conditions" => {
-                            builder = builder.set_conditions(crate::protocol_serde::shape_conditions::de_conditions(tokens, _value)?);
+                            builder = builder.set_conditions(crate::protocol_serde::shape_conditions::de_conditions(tokens, _value, depth + 1)?);
                         }
                         "actions" => {
-                            builder = builder.set_actions(crate::protocol_serde::shape_actions::de_actions(tokens, _value)?);
+                            builder = builder.set_actions(crate::protocol_serde::shape_actions::de_actions(tokens, _value, depth + 1)?);
                         }
                         "description" => {
                             builder = builder.set_description(
@@ -64,7 +70,9 @@ where
                         }
                         "system" => {
                             builder = builder.set_system(crate::protocol_serde::shape_system_managed_block::de_system_managed_block(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "updatedAt" => {

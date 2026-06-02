@@ -2,10 +2,16 @@
 pub(crate) fn de_resource_scan_metadata<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ResourceScanMetadata>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -14,32 +20,38 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "ecrRepository" => {
-                            builder = builder.set_ecr_repository(crate::protocol_serde::shape_ecr_repository_metadata::de_ecr_repository_metadata(
-                                tokens, _value,
-                            )?);
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "ecrRepository" => {
+                                builder = builder.set_ecr_repository(
+                                    crate::protocol_serde::shape_ecr_repository_metadata::de_ecr_repository_metadata(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "ecrImage" => {
+                                builder = builder.set_ecr_image(
+                                    crate::protocol_serde::shape_ecr_container_image_metadata::de_ecr_container_image_metadata(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "ec2" => {
+                                builder = builder.set_ec2(crate::protocol_serde::shape_ec2_metadata::de_ec2_metadata(tokens, _value, depth + 1)?);
+                            }
+                            "lambdaFunction" => {
+                                builder = builder.set_lambda_function(
+                                    crate::protocol_serde::shape_lambda_function_metadata::de_lambda_function_metadata(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "codeRepository" => {
+                                builder = builder.set_code_repository(
+                                    crate::protocol_serde::shape_code_repository_metadata::de_code_repository_metadata(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "ecrImage" => {
-                            builder = builder.set_ecr_image(
-                                crate::protocol_serde::shape_ecr_container_image_metadata::de_ecr_container_image_metadata(tokens, _value)?,
-                            );
-                        }
-                        "ec2" => {
-                            builder = builder.set_ec2(crate::protocol_serde::shape_ec2_metadata::de_ec2_metadata(tokens, _value)?);
-                        }
-                        "lambdaFunction" => {
-                            builder = builder.set_lambda_function(
-                                crate::protocol_serde::shape_lambda_function_metadata::de_lambda_function_metadata(tokens, _value)?,
-                            );
-                        }
-                        "codeRepository" => {
-                            builder = builder.set_code_repository(
-                                crate::protocol_serde::shape_code_repository_metadata::de_code_repository_metadata(tokens, _value)?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

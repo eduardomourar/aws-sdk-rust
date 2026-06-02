@@ -30,10 +30,16 @@ pub fn ser_state(
 pub(crate) fn de_state<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::State>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -51,13 +57,25 @@ where
                             );
                         }
                         "onInput" => {
-                            builder = builder.set_on_input(crate::protocol_serde::shape_on_input_lifecycle::de_on_input_lifecycle(tokens, _value)?);
+                            builder = builder.set_on_input(crate::protocol_serde::shape_on_input_lifecycle::de_on_input_lifecycle(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "onEnter" => {
-                            builder = builder.set_on_enter(crate::protocol_serde::shape_on_enter_lifecycle::de_on_enter_lifecycle(tokens, _value)?);
+                            builder = builder.set_on_enter(crate::protocol_serde::shape_on_enter_lifecycle::de_on_enter_lifecycle(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "onExit" => {
-                            builder = builder.set_on_exit(crate::protocol_serde::shape_on_exit_lifecycle::de_on_exit_lifecycle(tokens, _value)?);
+                            builder = builder.set_on_exit(crate::protocol_serde::shape_on_exit_lifecycle::de_on_exit_lifecycle(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

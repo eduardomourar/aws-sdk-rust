@@ -128,17 +128,26 @@ pub(crate) fn de_describe_alarm_model(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "alarmCapabilities" => {
-                    builder = builder.set_alarm_capabilities(crate::protocol_serde::shape_alarm_capabilities::de_alarm_capabilities(tokens, _value)?);
+                    builder = builder.set_alarm_capabilities(crate::protocol_serde::shape_alarm_capabilities::de_alarm_capabilities(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "alarmEventActions" => {
-                    builder =
-                        builder.set_alarm_event_actions(crate::protocol_serde::shape_alarm_event_actions::de_alarm_event_actions(tokens, _value)?);
+                    builder = builder.set_alarm_event_actions(crate::protocol_serde::shape_alarm_event_actions::de_alarm_event_actions(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "alarmModelArn" => {
                     builder = builder.set_alarm_model_arn(
@@ -169,10 +178,14 @@ pub(crate) fn de_describe_alarm_model(
                     );
                 }
                 "alarmNotification" => {
-                    builder = builder.set_alarm_notification(crate::protocol_serde::shape_alarm_notification::de_alarm_notification(tokens, _value)?);
+                    builder = builder.set_alarm_notification(crate::protocol_serde::shape_alarm_notification::de_alarm_notification(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "alarmRule" => {
-                    builder = builder.set_alarm_rule(crate::protocol_serde::shape_alarm_rule::de_alarm_rule(tokens, _value)?);
+                    builder = builder.set_alarm_rule(crate::protocol_serde::shape_alarm_rule::de_alarm_rule(tokens, _value, depth + 1)?);
                 }
                 "creationTime" => {
                     builder = builder.set_creation_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

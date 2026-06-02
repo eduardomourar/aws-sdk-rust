@@ -2,10 +2,16 @@
 pub(crate) fn de_alarm_state<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::AlarmState>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -23,13 +29,22 @@ where
                             );
                         }
                         "ruleEvaluation" => {
-                            builder = builder.set_rule_evaluation(crate::protocol_serde::shape_rule_evaluation::de_rule_evaluation(tokens, _value)?);
+                            builder = builder.set_rule_evaluation(crate::protocol_serde::shape_rule_evaluation::de_rule_evaluation(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "customerAction" => {
-                            builder = builder.set_customer_action(crate::protocol_serde::shape_customer_action::de_customer_action(tokens, _value)?);
+                            builder = builder.set_customer_action(crate::protocol_serde::shape_customer_action::de_customer_action(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "systemEvent" => {
-                            builder = builder.set_system_event(crate::protocol_serde::shape_system_event::de_system_event(tokens, _value)?);
+                            builder =
+                                builder.set_system_event(crate::protocol_serde::shape_system_event::de_system_event(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

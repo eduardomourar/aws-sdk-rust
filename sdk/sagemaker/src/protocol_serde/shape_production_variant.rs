@@ -111,10 +111,16 @@ pub fn ser_production_variant(
 pub(crate) fn de_production_variant<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ProductionVariant>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -153,8 +159,11 @@ where
                             );
                         }
                         "InstancePools" => {
-                            builder =
-                                builder.set_instance_pools(crate::protocol_serde::shape_instance_pool_list::de_instance_pool_list(tokens, _value)?);
+                            builder = builder.set_instance_pools(crate::protocol_serde::shape_instance_pool_list::de_instance_pool_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "VariantInstanceProvisionTimeoutInSeconds" => {
                             builder = builder.set_variant_instance_provision_timeout_in_seconds(
@@ -178,14 +187,18 @@ where
                         "CoreDumpConfig" => {
                             builder = builder.set_core_dump_config(
                                 crate::protocol_serde::shape_production_variant_core_dump_config::de_production_variant_core_dump_config(
-                                    tokens, _value,
+                                    tokens,
+                                    _value,
+                                    depth + 1,
                                 )?,
                             );
                         }
                         "ServerlessConfig" => {
                             builder = builder.set_serverless_config(
                                 crate::protocol_serde::shape_production_variant_serverless_config::de_production_variant_serverless_config(
-                                    tokens, _value,
+                                    tokens,
+                                    _value,
+                                    depth + 1,
                                 )?,
                             );
                         }
@@ -215,12 +228,16 @@ where
                         }
                         "ManagedInstanceScaling" => {
                             builder = builder.set_managed_instance_scaling(
-                                    crate::protocol_serde::shape_production_variant_managed_instance_scaling::de_production_variant_managed_instance_scaling(tokens, _value)?
+                                    crate::protocol_serde::shape_production_variant_managed_instance_scaling::de_production_variant_managed_instance_scaling(tokens, _value, depth + 1)?
                                 );
                         }
                         "RoutingConfig" => {
                             builder = builder.set_routing_config(
-                                crate::protocol_serde::shape_production_variant_routing_config::de_production_variant_routing_config(tokens, _value)?,
+                                crate::protocol_serde::shape_production_variant_routing_config::de_production_variant_routing_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "InferenceAmiVersion" => {
@@ -235,7 +252,7 @@ where
                         }
                         "CapacityReservationConfig" => {
                             builder = builder.set_capacity_reservation_config(
-                                    crate::protocol_serde::shape_production_variant_capacity_reservation_config::de_production_variant_capacity_reservation_config(tokens, _value)?
+                                    crate::protocol_serde::shape_production_variant_capacity_reservation_config::de_production_variant_capacity_reservation_config(tokens, _value, depth + 1)?
                                 );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

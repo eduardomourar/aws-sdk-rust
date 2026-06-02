@@ -124,6 +124,8 @@ pub(crate) fn de_get_payment_manager(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -131,7 +133,7 @@ pub(crate) fn de_get_payment_manager(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "authorizerConfiguration" => {
                     builder = builder.set_authorizer_configuration(
-                        crate::protocol_serde::shape_authorizer_configuration::de_authorizer_configuration(tokens, _value)?,
+                        crate::protocol_serde::shape_authorizer_configuration::de_authorizer_configuration(tokens, _value, depth + 1)?,
                     );
                 }
                 "authorizerType" => {
@@ -196,11 +198,11 @@ pub(crate) fn de_get_payment_manager(
                     );
                 }
                 "tags" => {
-                    builder = builder.set_tags(crate::protocol_serde::shape_tags_map::de_tags_map(tokens, _value)?);
+                    builder = builder.set_tags(crate::protocol_serde::shape_tags_map::de_tags_map(tokens, _value, depth + 1)?);
                 }
                 "workloadIdentityDetails" => {
                     builder = builder.set_workload_identity_details(
-                        crate::protocol_serde::shape_workload_identity_details::de_workload_identity_details(tokens, _value)?,
+                        crate::protocol_serde::shape_workload_identity_details::de_workload_identity_details(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

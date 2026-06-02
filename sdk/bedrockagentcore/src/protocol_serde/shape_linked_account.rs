@@ -38,10 +38,16 @@ pub fn ser_linked_account(
 pub(crate) fn de_linked_account<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::LinkedAccount>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -67,22 +73,23 @@ where
                     }
                     variant = match key.as_ref() {
                         "email" => Some(crate::types::LinkedAccount::Email(
-                            crate::protocol_serde::shape_linked_account_email::de_linked_account_email(tokens, _value)?
+                            crate::protocol_serde::shape_linked_account_email::de_linked_account_email(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'email' cannot be null"))?,
                         )),
                         "sms" => Some(crate::types::LinkedAccount::Sms(
-                            crate::protocol_serde::shape_linked_account_sms::de_linked_account_sms(tokens, _value)?
+                            crate::protocol_serde::shape_linked_account_sms::de_linked_account_sms(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'sms' cannot be null"))?,
                         )),
                         "developerJwt" => Some(crate::types::LinkedAccount::DeveloperJwt(
-                            crate::protocol_serde::shape_linked_account_developer_jwt::de_linked_account_developer_jwt(tokens, _value)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'developerJwt' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_linked_account_developer_jwt::de_linked_account_developer_jwt(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'developerJwt' cannot be null")
+                                })?,
                         )),
                         "oAuth2" => Some(crate::types::LinkedAccount::OAuth2(
-                            crate::protocol_serde::shape_linked_account_o_auth2::de_linked_account_o_auth2(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'oAuth2' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_linked_account_o_auth2::de_linked_account_o_auth2(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'oAuth2' cannot be null"),
+                            )?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

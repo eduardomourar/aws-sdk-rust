@@ -2,10 +2,16 @@
 pub(crate) fn de_network_status<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::NetworkStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -16,13 +22,21 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Ethernet0Status" => {
-                            builder = builder.set_ethernet0_status(crate::protocol_serde::shape_ethernet_status::de_ethernet_status(tokens, _value)?);
+                            builder = builder.set_ethernet0_status(crate::protocol_serde::shape_ethernet_status::de_ethernet_status(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "Ethernet1Status" => {
-                            builder = builder.set_ethernet1_status(crate::protocol_serde::shape_ethernet_status::de_ethernet_status(tokens, _value)?);
+                            builder = builder.set_ethernet1_status(crate::protocol_serde::shape_ethernet_status::de_ethernet_status(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "NtpStatus" => {
-                            builder = builder.set_ntp_status(crate::protocol_serde::shape_ntp_status::de_ntp_status(tokens, _value)?);
+                            builder = builder.set_ntp_status(crate::protocol_serde::shape_ntp_status::de_ntp_status(tokens, _value, depth + 1)?);
                         }
                         "LastUpdatedTime" => {
                             builder = builder.set_last_updated_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

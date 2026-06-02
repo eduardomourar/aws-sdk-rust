@@ -2,7 +2,11 @@
 #[allow(clippy::needless_question_mark)]
 pub fn de_image(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
 ) -> ::std::result::Result<crate::types::Image, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
     #[allow(unused_mut)]
     let mut builder = crate::types::Image::builder();
     while let Some(mut tag) = decoder.next_tag() {
@@ -36,7 +40,7 @@ pub fn de_image(
             s if s.matches("blockDeviceMapping") /* BlockDeviceMappings com.amazonaws.ec2#Image$BlockDeviceMappings */ =>  {
                 let var_3 =
                     Some(
-                        crate::protocol_serde::shape_block_device_mapping_list::de_block_device_mapping_list(&mut tag)
+                        crate::protocol_serde::shape_block_device_mapping_list::de_block_device_mapping_list(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -154,7 +158,7 @@ pub fn de_image(
             s if s.matches("stateReason") /* StateReason com.amazonaws.ec2#Image$StateReason */ =>  {
                 let var_12 =
                     Some(
-                        crate::protocol_serde::shape_state_reason::de_state_reason(&mut tag)
+                        crate::protocol_serde::shape_state_reason::de_state_reason(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -164,7 +168,7 @@ pub fn de_image(
             s if s.matches("tagSet") /* Tags com.amazonaws.ec2#Image$Tags */ =>  {
                 let var_13 =
                     Some(
-                        crate::protocol_serde::shape_tag_list::de_tag_list(&mut tag)
+                        crate::protocol_serde::shape_tag_list::de_tag_list(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -419,7 +423,7 @@ pub fn de_image(
             s if s.matches("productCodes") /* ProductCodes com.amazonaws.ec2#Image$ProductCodes */ =>  {
                 let var_32 =
                     Some(
-                        crate::protocol_serde::shape_product_code_list::de_product_code_list(&mut tag)
+                        crate::protocol_serde::shape_product_code_list::de_product_code_list(&mut tag, depth + 1)
                         ?
                     )
                 ;

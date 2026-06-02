@@ -2,10 +2,16 @@
 pub(crate) fn de_code_review<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CodeReview>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -37,7 +43,7 @@ where
                             );
                         }
                         "assets" => {
-                            builder = builder.set_assets(crate::protocol_serde::shape_assets::de_assets(tokens, _value)?);
+                            builder = builder.set_assets(crate::protocol_serde::shape_assets::de_assets(tokens, _value, depth + 1)?);
                         }
                         "serviceRole" => {
                             builder = builder.set_service_role(
@@ -47,7 +53,11 @@ where
                             );
                         }
                         "logConfig" => {
-                            builder = builder.set_log_config(crate::protocol_serde::shape_cloud_watch_log::de_cloud_watch_log(tokens, _value)?);
+                            builder = builder.set_log_config(crate::protocol_serde::shape_cloud_watch_log::de_cloud_watch_log(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "codeRemediationStrategy" => {
                             builder = builder.set_code_remediation_strategy(

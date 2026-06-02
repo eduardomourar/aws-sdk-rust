@@ -71,6 +71,8 @@ pub use crate::types::_storage::Storage;
 
 pub use crate::types::_bundle_task::BundleTask;
 
+pub use crate::types::_apply_cancellation_charges::ApplyCancellationCharges;
+
 pub use crate::types::_volume_type::VolumeType;
 
 pub use crate::types::_schedule::Schedule;
@@ -88,6 +90,8 @@ pub use crate::types::_instance_match_criteria::InstanceMatchCriteria;
 pub use crate::types::_capacity_reservation_delivery_preference::CapacityReservationDeliveryPreference;
 
 pub use crate::types::_capacity_reservation::CapacityReservation;
+
+pub use crate::types::_capacity_reservation_cancellation_quote::CapacityReservationCancellationQuote;
 
 pub use crate::types::_fleet_capacity_reservation_tenancy::FleetCapacityReservationTenancy;
 
@@ -906,6 +910,10 @@ pub use crate::types::_volume::Volume;
 pub use crate::types::_capacity_reservation_type::CapacityReservationType;
 
 pub use crate::types::_capacity_reservation_commitment_info::CapacityReservationCommitmentInfo;
+
+pub use crate::types::_capacity_reservation_cancellation_quote_state::CapacityReservationCancellationQuoteState;
+
+pub use crate::types::_capacity_reservation_configuration::CapacityReservationConfiguration;
 
 pub use crate::types::_reservation_fleet_instance_specification::ReservationFleetInstanceSpecification;
 
@@ -1780,6 +1788,8 @@ pub use crate::types::_cancel_spot_fleet_requests_error::CancelSpotFleetRequests
 pub use crate::types::_cancel_spot_instance_request_state::CancelSpotInstanceRequestState;
 
 pub use crate::types::_capacity_allocation::CapacityAllocation;
+
+pub use crate::types::_cancellation_terms::CancellationTerms;
 
 pub use crate::types::_client_vpn_authentication_type::ClientVpnAuthenticationType;
 
@@ -2805,6 +2815,8 @@ mod _analysis_status;
 
 mod _appliance_mode_support_value;
 
+mod _apply_cancellation_charges;
+
 mod _architecture_type;
 
 mod _architecture_values;
@@ -2933,6 +2945,8 @@ mod _cancel_spot_fleet_requests_success_item;
 
 mod _cancel_spot_instance_request_state;
 
+mod _cancellation_terms;
+
 mod _cancelled_spot_instance_request;
 
 mod _capacity_allocation;
@@ -2977,7 +2991,13 @@ mod _capacity_reservation_billing_request;
 
 mod _capacity_reservation_billing_request_status;
 
+mod _capacity_reservation_cancellation_quote;
+
+mod _capacity_reservation_cancellation_quote_state;
+
 mod _capacity_reservation_commitment_info;
+
+mod _capacity_reservation_configuration;
 
 mod _capacity_reservation_delivery_preference;
 

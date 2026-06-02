@@ -2,10 +2,16 @@
 pub(crate) fn de_tool_description_recommendation_result<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ToolDescriptionRecommendationResult>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -17,12 +23,16 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "tools" => {
                             builder = builder.set_tools(
-                                crate::protocol_serde::shape_tool_description_result_list::de_tool_description_result_list(tokens, _value)?,
+                                crate::protocol_serde::shape_tool_description_result_list::de_tool_description_result_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "configurationBundle" => {
                             builder = builder.set_configuration_bundle(
-                                    crate::protocol_serde::shape_recommendation_result_configuration_bundle::de_recommendation_result_configuration_bundle(tokens, _value)?
+                                    crate::protocol_serde::shape_recommendation_result_configuration_bundle::de_recommendation_result_configuration_bundle(tokens, _value, depth + 1)?
                                 );
                         }
                         "errorCode" => {

@@ -88,6 +88,8 @@ pub(crate) fn de_get_ingress_point(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -151,12 +153,18 @@ pub(crate) fn de_get_ingress_point(
                 }
                 "IngressPointAuthConfiguration" => {
                     builder = builder.set_ingress_point_auth_configuration(
-                        crate::protocol_serde::shape_ingress_point_auth_configuration::de_ingress_point_auth_configuration(tokens, _value)?,
+                        crate::protocol_serde::shape_ingress_point_auth_configuration::de_ingress_point_auth_configuration(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "NetworkConfiguration" => {
                     builder = builder.set_network_configuration(crate::protocol_serde::shape_network_configuration::de_network_configuration(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "TlsPolicy" => {

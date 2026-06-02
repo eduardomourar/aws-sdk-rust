@@ -61,6 +61,8 @@ pub use crate::types::_bundle_task::BundleTaskBuilder;
 
 pub use crate::types::_capacity_reservation::CapacityReservationBuilder;
 
+pub use crate::types::_capacity_reservation_cancellation_quote::CapacityReservationCancellationQuoteBuilder;
+
 pub use crate::types::_carrier_gateway::CarrierGatewayBuilder;
 
 pub use crate::types::_connection_log_options::ConnectionLogOptionsBuilder;
@@ -560,6 +562,8 @@ pub use crate::types::_tag::TagBuilder;
 pub use crate::types::_volume::VolumeBuilder;
 
 pub use crate::types::_capacity_reservation_commitment_info::CapacityReservationCommitmentInfoBuilder;
+
+pub use crate::types::_capacity_reservation_configuration::CapacityReservationConfigurationBuilder;
 
 pub use crate::types::_reservation_fleet_instance_specification::ReservationFleetInstanceSpecificationBuilder;
 
@@ -1176,6 +1180,8 @@ pub use crate::types::_cancel_capacity_reservation_fleet_error::CancelCapacityRe
 pub use crate::types::_cancel_spot_fleet_requests_error::CancelSpotFleetRequestsErrorBuilder;
 
 pub use crate::types::_capacity_allocation::CapacityAllocationBuilder;
+
+pub use crate::types::_cancellation_terms::CancellationTermsBuilder;
 
 pub use crate::types::_directory_service_authentication_request::DirectoryServiceAuthenticationRequestBuilder;
 

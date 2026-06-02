@@ -132,6 +132,8 @@ pub(crate) fn de_get_configuration_bundle(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -160,7 +162,9 @@ pub(crate) fn de_get_configuration_bundle(
                 }
                 "components" => {
                     builder = builder.set_components(crate::protocol_serde::shape_component_configuration_map::de_component_configuration_map(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "createdAt" => {
@@ -178,7 +182,9 @@ pub(crate) fn de_get_configuration_bundle(
                 }
                 "lineageMetadata" => {
                     builder = builder.set_lineage_metadata(crate::protocol_serde::shape_version_lineage_metadata::de_version_lineage_metadata(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "updatedAt" => {

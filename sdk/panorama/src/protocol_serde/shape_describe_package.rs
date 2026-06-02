@@ -125,6 +125,8 @@ pub(crate) fn de_describe_package(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -158,18 +160,28 @@ pub(crate) fn de_describe_package(
                     );
                 }
                 "ReadAccessPrincipalArns" => {
-                    builder = builder
-                        .set_read_access_principal_arns(crate::protocol_serde::shape_principal_arns_list::de_principal_arns_list(tokens, _value)?);
+                    builder = builder.set_read_access_principal_arns(crate::protocol_serde::shape_principal_arns_list::de_principal_arns_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "StorageLocation" => {
-                    builder = builder.set_storage_location(crate::protocol_serde::shape_storage_location::de_storage_location(tokens, _value)?);
+                    builder = builder.set_storage_location(crate::protocol_serde::shape_storage_location::de_storage_location(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "Tags" => {
-                    builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value)?);
+                    builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value, depth + 1)?);
                 }
                 "WriteAccessPrincipalArns" => {
-                    builder = builder
-                        .set_write_access_principal_arns(crate::protocol_serde::shape_principal_arns_list::de_principal_arns_list(tokens, _value)?);
+                    builder = builder.set_write_access_principal_arns(crate::protocol_serde::shape_principal_arns_list::de_principal_arns_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

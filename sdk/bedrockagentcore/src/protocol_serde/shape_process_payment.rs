@@ -179,6 +179,8 @@ pub(crate) fn de_process_payment(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -205,7 +207,7 @@ pub(crate) fn de_process_payment(
                     );
                 }
                 "paymentOutput" => {
-                    builder = builder.set_payment_output(crate::protocol_serde::shape_payment_output::de_payment_output(tokens, _value)?);
+                    builder = builder.set_payment_output(crate::protocol_serde::shape_payment_output::de_payment_output(tokens, _value, depth + 1)?);
                 }
                 "paymentSessionId" => {
                     builder = builder.set_payment_session_id(

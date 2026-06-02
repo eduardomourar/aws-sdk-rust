@@ -493,6 +493,8 @@ pub(crate) mod shape_operation_update;
 
 pub(crate) mod shape_operations;
 
+pub(crate) mod shape_propagate_tags;
+
 pub(crate) mod shape_provisioned_concurrency_config_list;
 
 pub(crate) mod shape_provisioned_poller_config;

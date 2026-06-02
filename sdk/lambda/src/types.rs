@@ -25,6 +25,8 @@ pub use crate::types::_instance_requirements::InstanceRequirements;
 
 pub use crate::types::_capacity_provider_scaling_config::CapacityProviderScalingConfig;
 
+pub use crate::types::_propagate_tags::PropagateTags;
+
 pub use crate::types::_capacity_provider::CapacityProvider;
 
 pub use crate::types::_allowed_publishers::AllowedPublishers;
@@ -160,6 +162,8 @@ pub use crate::types::_execution::Execution;
 pub use crate::types::_function_event_invoke_config::FunctionEventInvokeConfig;
 
 pub use crate::types::_capacity_provider_scaling_mode::CapacityProviderScalingMode;
+
+pub use crate::types::_propagate_tags_mode::PropagateTagsMode;
 
 pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItem;
 
@@ -562,6 +566,10 @@ mod _operation_type;
 mod _operation_update;
 
 mod _package_type;
+
+mod _propagate_tags;
+
+mod _propagate_tags_mode;
 
 mod _provisioned_concurrency_config_list_item;
 

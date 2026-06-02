@@ -2,10 +2,16 @@
 pub(crate) fn de_code_review_job<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CodeReviewJob>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -51,19 +57,21 @@ where
                             );
                         }
                         "documents" => {
-                            builder = builder.set_documents(crate::protocol_serde::shape_document_list::de_document_list(tokens, _value)?);
+                            builder = builder.set_documents(crate::protocol_serde::shape_document_list::de_document_list(tokens, _value, depth + 1)?);
                         }
                         "sourceCode" => {
                             builder = builder.set_source_code(
-                                crate::protocol_serde::shape_source_code_repository_list::de_source_code_repository_list(tokens, _value)?,
+                                crate::protocol_serde::shape_source_code_repository_list::de_source_code_repository_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "steps" => {
-                            builder = builder.set_steps(crate::protocol_serde::shape_step_list::de_step_list(tokens, _value)?);
+                            builder = builder.set_steps(crate::protocol_serde::shape_step_list::de_step_list(tokens, _value, depth + 1)?);
                         }
                         "executionContext" => {
                             builder = builder.set_execution_context(crate::protocol_serde::shape_execution_context_list::de_execution_context_list(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "serviceRole" => {
@@ -74,15 +82,22 @@ where
                             );
                         }
                         "logConfig" => {
-                            builder = builder.set_log_config(crate::protocol_serde::shape_cloud_watch_log::de_cloud_watch_log(tokens, _value)?);
+                            builder = builder.set_log_config(crate::protocol_serde::shape_cloud_watch_log::de_cloud_watch_log(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "errorInformation" => {
-                            builder =
-                                builder.set_error_information(crate::protocol_serde::shape_error_information::de_error_information(tokens, _value)?);
+                            builder = builder.set_error_information(crate::protocol_serde::shape_error_information::de_error_information(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "integratedRepositories" => {
                             builder = builder.set_integrated_repositories(
-                                crate::protocol_serde::shape_integrated_repository_list::de_integrated_repository_list(tokens, _value)?,
+                                crate::protocol_serde::shape_integrated_repository_list::de_integrated_repository_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "codeRemediationStrategy" => {

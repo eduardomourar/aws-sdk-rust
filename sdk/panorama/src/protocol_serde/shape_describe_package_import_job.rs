@@ -121,6 +121,8 @@ pub(crate) fn de_describe_package_import_job(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -141,7 +143,7 @@ pub(crate) fn de_describe_package_import_job(
                 }
                 "InputConfig" => {
                     builder = builder.set_input_config(
-                        crate::protocol_serde::shape_package_import_job_input_config::de_package_import_job_input_config(tokens, _value)?,
+                        crate::protocol_serde::shape_package_import_job_input_config::de_package_import_job_input_config(tokens, _value, depth + 1)?,
                     );
                 }
                 "JobId" => {
@@ -152,7 +154,7 @@ pub(crate) fn de_describe_package_import_job(
                     );
                 }
                 "JobTags" => {
-                    builder = builder.set_job_tags(crate::protocol_serde::shape_job_tags_list::de_job_tags_list(tokens, _value)?);
+                    builder = builder.set_job_tags(crate::protocol_serde::shape_job_tags_list::de_job_tags_list(tokens, _value, depth + 1)?);
                 }
                 "JobType" => {
                     builder = builder.set_job_type(
@@ -169,12 +171,18 @@ pub(crate) fn de_describe_package_import_job(
                 }
                 "Output" => {
                     builder = builder.set_output(crate::protocol_serde::shape_package_import_job_output::de_package_import_job_output(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "OutputConfig" => {
                     builder = builder.set_output_config(
-                        crate::protocol_serde::shape_package_import_job_output_config::de_package_import_job_output_config(tokens, _value)?,
+                        crate::protocol_serde::shape_package_import_job_output_config::de_package_import_job_output_config(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "Status" => {

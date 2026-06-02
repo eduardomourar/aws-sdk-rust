@@ -101,6 +101,8 @@ pub(crate) fn de_get_archive_export(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -114,7 +116,11 @@ pub(crate) fn de_get_archive_export(
                     );
                 }
                 "Filters" => {
-                    builder = builder.set_filters(crate::protocol_serde::shape_archive_filters::de_archive_filters(tokens, _value)?);
+                    builder = builder.set_filters(crate::protocol_serde::shape_archive_filters::de_archive_filters(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "FromTimestamp" => {
                     builder = builder.set_from_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -137,11 +143,15 @@ pub(crate) fn de_get_archive_export(
                 }
                 "ExportDestinationConfiguration" => {
                     builder = builder.set_export_destination_configuration(
-                        crate::protocol_serde::shape_export_destination_configuration::de_export_destination_configuration(tokens, _value)?,
+                        crate::protocol_serde::shape_export_destination_configuration::de_export_destination_configuration(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "Status" => {
-                    builder = builder.set_status(crate::protocol_serde::shape_export_status::de_export_status(tokens, _value)?);
+                    builder = builder.set_status(crate::protocol_serde::shape_export_status::de_export_status(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

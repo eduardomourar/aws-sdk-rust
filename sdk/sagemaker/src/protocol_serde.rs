@@ -115,6 +115,8 @@ pub(crate) mod shape_create_inference_experiment;
 
 pub(crate) mod shape_create_inference_recommendations_job;
 
+pub(crate) mod shape_create_job;
+
 pub(crate) mod shape_create_labeling_job;
 
 pub(crate) mod shape_create_mlflow_app;
@@ -251,6 +253,8 @@ pub(crate) mod shape_delete_inference_component;
 
 pub(crate) mod shape_delete_inference_experiment;
 
+pub(crate) mod shape_delete_job;
+
 pub(crate) mod shape_delete_mlflow_app;
 
 pub(crate) mod shape_delete_mlflow_tracking_server;
@@ -384,6 +388,10 @@ pub(crate) mod shape_describe_inference_component;
 pub(crate) mod shape_describe_inference_experiment;
 
 pub(crate) mod shape_describe_inference_recommendations_job;
+
+pub(crate) mod shape_describe_job;
+
+pub(crate) mod shape_describe_job_schema_version;
 
 pub(crate) mod shape_describe_labeling_job;
 
@@ -563,6 +571,10 @@ pub(crate) mod shape_list_inference_recommendations_job_steps;
 
 pub(crate) mod shape_list_inference_recommendations_jobs;
 
+pub(crate) mod shape_list_job_schema_versions;
+
+pub(crate) mod shape_list_jobs;
+
 pub(crate) mod shape_list_labeling_jobs;
 
 pub(crate) mod shape_list_labeling_jobs_for_workteam;
@@ -706,6 +718,8 @@ pub(crate) mod shape_stop_hyper_parameter_tuning_job;
 pub(crate) mod shape_stop_inference_experiment;
 
 pub(crate) mod shape_stop_inference_recommendations_job;
+
+pub(crate) mod shape_stop_job;
 
 pub(crate) mod shape_stop_labeling_job;
 
@@ -917,6 +931,8 @@ pub(crate) mod shape_create_inference_experiment_input;
 
 pub(crate) mod shape_create_inference_recommendations_job_input;
 
+pub(crate) mod shape_create_job_input;
+
 pub(crate) mod shape_create_labeling_job_input;
 
 pub(crate) mod shape_create_mlflow_app_input;
@@ -1053,6 +1069,8 @@ pub(crate) mod shape_delete_inference_component_input;
 
 pub(crate) mod shape_delete_inference_experiment_input;
 
+pub(crate) mod shape_delete_job_input;
+
 pub(crate) mod shape_delete_mlflow_app_input;
 
 pub(crate) mod shape_delete_mlflow_tracking_server_input;
@@ -1186,6 +1204,10 @@ pub(crate) mod shape_describe_inference_component_input;
 pub(crate) mod shape_describe_inference_experiment_input;
 
 pub(crate) mod shape_describe_inference_recommendations_job_input;
+
+pub(crate) mod shape_describe_job_input;
+
+pub(crate) mod shape_describe_job_schema_version_input;
 
 pub(crate) mod shape_describe_labeling_job_input;
 
@@ -1359,6 +1381,10 @@ pub(crate) mod shape_list_inference_recommendations_job_steps_input;
 
 pub(crate) mod shape_list_inference_recommendations_jobs_input;
 
+pub(crate) mod shape_list_job_schema_versions_input;
+
+pub(crate) mod shape_list_jobs_input;
+
 pub(crate) mod shape_list_labeling_jobs_for_workteam_input;
 
 pub(crate) mod shape_list_labeling_jobs_input;
@@ -1508,6 +1534,8 @@ pub(crate) mod shape_stop_hyper_parameter_tuning_job_input;
 pub(crate) mod shape_stop_inference_experiment_input;
 
 pub(crate) mod shape_stop_inference_recommendations_job_input;
+
+pub(crate) mod shape_stop_job_input;
 
 pub(crate) mod shape_stop_labeling_job_input;
 
@@ -2008,6 +2036,12 @@ pub(crate) mod shape_input_data_config;
 pub(crate) mod shape_instance_group_health_check_configuration;
 
 pub(crate) mod shape_instance_metadata_service_configuration;
+
+pub(crate) mod shape_job_config_schemas;
+
+pub(crate) mod shape_job_secondary_status_transitions;
+
+pub(crate) mod shape_job_summaries;
 
 pub(crate) mod shape_jupyter_lab_app_image_config;
 
@@ -2838,6 +2872,12 @@ pub(crate) mod shape_instance_groups;
 pub(crate) mod shape_instance_placement_config;
 
 pub(crate) mod shape_instance_pool;
+
+pub(crate) mod shape_job_config_schema_version_summary;
+
+pub(crate) mod shape_job_secondary_status_transition;
+
+pub(crate) mod shape_job_summary;
 
 pub(crate) mod shape_jupyter_lab_app_settings;
 
@@ -3718,6 +3758,8 @@ pub(crate) mod shape_instance_metadata;
 pub(crate) mod shape_instance_pool_summary;
 
 pub(crate) mod shape_integer_parameter_range_specification;
+
+pub(crate) mod shape_job_step_metadata;
 
 pub(crate) mod shape_lambda_step_metadata;
 

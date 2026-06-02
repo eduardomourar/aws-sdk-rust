@@ -2,10 +2,16 @@
 pub(crate) fn de_control_summary<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ControlSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -23,7 +29,11 @@ where
                             );
                         }
                         "Aliases" => {
-                            builder = builder.set_aliases(crate::protocol_serde::shape_control_aliases::de_control_aliases(tokens, _value)?);
+                            builder = builder.set_aliases(crate::protocol_serde::shape_control_aliases::de_control_aliases(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "Name" => {
                             builder = builder.set_name(
@@ -62,7 +72,9 @@ where
                         }
                         "Implementation" => {
                             builder = builder.set_implementation(crate::protocol_serde::shape_implementation_summary::de_implementation_summary(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "CreateTime" => {
@@ -72,12 +84,18 @@ where
                             )?);
                         }
                         "GovernedResources" => {
-                            builder = builder
-                                .set_governed_resources(crate::protocol_serde::shape_governed_resources::de_governed_resources(tokens, _value)?);
+                            builder = builder.set_governed_resources(crate::protocol_serde::shape_governed_resources::de_governed_resources(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "GovernedProviders" => {
-                            builder = builder
-                                .set_governed_providers(crate::protocol_serde::shape_governed_providers::de_governed_providers(tokens, _value)?);
+                            builder = builder.set_governed_providers(crate::protocol_serde::shape_governed_providers::de_governed_providers(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

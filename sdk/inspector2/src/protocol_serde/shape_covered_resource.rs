@@ -2,10 +2,16 @@
 pub(crate) fn de_covered_resource<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CoveredResource>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -44,11 +50,13 @@ where
                             );
                         }
                         "scanStatus" => {
-                            builder = builder.set_scan_status(crate::protocol_serde::shape_scan_status::de_scan_status(tokens, _value)?);
+                            builder = builder.set_scan_status(crate::protocol_serde::shape_scan_status::de_scan_status(tokens, _value, depth + 1)?);
                         }
                         "resourceMetadata" => {
                             builder = builder.set_resource_metadata(crate::protocol_serde::shape_resource_scan_metadata::de_resource_scan_metadata(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "lastScannedAt" => {

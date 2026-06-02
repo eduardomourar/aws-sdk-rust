@@ -118,10 +118,16 @@ pub fn ser_service_configuration(
 pub(crate) fn de_service_configuration<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ServiceConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -147,91 +153,117 @@ where
                     }
                     variant = match key.as_ref() {
                         "sourceAws" => Some(crate::types::ServiceConfiguration::SourceAws(
-                            crate::protocol_serde::shape_source_aws_configuration::de_source_aws_configuration(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'sourceAws' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_source_aws_configuration::de_source_aws_configuration(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'sourceAws' cannot be null")
+                                })?,
                         )),
                         "aws" => Some(crate::types::ServiceConfiguration::Aws(
-                            crate::protocol_serde::shape_aws_configuration::de_aws_configuration(tokens, _value)?
+                            crate::protocol_serde::shape_aws_configuration::de_aws_configuration(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'aws' cannot be null"))?,
                         )),
                         "github" => Some(crate::types::ServiceConfiguration::Github(
-                            crate::protocol_serde::shape_git_hub_configuration::de_git_hub_configuration(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'github' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_git_hub_configuration::de_git_hub_configuration(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'github' cannot be null"),
+                            )?,
                         )),
                         "slack" => Some(crate::types::ServiceConfiguration::Slack(
-                            crate::protocol_serde::shape_slack_configuration::de_slack_configuration(tokens, _value)?
+                            crate::protocol_serde::shape_slack_configuration::de_slack_configuration(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'slack' cannot be null"))?,
                         )),
                         "dynatrace" => Some(crate::types::ServiceConfiguration::Dynatrace(
-                            crate::protocol_serde::shape_dynatrace_configuration::de_dynatrace_configuration(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'dynatrace' cannot be null")
-                            })?,
-                        )),
-                        "servicenow" => Some(crate::types::ServiceConfiguration::Servicenow(
-                            crate::protocol_serde::shape_service_now_configuration::de_service_now_configuration(tokens, _value)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'servicenow' cannot be null"),
+                            crate::protocol_serde::shape_dynatrace_configuration::de_dynatrace_configuration(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'dynatrace' cannot be null"),
                             )?,
                         )),
-                        "mcpservernewrelic" => Some(crate::types::ServiceConfiguration::Mcpservernewrelic(
-                            crate::protocol_serde::shape_mcp_server_new_relic_configuration::de_mcp_server_new_relic_configuration(tokens, _value)?
+                        "servicenow" => Some(crate::types::ServiceConfiguration::Servicenow(
+                            crate::protocol_serde::shape_service_now_configuration::de_service_now_configuration(tokens, _value, depth + 1)?
                                 .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'servicenow' cannot be null")
+                                })?,
+                        )),
+                        "mcpservernewrelic" => Some(crate::types::ServiceConfiguration::Mcpservernewrelic(
+                            crate::protocol_serde::shape_mcp_server_new_relic_configuration::de_mcp_server_new_relic_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpservernewrelic' cannot be null")
                             })?,
                         )),
                         "mcpserverdatadog" => Some(crate::types::ServiceConfiguration::Mcpserverdatadog(
-                            crate::protocol_serde::shape_mcp_server_datadog_configuration::de_mcp_server_datadog_configuration(tokens, _value)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserverdatadog' cannot be null")
-                                })?,
+                            crate::protocol_serde::shape_mcp_server_datadog_configuration::de_mcp_server_datadog_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserverdatadog' cannot be null")
+                            })?,
                         )),
                         "mcpserver" => Some(crate::types::ServiceConfiguration::Mcpserver(
-                            crate::protocol_serde::shape_mcp_server_configuration::de_mcp_server_configuration(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserver' cannot be null")
-                            })?,
-                        )),
-                        "gitlab" => Some(crate::types::ServiceConfiguration::Gitlab(
-                            crate::protocol_serde::shape_git_lab_configuration::de_git_lab_configuration(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'gitlab' cannot be null")
-                            })?,
-                        )),
-                        "mcpserversplunk" => Some(crate::types::ServiceConfiguration::Mcpserversplunk(
-                            crate::protocol_serde::shape_mcp_server_splunk_configuration::de_mcp_server_splunk_configuration(tokens, _value)?
+                            crate::protocol_serde::shape_mcp_server_configuration::de_mcp_server_configuration(tokens, _value, depth + 1)?
                                 .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserversplunk' cannot be null")
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserver' cannot be null")
                                 })?,
                         )),
-                        "eventChannel" => Some(crate::types::ServiceConfiguration::EventChannel(
-                            crate::protocol_serde::shape_event_channel_configuration::de_event_channel_configuration(tokens, _value)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'eventChannel' cannot be null"),
+                        "gitlab" => Some(crate::types::ServiceConfiguration::Gitlab(
+                            crate::protocol_serde::shape_git_lab_configuration::de_git_lab_configuration(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'gitlab' cannot be null"),
                             )?,
                         )),
+                        "mcpserversplunk" => Some(crate::types::ServiceConfiguration::Mcpserversplunk(
+                            crate::protocol_serde::shape_mcp_server_splunk_configuration::de_mcp_server_splunk_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserversplunk' cannot be null")
+                            })?,
+                        )),
+                        "eventChannel" => Some(crate::types::ServiceConfiguration::EventChannel(
+                            crate::protocol_serde::shape_event_channel_configuration::de_event_channel_configuration(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'eventChannel' cannot be null")
+                                })?,
+                        )),
                         "azure" => Some(crate::types::ServiceConfiguration::Azure(
-                            crate::protocol_serde::shape_azure_configuration::de_azure_configuration(tokens, _value)?
+                            crate::protocol_serde::shape_azure_configuration::de_azure_configuration(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'azure' cannot be null"))?,
                         )),
                         "azuredevops" => Some(crate::types::ServiceConfiguration::Azuredevops(
-                            crate::protocol_serde::shape_azure_dev_ops_configuration::de_azure_dev_ops_configuration(tokens, _value)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'azuredevops' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_azure_dev_ops_configuration::de_azure_dev_ops_configuration(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'azuredevops' cannot be null")
+                                })?,
                         )),
                         "mcpservergrafana" => Some(crate::types::ServiceConfiguration::Mcpservergrafana(
-                            crate::protocol_serde::shape_mcp_server_grafana_configuration::de_mcp_server_grafana_configuration(tokens, _value)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpservergrafana' cannot be null")
-                                })?,
-                        )),
-                        "pagerduty" => Some(crate::types::ServiceConfiguration::Pagerduty(
-                            crate::protocol_serde::shape_pager_duty_configuration::de_pager_duty_configuration(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'pagerduty' cannot be null")
+                            crate::protocol_serde::shape_mcp_server_grafana_configuration::de_mcp_server_grafana_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpservergrafana' cannot be null")
                             })?,
                         )),
-                        "mcpserversigv4" => Some(crate::types::ServiceConfiguration::Mcpserversigv4(
-                            crate::protocol_serde::shape_mcp_server_sigv4_configuration::de_mcp_server_sigv4_configuration(tokens, _value)?
+                        "pagerduty" => Some(crate::types::ServiceConfiguration::Pagerduty(
+                            crate::protocol_serde::shape_pager_duty_configuration::de_pager_duty_configuration(tokens, _value, depth + 1)?
                                 .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserversigv4' cannot be null")
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'pagerduty' cannot be null")
                                 })?,
+                        )),
+                        "mcpserversigv4" => Some(crate::types::ServiceConfiguration::Mcpserversigv4(
+                            crate::protocol_serde::shape_mcp_server_sigv4_configuration::de_mcp_server_sigv4_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserversigv4' cannot be null")
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

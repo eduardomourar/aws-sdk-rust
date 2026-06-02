@@ -2,10 +2,16 @@
 pub(crate) fn de_mcp_gateway_configuration<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::McpGatewayConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -14,38 +20,40 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "supportedVersions" => {
-                            builder = builder.set_supported_versions(crate::protocol_serde::shape_mcp_supported_versions::de_mcp_supported_versions(
-                                tokens, _value,
-                            )?);
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "supportedVersions" => {
+                                builder = builder.set_supported_versions(
+                                    crate::protocol_serde::shape_mcp_supported_versions::de_mcp_supported_versions(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "instructions" => {
+                                builder = builder.set_instructions(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "searchType" => {
+                                builder = builder.set_search_type(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::SearchType::from(u.as_ref())))
+                                        .transpose()?,
+                                );
+                            }
+                            "sessionConfiguration" => {
+                                builder = builder.set_session_configuration(
+                                    crate::protocol_serde::shape_session_configuration::de_session_configuration(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "streamingConfiguration" => {
+                                builder = builder.set_streaming_configuration(
+                                    crate::protocol_serde::shape_streaming_configuration::de_streaming_configuration(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "instructions" => {
-                            builder = builder.set_instructions(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
-                        }
-                        "searchType" => {
-                            builder = builder.set_search_type(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::SearchType::from(u.as_ref())))
-                                    .transpose()?,
-                            );
-                        }
-                        "sessionConfiguration" => {
-                            builder = builder.set_session_configuration(
-                                crate::protocol_serde::shape_session_configuration::de_session_configuration(tokens, _value)?,
-                            );
-                        }
-                        "streamingConfiguration" => {
-                            builder = builder.set_streaming_configuration(
-                                crate::protocol_serde::shape_streaming_configuration::de_streaming_configuration(tokens, _value)?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

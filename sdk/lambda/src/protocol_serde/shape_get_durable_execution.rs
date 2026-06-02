@@ -124,6 +124,8 @@ pub(crate) fn de_get_durable_execution(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -150,7 +152,7 @@ pub(crate) fn de_get_durable_execution(
                     )?);
                 }
                 "Error" => {
-                    builder = builder.set_error(crate::protocol_serde::shape_error_object::de_error_object(tokens, _value)?);
+                    builder = builder.set_error(crate::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
                 }
                 "FunctionArn" => {
                     builder = builder.set_function_arn(
@@ -187,7 +189,7 @@ pub(crate) fn de_get_durable_execution(
                     );
                 }
                 "TraceHeader" => {
-                    builder = builder.set_trace_header(crate::protocol_serde::shape_trace_header::de_trace_header(tokens, _value)?);
+                    builder = builder.set_trace_header(crate::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
                 }
                 "Version" => {
                     builder = builder.set_version(

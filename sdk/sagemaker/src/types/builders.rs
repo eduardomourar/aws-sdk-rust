@@ -761,6 +761,8 @@ pub use crate::types::_inference_recommendation::InferenceRecommendationBuilder;
 
 pub use crate::types::_endpoint_performance::EndpointPerformanceBuilder;
 
+pub use crate::types::_job_secondary_status_transition::JobSecondaryStatusTransitionBuilder;
+
 pub use crate::types::_template_provider_detail::TemplateProviderDetailBuilder;
 
 pub use crate::types::_secondary_status_transition::SecondaryStatusTransitionBuilder;
@@ -866,6 +868,10 @@ pub use crate::types::_inference_experiment_summary::InferenceExperimentSummaryB
 pub use crate::types::_inference_recommendations_job::InferenceRecommendationsJobBuilder;
 
 pub use crate::types::_inference_recommendations_job_step::InferenceRecommendationsJobStepBuilder;
+
+pub use crate::types::_job_summary::JobSummaryBuilder;
+
+pub use crate::types::_job_config_schema_version_summary::JobConfigSchemaVersionSummaryBuilder;
 
 pub use crate::types::_labeling_job_summary::LabelingJobSummaryBuilder;
 
@@ -1470,6 +1476,8 @@ pub use crate::types::_bedrock_model_import_metadata::BedrockModelImportMetadata
 pub use crate::types::_inference_component_metadata::InferenceComponentMetadataBuilder;
 
 pub use crate::types::_lineage_metadata::LineageMetadataBuilder;
+
+pub use crate::types::_job_step_metadata::JobStepMetadataBuilder;
 
 pub use crate::types::_trial_component_source_detail::TrialComponentSourceDetailBuilder;
 

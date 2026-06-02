@@ -197,6 +197,8 @@ pub use crate::types::_recommendation_job_stopping_conditions::RecommendationJob
 
 pub use crate::types::_recommendation_job_output_config::RecommendationJobOutputConfig;
 
+pub use crate::types::_job_category::JobCategory;
+
 pub use crate::types::_labeling_job_input_config::LabelingJobInputConfig;
 
 pub use crate::types::_labeling_job_output_config::LabelingJobOutputConfig;
@@ -498,6 +500,10 @@ pub use crate::types::_inference_experiment_status::InferenceExperimentStatus;
 pub use crate::types::_endpoint_metadata::EndpointMetadata;
 
 pub use crate::types::_recommendation_job_status::RecommendationJobStatus;
+
+pub use crate::types::_job_status::JobStatus;
+
+pub use crate::types::_job_secondary_status::JobSecondaryStatus;
 
 pub use crate::types::_labeling_job_status::LabelingJobStatus;
 
@@ -1257,6 +1263,8 @@ pub use crate::types::_inference_recommendation::InferenceRecommendation;
 
 pub use crate::types::_endpoint_performance::EndpointPerformance;
 
+pub use crate::types::_job_secondary_status_transition::JobSecondaryStatusTransition;
+
 pub use crate::types::_recommendation_status::RecommendationStatus;
 
 pub use crate::types::_template_provider_detail::TemplateProviderDetail;
@@ -1368,6 +1376,10 @@ pub use crate::types::_inference_experiment_summary::InferenceExperimentSummary;
 pub use crate::types::_inference_recommendations_job::InferenceRecommendationsJob;
 
 pub use crate::types::_inference_recommendations_job_step::InferenceRecommendationsJobStep;
+
+pub use crate::types::_job_summary::JobSummary;
+
+pub use crate::types::_job_config_schema_version_summary::JobConfigSchemaVersionSummary;
 
 pub use crate::types::_labeling_job_summary::LabelingJobSummary;
 
@@ -2154,6 +2166,8 @@ pub use crate::types::_bedrock_model_import_metadata::BedrockModelImportMetadata
 pub use crate::types::_inference_component_metadata::InferenceComponentMetadata;
 
 pub use crate::types::_lineage_metadata::LineageMetadata;
+
+pub use crate::types::_job_step_metadata::JobStepMetadata;
 
 pub use crate::types::_operator::Operator;
 
@@ -3392,6 +3406,20 @@ mod _integer_parameter_range_specification;
 mod _ip_address_type;
 
 mod _is_tracking_server_active;
+
+mod _job_category;
+
+mod _job_config_schema_version_summary;
+
+mod _job_secondary_status;
+
+mod _job_secondary_status_transition;
+
+mod _job_status;
+
+mod _job_step_metadata;
+
+mod _job_summary;
 
 mod _job_type;
 

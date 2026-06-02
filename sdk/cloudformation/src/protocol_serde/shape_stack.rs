@@ -2,7 +2,11 @@
 #[allow(clippy::needless_question_mark)]
 pub fn de_stack(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
 ) -> ::std::result::Result<crate::types::Stack, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
     #[allow(unused_mut)]
     let mut builder = crate::types::Stack::builder();
     while let Some(mut tag) = decoder.next_tag() {
@@ -62,7 +66,7 @@ pub fn de_stack(
             s if s.matches("Parameters") /* Parameters com.amazonaws.cloudformation#Stack$Parameters */ =>  {
                 let var_5 =
                     Some(
-                        crate::protocol_serde::shape_parameters::de_parameters(&mut tag)
+                        crate::protocol_serde::shape_parameters::de_parameters(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -114,7 +118,7 @@ pub fn de_stack(
             s if s.matches("RollbackConfiguration") /* RollbackConfiguration com.amazonaws.cloudformation#Stack$RollbackConfiguration */ =>  {
                 let var_9 =
                     Some(
-                        crate::protocol_serde::shape_rollback_configuration::de_rollback_configuration(&mut tag)
+                        crate::protocol_serde::shape_rollback_configuration::de_rollback_configuration(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -166,7 +170,7 @@ pub fn de_stack(
             s if s.matches("NotificationARNs") /* NotificationARNs com.amazonaws.cloudformation#Stack$NotificationARNs */ =>  {
                 let var_13 =
                     Some(
-                        crate::protocol_serde::shape_notification_arns::de_notification_arns(&mut tag)
+                        crate::protocol_serde::shape_notification_arns::de_notification_arns(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -191,7 +195,7 @@ pub fn de_stack(
             s if s.matches("Capabilities") /* Capabilities com.amazonaws.cloudformation#Stack$Capabilities */ =>  {
                 let var_15 =
                     Some(
-                        crate::protocol_serde::shape_capabilities::de_capabilities(&mut tag)
+                        crate::protocol_serde::shape_capabilities::de_capabilities(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -201,7 +205,7 @@ pub fn de_stack(
             s if s.matches("Outputs") /* Outputs com.amazonaws.cloudformation#Stack$Outputs */ =>  {
                 let var_16 =
                     Some(
-                        crate::protocol_serde::shape_outputs::de_outputs(&mut tag)
+                        crate::protocol_serde::shape_outputs::de_outputs(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -224,7 +228,7 @@ pub fn de_stack(
             s if s.matches("Tags") /* Tags com.amazonaws.cloudformation#Stack$Tags */ =>  {
                 let var_18 =
                     Some(
-                        crate::protocol_serde::shape_tags::de_tags(&mut tag)
+                        crate::protocol_serde::shape_tags::de_tags(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -275,7 +279,7 @@ pub fn de_stack(
             s if s.matches("DriftInformation") /* DriftInformation com.amazonaws.cloudformation#Stack$DriftInformation */ =>  {
                 let var_22 =
                     Some(
-                        crate::protocol_serde::shape_stack_drift_information::de_stack_drift_information(&mut tag)
+                        crate::protocol_serde::shape_stack_drift_information::de_stack_drift_information(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -328,7 +332,7 @@ pub fn de_stack(
             s if s.matches("LastOperations") /* LastOperations com.amazonaws.cloudformation#Stack$LastOperations */ =>  {
                 let var_26 =
                     Some(
-                        crate::protocol_serde::shape_last_operations::de_last_operations(&mut tag)
+                        crate::protocol_serde::shape_last_operations::de_last_operations(&mut tag, depth + 1)
                         ?
                     )
                 ;

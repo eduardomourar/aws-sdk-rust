@@ -2,10 +2,16 @@
 pub(crate) fn de_cloud_watch_logs_trace_config<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CloudWatchLogsTraceConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -16,12 +22,18 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "logGroupArns" => {
-                            builder =
-                                builder.set_log_group_arns(crate::protocol_serde::shape_log_group_arn_list::de_log_group_arn_list(tokens, _value)?);
+                            builder = builder.set_log_group_arns(crate::protocol_serde::shape_log_group_arn_list::de_log_group_arn_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "serviceNames" => {
-                            builder =
-                                builder.set_service_names(crate::protocol_serde::shape_service_name_list::de_service_name_list(tokens, _value)?);
+                            builder = builder.set_service_names(crate::protocol_serde::shape_service_name_list::de_service_name_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "startTime" => {
                             builder = builder.set_start_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -37,7 +49,9 @@ where
                         }
                         "rule" => {
                             builder = builder.set_rule(crate::protocol_serde::shape_cloud_watch_logs_rule::de_cloud_watch_logs_rule(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

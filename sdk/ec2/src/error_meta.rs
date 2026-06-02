@@ -1757,6 +1757,40 @@ impl From<crate::operation::create_capacity_reservation_by_splitting::CreateCapa
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_capacity_reservation_cancellation_quote::CreateCapacityReservationCancellationQuoteError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_capacity_reservation_cancellation_quote::CreateCapacityReservationCancellationQuoteError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_capacity_reservation_cancellation_quote::CreateCapacityReservationCancellationQuoteError> for Error {
+    fn from(err: crate::operation::create_capacity_reservation_cancellation_quote::CreateCapacityReservationCancellationQuoteError) -> Self {
+        match err {
+            crate::operation::create_capacity_reservation_cancellation_quote::CreateCapacityReservationCancellationQuoteError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
             crate::operation::create_capacity_reservation_fleet::CreateCapacityReservationFleetError,
             R,
         >,
@@ -7467,6 +7501,40 @@ impl From<crate::operation::describe_capacity_reservation_billing_requests::Desc
             crate::operation::describe_capacity_reservation_billing_requests::DescribeCapacityReservationBillingRequestsError::Unhandled(inner) => {
                 Error::Unhandled(inner)
             }
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_capacity_reservation_cancellation_quotes::DescribeCapacityReservationCancellationQuotesError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_capacity_reservation_cancellation_quotes::DescribeCapacityReservationCancellationQuotesError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_capacity_reservation_cancellation_quotes::DescribeCapacityReservationCancellationQuotesError> for Error {
+    fn from(err: crate::operation::describe_capacity_reservation_cancellation_quotes::DescribeCapacityReservationCancellationQuotesError) -> Self {
+        match err {
+            crate::operation::describe_capacity_reservation_cancellation_quotes::DescribeCapacityReservationCancellationQuotesError::Unhandled(
+                inner,
+            ) => Error::Unhandled(inner),
         }
     }
 }

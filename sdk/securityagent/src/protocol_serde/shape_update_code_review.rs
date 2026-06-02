@@ -50,6 +50,8 @@ pub(crate) fn de_update_code_review(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -63,7 +65,7 @@ pub(crate) fn de_update_code_review(
                     );
                 }
                 "assets" => {
-                    builder = builder.set_assets(crate::protocol_serde::shape_assets::de_assets(tokens, _value)?);
+                    builder = builder.set_assets(crate::protocol_serde::shape_assets::de_assets(tokens, _value, depth + 1)?);
                 }
                 "codeRemediationStrategy" => {
                     builder = builder.set_code_remediation_strategy(
@@ -86,7 +88,11 @@ pub(crate) fn de_update_code_review(
                     )?);
                 }
                 "logConfig" => {
-                    builder = builder.set_log_config(crate::protocol_serde::shape_cloud_watch_log::de_cloud_watch_log(tokens, _value)?);
+                    builder = builder.set_log_config(crate::protocol_serde::shape_cloud_watch_log::de_cloud_watch_log(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "serviceRole" => {
                     builder = builder.set_service_role(

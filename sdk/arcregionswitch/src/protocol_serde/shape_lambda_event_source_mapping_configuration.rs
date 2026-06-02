@@ -30,11 +30,19 @@ pub fn ser_lambda_event_source_mapping_configuration(
 
 pub(crate) fn de_lambda_event_source_mapping_configuration(
     decoder: &mut ::aws_smithy_cbor::Decoder,
+    depth: u32,
 ) -> ::std::result::Result<crate::types::LambdaEventSourceMappingConfiguration, ::aws_smithy_cbor::decode::DeserializeError> {
-    #[allow(clippy::match_single_binding)]
+    if depth >= 128u32 {
+        return Err(::aws_smithy_cbor::decode::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+            decoder.position(),
+        ));
+    }
+    #[allow(clippy::match_single_binding, unused_variables)]
     fn pair(
         mut builder: crate::types::builders::LambdaEventSourceMappingConfigurationBuilder,
         decoder: &mut ::aws_smithy_cbor::Decoder,
+        depth: u32,
     ) -> ::std::result::Result<crate::types::builders::LambdaEventSourceMappingConfigurationBuilder, ::aws_smithy_cbor::decode::DeserializeError>
     {
         builder = match decoder.str()?.as_ref() {
@@ -43,11 +51,14 @@ pub(crate) fn de_lambda_event_source_mapping_configuration(
             })?,
             "action" => builder.set_action(Some(decoder.string().map(|s| crate::types::EventSourceMappingAction::from(s.as_ref()))?)),
             "regionEventSourceMappings" => builder.set_region_event_source_mappings(Some(
-                crate::protocol_serde::shape_region_event_source_mapping_map::de_region_event_source_mapping_map(decoder)?,
+                crate::protocol_serde::shape_region_event_source_mapping_map::de_region_event_source_mapping_map(decoder, depth + 1)?,
             )),
             "ungraceful" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
                 Ok(builder.set_ungraceful(Some(
-                    crate::protocol_serde::shape_lambda_event_source_mapping_ungraceful::de_lambda_event_source_mapping_ungraceful(decoder)?,
+                    crate::protocol_serde::shape_lambda_event_source_mapping_ungraceful::de_lambda_event_source_mapping_ungraceful(
+                        decoder,
+                        depth + 1,
+                    )?,
                 )))
             })?,
             _ => {
@@ -68,13 +79,13 @@ pub(crate) fn de_lambda_event_source_mapping_configuration(
                     break;
                 }
                 _ => {
-                    builder = pair(builder, decoder)?;
+                    builder = pair(builder, decoder, depth)?;
                 }
             };
         },
         Some(n) => {
             for _ in 0..n {
-                builder = pair(builder, decoder)?;
+                builder = pair(builder, decoder, depth)?;
             }
         }
     };

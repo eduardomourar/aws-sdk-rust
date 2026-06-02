@@ -109,14 +109,19 @@ pub(crate) fn de_describe_device(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "AlternateSoftwares" => {
-                    builder =
-                        builder.set_alternate_softwares(crate::protocol_serde::shape_alternate_softwares::de_alternate_softwares(tokens, _value)?);
+                    builder = builder.set_alternate_softwares(crate::protocol_serde::shape_alternate_softwares::de_alternate_softwares(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "Arn" => {
                     builder = builder.set_arn(
@@ -139,7 +144,11 @@ pub(crate) fn de_describe_device(
                     )?);
                 }
                 "CurrentNetworkingStatus" => {
-                    builder = builder.set_current_networking_status(crate::protocol_serde::shape_network_status::de_network_status(tokens, _value)?);
+                    builder = builder.set_current_networking_status(crate::protocol_serde::shape_network_status::de_network_status(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "CurrentSoftware" => {
                     builder = builder.set_current_software(
@@ -184,7 +193,11 @@ pub(crate) fn de_describe_device(
                     );
                 }
                 "LatestDeviceJob" => {
-                    builder = builder.set_latest_device_job(crate::protocol_serde::shape_latest_device_job::de_latest_device_job(tokens, _value)?);
+                    builder = builder.set_latest_device_job(crate::protocol_serde::shape_latest_device_job::de_latest_device_job(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "LatestSoftware" => {
                     builder = builder.set_latest_software(
@@ -207,7 +220,11 @@ pub(crate) fn de_describe_device(
                     );
                 }
                 "NetworkingConfiguration" => {
-                    builder = builder.set_networking_configuration(crate::protocol_serde::shape_network_payload::de_network_payload(tokens, _value)?);
+                    builder = builder.set_networking_configuration(crate::protocol_serde::shape_network_payload::de_network_payload(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "ProvisioningStatus" => {
                     builder = builder.set_provisioning_status(
@@ -224,7 +241,7 @@ pub(crate) fn de_describe_device(
                     );
                 }
                 "Tags" => {
-                    builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value)?);
+                    builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value, depth + 1)?);
                 }
                 "Type" => {
                     builder = builder.set_type(

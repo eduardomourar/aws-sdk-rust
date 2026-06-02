@@ -140,6 +140,8 @@ pub(crate) fn de_get_advanced_prompt_optimization_job(
 > {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -168,7 +170,9 @@ pub(crate) fn de_get_advanced_prompt_optimization_job(
                 "inputConfig" => {
                     builder = builder.set_input_config(
                         crate::protocol_serde::shape_advanced_prompt_optimization_input_config::de_advanced_prompt_optimization_input_config(
-                            tokens, _value,
+                            tokens,
+                            _value,
+                            depth + 1,
                         )?,
                     );
                 }
@@ -211,13 +215,17 @@ pub(crate) fn de_get_advanced_prompt_optimization_job(
                 }
                 "modelConfigurations" => {
                     builder = builder.set_model_configurations(crate::protocol_serde::shape_model_configurations::de_model_configurations(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "outputConfig" => {
                     builder = builder.set_output_config(
                         crate::protocol_serde::shape_advanced_prompt_optimization_output_config::de_advanced_prompt_optimization_output_config(
-                            tokens, _value,
+                            tokens,
+                            _value,
+                            depth + 1,
                         )?,
                     );
                 }

@@ -533,6 +533,8 @@ mod create_capacity_reservation;
 
 mod create_capacity_reservation_by_splitting;
 
+mod create_capacity_reservation_cancellation_quote;
+
 mod create_capacity_reservation_fleet;
 
 mod create_carrier_gateway;
@@ -995,6 +997,8 @@ mod describe_capacity_blocks;
 mod describe_capacity_manager_data_exports;
 
 mod describe_capacity_reservation_billing_requests;
+
+mod describe_capacity_reservation_cancellation_quotes;
 
 mod describe_capacity_reservation_fleets;
 

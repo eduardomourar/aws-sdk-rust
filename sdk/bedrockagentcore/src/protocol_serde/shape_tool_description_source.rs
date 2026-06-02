@@ -2,10 +2,16 @@
 pub(crate) fn de_tool_description_source<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ToolDescriptionSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -31,13 +37,16 @@ where
                     }
                     variant = match key.as_ref() {
                         "toolDescriptionText" => Some(crate::types::ToolDescriptionSource::ToolDescriptionText(
-                            crate::protocol_serde::shape_tool_description_text_input::de_tool_description_text_input(tokens, _value)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolDescriptionText' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_tool_description_text_input::de_tool_description_text_input(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolDescriptionText' cannot be null")
+                                })?,
                         )),
                         "configurationBundle" => Some(crate::types::ToolDescriptionSource::ConfigurationBundle(
                             crate::protocol_serde::shape_tool_description_configuration_bundle::de_tool_description_configuration_bundle(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'configurationBundle' cannot be null")

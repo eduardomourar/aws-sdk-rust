@@ -2,10 +2,16 @@
 pub(crate) fn de_effective_policy_values<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::EffectivePolicyValues>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -16,33 +22,46 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "availabilitySlo" => {
-                            builder = builder.set_availability_slo(crate::protocol_serde::shape_slo_source::de_slo_source(tokens, _value)?);
+                            builder =
+                                builder.set_availability_slo(crate::protocol_serde::shape_slo_source::de_slo_source(tokens, _value, depth + 1)?);
                         }
                         "multiAzRto" => {
-                            builder = builder.set_multi_az_rto(crate::protocol_serde::shape_target_source::de_target_source(tokens, _value)?);
+                            builder =
+                                builder.set_multi_az_rto(crate::protocol_serde::shape_target_source::de_target_source(tokens, _value, depth + 1)?);
                         }
                         "multiAzRpo" => {
-                            builder = builder.set_multi_az_rpo(crate::protocol_serde::shape_target_source::de_target_source(tokens, _value)?);
+                            builder =
+                                builder.set_multi_az_rpo(crate::protocol_serde::shape_target_source::de_target_source(tokens, _value, depth + 1)?);
                         }
                         "multiAzDrApproach" => {
                             builder = builder.set_multi_az_dr_approach(
-                                crate::protocol_serde::shape_disaster_recovery_source::de_disaster_recovery_source(tokens, _value)?,
+                                crate::protocol_serde::shape_disaster_recovery_source::de_disaster_recovery_source(tokens, _value, depth + 1)?,
                             );
                         }
                         "multiRegionRto" => {
-                            builder = builder.set_multi_region_rto(crate::protocol_serde::shape_target_source::de_target_source(tokens, _value)?);
+                            builder = builder.set_multi_region_rto(crate::protocol_serde::shape_target_source::de_target_source(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "multiRegionRpo" => {
-                            builder = builder.set_multi_region_rpo(crate::protocol_serde::shape_target_source::de_target_source(tokens, _value)?);
+                            builder = builder.set_multi_region_rpo(crate::protocol_serde::shape_target_source::de_target_source(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "multiRegionDrApproach" => {
                             builder = builder.set_multi_region_dr_approach(
-                                crate::protocol_serde::shape_disaster_recovery_source::de_disaster_recovery_source(tokens, _value)?,
+                                crate::protocol_serde::shape_disaster_recovery_source::de_disaster_recovery_source(tokens, _value, depth + 1)?,
                             );
                         }
                         "dataRecoveryTimeBetweenBackups" => {
                             builder = builder.set_data_recovery_time_between_backups(crate::protocol_serde::shape_target_source::de_target_source(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -36,10 +36,16 @@ pub fn ser_cmaf_encryption_settings(
 pub(crate) fn de_cmaf_encryption_settings<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CmafEncryptionSettings>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -82,12 +88,15 @@ where
                         }
                         "spekeKeyProvider" => {
                             builder = builder.set_speke_key_provider(
-                                crate::protocol_serde::shape_speke_key_provider_cmaf::de_speke_key_provider_cmaf(tokens, _value)?,
+                                crate::protocol_serde::shape_speke_key_provider_cmaf::de_speke_key_provider_cmaf(tokens, _value, depth + 1)?,
                             );
                         }
                         "staticKeyProvider" => {
-                            builder = builder
-                                .set_static_key_provider(crate::protocol_serde::shape_static_key_provider::de_static_key_provider(tokens, _value)?);
+                            builder = builder.set_static_key_provider(crate::protocol_serde::shape_static_key_provider::de_static_key_provider(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "type" => {
                             builder = builder.set_type(

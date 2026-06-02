@@ -2,10 +2,16 @@
 pub(crate) fn de_simulation_app_endpoint_info<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::SimulationAppEndpointInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -23,8 +29,11 @@ where
                             );
                         }
                         "IngressPortMappings" => {
-                            builder = builder
-                                .set_ingress_port_mappings(crate::protocol_serde::shape_app_port_mappings::de_app_port_mappings(tokens, _value)?);
+                            builder = builder.set_ingress_port_mappings(crate::protocol_serde::shape_app_port_mappings::de_app_port_mappings(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

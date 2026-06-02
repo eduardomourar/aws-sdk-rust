@@ -22,7 +22,7 @@ impl crate::operation::get_thing_connectivity_data::builders::GetThingConnectivi
 }
 /// Fluent builder constructing a request to `GetThingConnectivityData`.
 ///
-/// <p>Retrieves the live connectivity status per device.</p>
+/// <p>Retrieves the live connectivity status per device. If a device has never connected to IoT Core or was disconnected for more than 1 hour before fleet indexing's <code>thingConnectivityIndexingMode</code> was enabled, the response will have the <code>connected</code> field set to <code>false</code> with no additional session details.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetThingConnectivityDataFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

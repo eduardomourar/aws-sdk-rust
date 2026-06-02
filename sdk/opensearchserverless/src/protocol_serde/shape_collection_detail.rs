@@ -2,10 +2,16 @@
 pub(crate) fn de_collection_detail<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CollectionDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -79,7 +85,11 @@ where
                             );
                         }
                         "vectorOptions" => {
-                            builder = builder.set_vector_options(crate::protocol_serde::shape_vector_options::de_vector_options(tokens, _value)?);
+                            builder = builder.set_vector_options(crate::protocol_serde::shape_vector_options::de_vector_options(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "createdDate" => {
                             builder = builder.set_created_date(
@@ -110,7 +120,11 @@ where
                             );
                         }
                         "fipsEndpoints" => {
-                            builder = builder.set_fips_endpoints(crate::protocol_serde::shape_fips_endpoints::de_fips_endpoints(tokens, _value)?);
+                            builder = builder.set_fips_endpoints(crate::protocol_serde::shape_fips_endpoints::de_fips_endpoints(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "failureCode" => {
                             builder = builder.set_failure_code(

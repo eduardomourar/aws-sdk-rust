@@ -112,7 +112,11 @@ pub fn ser_distribution_config(
 #[allow(clippy::needless_question_mark)]
 pub fn de_distribution_config(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
 ) -> ::std::result::Result<crate::types::DistributionConfig, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
     #[allow(unused_mut)]
     let mut builder = crate::types::DistributionConfig::builder();
     while let Some(mut tag) = decoder.next_tag() {
@@ -133,7 +137,7 @@ pub fn de_distribution_config(
             s if s.matches("Aliases") /* Aliases com.amazonaws.cloudfront#DistributionConfig$Aliases */ =>  {
                 let var_24 =
                     Some(
-                        crate::protocol_serde::shape_aliases::de_aliases(&mut tag)
+                        crate::protocol_serde::shape_aliases::de_aliases(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -156,7 +160,7 @@ pub fn de_distribution_config(
             s if s.matches("Origins") /* Origins com.amazonaws.cloudfront#DistributionConfig$Origins */ =>  {
                 let var_26 =
                     Some(
-                        crate::protocol_serde::shape_origins::de_origins(&mut tag)
+                        crate::protocol_serde::shape_origins::de_origins(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -166,7 +170,7 @@ pub fn de_distribution_config(
             s if s.matches("OriginGroups") /* OriginGroups com.amazonaws.cloudfront#DistributionConfig$OriginGroups */ =>  {
                 let var_27 =
                     Some(
-                        crate::protocol_serde::shape_origin_groups::de_origin_groups(&mut tag)
+                        crate::protocol_serde::shape_origin_groups::de_origin_groups(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -176,7 +180,7 @@ pub fn de_distribution_config(
             s if s.matches("DefaultCacheBehavior") /* DefaultCacheBehavior com.amazonaws.cloudfront#DistributionConfig$DefaultCacheBehavior */ =>  {
                 let var_28 =
                     Some(
-                        crate::protocol_serde::shape_default_cache_behavior::de_default_cache_behavior(&mut tag)
+                        crate::protocol_serde::shape_default_cache_behavior::de_default_cache_behavior(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -186,7 +190,7 @@ pub fn de_distribution_config(
             s if s.matches("CacheBehaviors") /* CacheBehaviors com.amazonaws.cloudfront#DistributionConfig$CacheBehaviors */ =>  {
                 let var_29 =
                     Some(
-                        crate::protocol_serde::shape_cache_behaviors::de_cache_behaviors(&mut tag)
+                        crate::protocol_serde::shape_cache_behaviors::de_cache_behaviors(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -196,7 +200,7 @@ pub fn de_distribution_config(
             s if s.matches("CustomErrorResponses") /* CustomErrorResponses com.amazonaws.cloudfront#DistributionConfig$CustomErrorResponses */ =>  {
                 let var_30 =
                     Some(
-                        crate::protocol_serde::shape_custom_error_responses::de_custom_error_responses(&mut tag)
+                        crate::protocol_serde::shape_custom_error_responses::de_custom_error_responses(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -219,7 +223,7 @@ pub fn de_distribution_config(
             s if s.matches("Logging") /* Logging com.amazonaws.cloudfront#DistributionConfig$Logging */ =>  {
                 let var_32 =
                     Some(
-                        crate::protocol_serde::shape_logging_config::de_logging_config(&mut tag)
+                        crate::protocol_serde::shape_logging_config::de_logging_config(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -258,7 +262,7 @@ pub fn de_distribution_config(
             s if s.matches("ViewerCertificate") /* ViewerCertificate com.amazonaws.cloudfront#DistributionConfig$ViewerCertificate */ =>  {
                 let var_35 =
                     Some(
-                        crate::protocol_serde::shape_viewer_certificate::de_viewer_certificate(&mut tag)
+                        crate::protocol_serde::shape_viewer_certificate::de_viewer_certificate(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -268,7 +272,7 @@ pub fn de_distribution_config(
             s if s.matches("Restrictions") /* Restrictions com.amazonaws.cloudfront#DistributionConfig$Restrictions */ =>  {
                 let var_36 =
                     Some(
-                        crate::protocol_serde::shape_restrictions::de_restrictions(&mut tag)
+                        crate::protocol_serde::shape_restrictions::de_restrictions(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -361,7 +365,7 @@ pub fn de_distribution_config(
             s if s.matches("TenantConfig") /* TenantConfig com.amazonaws.cloudfront#DistributionConfig$TenantConfig */ =>  {
                 let var_43 =
                     Some(
-                        crate::protocol_serde::shape_tenant_config::de_tenant_config(&mut tag)
+                        crate::protocol_serde::shape_tenant_config::de_tenant_config(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -385,7 +389,7 @@ pub fn de_distribution_config(
             s if s.matches("ViewerMtlsConfig") /* ViewerMtlsConfig com.amazonaws.cloudfront#DistributionConfig$ViewerMtlsConfig */ =>  {
                 let var_45 =
                     Some(
-                        crate::protocol_serde::shape_viewer_mtls_config::de_viewer_mtls_config(&mut tag)
+                        crate::protocol_serde::shape_viewer_mtls_config::de_viewer_mtls_config(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -395,7 +399,7 @@ pub fn de_distribution_config(
             s if s.matches("ConnectionFunctionAssociation") /* ConnectionFunctionAssociation com.amazonaws.cloudfront#DistributionConfig$ConnectionFunctionAssociation */ =>  {
                 let var_46 =
                     Some(
-                        crate::protocol_serde::shape_connection_function_association::de_connection_function_association(&mut tag)
+                        crate::protocol_serde::shape_connection_function_association::de_connection_function_association(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -405,7 +409,7 @@ pub fn de_distribution_config(
             s if s.matches("CacheTagConfig") /* CacheTagConfig com.amazonaws.cloudfront#DistributionConfig$CacheTagConfig */ =>  {
                 let var_47 =
                     Some(
-                        crate::protocol_serde::shape_cache_tag_config::de_cache_tag_config(&mut tag)
+                        crate::protocol_serde::shape_cache_tag_config::de_cache_tag_config(&mut tag, depth + 1)
                         ?
                     )
                 ;

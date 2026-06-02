@@ -131,13 +131,19 @@ pub(crate) fn de_get_control(
 {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Aliases" => {
-                    builder = builder.set_aliases(crate::protocol_serde::shape_control_aliases::de_control_aliases(tokens, _value)?);
+                    builder = builder.set_aliases(crate::protocol_serde::shape_control_aliases::de_control_aliases(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "Arn" => {
                     builder = builder.set_arn(
@@ -167,14 +173,24 @@ pub(crate) fn de_get_control(
                     );
                 }
                 "GovernedProviders" => {
-                    builder = builder.set_governed_providers(crate::protocol_serde::shape_governed_providers::de_governed_providers(tokens, _value)?);
+                    builder = builder.set_governed_providers(crate::protocol_serde::shape_governed_providers::de_governed_providers(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "GovernedResources" => {
-                    builder = builder.set_governed_resources(crate::protocol_serde::shape_governed_resources::de_governed_resources(tokens, _value)?);
+                    builder = builder.set_governed_resources(crate::protocol_serde::shape_governed_resources::de_governed_resources(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "Implementation" => {
                     builder = builder.set_implementation(crate::protocol_serde::shape_implementation_details::de_implementation_details(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "Name" => {
@@ -192,11 +208,17 @@ pub(crate) fn de_get_control(
                     );
                 }
                 "Parameters" => {
-                    builder = builder.set_parameters(crate::protocol_serde::shape_control_parameters::de_control_parameters(tokens, _value)?);
+                    builder = builder.set_parameters(crate::protocol_serde::shape_control_parameters::de_control_parameters(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "RegionConfiguration" => {
                     builder = builder.set_region_configuration(crate::protocol_serde::shape_region_configuration::de_region_configuration(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "Severity" => {

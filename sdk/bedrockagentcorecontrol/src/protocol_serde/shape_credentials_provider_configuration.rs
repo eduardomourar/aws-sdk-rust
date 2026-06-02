@@ -34,10 +34,16 @@ pub fn ser_credentials_provider_configuration(
 pub(crate) fn de_credentials_provider_configuration<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::CredentialsProviderConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -64,7 +70,9 @@ where
                     variant = match key.as_ref() {
                         "coinbaseCDP" => Some(crate::types::CredentialsProviderConfiguration::CoinbaseCdp(
                             crate::protocol_serde::shape_payment_credential_provider_configuration::de_payment_credential_provider_configuration(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'coinbaseCDP' cannot be null")
@@ -72,7 +80,9 @@ where
                         )),
                         "stripePrivy" => Some(crate::types::CredentialsProviderConfiguration::StripePrivy(
                             crate::protocol_serde::shape_payment_credential_provider_configuration::de_payment_credential_provider_configuration(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?
                             .ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'stripePrivy' cannot be null")

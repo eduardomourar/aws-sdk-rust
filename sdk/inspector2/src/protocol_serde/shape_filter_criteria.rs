@@ -561,10 +561,16 @@ pub fn ser_filter_criteria(
 pub(crate) fn de_filter_criteria<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::FilterCriteria>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -573,197 +579,313 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "findingArn" => {
-                            builder =
-                                builder.set_finding_arn(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "findingArn" => {
+                                builder = builder.set_finding_arn(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "awsAccountId" => {
+                                builder = builder.set_aws_account_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "findingType" => {
+                                builder = builder.set_finding_type(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "severity" => {
+                                builder = builder.set_severity(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "firstObservedAt" => {
+                                builder = builder.set_first_observed_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "lastObservedAt" => {
+                                builder = builder.set_last_observed_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "updatedAt" => {
+                                builder = builder.set_updated_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "findingStatus" => {
+                                builder = builder.set_finding_status(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "title" => {
+                                builder = builder.set_title(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "inspectorScore" => {
+                                builder = builder.set_inspector_score(crate::protocol_serde::shape_number_filter_list::de_number_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "resourceType" => {
+                                builder = builder.set_resource_type(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "resourceId" => {
+                                builder = builder.set_resource_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "resourceTags" => {
+                                builder = builder.set_resource_tags(crate::protocol_serde::shape_map_filter_list::de_map_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ec2InstanceImageId" => {
+                                builder = builder.set_ec2_instance_image_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ec2InstanceVpcId" => {
+                                builder = builder.set_ec2_instance_vpc_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ec2InstanceSubnetId" => {
+                                builder = builder.set_ec2_instance_subnet_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImagePushedAt" => {
+                                builder = builder.set_ecr_image_pushed_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImageArchitecture" => {
+                                builder = builder.set_ecr_image_architecture(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImageRegistry" => {
+                                builder = builder.set_ecr_image_registry(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImageRepositoryName" => {
+                                builder = builder.set_ecr_image_repository_name(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "ecrImageTags" => {
+                                builder = builder.set_ecr_image_tags(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImageHash" => {
+                                builder = builder.set_ecr_image_hash(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImageLastInUseAt" => {
+                                builder = builder.set_ecr_image_last_in_use_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ecrImageInUseCount" => {
+                                builder = builder.set_ecr_image_in_use_count(crate::protocol_serde::shape_number_filter_list::de_number_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "portRange" => {
+                                builder = builder.set_port_range(crate::protocol_serde::shape_port_range_filter_list::de_port_range_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "networkProtocol" => {
+                                builder = builder.set_network_protocol(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "componentId" => {
+                                builder = builder.set_component_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "componentType" => {
+                                builder = builder.set_component_type(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "vulnerabilityId" => {
+                                builder = builder.set_vulnerability_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "vulnerabilitySource" => {
+                                builder = builder.set_vulnerability_source(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "vendorSeverity" => {
+                                builder = builder.set_vendor_severity(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "vulnerablePackages" => {
+                                builder = builder.set_vulnerable_packages(crate::protocol_serde::shape_package_filter_list::de_package_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "relatedVulnerabilities" => {
+                                builder = builder.set_related_vulnerabilities(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "fixAvailable" => {
+                                builder = builder.set_fix_available(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "lambdaFunctionName" => {
+                                builder = builder.set_lambda_function_name(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "lambdaFunctionLayers" => {
+                                builder = builder.set_lambda_function_layers(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "lambdaFunctionRuntime" => {
+                                builder = builder.set_lambda_function_runtime(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "lambdaFunctionLastModifiedAt" => {
+                                builder = builder.set_lambda_function_last_modified_at(
+                                    crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "lambdaFunctionExecutionRoleArn" => {
+                                builder = builder.set_lambda_function_execution_role_arn(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "exploitAvailable" => {
+                                builder = builder.set_exploit_available(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "codeVulnerabilityDetectorName" => {
+                                builder = builder.set_code_vulnerability_detector_name(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "codeVulnerabilityDetectorTags" => {
+                                builder = builder.set_code_vulnerability_detector_tags(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "codeVulnerabilityFilePath" => {
+                                builder = builder.set_code_vulnerability_file_path(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "epssScore" => {
+                                builder = builder.set_epss_score(crate::protocol_serde::shape_number_filter_list::de_number_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "codeRepositoryProjectName" => {
+                                builder = builder.set_code_repository_project_name(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "codeRepositoryProviderType" => {
+                                builder = builder.set_code_repository_provider_type(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "awsAccountId" => {
-                            builder =
-                                builder.set_aws_account_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "findingType" => {
-                            builder =
-                                builder.set_finding_type(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "severity" => {
-                            builder = builder.set_severity(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "firstObservedAt" => {
-                            builder =
-                                builder.set_first_observed_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value)?);
-                        }
-                        "lastObservedAt" => {
-                            builder =
-                                builder.set_last_observed_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value)?);
-                        }
-                        "updatedAt" => {
-                            builder = builder.set_updated_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value)?);
-                        }
-                        "findingStatus" => {
-                            builder =
-                                builder.set_finding_status(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "title" => {
-                            builder = builder.set_title(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "inspectorScore" => {
-                            builder =
-                                builder.set_inspector_score(crate::protocol_serde::shape_number_filter_list::de_number_filter_list(tokens, _value)?);
-                        }
-                        "resourceType" => {
-                            builder =
-                                builder.set_resource_type(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "resourceId" => {
-                            builder =
-                                builder.set_resource_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "resourceTags" => {
-                            builder = builder.set_resource_tags(crate::protocol_serde::shape_map_filter_list::de_map_filter_list(tokens, _value)?);
-                        }
-                        "ec2InstanceImageId" => {
-                            builder = builder
-                                .set_ec2_instance_image_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ec2InstanceVpcId" => {
-                            builder = builder
-                                .set_ec2_instance_vpc_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ec2InstanceSubnetId" => {
-                            builder = builder
-                                .set_ec2_instance_subnet_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ecrImagePushedAt" => {
-                            builder =
-                                builder.set_ecr_image_pushed_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value)?);
-                        }
-                        "ecrImageArchitecture" => {
-                            builder = builder
-                                .set_ecr_image_architecture(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ecrImageRegistry" => {
-                            builder = builder
-                                .set_ecr_image_registry(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ecrImageRepositoryName" => {
-                            builder = builder.set_ecr_image_repository_name(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
-                                tokens, _value,
-                            )?);
-                        }
-                        "ecrImageTags" => {
-                            builder =
-                                builder.set_ecr_image_tags(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ecrImageHash" => {
-                            builder =
-                                builder.set_ecr_image_hash(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "ecrImageLastInUseAt" => {
-                            builder = builder
-                                .set_ecr_image_last_in_use_at(crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value)?);
-                        }
-                        "ecrImageInUseCount" => {
-                            builder = builder
-                                .set_ecr_image_in_use_count(crate::protocol_serde::shape_number_filter_list::de_number_filter_list(tokens, _value)?);
-                        }
-                        "portRange" => {
-                            builder = builder.set_port_range(crate::protocol_serde::shape_port_range_filter_list::de_port_range_filter_list(
-                                tokens, _value,
-                            )?);
-                        }
-                        "networkProtocol" => {
-                            builder =
-                                builder.set_network_protocol(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "componentId" => {
-                            builder =
-                                builder.set_component_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "componentType" => {
-                            builder =
-                                builder.set_component_type(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "vulnerabilityId" => {
-                            builder =
-                                builder.set_vulnerability_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "vulnerabilitySource" => {
-                            builder = builder
-                                .set_vulnerability_source(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "vendorSeverity" => {
-                            builder =
-                                builder.set_vendor_severity(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "vulnerablePackages" => {
-                            builder = builder
-                                .set_vulnerable_packages(crate::protocol_serde::shape_package_filter_list::de_package_filter_list(tokens, _value)?);
-                        }
-                        "relatedVulnerabilities" => {
-                            builder = builder
-                                .set_related_vulnerabilities(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "fixAvailable" => {
-                            builder =
-                                builder.set_fix_available(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "lambdaFunctionName" => {
-                            builder = builder
-                                .set_lambda_function_name(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "lambdaFunctionLayers" => {
-                            builder = builder
-                                .set_lambda_function_layers(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "lambdaFunctionRuntime" => {
-                            builder = builder
-                                .set_lambda_function_runtime(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "lambdaFunctionLastModifiedAt" => {
-                            builder = builder.set_lambda_function_last_modified_at(
-                                crate::protocol_serde::shape_date_filter_list::de_date_filter_list(tokens, _value)?,
-                            );
-                        }
-                        "lambdaFunctionExecutionRoleArn" => {
-                            builder = builder.set_lambda_function_execution_role_arn(
-                                crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?,
-                            );
-                        }
-                        "exploitAvailable" => {
-                            builder = builder
-                                .set_exploit_available(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?);
-                        }
-                        "codeVulnerabilityDetectorName" => {
-                            builder = builder.set_code_vulnerability_detector_name(
-                                crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?,
-                            );
-                        }
-                        "codeVulnerabilityDetectorTags" => {
-                            builder = builder.set_code_vulnerability_detector_tags(
-                                crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?,
-                            );
-                        }
-                        "codeVulnerabilityFilePath" => {
-                            builder = builder.set_code_vulnerability_file_path(
-                                crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?,
-                            );
-                        }
-                        "epssScore" => {
-                            builder = builder.set_epss_score(crate::protocol_serde::shape_number_filter_list::de_number_filter_list(tokens, _value)?);
-                        }
-                        "codeRepositoryProjectName" => {
-                            builder = builder.set_code_repository_project_name(
-                                crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?,
-                            );
-                        }
-                        "codeRepositoryProviderType" => {
-                            builder = builder.set_code_repository_provider_type(
-                                crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value)?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

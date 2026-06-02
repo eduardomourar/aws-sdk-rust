@@ -46,10 +46,16 @@ pub fn ser_linked_account_o_auth2(
 pub(crate) fn de_linked_account_o_auth2<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::LinkedAccountOAuth2>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
@@ -75,27 +81,27 @@ where
                     }
                     variant = match key.as_ref() {
                         "google" => Some(crate::types::LinkedAccountOAuth2::Google(
-                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'google' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'google' cannot be null"),
+                            )?,
                         )),
                         "apple" => Some(crate::types::LinkedAccountOAuth2::Apple(
-                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value)?
+                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'apple' cannot be null"))?,
                         )),
                         "x" => Some(crate::types::LinkedAccountOAuth2::X(
-                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value)?
+                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'x' cannot be null"))?,
                         )),
                         "telegram" => Some(crate::types::LinkedAccountOAuth2::Telegram(
-                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'telegram' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'telegram' cannot be null"),
+                            )?,
                         )),
                         "github" => Some(crate::types::LinkedAccountOAuth2::Github(
-                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'github' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_o_auth2_authentication::de_o_auth2_authentication(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'github' cannot be null"),
+                            )?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

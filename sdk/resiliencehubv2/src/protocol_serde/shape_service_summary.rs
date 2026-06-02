@@ -2,10 +2,16 @@
 pub(crate) fn de_service_summary<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::ServiceSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -31,11 +37,13 @@ where
                         }
                         "associatedSystems" => {
                             builder = builder.set_associated_systems(crate::protocol_serde::shape_associated_system_list::de_associated_system_list(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "regions" => {
-                            builder = builder.set_regions(crate::protocol_serde::shape_region_list::de_region_list(tokens, _value)?);
+                            builder = builder.set_regions(crate::protocol_serde::shape_region_list::de_region_list(tokens, _value, depth + 1)?);
                         }
                         "policyArn" => {
                             builder = builder.set_policy_arn(
@@ -67,11 +75,12 @@ where
                         }
                         "dependencyDiscovery" => {
                             builder = builder.set_dependency_discovery(
-                                crate::protocol_serde::shape_dependency_discovery_config::de_dependency_discovery_config(tokens, _value)?,
+                                crate::protocol_serde::shape_dependency_discovery_config::de_dependency_discovery_config(tokens, _value, depth + 1)?,
                             );
                         }
                         "achievability" => {
-                            builder = builder.set_achievability(crate::protocol_serde::shape_achievability::de_achievability(tokens, _value)?);
+                            builder =
+                                builder.set_achievability(crate::protocol_serde::shape_achievability::de_achievability(tokens, _value, depth + 1)?);
                         }
                         "organizationId" => {
                             builder = builder.set_organization_id(

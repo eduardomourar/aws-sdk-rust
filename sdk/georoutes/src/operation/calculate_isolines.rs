@@ -192,7 +192,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CalculateIso
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
-                ::std::write!(output, "/isolines").expect("formatting should succeed");
+                ::std::write!(output, "/v2/isolines").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
@@ -254,10 +254,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CalculateIsol
             .ok_or("failed to downcast to CalculateIsolinesInput")?;
 
         let params = crate::config::endpoint::Params::builder()
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)

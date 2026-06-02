@@ -281,6 +281,10 @@ pub(crate) mod shape_create_capacity_reservation_by_splitting;
 
 pub(crate) mod shape_create_capacity_reservation_by_splitting_input;
 
+pub(crate) mod shape_create_capacity_reservation_cancellation_quote;
+
+pub(crate) mod shape_create_capacity_reservation_cancellation_quote_input;
+
 pub(crate) mod shape_create_capacity_reservation_fleet;
 
 pub(crate) mod shape_create_capacity_reservation_fleet_input;
@@ -1154,6 +1158,10 @@ pub(crate) mod shape_describe_capacity_manager_data_exports_input;
 pub(crate) mod shape_describe_capacity_reservation_billing_requests;
 
 pub(crate) mod shape_describe_capacity_reservation_billing_requests_input;
+
+pub(crate) mod shape_describe_capacity_reservation_cancellation_quotes;
+
+pub(crate) mod shape_describe_capacity_reservation_cancellation_quotes_input;
 
 pub(crate) mod shape_describe_capacity_reservation_fleets;
 
@@ -3469,6 +3477,10 @@ pub(crate) mod shape_capacity_reservation;
 
 pub(crate) mod shape_capacity_reservation_billing_request_set;
 
+pub(crate) mod shape_capacity_reservation_cancellation_quote;
+
+pub(crate) mod shape_capacity_reservation_cancellation_quote_response_set;
+
 pub(crate) mod shape_capacity_reservation_fleet_cancellation_state_set;
 
 pub(crate) mod shape_capacity_reservation_fleet_set;
@@ -4449,6 +4461,8 @@ pub(crate) mod shape_cancel_spot_fleet_requests_error_item;
 
 pub(crate) mod shape_cancel_spot_fleet_requests_success_item;
 
+pub(crate) mod shape_cancellation_terms_set;
+
 pub(crate) mod shape_cancelled_spot_instance_request;
 
 pub(crate) mod shape_capacity_allocations;
@@ -4472,6 +4486,8 @@ pub(crate) mod shape_capacity_manager_monitored_tag_key;
 pub(crate) mod shape_capacity_reservation_billing_request;
 
 pub(crate) mod shape_capacity_reservation_commitment_info;
+
+pub(crate) mod shape_capacity_reservation_configuration;
 
 pub(crate) mod shape_capacity_reservation_fleet;
 
@@ -5084,6 +5100,8 @@ pub(crate) mod shape_boot_mode_type_list;
 pub(crate) mod shape_cancel_capacity_reservation_fleet_error;
 
 pub(crate) mod shape_cancel_spot_fleet_requests_error;
+
+pub(crate) mod shape_cancellation_terms;
 
 pub(crate) mod shape_capacity_allocation;
 

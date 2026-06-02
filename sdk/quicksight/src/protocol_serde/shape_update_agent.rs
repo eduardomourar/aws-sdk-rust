@@ -180,6 +180,8 @@ pub(crate) fn de_update_agent(
 {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -208,22 +210,38 @@ pub(crate) fn de_update_agent(
                 }
                 "FailedToAddActionConnectors" => {
                     builder = builder.set_failed_to_add_action_connectors(
-                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(tokens, _value)?,
+                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "FailedToAddSpaces" => {
                     builder = builder.set_failed_to_add_spaces(
-                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(tokens, _value)?,
+                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "FailedToRemoveActionConnectors" => {
                     builder = builder.set_failed_to_remove_action_connectors(
-                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(tokens, _value)?,
+                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "FailedToRemoveSpaces" => {
                     builder = builder.set_failed_to_remove_spaces(
-                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(tokens, _value)?,
+                        crate::protocol_serde::shape_failed_to_update_association_list::de_failed_to_update_association_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "RequestId" => {

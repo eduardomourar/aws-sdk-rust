@@ -2,10 +2,16 @@
 pub(crate) fn de_finding<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::Finding>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -72,7 +78,11 @@ where
                             );
                         }
                         "serviceFunctions" => {
-                            builder = builder.set_service_functions(crate::protocol_serde::shape_functions_list::de_functions_list(tokens, _value)?);
+                            builder = builder.set_service_functions(crate::protocol_serde::shape_functions_list::de_functions_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "policyComponent" => {
                             builder = builder.set_policy_component(
@@ -83,19 +93,25 @@ where
                         }
                         "infrastructureAndCodeRecommendations" => {
                             builder = builder.set_infrastructure_and_code_recommendations(
-                                    crate::protocol_serde::shape_infrastructure_and_code_recommendations_list::de_infrastructure_and_code_recommendations_list(tokens, _value)?
+                                    crate::protocol_serde::shape_infrastructure_and_code_recommendations_list::de_infrastructure_and_code_recommendations_list(tokens, _value, depth + 1)?
                                 );
                         }
                         "observabilityRecommendations" => {
                             builder = builder.set_observability_recommendations(
                                 crate::protocol_serde::shape_observability_recommendations_list::de_observability_recommendations_list(
-                                    tokens, _value,
+                                    tokens,
+                                    _value,
+                                    depth + 1,
                                 )?,
                             );
                         }
                         "testingRecommendations" => {
                             builder = builder.set_testing_recommendations(
-                                crate::protocol_serde::shape_testing_recommendations_list::de_testing_recommendations_list(tokens, _value)?,
+                                crate::protocol_serde::shape_testing_recommendations_list::de_testing_recommendations_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         "updatedAt" => {

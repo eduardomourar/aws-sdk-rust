@@ -120,6 +120,8 @@ pub(crate) fn de_get_gateway(
 {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -127,7 +129,7 @@ pub(crate) fn de_get_gateway(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "authorizerConfiguration" => {
                     builder = builder.set_authorizer_configuration(
-                        crate::protocol_serde::shape_authorizer_configuration::de_authorizer_configuration(tokens, _value)?,
+                        crate::protocol_serde::shape_authorizer_configuration::de_authorizer_configuration(tokens, _value, depth + 1)?,
                     );
                 }
                 "authorizerType" => {
@@ -180,7 +182,11 @@ pub(crate) fn de_get_gateway(
                 }
                 "interceptorConfigurations" => {
                     builder = builder.set_interceptor_configurations(
-                        crate::protocol_serde::shape_gateway_interceptor_configurations::de_gateway_interceptor_configurations(tokens, _value)?,
+                        crate::protocol_serde::shape_gateway_interceptor_configurations::de_gateway_interceptor_configurations(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "kmsKeyArn" => {
@@ -199,12 +205,16 @@ pub(crate) fn de_get_gateway(
                 }
                 "policyEngineConfiguration" => {
                     builder = builder.set_policy_engine_configuration(
-                        crate::protocol_serde::shape_gateway_policy_engine_configuration::de_gateway_policy_engine_configuration(tokens, _value)?,
+                        crate::protocol_serde::shape_gateway_policy_engine_configuration::de_gateway_policy_engine_configuration(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "protocolConfiguration" => {
                     builder = builder.set_protocol_configuration(
-                        crate::protocol_serde::shape_gateway_protocol_configuration::de_gateway_protocol_configuration(tokens, _value)?,
+                        crate::protocol_serde::shape_gateway_protocol_configuration::de_gateway_protocol_configuration(tokens, _value, depth + 1)?,
                     );
                 }
                 "protocolType" => {
@@ -229,7 +239,7 @@ pub(crate) fn de_get_gateway(
                     );
                 }
                 "statusReasons" => {
-                    builder = builder.set_status_reasons(crate::protocol_serde::shape_status_reasons::de_status_reasons(tokens, _value)?);
+                    builder = builder.set_status_reasons(crate::protocol_serde::shape_status_reasons::de_status_reasons(tokens, _value, depth + 1)?);
                 }
                 "updatedAt" => {
                     builder = builder.set_updated_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -239,7 +249,7 @@ pub(crate) fn de_get_gateway(
                 }
                 "workloadIdentityDetails" => {
                     builder = builder.set_workload_identity_details(
-                        crate::protocol_serde::shape_workload_identity_details::de_workload_identity_details(tokens, _value)?,
+                        crate::protocol_serde::shape_workload_identity_details::de_workload_identity_details(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

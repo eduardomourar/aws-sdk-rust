@@ -2,10 +2,16 @@
 pub(crate) fn de_indexing_filter<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
+    depth: u32,
 ) -> ::std::result::Result<Option<crate::types::IndexingFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
+    }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
@@ -17,17 +23,22 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "namedShadowNames" => {
                             builder = builder.set_named_shadow_names(
-                                crate::protocol_serde::shape_named_shadow_names_filter::de_named_shadow_names_filter(tokens, _value)?,
+                                crate::protocol_serde::shape_named_shadow_names_filter::de_named_shadow_names_filter(tokens, _value, depth + 1)?,
                             );
                         }
                         "geoLocations" => {
                             builder = builder.set_geo_locations(crate::protocol_serde::shape_geo_locations_filter::de_geo_locations_filter(
-                                tokens, _value,
+                                tokens,
+                                _value,
+                                depth + 1,
                             )?);
                         }
                         "connectivity" => {
-                            builder =
-                                builder.set_connectivity(crate::protocol_serde::shape_connectivity_filter::de_connectivity_filter(tokens, _value)?);
+                            builder = builder.set_connectivity(crate::protocol_serde::shape_connectivity_filter::de_connectivity_filter(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

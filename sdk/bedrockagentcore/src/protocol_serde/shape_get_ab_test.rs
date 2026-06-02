@@ -134,6 +134,8 @@ pub(crate) fn de_get_ab_test(
 ) -> ::std::result::Result<crate::operation::get_ab_test::builders::GetAbTestOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
     ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
     loop {
         match tokens.next().transpose()? {
@@ -174,11 +176,17 @@ pub(crate) fn de_get_ab_test(
                     );
                 }
                 "errorDetails" => {
-                    builder = builder.set_error_details(crate::protocol_serde::shape_error_details_list::de_error_details_list(tokens, _value)?);
+                    builder = builder.set_error_details(crate::protocol_serde::shape_error_details_list::de_error_details_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "evaluationConfig" => {
                     builder = builder.set_evaluation_config(crate::protocol_serde::shape_ab_test_evaluation_config::de_ab_test_evaluation_config(
-                        tokens, _value,
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "executionStatus" => {
@@ -196,7 +204,7 @@ pub(crate) fn de_get_ab_test(
                     );
                 }
                 "gatewayFilter" => {
-                    builder = builder.set_gateway_filter(crate::protocol_serde::shape_gateway_filter::de_gateway_filter(tokens, _value)?);
+                    builder = builder.set_gateway_filter(crate::protocol_serde::shape_gateway_filter::de_gateway_filter(tokens, _value, depth + 1)?);
                 }
                 "maxDurationExpiresAt" => {
                     builder = builder.set_max_duration_expires_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -212,7 +220,11 @@ pub(crate) fn de_get_ab_test(
                     );
                 }
                 "results" => {
-                    builder = builder.set_results(crate::protocol_serde::shape_ab_test_results::de_ab_test_results(tokens, _value)?);
+                    builder = builder.set_results(crate::protocol_serde::shape_ab_test_results::de_ab_test_results(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "roleArn" => {
                     builder = builder.set_role_arn(
@@ -247,7 +259,7 @@ pub(crate) fn de_get_ab_test(
                     )?);
                 }
                 "variants" => {
-                    builder = builder.set_variants(crate::protocol_serde::shape_variant_list::de_variant_list(tokens, _value)?);
+                    builder = builder.set_variants(crate::protocol_serde::shape_variant_list::de_variant_list(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

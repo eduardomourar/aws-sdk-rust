@@ -177,6 +177,10 @@ pub(crate) mod shape_s3_report_output_configuration;
 
 pub(crate) mod shape_arc_routing_control_configuration;
 
+pub(crate) mod shape_aurora_provisioned_scaling_configuration;
+
+pub(crate) mod shape_aurora_serverless_scaling_configuration;
+
 pub(crate) mod shape_custom_action_lambda_configuration;
 
 pub(crate) mod shape_document_db_configuration;
@@ -194,6 +198,8 @@ pub(crate) mod shape_failed_report_output;
 pub(crate) mod shape_global_aurora_configuration;
 
 pub(crate) mod shape_lambda_event_source_mapping_configuration;
+
+pub(crate) mod shape_neptune_global_database_configuration;
 
 pub(crate) mod shape_parallel_execution_block_configuration;
 
@@ -239,6 +245,8 @@ pub(crate) mod shape_lambda_ungraceful;
 
 pub(crate) mod shape_lambdas;
 
+pub(crate) mod shape_neptune_ungraceful;
+
 pub(crate) mod shape_route53_resource_record_set;
 
 pub(crate) mod shape_service;
@@ -259,7 +267,13 @@ pub(crate) mod shape_rds_db_instance_arn_map;
 
 pub(crate) mod shape_region_and_routing_controls;
 
+pub(crate) mod shape_region_aurora_cluster_map;
+
+pub(crate) mod shape_region_aurora_instance_arn_map;
+
 pub(crate) mod shape_region_event_source_mapping_map;
+
+pub(crate) mod shape_region_neptune_cluster_arn_map;
 
 pub(crate) mod shape_route53_resource_record_set_list;
 

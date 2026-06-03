@@ -799,6 +799,8 @@ pub use crate::types::_searchable_contact_attributes::SearchableContactAttribute
 
 pub use crate::types::_searchable_segment_attributes::SearchableSegmentAttributes;
 
+pub use crate::types::_ai_agents_criteria::AiAgentsCriteria;
+
 pub use crate::types::_sortable_field_name::SortableFieldName;
 
 pub use crate::types::_sort_order::SortOrder;
@@ -1221,7 +1223,11 @@ pub use crate::types::_searchable_contact_attributes_criteria::SearchableContact
 
 pub use crate::types::_searchable_segment_attributes_criteria::SearchableSegmentAttributesCriteria;
 
+pub use crate::types::_ai_agent_search_criteria::AiAgentSearchCriteria;
+
 pub use crate::types::_contact_search_summary_segment_attribute_value::ContactSearchSummarySegmentAttributeValue;
+
+pub use crate::types::_contact_search_summary_ai_agent_info::ContactSearchSummaryAiAgentInfo;
 
 pub use crate::types::_condition::Condition;
 
@@ -1451,6 +1457,10 @@ mod _agents_criteria;
 
 mod _ai_agent_info;
 
+mod _ai_agent_search_criteria;
+
+mod _ai_agents_criteria;
+
 mod _ai_use_case;
 
 mod _alias_configuration;
@@ -1656,6 +1666,8 @@ mod _contact_recording_type;
 mod _contact_search_summary;
 
 mod _contact_search_summary_agent_info;
+
+mod _contact_search_summary_ai_agent_info;
 
 mod _contact_search_summary_queue_info;
 

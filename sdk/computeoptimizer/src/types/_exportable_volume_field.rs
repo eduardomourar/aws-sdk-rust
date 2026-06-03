@@ -22,6 +22,7 @@
 ///     ExportableVolumeField::CurrentConfigurationVolumeType => { /* ... */ },
 ///     ExportableVolumeField::CurrentMonthlyPrice => { /* ... */ },
 ///     ExportableVolumeField::CurrentPerformanceRisk => { /* ... */ },
+///     ExportableVolumeField::EffectiveRecommendationPreferencesLookbackPeriod => { /* ... */ },
 ///     ExportableVolumeField::EffectiveRecommendationPreferencesSavingsEstimationMode => { /* ... */ },
 ///     ExportableVolumeField::Finding => { /* ... */ },
 ///     ExportableVolumeField::LastRefreshTimestamp => { /* ... */ },
@@ -96,6 +97,8 @@ pub enum ExportableVolumeField {
     #[allow(missing_docs)] // documentation missing in model
     CurrentPerformanceRisk,
     #[allow(missing_docs)] // documentation missing in model
+    EffectiveRecommendationPreferencesLookbackPeriod,
+    #[allow(missing_docs)] // documentation missing in model
     EffectiveRecommendationPreferencesSavingsEstimationMode,
     #[allow(missing_docs)] // documentation missing in model
     Finding,
@@ -162,6 +165,7 @@ impl ::std::convert::From<&str> for ExportableVolumeField {
             "CurrentConfigurationVolumeType" => ExportableVolumeField::CurrentConfigurationVolumeType,
             "CurrentMonthlyPrice" => ExportableVolumeField::CurrentMonthlyPrice,
             "CurrentPerformanceRisk" => ExportableVolumeField::CurrentPerformanceRisk,
+            "EffectiveRecommendationPreferencesLookBackPeriod" => ExportableVolumeField::EffectiveRecommendationPreferencesLookbackPeriod,
             "EffectiveRecommendationPreferencesSavingsEstimationMode" => {
                 ExportableVolumeField::EffectiveRecommendationPreferencesSavingsEstimationMode
             }
@@ -224,6 +228,7 @@ impl ExportableVolumeField {
             ExportableVolumeField::CurrentConfigurationVolumeType => "CurrentConfigurationVolumeType",
             ExportableVolumeField::CurrentMonthlyPrice => "CurrentMonthlyPrice",
             ExportableVolumeField::CurrentPerformanceRisk => "CurrentPerformanceRisk",
+            ExportableVolumeField::EffectiveRecommendationPreferencesLookbackPeriod => "EffectiveRecommendationPreferencesLookBackPeriod",
             ExportableVolumeField::EffectiveRecommendationPreferencesSavingsEstimationMode => {
                 "EffectiveRecommendationPreferencesSavingsEstimationMode"
             }
@@ -277,6 +282,7 @@ impl ExportableVolumeField {
             "CurrentConfigurationVolumeType",
             "CurrentMonthlyPrice",
             "CurrentPerformanceRisk",
+            "EffectiveRecommendationPreferencesLookBackPeriod",
             "EffectiveRecommendationPreferencesSavingsEstimationMode",
             "Finding",
             "LastRefreshTimestamp",
@@ -335,6 +341,7 @@ impl ::std::fmt::Display for ExportableVolumeField {
             ExportableVolumeField::CurrentConfigurationVolumeType => write!(f, "CurrentConfigurationVolumeType"),
             ExportableVolumeField::CurrentMonthlyPrice => write!(f, "CurrentMonthlyPrice"),
             ExportableVolumeField::CurrentPerformanceRisk => write!(f, "CurrentPerformanceRisk"),
+            ExportableVolumeField::EffectiveRecommendationPreferencesLookbackPeriod => write!(f, "EffectiveRecommendationPreferencesLookBackPeriod"),
             ExportableVolumeField::EffectiveRecommendationPreferencesSavingsEstimationMode => {
                 write!(f, "EffectiveRecommendationPreferencesSavingsEstimationMode")
             }

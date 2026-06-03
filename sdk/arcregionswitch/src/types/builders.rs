@@ -63,6 +63,12 @@ pub use crate::types::_rds_create_cross_region_replica_configuration::RdsCreateC
 
 pub use crate::types::_lambda_event_source_mapping_configuration::LambdaEventSourceMappingConfigurationBuilder;
 
+pub use crate::types::_aurora_serverless_scaling_configuration::AuroraServerlessScalingConfigurationBuilder;
+
+pub use crate::types::_aurora_provisioned_scaling_configuration::AuroraProvisionedScalingConfigurationBuilder;
+
+pub use crate::types::_neptune_global_database_configuration::NeptuneGlobalDatabaseConfigurationBuilder;
+
 pub use crate::types::_lambda_ungraceful::LambdaUngracefulBuilder;
 
 pub use crate::types::_ec2_ungraceful::Ec2UngracefulBuilder;
@@ -78,6 +84,8 @@ pub use crate::types::_eks_resource_scaling_ungraceful::EksResourceScalingUngrac
 pub use crate::types::_document_db_ungraceful::DocumentDbUngracefulBuilder;
 
 pub use crate::types::_lambda_event_source_mapping_ungraceful::LambdaEventSourceMappingUngracefulBuilder;
+
+pub use crate::types::_neptune_ungraceful::NeptuneUngracefulBuilder;
 
 pub use crate::types::_lambdas::LambdasBuilder;
 

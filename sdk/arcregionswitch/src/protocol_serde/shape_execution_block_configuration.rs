@@ -63,6 +63,18 @@ pub fn ser_execution_block_configuration(
             encoder.str("lambdaEventSourceMappingConfig");
             crate::protocol_serde::shape_lambda_event_source_mapping_configuration::ser_lambda_event_source_mapping_configuration(encoder, inner)?;
         }
+        crate::types::ExecutionBlockConfiguration::AuroraServerlessScalingConfig(inner) => {
+            encoder.str("auroraServerlessScalingConfig");
+            crate::protocol_serde::shape_aurora_serverless_scaling_configuration::ser_aurora_serverless_scaling_configuration(encoder, inner)?;
+        }
+        crate::types::ExecutionBlockConfiguration::AuroraProvisionedScalingConfig(inner) => {
+            encoder.str("auroraProvisionedScalingConfig");
+            crate::protocol_serde::shape_aurora_provisioned_scaling_configuration::ser_aurora_provisioned_scaling_configuration(encoder, inner)?;
+        }
+        crate::types::ExecutionBlockConfiguration::NeptuneGlobalDatabaseConfig(inner) => {
+            encoder.str("neptuneGlobalDatabaseConfig");
+            crate::protocol_serde::shape_neptune_global_database_configuration::ser_neptune_global_database_configuration(encoder, inner)?;
+        }
         crate::types::ExecutionBlockConfiguration::Unknown => {
             return ::std::result::Result::Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "ExecutionBlockConfiguration",
@@ -136,6 +148,18 @@ pub(crate) fn de_execution_block_configuration(
                     decoder,
                     depth + 1,
                 )?,
+            ),
+            "auroraServerlessScalingConfig" => crate::types::ExecutionBlockConfiguration::AuroraServerlessScalingConfig(
+                crate::protocol_serde::shape_aurora_serverless_scaling_configuration::de_aurora_serverless_scaling_configuration(decoder, depth + 1)?,
+            ),
+            "auroraProvisionedScalingConfig" => crate::types::ExecutionBlockConfiguration::AuroraProvisionedScalingConfig(
+                crate::protocol_serde::shape_aurora_provisioned_scaling_configuration::de_aurora_provisioned_scaling_configuration(
+                    decoder,
+                    depth + 1,
+                )?,
+            ),
+            "neptuneGlobalDatabaseConfig" => crate::types::ExecutionBlockConfiguration::NeptuneGlobalDatabaseConfig(
+                crate::protocol_serde::shape_neptune_global_database_configuration::de_neptune_global_database_configuration(decoder, depth + 1)?,
             ),
             _ => {
                 decoder.skip()?;

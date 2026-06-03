@@ -105,6 +105,8 @@ pub use crate::types::_ecr_rescan_duration_state::EcrRescanDurationStateBuilder;
 
 pub use crate::types::_ec2_scan_mode_state::Ec2ScanModeStateBuilder;
 
+pub use crate::types::_vm_scanner_state::VmScannerStateBuilder;
+
 pub use crate::types::_permission::PermissionBuilder;
 
 pub use crate::types::_cis_scan_configuration::CisScanConfigurationBuilder;

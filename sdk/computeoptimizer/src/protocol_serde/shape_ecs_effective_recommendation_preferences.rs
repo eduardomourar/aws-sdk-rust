@@ -22,6 +22,9 @@ pub(crate) fn de_ecs_effective_recommendation_preferences(
                     crate::protocol_serde::shape_ecs_savings_estimation_mode::de_ecs_savings_estimation_mode(decoder, depth + 1)?,
                 )))
             })?,
+            "lookBackPeriod" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
+                Ok(builder.set_look_back_period(Some(decoder.string().map(|s| crate::types::LookBackPeriodPreference::from(s.as_ref()))?)))
+            })?,
             _ => {
                 decoder.skip()?;
                 builder

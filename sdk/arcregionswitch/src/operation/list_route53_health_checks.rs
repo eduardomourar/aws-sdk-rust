@@ -279,6 +279,8 @@ pub enum ListRoute53HealthChecksError {
     /// <p>You do not have sufficient access to perform this action.</p>
     /// <p>HTTP Status Code: 403</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
+    /// <p>The request processing has an invalid argument.</p>
+    IllegalArgumentException(crate::types::error::IllegalArgumentException),
     /// <p>The request processing has failed because of an unknown error, exception, or failure.</p>
     /// <p>HTTP Status Code: 500</p>
     InternalServerException(crate::types::error::InternalServerException),
@@ -319,6 +321,7 @@ impl ListRoute53HealthChecksError {
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::IllegalArgumentException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
@@ -327,6 +330,10 @@ impl ListRoute53HealthChecksError {
     /// Returns `true` if the error kind is `ListRoute53HealthChecksError::AccessDeniedException`.
     pub fn is_access_denied_exception(&self) -> bool {
         matches!(self, Self::AccessDeniedException(_))
+    }
+    /// Returns `true` if the error kind is `ListRoute53HealthChecksError::IllegalArgumentException`.
+    pub fn is_illegal_argument_exception(&self) -> bool {
+        matches!(self, Self::IllegalArgumentException(_))
     }
     /// Returns `true` if the error kind is `ListRoute53HealthChecksError::InternalServerException`.
     pub fn is_internal_server_exception(&self) -> bool {
@@ -341,6 +348,7 @@ impl ::std::error::Error for ListRoute53HealthChecksError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::AccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
+            Self::IllegalArgumentException(_inner) => ::std::option::Option::Some(_inner),
             Self::InternalServerException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
@@ -351,6 +359,7 @@ impl ::std::fmt::Display for ListRoute53HealthChecksError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::AccessDeniedException(_inner) => _inner.fmt(f),
+            Self::IllegalArgumentException(_inner) => _inner.fmt(f),
             Self::InternalServerException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
@@ -375,6 +384,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListRoute53He
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::IllegalArgumentException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InternalServerException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,

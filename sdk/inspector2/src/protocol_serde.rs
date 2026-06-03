@@ -639,6 +639,8 @@ pub(crate) mod shape_usage_total;
 
 pub(crate) mod shape_validation_exception_field;
 
+pub(crate) mod shape_vm_scanner_state;
+
 pub(crate) mod shape_vulnerability;
 
 pub(crate) mod shape_weekly_schedule;

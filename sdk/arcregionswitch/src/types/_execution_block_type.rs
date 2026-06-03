@@ -15,6 +15,8 @@
 ///     ExecutionBlockType::RegionSwitch => { /* ... */ },
 ///     ExecutionBlockType::RoutingControl => { /* ... */ },
 ///     ExecutionBlockType::Aurora => { /* ... */ },
+///     ExecutionBlockType::AuroraProvisionedScaling => { /* ... */ },
+///     ExecutionBlockType::AuroraServerlessScaling => { /* ... */ },
 ///     ExecutionBlockType::CustomActionLambda => { /* ... */ },
 ///     ExecutionBlockType::Documentdb => { /* ... */ },
 ///     ExecutionBlockType::Ec2Asg => { /* ... */ },
@@ -22,6 +24,7 @@
 ///     ExecutionBlockType::EksResourceScaling => { /* ... */ },
 ///     ExecutionBlockType::LambdaEventSourceMapping => { /* ... */ },
 ///     ExecutionBlockType::ExecutionApproval => { /* ... */ },
+///     ExecutionBlockType::Neptune => { /* ... */ },
 ///     ExecutionBlockType::Parallel => { /* ... */ },
 ///     ExecutionBlockType::RdsCreateCrossRegionReplica => { /* ... */ },
 ///     ExecutionBlockType::RdsPromoteReadReplica => { /* ... */ },
@@ -61,6 +64,10 @@ pub enum ExecutionBlockType {
     #[allow(missing_docs)] // documentation missing in model
     Aurora,
     #[allow(missing_docs)] // documentation missing in model
+    AuroraProvisionedScaling,
+    #[allow(missing_docs)] // documentation missing in model
+    AuroraServerlessScaling,
+    #[allow(missing_docs)] // documentation missing in model
     CustomActionLambda,
     #[allow(missing_docs)] // documentation missing in model
     Documentdb,
@@ -74,6 +81,8 @@ pub enum ExecutionBlockType {
     LambdaEventSourceMapping,
     #[allow(missing_docs)] // documentation missing in model
     ExecutionApproval,
+    #[allow(missing_docs)] // documentation missing in model
+    Neptune,
     #[allow(missing_docs)] // documentation missing in model
     Parallel,
     #[allow(missing_docs)] // documentation missing in model
@@ -92,6 +101,8 @@ impl ::std::convert::From<&str> for ExecutionBlockType {
             "ARCRegionSwitchPlan" => ExecutionBlockType::RegionSwitch,
             "ARCRoutingControl" => ExecutionBlockType::RoutingControl,
             "AuroraGlobalDatabase" => ExecutionBlockType::Aurora,
+            "AuroraProvisionedScaling" => ExecutionBlockType::AuroraProvisionedScaling,
+            "AuroraServerlessScaling" => ExecutionBlockType::AuroraServerlessScaling,
             "CustomActionLambda" => ExecutionBlockType::CustomActionLambda,
             "DocumentDb" => ExecutionBlockType::Documentdb,
             "EC2AutoScaling" => ExecutionBlockType::Ec2Asg,
@@ -99,6 +110,7 @@ impl ::std::convert::From<&str> for ExecutionBlockType {
             "EKSResourceScaling" => ExecutionBlockType::EksResourceScaling,
             "LambdaEventSourceMapping" => ExecutionBlockType::LambdaEventSourceMapping,
             "ManualApproval" => ExecutionBlockType::ExecutionApproval,
+            "NeptuneGlobalDatabase" => ExecutionBlockType::Neptune,
             "Parallel" => ExecutionBlockType::Parallel,
             "RdsCreateCrossRegionReplica" => ExecutionBlockType::RdsCreateCrossRegionReplica,
             "RdsPromoteReadReplica" => ExecutionBlockType::RdsPromoteReadReplica,
@@ -121,6 +133,8 @@ impl ExecutionBlockType {
             ExecutionBlockType::RegionSwitch => "ARCRegionSwitchPlan",
             ExecutionBlockType::RoutingControl => "ARCRoutingControl",
             ExecutionBlockType::Aurora => "AuroraGlobalDatabase",
+            ExecutionBlockType::AuroraProvisionedScaling => "AuroraProvisionedScaling",
+            ExecutionBlockType::AuroraServerlessScaling => "AuroraServerlessScaling",
             ExecutionBlockType::CustomActionLambda => "CustomActionLambda",
             ExecutionBlockType::Documentdb => "DocumentDb",
             ExecutionBlockType::Ec2Asg => "EC2AutoScaling",
@@ -128,6 +142,7 @@ impl ExecutionBlockType {
             ExecutionBlockType::EksResourceScaling => "EKSResourceScaling",
             ExecutionBlockType::LambdaEventSourceMapping => "LambdaEventSourceMapping",
             ExecutionBlockType::ExecutionApproval => "ManualApproval",
+            ExecutionBlockType::Neptune => "NeptuneGlobalDatabase",
             ExecutionBlockType::Parallel => "Parallel",
             ExecutionBlockType::RdsCreateCrossRegionReplica => "RdsCreateCrossRegionReplica",
             ExecutionBlockType::RdsPromoteReadReplica => "RdsPromoteReadReplica",
@@ -141,6 +156,8 @@ impl ExecutionBlockType {
             "ARCRegionSwitchPlan",
             "ARCRoutingControl",
             "AuroraGlobalDatabase",
+            "AuroraProvisionedScaling",
+            "AuroraServerlessScaling",
             "CustomActionLambda",
             "DocumentDb",
             "EC2AutoScaling",
@@ -148,6 +165,7 @@ impl ExecutionBlockType {
             "EKSResourceScaling",
             "LambdaEventSourceMapping",
             "ManualApproval",
+            "NeptuneGlobalDatabase",
             "Parallel",
             "RdsCreateCrossRegionReplica",
             "RdsPromoteReadReplica",
@@ -178,6 +196,8 @@ impl ::std::fmt::Display for ExecutionBlockType {
             ExecutionBlockType::RegionSwitch => write!(f, "ARCRegionSwitchPlan"),
             ExecutionBlockType::RoutingControl => write!(f, "ARCRoutingControl"),
             ExecutionBlockType::Aurora => write!(f, "AuroraGlobalDatabase"),
+            ExecutionBlockType::AuroraProvisionedScaling => write!(f, "AuroraProvisionedScaling"),
+            ExecutionBlockType::AuroraServerlessScaling => write!(f, "AuroraServerlessScaling"),
             ExecutionBlockType::CustomActionLambda => write!(f, "CustomActionLambda"),
             ExecutionBlockType::Documentdb => write!(f, "DocumentDb"),
             ExecutionBlockType::Ec2Asg => write!(f, "EC2AutoScaling"),
@@ -185,6 +205,7 @@ impl ::std::fmt::Display for ExecutionBlockType {
             ExecutionBlockType::EksResourceScaling => write!(f, "EKSResourceScaling"),
             ExecutionBlockType::LambdaEventSourceMapping => write!(f, "LambdaEventSourceMapping"),
             ExecutionBlockType::ExecutionApproval => write!(f, "ManualApproval"),
+            ExecutionBlockType::Neptune => write!(f, "NeptuneGlobalDatabase"),
             ExecutionBlockType::Parallel => write!(f, "Parallel"),
             ExecutionBlockType::RdsCreateCrossRegionReplica => write!(f, "RdsCreateCrossRegionReplica"),
             ExecutionBlockType::RdsPromoteReadReplica => write!(f, "RdsPromoteReadReplica"),

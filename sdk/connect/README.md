@@ -1,11 +1,11 @@
 # aws-sdk-connect
 
-  - [Connect Customer actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
-  - [Connect Customer data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
+  - [Connect Customer Customer actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
+  - [Connect Customer Customer data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
 
-Connect Customer is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.
+Connect Customer Customer engages customers at every touchpoint and creates deeper relationships with AI powered capabilities.
 
-Connect Customer provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.
+Build and manage customer communication experiences. Connect customers to agents, enable intelligent routing, and track performance in real-time.
 
 There are limits to the number of Connect Customer resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see [Connect Customer Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the _Connect Customer Administrator Guide_.
 
@@ -23,7 +23,7 @@ your project, add the following to your **Cargo.toml** file:
 ```toml
 [dependencies]
 aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
-aws-sdk-connect = "1.176.0"
+aws-sdk-connect = "1.177.0"
 tokio = { version = "1", features = ["full"] }
 ```
 

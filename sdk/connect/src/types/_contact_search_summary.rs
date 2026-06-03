@@ -37,6 +37,8 @@ pub struct ContactSearchSummary {
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>Additional routing information for contacts created in ACGR instances.</p>
     pub global_resiliency_metadata: ::std::option::Option<crate::types::GlobalResiliencyMetadata>,
+    /// <p>Information about the AI agents involved in the contact.</p>
+    pub ai_agent_info: ::std::option::Option<::std::vec::Vec<crate::types::ContactSearchSummaryAiAgentInfo>>,
 }
 impl ContactSearchSummary {
     /// <p>The Amazon Resource Name (ARN) of the contact.</p>
@@ -105,6 +107,12 @@ impl ContactSearchSummary {
     pub fn global_resiliency_metadata(&self) -> ::std::option::Option<&crate::types::GlobalResiliencyMetadata> {
         self.global_resiliency_metadata.as_ref()
     }
+    /// <p>Information about the AI agents involved in the contact.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ai_agent_info.is_none()`.
+    pub fn ai_agent_info(&self) -> &[crate::types::ContactSearchSummaryAiAgentInfo] {
+        self.ai_agent_info.as_deref().unwrap_or_default()
+    }
 }
 impl ::std::fmt::Debug for ContactSearchSummary {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -125,6 +133,7 @@ impl ::std::fmt::Debug for ContactSearchSummary {
         formatter.field("routing_criteria", &self.routing_criteria);
         formatter.field("tags", &self.tags);
         formatter.field("global_resiliency_metadata", &self.global_resiliency_metadata);
+        formatter.field("ai_agent_info", &self.ai_agent_info);
         formatter.finish()
     }
 }
@@ -156,6 +165,7 @@ pub struct ContactSearchSummaryBuilder {
     pub(crate) routing_criteria: ::std::option::Option<crate::types::RoutingCriteria>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) global_resiliency_metadata: ::std::option::Option<crate::types::GlobalResiliencyMetadata>,
+    pub(crate) ai_agent_info: ::std::option::Option<::std::vec::Vec<crate::types::ContactSearchSummaryAiAgentInfo>>,
 }
 impl ContactSearchSummaryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the contact.</p>
@@ -403,6 +413,26 @@ impl ContactSearchSummaryBuilder {
     pub fn get_global_resiliency_metadata(&self) -> &::std::option::Option<crate::types::GlobalResiliencyMetadata> {
         &self.global_resiliency_metadata
     }
+    /// Appends an item to `ai_agent_info`.
+    ///
+    /// To override the contents of this collection use [`set_ai_agent_info`](Self::set_ai_agent_info).
+    ///
+    /// <p>Information about the AI agents involved in the contact.</p>
+    pub fn ai_agent_info(mut self, input: crate::types::ContactSearchSummaryAiAgentInfo) -> Self {
+        let mut v = self.ai_agent_info.unwrap_or_default();
+        v.push(input);
+        self.ai_agent_info = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Information about the AI agents involved in the contact.</p>
+    pub fn set_ai_agent_info(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ContactSearchSummaryAiAgentInfo>>) -> Self {
+        self.ai_agent_info = input;
+        self
+    }
+    /// <p>Information about the AI agents involved in the contact.</p>
+    pub fn get_ai_agent_info(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContactSearchSummaryAiAgentInfo>> {
+        &self.ai_agent_info
+    }
     /// Consumes the builder and constructs a [`ContactSearchSummary`](crate::types::ContactSearchSummary).
     pub fn build(self) -> crate::types::ContactSearchSummary {
         crate::types::ContactSearchSummary {
@@ -422,6 +452,7 @@ impl ContactSearchSummaryBuilder {
             routing_criteria: self.routing_criteria,
             tags: self.tags,
             global_resiliency_metadata: self.global_resiliency_metadata,
+            ai_agent_info: self.ai_agent_info,
         }
     }
 }
@@ -444,6 +475,7 @@ impl ::std::fmt::Debug for ContactSearchSummaryBuilder {
         formatter.field("routing_criteria", &self.routing_criteria);
         formatter.field("tags", &self.tags);
         formatter.field("global_resiliency_metadata", &self.global_resiliency_metadata);
+        formatter.field("ai_agent_info", &self.ai_agent_info);
         formatter.finish()
     }
 }

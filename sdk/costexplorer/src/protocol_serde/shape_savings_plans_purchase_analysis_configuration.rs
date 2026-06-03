@@ -60,6 +60,13 @@ where
                                     depth + 1,
                                 )?);
                             }
+                            "SavingsPlansTargetCoverage" => {
+                                builder = builder.set_savings_plans_target_coverage(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i32::try_from)
+                                        .transpose()?,
+                                );
+                            }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
@@ -121,6 +128,12 @@ pub fn ser_savings_plans_purchase_analysis_configuration(
         let mut object_10 = object.key("LookBackTimePeriod").start_object();
         crate::protocol_serde::shape_date_interval::ser_date_interval(&mut object_10, var_9)?;
         object_10.finish();
+    }
+    if let Some(var_11) = &input.savings_plans_target_coverage {
+        object.key("SavingsPlansTargetCoverage").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_11).into()),
+        );
     }
     Ok(())
 }

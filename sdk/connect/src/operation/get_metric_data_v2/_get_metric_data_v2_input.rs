@@ -36,7 +36,7 @@ pub struct GetMetricDataV2Input {
     /// <p>Filtering is an operation that selects records that match a set of specified criteria. By narrowing the dataset before aggregation, filters ensure that only relevant records are included in the computation.</p>
     /// <p><b>Filter keys</b></p>
     /// <p>The following are valid filter keys for a <code>GetMetricDataV2</code> request:</p>
-    /// <p><code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
+    /// <p><code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
     /// <p>The following filter keys correspond to Connect Customer resources and are used for authorizing requests. A <code>GetMetricDataV2</code> request requires at least one of these filters:</p>
     /// <p><code>QUEUE</code>, <code>ROUTING_PROFILE</code>, <code>AGENT</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>, <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>, <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>, <code>CAMPAIGN</code>, <code>EVALUATION_FORM</code>, <code>EVALUATOR_ID</code></p>
     /// <p>You can use up to 5 filter keys in a single request, and up to 100 filter values across all filter keys.</p>
@@ -69,7 +69,9 @@ pub struct GetMetricDataV2Input {
     pub filters: ::std::option::Option<::std::vec::Vec<crate::types::FilterV2>>,
     /// <p>The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues.</p>
     /// <p>If no grouping is specified, a summary of all metrics is returned.</p>
-    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p>
+    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_NAME_VERSION</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_NAME_VERSION</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_ARTICLE_NAME</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p><note>
+    /// <p><code>AI_AGENT_NAME_VERSION</code>, <code>AI_PROMPT_NAME_VERSION</code>, and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
+    /// </note>
     /// <p>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</p>
     /// <p>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</p>
     /// <p>Type: Array of strings</p>
@@ -326,7 +328,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Seconds</p>
-    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
+    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time">Average handle time</a></p><note>
     /// <p>Feature is a valid filter but not a valid grouping.</p>
     /// </note>
@@ -344,7 +346,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate">AI Handoff Rate</a></p>
     /// </dd>
     /// <dt>
@@ -352,8 +354,8 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoffs</a></p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoff Count</a></p>
     /// </dd>
     /// <dt>
     /// AI_AGENT_INVOCATION_SUCCESS
@@ -381,7 +383,27 @@ pub struct GetMetricDataV2Input {
     /// <dd>
     /// <p>Unit: Count</p>
     /// <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocations</a></p><note>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocation Count</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful">AI Agent Response Helpful</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_NOT_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful">AI Agent Response Not Helpful</a></p><note>
     /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
     /// </note>
     /// </dd>
@@ -390,7 +412,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate">AI Response Completion Rate</a></p>
     /// </dd>
     /// <dt>
@@ -398,7 +420,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts">AI Involved Contacts</a></p>
     /// </dd>
     /// <dt>
@@ -476,7 +498,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns">Average AI Conversation Turns</a></p>
     /// </dd>
     /// <dt>
@@ -500,6 +522,60 @@ pub struct GetMetricDataV2Input {
     /// </note>
     /// </dd>
     /// <dt>
+    /// AI_TOOL_PARAMETER_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy">AI Tool Parameter Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_SELECTION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy">AI Tool Selection Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_UTILIZATION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy">AI Tool Utilization Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// COMPLETENESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score">Completeness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// FAITHFULNESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score">Faithfulness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// GOAL_SUCCESS_RATE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate">Goal Success Rate</a></p>
+    /// </dd>
+    /// <dt>
     /// KNOWLEDGE_CONTENT_REFERENCES
     /// </dt>
     /// <dd>
@@ -512,7 +588,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate">Proactive Intent Engagement Rate</a></p>
     /// </dd>
     /// <dt>
@@ -520,7 +596,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate">Proactive Intent Response Rate</a></p>
     /// </dd>
     /// <dt>
@@ -528,7 +604,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered">Proactive Intents Answered</a></p>
     /// </dd>
     /// <dt>
@@ -536,7 +612,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected">Proactive Intents Detected</a></p>
     /// </dd>
     /// <dt>
@@ -544,7 +620,7 @@ pub struct GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged">Proactive Intents Engaged</a></p>
     /// </dd>
     /// <dt>
@@ -1440,7 +1516,7 @@ impl GetMetricDataV2Input {
     /// <p>Filtering is an operation that selects records that match a set of specified criteria. By narrowing the dataset before aggregation, filters ensure that only relevant records are included in the computation.</p>
     /// <p><b>Filter keys</b></p>
     /// <p>The following are valid filter keys for a <code>GetMetricDataV2</code> request:</p>
-    /// <p><code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
+    /// <p><code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
     /// <p>The following filter keys correspond to Connect Customer resources and are used for authorizing requests. A <code>GetMetricDataV2</code> request requires at least one of these filters:</p>
     /// <p><code>QUEUE</code>, <code>ROUTING_PROFILE</code>, <code>AGENT</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>, <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>, <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>, <code>CAMPAIGN</code>, <code>EVALUATION_FORM</code>, <code>EVALUATOR_ID</code></p>
     /// <p>You can use up to 5 filter keys in a single request, and up to 100 filter values across all filter keys.</p>
@@ -1477,7 +1553,9 @@ impl GetMetricDataV2Input {
     }
     /// <p>The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues.</p>
     /// <p>If no grouping is specified, a summary of all metrics is returned.</p>
-    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p>
+    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_NAME_VERSION</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_NAME_VERSION</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_ARTICLE_NAME</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p><note>
+    /// <p><code>AI_AGENT_NAME_VERSION</code>, <code>AI_PROMPT_NAME_VERSION</code>, and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
+    /// </note>
     /// <p>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</p>
     /// <p>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</p>
     /// <p>Type: Array of strings</p>
@@ -1738,7 +1816,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Seconds</p>
-    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
+    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time">Average handle time</a></p><note>
     /// <p>Feature is a valid filter but not a valid grouping.</p>
     /// </note>
@@ -1756,7 +1834,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate">AI Handoff Rate</a></p>
     /// </dd>
     /// <dt>
@@ -1764,8 +1842,8 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoffs</a></p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoff Count</a></p>
     /// </dd>
     /// <dt>
     /// AI_AGENT_INVOCATION_SUCCESS
@@ -1793,7 +1871,27 @@ impl GetMetricDataV2Input {
     /// <dd>
     /// <p>Unit: Count</p>
     /// <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocations</a></p><note>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocation Count</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful">AI Agent Response Helpful</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_NOT_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful">AI Agent Response Not Helpful</a></p><note>
     /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
     /// </note>
     /// </dd>
@@ -1802,7 +1900,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate">AI Response Completion Rate</a></p>
     /// </dd>
     /// <dt>
@@ -1810,7 +1908,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts">AI Involved Contacts</a></p>
     /// </dd>
     /// <dt>
@@ -1888,7 +1986,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns">Average AI Conversation Turns</a></p>
     /// </dd>
     /// <dt>
@@ -1912,6 +2010,60 @@ impl GetMetricDataV2Input {
     /// </note>
     /// </dd>
     /// <dt>
+    /// AI_TOOL_PARAMETER_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy">AI Tool Parameter Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_SELECTION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy">AI Tool Selection Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_UTILIZATION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy">AI Tool Utilization Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// COMPLETENESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score">Completeness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// FAITHFULNESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score">Faithfulness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// GOAL_SUCCESS_RATE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate">Goal Success Rate</a></p>
+    /// </dd>
+    /// <dt>
     /// KNOWLEDGE_CONTENT_REFERENCES
     /// </dt>
     /// <dd>
@@ -1924,7 +2076,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate">Proactive Intent Engagement Rate</a></p>
     /// </dd>
     /// <dt>
@@ -1932,7 +2084,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate">Proactive Intent Response Rate</a></p>
     /// </dd>
     /// <dt>
@@ -1940,7 +2092,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered">Proactive Intents Answered</a></p>
     /// </dd>
     /// <dt>
@@ -1948,7 +2100,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected">Proactive Intents Detected</a></p>
     /// </dd>
     /// <dt>
@@ -1956,7 +2108,7 @@ impl GetMetricDataV2Input {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged">Proactive Intents Engaged</a></p>
     /// </dd>
     /// <dt>
@@ -2972,7 +3124,7 @@ impl GetMetricDataV2InputBuilder {
     /// <p>Filtering is an operation that selects records that match a set of specified criteria. By narrowing the dataset before aggregation, filters ensure that only relevant records are included in the computation.</p>
     /// <p><b>Filter keys</b></p>
     /// <p>The following are valid filter keys for a <code>GetMetricDataV2</code> request:</p>
-    /// <p><code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
+    /// <p><code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
     /// <p>The following filter keys correspond to Connect Customer resources and are used for authorizing requests. A <code>GetMetricDataV2</code> request requires at least one of these filters:</p>
     /// <p><code>QUEUE</code>, <code>ROUTING_PROFILE</code>, <code>AGENT</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>, <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>, <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>, <code>CAMPAIGN</code>, <code>EVALUATION_FORM</code>, <code>EVALUATOR_ID</code></p>
     /// <p>You can use up to 5 filter keys in a single request, and up to 100 filter values across all filter keys.</p>
@@ -3011,7 +3163,7 @@ impl GetMetricDataV2InputBuilder {
     /// <p>Filtering is an operation that selects records that match a set of specified criteria. By narrowing the dataset before aggregation, filters ensure that only relevant records are included in the computation.</p>
     /// <p><b>Filter keys</b></p>
     /// <p>The following are valid filter keys for a <code>GetMetricDataV2</code> request:</p>
-    /// <p><code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
+    /// <p><code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
     /// <p>The following filter keys correspond to Connect Customer resources and are used for authorizing requests. A <code>GetMetricDataV2</code> request requires at least one of these filters:</p>
     /// <p><code>QUEUE</code>, <code>ROUTING_PROFILE</code>, <code>AGENT</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>, <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>, <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>, <code>CAMPAIGN</code>, <code>EVALUATION_FORM</code>, <code>EVALUATOR_ID</code></p>
     /// <p>You can use up to 5 filter keys in a single request, and up to 100 filter values across all filter keys.</p>
@@ -3048,7 +3200,7 @@ impl GetMetricDataV2InputBuilder {
     /// <p>Filtering is an operation that selects records that match a set of specified criteria. By narrowing the dataset before aggregation, filters ensure that only relevant records are included in the computation.</p>
     /// <p><b>Filter keys</b></p>
     /// <p>The following are valid filter keys for a <code>GetMetricDataV2</code> request:</p>
-    /// <p><code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
+    /// <p><code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ALIAS</code> | <code>BOT_ID</code> | <code>BOT_INTENT_NAME</code> | <code>BOT_LOCALE</code> | <code>BOT_VERSION</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CASE_STATUS</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>contact/segmentAttributes/connect:ValidationTestType</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> | <code>INITIATING_FLOW</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_EXECUTION_RESULT</code> | <code>TEST_CASE_EXECUTION_STATE</code></p><note>
     /// <p>The following filter keys correspond to Connect Customer resources and are used for authorizing requests. A <code>GetMetricDataV2</code> request requires at least one of these filters:</p>
     /// <p><code>QUEUE</code>, <code>ROUTING_PROFILE</code>, <code>AGENT</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>, <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>, <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>, <code>CAMPAIGN</code>, <code>EVALUATION_FORM</code>, <code>EVALUATOR_ID</code></p>
     /// <p>You can use up to 5 filter keys in a single request, and up to 100 filter values across all filter keys.</p>
@@ -3087,7 +3239,9 @@ impl GetMetricDataV2InputBuilder {
     ///
     /// <p>The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues.</p>
     /// <p>If no grouping is specified, a summary of all metrics is returned.</p>
-    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p>
+    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_NAME_VERSION</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_NAME_VERSION</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_ARTICLE_NAME</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p><note>
+    /// <p><code>AI_AGENT_NAME_VERSION</code>, <code>AI_PROMPT_NAME_VERSION</code>, and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
+    /// </note>
     /// <p>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</p>
     /// <p>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</p>
     /// <p>Type: Array of strings</p>
@@ -3101,7 +3255,9 @@ impl GetMetricDataV2InputBuilder {
     }
     /// <p>The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues.</p>
     /// <p>If no grouping is specified, a summary of all metrics is returned.</p>
-    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p>
+    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_NAME_VERSION</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_NAME_VERSION</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_ARTICLE_NAME</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p><note>
+    /// <p><code>AI_AGENT_NAME_VERSION</code>, <code>AI_PROMPT_NAME_VERSION</code>, and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
+    /// </note>
     /// <p>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</p>
     /// <p>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</p>
     /// <p>Type: Array of strings</p>
@@ -3113,7 +3269,9 @@ impl GetMetricDataV2InputBuilder {
     }
     /// <p>The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues.</p>
     /// <p>If no grouping is specified, a summary of all metrics is returned.</p>
-    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p>
+    /// <p>Valid grouping keys: <code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> | <code>AI_AGENT_NAME_VERSION</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> | <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_NAME_VERSION</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> | <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CAMPAIGN_EXCLUDED_EVENT_TYPE</code> | <code>CAMPAIGN_EXECUTION_TIMESTAMP</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> | <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> | <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> | <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> | <code>KNOWLEDGE_ARTICLE_NAME</code> | <code>KNOWLEDGE_BASE_NAME</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>SESSION_ID</code> | <code>TEST_CASE</code> | <code>TEST_CASE_EXECUTION_FAILURE_REASON</code> | <code>TEST_CASE_INVOCATION_METHOD</code></p><note>
+    /// <p><code>AI_AGENT_NAME_VERSION</code>, <code>AI_PROMPT_NAME_VERSION</code>, and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
+    /// </note>
     /// <p>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</p>
     /// <p>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</p>
     /// <p>Type: Array of strings</p>
@@ -3376,7 +3534,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Seconds</p>
-    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
+    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time">Average handle time</a></p><note>
     /// <p>Feature is a valid filter but not a valid grouping.</p>
     /// </note>
@@ -3394,7 +3552,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate">AI Handoff Rate</a></p>
     /// </dd>
     /// <dt>
@@ -3402,8 +3560,8 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoffs</a></p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoff Count</a></p>
     /// </dd>
     /// <dt>
     /// AI_AGENT_INVOCATION_SUCCESS
@@ -3431,7 +3589,27 @@ impl GetMetricDataV2InputBuilder {
     /// <dd>
     /// <p>Unit: Count</p>
     /// <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocations</a></p><note>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocation Count</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful">AI Agent Response Helpful</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_NOT_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful">AI Agent Response Not Helpful</a></p><note>
     /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
     /// </note>
     /// </dd>
@@ -3440,7 +3618,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate">AI Response Completion Rate</a></p>
     /// </dd>
     /// <dt>
@@ -3448,7 +3626,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts">AI Involved Contacts</a></p>
     /// </dd>
     /// <dt>
@@ -3526,7 +3704,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns">Average AI Conversation Turns</a></p>
     /// </dd>
     /// <dt>
@@ -3550,6 +3728,60 @@ impl GetMetricDataV2InputBuilder {
     /// </note>
     /// </dd>
     /// <dt>
+    /// AI_TOOL_PARAMETER_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy">AI Tool Parameter Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_SELECTION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy">AI Tool Selection Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_UTILIZATION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy">AI Tool Utilization Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// COMPLETENESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score">Completeness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// FAITHFULNESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score">Faithfulness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// GOAL_SUCCESS_RATE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate">Goal Success Rate</a></p>
+    /// </dd>
+    /// <dt>
     /// KNOWLEDGE_CONTENT_REFERENCES
     /// </dt>
     /// <dd>
@@ -3562,7 +3794,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate">Proactive Intent Engagement Rate</a></p>
     /// </dd>
     /// <dt>
@@ -3570,7 +3802,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate">Proactive Intent Response Rate</a></p>
     /// </dd>
     /// <dt>
@@ -3578,7 +3810,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered">Proactive Intents Answered</a></p>
     /// </dd>
     /// <dt>
@@ -3586,7 +3818,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected">Proactive Intents Detected</a></p>
     /// </dd>
     /// <dt>
@@ -3594,7 +3826,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged">Proactive Intents Engaged</a></p>
     /// </dd>
     /// <dt>
@@ -4698,7 +4930,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Seconds</p>
-    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
+    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time">Average handle time</a></p><note>
     /// <p>Feature is a valid filter but not a valid grouping.</p>
     /// </note>
@@ -4716,7 +4948,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate">AI Handoff Rate</a></p>
     /// </dd>
     /// <dt>
@@ -4724,8 +4956,8 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoffs</a></p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoff Count</a></p>
     /// </dd>
     /// <dt>
     /// AI_AGENT_INVOCATION_SUCCESS
@@ -4753,7 +4985,27 @@ impl GetMetricDataV2InputBuilder {
     /// <dd>
     /// <p>Unit: Count</p>
     /// <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocations</a></p><note>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocation Count</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful">AI Agent Response Helpful</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_NOT_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful">AI Agent Response Not Helpful</a></p><note>
     /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
     /// </note>
     /// </dd>
@@ -4762,7 +5014,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate">AI Response Completion Rate</a></p>
     /// </dd>
     /// <dt>
@@ -4770,7 +5022,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts">AI Involved Contacts</a></p>
     /// </dd>
     /// <dt>
@@ -4848,7 +5100,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns">Average AI Conversation Turns</a></p>
     /// </dd>
     /// <dt>
@@ -4872,6 +5124,60 @@ impl GetMetricDataV2InputBuilder {
     /// </note>
     /// </dd>
     /// <dt>
+    /// AI_TOOL_PARAMETER_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy">AI Tool Parameter Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_SELECTION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy">AI Tool Selection Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_UTILIZATION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy">AI Tool Utilization Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// COMPLETENESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score">Completeness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// FAITHFULNESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score">Faithfulness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// GOAL_SUCCESS_RATE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate">Goal Success Rate</a></p>
+    /// </dd>
+    /// <dt>
     /// KNOWLEDGE_CONTENT_REFERENCES
     /// </dt>
     /// <dd>
@@ -4884,7 +5190,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate">Proactive Intent Engagement Rate</a></p>
     /// </dd>
     /// <dt>
@@ -4892,7 +5198,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate">Proactive Intent Response Rate</a></p>
     /// </dd>
     /// <dt>
@@ -4900,7 +5206,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered">Proactive Intents Answered</a></p>
     /// </dd>
     /// <dt>
@@ -4908,7 +5214,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected">Proactive Intents Detected</a></p>
     /// </dd>
     /// <dt>
@@ -4916,7 +5222,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged">Proactive Intents Engaged</a></p>
     /// </dd>
     /// <dt>
@@ -6018,7 +6324,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Seconds</p>
-    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
+    /// <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time">Average handle time</a></p><note>
     /// <p>Feature is a valid filter but not a valid grouping.</p>
     /// </note>
@@ -6036,7 +6342,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate">AI Handoff Rate</a></p>
     /// </dd>
     /// <dt>
@@ -6044,8 +6350,8 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoffs</a></p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoff Count</a></p>
     /// </dd>
     /// <dt>
     /// AI_AGENT_INVOCATION_SUCCESS
@@ -6073,7 +6379,27 @@ impl GetMetricDataV2InputBuilder {
     /// <dd>
     /// <p>Unit: Count</p>
     /// <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile</p>
-    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocations</a></p><note>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocation Count</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful">AI Agent Response Helpful</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_AGENT_RESPONSE_NOT_HELPFUL
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Count</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful">AI Agent Response Not Helpful</a></p><note>
     /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
     /// </note>
     /// </dd>
@@ -6082,7 +6408,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate">AI Response Completion Rate</a></p>
     /// </dd>
     /// <dt>
@@ -6090,7 +6416,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts">AI Involved Contacts</a></p>
     /// </dd>
     /// <dt>
@@ -6168,7 +6494,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns">Average AI Conversation Turns</a></p>
     /// </dd>
     /// <dt>
@@ -6192,6 +6518,60 @@ impl GetMetricDataV2InputBuilder {
     /// </note>
     /// </dd>
     /// <dt>
+    /// AI_TOOL_PARAMETER_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy">AI Tool Parameter Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_SELECTION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy">AI Tool Selection Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// AI_TOOL_UTILIZATION_ACCURACY
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy">AI Tool Utilization Accuracy</a></p><note>
+    /// <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
+    /// </note>
+    /// </dd>
+    /// <dt>
+    /// COMPLETENESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score">Completeness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// FAITHFULNESS_SCORE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score">Faithfulness Score</a></p>
+    /// </dd>
+    /// <dt>
+    /// GOAL_SUCCESS_RATE
+    /// </dt>
+    /// <dd>
+    /// <p>Unit: Double</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+    /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate">Goal Success Rate</a></p>
+    /// </dd>
+    /// <dt>
     /// KNOWLEDGE_CONTENT_REFERENCES
     /// </dt>
     /// <dd>
@@ -6204,7 +6584,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate">Proactive Intent Engagement Rate</a></p>
     /// </dd>
     /// <dt>
@@ -6212,7 +6592,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Percent</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate">Proactive Intent Response Rate</a></p>
     /// </dd>
     /// <dt>
@@ -6220,7 +6600,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered">Proactive Intents Answered</a></p>
     /// </dd>
     /// <dt>
@@ -6228,7 +6608,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected">Proactive Intents Detected</a></p>
     /// </dd>
     /// <dt>
@@ -6236,7 +6616,7 @@ impl GetMetricDataV2InputBuilder {
     /// </dt>
     /// <dd>
     /// <p>Unit: Count</p>
-    /// <p>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</p>
+    /// <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
     /// <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged">Proactive Intents Engaged</a></p>
     /// </dd>
     /// <dt>

@@ -6,6 +6,10 @@
 pub enum ExecutionBlockConfiguration {
     /// <p>An ARC routing control execution block.</p>
     ArcRoutingControlConfig(crate::types::ArcRoutingControlConfiguration),
+    /// <p>An Aurora provisioned cluster scaling execution block.</p>
+    AuroraProvisionedScalingConfig(crate::types::AuroraProvisionedScalingConfiguration),
+    /// <p>An Aurora Serverless scaling execution block.</p>
+    AuroraServerlessScalingConfig(crate::types::AuroraServerlessScalingConfiguration),
     /// <p>An Amazon Web Services Lambda execution block.</p>
     CustomActionLambdaConfig(crate::types::CustomActionLambdaConfiguration),
     /// <p>Configuration for Amazon DocumentDB global clusters used in a Region switch plan.</p>
@@ -22,6 +26,8 @@ pub enum ExecutionBlockConfiguration {
     GlobalAuroraConfig(crate::types::GlobalAuroraConfiguration),
     /// <p>A Lambda event source mapping execution block.</p>
     LambdaEventSourceMappingConfig(crate::types::LambdaEventSourceMappingConfiguration),
+    /// <p>A Neptune global database execution block.</p>
+    NeptuneGlobalDatabaseConfig(crate::types::NeptuneGlobalDatabaseConfiguration),
     /// <p>A parallel configuration execution block.</p>
     ParallelConfig(crate::types::ParallelExecutionBlockConfiguration),
     /// <p>An Amazon RDS create cross-Region replica execution block.</p>
@@ -55,6 +61,32 @@ impl ExecutionBlockConfiguration {
     /// Returns true if this is a [`ArcRoutingControlConfig`](crate::types::ExecutionBlockConfiguration::ArcRoutingControlConfig).
     pub fn is_arc_routing_control_config(&self) -> bool {
         self.as_arc_routing_control_config().is_ok()
+    }
+    /// Tries to convert the enum instance into [`AuroraProvisionedScalingConfig`](crate::types::ExecutionBlockConfiguration::AuroraProvisionedScalingConfig), extracting the inner [`AuroraProvisionedScalingConfiguration`](crate::types::AuroraProvisionedScalingConfiguration).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_aurora_provisioned_scaling_config(&self) -> ::std::result::Result<&crate::types::AuroraProvisionedScalingConfiguration, &Self> {
+        if let ExecutionBlockConfiguration::AuroraProvisionedScalingConfig(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`AuroraProvisionedScalingConfig`](crate::types::ExecutionBlockConfiguration::AuroraProvisionedScalingConfig).
+    pub fn is_aurora_provisioned_scaling_config(&self) -> bool {
+        self.as_aurora_provisioned_scaling_config().is_ok()
+    }
+    /// Tries to convert the enum instance into [`AuroraServerlessScalingConfig`](crate::types::ExecutionBlockConfiguration::AuroraServerlessScalingConfig), extracting the inner [`AuroraServerlessScalingConfiguration`](crate::types::AuroraServerlessScalingConfiguration).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_aurora_serverless_scaling_config(&self) -> ::std::result::Result<&crate::types::AuroraServerlessScalingConfiguration, &Self> {
+        if let ExecutionBlockConfiguration::AuroraServerlessScalingConfig(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`AuroraServerlessScalingConfig`](crate::types::ExecutionBlockConfiguration::AuroraServerlessScalingConfig).
+    pub fn is_aurora_serverless_scaling_config(&self) -> bool {
+        self.as_aurora_serverless_scaling_config().is_ok()
     }
     /// Tries to convert the enum instance into [`CustomActionLambdaConfig`](crate::types::ExecutionBlockConfiguration::CustomActionLambdaConfig), extracting the inner [`CustomActionLambdaConfiguration`](crate::types::CustomActionLambdaConfiguration).
     /// Returns `Err(&Self)` if it can't be converted.
@@ -159,6 +191,19 @@ impl ExecutionBlockConfiguration {
     /// Returns true if this is a [`LambdaEventSourceMappingConfig`](crate::types::ExecutionBlockConfiguration::LambdaEventSourceMappingConfig).
     pub fn is_lambda_event_source_mapping_config(&self) -> bool {
         self.as_lambda_event_source_mapping_config().is_ok()
+    }
+    /// Tries to convert the enum instance into [`NeptuneGlobalDatabaseConfig`](crate::types::ExecutionBlockConfiguration::NeptuneGlobalDatabaseConfig), extracting the inner [`NeptuneGlobalDatabaseConfiguration`](crate::types::NeptuneGlobalDatabaseConfiguration).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_neptune_global_database_config(&self) -> ::std::result::Result<&crate::types::NeptuneGlobalDatabaseConfiguration, &Self> {
+        if let ExecutionBlockConfiguration::NeptuneGlobalDatabaseConfig(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`NeptuneGlobalDatabaseConfig`](crate::types::ExecutionBlockConfiguration::NeptuneGlobalDatabaseConfig).
+    pub fn is_neptune_global_database_config(&self) -> bool {
+        self.as_neptune_global_database_config().is_ok()
     }
     /// Tries to convert the enum instance into [`ParallelConfig`](crate::types::ExecutionBlockConfiguration::ParallelConfig), extracting the inner [`ParallelExecutionBlockConfiguration`](crate::types::ParallelExecutionBlockConfiguration).
     /// Returns `Err(&Self)` if it can't be converted.

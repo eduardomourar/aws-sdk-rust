@@ -38,6 +38,20 @@ pub fn de_list_route53_health_checks_http_error(
             };
             tmp
         }),
+        "IllegalArgumentException" => crate::operation::list_route53_health_checks::ListRoute53HealthChecksError::IllegalArgumentException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::IllegalArgumentExceptionBuilder::default();
+                output = crate::protocol_serde::shape_illegal_argument_exception::de_illegal_argument_exception_cbor_err(_response_body, output)
+                    .map_err(crate::operation::list_route53_health_checks::ListRoute53HealthChecksError::unhandled)?;
+                let output = output.meta(generic);
+                crate::serde_util::illegal_argument_exception_correct_errors(output)
+                    .build()
+                    .map_err(crate::operation::list_route53_health_checks::ListRoute53HealthChecksError::unhandled)?
+            };
+            tmp
+        }),
         "InternalServerException" => crate::operation::list_route53_health_checks::ListRoute53HealthChecksError::InternalServerException({
             #[allow(unused_mut)]
             let mut tmp = {

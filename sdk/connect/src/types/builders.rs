@@ -623,6 +623,8 @@ pub use crate::types::_searchable_contact_attributes::SearchableContactAttribute
 
 pub use crate::types::_searchable_segment_attributes::SearchableSegmentAttributesBuilder;
 
+pub use crate::types::_ai_agents_criteria::AiAgentsCriteriaBuilder;
+
 pub use crate::types::_contact_search_summary::ContactSearchSummaryBuilder;
 
 pub use crate::types::_email_address_metadata::EmailAddressMetadataBuilder;
@@ -909,7 +911,11 @@ pub use crate::types::_searchable_contact_attributes_criteria::SearchableContact
 
 pub use crate::types::_searchable_segment_attributes_criteria::SearchableSegmentAttributesCriteriaBuilder;
 
+pub use crate::types::_ai_agent_search_criteria::AiAgentSearchCriteriaBuilder;
+
 pub use crate::types::_contact_search_summary_segment_attribute_value::ContactSearchSummarySegmentAttributeValueBuilder;
+
+pub use crate::types::_contact_search_summary_ai_agent_info::ContactSearchSummaryAiAgentInfoBuilder;
 
 pub use crate::types::_condition::ConditionBuilder;
 

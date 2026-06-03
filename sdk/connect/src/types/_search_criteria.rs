@@ -38,6 +38,8 @@ pub struct SearchCriteria {
     /// <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li>
     /// </ul>
     pub contact_tags: ::std::option::Option<crate::types::ControlPlaneTagFilter>,
+    /// <p>AI Agent search criteria definitions.</p>
+    pub ai_agents: ::std::option::Option<crate::types::AiAgentsCriteria>,
 }
 impl SearchCriteria {
     /// <p>Name of the contact.</p>
@@ -110,6 +112,10 @@ impl SearchCriteria {
     pub fn contact_tags(&self) -> ::std::option::Option<&crate::types::ControlPlaneTagFilter> {
         self.contact_tags.as_ref()
     }
+    /// <p>AI Agent search criteria definitions.</p>
+    pub fn ai_agents(&self) -> ::std::option::Option<&crate::types::AiAgentsCriteria> {
+        self.ai_agents.as_ref()
+    }
 }
 impl SearchCriteria {
     /// Creates a new builder-style object to manufacture [`SearchCriteria`](crate::types::SearchCriteria).
@@ -135,6 +141,7 @@ pub struct SearchCriteriaBuilder {
     pub(crate) searchable_segment_attributes: ::std::option::Option<crate::types::SearchableSegmentAttributes>,
     pub(crate) active_regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) contact_tags: ::std::option::Option<crate::types::ControlPlaneTagFilter>,
+    pub(crate) ai_agents: ::std::option::Option<crate::types::AiAgentsCriteria>,
 }
 impl SearchCriteriaBuilder {
     /// <p>Name of the contact.</p>
@@ -373,6 +380,20 @@ impl SearchCriteriaBuilder {
     pub fn get_contact_tags(&self) -> &::std::option::Option<crate::types::ControlPlaneTagFilter> {
         &self.contact_tags
     }
+    /// <p>AI Agent search criteria definitions.</p>
+    pub fn ai_agents(mut self, input: crate::types::AiAgentsCriteria) -> Self {
+        self.ai_agents = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>AI Agent search criteria definitions.</p>
+    pub fn set_ai_agents(mut self, input: ::std::option::Option<crate::types::AiAgentsCriteria>) -> Self {
+        self.ai_agents = input;
+        self
+    }
+    /// <p>AI Agent search criteria definitions.</p>
+    pub fn get_ai_agents(&self) -> &::std::option::Option<crate::types::AiAgentsCriteria> {
+        &self.ai_agents
+    }
     /// Consumes the builder and constructs a [`SearchCriteria`](crate::types::SearchCriteria).
     pub fn build(self) -> crate::types::SearchCriteria {
         crate::types::SearchCriteria {
@@ -389,6 +410,7 @@ impl SearchCriteriaBuilder {
             searchable_segment_attributes: self.searchable_segment_attributes,
             active_regions: self.active_regions,
             contact_tags: self.contact_tags,
+            ai_agents: self.ai_agents,
         }
     }
 }

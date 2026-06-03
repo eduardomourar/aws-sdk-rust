@@ -28,6 +28,13 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "vmScannerState" => {
+                            builder = builder.set_vm_scanner_state(crate::protocol_serde::shape_vm_scanner_state::de_vm_scanner_state(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

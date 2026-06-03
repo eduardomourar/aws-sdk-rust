@@ -1901,6 +1901,8 @@ pub(crate) mod shape_agent_info;
 
 pub(crate) mod shape_agent_status_summary;
 
+pub(crate) mod shape_ai_agents_criteria;
+
 pub(crate) mod shape_allowed_access_control_tags;
 
 pub(crate) mod shape_allowed_extension;
@@ -2347,6 +2349,8 @@ pub(crate) mod shape_agent_quality_metrics;
 
 pub(crate) mod shape_agent_status_reference;
 
+pub(crate) mod shape_ai_agent_search_criteria;
+
 pub(crate) mod shape_ai_agents;
 
 pub(crate) mod shape_application_permissions;
@@ -2376,6 +2380,8 @@ pub(crate) mod shape_contact_flow_type_condition;
 pub(crate) mod shape_contact_metric_value;
 
 pub(crate) mod shape_contact_search_summary_agent_info;
+
+pub(crate) mod shape_contact_search_summary_ai_agent_info_list;
 
 pub(crate) mod shape_contact_search_summary_queue_info;
 
@@ -2532,6 +2538,8 @@ pub(crate) mod shape_attribute_condition;
 pub(crate) mod shape_audio_features;
 
 pub(crate) mod shape_audio_quality_metrics_info;
+
+pub(crate) mod shape_contact_search_summary_ai_agent_info;
 
 pub(crate) mod shape_contact_search_summary_segment_attribute_value;
 

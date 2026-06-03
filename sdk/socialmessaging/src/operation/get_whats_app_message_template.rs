@@ -297,6 +297,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetWhatsAppMe
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum GetWhatsAppMessageTemplateError {
+    /// <p>You do not have sufficient access to perform this action.</p>
+    AccessDeniedByMetaException(crate::types::error::AccessDeniedByMetaException),
     /// <p>Thrown when performing an action because a dependency would be broken.</p>
     DependencyException(crate::types::error::DependencyException),
     /// <p>The request processing has failed because of an unknown error, exception, or failure.</p>
@@ -344,6 +346,7 @@ impl GetWhatsAppMessageTemplateError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::AccessDeniedByMetaException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::DependencyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InternalServiceException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InvalidParametersException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -353,6 +356,10 @@ impl GetWhatsAppMessageTemplateError {
             Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `GetWhatsAppMessageTemplateError::AccessDeniedByMetaException`.
+    pub fn is_access_denied_by_meta_exception(&self) -> bool {
+        matches!(self, Self::AccessDeniedByMetaException(_))
     }
     /// Returns `true` if the error kind is `GetWhatsAppMessageTemplateError::DependencyException`.
     pub fn is_dependency_exception(&self) -> bool {
@@ -386,6 +393,7 @@ impl GetWhatsAppMessageTemplateError {
 impl ::std::error::Error for GetWhatsAppMessageTemplateError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::AccessDeniedByMetaException(_inner) => ::std::option::Option::Some(_inner),
             Self::DependencyException(_inner) => ::std::option::Option::Some(_inner),
             Self::InternalServiceException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidParametersException(_inner) => ::std::option::Option::Some(_inner),
@@ -400,6 +408,7 @@ impl ::std::error::Error for GetWhatsAppMessageTemplateError {
 impl ::std::fmt::Display for GetWhatsAppMessageTemplateError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::AccessDeniedByMetaException(_inner) => _inner.fmt(f),
             Self::DependencyException(_inner) => _inner.fmt(f),
             Self::InternalServiceException(_inner) => _inner.fmt(f),
             Self::InvalidParametersException(_inner) => _inner.fmt(f),
@@ -433,6 +442,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetWhatsAppMessageTemplateE
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetWhatsAppMessageTemplateError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::AccessDeniedByMetaException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::DependencyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InternalServiceException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InvalidParametersException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

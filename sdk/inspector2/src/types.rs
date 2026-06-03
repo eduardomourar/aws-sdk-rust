@@ -171,6 +171,8 @@ pub use crate::types::_ecr_rescan_duration_state::EcrRescanDurationState;
 
 pub use crate::types::_ec2_scan_mode_state::Ec2ScanModeState;
 
+pub use crate::types::_vm_scanner_state::VmScannerState;
+
 pub use crate::types::_relationship_status::RelationshipStatus;
 
 pub use crate::types::_permission::Permission;
@@ -310,6 +312,8 @@ pub use crate::types::_cis_finding_status::CisFindingStatus;
 pub use crate::types::_ecr_rescan_duration_status::EcrRescanDurationStatus;
 
 pub use crate::types::_ec2_scan_mode_status::Ec2ScanModeStatus;
+
+pub use crate::types::_vm_scanner_status::VmScannerStatus;
 
 pub use crate::types::_operation::Operation;
 
@@ -1142,6 +1146,10 @@ mod _usage_type;
 mod _validation_exception_field;
 
 mod _validation_exception_reason;
+
+mod _vm_scanner_state;
+
+mod _vm_scanner_status;
 
 mod _vulnerability;
 

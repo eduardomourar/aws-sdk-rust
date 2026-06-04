@@ -3473,6 +3473,8 @@ pub(crate) mod shape_integer_parameter_range;
 
 pub(crate) mod shape_integer_parameter_ranges;
 
+pub(crate) mod shape_job;
+
 pub(crate) mod shape_json_content_types;
 
 pub(crate) mod shape_kendra_settings;

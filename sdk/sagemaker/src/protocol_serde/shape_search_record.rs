@@ -102,6 +102,9 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "Job" => {
+                            builder = builder.set_job(crate::protocol_serde::shape_job::de_job(tokens, _value, depth + 1)?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

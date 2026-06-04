@@ -69,6 +69,8 @@ pub use crate::types::error::_concurrent_runs_exceeded_exception::ConcurrentRuns
 
 pub use crate::types::error::_illegal_workflow_state_exception::IllegalWorkflowStateException;
 
+pub use crate::types::error::_session_busy_exception::SessionBusyException;
+
 pub use crate::types::error::_illegal_blueprint_state_exception::IllegalBlueprintStateException;
 
 pub use crate::types::error::_no_schedule_exception::NoScheduleException;
@@ -182,6 +184,8 @@ mod _scheduler_not_running_exception;
 mod _scheduler_running_exception;
 
 mod _scheduler_transitioning_exception;
+
+mod _session_busy_exception;
 
 mod _target_resource_not_found;
 

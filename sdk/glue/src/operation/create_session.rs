@@ -273,6 +273,8 @@ pub enum CreateSessionError {
     InternalServiceException(crate::types::error::InternalServiceException),
     /// <p>The input provided was not valid.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
+    /// <p>The operation is not available in the region.</p>
+    OperationNotSupportedException(crate::types::error::OperationNotSupportedException),
     /// <p>The operation timed out.</p>
     OperationTimeoutException(crate::types::error::OperationTimeoutException),
     /// <p>A resource numerical limit was exceeded.</p>
@@ -317,6 +319,7 @@ impl CreateSessionError {
             Self::IdempotentParameterMismatchException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InternalServiceException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InvalidInputException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::OperationNotSupportedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::OperationTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNumberLimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -343,6 +346,10 @@ impl CreateSessionError {
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
+    /// Returns `true` if the error kind is `CreateSessionError::OperationNotSupportedException`.
+    pub fn is_operation_not_supported_exception(&self) -> bool {
+        matches!(self, Self::OperationNotSupportedException(_))
+    }
     /// Returns `true` if the error kind is `CreateSessionError::OperationTimeoutException`.
     pub fn is_operation_timeout_exception(&self) -> bool {
         matches!(self, Self::OperationTimeoutException(_))
@@ -364,6 +371,7 @@ impl ::std::error::Error for CreateSessionError {
             Self::IdempotentParameterMismatchException(_inner) => ::std::option::Option::Some(_inner),
             Self::InternalServiceException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidInputException(_inner) => ::std::option::Option::Some(_inner),
+            Self::OperationNotSupportedException(_inner) => ::std::option::Option::Some(_inner),
             Self::OperationTimeoutException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNumberLimitExceededException(_inner) => ::std::option::Option::Some(_inner),
             Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
@@ -379,6 +387,7 @@ impl ::std::fmt::Display for CreateSessionError {
             Self::IdempotentParameterMismatchException(_inner) => _inner.fmt(f),
             Self::InternalServiceException(_inner) => _inner.fmt(f),
             Self::InvalidInputException(_inner) => _inner.fmt(f),
+            Self::OperationNotSupportedException(_inner) => _inner.fmt(f),
             Self::OperationTimeoutException(_inner) => _inner.fmt(f),
             Self::ResourceNumberLimitExceededException(_inner) => _inner.fmt(f),
             Self::ValidationException(_inner) => _inner.fmt(f),
@@ -408,6 +417,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateSession
             Self::IdempotentParameterMismatchException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InternalServiceException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InvalidInputException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::OperationNotSupportedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::OperationTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNumberLimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ValidationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

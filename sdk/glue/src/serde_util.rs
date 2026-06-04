@@ -74,6 +74,15 @@ pub(crate) fn get_catalogs_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn get_dashboard_url_output_output_correct_errors(
+    mut builder: crate::operation::get_dashboard_url::builders::GetDashboardUrlOutputBuilder,
+) -> crate::operation::get_dashboard_url::builders::GetDashboardUrlOutputBuilder {
+    if builder.url.is_none() {
+        builder.url = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn get_databases_output_output_correct_errors(
     mut builder: crate::operation::get_databases::builders::GetDatabasesOutputBuilder,
 ) -> crate::operation::get_databases::builders::GetDatabasesOutputBuilder {
@@ -97,6 +106,18 @@ pub(crate) fn get_ml_transforms_output_output_correct_errors(
 ) -> crate::operation::get_ml_transforms::builders::GetMlTransformsOutputBuilder {
     if builder.transforms.is_none() {
         builder.transforms = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn get_session_endpoint_output_output_correct_errors(
+    mut builder: crate::operation::get_session_endpoint::builders::GetSessionEndpointOutputBuilder,
+) -> crate::operation::get_session_endpoint::builders::GetSessionEndpointOutputBuilder {
+    if builder.spark_connect.is_none() {
+        builder.spark_connect = {
+            let builder = crate::types::builders::SessionEndpointBuilder::default();
+            crate::serde_util::session_endpoint_correct_errors(builder).build().ok()
+        }
     }
     builder
 }
@@ -139,6 +160,21 @@ pub(crate) fn modify_integration_output_output_correct_errors(
     }
     if builder.create_time.is_none() {
         builder.create_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn session_endpoint_correct_errors(
+    mut builder: crate::types::builders::SessionEndpointBuilder,
+) -> crate::types::builders::SessionEndpointBuilder {
+    if builder.url.is_none() {
+        builder.url = Some(Default::default())
+    }
+    if builder.auth_token.is_none() {
+        builder.auth_token = Some(Default::default())
+    }
+    if builder.auth_token_expiration_time.is_none() {
+        builder.auth_token_expiration_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }

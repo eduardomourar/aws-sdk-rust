@@ -240,6 +240,9 @@ where
                                 crate::protocol_serde::shape_monitoring_configuration::de_monitoring_configuration(tokens, _value, depth + 1)?,
                             );
                         }
+                        "SessionEnabled" => {
+                            builder = builder.set_session_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

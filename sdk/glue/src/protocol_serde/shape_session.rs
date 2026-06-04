@@ -148,6 +148,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "SessionType" => {
+                            builder = builder.set_session_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::SessionType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

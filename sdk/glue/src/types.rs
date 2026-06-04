@@ -87,6 +87,8 @@ pub use crate::types::_encryption_configuration::EncryptionConfiguration;
 
 pub use crate::types::_session_command::SessionCommand;
 
+pub use crate::types::_session_type::SessionType;
+
 pub use crate::types::_session::Session;
 
 pub use crate::types::_table_input::TableInput;
@@ -139,6 +141,8 @@ pub use crate::types::_get_connections_filter::GetConnectionsFilter;
 
 pub use crate::types::_crawler::Crawler;
 
+pub use crate::types::_glue_resource_type::GlueResourceType;
+
 pub use crate::types::_database::Database;
 
 pub use crate::types::_resource_share_type::ResourceShareType;
@@ -190,6 +194,8 @@ pub use crate::types::_schema_version_number::SchemaVersionNumber;
 pub use crate::types::_schema_diff_type::SchemaDiffType;
 
 pub use crate::types::_security_configuration::SecurityConfiguration;
+
+pub use crate::types::_session_endpoint::SessionEndpoint;
 
 pub use crate::types::_statement::Statement;
 
@@ -1601,6 +1607,8 @@ mod _glue_policy;
 
 mod _glue_record_type;
 
+mod _glue_resource_type;
+
 mod _glue_schema;
 
 mod _glue_studio_schema_column;
@@ -2045,7 +2053,11 @@ mod _session;
 
 mod _session_command;
 
+mod _session_endpoint;
+
 mod _session_status;
+
+mod _session_type;
 
 mod _setting_source;
 

@@ -21,6 +21,15 @@ pub fn ser_scope(
     if let Some(var_6) = &input.compliance_resource_id {
         object.key("ComplianceResourceId").string(var_6.as_str());
     }
+    if let Some(var_7) = &input.service_principals {
+        let mut array_8 = object.key("ServicePrincipals").start_array();
+        for item_9 in var_7 {
+            {
+                array_8.value().string(item_9.as_str());
+            }
+        }
+        array_8.finish();
+    }
     Ok(())
 }
 
@@ -71,6 +80,13 @@ where
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
                             );
+                        }
+                        "ServicePrincipals" => {
+                            builder = builder.set_service_principals(crate::protocol_serde::shape_service_principals::de_service_principals(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

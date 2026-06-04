@@ -151,6 +151,8 @@ pub use crate::types::_schema_version_number::SchemaVersionNumberBuilder;
 
 pub use crate::types::_security_configuration::SecurityConfigurationBuilder;
 
+pub use crate::types::_session_endpoint::SessionEndpointBuilder;
+
 pub use crate::types::_statement::StatementBuilder;
 
 pub use crate::types::_table::TableBuilder;

@@ -62,6 +62,20 @@ pub struct DescribeModelPackageOutput {
     /// <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
     pub security_config: ::std::option::Option<crate::types::ModelPackageSecurityConfig>,
     /// <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+    /// <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, <code>ModelCardStatus</code> is preserved and <code>ModelCardContent</code> is sanitized to include only the following JSON paths, when present in the model card:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>model_overview.model_id</code></p></li>
+    /// <li>
+    /// <p><code>model_overview.model_name</code></p></li>
+    /// <li>
+    /// <p><code>intended_uses.risk_rating</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_group_name</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_arn</code></p></li>
+    /// </ul>
+    /// <p>Because the <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code> and limits <code>model_overview</code> to <code>model_creator</code> and <code>model_artifact</code>, the sanitized <code>ModelCardContent</code> for a model package typically contains only <code>intended_uses.risk_rating</code> if it was provided when the model card was created. To retrieve the complete <code>ModelCardContent</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
     pub model_card: ::std::option::Option<crate::types::ModelPackageModelCard>,
     /// <p>A structure describing the current state of the model in its life cycle.</p>
     pub model_life_cycle: ::std::option::Option<crate::types::ModelLifeCycle>,
@@ -189,6 +203,20 @@ impl DescribeModelPackageOutput {
         self.security_config.as_ref()
     }
     /// <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+    /// <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, <code>ModelCardStatus</code> is preserved and <code>ModelCardContent</code> is sanitized to include only the following JSON paths, when present in the model card:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>model_overview.model_id</code></p></li>
+    /// <li>
+    /// <p><code>model_overview.model_name</code></p></li>
+    /// <li>
+    /// <p><code>intended_uses.risk_rating</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_group_name</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_arn</code></p></li>
+    /// </ul>
+    /// <p>Because the <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code> and limits <code>model_overview</code> to <code>model_creator</code> and <code>model_artifact</code>, the sanitized <code>ModelCardContent</code> for a model package typically contains only <code>intended_uses.risk_rating</code> if it was provided when the model card was created. To retrieve the complete <code>ModelCardContent</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
     pub fn model_card(&self) -> ::std::option::Option<&crate::types::ModelPackageModelCard> {
         self.model_card.as_ref()
     }
@@ -690,16 +718,58 @@ impl DescribeModelPackageOutputBuilder {
         &self.security_config
     }
     /// <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+    /// <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, <code>ModelCardStatus</code> is preserved and <code>ModelCardContent</code> is sanitized to include only the following JSON paths, when present in the model card:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>model_overview.model_id</code></p></li>
+    /// <li>
+    /// <p><code>model_overview.model_name</code></p></li>
+    /// <li>
+    /// <p><code>intended_uses.risk_rating</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_group_name</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_arn</code></p></li>
+    /// </ul>
+    /// <p>Because the <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code> and limits <code>model_overview</code> to <code>model_creator</code> and <code>model_artifact</code>, the sanitized <code>ModelCardContent</code> for a model package typically contains only <code>intended_uses.risk_rating</code> if it was provided when the model card was created. To retrieve the complete <code>ModelCardContent</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
     pub fn model_card(mut self, input: crate::types::ModelPackageModelCard) -> Self {
         self.model_card = ::std::option::Option::Some(input);
         self
     }
     /// <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+    /// <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, <code>ModelCardStatus</code> is preserved and <code>ModelCardContent</code> is sanitized to include only the following JSON paths, when present in the model card:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>model_overview.model_id</code></p></li>
+    /// <li>
+    /// <p><code>model_overview.model_name</code></p></li>
+    /// <li>
+    /// <p><code>intended_uses.risk_rating</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_group_name</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_arn</code></p></li>
+    /// </ul>
+    /// <p>Because the <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code> and limits <code>model_overview</code> to <code>model_creator</code> and <code>model_artifact</code>, the sanitized <code>ModelCardContent</code> for a model package typically contains only <code>intended_uses.risk_rating</code> if it was provided when the model card was created. To retrieve the complete <code>ModelCardContent</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
     pub fn set_model_card(mut self, input: ::std::option::Option<crate::types::ModelPackageModelCard>) -> Self {
         self.model_card = input;
         self
     }
     /// <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+    /// <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, <code>ModelCardStatus</code> is preserved and <code>ModelCardContent</code> is sanitized to include only the following JSON paths, when present in the model card:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>model_overview.model_id</code></p></li>
+    /// <li>
+    /// <p><code>model_overview.model_name</code></p></li>
+    /// <li>
+    /// <p><code>intended_uses.risk_rating</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_group_name</code></p></li>
+    /// <li>
+    /// <p><code>model_package_details.model_package_arn</code></p></li>
+    /// </ul>
+    /// <p>Because the <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code> and limits <code>model_overview</code> to <code>model_creator</code> and <code>model_artifact</code>, the sanitized <code>ModelCardContent</code> for a model package typically contains only <code>intended_uses.risk_rating</code> if it was provided when the model card was created. To retrieve the complete <code>ModelCardContent</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
     pub fn get_model_card(&self) -> &::std::option::Option<crate::types::ModelPackageModelCard> {
         &self.model_card
     }

@@ -91,6 +91,8 @@ pub enum Error {
     SchedulerRunningException(crate::types::error::SchedulerRunningException),
     /// <p>The specified scheduler is transitioning.</p>
     SchedulerTransitioningException(crate::types::error::SchedulerTransitioningException),
+    /// <p>The session is currently busy processing another request and cannot accept new operations.</p>
+    SessionBusyException(crate::types::error::SessionBusyException),
     /// <p>The target resource could not be found.</p>
     TargetResourceNotFound(crate::types::error::TargetResourceNotFound),
     /// <p>The throttling threshhold was exceeded.</p>
@@ -155,6 +157,7 @@ impl ::std::fmt::Display for Error {
             Error::SchedulerNotRunningException(inner) => inner.fmt(f),
             Error::SchedulerRunningException(inner) => inner.fmt(f),
             Error::SchedulerTransitioningException(inner) => inner.fmt(f),
+            Error::SessionBusyException(inner) => inner.fmt(f),
             Error::TargetResourceNotFound(inner) => inner.fmt(f),
             Error::ThrottlingException(inner) => inner.fmt(f),
             Error::ValidationException(inner) => inner.fmt(f),
@@ -224,6 +227,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::SchedulerNotRunningException(inner) => inner.meta(),
             Self::SchedulerRunningException(inner) => inner.meta(),
             Self::SchedulerTransitioningException(inner) => inner.meta(),
+            Self::SessionBusyException(inner) => inner.meta(),
             Self::TargetResourceNotFound(inner) => inner.meta(),
             Self::ThrottlingException(inner) => inner.meta(),
             Self::ValidationException(inner) => inner.meta(),
@@ -1778,6 +1782,9 @@ impl From<crate::operation::create_session::CreateSessionError> for Error {
             }
             crate::operation::create_session::CreateSessionError::InternalServiceException(inner) => Error::InternalServiceException(inner),
             crate::operation::create_session::CreateSessionError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::create_session::CreateSessionError::OperationNotSupportedException(inner) => {
+                Error::OperationNotSupportedException(inner)
+            }
             crate::operation::create_session::CreateSessionError::OperationTimeoutException(inner) => Error::OperationTimeoutException(inner),
             crate::operation::create_session::CreateSessionError::ResourceNumberLimitExceededException(inner) => {
                 Error::ResourceNumberLimitExceededException(inner)
@@ -3828,6 +3835,34 @@ impl From<crate::operation::get_custom_entity_type::GetCustomEntityTypeError> fo
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dashboard_url::GetDashboardUrlError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dashboard_url::GetDashboardUrlError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_dashboard_url::GetDashboardUrlError> for Error {
+    fn from(err: crate::operation::get_dashboard_url::GetDashboardUrlError) -> Self {
+        match err {
+            crate::operation::get_dashboard_url::GetDashboardUrlError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_dashboard_url::GetDashboardUrlError::EntityNotFoundException(inner) => Error::EntityNotFoundException(inner),
+            crate::operation::get_dashboard_url::GetDashboardUrlError::InternalServiceException(inner) => Error::InternalServiceException(inner),
+            crate::operation::get_dashboard_url::GetDashboardUrlError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::get_dashboard_url::GetDashboardUrlError::OperationNotSupportedException(inner) => {
+                Error::OperationNotSupportedException(inner)
+            }
+            crate::operation::get_dashboard_url::GetDashboardUrlError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_database::GetDatabaseError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -5128,6 +5163,42 @@ impl From<crate::operation::get_session::GetSessionError> for Error {
             crate::operation::get_session::GetSessionError::InvalidInputException(inner) => Error::InvalidInputException(inner),
             crate::operation::get_session::GetSessionError::OperationTimeoutException(inner) => Error::OperationTimeoutException(inner),
             crate::operation::get_session::GetSessionError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_session_endpoint::GetSessionEndpointError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_session_endpoint::GetSessionEndpointError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_session_endpoint::GetSessionEndpointError> for Error {
+    fn from(err: crate::operation::get_session_endpoint::GetSessionEndpointError) -> Self {
+        match err {
+            crate::operation::get_session_endpoint::GetSessionEndpointError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_session_endpoint::GetSessionEndpointError::EntityNotFoundException(inner) => Error::EntityNotFoundException(inner),
+            crate::operation::get_session_endpoint::GetSessionEndpointError::IllegalSessionStateException(inner) => {
+                Error::IllegalSessionStateException(inner)
+            }
+            crate::operation::get_session_endpoint::GetSessionEndpointError::InternalServiceException(inner) => {
+                Error::InternalServiceException(inner)
+            }
+            crate::operation::get_session_endpoint::GetSessionEndpointError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::get_session_endpoint::GetSessionEndpointError::OperationNotSupportedException(inner) => {
+                Error::OperationNotSupportedException(inner)
+            }
+            crate::operation::get_session_endpoint::GetSessionEndpointError::OperationTimeoutException(inner) => {
+                Error::OperationTimeoutException(inner)
+            }
+            crate::operation::get_session_endpoint::GetSessionEndpointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7069,10 +7140,12 @@ impl From<crate::operation::run_statement::RunStatementError> for Error {
             crate::operation::run_statement::RunStatementError::IllegalSessionStateException(inner) => Error::IllegalSessionStateException(inner),
             crate::operation::run_statement::RunStatementError::InternalServiceException(inner) => Error::InternalServiceException(inner),
             crate::operation::run_statement::RunStatementError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::run_statement::RunStatementError::OperationNotSupportedException(inner) => Error::OperationNotSupportedException(inner),
             crate::operation::run_statement::RunStatementError::OperationTimeoutException(inner) => Error::OperationTimeoutException(inner),
             crate::operation::run_statement::RunStatementError::ResourceNumberLimitExceededException(inner) => {
                 Error::ResourceNumberLimitExceededException(inner)
             }
+            crate::operation::run_statement::RunStatementError::SessionBusyException(inner) => Error::SessionBusyException(inner),
             crate::operation::run_statement::RunStatementError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::run_statement::RunStatementError::Unhandled(inner) => Error::Unhandled(inner),
         }
@@ -9053,6 +9126,7 @@ impl ::std::error::Error for Error {
             Error::SchedulerNotRunningException(inner) => inner.source(),
             Error::SchedulerRunningException(inner) => inner.source(),
             Error::SchedulerTransitioningException(inner) => inner.source(),
+            Error::SessionBusyException(inner) => inner.source(),
             Error::TargetResourceNotFound(inner) => inner.source(),
             Error::ThrottlingException(inner) => inner.source(),
             Error::ValidationException(inner) => inner.source(),
@@ -9108,6 +9182,7 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::SchedulerNotRunningException(e) => e.request_id(),
             Self::SchedulerRunningException(e) => e.request_id(),
             Self::SchedulerTransitioningException(e) => e.request_id(),
+            Self::SessionBusyException(e) => e.request_id(),
             Self::TargetResourceNotFound(e) => e.request_id(),
             Self::ThrottlingException(e) => e.request_id(),
             Self::ValidationException(e) => e.request_id(),

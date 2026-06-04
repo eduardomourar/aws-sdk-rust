@@ -95,6 +95,24 @@ pub fn de_create_session_http_error(
             }
             tmp
         }),
+        "OperationNotSupportedException" => crate::operation::create_session::CreateSessionError::OperationNotSupportedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::OperationNotSupportedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_operation_not_supported_exception::de_operation_not_supported_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "OperationTimeoutException" => crate::operation::create_session::CreateSessionError::OperationTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {

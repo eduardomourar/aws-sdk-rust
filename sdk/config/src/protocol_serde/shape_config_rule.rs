@@ -51,6 +51,9 @@ pub fn ser_config_rule(
         }
         array_14.finish();
     }
+    if let Some(var_17) = &input.rule_evaluation_visibility {
+        object.key("RuleEvaluationVisibility").string(var_17.as_str());
+    }
     Ok(())
 }
 
@@ -144,6 +147,13 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "RuleEvaluationVisibility" => {
+                            builder = builder.set_rule_evaluation_visibility(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::RuleEvaluationVisibility::from(u.as_ref())))
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

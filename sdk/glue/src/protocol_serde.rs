@@ -241,6 +241,8 @@ pub(crate) mod shape_get_crawlers;
 
 pub(crate) mod shape_get_custom_entity_type;
 
+pub(crate) mod shape_get_dashboard_url;
+
 pub(crate) mod shape_get_data_catalog_encryption_settings;
 
 pub(crate) mod shape_get_data_quality_model;
@@ -322,6 +324,8 @@ pub(crate) mod shape_get_security_configuration;
 pub(crate) mod shape_get_security_configurations;
 
 pub(crate) mod shape_get_session;
+
+pub(crate) mod shape_get_session_endpoint;
 
 pub(crate) mod shape_get_statement;
 
@@ -809,6 +813,8 @@ pub(crate) mod shape_get_crawlers_input;
 
 pub(crate) mod shape_get_custom_entity_type_input;
 
+pub(crate) mod shape_get_dashboard_url_input;
+
 pub(crate) mod shape_get_data_catalog_encryption_settings_input;
 
 pub(crate) mod shape_get_data_quality_model_input;
@@ -886,6 +892,8 @@ pub(crate) mod shape_get_schema_versions_diff_input;
 pub(crate) mod shape_get_security_configuration_input;
 
 pub(crate) mod shape_get_security_configurations_input;
+
+pub(crate) mod shape_get_session_endpoint_input;
 
 pub(crate) mod shape_get_session_input;
 
@@ -1066,6 +1074,8 @@ pub(crate) mod shape_scheduler_running_exception;
 pub(crate) mod shape_scheduler_transitioning_exception;
 
 pub(crate) mod shape_search_tables_input;
+
+pub(crate) mod shape_session_busy_exception;
 
 pub(crate) mod shape_start_blueprint_run_input;
 
@@ -1512,6 +1522,8 @@ pub(crate) mod shape_segment;
 pub(crate) mod shape_session;
 
 pub(crate) mod shape_session_command;
+
+pub(crate) mod shape_session_endpoint;
 
 pub(crate) mod shape_session_id_list;
 

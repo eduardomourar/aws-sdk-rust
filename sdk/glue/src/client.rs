@@ -381,6 +381,8 @@ mod get_crawlers;
 
 mod get_custom_entity_type;
 
+mod get_dashboard_url;
+
 mod get_data_catalog_encryption_settings;
 
 mod get_data_quality_model;
@@ -462,6 +464,8 @@ mod get_security_configuration;
 mod get_security_configurations;
 
 mod get_session;
+
+mod get_session_endpoint;
 
 mod get_statement;
 

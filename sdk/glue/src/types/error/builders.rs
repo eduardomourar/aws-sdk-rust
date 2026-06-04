@@ -69,6 +69,8 @@ pub use crate::types::error::_concurrent_runs_exceeded_exception::ConcurrentRuns
 
 pub use crate::types::error::_illegal_workflow_state_exception::IllegalWorkflowStateExceptionBuilder;
 
+pub use crate::types::error::_session_busy_exception::SessionBusyExceptionBuilder;
+
 pub use crate::types::error::_illegal_blueprint_state_exception::IllegalBlueprintStateExceptionBuilder;
 
 pub use crate::types::error::_no_schedule_exception::NoScheduleExceptionBuilder;

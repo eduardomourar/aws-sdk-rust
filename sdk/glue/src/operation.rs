@@ -328,6 +328,9 @@ pub mod get_crawlers;
 /// Types for the `GetCustomEntityType` operation.
 pub mod get_custom_entity_type;
 
+/// Types for the `GetDashboardUrl` operation.
+pub mod get_dashboard_url;
+
 /// Types for the `GetDataCatalogEncryptionSettings` operation.
 pub mod get_data_catalog_encryption_settings;
 
@@ -450,6 +453,9 @@ pub mod get_security_configurations;
 
 /// Types for the `GetSession` operation.
 pub mod get_session;
+
+/// Types for the `GetSessionEndpoint` operation.
+pub mod get_session_endpoint;
 
 /// Types for the `GetStatement` operation.
 pub mod get_statement;

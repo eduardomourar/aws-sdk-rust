@@ -523,6 +523,8 @@ pub use crate::types::_is_tracking_server_active::IsTrackingServerActive;
 
 pub use crate::types::_deployment_recommendation::DeploymentRecommendation;
 
+pub use crate::types::_included_data::IncludedData;
+
 pub use crate::types::_model_card_processing_status::ModelCardProcessingStatus;
 
 pub use crate::types::_model_card_export_job_status::ModelCardExportJobStatus;
@@ -1900,6 +1902,8 @@ pub use crate::types::_hyper_parameter_tuning_job_search_entity::HyperParameterT
 pub use crate::types::_model_card::ModelCard;
 
 pub use crate::types::_model_dashboard_model::ModelDashboardModel;
+
+pub use crate::types::_job::Job;
 
 pub use crate::types::_capacity_size_config::CapacitySizeConfig;
 
@@ -3297,6 +3301,8 @@ mod _image_version_sort_order;
 
 mod _image_version_status;
 
+mod _included_data;
+
 mod _inference_component_availability_zone_balance;
 
 mod _inference_component_capacity_size;
@@ -3406,6 +3412,8 @@ mod _integer_parameter_range_specification;
 mod _ip_address_type;
 
 mod _is_tracking_server_active;
+
+mod _job;
 
 mod _job_category;
 

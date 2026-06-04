@@ -903,6 +903,8 @@ pub(crate) mod shape_resource_types_scope;
 
 pub(crate) mod shape_service_principal_value_list;
 
+pub(crate) mod shape_service_principals;
+
 pub(crate) mod shape_source_details;
 
 pub(crate) mod shape_recording_mode_resource_types_list;

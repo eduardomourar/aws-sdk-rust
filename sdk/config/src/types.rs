@@ -111,6 +111,8 @@ pub use crate::types::_compliance_by_resource::ComplianceByResource;
 
 pub use crate::types::_config_rule_evaluation_status::ConfigRuleEvaluationStatus;
 
+pub use crate::types::_rule_evaluation_visibility::RuleEvaluationVisibility;
+
 pub use crate::types::_aggregated_source_status_type::AggregatedSourceStatusType;
 
 pub use crate::types::_aggregated_source_status::AggregatedSourceStatus;
@@ -568,6 +570,8 @@ mod _resource_value;
 mod _resource_value_type;
 
 mod _retention_configuration;
+
+mod _rule_evaluation_visibility;
 
 mod _scope;
 

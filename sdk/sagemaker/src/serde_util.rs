@@ -3945,6 +3945,15 @@ pub(crate) fn ai_benchmark_job_summary_correct_errors(
     builder
 }
 
+pub(crate) fn ai_mlflow_config_correct_errors(
+    mut builder: crate::types::builders::AiMlflowConfigBuilder,
+) -> crate::types::builders::AiMlflowConfigBuilder {
+    if builder.mlflow_resource_arn.is_none() {
+        builder.mlflow_resource_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn ai_recommendation_job_summary_correct_errors(
     mut builder: crate::types::builders::AiRecommendationJobSummaryBuilder,
 ) -> crate::types::builders::AiRecommendationJobSummaryBuilder {

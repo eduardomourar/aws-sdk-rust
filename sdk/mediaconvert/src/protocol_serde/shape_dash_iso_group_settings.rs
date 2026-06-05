@@ -60,44 +60,59 @@ pub fn ser_dash_iso_group_settings(
         crate::protocol_serde::shape_dash_iso_image_based_trick_play_settings::ser_dash_iso_image_based_trick_play_settings(&mut object_18, var_17)?;
         object_18.finish();
     }
-    if let Some(var_19) = &input.min_buffer_time {
+    if let Some(var_19) = &input.image_based_trick_play_variants {
+        let mut array_20 = object.key("imageBasedTrickPlayVariants").start_array();
+        for item_21 in var_19 {
+            {
+                #[allow(unused_mut)]
+                let mut object_22 = array_20.value().start_object();
+                crate::protocol_serde::shape_dash_iso_image_based_trick_play_variant::ser_dash_iso_image_based_trick_play_variant(
+                    &mut object_22,
+                    item_21,
+                )?;
+                object_22.finish();
+            }
+        }
+        array_20.finish();
+    }
+    if let Some(var_23) = &input.min_buffer_time {
         object.key("minBufferTime").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_19).into()),
+            ::aws_smithy_types::Number::NegInt((*var_23).into()),
         );
     }
-    if let Some(var_20) = &input.min_final_segment_length {
+    if let Some(var_24) = &input.min_final_segment_length {
         object.key("minFinalSegmentLength").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::Float((*var_20).into()),
+            ::aws_smithy_types::Number::Float((*var_24).into()),
         );
     }
-    if let Some(var_21) = &input.mpd_manifest_bandwidth_type {
-        object.key("mpdManifestBandwidthType").string(var_21.as_str());
+    if let Some(var_25) = &input.mpd_manifest_bandwidth_type {
+        object.key("mpdManifestBandwidthType").string(var_25.as_str());
     }
-    if let Some(var_22) = &input.mpd_profile {
-        object.key("mpdProfile").string(var_22.as_str());
+    if let Some(var_26) = &input.mpd_profile {
+        object.key("mpdProfile").string(var_26.as_str());
     }
-    if let Some(var_23) = &input.pts_offset_handling_for_b_frames {
-        object.key("ptsOffsetHandlingForBFrames").string(var_23.as_str());
+    if let Some(var_27) = &input.pts_offset_handling_for_b_frames {
+        object.key("ptsOffsetHandlingForBFrames").string(var_27.as_str());
     }
-    if let Some(var_24) = &input.segment_control {
-        object.key("segmentControl").string(var_24.as_str());
+    if let Some(var_28) = &input.segment_control {
+        object.key("segmentControl").string(var_28.as_str());
     }
-    if let Some(var_25) = &input.segment_length {
+    if let Some(var_29) = &input.segment_length {
         object.key("segmentLength").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_25).into()),
+            ::aws_smithy_types::Number::NegInt((*var_29).into()),
         );
     }
-    if let Some(var_26) = &input.segment_length_control {
-        object.key("segmentLengthControl").string(var_26.as_str());
+    if let Some(var_30) = &input.segment_length_control {
+        object.key("segmentLengthControl").string(var_30.as_str());
     }
-    if let Some(var_27) = &input.video_composition_offsets {
-        object.key("videoCompositionOffsets").string(var_27.as_str());
+    if let Some(var_31) = &input.video_composition_offsets {
+        object.key("videoCompositionOffsets").string(var_31.as_str());
     }
-    if let Some(var_28) = &input.write_segment_timeline_in_representation {
-        object.key("writeSegmentTimelineInRepresentation").string(var_28.as_str());
+    if let Some(var_32) = &input.write_segment_timeline_in_representation {
+        object.key("writeSegmentTimelineInRepresentation").string(var_32.as_str());
     }
     Ok(())
 }
@@ -210,6 +225,11 @@ where
                             "imageBasedTrickPlaySettings" => {
                                 builder = builder.set_image_based_trick_play_settings(
                                     crate::protocol_serde::shape_dash_iso_image_based_trick_play_settings::de_dash_iso_image_based_trick_play_settings(tokens, _value, depth + 1)?
+                                );
+                            }
+                            "imageBasedTrickPlayVariants" => {
+                                builder = builder.set_image_based_trick_play_variants(
+                                    crate::protocol_serde::shape_list_of_dash_iso_image_based_trick_play_variant::de_list_of_dash_iso_image_based_trick_play_variant(tokens, _value, depth + 1)?
                                 );
                             }
                             "minBufferTime" => {

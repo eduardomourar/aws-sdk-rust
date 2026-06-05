@@ -471,6 +471,8 @@ pub use crate::types::_batch_replace_cluster_node_logical_ids_error::BatchReplac
 
 pub use crate::types::_ai_benchmark_endpoint::AiBenchmarkEndpointBuilder;
 
+pub use crate::types::_ai_mlflow_config::AiMlflowConfigBuilder;
+
 pub use crate::types::_ai_model_source_s3::AiModelSourceS3Builder;
 
 pub use crate::types::_ai_capacity_reservation_config::AiCapacityReservationConfigBuilder;

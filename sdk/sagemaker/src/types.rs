@@ -857,6 +857,8 @@ pub use crate::types::_batch_replace_cluster_node_logical_ids_error::BatchReplac
 
 pub use crate::types::_ai_benchmark_endpoint::AiBenchmarkEndpoint;
 
+pub use crate::types::_ai_mlflow_config::AiMlflowConfig;
+
 pub use crate::types::_ai_model_source_s3::AiModelSourceS3;
 
 pub use crate::types::_ai_recommendation_inference_framework::AiRecommendationInferenceFramework;
@@ -2354,6 +2356,8 @@ mod _ai_capacity_reservation_preference;
 mod _ai_cloud_watch_logs;
 
 mod _ai_dataset_config;
+
+mod _ai_mlflow_config;
 
 mod _ai_model_source;
 

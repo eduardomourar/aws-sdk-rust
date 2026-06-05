@@ -33,6 +33,13 @@ where
                                 crate::protocol_serde::shape_ai_cloud_watch_logs_list::de_ai_cloud_watch_logs_list(tokens, _value, depth + 1)?,
                             );
                         }
+                        "MlflowConfig" => {
+                            builder = builder.set_mlflow_config(crate::protocol_serde::shape_ai_mlflow_config::de_ai_mlflow_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

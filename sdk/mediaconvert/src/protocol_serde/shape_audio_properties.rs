@@ -52,6 +52,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "objectCount" => {
+                            builder = builder.set_object_count(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
+                        }
                         "sampleRate" => {
                             builder = builder.set_sample_rate(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?

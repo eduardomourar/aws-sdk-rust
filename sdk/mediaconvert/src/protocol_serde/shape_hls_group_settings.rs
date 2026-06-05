@@ -81,76 +81,88 @@ pub fn ser_hls_group_settings(
         crate::protocol_serde::shape_hls_image_based_trick_play_settings::ser_hls_image_based_trick_play_settings(&mut object_26, var_25)?;
         object_26.finish();
     }
-    if let Some(var_27) = &input.manifest_compression {
-        object.key("manifestCompression").string(var_27.as_str());
+    if let Some(var_27) = &input.image_based_trick_play_variants {
+        let mut array_28 = object.key("imageBasedTrickPlayVariants").start_array();
+        for item_29 in var_27 {
+            {
+                #[allow(unused_mut)]
+                let mut object_30 = array_28.value().start_object();
+                crate::protocol_serde::shape_hls_image_based_trick_play_variant::ser_hls_image_based_trick_play_variant(&mut object_30, item_29)?;
+                object_30.finish();
+            }
+        }
+        array_28.finish();
     }
-    if let Some(var_28) = &input.manifest_duration_format {
-        object.key("manifestDurationFormat").string(var_28.as_str());
+    if let Some(var_31) = &input.manifest_compression {
+        object.key("manifestCompression").string(var_31.as_str());
     }
-    if let Some(var_29) = &input.min_final_segment_length {
+    if let Some(var_32) = &input.manifest_duration_format {
+        object.key("manifestDurationFormat").string(var_32.as_str());
+    }
+    if let Some(var_33) = &input.min_final_segment_length {
         object.key("minFinalSegmentLength").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::Float((*var_29).into()),
+            ::aws_smithy_types::Number::Float((*var_33).into()),
         );
     }
-    if let Some(var_30) = &input.min_segment_length {
+    if let Some(var_34) = &input.min_segment_length {
         object.key("minSegmentLength").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_30).into()),
+            ::aws_smithy_types::Number::NegInt((*var_34).into()),
         );
     }
-    if let Some(var_31) = &input.output_selection {
-        object.key("outputSelection").string(var_31.as_str());
+    if let Some(var_35) = &input.output_selection {
+        object.key("outputSelection").string(var_35.as_str());
     }
-    if let Some(var_32) = &input.program_date_time {
-        object.key("programDateTime").string(var_32.as_str());
+    if let Some(var_36) = &input.program_date_time {
+        object.key("programDateTime").string(var_36.as_str());
     }
-    if let Some(var_33) = &input.program_date_time_period {
+    if let Some(var_37) = &input.program_date_time_period {
         object.key("programDateTimePeriod").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_33).into()),
+            ::aws_smithy_types::Number::NegInt((*var_37).into()),
         );
     }
-    if let Some(var_34) = &input.progressive_write_hls_manifest {
-        object.key("progressiveWriteHlsManifest").string(var_34.as_str());
+    if let Some(var_38) = &input.progressive_write_hls_manifest {
+        object.key("progressiveWriteHlsManifest").string(var_38.as_str());
     }
-    if let Some(var_35) = &input.segment_control {
-        object.key("segmentControl").string(var_35.as_str());
+    if let Some(var_39) = &input.segment_control {
+        object.key("segmentControl").string(var_39.as_str());
     }
-    if let Some(var_36) = &input.segment_length {
+    if let Some(var_40) = &input.segment_length {
         object.key("segmentLength").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_36).into()),
+            ::aws_smithy_types::Number::NegInt((*var_40).into()),
         );
     }
-    if let Some(var_37) = &input.segment_length_control {
-        object.key("segmentLengthControl").string(var_37.as_str());
+    if let Some(var_41) = &input.segment_length_control {
+        object.key("segmentLengthControl").string(var_41.as_str());
     }
-    if let Some(var_38) = &input.segments_per_subdirectory {
+    if let Some(var_42) = &input.segments_per_subdirectory {
         object.key("segmentsPerSubdirectory").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_38).into()),
-        );
-    }
-    if let Some(var_39) = &input.stream_inf_resolution {
-        object.key("streamInfResolution").string(var_39.as_str());
-    }
-    if let Some(var_40) = &input.target_duration_compatibility_mode {
-        object.key("targetDurationCompatibilityMode").string(var_40.as_str());
-    }
-    if let Some(var_41) = &input.timed_metadata_id3_frame {
-        object.key("timedMetadataId3Frame").string(var_41.as_str());
-    }
-    if let Some(var_42) = &input.timed_metadata_id3_period {
-        object.key("timedMetadataId3Period").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_42).into()),
         );
     }
-    if let Some(var_43) = &input.timestamp_delta_milliseconds {
+    if let Some(var_43) = &input.stream_inf_resolution {
+        object.key("streamInfResolution").string(var_43.as_str());
+    }
+    if let Some(var_44) = &input.target_duration_compatibility_mode {
+        object.key("targetDurationCompatibilityMode").string(var_44.as_str());
+    }
+    if let Some(var_45) = &input.timed_metadata_id3_frame {
+        object.key("timedMetadataId3Frame").string(var_45.as_str());
+    }
+    if let Some(var_46) = &input.timed_metadata_id3_period {
+        object.key("timedMetadataId3Period").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_46).into()),
+        );
+    }
+    if let Some(var_47) = &input.timestamp_delta_milliseconds {
         object.key("timestampDeltaMilliseconds").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_43).into()),
+            ::aws_smithy_types::Number::NegInt((*var_47).into()),
         );
     }
     Ok(())
@@ -286,6 +298,11 @@ where
                                         _value,
                                         depth + 1,
                                     )?,
+                                );
+                            }
+                            "imageBasedTrickPlayVariants" => {
+                                builder = builder.set_image_based_trick_play_variants(
+                                    crate::protocol_serde::shape_list_of_hls_image_based_trick_play_variant::de_list_of_hls_image_based_trick_play_variant(tokens, _value, depth + 1)?
                                 );
                             }
                             "manifestCompression" => {

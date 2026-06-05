@@ -52,6 +52,10 @@ where
                         "frameRate" => {
                             builder = builder.set_frame_rate(crate::protocol_serde::shape_frame_rate::de_frame_rate(tokens, _value, depth + 1)?);
                         }
+                        "hdrMetadata" => {
+                            builder =
+                                builder.set_hdr_metadata(crate::protocol_serde::shape_hdr_metadata::de_hdr_metadata(tokens, _value, depth + 1)?);
+                        }
                         "height" => {
                             builder = builder.set_height(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -63,6 +67,13 @@ where
                             builder = builder.set_matrix_coefficients(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::MatrixCoefficients::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "rotation" => {
+                            builder = builder.set_rotation(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
                                     .transpose()?,
                             );
                         }

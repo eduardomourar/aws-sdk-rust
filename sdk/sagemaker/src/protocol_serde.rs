@@ -2509,6 +2509,8 @@ pub(crate) mod shape_ai_capacity_reservation_config;
 
 pub(crate) mod shape_ai_cloud_watch_logs_list;
 
+pub(crate) mod shape_ai_mlflow_config;
+
 pub(crate) mod shape_ai_model_source_s3;
 
 pub(crate) mod shape_ai_recommendation;

@@ -4,6 +4,9 @@ pub use ::aws_types::request_id::RequestId;
 /// Types for the `BatchCreateTopicReviewedAnswer` operation.
 pub mod batch_create_topic_reviewed_answer;
 
+/// Types for the `BatchDeleteKnowledgeBase` operation.
+pub mod batch_delete_knowledge_base;
+
 /// Types for the `BatchDeleteTopicReviewedAnswer` operation.
 pub mod batch_delete_topic_reviewed_answer;
 
@@ -159,6 +162,9 @@ pub mod delete_iam_policy_assignment;
 
 /// Types for the `DeleteIdentityPropagationConfig` operation.
 pub mod delete_identity_propagation_config;
+
+/// Types for the `DeleteKnowledgeBase` operation.
+pub mod delete_knowledge_base;
 
 /// Types for the `DeleteNamespace` operation.
 pub mod delete_namespace;
@@ -328,6 +334,12 @@ pub mod describe_ip_restriction;
 /// Types for the `DescribeKeyRegistration` operation.
 pub mod describe_key_registration;
 
+/// Types for the `DescribeKnowledgeBase` operation.
+pub mod describe_knowledge_base;
+
+/// Types for the `DescribeKnowledgeBasePermissions` operation.
+pub mod describe_knowledge_base_permissions;
+
 /// Types for the `DescribeNamespace` operation.
 pub mod describe_namespace;
 
@@ -481,6 +493,9 @@ pub mod list_identity_propagation_configs;
 /// Types for the `ListIngestions` operation.
 pub mod list_ingestions;
 
+/// Types for the `ListKnowledgeBases` operation.
+pub mod list_knowledge_bases;
+
 /// Types for the `ListNamespaces` operation.
 pub mod list_namespaces;
 
@@ -538,6 +553,9 @@ pub mod list_user_groups;
 /// Types for the `ListUsers` operation.
 pub mod list_users;
 
+/// Types for the `ListUsersIndexCapacity` operation.
+pub mod list_users_index_capacity;
+
 /// Types for the `ListVPCConnections` operation.
 pub mod list_vpc_connections;
 
@@ -579,6 +597,9 @@ pub mod search_folders;
 
 /// Types for the `SearchGroups` operation.
 pub mod search_groups;
+
+/// Types for the `SearchKnowledgeBases` operation.
+pub mod search_knowledge_bases;
 
 /// Types for the `SearchSpaces` operation.
 pub mod search_spaces;
@@ -705,6 +726,9 @@ pub mod update_ip_restriction;
 
 /// Types for the `UpdateKeyRegistration` operation.
 pub mod update_key_registration;
+
+/// Types for the `UpdateKnowledgeBasePermissions` operation.
+pub mod update_knowledge_base_permissions;
 
 /// Types for the `UpdateOAuthClientApplication` operation.
 pub mod update_o_auth_client_application;

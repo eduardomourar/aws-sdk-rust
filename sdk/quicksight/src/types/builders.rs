@@ -121,6 +121,8 @@ pub use crate::types::_ingestion::IngestionBuilder;
 
 pub use crate::types::_q_data_key::QDataKeyBuilder;
 
+pub use crate::types::_knowledge_base::KnowledgeBaseBuilder;
+
 pub use crate::types::_namespace_info_v2::NamespaceInfoV2Builder;
 
 pub use crate::types::_o_auth_client_application::OAuthClientApplicationBuilder;
@@ -145,6 +147,8 @@ pub use crate::types::_registered_user_embedding_experience_configuration::Regis
 
 pub use crate::types::_qa_result::QaResultBuilder;
 
+pub use crate::types::_knowledge_base_sort_by::KnowledgeBaseSortByBuilder;
+
 pub use crate::types::_asset_bundle_import_source::AssetBundleImportSourceBuilder;
 
 pub use crate::types::_snapshot_user_configuration::SnapshotUserConfigurationBuilder;
@@ -156,6 +160,10 @@ pub use crate::types::_create_topic_reviewed_answer::CreateTopicReviewedAnswerBu
 pub use crate::types::_succeeded_topic_reviewed_answer::SucceededTopicReviewedAnswerBuilder;
 
 pub use crate::types::_invalid_topic_reviewed_answer::InvalidTopicReviewedAnswerBuilder;
+
+pub use crate::types::_batch_delete_knowledge_base_success::BatchDeleteKnowledgeBaseSuccessBuilder;
+
+pub use crate::types::_batch_delete_knowledge_base_failure::BatchDeleteKnowledgeBaseFailureBuilder;
 
 pub use crate::types::_tag::TagBuilder;
 
@@ -353,6 +361,12 @@ pub use crate::types::_queue_info::QueueInfoBuilder;
 
 pub use crate::types::_registered_customer_managed_key::RegisteredCustomerManagedKeyBuilder;
 
+pub use crate::types::_knowledge_base_configuration::KnowledgeBaseConfigurationBuilder;
+
+pub use crate::types::_media_extraction_configuration::MediaExtractionConfigurationBuilder;
+
+pub use crate::types::_knowledge_base_ingestion_summary::KnowledgeBaseIngestionSummaryBuilder;
+
 pub use crate::types::_namespace_error::NamespaceErrorBuilder;
 
 pub use crate::types::_space_contributor::SpaceContributorBuilder;
@@ -415,6 +429,8 @@ pub use crate::types::_active_iam_policy_assignment::ActiveIamPolicyAssignmentBu
 
 pub use crate::types::_authorized_targets_by_service::AuthorizedTargetsByServiceBuilder;
 
+pub use crate::types::_knowledge_base_summary::KnowledgeBaseSummaryBuilder;
+
 pub use crate::types::_o_auth_client_application_summary::OAuthClientApplicationSummaryBuilder;
 
 pub use crate::types::_space_resource_summary::SpaceResourceSummaryBuilder;
@@ -434,6 +450,8 @@ pub use crate::types::_topic_refresh_schedule_summary::TopicRefreshScheduleSumma
 pub use crate::types::_topic_reviewed_answer::TopicReviewedAnswerBuilder;
 
 pub use crate::types::_topic_summary::TopicSummaryBuilder;
+
+pub use crate::types::_user_index_capacity::UserIndexCapacityBuilder;
 
 pub use crate::types::_vpc_connection_summary::VpcConnectionSummaryBuilder;
 
@@ -460,6 +478,8 @@ pub use crate::types::_search_flows_filter::SearchFlowsFilterBuilder;
 pub use crate::types::_folder_search_filter::FolderSearchFilterBuilder;
 
 pub use crate::types::_group_search_filter::GroupSearchFilterBuilder;
+
+pub use crate::types::_knowledge_base_search_filter::KnowledgeBaseSearchFilterBuilder;
 
 pub use crate::types::_space_quicksight_search_filter::SpaceQuicksightSearchFilterBuilder;
 
@@ -671,6 +691,14 @@ pub use crate::types::_refresh_failure_email_alert::RefreshFailureEmailAlertBuil
 
 pub use crate::types::_step_alias_mapping::StepAliasMappingBuilder;
 
+pub use crate::types::_kb_template_configuration::KbTemplateConfigurationBuilder;
+
+pub use crate::types::_image_extraction_configuration::ImageExtractionConfigurationBuilder;
+
+pub use crate::types::_audio_extraction_configuration::AudioExtractionConfigurationBuilder;
+
+pub use crate::types::_video_extraction_configuration::VideoExtractionConfigurationBuilder;
+
 pub use crate::types::_space_quick_sight_resource::SpaceQuickSightResourceBuilder;
 
 pub use crate::types::_network_interface::NetworkInterfaceBuilder;
@@ -682,6 +710,10 @@ pub use crate::types::_dashboard_visual_id::DashboardVisualIdBuilder;
 pub use crate::types::_registered_user_dashboard_feature_configurations::RegisteredUserDashboardFeatureConfigurationsBuilder;
 
 pub use crate::types::_registered_user_console_feature_configurations::RegisteredUserConsoleFeatureConfigurationsBuilder;
+
+pub use crate::types::_user_name_or_email_filter::UserNameOrEmailFilterBuilder;
+
+pub use crate::types::_capacity_bytes_range_filter::CapacityBytesRangeFilterBuilder;
 
 pub use crate::types::_snapshot_anonymous_user::SnapshotAnonymousUserBuilder;
 

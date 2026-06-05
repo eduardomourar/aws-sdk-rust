@@ -138,6 +138,8 @@ impl Client {
 
 mod batch_create_topic_reviewed_answer;
 
+mod batch_delete_knowledge_base;
+
 mod batch_delete_topic_reviewed_answer;
 
 mod cancel_ingestion;
@@ -269,6 +271,8 @@ mod delete_iam_policy_assignment;
 
 mod delete_identity_propagation_config;
 
+mod delete_knowledge_base;
+
 mod delete_namespace;
 
 mod delete_o_auth_client_application;
@@ -381,6 +385,10 @@ mod describe_ip_restriction;
 
 mod describe_key_registration;
 
+mod describe_knowledge_base;
+
+mod describe_knowledge_base_permissions;
+
 mod describe_namespace;
 
 mod describe_o_auth_client_application;
@@ -483,6 +491,8 @@ mod list_identity_propagation_configs;
 
 mod list_ingestions;
 
+mod list_knowledge_bases;
+
 mod list_namespaces;
 
 mod list_o_auth_client_applications;
@@ -521,6 +531,8 @@ mod list_user_groups;
 
 mod list_users;
 
+mod list_users_index_capacity;
+
 mod list_vpc_connections;
 
 mod predict_qa_results;
@@ -548,6 +560,8 @@ mod search_flows;
 mod search_folders;
 
 mod search_groups;
+
+mod search_knowledge_bases;
 
 mod search_spaces;
 
@@ -632,6 +646,8 @@ mod update_identity_propagation_config;
 mod update_ip_restriction;
 
 mod update_key_registration;
+
+mod update_knowledge_base_permissions;
 
 mod update_o_auth_client_application;
 

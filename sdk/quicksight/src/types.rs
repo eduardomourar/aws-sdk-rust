@@ -189,6 +189,8 @@ pub use crate::types::_ingestion::Ingestion;
 
 pub use crate::types::_q_data_key::QDataKey;
 
+pub use crate::types::_knowledge_base::KnowledgeBase;
+
 pub use crate::types::_namespace_info_v2::NamespaceInfoV2;
 
 pub use crate::types::_o_auth_client_application::OAuthClientApplication;
@@ -221,6 +223,10 @@ pub use crate::types::_user_identifier::UserIdentifier;
 
 pub use crate::types::_theme_type::ThemeType;
 
+pub use crate::types::_user_index_capacity_sort_by::UserIndexCapacitySortBy;
+
+pub use crate::types::_user_index_capacity_sort_order::UserIndexCapacitySortOrder;
+
 pub use crate::types::_include_quick_sight_q_index::IncludeQuickSightQIndex;
 
 pub use crate::types::_include_generated_answer::IncludeGeneratedAnswer;
@@ -230,6 +236,8 @@ pub use crate::types::_qa_result::QaResult;
 pub use crate::types::_identity_type::IdentityType;
 
 pub use crate::types::_user_role::UserRole;
+
+pub use crate::types::_knowledge_base_sort_by::KnowledgeBaseSortBy;
 
 pub use crate::types::_asset_bundle_import_source::AssetBundleImportSource;
 
@@ -248,6 +256,10 @@ pub use crate::types::_create_topic_reviewed_answer::CreateTopicReviewedAnswer;
 pub use crate::types::_succeeded_topic_reviewed_answer::SucceededTopicReviewedAnswer;
 
 pub use crate::types::_invalid_topic_reviewed_answer::InvalidTopicReviewedAnswer;
+
+pub use crate::types::_batch_delete_knowledge_base_success::BatchDeleteKnowledgeBaseSuccess;
+
+pub use crate::types::_batch_delete_knowledge_base_failure::BatchDeleteKnowledgeBaseFailure;
 
 pub use crate::types::_tag::Tag;
 
@@ -475,6 +487,14 @@ pub use crate::types::_registered_customer_managed_key::RegisteredCustomerManage
 
 pub use crate::types::_q_data_key_type::QDataKeyType;
 
+pub use crate::types::_data_set_status::DataSetStatus;
+
+pub use crate::types::_knowledge_base_configuration::KnowledgeBaseConfiguration;
+
+pub use crate::types::_media_extraction_configuration::MediaExtractionConfiguration;
+
+pub use crate::types::_knowledge_base_ingestion_summary::KnowledgeBaseIngestionSummary;
+
 pub use crate::types::_namespace_error::NamespaceError;
 
 pub use crate::types::_space_contributor::SpaceContributor;
@@ -539,6 +559,8 @@ pub use crate::types::_active_iam_policy_assignment::ActiveIamPolicyAssignment;
 
 pub use crate::types::_authorized_targets_by_service::AuthorizedTargetsByService;
 
+pub use crate::types::_knowledge_base_summary::KnowledgeBaseSummary;
+
 pub use crate::types::_o_auth_client_application_summary::OAuthClientApplicationSummary;
 
 pub use crate::types::_space_resource_summary::SpaceResourceSummary;
@@ -558,6 +580,10 @@ pub use crate::types::_topic_refresh_schedule_summary::TopicRefreshScheduleSumma
 pub use crate::types::_topic_reviewed_answer::TopicReviewedAnswer;
 
 pub use crate::types::_topic_summary::TopicSummary;
+
+pub use crate::types::_user_index_capacity_filter::UserIndexCapacityFilter;
+
+pub use crate::types::_user_index_capacity::UserIndexCapacity;
 
 pub use crate::types::_vpc_connection_summary::VpcConnectionSummary;
 
@@ -586,6 +612,12 @@ pub use crate::types::_search_flows_filter::SearchFlowsFilter;
 pub use crate::types::_folder_search_filter::FolderSearchFilter;
 
 pub use crate::types::_group_search_filter::GroupSearchFilter;
+
+pub use crate::types::_knowledge_base_search_filter::KnowledgeBaseSearchFilter;
+
+pub use crate::types::_knowledge_base_sort_by_field::KnowledgeBaseSortByField;
+
+pub use crate::types::_sort_order::SortOrder;
 
 pub use crate::types::_space_quicksight_search_filter::SpaceQuicksightSearchFilter;
 
@@ -831,6 +863,16 @@ pub use crate::types::_step_alias_mapping::StepAliasMapping;
 
 pub use crate::types::_ingestion_error_type::IngestionErrorType;
 
+pub use crate::types::_kb_template_configuration::KbTemplateConfiguration;
+
+pub use crate::types::_image_extraction_configuration::ImageExtractionConfiguration;
+
+pub use crate::types::_audio_extraction_configuration::AudioExtractionConfiguration;
+
+pub use crate::types::_video_extraction_configuration::VideoExtractionConfiguration;
+
+pub use crate::types::_kb_ingestion_status::KbIngestionStatus;
+
 pub use crate::types::_namespace_error_type::NamespaceErrorType;
 
 pub use crate::types::_space_quick_sight_resource::SpaceQuickSightResource;
@@ -850,6 +892,10 @@ pub use crate::types::_registered_user_console_feature_configurations::Registere
 pub use crate::types::_space_quick_sight_resource_type::SpaceQuickSightResourceType;
 
 pub use crate::types::_space_quick_sight_resource_details::SpaceQuickSightResourceDetails;
+
+pub use crate::types::_user_name_or_email_filter::UserNameOrEmailFilter;
+
+pub use crate::types::_capacity_bytes_range_filter::CapacityBytesRangeFilter;
 
 pub use crate::types::_generated_answer_status::GeneratedAnswerStatus;
 
@@ -878,6 +924,10 @@ pub use crate::types::_folder_filter_attribute::FolderFilterAttribute;
 pub use crate::types::_group_filter_operator::GroupFilterOperator;
 
 pub use crate::types::_group_filter_attribute::GroupFilterAttribute;
+
+pub use crate::types::_knowledge_base_search_filter_name::KnowledgeBaseSearchFilterName;
+
+pub use crate::types::_knowledge_base_search_operator::KnowledgeBaseSearchOperator;
 
 pub use crate::types::_space_quick_sight_search_filter_name::SpaceQuickSightSearchFilterName;
 
@@ -1058,6 +1108,14 @@ pub use crate::types::_column_data_sub_type::ColumnDataSubType;
 pub use crate::types::_lookback_window::LookbackWindow;
 
 pub use crate::types::_refresh_failure_alert_status::RefreshFailureAlertStatus;
+
+pub use crate::types::_image_extraction_status::ImageExtractionStatus;
+
+pub use crate::types::_audio_extraction_status::AudioExtractionStatus;
+
+pub use crate::types::_video_extraction_status::VideoExtractionStatus;
+
+pub use crate::types::_video_extraction_type::VideoExtractionType;
 
 pub use crate::types::_theme_error::ThemeError;
 
@@ -3001,6 +3059,10 @@ mod _athena_parameters;
 
 mod _attribute_aggregation_function;
 
+mod _audio_extraction_configuration;
+
+mod _audio_extraction_status;
+
 mod _aurora_parameters;
 
 mod _aurora_postgre_sql_parameters;
@@ -3077,6 +3139,10 @@ mod _base_map_style_type;
 
 mod _basic_auth_connection_metadata;
 
+mod _batch_delete_knowledge_base_failure;
+
+mod _batch_delete_knowledge_base_success;
+
 mod _big_query_parameters;
 
 mod _bin_count_options;
@@ -3142,6 +3208,8 @@ mod _calculated_measure_field;
 mod _capabilities;
 
 mod _capability_state;
+
+mod _capacity_bytes_range_filter;
 
 mod _cascading_control_configuration;
 
@@ -3518,6 +3586,8 @@ mod _data_set_search_filter;
 mod _data_set_semantic_description;
 
 mod _data_set_semantic_metadata;
+
+mod _data_set_status;
 
 mod _data_set_string_comparison_filter_condition;
 
@@ -4073,6 +4143,10 @@ mod _image_custom_action_operation;
 
 mod _image_custom_action_trigger;
 
+mod _image_extraction_configuration;
+
+mod _image_extraction_status;
+
 mod _image_interaction_options;
 
 mod _image_menu_option;
@@ -4153,7 +4227,29 @@ mod _join_operation_type;
 
 mod _join_type;
 
+mod _kb_ingestion_status;
+
+mod _kb_template_configuration;
+
 mod _key_pair_credentials;
+
+mod _knowledge_base;
+
+mod _knowledge_base_configuration;
+
+mod _knowledge_base_ingestion_summary;
+
+mod _knowledge_base_search_filter;
+
+mod _knowledge_base_search_filter_name;
+
+mod _knowledge_base_search_operator;
+
+mod _knowledge_base_sort_by;
+
+mod _knowledge_base_sort_by_field;
+
+mod _knowledge_base_summary;
 
 mod _kpi_actual_value_conditional_formatting;
 
@@ -4282,6 +4378,8 @@ mod _maximum_minimum_computation;
 mod _maximum_minimum_computation_type;
 
 mod _measure_field;
+
+mod _media_extraction_configuration;
 
 mod _member_id_arn_pair;
 
@@ -4971,6 +5069,8 @@ mod _snowflake_parameters;
 
 mod _sort_direction;
 
+mod _sort_order;
+
 mod _source_table;
 
 mod _space_contributor;
@@ -5373,6 +5473,16 @@ mod _user;
 
 mod _user_identifier;
 
+mod _user_index_capacity;
+
+mod _user_index_capacity_filter;
+
+mod _user_index_capacity_sort_by;
+
+mod _user_index_capacity_sort_order;
+
+mod _user_name_or_email_filter;
+
 mod _user_role;
 
 mod _validation_strategy;
@@ -5384,6 +5494,12 @@ mod _value_column_configuration;
 mod _value_when_unset_option;
 
 mod _vertical_text_alignment;
+
+mod _video_extraction_configuration;
+
+mod _video_extraction_status;
+
+mod _video_extraction_type;
 
 mod _visibility;
 

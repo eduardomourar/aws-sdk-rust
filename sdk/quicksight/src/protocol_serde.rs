@@ -25,6 +25,8 @@ pub fn parse_http_error_metadata(
 
 pub(crate) mod shape_batch_create_topic_reviewed_answer;
 
+pub(crate) mod shape_batch_delete_knowledge_base;
+
 pub(crate) mod shape_batch_delete_topic_reviewed_answer;
 
 pub(crate) mod shape_cancel_ingestion;
@@ -128,6 +130,8 @@ pub(crate) mod shape_delete_group_membership;
 pub(crate) mod shape_delete_iam_policy_assignment;
 
 pub(crate) mod shape_delete_identity_propagation_config;
+
+pub(crate) mod shape_delete_knowledge_base;
 
 pub(crate) mod shape_delete_namespace;
 
@@ -241,6 +245,10 @@ pub(crate) mod shape_describe_ip_restriction;
 
 pub(crate) mod shape_describe_key_registration;
 
+pub(crate) mod shape_describe_knowledge_base;
+
+pub(crate) mod shape_describe_knowledge_base_permissions;
+
 pub(crate) mod shape_describe_namespace;
 
 pub(crate) mod shape_describe_o_auth_client_application;
@@ -343,6 +351,8 @@ pub(crate) mod shape_list_identity_propagation_configs;
 
 pub(crate) mod shape_list_ingestions;
 
+pub(crate) mod shape_list_knowledge_bases;
+
 pub(crate) mod shape_list_namespaces;
 
 pub(crate) mod shape_list_o_auth_client_applications;
@@ -381,6 +391,8 @@ pub(crate) mod shape_list_user_groups;
 
 pub(crate) mod shape_list_users;
 
+pub(crate) mod shape_list_users_index_capacity;
+
 pub(crate) mod shape_list_vpc_connections;
 
 pub(crate) mod shape_predict_qa_results;
@@ -408,6 +420,8 @@ pub(crate) mod shape_search_flows;
 pub(crate) mod shape_search_folders;
 
 pub(crate) mod shape_search_groups;
+
+pub(crate) mod shape_search_knowledge_bases;
 
 pub(crate) mod shape_search_spaces;
 
@@ -493,6 +507,8 @@ pub(crate) mod shape_update_ip_restriction;
 
 pub(crate) mod shape_update_key_registration;
 
+pub(crate) mod shape_update_knowledge_base_permissions;
+
 pub(crate) mod shape_update_o_auth_client_application;
 
 pub(crate) mod shape_update_public_sharing_settings;
@@ -552,6 +568,8 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
 pub(crate) mod shape_access_denied_exception;
 
 pub(crate) mod shape_batch_create_topic_reviewed_answer_input;
+
+pub(crate) mod shape_batch_delete_knowledge_base_input;
 
 pub(crate) mod shape_batch_delete_topic_reviewed_answer_input;
 
@@ -641,6 +659,8 @@ pub(crate) mod shape_invalid_request_exception;
 
 pub(crate) mod shape_limit_exceeded_exception;
 
+pub(crate) mod shape_list_users_index_capacity_input;
+
 pub(crate) mod shape_precondition_not_met_exception;
 
 pub(crate) mod shape_predict_qa_results_input;
@@ -674,6 +694,8 @@ pub(crate) mod shape_search_flows_input;
 pub(crate) mod shape_search_folders_input;
 
 pub(crate) mod shape_search_groups_input;
+
+pub(crate) mod shape_search_knowledge_bases_input;
 
 pub(crate) mod shape_search_spaces_input;
 
@@ -758,6 +780,8 @@ pub(crate) mod shape_update_identity_propagation_config_input;
 pub(crate) mod shape_update_ip_restriction_input;
 
 pub(crate) mod shape_update_key_registration_input;
+
+pub(crate) mod shape_update_knowledge_base_permissions_input;
 
 pub(crate) mod shape_update_o_auth_client_application_input;
 
@@ -877,6 +901,10 @@ pub(crate) mod shape_auth_config;
 
 pub(crate) mod shape_authorized_targets_by_services;
 
+pub(crate) mod shape_batch_delete_knowledge_base_failure_list;
+
+pub(crate) mod shape_batch_delete_knowledge_base_success_list;
+
 pub(crate) mod shape_brand_definition;
 
 pub(crate) mod shape_brand_detail;
@@ -994,6 +1022,14 @@ pub(crate) mod shape_invalid_topic_reviewed_answers;
 pub(crate) mod shape_ip_restriction_rule_map;
 
 pub(crate) mod shape_key_registration;
+
+pub(crate) mod shape_knowledge_base;
+
+pub(crate) mod shape_knowledge_base_search_filter;
+
+pub(crate) mod shape_knowledge_base_sort_by;
+
+pub(crate) mod shape_knowledge_base_summaries;
 
 pub(crate) mod shape_link_entity_arn_list;
 
@@ -1134,6 +1170,10 @@ pub(crate) mod shape_update_resource_permission_list;
 pub(crate) mod shape_user;
 
 pub(crate) mod shape_user_identifier;
+
+pub(crate) mod shape_user_index_capacity_filter;
+
+pub(crate) mod shape_user_index_capacity_list;
 
 pub(crate) mod shape_user_list;
 
@@ -1335,6 +1375,10 @@ pub(crate) mod shape_authorized_targets_by_service;
 
 pub(crate) mod shape_aws_iot_analytics_parameters;
 
+pub(crate) mod shape_batch_delete_knowledge_base_failure;
+
+pub(crate) mod shape_batch_delete_knowledge_base_success;
+
 pub(crate) mod shape_big_query_parameters;
 
 pub(crate) mod shape_brand_summary;
@@ -1342,6 +1386,8 @@ pub(crate) mod shape_brand_summary;
 pub(crate) mod shape_calculated_field;
 
 pub(crate) mod shape_calculated_fields;
+
+pub(crate) mod shape_capacity_bytes_range_filter;
 
 pub(crate) mod shape_column_configuration;
 
@@ -1477,6 +1523,12 @@ pub(crate) mod shape_jira_parameters;
 
 pub(crate) mod shape_key_pair_credentials;
 
+pub(crate) mod shape_knowledge_base_configuration;
+
+pub(crate) mod shape_knowledge_base_ingestion_summary;
+
+pub(crate) mod shape_knowledge_base_summary;
+
 pub(crate) mod shape_logical_table_map;
 
 pub(crate) mod shape_logical_table_source;
@@ -1486,6 +1538,8 @@ pub(crate) mod shape_logo;
 pub(crate) mod shape_logo_configuration;
 
 pub(crate) mod shape_maria_db_parameters;
+
+pub(crate) mod shape_media_extraction_configuration;
 
 pub(crate) mod shape_member_id_arn_pair;
 
@@ -1683,6 +1737,10 @@ pub(crate) mod shape_ui_color_palette;
 
 pub(crate) mod shape_unique_key;
 
+pub(crate) mod shape_user_index_capacity;
+
+pub(crate) mod shape_user_name_or_email_filter;
+
 pub(crate) mod shape_visual_axis_sort_option;
 
 pub(crate) mod shape_visual_menu_option;
@@ -1712,6 +1770,8 @@ pub(crate) mod shape_asset_bundle_import_job_data_source_credentials;
 pub(crate) mod shape_asset_bundle_resource_link_sharing_configuration;
 
 pub(crate) mod shape_asset_bundle_resource_permissions;
+
+pub(crate) mod shape_audio_extraction_configuration;
 
 pub(crate) mod shape_authorization_code_grant_metadata;
 
@@ -1799,6 +1859,8 @@ pub(crate) mod shape_iam_connection_metadata;
 
 pub(crate) mod shape_identity_center_configuration;
 
+pub(crate) mod shape_image_extraction_configuration;
+
 pub(crate) mod shape_image_static_file;
 
 pub(crate) mod shape_import_table_operation;
@@ -1816,6 +1878,8 @@ pub(crate) mod shape_integer_parameter_list;
 pub(crate) mod shape_join_instruction;
 
 pub(crate) mod shape_join_operation;
+
+pub(crate) mod shape_kb_template_configuration;
 
 pub(crate) mod shape_layout;
 
@@ -1944,6 +2008,8 @@ pub(crate) mod shape_unpivot_operation;
 pub(crate) mod shape_untag_column_operation;
 
 pub(crate) mod shape_upload_settings;
+
+pub(crate) mod shape_video_extraction_configuration;
 
 pub(crate) mod shape_visual;
 

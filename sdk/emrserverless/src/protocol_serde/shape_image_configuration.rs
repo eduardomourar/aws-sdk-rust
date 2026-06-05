@@ -35,6 +35,10 @@ where
                                     .transpose()?,
                             );
                         }
+                        "applicationLevelDigestResolution" => {
+                            builder = builder
+                                .set_application_level_digest_resolution(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

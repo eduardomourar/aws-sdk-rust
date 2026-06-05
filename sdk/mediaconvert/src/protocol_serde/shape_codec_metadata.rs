@@ -46,6 +46,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "contentLightLevel" => {
+                            builder = builder.set_content_light_level(crate::protocol_serde::shape_content_light_level::de_content_light_level(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         "height" => {
                             builder = builder.set_height(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -71,6 +78,13 @@ where
                             builder = builder.set_profile(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "rotation" => {
+                            builder = builder.set_rotation(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
                                     .transpose()?,
                             );
                         }

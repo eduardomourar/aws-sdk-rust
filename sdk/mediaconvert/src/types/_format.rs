@@ -15,6 +15,7 @@
 ///     Format::Avi => { /* ... */ },
 ///     Format::Matroska => { /* ... */ },
 ///     Format::Mp4 => { /* ... */ },
+///     Format::Mpegps => { /* ... */ },
 ///     Format::Mpegts => { /* ... */ },
 ///     Format::Mxf => { /* ... */ },
 ///     Format::Quicktime => { /* ... */ },
@@ -55,6 +56,8 @@ pub enum Format {
     #[allow(missing_docs)] // documentation missing in model
     Mp4,
     #[allow(missing_docs)] // documentation missing in model
+    Mpegps,
+    #[allow(missing_docs)] // documentation missing in model
     Mpegts,
     #[allow(missing_docs)] // documentation missing in model
     Mxf,
@@ -74,6 +77,7 @@ impl ::std::convert::From<&str> for Format {
             "avi" => Format::Avi,
             "matroska" => Format::Matroska,
             "mp4" => Format::Mp4,
+            "mpegps" => Format::Mpegps,
             "mpegts" => Format::Mpegts,
             "mxf" => Format::Mxf,
             "quicktime" => Format::Quicktime,
@@ -97,6 +101,7 @@ impl Format {
             Format::Avi => "avi",
             Format::Matroska => "matroska",
             Format::Mp4 => "mp4",
+            Format::Mpegps => "mpegps",
             Format::Mpegts => "mpegts",
             Format::Mxf => "mxf",
             Format::Quicktime => "quicktime",
@@ -107,7 +112,7 @@ impl Format {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["avi", "matroska", "mp4", "mpegts", "mxf", "quicktime", "wave", "webm"]
+        &["avi", "matroska", "mp4", "mpegps", "mpegts", "mxf", "quicktime", "wave", "webm"]
     }
 }
 impl ::std::convert::AsRef<str> for Format {
@@ -133,6 +138,7 @@ impl ::std::fmt::Display for Format {
             Format::Avi => write!(f, "avi"),
             Format::Matroska => write!(f, "matroska"),
             Format::Mp4 => write!(f, "mp4"),
+            Format::Mpegps => write!(f, "mpegps"),
             Format::Mpegts => write!(f, "mpegts"),
             Format::Mxf => write!(f, "mxf"),
             Format::Quicktime => write!(f, "quicktime"),

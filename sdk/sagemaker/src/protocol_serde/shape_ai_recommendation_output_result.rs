@@ -35,6 +35,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "MlflowConfig" => {
+                            builder = builder.set_mlflow_config(crate::protocol_serde::shape_ai_mlflow_config::de_ai_mlflow_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

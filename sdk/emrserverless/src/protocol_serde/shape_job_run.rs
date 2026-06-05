@@ -194,6 +194,22 @@ where
                                     .transpose()?,
                             );
                         }
+                        "imageConfiguration" => {
+                            builder = builder.set_image_configuration(crate::protocol_serde::shape_image_configuration::de_image_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "workerTypeSpecifications" => {
+                            builder = builder.set_worker_type_specifications(
+                                crate::protocol_serde::shape_worker_type_specification_map::de_worker_type_specification_map(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

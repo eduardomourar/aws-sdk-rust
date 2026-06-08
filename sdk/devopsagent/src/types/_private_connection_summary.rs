@@ -20,6 +20,10 @@ pub struct PrivateConnectionSummary {
     pub status: crate::types::PrivateConnectionStatus,
     /// <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
     pub certificate_expiry_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub dns_resolution: ::std::option::Option<crate::types::ResourceConfigDnsResolution>,
+    /// <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+    pub failure_message: ::std::option::Option<::std::string::String>,
 }
 impl PrivateConnectionSummary {
     /// <p>The name of the Private Connection.</p>
@@ -55,6 +59,14 @@ impl PrivateConnectionSummary {
     pub fn certificate_expiry_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.certificate_expiry_time.as_ref()
     }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn dns_resolution(&self) -> ::std::option::Option<&crate::types::ResourceConfigDnsResolution> {
+        self.dns_resolution.as_ref()
+    }
+    /// <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+    pub fn failure_message(&self) -> ::std::option::Option<&str> {
+        self.failure_message.as_deref()
+    }
 }
 impl PrivateConnectionSummary {
     /// Creates a new builder-style object to manufacture [`PrivateConnectionSummary`](crate::types::PrivateConnectionSummary).
@@ -75,6 +87,8 @@ pub struct PrivateConnectionSummaryBuilder {
     pub(crate) resource_configuration_id: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::PrivateConnectionStatus>,
     pub(crate) certificate_expiry_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) dns_resolution: ::std::option::Option<crate::types::ResourceConfigDnsResolution>,
+    pub(crate) failure_message: ::std::option::Option<::std::string::String>,
 }
 impl PrivateConnectionSummaryBuilder {
     /// <p>The name of the Private Connection.</p>
@@ -192,6 +206,34 @@ impl PrivateConnectionSummaryBuilder {
     pub fn get_certificate_expiry_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.certificate_expiry_time
     }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn dns_resolution(mut self, input: crate::types::ResourceConfigDnsResolution) -> Self {
+        self.dns_resolution = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn set_dns_resolution(mut self, input: ::std::option::Option<crate::types::ResourceConfigDnsResolution>) -> Self {
+        self.dns_resolution = input;
+        self
+    }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn get_dns_resolution(&self) -> &::std::option::Option<crate::types::ResourceConfigDnsResolution> {
+        &self.dns_resolution
+    }
+    /// <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+    pub fn failure_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.failure_message = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+    pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.failure_message = input;
+        self
+    }
+    /// <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+    pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.failure_message
+    }
     /// Consumes the builder and constructs a [`PrivateConnectionSummary`](crate::types::PrivateConnectionSummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::PrivateConnectionSummaryBuilder::name)
@@ -222,6 +264,8 @@ impl PrivateConnectionSummaryBuilder {
                 )
             })?,
             certificate_expiry_time: self.certificate_expiry_time,
+            dns_resolution: self.dns_resolution,
+            failure_message: self.failure_message,
         })
     }
 }

@@ -7,6 +7,12 @@ pub mod associate_service;
 /// Types for the `CreateAgentSpace` operation.
 pub mod create_agent_space;
 
+/// Types for the `CreateAsset` operation.
+pub mod create_asset;
+
+/// Types for the `CreateAssetFile` operation.
+pub mod create_asset_file;
+
 /// Types for the `CreateBacklogTask` operation.
 pub mod create_backlog_task;
 
@@ -18,6 +24,12 @@ pub mod create_private_connection;
 
 /// Types for the `DeleteAgentSpace` operation.
 pub mod delete_agent_space;
+
+/// Types for the `DeleteAsset` operation.
+pub mod delete_asset;
+
+/// Types for the `DeleteAssetFile` operation.
+pub mod delete_asset_file;
 
 /// Types for the `DeletePrivateConnection` operation.
 pub mod delete_private_connection;
@@ -43,6 +55,15 @@ pub mod get_account_usage;
 /// Types for the `GetAgentSpace` operation.
 pub mod get_agent_space;
 
+/// Types for the `GetAsset` operation.
+pub mod get_asset;
+
+/// Types for the `GetAssetContent` operation.
+pub mod get_asset_content;
+
+/// Types for the `GetAssetFile` operation.
+pub mod get_asset_file;
+
 /// Types for the `GetAssociation` operation.
 pub mod get_association;
 
@@ -60,6 +81,18 @@ pub mod get_service;
 
 /// Types for the `ListAgentSpaces` operation.
 pub mod list_agent_spaces;
+
+/// Types for the `ListAssetFiles` operation.
+pub mod list_asset_files;
+
+/// Types for the `ListAssetTypes` operation.
+pub mod list_asset_types;
+
+/// Types for the `ListAssetVersions` operation.
+pub mod list_asset_versions;
+
+/// Types for the `ListAssets` operation.
+pub mod list_assets;
 
 /// Types for the `ListAssociations` operation.
 pub mod list_associations;
@@ -111,6 +144,12 @@ pub mod untag_resource;
 
 /// Types for the `UpdateAgentSpace` operation.
 pub mod update_agent_space;
+
+/// Types for the `UpdateAsset` operation.
+pub mod update_asset;
+
+/// Types for the `UpdateAssetFile` operation.
+pub mod update_asset_file;
 
 /// Types for the `UpdateAssociation` operation.
 pub mod update_association;

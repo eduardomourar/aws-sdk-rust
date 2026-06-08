@@ -63,6 +63,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "mcpRoleArn" => {
+                            builder = builder.set_mcp_role_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "customHeaders" => {
                             builder = builder.set_custom_headers(crate::protocol_serde::shape_custom_headers::de_custom_headers(
                                 tokens,

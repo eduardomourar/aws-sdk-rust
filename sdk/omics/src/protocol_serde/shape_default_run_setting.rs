@@ -153,6 +153,9 @@ where
                                     .transpose()?,
                             );
                         }
+                        "engineSettings" => {
+                            builder = builder.set_engine_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {
@@ -248,6 +251,9 @@ pub fn ser_default_run_setting(
     }
     if let Some(var_21) = &input.configuration_name {
         object.key("configurationName").string(var_21.as_str());
+    }
+    if let Some(var_22) = &input.engine_settings {
+        object.key("engineSettings").document(var_22);
     }
     Ok(())
 }

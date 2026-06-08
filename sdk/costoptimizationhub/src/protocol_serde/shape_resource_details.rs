@@ -163,6 +163,36 @@ where
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'natGateway' cannot be null")
                             })?,
                         )),
+                        "dynamoDbTable" => Some(crate::types::ResourceDetails::DynamoDbTable(
+                            crate::protocol_serde::shape_dynamo_db_table::de_dynamo_db_table(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'dynamoDbTable' cannot be null")
+                            })?,
+                        )),
+                        "elastiCacheCluster" => Some(crate::types::ResourceDetails::ElastiCacheCluster(
+                            crate::protocol_serde::shape_elasti_cache_cluster::de_elasti_cache_cluster(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'elastiCacheCluster' cannot be null"),
+                            )?,
+                        )),
+                        "memoryDbCluster" => Some(crate::types::ResourceDetails::MemoryDbCluster(
+                            crate::protocol_serde::shape_memory_db_cluster::de_memory_db_cluster(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'memoryDbCluster' cannot be null")
+                            })?,
+                        )),
+                        "documentDbCluster" => Some(crate::types::ResourceDetails::DocumentDbCluster(
+                            crate::protocol_serde::shape_document_db_cluster::de_document_db_cluster(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentDbCluster' cannot be null"),
+                            )?,
+                        )),
+                        "workSpaces" => Some(crate::types::ResourceDetails::WorkSpaces(
+                            crate::protocol_serde::shape_work_spaces::de_work_spaces(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'workSpaces' cannot be null")
+                            })?,
+                        )),
+                        "sageMakerEndpoint" => Some(crate::types::ResourceDetails::SageMakerEndpoint(
+                            crate::protocol_serde::shape_sage_maker_endpoint::de_sage_maker_endpoint(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'sageMakerEndpoint' cannot be null"),
+                            )?,
+                        )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(crate::types::ResourceDetails::Unknown)

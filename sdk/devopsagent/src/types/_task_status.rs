@@ -20,6 +20,7 @@
 ///     TaskStatus::PendingCustomerApproval => { /* ... */ },
 ///     TaskStatus::PendingStart => { /* ... */ },
 ///     TaskStatus::PendingTriage => { /* ... */ },
+///     TaskStatus::Skipped => { /* ... */ },
 ///     TaskStatus::TimedOut => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -65,6 +66,8 @@ pub enum TaskStatus {
     PendingStart,
     /// <p>Task is awaiting triage analysis</p>
     PendingTriage,
+    /// <p>Task has been skipped by triage</p>
+    Skipped,
     /// <p>Task has exceeded its time limit</p>
     TimedOut,
     /// `Unknown` contains new variants that have been added since this code was generated.
@@ -82,6 +85,7 @@ impl ::std::convert::From<&str> for TaskStatus {
             "PENDING_CUSTOMER_APPROVAL" => TaskStatus::PendingCustomerApproval,
             "PENDING_START" => TaskStatus::PendingStart,
             "PENDING_TRIAGE" => TaskStatus::PendingTriage,
+            "SKIPPED" => TaskStatus::Skipped,
             "TIMED_OUT" => TaskStatus::TimedOut,
             other => TaskStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -106,6 +110,7 @@ impl TaskStatus {
             TaskStatus::PendingCustomerApproval => "PENDING_CUSTOMER_APPROVAL",
             TaskStatus::PendingStart => "PENDING_START",
             TaskStatus::PendingTriage => "PENDING_TRIAGE",
+            TaskStatus::Skipped => "SKIPPED",
             TaskStatus::TimedOut => "TIMED_OUT",
             TaskStatus::Unknown(value) => value.as_str(),
         }
@@ -121,6 +126,7 @@ impl TaskStatus {
             "PENDING_CUSTOMER_APPROVAL",
             "PENDING_START",
             "PENDING_TRIAGE",
+            "SKIPPED",
             "TIMED_OUT",
         ]
     }
@@ -153,6 +159,7 @@ impl ::std::fmt::Display for TaskStatus {
             TaskStatus::PendingCustomerApproval => write!(f, "PENDING_CUSTOMER_APPROVAL"),
             TaskStatus::PendingStart => write!(f, "PENDING_START"),
             TaskStatus::PendingTriage => write!(f, "PENDING_TRIAGE"),
+            TaskStatus::Skipped => write!(f, "SKIPPED"),
             TaskStatus::TimedOut => write!(f, "TIMED_OUT"),
             TaskStatus::Unknown(value) => write!(f, "{value}"),
         }

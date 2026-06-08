@@ -130,6 +130,26 @@ where
                                 crate::protocol_serde::shape_uzbekistan_additional_info::de_uzbekistan_additional_info(tokens, _value, depth + 1)?,
                             );
                         }
+                        "philippinesAdditionalInfo" => {
+                            builder = builder.set_philippines_additional_info(
+                                crate::protocol_serde::shape_philippines_additional_info::de_philippines_additional_info(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "belgiumAdditionalInfo" => {
+                            builder = builder.set_belgium_additional_info(
+                                crate::protocol_serde::shape_belgium_additional_info::de_belgium_additional_info(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "chileAdditionalInfo" => {
+                            builder = builder.set_chile_additional_info(
+                                crate::protocol_serde::shape_chile_additional_info::de_chile_additional_info(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "franceAdditionalInfo" => {
+                            builder = builder.set_france_additional_info(
+                                crate::protocol_serde::shape_france_additional_info::de_france_additional_info(tokens, _value, depth + 1)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

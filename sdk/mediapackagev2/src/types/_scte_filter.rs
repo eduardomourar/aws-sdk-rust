@@ -14,7 +14,9 @@
 /// match sctefilter {
 ///     ScteFilter::AlternateContentOpportunity => { /* ... */ },
 ///     ScteFilter::Break => { /* ... */ },
+///     ScteFilter::CallAdServer => { /* ... */ },
 ///     ScteFilter::Chapter => { /* ... */ },
+///     ScteFilter::ContentIdentification => { /* ... */ },
 ///     ScteFilter::DistributorAdvertisement => { /* ... */ },
 ///     ScteFilter::DistributorAdBlock => { /* ... */ },
 ///     ScteFilter::DistributorOverlayPlacementOpportunity => { /* ... */ },
@@ -62,7 +64,11 @@ pub enum ScteFilter {
     #[allow(missing_docs)] // documentation missing in model
     Break,
     #[allow(missing_docs)] // documentation missing in model
+    CallAdServer,
+    #[allow(missing_docs)] // documentation missing in model
     Chapter,
+    #[allow(missing_docs)] // documentation missing in model
+    ContentIdentification,
     #[allow(missing_docs)] // documentation missing in model
     DistributorAdvertisement,
     #[allow(missing_docs)] // documentation missing in model
@@ -100,7 +106,9 @@ impl ::std::convert::From<&str> for ScteFilter {
         match s {
             "ALTERNATE_CONTENT_OPPORTUNITY" => ScteFilter::AlternateContentOpportunity,
             "BREAK" => ScteFilter::Break,
+            "CALL_AD_SERVER" => ScteFilter::CallAdServer,
             "CHAPTER" => ScteFilter::Chapter,
+            "CONTENT_IDENTIFICATION" => ScteFilter::ContentIdentification,
             "DISTRIBUTOR_ADVERTISEMENT" => ScteFilter::DistributorAdvertisement,
             "DISTRIBUTOR_AD_BLOCK" => ScteFilter::DistributorAdBlock,
             "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" => ScteFilter::DistributorOverlayPlacementOpportunity,
@@ -132,7 +140,9 @@ impl ScteFilter {
         match self {
             ScteFilter::AlternateContentOpportunity => "ALTERNATE_CONTENT_OPPORTUNITY",
             ScteFilter::Break => "BREAK",
+            ScteFilter::CallAdServer => "CALL_AD_SERVER",
             ScteFilter::Chapter => "CHAPTER",
+            ScteFilter::ContentIdentification => "CONTENT_IDENTIFICATION",
             ScteFilter::DistributorAdvertisement => "DISTRIBUTOR_ADVERTISEMENT",
             ScteFilter::DistributorAdBlock => "DISTRIBUTOR_AD_BLOCK",
             ScteFilter::DistributorOverlayPlacementOpportunity => "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
@@ -155,7 +165,9 @@ impl ScteFilter {
         &[
             "ALTERNATE_CONTENT_OPPORTUNITY",
             "BREAK",
+            "CALL_AD_SERVER",
             "CHAPTER",
+            "CONTENT_IDENTIFICATION",
             "DISTRIBUTOR_ADVERTISEMENT",
             "DISTRIBUTOR_AD_BLOCK",
             "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
@@ -195,7 +207,9 @@ impl ::std::fmt::Display for ScteFilter {
         match self {
             ScteFilter::AlternateContentOpportunity => write!(f, "ALTERNATE_CONTENT_OPPORTUNITY"),
             ScteFilter::Break => write!(f, "BREAK"),
+            ScteFilter::CallAdServer => write!(f, "CALL_AD_SERVER"),
             ScteFilter::Chapter => write!(f, "CHAPTER"),
+            ScteFilter::ContentIdentification => write!(f, "CONTENT_IDENTIFICATION"),
             ScteFilter::DistributorAdvertisement => write!(f, "DISTRIBUTOR_ADVERTISEMENT"),
             ScteFilter::DistributorAdBlock => write!(f, "DISTRIBUTOR_AD_BLOCK"),
             ScteFilter::DistributorOverlayPlacementOpportunity => write!(f, "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"),

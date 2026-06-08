@@ -211,4 +211,23 @@ impl SendMessageFluentBuilder {
     pub fn get_user_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_user_id()
     }
+    ///
+    /// Appends an item to `assetIds`.
+    ///
+    /// To override the contents of this collection use [`set_asset_ids`](Self::set_asset_ids).
+    ///
+    /// <p>Optional list of asset identifiers to attach to the message</p>
+    pub fn asset_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.asset_ids(input.into());
+        self
+    }
+    /// <p>Optional list of asset identifiers to attach to the message</p>
+    pub fn set_asset_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_asset_ids(input);
+        self
+    }
+    /// <p>Optional list of asset identifiers to attach to the message</p>
+    pub fn get_asset_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_asset_ids()
+    }
 }

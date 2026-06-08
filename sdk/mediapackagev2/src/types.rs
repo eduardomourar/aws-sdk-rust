@@ -95,6 +95,8 @@ pub use crate::types::_dash_dvb_settings::DashDvbSettings;
 
 pub use crate::types::_dash_compactness::DashCompactness;
 
+pub use crate::types::_dash_audio_timeline_pattern::DashAudioTimelinePattern;
+
 pub use crate::types::_dash_subtitle_configuration::DashSubtitleConfiguration;
 
 pub use crate::types::_dash_availability_start_time_configuration::DashAvailabilityStartTimeConfiguration;
@@ -176,6 +178,8 @@ mod _create_low_latency_hls_manifest_configuration;
 mod _create_mss_manifest_configuration;
 
 mod _custom_ad_type;
+
+mod _dash_audio_timeline_pattern;
 
 mod _dash_availability_start_time_configuration;
 

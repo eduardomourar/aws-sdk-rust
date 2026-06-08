@@ -12,6 +12,10 @@ pub struct RegisterServiceInput {
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the private connection to use for VPC connectivity.</p>
     pub private_connection_name: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub target_url_private_connection_name: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub exchange_url_private_connection_name: ::std::option::Option<::std::string::String>,
     /// <p>The display name for the service registration.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>Tags to add to the Service at registration time.</p>
@@ -33,6 +37,14 @@ impl RegisterServiceInput {
     /// <p>The name of the private connection to use for VPC connectivity.</p>
     pub fn private_connection_name(&self) -> ::std::option::Option<&str> {
         self.private_connection_name.as_deref()
+    }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn target_url_private_connection_name(&self) -> ::std::option::Option<&str> {
+        self.target_url_private_connection_name.as_deref()
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn exchange_url_private_connection_name(&self) -> ::std::option::Option<&str> {
+        self.exchange_url_private_connection_name.as_deref()
     }
     /// <p>The display name for the service registration.</p>
     pub fn name(&self) -> ::std::option::Option<&str> {
@@ -58,6 +70,8 @@ pub struct RegisterServiceInputBuilder {
     pub(crate) service_details: ::std::option::Option<crate::types::ServiceDetails>,
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) private_connection_name: ::std::option::Option<::std::string::String>,
+    pub(crate) target_url_private_connection_name: ::std::option::Option<::std::string::String>,
+    pub(crate) exchange_url_private_connection_name: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
@@ -120,6 +134,34 @@ impl RegisterServiceInputBuilder {
     pub fn get_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.private_connection_name
     }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn target_url_private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.target_url_private_connection_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn set_target_url_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.target_url_private_connection_name = input;
+        self
+    }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn get_target_url_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.target_url_private_connection_name
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn exchange_url_private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.exchange_url_private_connection_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn set_exchange_url_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.exchange_url_private_connection_name = input;
+        self
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn get_exchange_url_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.exchange_url_private_connection_name
+    }
     /// <p>The display name for the service registration.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
@@ -163,6 +205,8 @@ impl RegisterServiceInputBuilder {
             service_details: self.service_details,
             kms_key_arn: self.kms_key_arn,
             private_connection_name: self.private_connection_name,
+            target_url_private_connection_name: self.target_url_private_connection_name,
+            exchange_url_private_connection_name: self.exchange_url_private_connection_name,
             name: self.name,
             tags: self.tags,
         })

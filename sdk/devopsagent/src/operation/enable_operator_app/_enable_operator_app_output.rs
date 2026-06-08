@@ -6,6 +6,8 @@
 pub struct EnableOperatorAppOutput {
     /// <p>The unique identifier of the AgentSpace</p>
     pub agent_space_id: ::std::string::String,
+    /// <p>The URL for operators to access the Operator App</p>
+    pub operator_app_url: ::std::option::Option<::std::string::String>,
     /// <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     pub iam: ::std::option::Option<crate::types::IamAuthConfiguration>,
     /// <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
@@ -19,6 +21,10 @@ impl EnableOperatorAppOutput {
     pub fn agent_space_id(&self) -> &str {
         use std::ops::Deref;
         self.agent_space_id.deref()
+    }
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn operator_app_url(&self) -> ::std::option::Option<&str> {
+        self.operator_app_url.as_deref()
     }
     /// <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     pub fn iam(&self) -> ::std::option::Option<&crate::types::IamAuthConfiguration> {
@@ -50,6 +56,7 @@ impl EnableOperatorAppOutput {
 #[non_exhaustive]
 pub struct EnableOperatorAppOutputBuilder {
     pub(crate) agent_space_id: ::std::option::Option<::std::string::String>,
+    pub(crate) operator_app_url: ::std::option::Option<::std::string::String>,
     pub(crate) iam: ::std::option::Option<crate::types::IamAuthConfiguration>,
     pub(crate) idc: ::std::option::Option<crate::types::IdcAuthConfiguration>,
     pub(crate) idp: ::std::option::Option<crate::types::IdpAuthConfiguration>,
@@ -70,6 +77,20 @@ impl EnableOperatorAppOutputBuilder {
     /// <p>The unique identifier of the AgentSpace</p>
     pub fn get_agent_space_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.agent_space_id
+    }
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn operator_app_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.operator_app_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn set_operator_app_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.operator_app_url = input;
+        self
+    }
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn get_operator_app_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.operator_app_url
     }
     /// <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     pub fn iam(mut self, input: crate::types::IamAuthConfiguration) -> Self {
@@ -135,6 +156,7 @@ impl EnableOperatorAppOutputBuilder {
                     "agent_space_id was not specified but it is required when building EnableOperatorAppOutput",
                 )
             })?,
+            operator_app_url: self.operator_app_url,
             iam: self.iam,
             idc: self.idc,
             idp: self.idp,

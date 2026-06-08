@@ -20,6 +20,10 @@ pub struct CreatePrivateConnectionOutput {
     pub status: crate::types::PrivateConnectionStatus,
     /// <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
     pub certificate_expiry_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub dns_resolution: ::std::option::Option<crate::types::ResourceConfigDnsResolution>,
+    /// <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
+    pub failure_message: ::std::option::Option<::std::string::String>,
     /// <p>Tags associated with the created Private Connection.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
@@ -58,6 +62,14 @@ impl CreatePrivateConnectionOutput {
     pub fn certificate_expiry_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.certificate_expiry_time.as_ref()
     }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn dns_resolution(&self) -> ::std::option::Option<&crate::types::ResourceConfigDnsResolution> {
+        self.dns_resolution.as_ref()
+    }
+    /// <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
+    pub fn failure_message(&self) -> ::std::option::Option<&str> {
+        self.failure_message.as_deref()
+    }
     /// <p>Tags associated with the created Private Connection.</p>
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
@@ -87,6 +99,8 @@ pub struct CreatePrivateConnectionOutputBuilder {
     pub(crate) resource_configuration_id: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::PrivateConnectionStatus>,
     pub(crate) certificate_expiry_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) dns_resolution: ::std::option::Option<crate::types::ResourceConfigDnsResolution>,
+    pub(crate) failure_message: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
@@ -206,6 +220,34 @@ impl CreatePrivateConnectionOutputBuilder {
     pub fn get_certificate_expiry_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.certificate_expiry_time
     }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn dns_resolution(mut self, input: crate::types::ResourceConfigDnsResolution) -> Self {
+        self.dns_resolution = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn set_dns_resolution(mut self, input: ::std::option::Option<crate::types::ResourceConfigDnsResolution>) -> Self {
+        self.dns_resolution = input;
+        self
+    }
+    /// <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    pub fn get_dns_resolution(&self) -> &::std::option::Option<crate::types::ResourceConfigDnsResolution> {
+        &self.dns_resolution
+    }
+    /// <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
+    pub fn failure_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.failure_message = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
+    pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.failure_message = input;
+        self
+    }
+    /// <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
+    pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.failure_message
+    }
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
@@ -270,6 +312,8 @@ impl CreatePrivateConnectionOutputBuilder {
                 )
             })?,
             certificate_expiry_time: self.certificate_expiry_time,
+            dns_resolution: self.dns_resolution,
+            failure_message: self.failure_message,
             tags: self.tags,
             _request_id: self._request_id,
         })

@@ -164,6 +164,34 @@ impl RegisterServiceFluentBuilder {
     pub fn get_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_private_connection_name()
     }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn target_url_private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.target_url_private_connection_name(input.into());
+        self
+    }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn set_target_url_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_target_url_private_connection_name(input);
+        self
+    }
+    /// <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn get_target_url_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_target_url_private_connection_name()
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn exchange_url_private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.exchange_url_private_connection_name(input.into());
+        self
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn set_exchange_url_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_exchange_url_private_connection_name(input);
+        self
+    }
+    /// <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+    pub fn get_exchange_url_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_exchange_url_private_connection_name()
+    }
     /// <p>The display name for the service registration.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());

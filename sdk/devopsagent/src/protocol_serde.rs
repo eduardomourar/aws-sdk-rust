@@ -27,6 +27,10 @@ pub(crate) mod shape_associate_service;
 
 pub(crate) mod shape_create_agent_space;
 
+pub(crate) mod shape_create_asset;
+
+pub(crate) mod shape_create_asset_file;
+
 pub(crate) mod shape_create_backlog_task;
 
 pub(crate) mod shape_create_chat;
@@ -34,6 +38,10 @@ pub(crate) mod shape_create_chat;
 pub(crate) mod shape_create_private_connection;
 
 pub(crate) mod shape_delete_agent_space;
+
+pub(crate) mod shape_delete_asset;
+
+pub(crate) mod shape_delete_asset_file;
 
 pub(crate) mod shape_delete_private_connection;
 
@@ -51,6 +59,12 @@ pub(crate) mod shape_get_account_usage;
 
 pub(crate) mod shape_get_agent_space;
 
+pub(crate) mod shape_get_asset;
+
+pub(crate) mod shape_get_asset_content;
+
+pub(crate) mod shape_get_asset_file;
+
 pub(crate) mod shape_get_association;
 
 pub(crate) mod shape_get_backlog_task;
@@ -62,6 +76,14 @@ pub(crate) mod shape_get_recommendation;
 pub(crate) mod shape_get_service;
 
 pub(crate) mod shape_list_agent_spaces;
+
+pub(crate) mod shape_list_asset_files;
+
+pub(crate) mod shape_list_asset_types;
+
+pub(crate) mod shape_list_asset_versions;
+
+pub(crate) mod shape_list_assets;
 
 pub(crate) mod shape_list_associations;
 
@@ -97,6 +119,10 @@ pub(crate) mod shape_untag_resource;
 
 pub(crate) mod shape_update_agent_space;
 
+pub(crate) mod shape_update_asset;
+
+pub(crate) mod shape_update_asset_file;
+
 pub(crate) mod shape_update_association;
 
 pub(crate) mod shape_update_backlog_task;
@@ -128,6 +154,10 @@ pub(crate) mod shape_conflict_exception;
 pub(crate) mod shape_content_size_exceeded_exception;
 
 pub(crate) mod shape_create_agent_space_input;
+
+pub(crate) mod shape_create_asset_file_input;
+
+pub(crate) mod shape_create_asset_input;
 
 pub(crate) mod shape_create_backlog_task_input;
 
@@ -169,6 +199,10 @@ pub(crate) mod shape_throttling_exception;
 
 pub(crate) mod shape_update_agent_space_input;
 
+pub(crate) mod shape_update_asset_file_input;
+
+pub(crate) mod shape_update_asset_input;
+
 pub(crate) mod shape_update_association_input;
 
 pub(crate) mod shape_update_backlog_task_input;
@@ -194,6 +228,24 @@ pub(crate) mod shape_additional_service_registration_step;
 pub(crate) mod shape_agent_space;
 
 pub(crate) mod shape_agent_space_list;
+
+pub(crate) mod shape_asset;
+
+pub(crate) mod shape_asset_content;
+
+pub(crate) mod shape_asset_file;
+
+pub(crate) mod shape_asset_file_body;
+
+pub(crate) mod shape_asset_file_summary_list;
+
+pub(crate) mod shape_asset_list;
+
+pub(crate) mod shape_asset_type_list;
+
+pub(crate) mod shape_asset_version_metadata_list;
+
+pub(crate) mod shape_asset_zip_content;
 
 pub(crate) mod shape_association;
 
@@ -256,6 +308,14 @@ pub(crate) mod shape_validation_exception_field_list;
 pub(crate) mod shape_webhooks_list;
 
 pub(crate) mod shape_additional_service_details;
+
+pub(crate) mod shape_asset_file_content;
+
+pub(crate) mod shape_asset_file_summary;
+
+pub(crate) mod shape_asset_type_summary;
+
+pub(crate) mod shape_asset_version_metadata;
 
 pub(crate) mod shape_aws_configuration;
 

@@ -213,6 +213,20 @@ pub(crate) fn de_create_private_connection(
                         ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                     )?);
                 }
+                "dnsResolution" => {
+                    builder = builder.set_dns_resolution(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::ResourceConfigDnsResolution::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "failureMessage" => {
+                    builder = builder.set_failure_message(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "hostAddress" => {
                     builder = builder.set_host_address(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

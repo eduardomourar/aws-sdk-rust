@@ -48,5 +48,8 @@ pub fn ser_service_managed_input(
     if let Some(var_11) = &input.certificate {
         object.key("certificate").string(var_11.as_str());
     }
+    if let Some(var_12) = &input.dns_resolution {
+        object.key("dnsResolution").string(var_12.as_str());
+    }
     Ok(())
 }

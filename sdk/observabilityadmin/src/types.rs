@@ -57,7 +57,11 @@ pub use crate::types::_telemetry_pipeline_status_reason::TelemetryPipelineStatus
 
 pub use crate::types::_source_logs_configuration::SourceLogsConfiguration;
 
+pub use crate::types::_source_metrics_configuration::SourceMetricsConfiguration;
+
 pub use crate::types::_destination_logs_configuration::DestinationLogsConfiguration;
+
+pub use crate::types::_destination_metrics_configuration::DestinationMetricsConfiguration;
 
 pub use crate::types::_telemetry_source_type::TelemetrySourceType;
 
@@ -88,6 +92,8 @@ pub use crate::types::_logs_encryption_configuration::LogsEncryptionConfiguratio
 pub use crate::types::_logs_backup_configuration::LogsBackupConfiguration;
 
 pub use crate::types::_log_group_name_configuration::LogGroupNameConfiguration;
+
+pub use crate::types::_metrics_backup_configuration::MetricsBackupConfiguration;
 
 pub use crate::types::_output_format::OutputFormat;
 
@@ -157,6 +163,8 @@ mod _data_source;
 
 mod _destination_logs_configuration;
 
+mod _destination_metrics_configuration;
+
 mod _destination_type;
 
 mod _elb_load_balancer_logging_parameters;
@@ -195,6 +203,8 @@ mod _logs_backup_configuration;
 
 mod _logs_encryption_configuration;
 
+mod _metrics_backup_configuration;
+
 mod _msk_enhanced_monitoring_level;
 
 mod _msk_monitoring_parameters;
@@ -220,6 +230,8 @@ mod _single_header;
 mod _source;
 
 mod _source_logs_configuration;
+
+mod _source_metrics_configuration;
 
 mod _sse_algorithm;
 

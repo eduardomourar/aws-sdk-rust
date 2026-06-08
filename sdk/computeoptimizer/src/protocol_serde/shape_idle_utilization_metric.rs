@@ -23,6 +23,14 @@ pub(crate) fn de_idle_utilization_metric(
                 Ok(builder.set_statistic(Some(decoder.string().map(|s| crate::types::MetricStatistic::from(s.as_ref()))?)))
             })?,
             "value" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| Ok(builder.set_value(Some(decoder.double()?))))?,
+            "dimensions" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
+                Ok(
+                    builder.set_dimensions(Some(crate::protocol_serde::shape_idle_dimensions::de_idle_dimensions(
+                        decoder,
+                        depth + 1,
+                    )?)),
+                )
+            })?,
             _ => {
                 decoder.skip()?;
                 builder

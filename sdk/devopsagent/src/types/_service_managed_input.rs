@@ -20,6 +20,8 @@ pub struct ServiceManagedInput {
     pub port_ranges: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Certificate for the Private Connection.</p>
     pub certificate: ::std::option::Option<::std::string::String>,
+    /// <p>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+    pub dns_resolution: ::std::option::Option<crate::types::ResourceConfigDnsResolution>,
 }
 impl ServiceManagedInput {
     /// <p>IP address or DNS name of the target resource.</p>
@@ -61,6 +63,10 @@ impl ServiceManagedInput {
     pub fn certificate(&self) -> ::std::option::Option<&str> {
         self.certificate.as_deref()
     }
+    /// <p>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+    pub fn dns_resolution(&self) -> ::std::option::Option<&crate::types::ResourceConfigDnsResolution> {
+        self.dns_resolution.as_ref()
+    }
 }
 impl ServiceManagedInput {
     /// Creates a new builder-style object to manufacture [`ServiceManagedInput`](crate::types::ServiceManagedInput).
@@ -81,6 +87,7 @@ pub struct ServiceManagedInputBuilder {
     pub(crate) ipv4_addresses_per_eni: ::std::option::Option<i32>,
     pub(crate) port_ranges: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) certificate: ::std::option::Option<::std::string::String>,
+    pub(crate) dns_resolution: ::std::option::Option<crate::types::ResourceConfigDnsResolution>,
 }
 impl ServiceManagedInputBuilder {
     /// <p>IP address or DNS name of the target resource.</p>
@@ -215,6 +222,20 @@ impl ServiceManagedInputBuilder {
     pub fn get_certificate(&self) -> &::std::option::Option<::std::string::String> {
         &self.certificate
     }
+    /// <p>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+    pub fn dns_resolution(mut self, input: crate::types::ResourceConfigDnsResolution) -> Self {
+        self.dns_resolution = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+    pub fn set_dns_resolution(mut self, input: ::std::option::Option<crate::types::ResourceConfigDnsResolution>) -> Self {
+        self.dns_resolution = input;
+        self
+    }
+    /// <p>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+    pub fn get_dns_resolution(&self) -> &::std::option::Option<crate::types::ResourceConfigDnsResolution> {
+        &self.dns_resolution
+    }
     /// Consumes the builder and constructs a [`ServiceManagedInput`](crate::types::ServiceManagedInput).
     /// This method will fail if any of the following fields are not set:
     /// - [`host_address`](crate::types::builders::ServiceManagedInputBuilder::host_address)
@@ -245,6 +266,7 @@ impl ServiceManagedInputBuilder {
             ipv4_addresses_per_eni: self.ipv4_addresses_per_eni,
             port_ranges: self.port_ranges,
             certificate: self.certificate,
+            dns_resolution: self.dns_resolution,
         })
     }
 }

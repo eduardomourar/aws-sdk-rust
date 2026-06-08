@@ -21,6 +21,12 @@ pub fn ser_centralization_rule_source(
         crate::protocol_serde::shape_source_logs_configuration::ser_source_logs_configuration(&mut object_5, var_4)?;
         object_5.finish();
     }
+    if let Some(var_6) = &input.source_metrics_configuration {
+        #[allow(unused_mut)]
+        let mut object_7 = object.key("SourceMetricsConfiguration").start_object();
+        crate::protocol_serde::shape_source_metrics_configuration::ser_source_metrics_configuration(&mut object_7, var_6)?;
+        object_7.finish();
+    }
     Ok(())
 }
 
@@ -59,6 +65,15 @@ where
                         "SourceLogsConfiguration" => {
                             builder = builder.set_source_logs_configuration(
                                 crate::protocol_serde::shape_source_logs_configuration::de_source_logs_configuration(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "SourceMetricsConfiguration" => {
+                            builder = builder.set_source_metrics_configuration(
+                                crate::protocol_serde::shape_source_metrics_configuration::de_source_metrics_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

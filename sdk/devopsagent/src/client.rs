@@ -140,6 +140,10 @@ mod associate_service;
 
 mod create_agent_space;
 
+mod create_asset;
+
+mod create_asset_file;
+
 mod create_backlog_task;
 
 mod create_chat;
@@ -175,6 +179,10 @@ pub mod customize;
 
 mod delete_agent_space;
 
+mod delete_asset;
+
+mod delete_asset_file;
+
 mod delete_private_connection;
 
 mod deregister_service;
@@ -191,6 +199,12 @@ mod get_account_usage;
 
 mod get_agent_space;
 
+mod get_asset;
+
+mod get_asset_content;
+
+mod get_asset_file;
+
 mod get_association;
 
 mod get_backlog_task;
@@ -202,6 +216,14 @@ mod get_recommendation;
 mod get_service;
 
 mod list_agent_spaces;
+
+mod list_asset_files;
+
+mod list_asset_types;
+
+mod list_asset_versions;
+
+mod list_assets;
 
 mod list_associations;
 
@@ -236,6 +258,10 @@ mod tag_resource;
 mod untag_resource;
 
 mod update_agent_space;
+
+mod update_asset;
+
+mod update_asset_file;
 
 mod update_association;
 

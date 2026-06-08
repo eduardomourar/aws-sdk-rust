@@ -4,6 +4,8 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetOperatorAppOutput {
+    /// <p>The URL for operators to access the Operator App</p>
+    pub operator_app_url: ::std::option::Option<::std::string::String>,
     /// <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     pub iam: ::std::option::Option<crate::types::IamAuthConfiguration>,
     /// <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
@@ -13,6 +15,10 @@ pub struct GetOperatorAppOutput {
     _request_id: Option<String>,
 }
 impl GetOperatorAppOutput {
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn operator_app_url(&self) -> ::std::option::Option<&str> {
+        self.operator_app_url.as_deref()
+    }
     /// <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     pub fn iam(&self) -> ::std::option::Option<&crate::types::IamAuthConfiguration> {
         self.iam.as_ref()
@@ -42,12 +48,27 @@ impl GetOperatorAppOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOperatorAppOutputBuilder {
+    pub(crate) operator_app_url: ::std::option::Option<::std::string::String>,
     pub(crate) iam: ::std::option::Option<crate::types::IamAuthConfiguration>,
     pub(crate) idc: ::std::option::Option<crate::types::IdcAuthConfiguration>,
     pub(crate) idp: ::std::option::Option<crate::types::IdpAuthConfiguration>,
     _request_id: Option<String>,
 }
 impl GetOperatorAppOutputBuilder {
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn operator_app_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.operator_app_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn set_operator_app_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.operator_app_url = input;
+        self
+    }
+    /// <p>The URL for operators to access the Operator App</p>
+    pub fn get_operator_app_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.operator_app_url
+    }
     /// <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     pub fn iam(mut self, input: crate::types::IamAuthConfiguration) -> Self {
         self.iam = ::std::option::Option::Some(input);
@@ -102,6 +123,7 @@ impl GetOperatorAppOutputBuilder {
     /// Consumes the builder and constructs a [`GetOperatorAppOutput`](crate::operation::get_operator_app::GetOperatorAppOutput).
     pub fn build(self) -> crate::operation::get_operator_app::GetOperatorAppOutput {
         crate::operation::get_operator_app::GetOperatorAppOutput {
+            operator_app_url: self.operator_app_url,
             iam: self.iam,
             idc: self.idc,
             idp: self.idp,

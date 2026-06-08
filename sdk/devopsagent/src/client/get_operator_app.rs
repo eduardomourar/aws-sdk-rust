@@ -5,6 +5,7 @@ impl super::Client {
     /// - The fluent builder is configurable:
     ///   - [`agent_space_id(impl Into<String>)`](crate::operation::get_operator_app::builders::GetOperatorAppFluentBuilder::agent_space_id) / [`set_agent_space_id(Option<String>)`](crate::operation::get_operator_app::builders::GetOperatorAppFluentBuilder::set_agent_space_id):<br>required: **true**<br><p>The unique identifier of the AgentSpace</p><br>
     /// - On success, responds with [`GetOperatorAppOutput`](crate::operation::get_operator_app::GetOperatorAppOutput) with field(s):
+    ///   - [`operator_app_url(Option<String>)`](crate::operation::get_operator_app::GetOperatorAppOutput::operator_app_url): <p>The URL for operators to access the Operator App</p>
     ///   - [`iam(Option<IamAuthConfiguration>)`](crate::operation::get_operator_app::GetOperatorAppOutput::iam): <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     ///   - [`idc(Option<IdcAuthConfiguration>)`](crate::operation::get_operator_app::GetOperatorAppOutput::idc): <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
     ///   - [`idp(Option<IdpAuthConfiguration>)`](crate::operation::get_operator_app::GetOperatorAppOutput::idp): <p>Configuration for external Identity Provider OIDC authentication flow for the Operator App.</p>

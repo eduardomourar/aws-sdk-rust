@@ -42,6 +42,10 @@ pub struct CreateDashManifestConfiguration {
     /// <p>The layout of the DASH manifest that MediaPackage produces. <code>STANDARD</code> indicates a default manifest, which is compacted. <code>NONE</code> indicates a full manifest.</p>
     /// <p>For information about compactness, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html">DASH manifest compactness</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
     pub compactness: ::std::option::Option<crate::types::DashCompactness>,
+    /// <p>How MediaPackage represents the audio timeline in the DASH manifest. This setting applies DASH Segment Duration Patternization, as defined in the MPEG-DASH specification, to audio adaptation sets. When set to <code>PATTERNED</code>, MediaPackage uses a pattern-based segment template for audio, which reduces manifest size by expressing repeating segment durations as a pattern instead of listing each segment individually. When set to <code>NONE</code>, the manifest contains an explicit timeline that lists each audio segment.</p>
+    /// <p>Valid values: <code>NONE</code> | <code>PATTERNED</code></p>
+    /// <p>For information about audio timeline patterns, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-audio-timeline-pattern.html">DASH audio timeline pattern</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+    pub audio_timeline_pattern: ::std::option::Option<crate::types::DashAudioTimelinePattern>,
     /// <p>The configuration for DASH subtitles.</p>
     pub subtitle_configuration: ::std::option::Option<crate::types::DashSubtitleConfiguration>,
     /// <p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.mpd</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.mpd</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>
@@ -127,6 +131,12 @@ impl CreateDashManifestConfiguration {
     pub fn compactness(&self) -> ::std::option::Option<&crate::types::DashCompactness> {
         self.compactness.as_ref()
     }
+    /// <p>How MediaPackage represents the audio timeline in the DASH manifest. This setting applies DASH Segment Duration Patternization, as defined in the MPEG-DASH specification, to audio adaptation sets. When set to <code>PATTERNED</code>, MediaPackage uses a pattern-based segment template for audio, which reduces manifest size by expressing repeating segment durations as a pattern instead of listing each segment individually. When set to <code>NONE</code>, the manifest contains an explicit timeline that lists each audio segment.</p>
+    /// <p>Valid values: <code>NONE</code> | <code>PATTERNED</code></p>
+    /// <p>For information about audio timeline patterns, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-audio-timeline-pattern.html">DASH audio timeline pattern</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+    pub fn audio_timeline_pattern(&self) -> ::std::option::Option<&crate::types::DashAudioTimelinePattern> {
+        self.audio_timeline_pattern.as_ref()
+    }
     /// <p>The configuration for DASH subtitles.</p>
     pub fn subtitle_configuration(&self) -> ::std::option::Option<&crate::types::DashSubtitleConfiguration> {
         self.subtitle_configuration.as_ref()
@@ -167,6 +177,7 @@ pub struct CreateDashManifestConfigurationBuilder {
     pub(crate) program_information: ::std::option::Option<crate::types::DashProgramInformation>,
     pub(crate) dvb_settings: ::std::option::Option<crate::types::DashDvbSettings>,
     pub(crate) compactness: ::std::option::Option<crate::types::DashCompactness>,
+    pub(crate) audio_timeline_pattern: ::std::option::Option<crate::types::DashAudioTimelinePattern>,
     pub(crate) subtitle_configuration: ::std::option::Option<crate::types::DashSubtitleConfiguration>,
     pub(crate) uri_path_type: ::std::option::Option<crate::types::UriPathType>,
     pub(crate) availability_start_time_configuration: ::std::option::Option<crate::types::DashAvailabilityStartTimeConfiguration>,
@@ -433,6 +444,26 @@ impl CreateDashManifestConfigurationBuilder {
     pub fn get_compactness(&self) -> &::std::option::Option<crate::types::DashCompactness> {
         &self.compactness
     }
+    /// <p>How MediaPackage represents the audio timeline in the DASH manifest. This setting applies DASH Segment Duration Patternization, as defined in the MPEG-DASH specification, to audio adaptation sets. When set to <code>PATTERNED</code>, MediaPackage uses a pattern-based segment template for audio, which reduces manifest size by expressing repeating segment durations as a pattern instead of listing each segment individually. When set to <code>NONE</code>, the manifest contains an explicit timeline that lists each audio segment.</p>
+    /// <p>Valid values: <code>NONE</code> | <code>PATTERNED</code></p>
+    /// <p>For information about audio timeline patterns, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-audio-timeline-pattern.html">DASH audio timeline pattern</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+    pub fn audio_timeline_pattern(mut self, input: crate::types::DashAudioTimelinePattern) -> Self {
+        self.audio_timeline_pattern = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>How MediaPackage represents the audio timeline in the DASH manifest. This setting applies DASH Segment Duration Patternization, as defined in the MPEG-DASH specification, to audio adaptation sets. When set to <code>PATTERNED</code>, MediaPackage uses a pattern-based segment template for audio, which reduces manifest size by expressing repeating segment durations as a pattern instead of listing each segment individually. When set to <code>NONE</code>, the manifest contains an explicit timeline that lists each audio segment.</p>
+    /// <p>Valid values: <code>NONE</code> | <code>PATTERNED</code></p>
+    /// <p>For information about audio timeline patterns, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-audio-timeline-pattern.html">DASH audio timeline pattern</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+    pub fn set_audio_timeline_pattern(mut self, input: ::std::option::Option<crate::types::DashAudioTimelinePattern>) -> Self {
+        self.audio_timeline_pattern = input;
+        self
+    }
+    /// <p>How MediaPackage represents the audio timeline in the DASH manifest. This setting applies DASH Segment Duration Patternization, as defined in the MPEG-DASH specification, to audio adaptation sets. When set to <code>PATTERNED</code>, MediaPackage uses a pattern-based segment template for audio, which reduces manifest size by expressing repeating segment durations as a pattern instead of listing each segment individually. When set to <code>NONE</code>, the manifest contains an explicit timeline that lists each audio segment.</p>
+    /// <p>Valid values: <code>NONE</code> | <code>PATTERNED</code></p>
+    /// <p>For information about audio timeline patterns, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/dash-audio-timeline-pattern.html">DASH audio timeline pattern</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+    pub fn get_audio_timeline_pattern(&self) -> &::std::option::Option<crate::types::DashAudioTimelinePattern> {
+        &self.audio_timeline_pattern
+    }
     /// <p>The configuration for DASH subtitles.</p>
     pub fn subtitle_configuration(mut self, input: crate::types::DashSubtitleConfiguration) -> Self {
         self.subtitle_configuration = ::std::option::Option::Some(input);
@@ -504,6 +535,7 @@ impl CreateDashManifestConfigurationBuilder {
             program_information: self.program_information,
             dvb_settings: self.dvb_settings,
             compactness: self.compactness,
+            audio_timeline_pattern: self.audio_timeline_pattern,
             subtitle_configuration: self.subtitle_configuration,
             uri_path_type: self.uri_path_type,
             availability_start_time_configuration: self.availability_start_time_configuration,

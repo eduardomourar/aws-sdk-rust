@@ -8,8 +8,11 @@ pub struct McpServerSigV4AuthorizationConfig {
     pub region: ::std::string::String,
     /// <p>AWS service name for SigV4 signing.</p>
     pub service: ::std::string::String,
-    /// <p>IAM role ARN to assume for SigV4 signing.</p>
+    /// <p>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</p>
+    #[deprecated(note = "Use mcpRoleArn instead.", since = "2026-05-27")]
     pub role_arn: ::std::string::String,
+    /// <p>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are resolved at runtime via a monitor account association.</p>
+    pub mcp_role_arn: ::std::option::Option<::std::string::String>,
     /// <p>Custom headers for the SigV4 MCP server.</p>
     pub custom_headers: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
@@ -24,10 +27,15 @@ impl McpServerSigV4AuthorizationConfig {
         use std::ops::Deref;
         self.service.deref()
     }
-    /// <p>IAM role ARN to assume for SigV4 signing.</p>
+    /// <p>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</p>
+    #[deprecated(note = "Use mcpRoleArn instead.", since = "2026-05-27")]
     pub fn role_arn(&self) -> &str {
         use std::ops::Deref;
         self.role_arn.deref()
+    }
+    /// <p>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are resolved at runtime via a monitor account association.</p>
+    pub fn mcp_role_arn(&self) -> ::std::option::Option<&str> {
+        self.mcp_role_arn.as_deref()
     }
     /// <p>Custom headers for the SigV4 MCP server.</p>
     pub fn custom_headers(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
@@ -48,6 +56,7 @@ pub struct McpServerSigV4AuthorizationConfigBuilder {
     pub(crate) region: ::std::option::Option<::std::string::String>,
     pub(crate) service: ::std::option::Option<::std::string::String>,
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) mcp_role_arn: ::std::option::Option<::std::string::String>,
     pub(crate) custom_headers: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl McpServerSigV4AuthorizationConfigBuilder {
@@ -81,20 +90,36 @@ impl McpServerSigV4AuthorizationConfigBuilder {
     pub fn get_service(&self) -> &::std::option::Option<::std::string::String> {
         &self.service
     }
-    /// <p>IAM role ARN to assume for SigV4 signing.</p>
-    /// This field is required.
+    /// <p>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</p>
+    #[deprecated(note = "Use mcpRoleArn instead.", since = "2026-05-27")]
     pub fn role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>IAM role ARN to assume for SigV4 signing.</p>
+    /// <p>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</p>
+    #[deprecated(note = "Use mcpRoleArn instead.", since = "2026-05-27")]
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_arn = input;
         self
     }
-    /// <p>IAM role ARN to assume for SigV4 signing.</p>
+    /// <p>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</p>
+    #[deprecated(note = "Use mcpRoleArn instead.", since = "2026-05-27")]
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
+    }
+    /// <p>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are resolved at runtime via a monitor account association.</p>
+    pub fn mcp_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.mcp_role_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are resolved at runtime via a monitor account association.</p>
+    pub fn set_mcp_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.mcp_role_arn = input;
+        self
+    }
+    /// <p>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are resolved at runtime via a monitor account association.</p>
+    pub fn get_mcp_role_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.mcp_role_arn
     }
     /// Adds a key-value pair to `custom_headers`.
     ///
@@ -127,7 +152,6 @@ impl McpServerSigV4AuthorizationConfigBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`region`](crate::types::builders::McpServerSigV4AuthorizationConfigBuilder::region)
     /// - [`service`](crate::types::builders::McpServerSigV4AuthorizationConfigBuilder::service)
-    /// - [`role_arn`](crate::types::builders::McpServerSigV4AuthorizationConfigBuilder::role_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::McpServerSigV4AuthorizationConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::McpServerSigV4AuthorizationConfig {
             region: self.region.ok_or_else(|| {
@@ -142,12 +166,8 @@ impl McpServerSigV4AuthorizationConfigBuilder {
                     "service was not specified but it is required when building McpServerSigV4AuthorizationConfig",
                 )
             })?,
-            role_arn: self.role_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "role_arn",
-                    "role_arn was not specified but it is required when building McpServerSigV4AuthorizationConfig",
-                )
-            })?,
+            role_arn: self.role_arn.unwrap_or_default(),
+            mcp_role_arn: self.mcp_role_arn,
             custom_headers: self.custom_headers,
         })
     }

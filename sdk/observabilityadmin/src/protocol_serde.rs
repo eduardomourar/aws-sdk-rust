@@ -257,6 +257,8 @@ pub(crate) mod shape_configuration_summary;
 
 pub(crate) mod shape_destination_logs_configuration;
 
+pub(crate) mod shape_destination_metrics_configuration;
+
 pub(crate) mod shape_elb_load_balancer_logging_parameters;
 
 pub(crate) mod shape_field_map;
@@ -268,6 +270,8 @@ pub(crate) mod shape_msk_monitoring_parameters;
 pub(crate) mod shape_pipeline_output_error;
 
 pub(crate) mod shape_source_logs_configuration;
+
+pub(crate) mod shape_source_metrics_configuration;
 
 pub(crate) mod shape_telemetry_configuration_state;
 
@@ -292,6 +296,8 @@ pub(crate) mod shape_logging_filter;
 pub(crate) mod shape_logs_backup_configuration;
 
 pub(crate) mod shape_logs_encryption_configuration;
+
+pub(crate) mod shape_metrics_backup_configuration;
 
 pub(crate) mod shape_processors;
 

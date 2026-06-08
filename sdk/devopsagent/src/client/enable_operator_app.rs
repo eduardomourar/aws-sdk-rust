@@ -13,6 +13,7 @@ impl super::Client {
     ///   - [`provider(impl Into<String>)`](crate::operation::enable_operator_app::builders::EnableOperatorAppFluentBuilder::provider) / [`set_provider(Option<String>)`](crate::operation::enable_operator_app::builders::EnableOperatorAppFluentBuilder::set_provider):<br>required: **false**<br><p>The Identity Provider name (e.g., Entra, Okta, Google)</p><br>
     /// - On success, responds with [`EnableOperatorAppOutput`](crate::operation::enable_operator_app::EnableOperatorAppOutput) with field(s):
     ///   - [`agent_space_id(String)`](crate::operation::enable_operator_app::EnableOperatorAppOutput::agent_space_id): <p>The unique identifier of the AgentSpace</p>
+    ///   - [`operator_app_url(Option<String>)`](crate::operation::enable_operator_app::EnableOperatorAppOutput::operator_app_url): <p>The URL for operators to access the Operator App</p>
     ///   - [`iam(Option<IamAuthConfiguration>)`](crate::operation::enable_operator_app::EnableOperatorAppOutput::iam): <p>Configuration for IAM-based authentication flow for the Operator App.</p>
     ///   - [`idc(Option<IdcAuthConfiguration>)`](crate::operation::enable_operator_app::EnableOperatorAppOutput::idc): <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
     ///   - [`idp(Option<IdpAuthConfiguration>)`](crate::operation::enable_operator_app::EnableOperatorAppOutput::idp): <p>Configuration for external Identity Provider OIDC authentication flow for the Operator App.</p>

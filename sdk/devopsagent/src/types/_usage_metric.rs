@@ -4,13 +4,13 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct UsageMetric {
-    /// <p>Configured limit for this metric.</p>
+    /// <p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>
     pub limit: i32,
     /// <p>Current usage for this metric</p>
     pub usage: f64,
 }
 impl UsageMetric {
-    /// <p>Configured limit for this metric.</p>
+    /// <p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>
     pub fn limit(&self) -> i32 {
         self.limit
     }
@@ -34,18 +34,18 @@ pub struct UsageMetricBuilder {
     pub(crate) usage: ::std::option::Option<f64>,
 }
 impl UsageMetricBuilder {
-    /// <p>Configured limit for this metric.</p>
+    /// <p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>
     /// This field is required.
     pub fn limit(mut self, input: i32) -> Self {
         self.limit = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Configured limit for this metric.</p>
+    /// <p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>
     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
         self.limit = input;
         self
     }
-    /// <p>Configured limit for this metric.</p>
+    /// <p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>
     pub fn get_limit(&self) -> &::std::option::Option<i32> {
         &self.limit
     }

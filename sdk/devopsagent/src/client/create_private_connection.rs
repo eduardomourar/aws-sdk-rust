@@ -15,6 +15,8 @@ impl super::Client {
     ///   - [`resource_configuration_id(Option<String>)`](crate::operation::create_private_connection::CreatePrivateConnectionOutput::resource_configuration_id): <p>The Resource Configuration ARN. Only present for self-managed Private Connections.</p>
     ///   - [`status(PrivateConnectionStatus)`](crate::operation::create_private_connection::CreatePrivateConnectionOutput::status): <p>The status of the Private Connection.</p>
     ///   - [`certificate_expiry_time(Option<DateTime>)`](crate::operation::create_private_connection::CreatePrivateConnectionOutput::certificate_expiry_time): <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
+    ///   - [`dns_resolution(Option<ResourceConfigDnsResolution>)`](crate::operation::create_private_connection::CreatePrivateConnectionOutput::dns_resolution): <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    ///   - [`failure_message(Option<String>)`](crate::operation::create_private_connection::CreatePrivateConnectionOutput::failure_message): <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::create_private_connection::CreatePrivateConnectionOutput::tags): <p>Tags associated with the created Private Connection.</p>
     /// - On failure, responds with [`SdkError<CreatePrivateConnectionError>`](crate::operation::create_private_connection::CreatePrivateConnectionError)
     pub fn create_private_connection(&self) -> crate::operation::create_private_connection::builders::CreatePrivateConnectionFluentBuilder {

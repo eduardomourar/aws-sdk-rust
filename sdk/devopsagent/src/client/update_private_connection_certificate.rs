@@ -14,6 +14,8 @@ impl super::Client {
     ///   - [`resource_configuration_id(Option<String>)`](crate::operation::update_private_connection_certificate::UpdatePrivateConnectionCertificateOutput::resource_configuration_id): <p>The Resource Configuration ARN. Only present for self-managed Private Connections.</p>
     ///   - [`status(PrivateConnectionStatus)`](crate::operation::update_private_connection_certificate::UpdatePrivateConnectionCertificateOutput::status): <p>The status of the Private Connection.</p>
     ///   - [`certificate_expiry_time(Option<DateTime>)`](crate::operation::update_private_connection_certificate::UpdatePrivateConnectionCertificateOutput::certificate_expiry_time): <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
+    ///   - [`dns_resolution(Option<ResourceConfigDnsResolution>)`](crate::operation::update_private_connection_certificate::UpdatePrivateConnectionCertificateOutput::dns_resolution): <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+    ///   - [`failure_message(Option<String>)`](crate::operation::update_private_connection_certificate::UpdatePrivateConnectionCertificateOutput::failure_message): <p>Message describing the reason for a failed Private Connection update, if applicable.</p>
     /// - On failure, responds with [`SdkError<UpdatePrivateConnectionCertificateError>`](crate::operation::update_private_connection_certificate::UpdatePrivateConnectionCertificateError)
     pub fn update_private_connection_certificate(
         &self,

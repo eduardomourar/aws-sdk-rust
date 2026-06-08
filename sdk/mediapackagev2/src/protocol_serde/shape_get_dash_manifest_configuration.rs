@@ -127,6 +127,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "AudioTimelinePattern" => {
+                            builder = builder.set_audio_timeline_pattern(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::DashAudioTimelinePattern::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         "SubtitleConfiguration" => {
                             builder = builder.set_subtitle_configuration(
                                 crate::protocol_serde::shape_dash_subtitle_configuration::de_dash_subtitle_configuration(tokens, _value, depth + 1)?,

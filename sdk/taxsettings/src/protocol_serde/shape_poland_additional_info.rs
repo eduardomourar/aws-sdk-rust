@@ -9,6 +9,9 @@ pub fn ser_poland_additional_info(
     if let Some(var_2) = &input.is_group_vat_enabled {
         object.key("isGroupVatEnabled").boolean(*var_2);
     }
+    if let Some(var_3) = &input.tax_registration_number_type {
+        object.key("taxRegistrationNumberType").string(var_3.as_str());
+    }
     Ok(())
 }
 
@@ -43,6 +46,13 @@ where
                         }
                         "isGroupVatEnabled" => {
                             builder = builder.set_is_group_vat_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
+                        "taxRegistrationNumberType" => {
+                            builder = builder.set_tax_registration_number_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::PolandTaxRegistrationNumberType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

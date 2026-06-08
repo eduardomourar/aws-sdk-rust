@@ -15,6 +15,12 @@ pub fn ser_centralization_rule_destination(
         crate::protocol_serde::shape_destination_logs_configuration::ser_destination_logs_configuration(&mut object_3, var_2)?;
         object_3.finish();
     }
+    if let Some(var_4) = &input.destination_metrics_configuration {
+        #[allow(unused_mut)]
+        let mut object_5 = object.key("DestinationMetricsConfiguration").start_object();
+        crate::protocol_serde::shape_destination_metrics_configuration::ser_destination_metrics_configuration(&mut object_5, var_4)?;
+        object_5.finish();
+    }
     Ok(())
 }
 
@@ -57,6 +63,15 @@ where
                         "DestinationLogsConfiguration" => {
                             builder = builder.set_destination_logs_configuration(
                                 crate::protocol_serde::shape_destination_logs_configuration::de_destination_logs_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "DestinationMetricsConfiguration" => {
+                            builder = builder.set_destination_metrics_configuration(
+                                crate::protocol_serde::shape_destination_metrics_configuration::de_destination_metrics_configuration(
                                     tokens,
                                     _value,
                                     depth + 1,

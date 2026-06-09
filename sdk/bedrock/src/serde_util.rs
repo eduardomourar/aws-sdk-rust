@@ -230,6 +230,15 @@ pub(crate) fn export_automated_reasoning_policy_version_output_output_correct_er
     builder
 }
 
+pub(crate) fn get_account_data_retention_output_output_correct_errors(
+    mut builder: crate::operation::get_account_data_retention::builders::GetAccountDataRetentionOutputBuilder,
+) -> crate::operation::get_account_data_retention::builders::GetAccountDataRetentionOutputBuilder {
+    if builder.mode.is_none() {
+        builder.mode = "no value was set".parse::<crate::types::DataRetentionMode>().ok()
+    }
+    builder
+}
+
 pub(crate) fn get_advanced_prompt_optimization_job_output_output_correct_errors(
     mut builder: crate::operation::get_advanced_prompt_optimization_job::builders::GetAdvancedPromptOptimizationJobOutputBuilder,
 ) -> crate::operation::get_advanced_prompt_optimization_job::builders::GetAdvancedPromptOptimizationJobOutputBuilder {
@@ -774,6 +783,15 @@ pub(crate) fn list_guardrails_output_output_correct_errors(
 ) -> crate::operation::list_guardrails::builders::ListGuardrailsOutputBuilder {
     if builder.guardrails.is_none() {
         builder.guardrails = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn put_account_data_retention_output_output_correct_errors(
+    mut builder: crate::operation::put_account_data_retention::builders::PutAccountDataRetentionOutputBuilder,
+) -> crate::operation::put_account_data_retention::builders::PutAccountDataRetentionOutputBuilder {
+    if builder.mode.is_none() {
+        builder.mode = "no value was set".parse::<crate::types::DataRetentionMode>().ok()
     }
     builder
 }

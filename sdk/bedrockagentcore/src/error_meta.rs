@@ -689,6 +689,7 @@ impl From<crate::operation::get_agent_card::GetAgentCardError> for Error {
             crate::operation::get_agent_card::GetAgentCardError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
             crate::operation::get_agent_card::GetAgentCardError::InternalServerException(inner) => Error::InternalServerException(inner),
             crate::operation::get_agent_card::GetAgentCardError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_agent_card::GetAgentCardError::RetryableConflictException(inner) => Error::RetryableConflictException(inner),
             crate::operation::get_agent_card::GetAgentCardError::RuntimeClientError(inner) => Error::RuntimeClientError(inner),
             crate::operation::get_agent_card::GetAgentCardError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
             crate::operation::get_agent_card::GetAgentCardError::ThrottlingException(inner) => Error::ThrottlingException(inner),
@@ -1287,6 +1288,9 @@ impl From<crate::operation::invoke_agent_runtime_command::InvokeAgentRuntimeComm
             }
             crate::operation::invoke_agent_runtime_command::InvokeAgentRuntimeCommandError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::invoke_agent_runtime_command::InvokeAgentRuntimeCommandError::RetryableConflictException(inner) => {
+                Error::RetryableConflictException(inner)
             }
             crate::operation::invoke_agent_runtime_command::InvokeAgentRuntimeCommandError::RuntimeClientError(inner) => {
                 Error::RuntimeClientError(inner)

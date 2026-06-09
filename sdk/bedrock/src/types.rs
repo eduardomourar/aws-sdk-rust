@@ -59,6 +59,8 @@ pub use crate::types::_customization_config::CustomizationConfig;
 
 pub use crate::types::_model_status::ModelStatus;
 
+pub use crate::types::_data_retention_mode::DataRetentionMode;
+
 pub use crate::types::_account_enforced_guardrail_inference_input_configuration::AccountEnforcedGuardrailInferenceInputConfiguration;
 
 pub use crate::types::_application_type::ApplicationType;
@@ -922,6 +924,8 @@ mod _customization_config;
 mod _customization_type;
 
 mod _data_processing_details;
+
+mod _data_retention_mode;
 
 mod _dimensional_price_rate;
 

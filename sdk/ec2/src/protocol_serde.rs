@@ -3369,6 +3369,8 @@ pub(crate) mod shape_subnet_configuration;
 
 pub(crate) mod shape_tag;
 
+pub(crate) mod shape_tag_field_specification_request;
+
 pub(crate) mod shape_tag_specification;
 
 pub(crate) mod shape_target_capacity_specification_request;
@@ -5431,6 +5433,8 @@ pub(crate) mod shape_subnet_ip_prefixes;
 
 pub(crate) mod shape_supported_region_detail;
 
+pub(crate) mod shape_tag_field_specification_list_response;
+
 pub(crate) mod shape_target_capacity_specification;
 
 pub(crate) mod shape_target_configuration;
@@ -5693,6 +5697,8 @@ pub(crate) mod shape_string_list;
 
 pub(crate) mod shape_supported_additional_processor_feature_list;
 
+pub(crate) mod shape_tag_field_specification_response;
+
 pub(crate) mod shape_tag_specification_list;
 
 pub(crate) mod shape_threads_per_core_list;
@@ -5820,6 +5826,8 @@ pub(crate) mod shape_protocol_int_list;
 pub(crate) mod shape_resource_statement;
 
 pub(crate) mod shape_secondary_interface_private_ip_address_specification;
+
+pub(crate) mod shape_tag_key_list;
 
 pub(crate) mod shape_through_resources_statement;
 

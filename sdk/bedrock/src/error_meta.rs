@@ -1666,6 +1666,42 @@ impl From<crate::operation::export_automated_reasoning_policy_version::ExportAut
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_data_retention::GetAccountDataRetentionError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_data_retention::GetAccountDataRetentionError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_account_data_retention::GetAccountDataRetentionError> for Error {
+    fn from(err: crate::operation::get_account_data_retention::GetAccountDataRetentionError) -> Self {
+        match err {
+            crate::operation::get_account_data_retention::GetAccountDataRetentionError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::get_account_data_retention::GetAccountDataRetentionError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::get_account_data_retention::GetAccountDataRetentionError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_account_data_retention::GetAccountDataRetentionError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_account_data_retention::GetAccountDataRetentionError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -3392,6 +3428,42 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
             crate::operation::list_tags_for_resource::ListTagsForResourceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_data_retention::PutAccountDataRetentionError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_data_retention::PutAccountDataRetentionError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::put_account_data_retention::PutAccountDataRetentionError> for Error {
+    fn from(err: crate::operation::put_account_data_retention::PutAccountDataRetentionError) -> Self {
+        match err {
+            crate::operation::put_account_data_retention::PutAccountDataRetentionError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::put_account_data_retention::PutAccountDataRetentionError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::put_account_data_retention::PutAccountDataRetentionError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::put_account_data_retention::PutAccountDataRetentionError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::put_account_data_retention::PutAccountDataRetentionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

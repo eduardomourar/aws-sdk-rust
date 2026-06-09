@@ -239,6 +239,8 @@ mod deregister_marketplace_model_endpoint;
 
 mod export_automated_reasoning_policy_version;
 
+mod get_account_data_retention;
+
 mod get_advanced_prompt_optimization_job;
 
 mod get_automated_reasoning_policy;
@@ -334,6 +336,8 @@ mod list_prompt_routers;
 mod list_provisioned_model_throughputs;
 
 mod list_tags_for_resource;
+
+mod put_account_data_retention;
 
 mod put_enforced_guardrail_configuration;
 

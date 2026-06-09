@@ -39,7 +39,7 @@
 //! ```toml
 //! [dependencies]
 //! aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
-//! aws-sdk-cloudwatch = "1.114.0"
+//! aws-sdk-cloudwatch = "1.115.0"
 //! tokio = { version = "1", features = ["full"] }
 //! ```
 //!
@@ -156,14 +156,14 @@ pub use config::Config;
 /// # Using the `Client`
 ///
 /// A client has a function for every operation that can be performed by the service.
-/// For example, the [`DeleteAlarmMuteRule`](crate::operation::delete_alarm_mute_rule) operation has
-/// a [`Client::delete_alarm_mute_rule`], function which returns a builder for that operation.
+/// For example, the [`AssociateDatasetKmsKey`](crate::operation::associate_dataset_kms_key) operation has
+/// a [`Client::associate_dataset_kms_key`], function which returns a builder for that operation.
 /// The fluent builder ultimately has a `send()` function that returns an async future that
 /// returns a result, as illustrated below:
 ///
 /// ```rust,ignore
-/// let result = client.delete_alarm_mute_rule()
-///     .alarm_mute_rule_name("example")
+/// let result = client.associate_dataset_kms_key()
+///     .dataset_identifier("example")
 ///     .send()
 ///     .await;
 /// ```

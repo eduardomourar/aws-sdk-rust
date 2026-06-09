@@ -153,6 +153,32 @@ pub(crate) fn de_get_oci_onboarding_status(
                         depth + 1,
                     )?);
                 }
+                "autonomousDatabaseOciIntegrationIamRoles" => {
+                    builder = builder.set_autonomous_database_oci_integration_iam_roles(
+                        crate::protocol_serde::shape_oci_iam_role_list::de_oci_iam_role_list(tokens, _value, depth + 1)?,
+                    );
+                }
+                "linkedOciTenancyId" => {
+                    builder = builder.set_linked_oci_tenancy_id(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "linkedOciCompartmentId" => {
+                    builder = builder.set_linked_oci_compartment_id(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "subscriptionErrors" => {
+                    builder = builder.set_subscription_errors(crate::protocol_serde::shape_subscription_errors::de_subscription_errors(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

@@ -218,6 +218,16 @@ pub fn de_flow_log(
                 builder = builder.set_destination_options(var_16);
             }
             ,
+            s if s.matches("tagFieldSpecificationSet") /* TagFieldSpecifications com.amazonaws.ec2#FlowLog$TagFieldSpecifications */ =>  {
+                let var_17 =
+                    Some(
+                        crate::protocol_serde::shape_tag_field_specification_list_response::de_tag_field_specification_list_response(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_tag_field_specifications(var_17);
+            }
+            ,
             _ => {}
         }
     }

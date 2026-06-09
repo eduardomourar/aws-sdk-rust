@@ -99,6 +99,8 @@ pub(crate) mod shape_deregister_marketplace_model_endpoint;
 
 pub(crate) mod shape_export_automated_reasoning_policy_version;
 
+pub(crate) mod shape_get_account_data_retention;
+
 pub(crate) mod shape_get_advanced_prompt_optimization_job;
 
 pub(crate) mod shape_get_automated_reasoning_policy;
@@ -194,6 +196,8 @@ pub(crate) mod shape_list_prompt_routers;
 pub(crate) mod shape_list_provisioned_model_throughputs;
 
 pub(crate) mod shape_list_tags_for_resource;
+
+pub(crate) mod shape_put_account_data_retention;
 
 pub(crate) mod shape_put_enforced_guardrail_configuration;
 
@@ -300,6 +304,8 @@ pub(crate) mod shape_export_automated_reasoning_policy_version_output;
 pub(crate) mod shape_internal_server_exception;
 
 pub(crate) mod shape_list_tags_for_resource_input;
+
+pub(crate) mod shape_put_account_data_retention_input;
 
 pub(crate) mod shape_put_enforced_guardrail_configuration_input;
 

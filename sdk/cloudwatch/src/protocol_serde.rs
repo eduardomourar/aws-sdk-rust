@@ -28,6 +28,8 @@ pub fn parse_http_error_metadata(
     Ok(builder)
 }
 
+pub(crate) mod shape_associate_dataset_kms_key;
+
 pub(crate) mod shape_delete_alarm_mute_rule;
 
 pub(crate) mod shape_delete_alarms;
@@ -56,6 +58,8 @@ pub(crate) mod shape_disable_alarm_actions;
 
 pub(crate) mod shape_disable_insight_rules;
 
+pub(crate) mod shape_disassociate_dataset_kms_key;
+
 pub(crate) mod shape_enable_alarm_actions;
 
 pub(crate) mod shape_enable_insight_rules;
@@ -63,6 +67,8 @@ pub(crate) mod shape_enable_insight_rules;
 pub(crate) mod shape_get_alarm_mute_rule;
 
 pub(crate) mod shape_get_dashboard;
+
+pub(crate) mod shape_get_dataset;
 
 pub(crate) mod shape_get_insight_rule_report;
 
@@ -120,6 +126,8 @@ pub(crate) mod shape_tag_resource;
 
 pub(crate) mod shape_untag_resource;
 
+pub(crate) mod shape_associate_dataset_kms_key_input;
+
 pub(crate) mod shape_concurrent_modification_exception;
 
 pub(crate) mod shape_conflict_exception;
@@ -156,6 +164,8 @@ pub(crate) mod shape_disable_alarm_actions_input;
 
 pub(crate) mod shape_disable_insight_rules_input;
 
+pub(crate) mod shape_disassociate_dataset_kms_key_input;
+
 pub(crate) mod shape_enable_alarm_actions_input;
 
 pub(crate) mod shape_enable_insight_rules_input;
@@ -163,6 +173,8 @@ pub(crate) mod shape_enable_insight_rules_input;
 pub(crate) mod shape_get_alarm_mute_rule_input;
 
 pub(crate) mod shape_get_dashboard_input;
+
+pub(crate) mod shape_get_dataset_input;
 
 pub(crate) mod shape_get_insight_rule_report_input;
 
@@ -185,6 +197,12 @@ pub(crate) mod shape_invalid_next_token;
 pub(crate) mod shape_invalid_parameter_combination_exception;
 
 pub(crate) mod shape_invalid_parameter_value_exception;
+
+pub(crate) mod shape_kms_access_denied_exception;
+
+pub(crate) mod shape_kms_key_disabled_exception;
+
+pub(crate) mod shape_kms_key_not_found_exception;
 
 pub(crate) mod shape_limit_exceeded_exception;
 

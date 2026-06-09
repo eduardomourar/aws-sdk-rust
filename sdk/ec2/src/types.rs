@@ -963,6 +963,8 @@ pub use crate::types::_create_fleet_instance::CreateFleetInstance;
 
 pub use crate::types::_destination_file_format::DestinationFileFormat;
 
+pub use crate::types::_tag_field_specification_request::TagFieldSpecificationRequest;
+
 pub use crate::types::_block_device_mapping::BlockDeviceMapping;
 
 pub use crate::types::_image_usage_resource_type_request::ImageUsageResourceTypeRequest;
@@ -1817,6 +1819,8 @@ pub use crate::types::_launch_template_and_overrides_response::LaunchTemplateAnd
 
 pub use crate::types::_instance_lifecycle::InstanceLifecycle;
 
+pub use crate::types::_taggable_resource_type::TaggableResourceType;
+
 pub use crate::types::_ebs_block_device::EbsBlockDevice;
 
 pub use crate::types::_instance_connect_endpoint_dns_names::InstanceConnectEndpointDnsNames;
@@ -2392,6 +2396,8 @@ pub use crate::types::_capacity_reservation_options::CapacityReservationOptions;
 pub use crate::types::_describe_fleet_error::DescribeFleetError;
 
 pub use crate::types::_describe_fleets_instances::DescribeFleetsInstances;
+
+pub use crate::types::_tag_field_specification_response::TagFieldSpecificationResponse;
 
 pub use crate::types::_fpga_image_state_code::FpgaImageStateCode;
 
@@ -4989,7 +4995,13 @@ mod _tag;
 
 mod _tag_description;
 
+mod _tag_field_specification_request;
+
+mod _tag_field_specification_response;
+
 mod _tag_specification;
+
+mod _taggable_resource_type;
 
 mod _target_capacity_specification;
 

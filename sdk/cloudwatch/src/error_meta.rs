@@ -21,6 +21,12 @@ pub enum Error {
     InvalidParameterCombinationException(crate::types::error::InvalidParameterCombinationException),
     /// <p>The value of an input parameter is bad or out-of-range.</p>
     InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
+    /// <p>The operation was denied because either the calling principal lacks the required Amazon Web Services Key Management Service (Amazon Web Services KMS) permission on the key, or the key policy does not grant Amazon CloudWatch the permissions it needs to use the key. Verify that the caller has <code>kms:Decrypt</code> permission on the key, and that the key policy grants the CloudWatch service principal the <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code> permissions described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html">AssociateDatasetKmsKey</a>.</p>
+    KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
+    /// <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key is disabled or pending deletion. Re-enable the key (or restore it, if it is pending deletion) and retry the operation.</p>
+    KmsKeyDisabledException(crate::types::error::KmsKeyDisabledException),
+    /// <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key could not be found. Verify that the key Amazon Resource Name (ARN) is correct, that the key exists, and that it is in the same Amazon Web Services Region as the resource.</p>
+    KmsKeyNotFoundException(crate::types::error::KmsKeyNotFoundException),
     /// <p>The operation exceeded one or more limits.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
     /// <p>The quota for alarms for this customer has already been reached.</p>
@@ -52,6 +58,9 @@ impl ::std::fmt::Display for Error {
             Error::InvalidNextToken(inner) => inner.fmt(f),
             Error::InvalidParameterCombinationException(inner) => inner.fmt(f),
             Error::InvalidParameterValueException(inner) => inner.fmt(f),
+            Error::KmsAccessDeniedException(inner) => inner.fmt(f),
+            Error::KmsKeyDisabledException(inner) => inner.fmt(f),
+            Error::KmsKeyNotFoundException(inner) => inner.fmt(f),
             Error::LimitExceededException(inner) => inner.fmt(f),
             Error::LimitExceededFault(inner) => inner.fmt(f),
             Error::MissingRequiredParameterException(inner) => inner.fmt(f),
@@ -87,12 +96,52 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::InvalidNextToken(inner) => inner.meta(),
             Self::InvalidParameterCombinationException(inner) => inner.meta(),
             Self::InvalidParameterValueException(inner) => inner.meta(),
+            Self::KmsAccessDeniedException(inner) => inner.meta(),
+            Self::KmsKeyDisabledException(inner) => inner.meta(),
+            Self::KmsKeyNotFoundException(inner) => inner.meta(),
             Self::LimitExceededException(inner) => inner.meta(),
             Self::LimitExceededFault(inner) => inner.meta(),
             Self::MissingRequiredParameterException(inner) => inner.meta(),
             Self::ResourceNotFound(inner) => inner.meta(),
             Self::ResourceNotFoundException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError> for Error {
+    fn from(err: crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError) -> Self {
+        match err {
+            crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError::KmsKeyDisabledException(inner) => {
+                Error::KmsKeyDisabledException(inner)
+            }
+            crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError::KmsKeyNotFoundException(inner) => {
+                Error::KmsKeyNotFoundException(inner)
+            }
+            crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::associate_dataset_kms_key::AssociateDatasetKmsKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -456,6 +505,36 @@ impl From<crate::operation::disable_insight_rules::DisableInsightRulesError> for
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError> for Error {
+    fn from(err: crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError) -> Self {
+        match err {
+            crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError::ConflictException(inner) => {
+                Error::ConflictException(inner)
+            }
+            crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::disassociate_dataset_kms_key::DisassociateDatasetKmsKeyError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_alarm_actions::EnableAlarmActionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -548,6 +627,28 @@ impl From<crate::operation::get_dashboard::GetDashboardError> for Error {
             crate::operation::get_dashboard::GetDashboardError::InternalServiceFault(inner) => Error::InternalServiceFault(inner),
             crate::operation::get_dashboard::GetDashboardError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::get_dashboard::GetDashboardError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dataset::GetDatasetError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dataset::GetDatasetError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_dataset::GetDatasetError> for Error {
+    fn from(err: crate::operation::get_dataset::GetDatasetError) -> Self {
+        match err {
+            crate::operation::get_dataset::GetDatasetError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_dataset::GetDatasetError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1319,6 +1420,9 @@ impl ::std::error::Error for Error {
             Error::InvalidNextToken(inner) => inner.source(),
             Error::InvalidParameterCombinationException(inner) => inner.source(),
             Error::InvalidParameterValueException(inner) => inner.source(),
+            Error::KmsAccessDeniedException(inner) => inner.source(),
+            Error::KmsKeyDisabledException(inner) => inner.source(),
+            Error::KmsKeyNotFoundException(inner) => inner.source(),
             Error::LimitExceededException(inner) => inner.source(),
             Error::LimitExceededFault(inner) => inner.source(),
             Error::MissingRequiredParameterException(inner) => inner.source(),
@@ -1340,6 +1444,9 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::InvalidNextToken(e) => e.request_id(),
             Self::InvalidParameterCombinationException(e) => e.request_id(),
             Self::InvalidParameterValueException(e) => e.request_id(),
+            Self::KmsAccessDeniedException(e) => e.request_id(),
+            Self::KmsKeyDisabledException(e) => e.request_id(),
+            Self::KmsKeyNotFoundException(e) => e.request_id(),
             Self::LimitExceededException(e) => e.request_id(),
             Self::LimitExceededFault(e) => e.request_id(),
             Self::MissingRequiredParameterException(e) => e.request_id(),

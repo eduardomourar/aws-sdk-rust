@@ -115,6 +115,9 @@ pub mod deregister_marketplace_model_endpoint;
 /// Types for the `ExportAutomatedReasoningPolicyVersion` operation.
 pub mod export_automated_reasoning_policy_version;
 
+/// Types for the `GetAccountDataRetention` operation.
+pub mod get_account_data_retention;
+
 /// Types for the `GetAdvancedPromptOptimizationJob` operation.
 pub mod get_advanced_prompt_optimization_job;
 
@@ -258,6 +261,9 @@ pub mod list_provisioned_model_throughputs;
 
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
+
+/// Types for the `PutAccountDataRetention` operation.
+pub mod put_account_data_retention;
 
 /// Types for the `PutEnforcedGuardrailConfiguration` operation.
 pub mod put_enforced_guardrail_configuration;

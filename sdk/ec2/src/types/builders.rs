@@ -589,6 +589,8 @@ pub use crate::types::_create_fleet_error::CreateFleetErrorBuilder;
 
 pub use crate::types::_create_fleet_instance::CreateFleetInstanceBuilder;
 
+pub use crate::types::_tag_field_specification_request::TagFieldSpecificationRequestBuilder;
+
 pub use crate::types::_block_device_mapping::BlockDeviceMappingBuilder;
 
 pub use crate::types::_image_usage_resource_type_request::ImageUsageResourceTypeRequestBuilder;
@@ -1572,6 +1574,8 @@ pub use crate::types::_capacity_reservation_options::CapacityReservationOptionsB
 pub use crate::types::_describe_fleet_error::DescribeFleetErrorBuilder;
 
 pub use crate::types::_describe_fleets_instances::DescribeFleetsInstancesBuilder;
+
+pub use crate::types::_tag_field_specification_response::TagFieldSpecificationResponseBuilder;
 
 pub use crate::types::_host_instance::HostInstanceBuilder;
 

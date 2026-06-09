@@ -2743,6 +2743,10 @@ source_hash = '292e73f362db4f2fc4e54c74da1d86dcf52cad0e661dbb7f82d9b8b1d9cad519'
 category = 'AwsRuntime'
 version = '0.0.0'
 source_hash = 'cd48a666d75ebba7d77758b10af3e6dc36768267cb74940ffbd237bff2b5bd92'
+
+[release]
+tag = 'release-2026-06-09'
+
 [release.crates]
 aws-sdk-bedrock = '1.146.0'
 aws-sdk-bedrockagentcore = '1.47.0'

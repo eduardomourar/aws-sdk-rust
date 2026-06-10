@@ -9,6 +9,18 @@ pub fn ser_audio_pid_selection(
             ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
+    if let Some(var_2) = &input.pids {
+        let mut array_3 = object.key("pids").start_array();
+        for item_4 in var_2 {
+            {
+                #[allow(unused_mut)]
+                let mut object_5 = array_3.value().start_object();
+                crate::protocol_serde::shape_audio_pid::ser_audio_pid(&mut object_5, item_4)?;
+                object_5.finish();
+            }
+        }
+        array_3.finish();
+    }
     Ok(())
 }
 
@@ -40,6 +52,13 @@ where
                                     .map(i32::try_from)
                                     .transpose()?,
                             );
+                        }
+                        "pids" => {
+                            builder = builder.set_pids(crate::protocol_serde::shape_list_of_audio_pid::de_list_of_audio_pid(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

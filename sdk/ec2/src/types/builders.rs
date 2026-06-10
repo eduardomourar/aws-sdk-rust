@@ -1581,6 +1581,8 @@ pub use crate::types::_host_instance::HostInstanceBuilder;
 
 pub use crate::types::_resource_type_option::ResourceTypeOptionBuilder;
 
+pub use crate::types::_image_watermark::ImageWatermarkBuilder;
+
 pub use crate::types::_image_usage_resource_type::ImageUsageResourceTypeBuilder;
 
 pub use crate::types::_ebs_optimized_info::EbsOptimizedInfoBuilder;

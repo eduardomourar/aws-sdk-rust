@@ -1181,6 +1181,8 @@ pub(crate) mod shape_archive_s3_settings;
 
 pub(crate) mod shape_audio_dolby_e_decode;
 
+pub(crate) mod shape_audio_pid;
+
 pub(crate) mod shape_audio_track;
 
 pub(crate) mod shape_bandwidth_reduction_filter_settings;
@@ -1247,6 +1249,8 @@ pub(crate) mod shape_udp_container_settings;
 
 pub(crate) mod shape_audio_only_hls_settings;
 
+pub(crate) mod shape_audio_pre_mixer_settings;
+
 pub(crate) mod shape_fmp4_hls_settings;
 
 pub(crate) mod shape_frame_capture_hls_settings;
@@ -1270,6 +1274,8 @@ pub(crate) mod shape_dvb_nit_settings;
 pub(crate) mod shape_dvb_sdt_settings;
 
 pub(crate) mod shape_dvb_tdt_settings;
+
+pub(crate) mod shape_list_of_audio_pid;
 
 pub(crate) mod shape_list_of_audio_track;
 

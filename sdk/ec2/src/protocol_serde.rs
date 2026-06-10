@@ -171,6 +171,10 @@ pub(crate) mod shape_attach_classic_link_vpc;
 
 pub(crate) mod shape_attach_classic_link_vpc_input;
 
+pub(crate) mod shape_attach_image_watermark;
+
+pub(crate) mod shape_attach_image_watermark_input;
+
 pub(crate) mod shape_attach_internet_gateway;
 
 pub(crate) mod shape_attach_internet_gateway_input;
@@ -1846,6 +1850,10 @@ pub(crate) mod shape_describe_vpn_gateways_input;
 pub(crate) mod shape_detach_classic_link_vpc;
 
 pub(crate) mod shape_detach_classic_link_vpc_input;
+
+pub(crate) mod shape_detach_image_watermark;
+
+pub(crate) mod shape_detach_image_watermark_input;
 
 pub(crate) mod shape_detach_internet_gateway;
 
@@ -5219,6 +5227,8 @@ pub(crate) mod shape_image_provider_list;
 
 pub(crate) mod shape_image_usage_resource_type_list;
 
+pub(crate) mod shape_image_watermark_list;
+
 pub(crate) mod shape_import_instance_volume_detail_set;
 
 pub(crate) mod shape_inference_accelerator_info;
@@ -5602,6 +5612,8 @@ pub(crate) mod shape_group_id_string_list;
 pub(crate) mod shape_host_instance;
 
 pub(crate) mod shape_image_usage_resource_type;
+
+pub(crate) mod shape_image_watermark;
 
 pub(crate) mod shape_import_instance_volume_detail_item;
 

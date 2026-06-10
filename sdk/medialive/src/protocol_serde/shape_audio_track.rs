@@ -9,6 +9,12 @@ pub fn ser_audio_track(
             ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
+    if let Some(var_2) = &input.premix_settings {
+        #[allow(unused_mut)]
+        let mut object_3 = object.key("premixSettings").start_object();
+        crate::protocol_serde::shape_audio_pre_mixer_settings::ser_audio_pre_mixer_settings(&mut object_3, var_2)?;
+        object_3.finish();
+    }
     Ok(())
 }
 
@@ -39,6 +45,11 @@ where
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                                     .map(i32::try_from)
                                     .transpose()?,
+                            );
+                        }
+                        "premixSettings" => {
+                            builder = builder.set_premix_settings(
+                                crate::protocol_serde::shape_audio_pre_mixer_settings::de_audio_pre_mixer_settings(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

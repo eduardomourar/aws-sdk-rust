@@ -112,6 +112,9 @@ pub mod associate_vpc_cidr_block;
 /// Types for the `AttachClassicLinkVpc` operation.
 pub mod attach_classic_link_vpc;
 
+/// Types for the `AttachImageWatermark` operation.
+pub mod attach_image_watermark;
+
 /// Types for the `AttachInternetGateway` operation.
 pub mod attach_internet_gateway;
 
@@ -1368,6 +1371,9 @@ pub mod describe_vpn_gateways;
 
 /// Types for the `DetachClassicLinkVpc` operation.
 pub mod detach_classic_link_vpc;
+
+/// Types for the `DetachImageWatermark` operation.
+pub mod detach_image_watermark;
 
 /// Types for the `DetachInternetGateway` operation.
 pub mod detach_internet_gateway;

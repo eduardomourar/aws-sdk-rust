@@ -477,6 +477,8 @@ mod associate_vpc_cidr_block;
 
 mod attach_classic_link_vpc;
 
+mod attach_image_watermark;
+
 mod attach_internet_gateway;
 
 mod attach_network_interface;
@@ -1341,6 +1343,8 @@ mod describe_vpn_connections;
 mod describe_vpn_gateways;
 
 mod detach_classic_link_vpc;
+
+mod detach_image_watermark;
 
 mod detach_internet_gateway;
 

@@ -617,6 +617,8 @@ pub use crate::types::_audio_normalization_algorithm::AudioNormalizationAlgorith
 
 pub use crate::types::_audio_normalization_algorithm_control::AudioNormalizationAlgorithmControl;
 
+pub use crate::types::_audio_normalization_peak_calculation::AudioNormalizationPeakCalculation;
+
 pub use crate::types::_nielsen_watermarks_settings::NielsenWatermarksSettings;
 
 pub use crate::types::_aac_settings::AacSettings;
@@ -1303,6 +1305,8 @@ pub use crate::types::_multiplex_m2ts_settings::MultiplexM2tsSettings;
 
 pub use crate::types::_fec_output_include_fec::FecOutputIncludeFec;
 
+pub use crate::types::_audio_pid::AudioPid;
+
 pub use crate::types::_audio_track::AudioTrack;
 
 pub use crate::types::_dolby_e_program_selection::DolbyEProgramSelection;
@@ -1364,6 +1368,8 @@ pub use crate::types::_fmp4_nielsen_id3_behavior::Fmp4NielsenId3Behavior;
 pub use crate::types::_fmp4_timed_metadata_behavior::Fmp4TimedMetadataBehavior;
 
 pub use crate::types::_m3u8_settings::M3u8Settings;
+
+pub use crate::types::_audio_pre_mixer_settings::AudioPreMixerSettings;
 
 pub use crate::types::_scte35_archive_allowed_flag::Scte35ArchiveAllowedFlag;
 
@@ -1469,6 +1475,8 @@ mod _audio_normalization_algorithm;
 
 mod _audio_normalization_algorithm_control;
 
+mod _audio_normalization_peak_calculation;
+
 mod _audio_normalization_settings;
 
 mod _audio_only_hls_segment_type;
@@ -1477,7 +1485,11 @@ mod _audio_only_hls_settings;
 
 mod _audio_only_hls_track_type;
 
+mod _audio_pid;
+
 mod _audio_pid_selection;
+
+mod _audio_pre_mixer_settings;
 
 mod _audio_selector;
 

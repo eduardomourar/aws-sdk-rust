@@ -36,6 +36,10 @@ pub struct RegisterDaemonTaskDefinitionInput {
     /// <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p></li>
     /// </ul>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    /// <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+    pub pid_mode: ::std::option::Option<crate::types::DaemonPidMode>,
+    /// <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+    pub ipc_mode: ::std::option::Option<crate::types::DaemonIpcMode>,
 }
 impl RegisterDaemonTaskDefinitionInput {
     /// <p>You must specify a <code>family</code> for a daemon task definition. This family is used as a name for your daemon task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>
@@ -93,6 +97,14 @@ impl RegisterDaemonTaskDefinitionInput {
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
+    /// <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+    pub fn pid_mode(&self) -> ::std::option::Option<&crate::types::DaemonPidMode> {
+        self.pid_mode.as_ref()
+    }
+    /// <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+    pub fn ipc_mode(&self) -> ::std::option::Option<&crate::types::DaemonIpcMode> {
+        self.ipc_mode.as_ref()
+    }
 }
 impl RegisterDaemonTaskDefinitionInput {
     /// Creates a new builder-style object to manufacture [`RegisterDaemonTaskDefinitionInput`](crate::operation::register_daemon_task_definition::RegisterDaemonTaskDefinitionInput).
@@ -113,6 +125,8 @@ pub struct RegisterDaemonTaskDefinitionInputBuilder {
     pub(crate) memory: ::std::option::Option<::std::string::String>,
     pub(crate) volumes: ::std::option::Option<::std::vec::Vec<crate::types::DaemonVolume>>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) pid_mode: ::std::option::Option<crate::types::DaemonPidMode>,
+    pub(crate) ipc_mode: ::std::option::Option<crate::types::DaemonIpcMode>,
 }
 impl RegisterDaemonTaskDefinitionInputBuilder {
     /// <p>You must specify a <code>family</code> for a daemon task definition. This family is used as a name for your daemon task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>
@@ -297,6 +311,34 @@ impl RegisterDaemonTaskDefinitionInputBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
         &self.tags
     }
+    /// <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+    pub fn pid_mode(mut self, input: crate::types::DaemonPidMode) -> Self {
+        self.pid_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+    pub fn set_pid_mode(mut self, input: ::std::option::Option<crate::types::DaemonPidMode>) -> Self {
+        self.pid_mode = input;
+        self
+    }
+    /// <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+    pub fn get_pid_mode(&self) -> &::std::option::Option<crate::types::DaemonPidMode> {
+        &self.pid_mode
+    }
+    /// <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+    pub fn ipc_mode(mut self, input: crate::types::DaemonIpcMode) -> Self {
+        self.ipc_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+    pub fn set_ipc_mode(mut self, input: ::std::option::Option<crate::types::DaemonIpcMode>) -> Self {
+        self.ipc_mode = input;
+        self
+    }
+    /// <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+    pub fn get_ipc_mode(&self) -> &::std::option::Option<crate::types::DaemonIpcMode> {
+        &self.ipc_mode
+    }
     /// Consumes the builder and constructs a [`RegisterDaemonTaskDefinitionInput`](crate::operation::register_daemon_task_definition::RegisterDaemonTaskDefinitionInput).
     pub fn build(
         self,
@@ -313,6 +355,8 @@ impl RegisterDaemonTaskDefinitionInputBuilder {
             memory: self.memory,
             volumes: self.volumes,
             tags: self.tags,
+            pid_mode: self.pid_mode,
+            ipc_mode: self.ipc_mode,
         })
     }
 }

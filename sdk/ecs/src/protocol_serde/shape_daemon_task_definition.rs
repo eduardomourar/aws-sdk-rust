@@ -112,6 +112,20 @@ where
                                     .transpose()?,
                             );
                         }
+                        "pidMode" => {
+                            builder = builder.set_pid_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::DaemonPidMode::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "ipcMode" => {
+                            builder = builder.set_ipc_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::DaemonIpcMode::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

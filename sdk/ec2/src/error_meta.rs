@@ -1053,6 +1053,27 @@ impl From<crate::operation::attach_classic_link_vpc::AttachClassicLinkVpcError> 
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_image_watermark::AttachImageWatermarkError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_image_watermark::AttachImageWatermarkError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::attach_image_watermark::AttachImageWatermarkError> for Error {
+    fn from(err: crate::operation::attach_image_watermark::AttachImageWatermarkError) -> Self {
+        match err {
+            crate::operation::attach_image_watermark::AttachImageWatermarkError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_internet_gateway::AttachInternetGatewayError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -12202,6 +12223,27 @@ impl From<crate::operation::detach_classic_link_vpc::DetachClassicLinkVpcError> 
     fn from(err: crate::operation::detach_classic_link_vpc::DetachClassicLinkVpcError) -> Self {
         match err {
             crate::operation::detach_classic_link_vpc::DetachClassicLinkVpcError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_image_watermark::DetachImageWatermarkError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_image_watermark::DetachImageWatermarkError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::detach_image_watermark::DetachImageWatermarkError> for Error {
+    fn from(err: crate::operation::detach_image_watermark::DetachImageWatermarkError) -> Self {
+        match err {
+            crate::operation::detach_image_watermark::DetachImageWatermarkError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

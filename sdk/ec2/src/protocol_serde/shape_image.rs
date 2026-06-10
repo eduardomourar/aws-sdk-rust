@@ -339,20 +339,17 @@ pub fn de_image(
                 builder = builder.set_free_tier_eligible(var_25);
             }
             ,
-            s if s.matches("imageId") /* ImageId com.amazonaws.ec2#Image$ImageId */ =>  {
+            s if s.matches("imageWatermarkSet") /* ImageWatermarks com.amazonaws.ec2#Image$ImageWatermarks */ =>  {
                 let var_26 =
                     Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
+                        crate::protocol_serde::shape_image_watermark_list::de_image_watermark_list(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_image_id(var_26);
+                builder = builder.set_image_watermarks(var_26);
             }
             ,
-            s if s.matches("imageLocation") /* ImageLocation com.amazonaws.ec2#Image$ImageLocation */ =>  {
+            s if s.matches("imageId") /* ImageId com.amazonaws.ec2#Image$ImageId */ =>  {
                 let var_27 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
@@ -362,11 +359,24 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_image_location(var_27);
+                builder = builder.set_image_id(var_27);
+            }
+            ,
+            s if s.matches("imageLocation") /* ImageLocation com.amazonaws.ec2#Image$ImageLocation */ =>  {
+                let var_28 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_image_location(var_28);
             }
             ,
             s if s.matches("imageState") /* State com.amazonaws.ec2#Image$State */ =>  {
-                let var_28 =
+                let var_29 =
                     Some(
                         Result::<crate::types::ImageState, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::ImageState::from(
@@ -376,23 +386,10 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_state(var_28);
+                builder = builder.set_state(var_29);
             }
             ,
             s if s.matches("imageOwnerId") /* OwnerId com.amazonaws.ec2#Image$OwnerId */ =>  {
-                let var_29 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_owner_id(var_29);
-            }
-            ,
-            s if s.matches("creationDate") /* CreationDate com.amazonaws.ec2#Image$CreationDate */ =>  {
                 let var_30 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
@@ -402,11 +399,24 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_creation_date(var_30);
+                builder = builder.set_owner_id(var_30);
+            }
+            ,
+            s if s.matches("creationDate") /* CreationDate com.amazonaws.ec2#Image$CreationDate */ =>  {
+                let var_31 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_creation_date(var_31);
             }
             ,
             s if s.matches("isPublic") /* Public com.amazonaws.ec2#Image$Public */ =>  {
-                let var_31 =
+                let var_32 =
                     Some(
                          {
                             <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
@@ -417,21 +427,21 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_public(var_31);
+                builder = builder.set_public(var_32);
             }
             ,
             s if s.matches("productCodes") /* ProductCodes com.amazonaws.ec2#Image$ProductCodes */ =>  {
-                let var_32 =
+                let var_33 =
                     Some(
                         crate::protocol_serde::shape_product_code_list::de_product_code_list(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_product_codes(var_32);
+                builder = builder.set_product_codes(var_33);
             }
             ,
             s if s.matches("architecture") /* Architecture com.amazonaws.ec2#Image$Architecture */ =>  {
-                let var_33 =
+                let var_34 =
                     Some(
                         Result::<crate::types::ArchitectureValues, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::ArchitectureValues::from(
@@ -441,11 +451,11 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_architecture(var_33);
+                builder = builder.set_architecture(var_34);
             }
             ,
             s if s.matches("imageType") /* ImageType com.amazonaws.ec2#Image$ImageType */ =>  {
-                let var_34 =
+                let var_35 =
                     Some(
                         Result::<crate::types::ImageTypeValues, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::ImageTypeValues::from(
@@ -455,23 +465,10 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_image_type(var_34);
+                builder = builder.set_image_type(var_35);
             }
             ,
             s if s.matches("kernelId") /* KernelId com.amazonaws.ec2#Image$KernelId */ =>  {
-                let var_35 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_kernel_id(var_35);
-            }
-            ,
-            s if s.matches("ramdiskId") /* RamdiskId com.amazonaws.ec2#Image$RamdiskId */ =>  {
                 let var_36 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
@@ -481,11 +478,24 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_ramdisk_id(var_36);
+                builder = builder.set_kernel_id(var_36);
+            }
+            ,
+            s if s.matches("ramdiskId") /* RamdiskId com.amazonaws.ec2#Image$RamdiskId */ =>  {
+                let var_37 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_ramdisk_id(var_37);
             }
             ,
             s if s.matches("platform") /* Platform com.amazonaws.ec2#Image$Platform */ =>  {
-                let var_37 =
+                let var_38 =
                     Some(
                         Result::<crate::types::PlatformValues, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::PlatformValues::from(
@@ -495,7 +505,7 @@ pub fn de_image(
                         ?
                     )
                 ;
-                builder = builder.set_platform(var_37);
+                builder = builder.set_platform(var_38);
             }
             ,
             _ => {}

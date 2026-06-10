@@ -57,6 +57,10 @@ pub use crate::types::_daemon_task_definition_status_filter::DaemonTaskDefinitio
 
 pub use crate::types::_sort_order::SortOrder;
 
+pub use crate::types::_daemon_pid_mode::DaemonPidMode;
+
+pub use crate::types::_daemon_ipc_mode::DaemonIpcMode;
+
 pub use crate::types::_task_set::TaskSet;
 
 pub use crate::types::_express_gateway_container::ExpressGatewayContainer;
@@ -725,7 +729,11 @@ mod _daemon_deployment_summary;
 
 mod _daemon_detail;
 
+mod _daemon_ipc_mode;
+
 mod _daemon_linux_parameters;
+
+mod _daemon_pid_mode;
 
 mod _daemon_propagate_tags;
 

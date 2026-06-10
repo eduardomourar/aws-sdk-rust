@@ -2405,6 +2405,8 @@ pub use crate::types::_host_instance::HostInstance;
 
 pub use crate::types::_resource_type_option::ResourceTypeOption;
 
+pub use crate::types::_image_watermark::ImageWatermark;
+
 pub use crate::types::_image_usage_resource_type::ImageUsageResourceType;
 
 pub use crate::types::_instance_state_name::InstanceStateName;
@@ -3654,6 +3656,8 @@ mod _image_usage_resource_type_option;
 mod _image_usage_resource_type_option_request;
 
 mod _image_usage_resource_type_request;
+
+mod _image_watermark;
 
 mod _imds_support_values;
 

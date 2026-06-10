@@ -691,6 +691,8 @@ pub use crate::types::_standard_hls_settings::StandardHlsSettingsBuilder;
 
 pub use crate::types::_multiplex_m2ts_settings::MultiplexM2tsSettingsBuilder;
 
+pub use crate::types::_audio_pid::AudioPidBuilder;
+
 pub use crate::types::_audio_track::AudioTrackBuilder;
 
 pub use crate::types::_scte35_delivery_restrictions::Scte35DeliveryRestrictionsBuilder;
@@ -702,3 +704,5 @@ pub use crate::types::_dvb_sdt_settings::DvbSdtSettingsBuilder;
 pub use crate::types::_dvb_tdt_settings::DvbTdtSettingsBuilder;
 
 pub use crate::types::_m3u8_settings::M3u8SettingsBuilder;
+
+pub use crate::types::_audio_pre_mixer_settings::AudioPreMixerSettingsBuilder;

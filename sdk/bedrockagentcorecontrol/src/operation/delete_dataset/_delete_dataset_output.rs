@@ -9,7 +9,7 @@ pub struct DeleteDatasetOutput {
     pub dataset_id: ::std::string::String,
     /// <p>The current status of the dataset after the delete request.</p>
     pub status: crate::types::DatasetStatus,
-    /// The version deleted.
+    /// <p>The version that was deleted.</p>
     pub dataset_version: ::std::string::String,
     /// <p>The timestamp when the delete was initiated.</p>
     pub updated_at: ::aws_smithy_types::DateTime,
@@ -30,7 +30,7 @@ impl DeleteDatasetOutput {
     pub fn status(&self) -> &crate::types::DatasetStatus {
         &self.status
     }
-    /// The version deleted.
+    /// <p>The version that was deleted.</p>
     pub fn dataset_version(&self) -> &str {
         use std::ops::Deref;
         self.dataset_version.deref()
@@ -109,18 +109,18 @@ impl DeleteDatasetOutputBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::DatasetStatus> {
         &self.status
     }
-    /// The version deleted.
+    /// <p>The version that was deleted.</p>
     /// This field is required.
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// The version deleted.
+    /// <p>The version that was deleted.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// The version deleted.
+    /// <p>The version that was deleted.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }

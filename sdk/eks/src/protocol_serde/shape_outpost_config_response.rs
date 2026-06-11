@@ -40,6 +40,20 @@ where
                                 )?,
                             );
                         }
+                        "etcdInstanceType" => {
+                            builder = builder.set_etcd_instance_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "etcdPlacement" => {
+                            builder = builder.set_etcd_placement(crate::protocol_serde::shape_etcd_placement_response::de_etcd_placement_response(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

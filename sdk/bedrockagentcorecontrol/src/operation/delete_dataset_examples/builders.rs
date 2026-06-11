@@ -22,7 +22,7 @@ impl crate::operation::delete_dataset_examples::builders::DeleteDatasetExamplesI
 }
 /// Fluent builder constructing a request to `DeleteDatasetExamples`.
 ///
-/// Deletes specific examples by ID from DRAFT. **Validation:** All example IDs are validated before any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected with ResourceNotFoundException — no examples are deleted (all-or-nothing semantics). **Asynchronous:** Operates in-place on DRAFT. No version bump occurs. Use CreateDatasetVersion to publish DRAFT as a new numbered version. **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset status is not in {DRAFT, ACTIVE}.
+/// <p>Deletes specific examples by ID from DRAFT. All example IDs are validated before any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected (all-or-nothing semantics).</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteDatasetExamplesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

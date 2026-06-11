@@ -9,11 +9,14 @@ pub fn ser_metadata_schema_entry(
     if let Some(var_1) = &input.r#type {
         object.key("type").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.extraction_config {
+    if let Some(var_2) = &input.extraction_type {
+        object.key("extractionType").string(var_2.as_str());
+    }
+    if let Some(var_3) = &input.extraction_config {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("extractionConfig").start_object();
-        crate::protocol_serde::shape_extraction_config::ser_extraction_config(&mut object_3, var_2)?;
-        object_3.finish();
+        let mut object_4 = object.key("extractionConfig").start_object();
+        crate::protocol_serde::shape_extraction_config::ser_extraction_config(&mut object_4, var_3)?;
+        object_4.finish();
     }
     Ok(())
 }
@@ -51,6 +54,13 @@ where
                             builder = builder.set_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::MetadataValueType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "extractionType" => {
+                            builder = builder.set_extraction_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExtractionType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

@@ -22,7 +22,7 @@ impl crate::operation::delete_dataset::builders::DeleteDatasetInputBuilder {
 }
 /// Fluent builder constructing a request to `DeleteDataset`.
 ///
-/// Deletes a dataset version or an entire dataset (all versions + name claim). Asynchronous 202. **State transitions:** - If `datasetVersion` is absent (full delete): status transitions to DELETING immediately. - If `datasetVersion` is provided (version-specific delete): status transitions to UPDATING. **State guard (full delete):** Returns ConflictException (DATASET_NOT_READY) if the dataset status is in {CREATING, UPDATING}. Deletion is allowed from ACTIVE, CREATE_FAILED, UPDATE_FAILED, and DELETE_FAILED states. **State guard (version-specific delete):** Returns ConflictException (DATASET_NOT_READY) if the dataset status is not in {ACTIVE, CREATE_FAILED, UPDATE_FAILED}. Fails with ConflictException (REFERENCED_BY_EVAL_JOB) if referenced by an active evaluation job (full delete only). If the delete workflow fails after retries, status is set to DELETE_FAILED (full delete) or UPDATE_FAILED (version-specific delete). Calling DeleteDataset on a DELETE_FAILED dataset re-triggers the delete workflow (idempotent retry path). **Version parameter:** - If `datasetVersion` is absent: deletes ALL versions and the Dataset record itself. - If `datasetVersion` is provided: deletes only that specific DatasetVersion. Returns ResourceNotFoundException if the specified version does not exist.
+/// <p>Deletes a dataset version or an entire dataset asynchronously. If <code>datasetVersion</code> is absent, deletes all versions and the dataset record itself. If provided, deletes only that specific version.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteDatasetFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -122,17 +122,17 @@ impl DeleteDatasetFluentBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_dataset_id()
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.dataset_version(input.into());
         self
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_dataset_version(input);
         self
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_dataset_version()
     }

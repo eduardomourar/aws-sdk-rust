@@ -131,6 +131,8 @@ pub use crate::types::_elastic_load_balancing::ElasticLoadBalancing;
 
 pub use crate::types::_control_plane_placement_request::ControlPlanePlacementRequest;
 
+pub use crate::types::_etcd_placement_request::EtcdPlacementRequest;
+
 pub use crate::types::_authentication_mode::AuthenticationMode;
 
 pub use crate::types::_support_type::SupportType;
@@ -229,6 +231,8 @@ pub use crate::types::_argo_cd_config_response::ArgoCdConfigResponse;
 
 pub use crate::types::_log_setup::LogSetup;
 
+pub use crate::types::_spread_level::SpreadLevel;
+
 pub use crate::types::_remote_node_network::RemoteNodeNetwork;
 
 pub use crate::types::_remote_pod_network::RemotePodNetwork;
@@ -236,6 +240,8 @@ pub use crate::types::_remote_pod_network::RemotePodNetwork;
 pub use crate::types::_oidc::Oidc;
 
 pub use crate::types::_control_plane_placement_response::ControlPlanePlacementResponse;
+
+pub use crate::types::_etcd_placement_response::EtcdPlacementResponse;
 
 pub use crate::types::_license::License;
 
@@ -447,6 +453,10 @@ mod _error_code;
 
 mod _error_detail;
 
+mod _etcd_placement_request;
+
+mod _etcd_placement_response;
+
 mod _fargate_profile;
 
 mod _fargate_profile_health;
@@ -552,6 +562,8 @@ mod _remote_pod_network;
 mod _repair_action;
 
 mod _resolve_conflicts;
+
+mod _spread_level;
 
 mod _sso_identity;
 

@@ -22,7 +22,7 @@ impl crate::operation::update_dataset_examples::builders::UpdateDatasetExamplesI
 }
 /// Fluent builder constructing a request to `UpdateDatasetExamples`.
 ///
-/// Updates multiple existing examples in-place on DRAFT. **Validation:** All examples are validated against the dataset's schemaType before any writes occur. If any example fails validation, the entire batch is rejected with ValidationException — no examples are updated (all-or-nothing semantics). **Asynchronous:** Operates in-place on DRAFT. No version bump occurs. Use CreateDatasetVersion to publish DRAFT as a new numbered version. Fails with ResourceNotFoundException if any exampleId does not exist in DRAFT. To add new examples, use AddDatasetExamples instead. **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset status is not in {DRAFT, ACTIVE}. **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+/// <p>Updates multiple existing examples in-place on DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics).</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateDatasetExamplesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -141,17 +141,17 @@ impl UpdateDatasetExamplesFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_examples`](Self::set_examples).
     ///
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub fn examples(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.examples(input);
         self
     }
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub fn set_examples(mut self, input: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>>) -> Self {
         self.inner = self.inner.set_examples(input);
         self
     }
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub fn get_examples(&self) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>> {
         self.inner.get_examples()
     }

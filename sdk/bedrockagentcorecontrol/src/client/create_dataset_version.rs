@@ -8,8 +8,8 @@ impl super::Client {
     /// - On success, responds with [`CreateDatasetVersionOutput`](crate::operation::create_dataset_version::CreateDatasetVersionOutput) with field(s):
     ///   - [`dataset_arn(String)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::dataset_arn): <p>The Amazon Resource Name (ARN) of the dataset.</p>
     ///   - [`dataset_id(String)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::dataset_id): <p>The unique identifier of the dataset.</p>
-    ///   - [`status(DatasetStatus)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::status): Always UPDATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
-    ///   - [`dataset_version(String)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::dataset_version): The version being created.
+    ///   - [`status(DatasetStatus)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::status): <p>Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED.</p>
+    ///   - [`dataset_version(String)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::dataset_version): <p>The version number being created.</p>
     ///   - [`created_at(DateTime)`](crate::operation::create_dataset_version::CreateDatasetVersionOutput::created_at): <p>The timestamp when the version creation was initiated.</p>
     /// - On failure, responds with [`SdkError<CreateDatasetVersionError>`](crate::operation::create_dataset_version::CreateDatasetVersionError)
     pub fn create_dataset_version(&self) -> crate::operation::create_dataset_version::builders::CreateDatasetVersionFluentBuilder {

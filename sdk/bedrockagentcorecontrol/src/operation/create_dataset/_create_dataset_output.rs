@@ -7,7 +7,7 @@ pub struct CreateDatasetOutput {
     pub dataset_arn: ::std::string::String,
     /// <p>The unique identifier of the created dataset.</p>
     pub dataset_id: ::std::string::String,
-    /// Always CREATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+    /// <p>Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED.</p>
     pub status: crate::types::DatasetStatus,
     /// <p>The timestamp when the dataset was created.</p>
     pub created_at: ::aws_smithy_types::DateTime,
@@ -24,7 +24,7 @@ impl CreateDatasetOutput {
         use std::ops::Deref;
         self.dataset_id.deref()
     }
-    /// Always CREATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+    /// <p>Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED.</p>
     pub fn status(&self) -> &crate::types::DatasetStatus {
         &self.status
     }
@@ -86,18 +86,18 @@ impl CreateDatasetOutputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// Always CREATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+    /// <p>Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::DatasetStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// Always CREATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+    /// <p>Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::DatasetStatus>) -> Self {
         self.status = input;
         self
     }
-    /// Always CREATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+    /// <p>Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::DatasetStatus> {
         &self.status
     }

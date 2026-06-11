@@ -592,6 +592,19 @@ pub fn de_db_cluster(
                 builder = builder.set_storage_type(var_45);
             }
             ,
+            s if s.matches("NetworkType") /* NetworkType com.amazonaws.neptune#DBCluster$NetworkType */ =>  {
+                let var_46 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_network_type(var_46);
+            }
+            ,
             _ => {}
         }
     }

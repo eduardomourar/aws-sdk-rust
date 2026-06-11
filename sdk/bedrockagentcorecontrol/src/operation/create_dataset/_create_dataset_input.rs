@@ -3,27 +3,27 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateDatasetInput {
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub dataset_name: ::std::option::Option<::std::string::String>,
     /// <p>A description of the dataset.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub source: ::std::option::Option<crate::types::DataSourceType>,
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub schema_type: ::std::option::Option<crate::types::DatasetSchemaType>,
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>A map of tag keys and values to assign to the dataset.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateDatasetInput {
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn client_token(&self) -> ::std::option::Option<&str> {
         self.client_token.as_deref()
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub fn dataset_name(&self) -> ::std::option::Option<&str> {
         self.dataset_name.as_deref()
     }
@@ -31,15 +31,15 @@ impl CreateDatasetInput {
     pub fn description(&self) -> ::std::option::Option<&str> {
         self.description.as_deref()
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn source(&self) -> ::std::option::Option<&crate::types::DataSourceType> {
         self.source.as_ref()
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub fn schema_type(&self) -> ::std::option::Option<&crate::types::DatasetSchemaType> {
         self.schema_type.as_ref()
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
         self.kms_key_arn.as_deref()
     }
@@ -68,32 +68,32 @@ pub struct CreateDatasetInputBuilder {
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateDatasetInputBuilder {
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_token = input;
         self
     }
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     /// This field is required.
     pub fn dataset_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub fn set_dataset_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_name = input;
         self
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub fn get_dataset_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_name
     }
@@ -111,47 +111,47 @@ impl CreateDatasetInputBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     /// This field is required.
     pub fn source(mut self, input: crate::types::DataSourceType) -> Self {
         self.source = ::std::option::Option::Some(input);
         self
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn set_source(mut self, input: ::std::option::Option<crate::types::DataSourceType>) -> Self {
         self.source = input;
         self
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn get_source(&self) -> &::std::option::Option<crate::types::DataSourceType> {
         &self.source
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     /// This field is required.
     pub fn schema_type(mut self, input: crate::types::DatasetSchemaType) -> Self {
         self.schema_type = ::std::option::Option::Some(input);
         self
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub fn set_schema_type(mut self, input: ::std::option::Option<crate::types::DatasetSchemaType>) -> Self {
         self.schema_type = input;
         self
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub fn get_schema_type(&self) -> &::std::option::Option<crate::types::DatasetSchemaType> {
         &self.schema_type
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_key_arn = input;
         self
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.kms_key_arn
     }

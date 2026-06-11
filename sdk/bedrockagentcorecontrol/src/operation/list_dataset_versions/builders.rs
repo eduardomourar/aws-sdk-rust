@@ -22,7 +22,7 @@ impl crate::operation::list_dataset_versions::builders::ListDatasetVersionsInput
 }
 /// Fluent builder constructing a request to `ListDatasetVersions`.
 ///
-/// Lists all published versions of a dataset, sorted by version number descending (newest first). Does not include the DRAFT working copy. **State guard:** Allowed for all statuses including DELETING.
+/// <p>Lists all published versions of a dataset, sorted by version number descending (newest first). Does not include the DRAFT working copy.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListDatasetVersionsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

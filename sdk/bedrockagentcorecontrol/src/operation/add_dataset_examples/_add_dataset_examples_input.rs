@@ -7,7 +7,7 @@ pub struct AddDatasetExamplesInput {
     pub dataset_id: ::std::option::Option<::std::string::String>,
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub source: ::std::option::Option<crate::types::DataSourceType>,
 }
 impl AddDatasetExamplesInput {
@@ -19,7 +19,7 @@ impl AddDatasetExamplesInput {
     pub fn client_token(&self) -> ::std::option::Option<&str> {
         self.client_token.as_deref()
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn source(&self) -> ::std::option::Option<&crate::types::DataSourceType> {
         self.source.as_ref()
     }
@@ -69,18 +69,18 @@ impl AddDatasetExamplesInputBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     /// This field is required.
     pub fn source(mut self, input: crate::types::DataSourceType) -> Self {
         self.source = ::std::option::Option::Some(input);
         self
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn set_source(mut self, input: ::std::option::Option<crate::types::DataSourceType>) -> Self {
         self.source = input;
         self
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn get_source(&self) -> &::std::option::Option<crate::types::DataSourceType> {
         &self.source
     }

@@ -7,9 +7,9 @@ pub struct CreateDatasetVersionOutput {
     pub dataset_arn: ::std::string::String,
     /// <p>The unique identifier of the dataset.</p>
     pub dataset_id: ::std::string::String,
-    /// Always UPDATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+    /// <p>Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED.</p>
     pub status: crate::types::DatasetStatus,
-    /// The version being created.
+    /// <p>The version number being created.</p>
     pub dataset_version: ::std::string::String,
     /// <p>The timestamp when the version creation was initiated.</p>
     pub created_at: ::aws_smithy_types::DateTime,
@@ -26,11 +26,11 @@ impl CreateDatasetVersionOutput {
         use std::ops::Deref;
         self.dataset_id.deref()
     }
-    /// Always UPDATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+    /// <p>Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED.</p>
     pub fn status(&self) -> &crate::types::DatasetStatus {
         &self.status
     }
-    /// The version being created.
+    /// <p>The version number being created.</p>
     pub fn dataset_version(&self) -> &str {
         use std::ops::Deref;
         self.dataset_version.deref()
@@ -94,33 +94,33 @@ impl CreateDatasetVersionOutputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// Always UPDATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+    /// <p>Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::DatasetStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// Always UPDATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+    /// <p>Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::DatasetStatus>) -> Self {
         self.status = input;
         self
     }
-    /// Always UPDATING immediately after this call. Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+    /// <p>Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::DatasetStatus> {
         &self.status
     }
-    /// The version being created.
+    /// <p>The version number being created.</p>
     /// This field is required.
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// The version being created.
+    /// <p>The version number being created.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// The version being created.
+    /// <p>The version number being created.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }

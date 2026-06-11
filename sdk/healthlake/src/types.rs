@@ -25,6 +25,12 @@ pub use crate::types::_input_data_config::InputDataConfig;
 
 pub use crate::types::_validation_level::ValidationLevel;
 
+pub use crate::types::_analytics_configuration::AnalyticsConfiguration;
+
+pub use crate::types::_nlp_configuration::NlpConfiguration;
+
+pub use crate::types::_profile_configuration::ProfileConfiguration;
+
 pub use crate::types::_kms_encryption_config::KmsEncryptionConfig;
 
 pub use crate::types::_preload_data_type::PreloadDataType;
@@ -39,9 +45,17 @@ pub use crate::types::_job_progress_report::JobProgressReport;
 
 pub use crate::types::_s3_configuration::S3Configuration;
 
+pub use crate::types::_analytics_status::AnalyticsStatus;
+
+pub use crate::types::_nlp_status::NlpStatus;
+
 pub use crate::types::_cmk_type::CmkType;
 
 pub use crate::types::_error_category::ErrorCategory;
+
+mod _analytics_configuration;
+
+mod _analytics_status;
 
 mod _authorization_strategy;
 
@@ -73,11 +87,17 @@ mod _job_status;
 
 mod _kms_encryption_config;
 
+mod _nlp_configuration;
+
+mod _nlp_status;
+
 mod _output_data_config;
 
 mod _preload_data_config;
 
 mod _preload_data_type;
+
+mod _profile_configuration;
 
 mod _s3_configuration;
 

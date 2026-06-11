@@ -22,7 +22,7 @@ impl crate::operation::get_dataset::builders::GetDatasetInputBuilder {
 }
 /// Fluent builder constructing a request to `GetDataset`.
 ///
-/// Retrieves dataset metadata only. Use `?datasetVersion=DRAFT` or `?datasetVersion=N` to retrieve a specific version's metadata. If absent, defaults to DRAFT (the mutable working copy). Returns ResourceNotFoundException if the specified version is not found. **Initial state after CreateDataset:** When CreateDataset completes successfully (status transitions to ACTIVE), only a DRAFT working copy exists. No published versions exist until CreateDatasetVersion is called. At this point draftStatus is MODIFIED because the DRAFT has content that has never been published. **Default version behavior:** When `datasetVersion` is omitted, the operation returns the DRAFT working copy. To retrieve a specific published version, pass the version number as a string (e.g. `?datasetVersion=1`). **State guard:** Allowed for all statuses including DELETING. Returns the dataset record with its current status so callers can observe the deletion in progress. For paginated example IDs use ListDatasetExamples.
+/// <p>Retrieves dataset metadata. Use the <code>datasetVersion</code> query parameter to retrieve a specific version's metadata. If absent, defaults to DRAFT. For paginated example content, use <code>ListDatasetExamples</code>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetDatasetFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -122,17 +122,17 @@ impl GetDatasetFluentBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_dataset_id()
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.dataset_version(input.into());
         self
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_dataset_version(input);
         self
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_dataset_version()
     }

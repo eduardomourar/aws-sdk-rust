@@ -13,6 +13,12 @@ pub use crate::types::_import_job_properties::ImportJobPropertiesBuilder;
 
 pub use crate::types::_datastore_filter::DatastoreFilterBuilder;
 
+pub use crate::types::_analytics_configuration::AnalyticsConfigurationBuilder;
+
+pub use crate::types::_nlp_configuration::NlpConfigurationBuilder;
+
+pub use crate::types::_profile_configuration::ProfileConfigurationBuilder;
+
 pub use crate::types::_kms_encryption_config::KmsEncryptionConfigBuilder;
 
 pub use crate::types::_tag::TagBuilder;

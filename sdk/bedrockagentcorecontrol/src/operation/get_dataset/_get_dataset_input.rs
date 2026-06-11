@@ -5,7 +5,7 @@
 pub struct GetDatasetInput {
     /// <p>The unique identifier of the dataset to retrieve.</p>
     pub dataset_id: ::std::option::Option<::std::string::String>,
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub dataset_version: ::std::option::Option<::std::string::String>,
 }
 impl GetDatasetInput {
@@ -13,7 +13,7 @@ impl GetDatasetInput {
     pub fn dataset_id(&self) -> ::std::option::Option<&str> {
         self.dataset_id.as_deref()
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn dataset_version(&self) -> ::std::option::Option<&str> {
         self.dataset_version.as_deref()
     }
@@ -48,17 +48,17 @@ impl GetDatasetInputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+    /// <p>Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }

@@ -311,6 +311,16 @@ pub fn de_orderable_db_instance_option(
                 builder = builder.set_supports_global_databases(var_21);
             }
             ,
+            s if s.matches("SupportedNetworkTypes") /* SupportedNetworkTypes com.amazonaws.neptune#OrderableDBInstanceOption$SupportedNetworkTypes */ =>  {
+                let var_22 =
+                    Some(
+                        crate::protocol_serde::shape_string_list::de_string_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_supported_network_types(var_22);
+            }
+            ,
             _ => {}
         }
     }

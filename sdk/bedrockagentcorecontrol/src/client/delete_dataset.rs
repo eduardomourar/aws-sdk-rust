@@ -4,12 +4,12 @@ impl super::Client {
     ///
     /// - The fluent builder is configurable:
     ///   - [`dataset_id(impl Into<String>)`](crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder::dataset_id) / [`set_dataset_id(Option<String>)`](crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder::set_dataset_id):<br>required: **true**<br><p>The unique identifier of the dataset to delete.</p><br>
-    ///   - [`dataset_version(impl Into<String>)`](crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder::dataset_version) / [`set_dataset_version(Option<String>)`](crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder::set_dataset_version):<br>required: **false**<br>Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.<br>
+    ///   - [`dataset_version(impl Into<String>)`](crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder::dataset_version) / [`set_dataset_version(Option<String>)`](crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder::set_dataset_version):<br>required: **false**<br><p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p><br>
     /// - On success, responds with [`DeleteDatasetOutput`](crate::operation::delete_dataset::DeleteDatasetOutput) with field(s):
     ///   - [`dataset_arn(String)`](crate::operation::delete_dataset::DeleteDatasetOutput::dataset_arn): <p>The Amazon Resource Name (ARN) of the dataset.</p>
     ///   - [`dataset_id(String)`](crate::operation::delete_dataset::DeleteDatasetOutput::dataset_id): <p>The unique identifier of the dataset.</p>
     ///   - [`status(DatasetStatus)`](crate::operation::delete_dataset::DeleteDatasetOutput::status): <p>The current status of the dataset after the delete request.</p>
-    ///   - [`dataset_version(String)`](crate::operation::delete_dataset::DeleteDatasetOutput::dataset_version): The version deleted.
+    ///   - [`dataset_version(String)`](crate::operation::delete_dataset::DeleteDatasetOutput::dataset_version): <p>The version that was deleted.</p>
     ///   - [`updated_at(DateTime)`](crate::operation::delete_dataset::DeleteDatasetOutput::updated_at): <p>The timestamp when the delete was initiated.</p>
     /// - On failure, responds with [`SdkError<DeleteDatasetError>`](crate::operation::delete_dataset::DeleteDatasetError)
     pub fn delete_dataset(&self) -> crate::operation::delete_dataset::builders::DeleteDatasetFluentBuilder {

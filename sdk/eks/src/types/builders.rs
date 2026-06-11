@@ -101,6 +101,8 @@ pub use crate::types::_elastic_load_balancing::ElasticLoadBalancingBuilder;
 
 pub use crate::types::_control_plane_placement_request::ControlPlanePlacementRequestBuilder;
 
+pub use crate::types::_etcd_placement_request::EtcdPlacementRequestBuilder;
+
 pub use crate::types::_block_storage::BlockStorageBuilder;
 
 pub use crate::types::_vpc_config_response::VpcConfigResponseBuilder;
@@ -182,6 +184,8 @@ pub use crate::types::_remote_pod_network::RemotePodNetworkBuilder;
 pub use crate::types::_oidc::OidcBuilder;
 
 pub use crate::types::_control_plane_placement_response::ControlPlanePlacementResponseBuilder;
+
+pub use crate::types::_etcd_placement_response::EtcdPlacementResponseBuilder;
 
 pub use crate::types::_license::LicenseBuilder;
 

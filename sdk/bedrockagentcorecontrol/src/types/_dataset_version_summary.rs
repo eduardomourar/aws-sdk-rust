@@ -4,7 +4,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DatasetVersionSummary {
-    /// Dataset version identifier. Accepts "DRAFT" or a non-negative integer string. "DRAFT" refers to the single mutable working copy of the dataset. - Always present after CreateDataset ingestion completes. - Content changes in-place when examples are added, updated, or deleted. - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json, draft/dataset.jsonl) and the DatasetItem.exampleCount field. - Default for read operations when ?datasetVersion is absent. An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot created by CreateDatasetVersion. Once created, a published version's content never changes. Stored as a DDB DatasetVersionItem (SK=VERSION#{zero-padded-N}).
+    /// <p>The version number of this published snapshot.</p>
     pub dataset_version: ::std::string::String,
     /// <p>The number of examples in this version.</p>
     pub example_count: i64,
@@ -12,7 +12,7 @@ pub struct DatasetVersionSummary {
     pub created_at: ::aws_smithy_types::DateTime,
 }
 impl DatasetVersionSummary {
-    /// Dataset version identifier. Accepts "DRAFT" or a non-negative integer string. "DRAFT" refers to the single mutable working copy of the dataset. - Always present after CreateDataset ingestion completes. - Content changes in-place when examples are added, updated, or deleted. - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json, draft/dataset.jsonl) and the DatasetItem.exampleCount field. - Default for read operations when ?datasetVersion is absent. An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot created by CreateDatasetVersion. Once created, a published version's content never changes. Stored as a DDB DatasetVersionItem (SK=VERSION#{zero-padded-N}).
+    /// <p>The version number of this published snapshot.</p>
     pub fn dataset_version(&self) -> &str {
         use std::ops::Deref;
         self.dataset_version.deref()
@@ -42,18 +42,18 @@ pub struct DatasetVersionSummaryBuilder {
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl DatasetVersionSummaryBuilder {
-    /// Dataset version identifier. Accepts "DRAFT" or a non-negative integer string. "DRAFT" refers to the single mutable working copy of the dataset. - Always present after CreateDataset ingestion completes. - Content changes in-place when examples are added, updated, or deleted. - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json, draft/dataset.jsonl) and the DatasetItem.exampleCount field. - Default for read operations when ?datasetVersion is absent. An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot created by CreateDatasetVersion. Once created, a published version's content never changes. Stored as a DDB DatasetVersionItem (SK=VERSION#{zero-padded-N}).
+    /// <p>The version number of this published snapshot.</p>
     /// This field is required.
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// Dataset version identifier. Accepts "DRAFT" or a non-negative integer string. "DRAFT" refers to the single mutable working copy of the dataset. - Always present after CreateDataset ingestion completes. - Content changes in-place when examples are added, updated, or deleted. - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json, draft/dataset.jsonl) and the DatasetItem.exampleCount field. - Default for read operations when ?datasetVersion is absent. An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot created by CreateDatasetVersion. Once created, a published version's content never changes. Stored as a DDB DatasetVersionItem (SK=VERSION#{zero-padded-N}).
+    /// <p>The version number of this published snapshot.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// Dataset version identifier. Accepts "DRAFT" or a non-negative integer string. "DRAFT" refers to the single mutable working copy of the dataset. - Always present after CreateDataset ingestion completes. - Content changes in-place when examples are added, updated, or deleted. - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json, draft/dataset.jsonl) and the DatasetItem.exampleCount field. - Default for read operations when ?datasetVersion is absent. An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot created by CreateDatasetVersion. Once created, a published version's content never changes. Stored as a DDB DatasetVersionItem (SK=VERSION#{zero-padded-N}).
+    /// <p>The version number of this published snapshot.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }

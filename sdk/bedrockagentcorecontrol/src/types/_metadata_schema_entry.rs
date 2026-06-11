@@ -8,7 +8,9 @@ pub struct MetadataSchemaEntry {
     pub key: ::std::string::String,
     /// <p>The MetadataValueType.</p>
     pub r#type: ::std::option::Option<crate::types::MetadataValueType>,
-    /// <p>Configuration for extracting this metadata value from conversational content.</p>
+    /// <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+    pub extraction_type: ::std::option::Option<crate::types::ExtractionType>,
+    /// <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
     pub extraction_config: ::std::option::Option<crate::types::ExtractionConfig>,
 }
 impl MetadataSchemaEntry {
@@ -21,7 +23,11 @@ impl MetadataSchemaEntry {
     pub fn r#type(&self) -> ::std::option::Option<&crate::types::MetadataValueType> {
         self.r#type.as_ref()
     }
-    /// <p>Configuration for extracting this metadata value from conversational content.</p>
+    /// <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+    pub fn extraction_type(&self) -> ::std::option::Option<&crate::types::ExtractionType> {
+        self.extraction_type.as_ref()
+    }
+    /// <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
     pub fn extraction_config(&self) -> ::std::option::Option<&crate::types::ExtractionConfig> {
         self.extraction_config.as_ref()
     }
@@ -39,6 +45,7 @@ impl MetadataSchemaEntry {
 pub struct MetadataSchemaEntryBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) r#type: ::std::option::Option<crate::types::MetadataValueType>,
+    pub(crate) extraction_type: ::std::option::Option<crate::types::ExtractionType>,
     pub(crate) extraction_config: ::std::option::Option<crate::types::ExtractionConfig>,
 }
 impl MetadataSchemaEntryBuilder {
@@ -71,17 +78,31 @@ impl MetadataSchemaEntryBuilder {
     pub fn get_type(&self) -> &::std::option::Option<crate::types::MetadataValueType> {
         &self.r#type
     }
-    /// <p>Configuration for extracting this metadata value from conversational content.</p>
+    /// <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+    pub fn extraction_type(mut self, input: crate::types::ExtractionType) -> Self {
+        self.extraction_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+    pub fn set_extraction_type(mut self, input: ::std::option::Option<crate::types::ExtractionType>) -> Self {
+        self.extraction_type = input;
+        self
+    }
+    /// <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+    pub fn get_extraction_type(&self) -> &::std::option::Option<crate::types::ExtractionType> {
+        &self.extraction_type
+    }
+    /// <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
     pub fn extraction_config(mut self, input: crate::types::ExtractionConfig) -> Self {
         self.extraction_config = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Configuration for extracting this metadata value from conversational content.</p>
+    /// <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
     pub fn set_extraction_config(mut self, input: ::std::option::Option<crate::types::ExtractionConfig>) -> Self {
         self.extraction_config = input;
         self
     }
-    /// <p>Configuration for extracting this metadata value from conversational content.</p>
+    /// <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
     pub fn get_extraction_config(&self) -> &::std::option::Option<crate::types::ExtractionConfig> {
         &self.extraction_config
     }
@@ -97,6 +118,7 @@ impl MetadataSchemaEntryBuilder {
                 )
             })?,
             r#type: self.r#type,
+            extraction_type: self.extraction_type,
             extraction_config: self.extraction_config,
         })
     }

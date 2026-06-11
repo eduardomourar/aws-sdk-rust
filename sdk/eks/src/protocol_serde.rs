@@ -395,6 +395,8 @@ pub(crate) mod shape_encryption_config_list;
 
 pub(crate) mod shape_error_details;
 
+pub(crate) mod shape_etcd_placement_request;
+
 pub(crate) mod shape_fargate_profile_health;
 
 pub(crate) mod shape_fargate_profile_selectors;
@@ -478,6 +480,8 @@ pub(crate) mod shape_control_plane_placement_response;
 pub(crate) mod shape_deprecation_details;
 
 pub(crate) mod shape_error_detail;
+
+pub(crate) mod shape_etcd_placement_response;
 
 pub(crate) mod shape_fargate_profile_issue_list;
 

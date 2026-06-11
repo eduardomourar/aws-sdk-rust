@@ -7,7 +7,7 @@ pub struct UpdateDatasetExamplesInput {
     pub dataset_id: ::std::option::Option<::std::string::String>,
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub examples: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>>,
 }
 impl UpdateDatasetExamplesInput {
@@ -19,7 +19,7 @@ impl UpdateDatasetExamplesInput {
     pub fn client_token(&self) -> ::std::option::Option<&str> {
         self.client_token.as_deref()
     }
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.examples.is_none()`.
     pub fn examples(&self) -> &[::aws_smithy_types::Document] {
@@ -75,19 +75,19 @@ impl UpdateDatasetExamplesInputBuilder {
     ///
     /// To override the contents of this collection use [`set_examples`](Self::set_examples).
     ///
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub fn examples(mut self, input: ::aws_smithy_types::Document) -> Self {
         let mut v = self.examples.unwrap_or_default();
         v.push(input);
         self.examples = ::std::option::Option::Some(v);
         self
     }
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub fn set_examples(mut self, input: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>>) -> Self {
         self.examples = input;
         self
     }
-    /// Examples to update. Each element is a JSON object containing a required `exampleId` string field identifying the existing example, plus the replacement fields. The `exampleId` is extracted and removed before persistence; the remaining document is validated against the dataset's schemaType. Max 1000 examples per call. Total request body must not exceed 5 MB.
+    /// <p>Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.</p>
     pub fn get_examples(&self) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>> {
         &self.examples
     }

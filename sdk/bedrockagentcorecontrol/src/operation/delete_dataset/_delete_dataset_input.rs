@@ -5,7 +5,7 @@
 pub struct DeleteDatasetInput {
     /// <p>The unique identifier of the dataset to delete.</p>
     pub dataset_id: ::std::option::Option<::std::string::String>,
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub dataset_version: ::std::option::Option<::std::string::String>,
 }
 impl DeleteDatasetInput {
@@ -13,7 +13,7 @@ impl DeleteDatasetInput {
     pub fn dataset_id(&self) -> ::std::option::Option<&str> {
         self.dataset_id.as_deref()
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn dataset_version(&self) -> ::std::option::Option<&str> {
         self.dataset_version.as_deref()
     }
@@ -48,17 +48,17 @@ impl DeleteDatasetInputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// Optional version to delete. Use "DRAFT" or omit to delete the draft. Returns ResourceNotFoundException if the specified version does not exist.
+    /// <p>Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }

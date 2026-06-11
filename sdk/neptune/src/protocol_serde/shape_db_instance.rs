@@ -694,6 +694,19 @@ pub fn de_db_instance(
                 builder = builder.set_deletion_protection(var_53);
             }
             ,
+            s if s.matches("NetworkType") /* NetworkType com.amazonaws.neptune#DBInstance$NetworkType */ =>  {
+                let var_54 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_network_type(var_54);
+            }
+            ,
             _ => {}
         }
     }

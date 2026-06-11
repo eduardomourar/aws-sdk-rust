@@ -5,9 +5,9 @@
 pub struct ListDatasetExamplesInput {
     /// <p>The unique identifier of the dataset.</p>
     pub dataset_id: ::std::option::Option<::std::string::String>,
-    /// Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request (when nextToken is absent). For subsequent pages, the version is extracted from the nextToken and this parameter is ignored.
+    /// <p>Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token.</p>
     pub dataset_version: ::std::option::Option<::std::string::String>,
-    /// Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000. Response size is validated against 5 MB limit after reading. For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+    /// <p>Maximum number of examples to return per page.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The token for the next page of results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
@@ -17,11 +17,11 @@ impl ListDatasetExamplesInput {
     pub fn dataset_id(&self) -> ::std::option::Option<&str> {
         self.dataset_id.as_deref()
     }
-    /// Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request (when nextToken is absent). For subsequent pages, the version is extracted from the nextToken and this parameter is ignored.
+    /// <p>Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token.</p>
     pub fn dataset_version(&self) -> ::std::option::Option<&str> {
         self.dataset_version.as_deref()
     }
-    /// Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000. Response size is validated against 5 MB limit after reading. For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+    /// <p>Maximum number of examples to return per page.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
@@ -62,31 +62,31 @@ impl ListDatasetExamplesInputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request (when nextToken is absent). For subsequent pages, the version is extracted from the nextToken and this parameter is ignored.
+    /// <p>Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token.</p>
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request (when nextToken is absent). For subsequent pages, the version is extracted from the nextToken and this parameter is ignored.
+    /// <p>Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request (when nextToken is absent). For subsequent pages, the version is extracted from the nextToken and this parameter is ignored.
+    /// <p>Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }
-    /// Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000. Response size is validated against 5 MB limit after reading. For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+    /// <p>Maximum number of examples to return per page.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000. Response size is validated against 5 MB limit after reading. For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+    /// <p>Maximum number of examples to return per page.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_results = input;
         self
     }
-    /// Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000. Response size is validated against 5 MB limit after reading. For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+    /// <p>Maximum number of examples to return per page.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }

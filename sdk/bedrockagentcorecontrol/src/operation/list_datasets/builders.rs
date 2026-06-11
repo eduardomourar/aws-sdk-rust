@@ -22,7 +22,7 @@ impl crate::operation::list_datasets::builders::ListDatasetsInputBuilder {
 }
 /// Fluent builder constructing a request to `ListDatasets`.
 ///
-/// Lists all datasets in the caller's account, paginated. No presigned URLs in list results.
+/// <p>Lists all datasets in the caller's account, paginated.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListDatasetsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

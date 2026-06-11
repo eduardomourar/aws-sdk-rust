@@ -7,9 +7,9 @@ pub struct ListDatasetExamplesOutput {
     pub dataset_arn: ::std::string::String,
     /// <p>The unique identifier of the dataset.</p>
     pub dataset_id: ::std::string::String,
-    /// The version returned.
+    /// <p>The version returned.</p>
     pub dataset_version: ::std::string::String,
-    /// Paginated example content. Each element is a JSON object containing at least an `exampleId` field plus the schema-specific content fields.
+    /// <p>Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields.</p>
     pub examples: ::std::vec::Vec<::aws_smithy_types::Document>,
     /// <p>The token for the next page of results, or null if there are no more results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
@@ -26,12 +26,12 @@ impl ListDatasetExamplesOutput {
         use std::ops::Deref;
         self.dataset_id.deref()
     }
-    /// The version returned.
+    /// <p>The version returned.</p>
     pub fn dataset_version(&self) -> &str {
         use std::ops::Deref;
         self.dataset_version.deref()
     }
-    /// Paginated example content. Each element is a JSON object containing at least an `exampleId` field plus the schema-specific content fields.
+    /// <p>Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields.</p>
     pub fn examples(&self) -> &[::aws_smithy_types::Document] {
         use std::ops::Deref;
         self.examples.deref()
@@ -95,18 +95,18 @@ impl ListDatasetExamplesOutputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// The version returned.
+    /// <p>The version returned.</p>
     /// This field is required.
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// The version returned.
+    /// <p>The version returned.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// The version returned.
+    /// <p>The version returned.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }
@@ -114,19 +114,19 @@ impl ListDatasetExamplesOutputBuilder {
     ///
     /// To override the contents of this collection use [`set_examples`](Self::set_examples).
     ///
-    /// Paginated example content. Each element is a JSON object containing at least an `exampleId` field plus the schema-specific content fields.
+    /// <p>Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields.</p>
     pub fn examples(mut self, input: ::aws_smithy_types::Document) -> Self {
         let mut v = self.examples.unwrap_or_default();
         v.push(input);
         self.examples = ::std::option::Option::Some(v);
         self
     }
-    /// Paginated example content. Each element is a JSON object containing at least an `exampleId` field plus the schema-specific content fields.
+    /// <p>Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields.</p>
     pub fn set_examples(mut self, input: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>>) -> Self {
         self.examples = input;
         self
     }
-    /// Paginated example content. Each element is a JSON object containing at least an `exampleId` field plus the schema-specific content fields.
+    /// <p>Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields.</p>
     pub fn get_examples(&self) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::Document>> {
         &self.examples
     }

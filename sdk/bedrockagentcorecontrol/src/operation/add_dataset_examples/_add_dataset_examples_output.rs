@@ -13,7 +13,7 @@ pub struct AddDatasetExamplesOutput {
     pub added_count: i64,
     /// <p>The timestamp when the examples were added.</p>
     pub updated_at: ::aws_smithy_types::DateTime,
-    /// IDs of all added examples (auto-generated UUIDs).
+    /// <p>IDs of all added examples (auto-generated UUIDs).</p>
     pub example_ids: ::std::vec::Vec<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -40,7 +40,7 @@ impl AddDatasetExamplesOutput {
     pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
         &self.updated_at
     }
-    /// IDs of all added examples (auto-generated UUIDs).
+    /// <p>IDs of all added examples (auto-generated UUIDs).</p>
     pub fn example_ids(&self) -> &[::std::string::String] {
         use std::ops::Deref;
         self.example_ids.deref()
@@ -150,19 +150,19 @@ impl AddDatasetExamplesOutputBuilder {
     ///
     /// To override the contents of this collection use [`set_example_ids`](Self::set_example_ids).
     ///
-    /// IDs of all added examples (auto-generated UUIDs).
+    /// <p>IDs of all added examples (auto-generated UUIDs).</p>
     pub fn example_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.example_ids.unwrap_or_default();
         v.push(input.into());
         self.example_ids = ::std::option::Option::Some(v);
         self
     }
-    /// IDs of all added examples (auto-generated UUIDs).
+    /// <p>IDs of all added examples (auto-generated UUIDs).</p>
     pub fn set_example_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.example_ids = input;
         self
     }
-    /// IDs of all added examples (auto-generated UUIDs).
+    /// <p>IDs of all added examples (auto-generated UUIDs).</p>
     pub fn get_example_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.example_ids
     }

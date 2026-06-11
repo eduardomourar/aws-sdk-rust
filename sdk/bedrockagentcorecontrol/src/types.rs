@@ -767,6 +767,8 @@ pub use crate::types::_schema_definition::SchemaDefinition;
 
 pub use crate::types::_rest_api_method::RestApiMethod;
 
+pub use crate::types::_extraction_type::ExtractionType;
+
 pub use crate::types::_extraction_config::ExtractionConfig;
 
 pub use crate::types::_trigger_condition_input::TriggerConditionInput;
@@ -1052,6 +1054,8 @@ mod _exception_level;
 mod _extraction_config;
 
 mod _extraction_configuration;
+
+mod _extraction_type;
 
 mod _filesystem_configuration;
 

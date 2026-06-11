@@ -36,35 +36,15 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// Format of a customer-provided source file.
-///
-/// **JSONL** (JSON Lines, one object per line) is the service's native ingestion
-/// and storage format — it can be streamed line-by-line without loading the
-/// entire file into memory, which is important as the row-count cap is extended.
-///
-/// **JSON array (`[{...},{...}]`) is intentionally not supported** at launch:
-/// it cannot be streamed (requires loading the full file into memory to parse),
-/// and all major eval frameworks (LangSmith, Ragas, DeepEval, Arize Phoenix)
-/// export as JSONL or CSV — not JSON arrays. Customers with JSON array files can
-/// Versioned schema type for dataset examples.
-///
-/// Each value identifies both the source format and the version of that format's schema.
-/// Schema definitions (required/optional fields) are stored as constants in SchemaRegistry.
-/// The schemaType on a Dataset is immutable after creation.
-///
-/// When a framework changes its format, a new version is added (e.g., RAGAS_V2) without
-/// breaking existing datasets using the old version. Content is always stored as-is.
+/// <p> Versioned schema type for dataset examples. Each value identifies both the source format and the version of that format's schema. </p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum DatasetSchemaType {
-    /// AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn.
-    /// Required: input. Optional: expectedResponse, assertions, expectedTrajectory.
+    /// <p> AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn. </p>
     AgentcoreEvaluationPredefinedV1,
-    /// AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation.
-    /// Each example is a Scenario that a simulator uses to generate full conversations.
-    /// Required: input. Optional: name (→exampleId), actor_profile, max_turns, assertions.
+    /// <p> AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation where each example is a scenario used to generate full conversations. </p>
     AgentcoreEvaluationSimulatedV1,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]

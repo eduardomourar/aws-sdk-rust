@@ -14,7 +14,7 @@ pub struct DatasetSummary {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The current status of the dataset.</p>
     pub status: crate::types::DatasetStatus,
-    /// Publish synchronization state. Only authoritative when status == ACTIVE.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE.</p>
     pub draft_status: ::std::option::Option<crate::types::DraftStatus>,
     /// <p>The schema type of the dataset.</p>
     pub schema_type: crate::types::DatasetSchemaType,
@@ -49,7 +49,7 @@ impl DatasetSummary {
     pub fn status(&self) -> &crate::types::DatasetStatus {
         &self.status
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE.</p>
     pub fn draft_status(&self) -> ::std::option::Option<&crate::types::DraftStatus> {
         self.draft_status.as_ref()
     }
@@ -167,17 +167,17 @@ impl DatasetSummaryBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::DatasetStatus> {
         &self.status
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE.</p>
     pub fn draft_status(mut self, input: crate::types::DraftStatus) -> Self {
         self.draft_status = ::std::option::Option::Some(input);
         self
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE.</p>
     pub fn set_draft_status(mut self, input: ::std::option::Option<crate::types::DraftStatus>) -> Self {
         self.draft_status = input;
         self
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE.</p>
     pub fn get_draft_status(&self) -> &::std::option::Option<crate::types::DraftStatus> {
         &self.draft_status
     }

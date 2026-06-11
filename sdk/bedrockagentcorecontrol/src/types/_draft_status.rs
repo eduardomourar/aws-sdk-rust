@@ -36,26 +36,15 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// Publish synchronization state of the DRAFT working copy.
-///
-/// Tracks whether the current DRAFT content has been published as a version.
-/// Only authoritative when DatasetStatus == ACTIVE. Not meaningful during
-/// in-flight or failed states.
-///
-/// Transitions:
-/// CreateDataset succeeds           → MODIFIED  (DRAFT has content with no published version yet)
-/// Add/Update/DeleteExamples succeed → MODIFIED  (DRAFT differs from last published version)
-/// CreateDatasetVersion succeeds    → UNMODIFIED (DRAFT matches the version just published)
+/// <p> Publish synchronization state of the DRAFT working copy. </p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum DraftStatus {
-    /// DRAFT has changes not yet reflected in any published version, or no versions
-    /// have been published yet.
+    /// <p> DRAFT has changes not yet reflected in any published version, or no versions have been published yet. </p>
     Modified,
-    /// DRAFT content matches the latest published version exactly.
-    /// Any example mutation transitions draftStatus back to MODIFIED.
+    /// <p> DRAFT content matches the latest published version exactly. </p>
     Unmodified,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]

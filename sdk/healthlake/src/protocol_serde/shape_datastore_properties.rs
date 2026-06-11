@@ -95,6 +95,23 @@ where
                         "ErrorCause" => {
                             builder = builder.set_error_cause(crate::protocol_serde::shape_error_cause::de_error_cause(tokens, _value, depth + 1)?);
                         }
+                        "NlpConfiguration" => {
+                            builder = builder.set_nlp_configuration(crate::protocol_serde::shape_nlp_configuration::de_nlp_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "AnalyticsConfiguration" => {
+                            builder = builder.set_analytics_configuration(
+                                crate::protocol_serde::shape_analytics_configuration::de_analytics_configuration(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "ProfileConfiguration" => {
+                            builder = builder.set_profile_configuration(
+                                crate::protocol_serde::shape_profile_configuration::de_profile_configuration(tokens, _value, depth + 1)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

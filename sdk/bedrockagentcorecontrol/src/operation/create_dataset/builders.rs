@@ -22,7 +22,7 @@ impl crate::operation::create_dataset::builders::CreateDatasetInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateDataset`.
 ///
-/// Creates a new Dataset resource asynchronously. Returns immediately with status CREATING. Poll GetDataset until status transitions to ACTIVE or CREATE_FAILED (with failureReason).
+/// <p>Creates a new dataset resource asynchronously. Returns immediately with status CREATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateDatasetFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -108,31 +108,31 @@ impl CreateDatasetFluentBuilder {
         self.config_override = config_override;
         self
     }
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_token(input.into());
         self
     }
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_token(input);
         self
     }
-    /// Optional idempotency token.
+    /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub fn dataset_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.dataset_name(input.into());
         self
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub fn set_dataset_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_dataset_name(input);
         self
     }
-    /// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
+    /// <p>Human-readable name for the dataset. Must be unique within the account. Immutable after creation.</p>
     pub fn get_dataset_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_dataset_name()
     }
@@ -150,45 +150,45 @@ impl CreateDatasetFluentBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_description()
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn source(mut self, input: crate::types::DataSourceType) -> Self {
         self.inner = self.inner.source(input);
         self
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn set_source(mut self, input: ::std::option::Option<crate::types::DataSourceType>) -> Self {
         self.inner = self.inner.set_source(input);
         self
     }
-    /// Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn get_source(&self) -> &::std::option::Option<crate::types::DataSourceType> {
         self.inner.get_source()
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub fn schema_type(mut self, input: crate::types::DatasetSchemaType) -> Self {
         self.inner = self.inner.schema_type(input);
         self
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub fn set_schema_type(mut self, input: ::std::option::Option<crate::types::DatasetSchemaType>) -> Self {
         self.inner = self.inner.set_schema_type(input);
         self
     }
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// <p>Versioned schema type governing the structure of examples. Immutable after creation.</p>
     pub fn get_schema_type(&self) -> &::std::option::Option<crate::types::DatasetSchemaType> {
         self.inner.get_schema_type()
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.kms_key_arn(input.into());
         self
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_kms_key_arn(input);
         self
     }
-    /// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+    /// <p>Optional KMS key ARN for server-side encryption on service Amazon S3 writes.</p>
     pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_kms_key_arn()
     }

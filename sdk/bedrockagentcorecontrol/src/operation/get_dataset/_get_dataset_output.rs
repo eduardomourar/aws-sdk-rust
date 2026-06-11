@@ -7,7 +7,7 @@ pub struct GetDatasetOutput {
     pub dataset_arn: ::std::string::String,
     /// <p>The unique identifier of the dataset.</p>
     pub dataset_id: ::std::string::String,
-    /// The resolved version: "DRAFT" (default) or the requested version number.
+    /// <p>The resolved version: "DRAFT" (default) or the requested version number.</p>
     pub dataset_version: ::std::string::String,
     /// <p>The name of the dataset.</p>
     pub dataset_name: ::std::string::String,
@@ -15,19 +15,19 @@ pub struct GetDatasetOutput {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The current status of the dataset.</p>
     pub status: crate::types::DatasetStatus,
-    /// Publish synchronization state. Only authoritative when status == ACTIVE. MODIFIED — DRAFT has unpublished changes (or no published versions yet). UNMODIFIED — DRAFT matches the latest published version exactly.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version.</p>
     pub draft_status: ::std::option::Option<crate::types::DraftStatus>,
-    /// Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+    /// <p>Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure.</p>
     pub failure_reason: ::std::option::Option<::std::string::String>,
-    /// The schema type declared at create time. Immutable after creation.
+    /// <p>The schema type declared at create time. Immutable after creation.</p>
     pub schema_type: crate::types::DatasetSchemaType,
-    /// AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+    /// <p>KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured.</p>
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
-    /// Example count for DRAFT.
+    /// <p>The number of examples in the DRAFT.</p>
     pub example_count: i64,
-    /// Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist (e.g. during CREATING) or on presign failure.
+    /// <p>Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist.</p>
     pub download_url: ::std::option::Option<::std::string::String>,
-    /// Expiry timestamp for downloadUrl.
+    /// <p>Expiry timestamp for the download URL.</p>
     pub download_url_expires_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The timestamp when the dataset was created.</p>
     pub created_at: ::aws_smithy_types::DateTime,
@@ -48,7 +48,7 @@ impl GetDatasetOutput {
         use std::ops::Deref;
         self.dataset_id.deref()
     }
-    /// The resolved version: "DRAFT" (default) or the requested version number.
+    /// <p>The resolved version: "DRAFT" (default) or the requested version number.</p>
     pub fn dataset_version(&self) -> &str {
         use std::ops::Deref;
         self.dataset_version.deref()
@@ -66,31 +66,31 @@ impl GetDatasetOutput {
     pub fn status(&self) -> &crate::types::DatasetStatus {
         &self.status
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE. MODIFIED — DRAFT has unpublished changes (or no published versions yet). UNMODIFIED — DRAFT matches the latest published version exactly.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version.</p>
     pub fn draft_status(&self) -> ::std::option::Option<&crate::types::DraftStatus> {
         self.draft_status.as_ref()
     }
-    /// Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+    /// <p>Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure.</p>
     pub fn failure_reason(&self) -> ::std::option::Option<&str> {
         self.failure_reason.as_deref()
     }
-    /// The schema type declared at create time. Immutable after creation.
+    /// <p>The schema type declared at create time. Immutable after creation.</p>
     pub fn schema_type(&self) -> &crate::types::DatasetSchemaType {
         &self.schema_type
     }
-    /// AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+    /// <p>KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured.</p>
     pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
         self.kms_key_arn.as_deref()
     }
-    /// Example count for DRAFT.
+    /// <p>The number of examples in the DRAFT.</p>
     pub fn example_count(&self) -> i64 {
         self.example_count
     }
-    /// Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist (e.g. during CREATING) or on presign failure.
+    /// <p>Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist.</p>
     pub fn download_url(&self) -> ::std::option::Option<&str> {
         self.download_url.as_deref()
     }
-    /// Expiry timestamp for downloadUrl.
+    /// <p>Expiry timestamp for the download URL.</p>
     pub fn download_url_expires_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.download_url_expires_at.as_ref()
     }
@@ -195,18 +195,18 @@ impl GetDatasetOutputBuilder {
     pub fn get_dataset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_id
     }
-    /// The resolved version: "DRAFT" (default) or the requested version number.
+    /// <p>The resolved version: "DRAFT" (default) or the requested version number.</p>
     /// This field is required.
     pub fn dataset_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.dataset_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// The resolved version: "DRAFT" (default) or the requested version number.
+    /// <p>The resolved version: "DRAFT" (default) or the requested version number.</p>
     pub fn set_dataset_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.dataset_version = input;
         self
     }
-    /// The resolved version: "DRAFT" (default) or the requested version number.
+    /// <p>The resolved version: "DRAFT" (default) or the requested version number.</p>
     pub fn get_dataset_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.dataset_version
     }
@@ -254,103 +254,103 @@ impl GetDatasetOutputBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::DatasetStatus> {
         &self.status
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE. MODIFIED — DRAFT has unpublished changes (or no published versions yet). UNMODIFIED — DRAFT matches the latest published version exactly.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version.</p>
     pub fn draft_status(mut self, input: crate::types::DraftStatus) -> Self {
         self.draft_status = ::std::option::Option::Some(input);
         self
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE. MODIFIED — DRAFT has unpublished changes (or no published versions yet). UNMODIFIED — DRAFT matches the latest published version exactly.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version.</p>
     pub fn set_draft_status(mut self, input: ::std::option::Option<crate::types::DraftStatus>) -> Self {
         self.draft_status = input;
         self
     }
-    /// Publish synchronization state. Only authoritative when status == ACTIVE. MODIFIED — DRAFT has unpublished changes (or no published versions yet). UNMODIFIED — DRAFT matches the latest published version exactly.
+    /// <p>Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version.</p>
     pub fn get_draft_status(&self) -> &::std::option::Option<crate::types::DraftStatus> {
         &self.draft_status
     }
-    /// Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+    /// <p>Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure.</p>
     pub fn failure_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.failure_reason = ::std::option::Option::Some(input.into());
         self
     }
-    /// Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+    /// <p>Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure.</p>
     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.failure_reason = input;
         self
     }
-    /// Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+    /// <p>Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure.</p>
     pub fn get_failure_reason(&self) -> &::std::option::Option<::std::string::String> {
         &self.failure_reason
     }
-    /// The schema type declared at create time. Immutable after creation.
+    /// <p>The schema type declared at create time. Immutable after creation.</p>
     /// This field is required.
     pub fn schema_type(mut self, input: crate::types::DatasetSchemaType) -> Self {
         self.schema_type = ::std::option::Option::Some(input);
         self
     }
-    /// The schema type declared at create time. Immutable after creation.
+    /// <p>The schema type declared at create time. Immutable after creation.</p>
     pub fn set_schema_type(mut self, input: ::std::option::Option<crate::types::DatasetSchemaType>) -> Self {
         self.schema_type = input;
         self
     }
-    /// The schema type declared at create time. Immutable after creation.
+    /// <p>The schema type declared at create time. Immutable after creation.</p>
     pub fn get_schema_type(&self) -> &::std::option::Option<crate::types::DatasetSchemaType> {
         &self.schema_type
     }
-    /// AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+    /// <p>KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured.</p>
     pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+    /// <p>KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured.</p>
     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_key_arn = input;
         self
     }
-    /// AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+    /// <p>KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured.</p>
     pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.kms_key_arn
     }
-    /// Example count for DRAFT.
+    /// <p>The number of examples in the DRAFT.</p>
     /// This field is required.
     pub fn example_count(mut self, input: i64) -> Self {
         self.example_count = ::std::option::Option::Some(input);
         self
     }
-    /// Example count for DRAFT.
+    /// <p>The number of examples in the DRAFT.</p>
     pub fn set_example_count(mut self, input: ::std::option::Option<i64>) -> Self {
         self.example_count = input;
         self
     }
-    /// Example count for DRAFT.
+    /// <p>The number of examples in the DRAFT.</p>
     pub fn get_example_count(&self) -> &::std::option::Option<i64> {
         &self.example_count
     }
-    /// Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist (e.g. during CREATING) or on presign failure.
+    /// <p>Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist.</p>
     pub fn download_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.download_url = ::std::option::Option::Some(input.into());
         self
     }
-    /// Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist (e.g. during CREATING) or on presign failure.
+    /// <p>Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist.</p>
     pub fn set_download_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.download_url = input;
         self
     }
-    /// Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist (e.g. during CREATING) or on presign failure.
+    /// <p>Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist.</p>
     pub fn get_download_url(&self) -> &::std::option::Option<::std::string::String> {
         &self.download_url
     }
-    /// Expiry timestamp for downloadUrl.
+    /// <p>Expiry timestamp for the download URL.</p>
     pub fn download_url_expires_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.download_url_expires_at = ::std::option::Option::Some(input);
         self
     }
-    /// Expiry timestamp for downloadUrl.
+    /// <p>Expiry timestamp for the download URL.</p>
     pub fn set_download_url_expires_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.download_url_expires_at = input;
         self
     }
-    /// Expiry timestamp for downloadUrl.
+    /// <p>Expiry timestamp for the download URL.</p>
     pub fn get_download_url_expires_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.download_url_expires_at
     }

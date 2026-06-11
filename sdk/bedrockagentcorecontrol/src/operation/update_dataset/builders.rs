@@ -22,7 +22,7 @@ impl crate::operation::update_dataset::builders::UpdateDatasetInputBuilder {
 }
 /// Fluent builder constructing a request to `UpdateDataset`.
 ///
-/// Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use AddDatasetExamples, UpdateDatasetExamples, or DeleteDatasetExamples. Cannot update: name, schemaType, kmsKeyArn (immutable after creation).
+/// <p>Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use <code>AddDatasetExamples</code>, <code>UpdateDatasetExamples</code>, or <code>DeleteDatasetExamples</code>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateDatasetFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

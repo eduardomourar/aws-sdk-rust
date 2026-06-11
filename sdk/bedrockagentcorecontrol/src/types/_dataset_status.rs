@@ -41,73 +41,25 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// Dataset lifecycle / operation status.
-///
-/// Two-column status model: `DatasetStatus` tracks lifecycle state independently
-/// from `DraftStatus` which tracks publish synchronization.
-///
-/// IN-FLIGHT states (busy — all writes blocked):
-/// CREATING   — CreateDataset async ingestion in progress.
-/// UPDATING   — Example mutation (Add/Update/Delete) or CreateDatasetVersion in progress.
-/// DELETING   — Full or version-specific delete in progress.
-///
-/// TERMINAL states (stable — operations allowed per guards below):
-/// ACTIVE         — Dataset is stable. failureReason cleared.
-/// CREATE_FAILED  — Initial ingestion failed. DRAFT record exists but has no examples.
-/// failureReason populated.
-/// UPDATE_FAILED  — Last example mutation or CreateDatasetVersion failed.
-/// DRAFT may be partially modified. failureReason populated.
-/// DELETE_FAILED  — Delete failed after retries. Dataset/S3 may be in inconsistent state.
-/// Sev-2 ticket filed (full-delete only). failureReason populated.
-///
-/// State transitions:
-/// CreateDataset                    → CREATING → ACTIVE (draftStatus=MODIFIED) | CREATE_FAILED
-/// Add/Update/DeleteDatasetExamples → UPDATING → ACTIVE (draftStatus=MODIFIED) | UPDATE_FAILED
-/// CreateDatasetVersion             → UPDATING → ACTIVE (draftStatus=UNMODIFIED) | UPDATE_FAILED
-/// DeleteDataset (version-specific) → DELETING → ACTIVE (draftStatus unchanged) | DELETE_FAILED
-/// DeleteDataset (full)             → DELETING → (record deleted) | DELETE_FAILED [auto Sev-2]
-///
-/// Operation guards (ConflictException codes):
-/// GetDataset / ListDatasetExamples:
-/// — Allowed for all statuses (no guard)
-/// UpdateDataset, AddDatasetExamples, DeleteDatasetExamples:
-/// — DATASET_NOT_READY if status in {CREATING, UPDATING, DELETING}
-/// — DATASET_IN_FAILED_STATE if status == DELETE_FAILED
-/// UpdateDatasetExamples:
-/// — DATASET_NOT_READY if status in {CREATING, UPDATING, DELETING}
-/// — DATASET_IN_FAILED_STATE if status in {CREATE_FAILED, DELETE_FAILED}
-/// CreateDatasetVersion:
-/// — DATASET_NOT_READY if status in {CREATING, UPDATING, DELETING}
-/// — DATASET_IN_FAILED_STATE if status in {CREATE_FAILED, DELETE_FAILED}
-/// DeleteDataset:
-/// — DATASET_NOT_READY if status in {CREATING, UPDATING, DELETING}
+/// <p> Dataset lifecycle and operation status. </p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum DatasetStatus {
-    /// Dataset is stable. All operations are allowed per per-operation guards.
-    /// failureReason is cleared.
+    /// <p> Dataset is stable. All operations are allowed per operation-specific guards. </p>
     Active,
-    /// Initial ingestion failed. DRAFT record exists but contains no examples.
-    /// failureReason is populated. AddDatasetExamples and DeleteDatasetExamples allowed.
-    /// UpdateDatasetExamples and CreateDatasetVersion blocked (no examples exist).
+    /// <p> Initial ingestion failed. DRAFT record exists but contains no examples. </p>
     CreateFailed,
-    /// CreateDataset async ingestion in progress.
-    /// All writes are blocked. Poll GetDataset until status resolves to ACTIVE or CREATE_FAILED.
+    /// <p> CreateDataset async ingestion in progress. All writes are blocked. </p>
     Creating,
-    /// Delete failed after retries. Dataset record/S3 may be in inconsistent state.
-    /// failureReason is populated. Only DeleteDataset (retry) is allowed.
+    /// <p> Delete failed after retries. Dataset record may be in an inconsistent state. </p>
     DeleteFailed,
-    /// Full or version-specific delete is in progress.
-    /// Read operations (GetDataset, ListDatasetExamples) are still allowed.
+    /// <p> Full or version-specific delete is in progress. Read operations are still allowed. </p>
     Deleting,
-    /// Last example mutation or CreateDatasetVersion failed.
-    /// DRAFT may be partially modified. failureReason is populated.
-    /// All example mutations and CreateDatasetVersion allowed for retry.
+    /// <p> Last example mutation or CreateDatasetVersion failed. DRAFT may be partially modified. </p>
     UpdateFailed,
-    /// An async example mutation or CreateDatasetVersion is in progress.
-    /// All writes are blocked. Poll GetDataset until status resolves.
+    /// <p> An async example mutation or CreateDatasetVersion is in progress. All writes are blocked. </p>
     Updating,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]

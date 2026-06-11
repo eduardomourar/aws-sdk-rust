@@ -22,7 +22,7 @@ impl crate::operation::add_dataset_examples::builders::AddDatasetExamplesInputBu
 }
 /// Fluent builder constructing a request to `AddDatasetExamples`.
 ///
-/// Adds examples to the dataset's DRAFT. **Validation:** All examples are validated against the dataset's schemaType before any writes occur. If any example fails validation, the entire batch is rejected with ValidationException — no examples are written (all-or-nothing semantics). **Asynchronous:** Operates in-place on DRAFT. No version bump occurs. Use CreateDatasetVersion to publish DRAFT as a new numbered version. **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset status is not in {DRAFT, ACTIVE}. **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+/// <p>Adds examples to the dataset's DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics).</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AddDatasetExamplesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -136,17 +136,17 @@ impl AddDatasetExamplesFluentBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn source(mut self, input: crate::types::DataSourceType) -> Self {
         self.inner = self.inner.source(input);
         self
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn set_source(mut self, input: ::std::option::Option<crate::types::DataSourceType>) -> Self {
         self.inner = self.inner.set_source(input);
         self
     }
-    /// Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    /// <p>Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.</p>
     pub fn get_source(&self) -> &::std::option::Option<crate::types::DataSourceType> {
         self.inner.get_source()
     }

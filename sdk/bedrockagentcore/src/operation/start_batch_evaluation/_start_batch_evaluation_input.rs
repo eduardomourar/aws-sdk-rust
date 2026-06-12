@@ -7,12 +7,18 @@ pub struct StartBatchEvaluationInput {
     pub batch_evaluation_name: ::std::option::Option<::std::string::String>,
     /// <p>The list of evaluators to apply during the batch evaluation. Can include both built-in evaluators and custom evaluators. Maximum of 10 evaluators.</p>
     pub evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    /// <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+    pub insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     /// <p>The data source configuration that specifies where to pull agent session traces from for evaluation.</p>
     pub data_source_config: ::std::option::Option<crate::types::DataSourceConfig>,
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.</p>
     pub evaluation_metadata: ::std::option::Option<crate::types::EvaluationMetadata>,
+    /// <p>A map of tag keys and values to associate with the batch evaluation.</p>
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    /// <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The description of the batch evaluation.</p>
     pub description: ::std::option::Option<::std::string::String>,
 }
@@ -27,6 +33,12 @@ impl StartBatchEvaluationInput {
     pub fn evaluators(&self) -> &[crate::types::Evaluator] {
         self.evaluators.as_deref().unwrap_or_default()
     }
+    /// <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.insights.is_none()`.
+    pub fn insights(&self) -> &[crate::types::Insight] {
+        self.insights.as_deref().unwrap_or_default()
+    }
     /// <p>The data source configuration that specifies where to pull agent session traces from for evaluation.</p>
     pub fn data_source_config(&self) -> ::std::option::Option<&crate::types::DataSourceConfig> {
         self.data_source_config.as_ref()
@@ -38,6 +50,14 @@ impl StartBatchEvaluationInput {
     /// <p>Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.</p>
     pub fn evaluation_metadata(&self) -> ::std::option::Option<&crate::types::EvaluationMetadata> {
         self.evaluation_metadata.as_ref()
+    }
+    /// <p>A map of tag keys and values to associate with the batch evaluation.</p>
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        self.tags.as_ref()
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
     }
     /// <p>The description of the batch evaluation.</p>
     pub fn description(&self) -> ::std::option::Option<&str> {
@@ -57,9 +77,12 @@ impl StartBatchEvaluationInput {
 pub struct StartBatchEvaluationInputBuilder {
     pub(crate) batch_evaluation_name: ::std::option::Option<::std::string::String>,
     pub(crate) evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    pub(crate) insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     pub(crate) data_source_config: ::std::option::Option<crate::types::DataSourceConfig>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
     pub(crate) evaluation_metadata: ::std::option::Option<crate::types::EvaluationMetadata>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
 }
 impl StartBatchEvaluationInputBuilder {
@@ -97,6 +120,26 @@ impl StartBatchEvaluationInputBuilder {
     /// <p>The list of evaluators to apply during the batch evaluation. Can include both built-in evaluators and custom evaluators. Maximum of 10 evaluators.</p>
     pub fn get_evaluators(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluator>> {
         &self.evaluators
+    }
+    /// Appends an item to `insights`.
+    ///
+    /// To override the contents of this collection use [`set_insights`](Self::set_insights).
+    ///
+    /// <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+    pub fn insights(mut self, input: crate::types::Insight) -> Self {
+        let mut v = self.insights.unwrap_or_default();
+        v.push(input);
+        self.insights = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>) -> Self {
+        self.insights = input;
+        self
+    }
+    /// <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Insight>> {
+        &self.insights
     }
     /// <p>The data source configuration that specifies where to pull agent session traces from for evaluation.</p>
     /// This field is required.
@@ -141,6 +184,40 @@ impl StartBatchEvaluationInputBuilder {
     pub fn get_evaluation_metadata(&self) -> &::std::option::Option<crate::types::EvaluationMetadata> {
         &self.evaluation_metadata
     }
+    /// Adds a key-value pair to `tags`.
+    ///
+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A map of tag keys and values to associate with the batch evaluation.</p>
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut hash_map = self.tags.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.tags = ::std::option::Option::Some(hash_map);
+        self
+    }
+    /// <p>A map of tag keys and values to associate with the batch evaluation.</p>
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input;
+        self
+    }
+    /// <p>A map of tag keys and values to associate with the batch evaluation.</p>
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.tags
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// <p>The description of the batch evaluation.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
@@ -163,9 +240,12 @@ impl StartBatchEvaluationInputBuilder {
         ::std::result::Result::Ok(crate::operation::start_batch_evaluation::StartBatchEvaluationInput {
             batch_evaluation_name: self.batch_evaluation_name,
             evaluators: self.evaluators,
+            insights: self.insights,
             data_source_config: self.data_source_config,
             client_token: self.client_token,
             evaluation_metadata: self.evaluation_metadata,
+            tags: self.tags,
+            kms_key_arn: self.kms_key_arn,
             description: self.description,
         })
     }

@@ -82,6 +82,16 @@ where
                                     .transpose()?,
                             );
                         }
+                        "insights" => {
+                            builder = builder.set_insights(crate::protocol_serde::shape_insight_list::de_insight_list(tokens, _value, depth + 1)?);
+                        }
+                        "clusteringConfig" => {
+                            builder = builder.set_clustering_config(crate::protocol_serde::shape_clustering_config::de_clustering_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

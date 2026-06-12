@@ -37,6 +37,8 @@ pub(crate) mod shape_create_chat;
 
 pub(crate) mod shape_create_private_connection;
 
+pub(crate) mod shape_create_trigger;
+
 pub(crate) mod shape_delete_agent_space;
 
 pub(crate) mod shape_delete_asset;
@@ -44,6 +46,8 @@ pub(crate) mod shape_delete_asset;
 pub(crate) mod shape_delete_asset_file;
 
 pub(crate) mod shape_delete_private_connection;
+
+pub(crate) mod shape_delete_trigger;
 
 pub(crate) mod shape_deregister_service;
 
@@ -74,6 +78,8 @@ pub(crate) mod shape_get_operator_app;
 pub(crate) mod shape_get_recommendation;
 
 pub(crate) mod shape_get_service;
+
+pub(crate) mod shape_get_trigger;
 
 pub(crate) mod shape_list_agent_spaces;
 
@@ -107,6 +113,8 @@ pub(crate) mod shape_list_services;
 
 pub(crate) mod shape_list_tags_for_resource;
 
+pub(crate) mod shape_list_triggers;
+
 pub(crate) mod shape_list_webhooks;
 
 pub(crate) mod shape_register_service;
@@ -135,6 +143,8 @@ pub(crate) mod shape_update_private_connection_certificate;
 
 pub(crate) mod shape_update_recommendation;
 
+pub(crate) mod shape_update_trigger;
+
 pub(crate) mod shape_validate_aws_associations;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
@@ -162,6 +172,8 @@ pub(crate) mod shape_create_asset_input;
 pub(crate) mod shape_create_backlog_task_input;
 
 pub(crate) mod shape_create_private_connection_input;
+
+pub(crate) mod shape_create_trigger_input;
 
 pub(crate) mod shape_enable_operator_app_input;
 
@@ -214,6 +226,8 @@ pub(crate) mod shape_update_operator_app_idp_config_input;
 pub(crate) mod shape_update_private_connection_certificate_input;
 
 pub(crate) mod shape_update_recommendation_input;
+
+pub(crate) mod shape_update_trigger_input;
 
 pub(crate) mod shape_validation_exception;
 
@@ -301,6 +315,12 @@ pub(crate) mod shape_task_filter;
 
 pub(crate) mod shape_task_list;
 
+pub(crate) mod shape_trigger;
+
+pub(crate) mod shape_trigger_condition;
+
+pub(crate) mod shape_trigger_list;
+
 pub(crate) mod shape_usage_metric;
 
 pub(crate) mod shape_validation_exception_field_list;
@@ -386,6 +406,8 @@ pub(crate) mod shape_recommendation_content;
 pub(crate) mod shape_reference_output;
 
 pub(crate) mod shape_registered_azure_identity_details;
+
+pub(crate) mod shape_schedule_condition;
 
 pub(crate) mod shape_self_managed_input;
 

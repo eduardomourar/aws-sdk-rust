@@ -180,6 +180,13 @@ pub(crate) fn de_get_configuration_bundle(
                             .transpose()?,
                     );
                 }
+                "kmsKeyArn" => {
+                    builder = builder.set_kms_key_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "lineageMetadata" => {
                     builder = builder.set_lineage_metadata(crate::protocol_serde::shape_version_lineage_metadata::de_version_lineage_metadata(
                         tokens,

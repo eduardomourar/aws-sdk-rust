@@ -11,8 +11,12 @@ pub struct StartRecommendationInput {
     pub r#type: ::std::option::Option<crate::types::RecommendationType>,
     /// <p>The configuration for the recommendation, including the input to optimize, agent traces to analyze, and evaluation settings.</p>
     pub recommendation_config: ::std::option::Option<crate::types::RecommendationConfig>,
+    /// <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
+    /// <p>A map of tag keys and values to associate with the recommendation.</p>
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl StartRecommendationInput {
     /// <p>The name of the recommendation. Must be unique within your account.</p>
@@ -31,9 +35,17 @@ impl StartRecommendationInput {
     pub fn recommendation_config(&self) -> ::std::option::Option<&crate::types::RecommendationConfig> {
         self.recommendation_config.as_ref()
     }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
     pub fn client_token(&self) -> ::std::option::Option<&str> {
         self.client_token.as_deref()
+    }
+    /// <p>A map of tag keys and values to associate with the recommendation.</p>
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        self.tags.as_ref()
     }
 }
 impl StartRecommendationInput {
@@ -51,7 +63,9 @@ pub struct StartRecommendationInputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) r#type: ::std::option::Option<crate::types::RecommendationType>,
     pub(crate) recommendation_config: ::std::option::Option<crate::types::RecommendationConfig>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl StartRecommendationInputBuilder {
     /// <p>The name of the recommendation. Must be unique within your account.</p>
@@ -113,6 +127,20 @@ impl StartRecommendationInputBuilder {
     pub fn get_recommendation_config(&self) -> &::std::option::Option<crate::types::RecommendationConfig> {
         &self.recommendation_config
     }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_token = ::std::option::Option::Some(input.into());
@@ -127,6 +155,26 @@ impl StartRecommendationInputBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
+    /// Adds a key-value pair to `tags`.
+    ///
+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A map of tag keys and values to associate with the recommendation.</p>
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut hash_map = self.tags.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.tags = ::std::option::Option::Some(hash_map);
+        self
+    }
+    /// <p>A map of tag keys and values to associate with the recommendation.</p>
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input;
+        self
+    }
+    /// <p>A map of tag keys and values to associate with the recommendation.</p>
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`StartRecommendationInput`](crate::operation::start_recommendation::StartRecommendationInput).
     pub fn build(
         self,
@@ -137,7 +185,9 @@ impl StartRecommendationInputBuilder {
             description: self.description,
             r#type: self.r#type,
             recommendation_config: self.recommendation_config,
+            kms_key_arn: self.kms_key_arn,
             client_token: self.client_token,
+            tags: self.tags,
         })
     }
 }

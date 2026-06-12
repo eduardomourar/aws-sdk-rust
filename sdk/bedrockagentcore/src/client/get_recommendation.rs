@@ -15,6 +15,7 @@ impl super::Client {
     ///   - [`created_at(DateTime)`](crate::operation::get_recommendation::GetRecommendationOutput::created_at): <p>The timestamp when the recommendation was created.</p>
     ///   - [`updated_at(DateTime)`](crate::operation::get_recommendation::GetRecommendationOutput::updated_at): <p>The timestamp when the recommendation was last updated.</p>
     ///   - [`recommendation_result(Option<RecommendationResult>)`](crate::operation::get_recommendation::GetRecommendationOutput::recommendation_result): <p>The result of the recommendation, containing the optimized system prompt or tool descriptions. Only present when the recommendation status is <code>COMPLETED</code>.</p>
+    ///   - [`kms_key_arn(Option<String>)`](crate::operation::get_recommendation::GetRecommendationOutput::kms_key_arn): <p>The ARN of the KMS key used to encrypt recommendation data.</p>
     /// - On failure, responds with [`SdkError<GetRecommendationError>`](crate::operation::get_recommendation::GetRecommendationError)
     pub fn get_recommendation(&self) -> crate::operation::get_recommendation::builders::GetRecommendationFluentBuilder {
         crate::operation::get_recommendation::builders::GetRecommendationFluentBuilder::new(self.handle.clone())

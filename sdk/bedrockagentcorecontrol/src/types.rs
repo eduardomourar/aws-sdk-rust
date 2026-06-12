@@ -165,6 +165,8 @@ pub use crate::types::_rule::Rule;
 
 pub use crate::types::_data_source_config::DataSourceConfig;
 
+pub use crate::types::_clustering_config::ClusteringConfig;
+
 pub use crate::types::_output_config::OutputConfig;
 
 pub use crate::types::_online_evaluation_config_status::OnlineEvaluationConfigStatus;
@@ -383,6 +385,8 @@ pub use crate::types::_cloud_watch_logs_input_config::CloudWatchLogsInputConfig;
 
 pub use crate::types::_evaluator_reference::EvaluatorReference;
 
+pub use crate::types::_insight::Insight;
+
 pub use crate::types::_cloud_watch_output_config::CloudWatchOutputConfig;
 
 pub use crate::types::_coinbase_cdp_configuration_input::CoinbaseCdpConfigurationInput;
@@ -538,6 +542,8 @@ pub use crate::types::_modify_memory_strategy_input::ModifyMemoryStrategyInput;
 pub use crate::types::_delete_memory_strategy_input::DeleteMemoryStrategyInput;
 
 pub use crate::types::_filter::Filter;
+
+pub use crate::types::_clustering_frequency::ClusteringFrequency;
 
 pub use crate::types::_server_definition::ServerDefinition;
 
@@ -911,6 +917,10 @@ mod _cloud_watch_logs_input_config;
 
 mod _cloud_watch_output_config;
 
+mod _clustering_config;
+
+mod _clustering_frequency;
+
 mod _code;
 
 mod _code_based_evaluator_config;
@@ -1196,6 +1206,8 @@ mod _indexed_key;
 mod _inference_configuration;
 
 mod _inline_examples_source;
+
+mod _insight;
 
 mod _interceptor_configuration;
 

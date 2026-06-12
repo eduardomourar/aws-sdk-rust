@@ -18,10 +18,14 @@ pub struct BatchEvaluationSummary {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The list of evaluators applied during the batch evaluation.</p>
     pub evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     /// <p>The aggregated evaluation results.</p>
     pub evaluation_results: ::std::option::Option<crate::types::EvaluationJobResults>,
     /// <p>The error details if the batch evaluation encountered failures.</p>
     pub error_details: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The timestamp when the batch evaluation was last updated.</p>
     pub updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -59,6 +63,12 @@ impl BatchEvaluationSummary {
     pub fn evaluators(&self) -> &[crate::types::Evaluator] {
         self.evaluators.as_deref().unwrap_or_default()
     }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.insights.is_none()`.
+    pub fn insights(&self) -> &[crate::types::Insight] {
+        self.insights.as_deref().unwrap_or_default()
+    }
     /// <p>The aggregated evaluation results.</p>
     pub fn evaluation_results(&self) -> ::std::option::Option<&crate::types::EvaluationJobResults> {
         self.evaluation_results.as_ref()
@@ -68,6 +78,10 @@ impl BatchEvaluationSummary {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.error_details.is_none()`.
     pub fn error_details(&self) -> &[::std::string::String] {
         self.error_details.as_deref().unwrap_or_default()
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
     }
     /// <p>The timestamp when the batch evaluation was last updated.</p>
     pub fn updated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
@@ -92,8 +106,10 @@ pub struct BatchEvaluationSummaryBuilder {
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    pub(crate) insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     pub(crate) evaluation_results: ::std::option::Option<crate::types::EvaluationJobResults>,
     pub(crate) error_details: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl BatchEvaluationSummaryBuilder {
@@ -206,6 +222,26 @@ impl BatchEvaluationSummaryBuilder {
     pub fn get_evaluators(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluator>> {
         &self.evaluators
     }
+    /// Appends an item to `insights`.
+    ///
+    /// To override the contents of this collection use [`set_insights`](Self::set_insights).
+    ///
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn insights(mut self, input: crate::types::Insight) -> Self {
+        let mut v = self.insights.unwrap_or_default();
+        v.push(input);
+        self.insights = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>) -> Self {
+        self.insights = input;
+        self
+    }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Insight>> {
+        &self.insights
+    }
     /// <p>The aggregated evaluation results.</p>
     pub fn evaluation_results(mut self, input: crate::types::EvaluationJobResults) -> Self {
         self.evaluation_results = ::std::option::Option::Some(input);
@@ -239,6 +275,20 @@ impl BatchEvaluationSummaryBuilder {
     /// <p>The error details if the batch evaluation encountered failures.</p>
     pub fn get_error_details(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.error_details
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
     }
     /// <p>The timestamp when the batch evaluation was last updated.</p>
     pub fn updated_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
@@ -295,8 +345,10 @@ impl BatchEvaluationSummaryBuilder {
             })?,
             description: self.description,
             evaluators: self.evaluators,
+            insights: self.insights,
             evaluation_results: self.evaluation_results,
             error_details: self.error_details,
+            kms_key_arn: self.kms_key_arn,
             updated_at: self.updated_at,
         })
     }

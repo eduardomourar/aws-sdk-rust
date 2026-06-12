@@ -17,6 +17,8 @@ pub struct CreateConfigurationBundleInput {
     pub commit_message: ::std::option::Option<::std::string::String>,
     /// <p>The source that created this version, including the source name and optional ARN.</p>
     pub created_by: ::std::option::Option<crate::types::VersionCreatedBySource>,
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>A map of tag keys and values to assign to the configuration bundle. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
@@ -49,6 +51,10 @@ impl CreateConfigurationBundleInput {
     pub fn created_by(&self) -> ::std::option::Option<&crate::types::VersionCreatedBySource> {
         self.created_by.as_ref()
     }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
     /// <p>A map of tag keys and values to assign to the configuration bundle. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
@@ -64,6 +70,7 @@ impl ::std::fmt::Debug for CreateConfigurationBundleInput {
         formatter.field("branch_name", &self.branch_name);
         formatter.field("commit_message", &self.commit_message);
         formatter.field("created_by", &self.created_by);
+        formatter.field("kms_key_arn", &self.kms_key_arn);
         formatter.field("tags", &self.tags);
         formatter.finish()
     }
@@ -86,6 +93,7 @@ pub struct CreateConfigurationBundleInputBuilder {
     pub(crate) branch_name: ::std::option::Option<::std::string::String>,
     pub(crate) commit_message: ::std::option::Option<::std::string::String>,
     pub(crate) created_by: ::std::option::Option<crate::types::VersionCreatedBySource>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateConfigurationBundleInputBuilder {
@@ -197,6 +205,20 @@ impl CreateConfigurationBundleInputBuilder {
     pub fn get_created_by(&self) -> &::std::option::Option<crate::types::VersionCreatedBySource> {
         &self.created_by
     }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
@@ -232,6 +254,7 @@ impl CreateConfigurationBundleInputBuilder {
             branch_name: self.branch_name,
             commit_message: self.commit_message,
             created_by: self.created_by,
+            kms_key_arn: self.kms_key_arn,
             tags: self.tags,
         })
     }
@@ -246,6 +269,7 @@ impl ::std::fmt::Debug for CreateConfigurationBundleInputBuilder {
         formatter.field("branch_name", &self.branch_name);
         formatter.field("commit_message", &self.commit_message);
         formatter.field("created_by", &self.created_by);
+        formatter.field("kms_key_arn", &self.kms_key_arn);
         formatter.field("tags", &self.tags);
         formatter.finish()
     }

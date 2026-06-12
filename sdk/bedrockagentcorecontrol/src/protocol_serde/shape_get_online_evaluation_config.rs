@@ -139,6 +139,13 @@ pub(crate) fn de_get_online_evaluation_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "clusteringConfig" => {
+                    builder = builder.set_clustering_config(crate::protocol_serde::shape_clustering_config::de_clustering_config(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "createdAt" => {
                     builder = builder.set_created_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),
@@ -182,6 +189,9 @@ pub(crate) fn de_get_online_evaluation_config(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "insights" => {
+                    builder = builder.set_insights(crate::protocol_serde::shape_insight_list::de_insight_list(tokens, _value, depth + 1)?);
                 }
                 "onlineEvaluationConfigArn" => {
                     builder = builder.set_online_evaluation_config_arn(

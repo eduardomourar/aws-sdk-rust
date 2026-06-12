@@ -493,17 +493,19 @@ pub use crate::types::_statement_state::StatementState;
 
 pub use crate::types::_statement_output::StatementOutput;
 
+pub use crate::types::_table_attributes::TableAttributes;
+
 pub use crate::types::_federated_table::FederatedTable;
 
 pub use crate::types::_view_definition::ViewDefinition;
+
+pub use crate::types::_iceberg_table_metadata::IcebergTableMetadata;
 
 pub use crate::types::_table_status::TableStatus;
 
 pub use crate::types::_table_optimizer_run::TableOptimizerRun;
 
 pub use crate::types::_configuration_source::ConfigurationSource;
-
-pub use crate::types::_table_attributes::TableAttributes;
 
 pub use crate::types::_trigger_state::TriggerState;
 
@@ -1668,6 +1670,8 @@ mod _iceberg_sort_order;
 mod _iceberg_struct_field;
 
 mod _iceberg_struct_type_enum;
+
+mod _iceberg_table_metadata;
 
 mod _iceberg_table_update;
 

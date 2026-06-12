@@ -992,11 +992,38 @@ pub(crate) fn browser_profile_configuration_correct_errors(
     builder
 }
 
+pub(crate) fn execution_summary_clustering_result_content_correct_errors(
+    mut builder: crate::types::builders::ExecutionSummaryClusteringResultContentBuilder,
+) -> crate::types::builders::ExecutionSummaryClusteringResultContentBuilder {
+    if builder.execution_summaries.is_none() {
+        builder.execution_summaries = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn failure_analysis_result_content_correct_errors(
+    mut builder: crate::types::builders::FailureAnalysisResultContentBuilder,
+) -> crate::types::builders::FailureAnalysisResultContentBuilder {
+    if builder.failures.is_none() {
+        builder.failures = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn proxy_configuration_correct_errors(
     mut builder: crate::types::builders::ProxyConfigurationBuilder,
 ) -> crate::types::builders::ProxyConfigurationBuilder {
     if builder.proxies.is_none() {
         builder.proxies = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn user_intent_clustering_result_content_correct_errors(
+    mut builder: crate::types::builders::UserIntentClusteringResultContentBuilder,
+) -> crate::types::builders::UserIntentClusteringResultContentBuilder {
+    if builder.user_intents.is_none() {
+        builder.user_intents = Some(Default::default())
     }
     builder
 }
@@ -1228,6 +1255,13 @@ pub(crate) fn extraction_job_metadata_correct_errors(
     builder
 }
 
+pub(crate) fn insight_correct_errors(mut builder: crate::types::builders::InsightBuilder) -> crate::types::builders::InsightBuilder {
+    if builder.insight_id.is_none() {
+        builder.insight_id = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn key_press_result_correct_errors(
     mut builder: crate::types::builders::KeyPressResultBuilder,
 ) -> crate::types::builders::KeyPressResultBuilder {
@@ -1320,6 +1354,15 @@ pub(crate) fn mouse_scroll_result_correct_errors(
 ) -> crate::types::builders::MouseScrollResultBuilder {
     if builder.status.is_none() {
         builder.status = "no value was set".parse::<crate::types::BrowserActionStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn online_evaluation_config_source_correct_errors(
+    mut builder: crate::types::builders::OnlineEvaluationConfigSourceBuilder,
+) -> crate::types::builders::OnlineEvaluationConfigSourceBuilder {
+    if builder.online_evaluation_config_arn.is_none() {
+        builder.online_evaluation_config_arn = Some(Default::default())
     }
     builder
 }
@@ -1501,12 +1544,6 @@ pub(crate) fn system_prompt_recommendation_config_correct_errors(
     if builder.agent_traces.is_none() {
         builder.agent_traces = Some(crate::types::AgentTracesConfig::Unknown)
     }
-    if builder.evaluation_config.is_none() {
-        builder.evaluation_config = {
-            let builder = crate::types::builders::RecommendationEvaluationConfigBuilder::default();
-            crate::serde_util::recommendation_evaluation_config_correct_errors(builder).build().ok()
-        }
-    }
     builder
 }
 
@@ -1595,6 +1632,48 @@ pub(crate) fn evaluator_metric_correct_errors(
     }
     if builder.variant_results.is_none() {
         builder.variant_results = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn execution_summary_cluster_correct_errors(
+    mut builder: crate::types::builders::ExecutionSummaryClusterBuilder,
+) -> crate::types::builders::ExecutionSummaryClusterBuilder {
+    if builder.cluster_id.is_none() {
+        builder.cluster_id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.description.is_none() {
+        builder.description = Some(Default::default())
+    }
+    if builder.affected_session_count.is_none() {
+        builder.affected_session_count = Some(Default::default())
+    }
+    if builder.affected_sessions.is_none() {
+        builder.affected_sessions = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn failure_category_cluster_correct_errors(
+    mut builder: crate::types::builders::FailureCategoryClusterBuilder,
+) -> crate::types::builders::FailureCategoryClusterBuilder {
+    if builder.cluster_id.is_none() {
+        builder.cluster_id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.description.is_none() {
+        builder.description = Some(Default::default())
+    }
+    if builder.affected_session_count.is_none() {
+        builder.affected_session_count = Some(Default::default())
+    }
+    if builder.sub_categories.is_none() {
+        builder.sub_categories = Some(Default::default())
     }
     builder
 }
@@ -1701,6 +1780,27 @@ pub(crate) fn recommendation_result_configuration_bundle_correct_errors(
     builder
 }
 
+pub(crate) fn user_intent_cluster_correct_errors(
+    mut builder: crate::types::builders::UserIntentClusterBuilder,
+) -> crate::types::builders::UserIntentClusterBuilder {
+    if builder.cluster_id.is_none() {
+        builder.cluster_id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.description.is_none() {
+        builder.description = Some(Default::default())
+    }
+    if builder.affected_session_count.is_none() {
+        builder.affected_session_count = Some(Default::default())
+    }
+    if builder.affected_sessions.is_none() {
+        builder.affected_sessions = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn a2a_descriptor_correct_errors(
     mut builder: crate::types::builders::A2aDescriptorBuilder,
 ) -> crate::types::builders::A2aDescriptorBuilder {
@@ -1721,6 +1821,15 @@ pub(crate) fn agent_skills_descriptor_correct_errors(
             let builder = crate::types::builders::SkillMdDefinitionBuilder::default();
             Some(builder.build())
         }
+    }
+    builder
+}
+
+pub(crate) fn batch_evaluation_trace_config_correct_errors(
+    mut builder: crate::types::builders::BatchEvaluationTraceConfigBuilder,
+) -> crate::types::builders::BatchEvaluationTraceConfigBuilder {
+    if builder.batch_evaluation_arn.is_none() {
+        builder.batch_evaluation_arn = Some(Default::default())
     }
     builder
 }
@@ -1934,6 +2043,42 @@ pub(crate) fn content_block_correct_errors(mut builder: crate::types::builders::
     builder
 }
 
+pub(crate) fn execution_summary_affected_session_correct_errors(
+    mut builder: crate::types::builders::ExecutionSummaryAffectedSessionBuilder,
+) -> crate::types::builders::ExecutionSummaryAffectedSessionBuilder {
+    if builder.session_id.is_none() {
+        builder.session_id = Some(Default::default())
+    }
+    if builder.approach_taken.is_none() {
+        builder.approach_taken = Some(Default::default())
+    }
+    if builder.final_outcome.is_none() {
+        builder.final_outcome = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn failure_sub_category_cluster_correct_errors(
+    mut builder: crate::types::builders::FailureSubCategoryClusterBuilder,
+) -> crate::types::builders::FailureSubCategoryClusterBuilder {
+    if builder.cluster_id.is_none() {
+        builder.cluster_id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.description.is_none() {
+        builder.description = Some(Default::default())
+    }
+    if builder.affected_session_count.is_none() {
+        builder.affected_session_count = Some(Default::default())
+    }
+    if builder.root_causes.is_none() {
+        builder.root_causes = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn harness_tool_result_block_start_correct_errors(
     mut builder: crate::types::builders::HarnessToolResultBlockStartBuilder,
 ) -> crate::types::builders::HarnessToolResultBlockStartBuilder {
@@ -1981,6 +2126,18 @@ pub(crate) fn recommendation_evaluator_reference_correct_errors(
 ) -> crate::types::builders::RecommendationEvaluatorReferenceBuilder {
     if builder.evaluator_arn.is_none() {
         builder.evaluator_arn = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn user_intent_affected_session_correct_errors(
+    mut builder: crate::types::builders::UserIntentAffectedSessionBuilder,
+) -> crate::types::builders::UserIntentAffectedSessionBuilder {
+    if builder.session_id.is_none() {
+        builder.session_id = Some(Default::default())
+    }
+    if builder.user_messages.is_none() {
+        builder.user_messages = Some(Default::default())
     }
     builder
 }
@@ -2093,6 +2250,81 @@ pub(crate) fn o_auth2_authentication_correct_errors(
 ) -> crate::types::builders::OAuth2AuthenticationBuilder {
     if builder.sub.is_none() {
         builder.sub = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn root_cause_cluster_correct_errors(
+    mut builder: crate::types::builders::RootCauseClusterBuilder,
+) -> crate::types::builders::RootCauseClusterBuilder {
+    if builder.cluster_id.is_none() {
+        builder.cluster_id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.root_cause.is_none() {
+        builder.root_cause = Some(Default::default())
+    }
+    if builder.recommendation.is_none() {
+        builder.recommendation = Some(Default::default())
+    }
+    if builder.affected_session_count.is_none() {
+        builder.affected_session_count = Some(Default::default())
+    }
+    if builder.affected_sessions.is_none() {
+        builder.affected_sessions = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn affected_session_correct_errors(
+    mut builder: crate::types::builders::AffectedSessionBuilder,
+) -> crate::types::builders::AffectedSessionBuilder {
+    if builder.session_id.is_none() {
+        builder.session_id = Some(Default::default())
+    }
+    if builder.explanation.is_none() {
+        builder.explanation = Some(Default::default())
+    }
+    if builder.fix_type.is_none() {
+        builder.fix_type = Some(Default::default())
+    }
+    if builder.recommendation.is_none() {
+        builder.recommendation = Some(Default::default())
+    }
+    if builder.failure_spans.is_none() {
+        builder.failure_spans = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn failure_span_detail_correct_errors(
+    mut builder: crate::types::builders::FailureSpanDetailBuilder,
+) -> crate::types::builders::FailureSpanDetailBuilder {
+    if builder.span_id.is_none() {
+        builder.span_id = Some(Default::default())
+    }
+    if builder.trace_id.is_none() {
+        builder.trace_id = Some(Default::default())
+    }
+    if builder.signals.is_none() {
+        builder.signals = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn insights_failure_signal_correct_errors(
+    mut builder: crate::types::builders::InsightsFailureSignalBuilder,
+) -> crate::types::builders::InsightsFailureSignalBuilder {
+    if builder.category.is_none() {
+        builder.category = "no value was set".parse::<crate::types::InsightsFailureCategory>().ok()
+    }
+    if builder.evidence.is_none() {
+        builder.evidence = Some(Default::default())
+    }
+    if builder.confidence.is_none() {
+        builder.confidence = Some(Default::default())
     }
     builder
 }

@@ -7,6 +7,8 @@ pub use crate::types::_reference_input::ReferenceInputBuilder;
 
 pub use crate::types::_task::TaskBuilder;
 
+pub use crate::types::_trigger::TriggerBuilder;
+
 pub use crate::types::_usage_metric::UsageMetricBuilder;
 
 pub use crate::types::_asset_zip_content::AssetZipContentBuilder;
@@ -36,6 +38,8 @@ pub use crate::types::_asset_file_content::AssetFileContentBuilder;
 pub use crate::types::_validation_exception_field::ValidationExceptionFieldBuilder;
 
 pub use crate::types::_reference_output::ReferenceOutputBuilder;
+
+pub use crate::types::_schedule_condition::ScheduleConditionBuilder;
 
 pub use crate::types::_recommendation_content::RecommendationContentBuilder;
 

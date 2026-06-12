@@ -67,6 +67,12 @@ pub use crate::types::_output_config::OutputConfig;
 
 pub use crate::types::_evaluation_job_results::EvaluationJobResults;
 
+pub use crate::types::_failure_analysis_result_content::FailureAnalysisResultContent;
+
+pub use crate::types::_user_intent_clustering_result_content::UserIntentClusteringResultContent;
+
+pub use crate::types::_execution_summary_clustering_result_content::ExecutionSummaryClusteringResultContent;
+
 pub use crate::types::_recommendation_type::RecommendationType;
 
 pub use crate::types::_recommendation_config::RecommendationConfig;
@@ -223,7 +229,11 @@ pub use crate::types::_evaluation_result_content::EvaluationResultContent;
 
 pub use crate::types::_evaluator::Evaluator;
 
+pub use crate::types::_insight::Insight;
+
 pub use crate::types::_cloud_watch_logs_source::CloudWatchLogsSource;
+
+pub use crate::types::_online_evaluation_config_source::OnlineEvaluationConfigSource;
 
 pub use crate::types::_cloud_watch_output_config::CloudWatchOutputConfig;
 
@@ -357,7 +367,15 @@ pub use crate::types::_evaluator_metric::EvaluatorMetric;
 
 pub use crate::types::_cloud_watch_filter_config::CloudWatchFilterConfig;
 
+pub use crate::types::_session_filter_config::SessionFilterConfig;
+
 pub use crate::types::_evaluator_summary::EvaluatorSummary;
+
+pub use crate::types::_failure_category_cluster::FailureCategoryCluster;
+
+pub use crate::types::_user_intent_cluster::UserIntentCluster;
+
+pub use crate::types::_execution_summary_cluster::ExecutionSummaryCluster;
 
 pub use crate::types::_system_prompt_config::SystemPromptConfig;
 
@@ -437,13 +455,13 @@ pub use crate::types::_span_context::SpanContext;
 
 pub use crate::types::_control_stats::ControlStats;
 
-pub use crate::types::_session_filter_config::SessionFilterConfig;
-
 pub use crate::types::_evaluator_statistics::EvaluatorStatistics;
 
 pub use crate::types::_system_prompt_configuration_bundle::SystemPromptConfigurationBundle;
 
 pub use crate::types::_cloud_watch_logs_trace_config::CloudWatchLogsTraceConfig;
+
+pub use crate::types::_batch_evaluation_trace_config::BatchEvaluationTraceConfig;
 
 pub use crate::types::_tool_description_text_input::ToolDescriptionTextInput;
 
@@ -495,6 +513,12 @@ pub use crate::types::_proxy_credentials::ProxyCredentials;
 
 pub use crate::types::_variant_result::VariantResult;
 
+pub use crate::types::_failure_sub_category_cluster::FailureSubCategoryCluster;
+
+pub use crate::types::_user_intent_affected_session::UserIntentAffectedSession;
+
+pub use crate::types::_execution_summary_affected_session::ExecutionSummaryAffectedSession;
+
 pub use crate::types::_cloud_watch_logs_rule::CloudWatchLogsRule;
 
 pub use crate::types::_recommendation_evaluator_reference::RecommendationEvaluatorReference;
@@ -543,6 +567,8 @@ pub use crate::types::_harness_tool_result_content_block::HarnessToolResultConte
 
 pub use crate::types::_o_auth_grant_type::OAuthGrantType;
 
+pub use crate::types::_root_cause_cluster::RootCauseCluster;
+
 pub use crate::types::_cloud_watch_logs_filter::CloudWatchLogsFilter;
 
 pub use crate::types::_tool_description_config::ToolDescriptionConfig;
@@ -554,6 +580,14 @@ pub use crate::types::_cloud_watch_logs_filter_operator::CloudWatchLogsFilterOpe
 pub use crate::types::_filter_value::FilterValue;
 
 pub use crate::types::_ground_truth_turn_input::GroundTruthTurnInput;
+
+pub use crate::types::_affected_session::AffectedSession;
+
+pub use crate::types::_failure_span_detail::FailureSpanDetail;
+
+pub use crate::types::_insights_failure_signal::InsightsFailureSignal;
+
+pub use crate::types::_insights_failure_category::InsightsFailureCategory;
 
 mod _a2a_descriptor;
 
@@ -568,6 +602,8 @@ mod _ab_test_status;
 mod _ab_test_summary;
 
 mod _actor_summary;
+
+mod _affected_session;
 
 mod _agent_card_definition;
 
@@ -590,6 +626,8 @@ mod _basic_auth;
 mod _batch_evaluation_status;
 
 mod _batch_evaluation_summary;
+
+mod _batch_evaluation_trace_config;
 
 mod _blockchain_chain_id;
 
@@ -721,6 +759,12 @@ mod _event_filter_condition;
 
 mod _event_metadata_filter_expression;
 
+mod _execution_summary_affected_session;
+
+mod _execution_summary_cluster;
+
+mod _execution_summary_clustering_result_content;
+
 mod _external_proxy;
 
 mod _extraction_job;
@@ -732,6 +776,14 @@ mod _extraction_job_messages;
 mod _extraction_job_metadata;
 
 mod _extraction_job_status;
+
+mod _failure_analysis_result_content;
+
+mod _failure_category_cluster;
+
+mod _failure_span_detail;
+
+mod _failure_sub_category_cluster;
 
 mod _filter_input;
 
@@ -843,6 +895,12 @@ mod _inline_ground_truth;
 
 mod _input_content_block;
 
+mod _insight;
+
+mod _insights_failure_category;
+
+mod _insights_failure_signal;
+
 mod _instrument_balance_token;
 
 mod _invoke_agent_runtime_command_request_body;
@@ -937,6 +995,8 @@ mod _o_auth_grant_type;
 
 mod _oauth2_flow_type;
 
+mod _online_evaluation_config_source;
+
 mod _operator_type;
 
 mod _output_config;
@@ -1016,6 +1076,8 @@ mod _response_chunk;
 mod _right_expression;
 
 mod _role;
+
+mod _root_cause_cluster;
 
 mod _s3_location;
 
@@ -1098,6 +1160,12 @@ mod _tools_definition;
 mod _unit;
 
 mod _user_identifier;
+
+mod _user_intent_affected_session;
+
+mod _user_intent_cluster;
+
+mod _user_intent_clustering_result_content;
 
 mod _validation_exception_field;
 

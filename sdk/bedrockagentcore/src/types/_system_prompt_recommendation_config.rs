@@ -72,7 +72,6 @@ impl SystemPromptRecommendationConfigBuilder {
         &self.agent_traces
     }
     /// <p>The evaluation configuration specifying which evaluator to use for assessing recommendation quality.</p>
-    /// This field is required.
     pub fn evaluation_config(mut self, input: crate::types::RecommendationEvaluationConfig) -> Self {
         self.evaluation_config = ::std::option::Option::Some(input);
         self

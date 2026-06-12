@@ -6,6 +6,8 @@
 pub enum DataSourceConfig {
     /// <p>Configuration for pulling agent session traces from CloudWatch Logs.</p>
     CloudWatchLogs(crate::types::CloudWatchLogsSource),
+    /// Reference an existing OnlineEvaluationConfig as session source
+    OnlineEvaluationConfigSource(crate::types::OnlineEvaluationConfigSource),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -17,7 +19,6 @@ pub enum DataSourceConfig {
     Unknown,
 }
 impl DataSourceConfig {
-    #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`CloudWatchLogs`](crate::types::DataSourceConfig::CloudWatchLogs), extracting the inner [`CloudWatchLogsSource`](crate::types::CloudWatchLogsSource).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_cloud_watch_logs(&self) -> ::std::result::Result<&crate::types::CloudWatchLogsSource, &Self> {
@@ -30,6 +31,19 @@ impl DataSourceConfig {
     /// Returns true if this is a [`CloudWatchLogs`](crate::types::DataSourceConfig::CloudWatchLogs).
     pub fn is_cloud_watch_logs(&self) -> bool {
         self.as_cloud_watch_logs().is_ok()
+    }
+    /// Tries to convert the enum instance into [`OnlineEvaluationConfigSource`](crate::types::DataSourceConfig::OnlineEvaluationConfigSource), extracting the inner [`OnlineEvaluationConfigSource`](crate::types::OnlineEvaluationConfigSource).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_online_evaluation_config_source(&self) -> ::std::result::Result<&crate::types::OnlineEvaluationConfigSource, &Self> {
+        if let DataSourceConfig::OnlineEvaluationConfigSource(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`OnlineEvaluationConfigSource`](crate::types::DataSourceConfig::OnlineEvaluationConfigSource).
+    pub fn is_online_evaluation_config_source(&self) -> bool {
+        self.as_online_evaluation_config_source().is_ok()
     }
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {

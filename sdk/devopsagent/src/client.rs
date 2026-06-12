@@ -150,6 +150,8 @@ mod create_chat;
 
 mod create_private_connection;
 
+mod create_trigger;
+
 /// Operation customization and supporting types.
 ///
 /// The underlying HTTP requests made during an operation can be customized
@@ -185,6 +187,8 @@ mod delete_asset_file;
 
 mod delete_private_connection;
 
+mod delete_trigger;
+
 mod deregister_service;
 
 mod describe_private_connection;
@@ -214,6 +218,8 @@ mod get_operator_app;
 mod get_recommendation;
 
 mod get_service;
+
+mod get_trigger;
 
 mod list_agent_spaces;
 
@@ -247,6 +253,8 @@ mod list_services;
 
 mod list_tags_for_resource;
 
+mod list_triggers;
+
 mod list_webhooks;
 
 mod register_service;
@@ -274,5 +282,7 @@ mod update_operator_app_idp_config;
 mod update_private_connection_certificate;
 
 mod update_recommendation;
+
+mod update_trigger;
 
 mod validate_aws_associations;

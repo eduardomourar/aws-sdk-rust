@@ -4,6 +4,8 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum AgentTracesConfig {
+    /// <p>Use a completed batch evaluation as the source of agent traces.</p>
+    BatchEvaluation(crate::types::BatchEvaluationTraceConfig),
     /// <p>Agent traces read from CloudWatch Logs.</p>
     CloudwatchLogs(crate::types::CloudWatchLogsTraceConfig),
     /// <p>Agent traces provided as inline session spans in OpenTelemetry format.</p>
@@ -19,6 +21,19 @@ pub enum AgentTracesConfig {
     Unknown,
 }
 impl AgentTracesConfig {
+    /// Tries to convert the enum instance into [`BatchEvaluation`](crate::types::AgentTracesConfig::BatchEvaluation), extracting the inner [`BatchEvaluationTraceConfig`](crate::types::BatchEvaluationTraceConfig).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_batch_evaluation(&self) -> ::std::result::Result<&crate::types::BatchEvaluationTraceConfig, &Self> {
+        if let AgentTracesConfig::BatchEvaluation(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`BatchEvaluation`](crate::types::AgentTracesConfig::BatchEvaluation).
+    pub fn is_batch_evaluation(&self) -> bool {
+        self.as_batch_evaluation().is_ok()
+    }
     /// Tries to convert the enum instance into [`CloudwatchLogs`](crate::types::AgentTracesConfig::CloudwatchLogs), extracting the inner [`CloudWatchLogsTraceConfig`](crate::types::CloudWatchLogsTraceConfig).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_cloudwatch_logs(&self) -> ::std::result::Result<&crate::types::CloudWatchLogsTraceConfig, &Self> {
@@ -53,6 +68,7 @@ impl AgentTracesConfig {
 impl ::std::fmt::Debug for AgentTracesConfig {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            AgentTracesConfig::BatchEvaluation(val) => f.debug_tuple("BatchEvaluation").field(&val).finish(),
             AgentTracesConfig::CloudwatchLogs(val) => f.debug_tuple("CloudwatchLogs").field(&val).finish(),
             AgentTracesConfig::SessionSpans(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
             AgentTracesConfig::Unknown => f.debug_tuple("Unknown").finish(),

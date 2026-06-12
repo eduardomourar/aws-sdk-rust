@@ -11,12 +11,17 @@ impl super::Client {
     ///   - [`status(BatchEvaluationStatus)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::status): <p>The current status of the batch evaluation.</p>
     ///   - [`created_at(DateTime)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::created_at): <p>The timestamp when the batch evaluation was created.</p>
     ///   - [`evaluators(Option<Vec::<Evaluator>>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::evaluators): <p>The list of evaluators applied during the batch evaluation.</p>
+    ///   - [`insights(Option<Vec::<Insight>>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::insights): <p>The list of insight analyses applied during the batch evaluation.</p>
     ///   - [`data_source_config(Option<DataSourceConfig>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::data_source_config): <p>The data source configuration specifying where agent traces are pulled from.</p>
     ///   - [`output_config(Option<OutputConfig>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::output_config): <p>The output configuration specifying where evaluation results are written.</p>
     ///   - [`evaluation_results(Option<EvaluationJobResults>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::evaluation_results): <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
+    ///   - [`failure_analysis_result(Option<FailureAnalysisResultContent>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::failure_analysis_result): Unified customer-facing clustering result written to S3.
+    ///   - [`user_intent_result(Option<UserIntentClusteringResultContent>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::user_intent_result): Customer-facing user intent clustering result written to S3.
+    ///   - [`execution_summary_result(Option<ExecutionSummaryClusteringResultContent>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::execution_summary_result): Customer-facing execution summary clustering result written to S3.
     ///   - [`error_details(Option<Vec::<String>>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::error_details): <p>The error details if the batch evaluation encountered failures.</p>
     ///   - [`description(Option<String>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::description): <p>The description of the batch evaluation.</p>
     ///   - [`updated_at(Option<DateTime>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::updated_at): <p>The timestamp when the batch evaluation was last updated.</p>
+    ///   - [`kms_key_arn(Option<String>)`](crate::operation::get_batch_evaluation::GetBatchEvaluationOutput::kms_key_arn): <p>The ARN of the KMS key used to encrypt evaluation data.</p>
     /// - On failure, responds with [`SdkError<GetBatchEvaluationError>`](crate::operation::get_batch_evaluation::GetBatchEvaluationError)
     pub fn get_batch_evaluation(&self) -> crate::operation::get_batch_evaluation::builders::GetBatchEvaluationFluentBuilder {
         crate::operation::get_batch_evaluation::builders::GetBatchEvaluationFluentBuilder::new(self.handle.clone())

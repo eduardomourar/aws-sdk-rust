@@ -33,17 +33,27 @@ pub fn ser_create_ab_test_input_input(
     if let Some(var_10) = &input.role_arn {
         object.key("roleArn").string(var_10.as_str());
     }
-    if let Some(var_11) = &input.variants {
-        let mut array_12 = object.key("variants").start_array();
-        for item_13 in var_11 {
+    if let Some(var_11) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_12 = object.key("tags").start_object();
+        for (key_13, value_14) in var_11 {
             {
-                #[allow(unused_mut)]
-                let mut object_14 = array_12.value().start_object();
-                crate::protocol_serde::shape_variant::ser_variant(&mut object_14, item_13)?;
-                object_14.finish();
+                object_12.key(key_13.as_str()).string(value_14.as_str());
             }
         }
-        array_12.finish();
+        object_12.finish();
+    }
+    if let Some(var_15) = &input.variants {
+        let mut array_16 = object.key("variants").start_array();
+        for item_17 in var_15 {
+            {
+                #[allow(unused_mut)]
+                let mut object_18 = array_16.value().start_object();
+                crate::protocol_serde::shape_variant::ser_variant(&mut object_18, item_17)?;
+                object_18.finish();
+            }
+        }
+        array_16.finish();
     }
     Ok(())
 }

@@ -168,6 +168,11 @@ where
                         "IsMaterializedView" => {
                             builder = builder.set_is_materialized_view(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
+                        "IcebergTableMetadata" => {
+                            builder = builder.set_iceberg_table_metadata(
+                                crate::protocol_serde::shape_iceberg_table_metadata::de_iceberg_table_metadata(tokens, _value, depth + 1)?,
+                            );
+                        }
                         "Status" => {
                             builder = builder.set_status(crate::protocol_serde::shape_table_status::de_table_status(tokens, _value, depth + 1)?);
                         }

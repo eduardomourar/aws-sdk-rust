@@ -1851,6 +1851,8 @@ pub(crate) mod shape_hudi_target;
 
 pub(crate) mod shape_iceberg_input;
 
+pub(crate) mod shape_iceberg_table_metadata;
+
 pub(crate) mod shape_iceberg_target;
 
 pub(crate) mod shape_import_labels_task_run_properties;
@@ -2191,7 +2193,13 @@ pub(crate) mod shape_iceberg_optimization_properties_output;
 
 pub(crate) mod shape_iceberg_orphan_file_deletion_configuration;
 
+pub(crate) mod shape_iceberg_partition_spec_list;
+
 pub(crate) mod shape_iceberg_retention_configuration;
+
+pub(crate) mod shape_iceberg_schema_list;
+
+pub(crate) mod shape_iceberg_sort_order_list;
 
 pub(crate) mod shape_iceberg_target_list;
 
@@ -2294,6 +2302,8 @@ pub(crate) mod shape_status_details;
 pub(crate) mod shape_streaming_data_preview_options;
 
 pub(crate) mod shape_string_column_statistics_data;
+
+pub(crate) mod shape_string_to_string_map;
 
 pub(crate) mod shape_timestamped_inclusion_annotation;
 
@@ -2419,9 +2429,17 @@ pub(crate) mod shape_iceberg_encrypted_key;
 
 pub(crate) mod shape_iceberg_partition_field;
 
+pub(crate) mod shape_iceberg_partition_spec_field_list;
+
 pub(crate) mod shape_iceberg_sort_field;
 
+pub(crate) mod shape_iceberg_sort_order_field_list;
+
 pub(crate) mod shape_iceberg_struct_field;
+
+pub(crate) mod shape_iceberg_struct_field_list;
+
+pub(crate) mod shape_integer_list;
 
 pub(crate) mod shape_job_node_details;
 

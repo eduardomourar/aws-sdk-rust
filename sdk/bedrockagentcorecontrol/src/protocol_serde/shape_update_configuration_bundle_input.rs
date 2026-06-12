@@ -37,14 +37,17 @@ pub fn ser_update_configuration_bundle_input_input(
     if let Some(var_12) = &input.description {
         object.key("description").string(var_12.as_str());
     }
-    if let Some(var_13) = &input.parent_version_ids {
-        let mut array_14 = object.key("parentVersionIds").start_array();
-        for item_15 in var_13 {
+    if let Some(var_13) = &input.kms_key_arn {
+        object.key("kmsKeyArn").string(var_13.as_str());
+    }
+    if let Some(var_14) = &input.parent_version_ids {
+        let mut array_15 = object.key("parentVersionIds").start_array();
+        for item_16 in var_14 {
             {
-                array_14.value().string(item_15.as_str());
+                array_15.value().string(item_16.as_str());
             }
         }
-        array_14.finish();
+        array_15.finish();
     }
     Ok(())
 }

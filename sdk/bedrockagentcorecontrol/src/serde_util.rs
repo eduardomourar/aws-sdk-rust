@@ -1274,9 +1274,6 @@ pub(crate) fn get_online_evaluation_config_output_output_correct_errors(
     if builder.data_source_config.is_none() {
         builder.data_source_config = Some(crate::types::DataSourceConfig::Unknown)
     }
-    if builder.evaluators.is_none() {
-        builder.evaluators = Some(Default::default())
-    }
     if builder.status.is_none() {
         builder.status = "no value was set".parse::<crate::types::OnlineEvaluationConfigStatus>().ok()
     }
@@ -2691,6 +2688,15 @@ pub(crate) fn browser_signing_config_output_correct_errors(
     builder
 }
 
+pub(crate) fn clustering_config_correct_errors(
+    mut builder: crate::types::builders::ClusteringConfigBuilder,
+) -> crate::types::builders::ClusteringConfigBuilder {
+    if builder.frequencies.is_none() {
+        builder.frequencies = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn gateway_policy_engine_configuration_correct_errors(
     mut builder: crate::types::builders::GatewayPolicyEngineConfigurationBuilder,
 ) -> crate::types::builders::GatewayPolicyEngineConfigurationBuilder {
@@ -3282,6 +3288,13 @@ pub(crate) fn included_oauth2_provider_config_output_correct_errors(
 ) -> crate::types::builders::IncludedOauth2ProviderConfigOutputBuilder {
     if builder.oauth_discovery.is_none() {
         builder.oauth_discovery = Some(crate::types::Oauth2Discovery::Unknown)
+    }
+    builder
+}
+
+pub(crate) fn insight_correct_errors(mut builder: crate::types::builders::InsightBuilder) -> crate::types::builders::InsightBuilder {
+    if builder.insight_id.is_none() {
+        builder.insight_id = Some(Default::default())
     }
     builder
 }

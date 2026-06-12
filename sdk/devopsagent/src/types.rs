@@ -17,6 +17,10 @@ pub use crate::types::_task::Task;
 
 pub use crate::types::_user_type::UserType;
 
+pub use crate::types::_trigger_condition::TriggerCondition;
+
+pub use crate::types::_trigger::Trigger;
+
 pub use crate::types::_usage_metric::UsageMetric;
 
 pub use crate::types::_asset_zip_content::AssetZipContent;
@@ -82,6 +86,8 @@ pub use crate::types::_asset_file_content::AssetFileContent;
 pub use crate::types::_validation_exception_field::ValidationExceptionField;
 
 pub use crate::types::_reference_output::ReferenceOutput;
+
+pub use crate::types::_schedule_condition::ScheduleCondition;
 
 pub use crate::types::_recommendation_content::RecommendationContent;
 
@@ -495,6 +501,8 @@ mod _registered_slack_service_details;
 
 mod _resource_config_dns_resolution;
 
+mod _schedule_condition;
+
 mod _scheduler_state;
 
 mod _self_managed_input;
@@ -566,6 +574,10 @@ mod _task_sort_order;
 mod _task_status;
 
 mod _task_type;
+
+mod _trigger;
+
+mod _trigger_condition;
 
 mod _usage_metric;
 

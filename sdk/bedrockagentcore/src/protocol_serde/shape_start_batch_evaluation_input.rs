@@ -36,5 +36,30 @@ pub fn ser_start_batch_evaluation_input_input(
         }
         array_9.finish();
     }
+    if let Some(var_12) = &input.insights {
+        let mut array_13 = object.key("insights").start_array();
+        for item_14 in var_12 {
+            {
+                #[allow(unused_mut)]
+                let mut object_15 = array_13.value().start_object();
+                crate::protocol_serde::shape_insight::ser_insight(&mut object_15, item_14)?;
+                object_15.finish();
+            }
+        }
+        array_13.finish();
+    }
+    if let Some(var_16) = &input.kms_key_arn {
+        object.key("kmsKeyArn").string(var_16.as_str());
+    }
+    if let Some(var_17) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_18 = object.key("tags").start_object();
+        for (key_19, value_20) in var_17 {
+            {
+                object_18.key(key_19.as_str()).string(value_20.as_str());
+            }
+        }
+        object_18.finish();
+    }
     Ok(())
 }

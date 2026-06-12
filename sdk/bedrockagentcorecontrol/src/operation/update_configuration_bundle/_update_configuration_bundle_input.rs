@@ -21,6 +21,8 @@ pub struct UpdateConfigurationBundleInput {
     pub commit_message: ::std::option::Option<::std::string::String>,
     /// <p>The source that created this version, including the source name and optional ARN.</p>
     pub created_by: ::std::option::Option<crate::types::VersionCreatedBySource>,
+    /// <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateConfigurationBundleInput {
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
@@ -61,6 +63,10 @@ impl UpdateConfigurationBundleInput {
     pub fn created_by(&self) -> ::std::option::Option<&crate::types::VersionCreatedBySource> {
         self.created_by.as_ref()
     }
+    /// <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
 }
 impl ::std::fmt::Debug for UpdateConfigurationBundleInput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -74,6 +80,7 @@ impl ::std::fmt::Debug for UpdateConfigurationBundleInput {
         formatter.field("branch_name", &self.branch_name);
         formatter.field("commit_message", &self.commit_message);
         formatter.field("created_by", &self.created_by);
+        formatter.field("kms_key_arn", &self.kms_key_arn);
         formatter.finish()
     }
 }
@@ -97,6 +104,7 @@ pub struct UpdateConfigurationBundleInputBuilder {
     pub(crate) branch_name: ::std::option::Option<::std::string::String>,
     pub(crate) commit_message: ::std::option::Option<::std::string::String>,
     pub(crate) created_by: ::std::option::Option<crate::types::VersionCreatedBySource>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateConfigurationBundleInputBuilder {
     /// <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
@@ -241,6 +249,20 @@ impl UpdateConfigurationBundleInputBuilder {
     pub fn get_created_by(&self) -> &::std::option::Option<crate::types::VersionCreatedBySource> {
         &self.created_by
     }
+    /// <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// Consumes the builder and constructs a [`UpdateConfigurationBundleInput`](crate::operation::update_configuration_bundle::UpdateConfigurationBundleInput).
     pub fn build(
         self,
@@ -258,6 +280,7 @@ impl UpdateConfigurationBundleInputBuilder {
             branch_name: self.branch_name,
             commit_message: self.commit_message,
             created_by: self.created_by,
+            kms_key_arn: self.kms_key_arn,
         })
     }
 }
@@ -273,6 +296,7 @@ impl ::std::fmt::Debug for UpdateConfigurationBundleInputBuilder {
         formatter.field("branch_name", &self.branch_name);
         formatter.field("commit_message", &self.commit_message);
         formatter.field("created_by", &self.created_by);
+        formatter.field("kms_key_arn", &self.kms_key_arn);
         formatter.finish()
     }
 }

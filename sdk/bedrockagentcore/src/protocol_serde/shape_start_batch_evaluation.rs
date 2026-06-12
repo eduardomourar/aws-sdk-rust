@@ -215,6 +215,16 @@ pub(crate) fn de_start_batch_evaluation(
                 "evaluators" => {
                     builder = builder.set_evaluators(crate::protocol_serde::shape_evaluator_list::de_evaluator_list(tokens, _value, depth + 1)?);
                 }
+                "insights" => {
+                    builder = builder.set_insights(crate::protocol_serde::shape_insight_list::de_insight_list(tokens, _value, depth + 1)?);
+                }
+                "kmsKeyArn" => {
+                    builder = builder.set_kms_key_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "outputConfig" => {
                     builder = builder.set_output_config(crate::protocol_serde::shape_output_config::de_output_config(tokens, _value, depth + 1)?);
                 }
@@ -224,6 +234,9 @@ pub(crate) fn de_start_batch_evaluation(
                             .map(|s| s.to_unescaped().map(|u| crate::types::BatchEvaluationStatus::from(u.as_ref())))
                             .transpose()?,
                     );
+                }
+                "tags" => {
+                    builder = builder.set_tags(crate::protocol_serde::shape_tags_map::de_tags_map(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

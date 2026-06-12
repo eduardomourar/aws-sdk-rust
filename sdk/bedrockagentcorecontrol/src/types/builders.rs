@@ -77,6 +77,8 @@ pub use crate::types::_modify_memory_strategies::ModifyMemoryStrategiesBuilder;
 
 pub use crate::types::_rule::RuleBuilder;
 
+pub use crate::types::_clustering_config::ClusteringConfigBuilder;
+
 pub use crate::types::_output_config::OutputConfigBuilder;
 
 pub use crate::types::_updated_description::UpdatedDescriptionBuilder;
@@ -210,6 +212,8 @@ pub use crate::types::_sampling_config::SamplingConfigBuilder;
 pub use crate::types::_session_config::SessionConfigBuilder;
 
 pub use crate::types::_cloud_watch_logs_input_config::CloudWatchLogsInputConfigBuilder;
+
+pub use crate::types::_insight::InsightBuilder;
 
 pub use crate::types::_cloud_watch_output_config::CloudWatchOutputConfigBuilder;
 

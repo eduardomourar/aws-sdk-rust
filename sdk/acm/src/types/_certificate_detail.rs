@@ -58,7 +58,7 @@ pub struct CertificateDetail {
     pub certificate_authority_arn: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the <code>RenewCertificate</code> command.</p>
     pub renewal_eligibility: ::std::option::Option<crate::types::RenewalEligibility>,
-    /// <p>Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.</p>
+    /// <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
     pub options: ::std::option::Option<crate::types::CertificateOptions>,
 }
 impl CertificateDetail {
@@ -178,7 +178,7 @@ impl CertificateDetail {
     pub fn renewal_eligibility(&self) -> ::std::option::Option<&crate::types::RenewalEligibility> {
         self.renewal_eligibility.as_ref()
     }
-    /// <p>Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.</p>
+    /// <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
     pub fn options(&self) -> ::std::option::Option<&crate::types::CertificateOptions> {
         self.options.as_ref()
     }
@@ -623,17 +623,17 @@ impl CertificateDetailBuilder {
     pub fn get_renewal_eligibility(&self) -> &::std::option::Option<crate::types::RenewalEligibility> {
         &self.renewal_eligibility
     }
-    /// <p>Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.</p>
+    /// <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
     pub fn options(mut self, input: crate::types::CertificateOptions) -> Self {
         self.options = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.</p>
+    /// <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
     pub fn set_options(mut self, input: ::std::option::Option<crate::types::CertificateOptions>) -> Self {
         self.options = input;
         self
     }
-    /// <p>Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.</p>
+    /// <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
     pub fn get_options(&self) -> &::std::option::Option<crate::types::CertificateOptions> {
         &self.options
     }

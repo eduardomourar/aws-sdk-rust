@@ -167,6 +167,18 @@ pub(crate) fn create_private_connection_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn create_trigger_output_output_correct_errors(
+    mut builder: crate::operation::create_trigger::builders::CreateTriggerOutputBuilder,
+) -> crate::operation::create_trigger::builders::CreateTriggerOutputBuilder {
+    if builder.trigger.is_none() {
+        builder.trigger = {
+            let builder = crate::types::builders::TriggerBuilder::default();
+            crate::serde_util::trigger_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn delete_private_connection_output_output_correct_errors(
     mut builder: crate::operation::delete_private_connection::builders::DeletePrivateConnectionOutputBuilder,
 ) -> crate::operation::delete_private_connection::builders::DeletePrivateConnectionOutputBuilder {
@@ -318,6 +330,18 @@ pub(crate) fn get_service_output_output_correct_errors(
         builder.service = {
             let builder = crate::types::builders::RegisteredServiceBuilder::default();
             crate::serde_util::registered_service_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn get_trigger_output_output_correct_errors(
+    mut builder: crate::operation::get_trigger::builders::GetTriggerOutputBuilder,
+) -> crate::operation::get_trigger::builders::GetTriggerOutputBuilder {
+    if builder.trigger.is_none() {
+        builder.trigger = {
+            let builder = crate::types::builders::TriggerBuilder::default();
+            crate::serde_util::trigger_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -476,6 +500,15 @@ pub(crate) fn list_tags_for_resource_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_triggers_output_output_correct_errors(
+    mut builder: crate::operation::list_triggers::builders::ListTriggersOutputBuilder,
+) -> crate::operation::list_triggers::builders::ListTriggersOutputBuilder {
+    if builder.items.is_none() {
+        builder.items = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_webhooks_output_output_correct_errors(
     mut builder: crate::operation::list_webhooks::builders::ListWebhooksOutputBuilder,
 ) -> crate::operation::list_webhooks::builders::ListWebhooksOutputBuilder {
@@ -599,6 +632,18 @@ pub(crate) fn update_recommendation_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn update_trigger_output_output_correct_errors(
+    mut builder: crate::operation::update_trigger::builders::UpdateTriggerOutputBuilder,
+) -> crate::operation::update_trigger::builders::UpdateTriggerOutputBuilder {
+    if builder.trigger.is_none() {
+        builder.trigger = {
+            let builder = crate::types::builders::TriggerBuilder::default();
+            crate::serde_util::trigger_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn association_correct_errors(mut builder: crate::types::builders::AssociationBuilder) -> crate::types::builders::AssociationBuilder {
     if builder.agent_space_id.is_none() {
         builder.agent_space_id = Some(Default::default())
@@ -705,6 +750,34 @@ pub(crate) fn task_correct_errors(mut builder: crate::types::builders::TaskBuild
     }
     if builder.version.is_none() {
         builder.version = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn trigger_correct_errors(mut builder: crate::types::builders::TriggerBuilder) -> crate::types::builders::TriggerBuilder {
+    if builder.trigger_id.is_none() {
+        builder.trigger_id = Some(Default::default())
+    }
+    if builder.agent_space_id.is_none() {
+        builder.agent_space_id = Some(Default::default())
+    }
+    if builder.r#type.is_none() {
+        builder.r#type = Some(Default::default())
+    }
+    if builder.condition.is_none() {
+        builder.condition = Some(crate::types::TriggerCondition::Unknown)
+    }
+    if builder.action.is_none() {
+        builder.action = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = Some(Default::default())
+    }
+    if builder.created_at.is_none() {
+        builder.created_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.updated_at.is_none() {
+        builder.updated_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -1323,6 +1396,15 @@ pub(crate) fn registered_slack_service_details_correct_errors(
     }
     if builder.team_name.is_none() {
         builder.team_name = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn schedule_condition_correct_errors(
+    mut builder: crate::types::builders::ScheduleConditionBuilder,
+) -> crate::types::builders::ScheduleConditionBuilder {
+    if builder.expression.is_none() {
+        builder.expression = Some(Default::default())
     }
     builder
 }

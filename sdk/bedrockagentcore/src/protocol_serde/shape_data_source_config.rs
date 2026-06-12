@@ -41,6 +41,18 @@ where
                                 || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cloudWatchLogs' cannot be null"),
                             )?,
                         )),
+                        "onlineEvaluationConfigSource" => Some(crate::types::DataSourceConfig::OnlineEvaluationConfigSource(
+                            crate::protocol_serde::shape_online_evaluation_config_source::de_online_evaluation_config_source(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'onlineEvaluationConfigSource' cannot be null",
+                                )
+                            })?,
+                        )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(crate::types::DataSourceConfig::Unknown)
@@ -78,6 +90,12 @@ pub fn ser_data_source_config(
             let mut object_1 = object_4.key("cloudWatchLogs").start_object();
             crate::protocol_serde::shape_cloud_watch_logs_source::ser_cloud_watch_logs_source(&mut object_1, inner)?;
             object_1.finish();
+        }
+        crate::types::DataSourceConfig::OnlineEvaluationConfigSource(inner) => {
+            #[allow(unused_mut)]
+            let mut object_2 = object_4.key("onlineEvaluationConfigSource").start_object();
+            crate::protocol_serde::shape_online_evaluation_config_source::ser_online_evaluation_config_source(&mut object_2, inner)?;
+            object_2.finish();
         }
         crate::types::DataSourceConfig::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(

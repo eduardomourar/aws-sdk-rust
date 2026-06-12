@@ -214,6 +214,20 @@ impl CreateConfigurationBundleFluentBuilder {
     pub fn get_created_by(&self) -> &::std::option::Option<crate::types::VersionCreatedBySource> {
         self.inner.get_created_by()
     }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.kms_key_arn(input.into());
+        self
+    }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_kms_key_arn(input);
+        self
+    }
+    /// <p>Optional KMS key ARN for encrypting component configurations.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_kms_key_arn()
+    }
     ///
     /// Adds a key-value pair to `tags`.
     ///

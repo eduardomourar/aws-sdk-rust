@@ -32,6 +32,7 @@
 ///     UpdateParamType::MaxUnavailable => { /* ... */ },
 ///     UpdateParamType::MaxUnavailablePercentage => { /* ... */ },
 ///     UpdateParamType::MinSize => { /* ... */ },
+///     UpdateParamType::NetworkAccess => { /* ... */ },
 ///     UpdateParamType::NodeRepairConfig => { /* ... */ },
 ///     UpdateParamType::NodeRepairEnabled => { /* ... */ },
 ///     UpdateParamType::PlatformVersion => { /* ... */ },
@@ -41,6 +42,9 @@
 ///     UpdateParamType::ReleaseVersion => { /* ... */ },
 ///     UpdateParamType::RemoteNetworkConfig => { /* ... */ },
 ///     UpdateParamType::ResolveConflicts => { /* ... */ },
+///     UpdateParamType::RoleArn => { /* ... */ },
+///     UpdateParamType::RoleMappingsToAddOrUpdate => { /* ... */ },
+///     UpdateParamType::RoleMappingsToRemove => { /* ... */ },
 ///     UpdateParamType::SecurityGroups => { /* ... */ },
 ///     UpdateParamType::ServiceAccountRoleArn => { /* ... */ },
 ///     UpdateParamType::StorageConfig => { /* ... */ },
@@ -127,6 +131,8 @@ pub enum UpdateParamType {
     #[allow(missing_docs)] // documentation missing in model
     MinSize,
     #[allow(missing_docs)] // documentation missing in model
+    NetworkAccess,
+    #[allow(missing_docs)] // documentation missing in model
     NodeRepairConfig,
     #[allow(missing_docs)] // documentation missing in model
     NodeRepairEnabled,
@@ -144,6 +150,12 @@ pub enum UpdateParamType {
     RemoteNetworkConfig,
     #[allow(missing_docs)] // documentation missing in model
     ResolveConflicts,
+    #[allow(missing_docs)] // documentation missing in model
+    RoleArn,
+    #[allow(missing_docs)] // documentation missing in model
+    RoleMappingsToAddOrUpdate,
+    #[allow(missing_docs)] // documentation missing in model
+    RoleMappingsToRemove,
     #[allow(missing_docs)] // documentation missing in model
     SecurityGroups,
     #[allow(missing_docs)] // documentation missing in model
@@ -205,6 +217,7 @@ impl ::std::convert::From<&str> for UpdateParamType {
             "MaxUnavailable" => UpdateParamType::MaxUnavailable,
             "MaxUnavailablePercentage" => UpdateParamType::MaxUnavailablePercentage,
             "MinSize" => UpdateParamType::MinSize,
+            "NetworkAccess" => UpdateParamType::NetworkAccess,
             "NodeRepairConfig" => UpdateParamType::NodeRepairConfig,
             "NodeRepairEnabled" => UpdateParamType::NodeRepairEnabled,
             "PlatformVersion" => UpdateParamType::PlatformVersion,
@@ -214,6 +227,9 @@ impl ::std::convert::From<&str> for UpdateParamType {
             "ReleaseVersion" => UpdateParamType::ReleaseVersion,
             "RemoteNetworkConfig" => UpdateParamType::RemoteNetworkConfig,
             "ResolveConflicts" => UpdateParamType::ResolveConflicts,
+            "RoleArn" => UpdateParamType::RoleArn,
+            "RoleMappingsToAddOrUpdate" => UpdateParamType::RoleMappingsToAddOrUpdate,
+            "RoleMappingsToRemove" => UpdateParamType::RoleMappingsToRemove,
             "SecurityGroups" => UpdateParamType::SecurityGroups,
             "ServiceAccountRoleArn" => UpdateParamType::ServiceAccountRoleArn,
             "StorageConfig" => UpdateParamType::StorageConfig,
@@ -266,6 +282,7 @@ impl UpdateParamType {
             UpdateParamType::MaxUnavailable => "MaxUnavailable",
             UpdateParamType::MaxUnavailablePercentage => "MaxUnavailablePercentage",
             UpdateParamType::MinSize => "MinSize",
+            UpdateParamType::NetworkAccess => "NetworkAccess",
             UpdateParamType::NodeRepairConfig => "NodeRepairConfig",
             UpdateParamType::NodeRepairEnabled => "NodeRepairEnabled",
             UpdateParamType::PlatformVersion => "PlatformVersion",
@@ -275,6 +292,9 @@ impl UpdateParamType {
             UpdateParamType::ReleaseVersion => "ReleaseVersion",
             UpdateParamType::RemoteNetworkConfig => "RemoteNetworkConfig",
             UpdateParamType::ResolveConflicts => "ResolveConflicts",
+            UpdateParamType::RoleArn => "RoleArn",
+            UpdateParamType::RoleMappingsToAddOrUpdate => "RoleMappingsToAddOrUpdate",
+            UpdateParamType::RoleMappingsToRemove => "RoleMappingsToRemove",
             UpdateParamType::SecurityGroups => "SecurityGroups",
             UpdateParamType::ServiceAccountRoleArn => "ServiceAccountRoleArn",
             UpdateParamType::StorageConfig => "StorageConfig",
@@ -318,6 +338,7 @@ impl UpdateParamType {
             "MaxUnavailable",
             "MaxUnavailablePercentage",
             "MinSize",
+            "NetworkAccess",
             "NodeRepairConfig",
             "NodeRepairEnabled",
             "PlatformVersion",
@@ -327,6 +348,9 @@ impl UpdateParamType {
             "ReleaseVersion",
             "RemoteNetworkConfig",
             "ResolveConflicts",
+            "RoleArn",
+            "RoleMappingsToAddOrUpdate",
+            "RoleMappingsToRemove",
             "SecurityGroups",
             "ServiceAccountRoleArn",
             "StorageConfig",
@@ -387,6 +411,7 @@ impl ::std::fmt::Display for UpdateParamType {
             UpdateParamType::MaxUnavailable => write!(f, "MaxUnavailable"),
             UpdateParamType::MaxUnavailablePercentage => write!(f, "MaxUnavailablePercentage"),
             UpdateParamType::MinSize => write!(f, "MinSize"),
+            UpdateParamType::NetworkAccess => write!(f, "NetworkAccess"),
             UpdateParamType::NodeRepairConfig => write!(f, "NodeRepairConfig"),
             UpdateParamType::NodeRepairEnabled => write!(f, "NodeRepairEnabled"),
             UpdateParamType::PlatformVersion => write!(f, "PlatformVersion"),
@@ -396,6 +421,9 @@ impl ::std::fmt::Display for UpdateParamType {
             UpdateParamType::ReleaseVersion => write!(f, "ReleaseVersion"),
             UpdateParamType::RemoteNetworkConfig => write!(f, "RemoteNetworkConfig"),
             UpdateParamType::ResolveConflicts => write!(f, "ResolveConflicts"),
+            UpdateParamType::RoleArn => write!(f, "RoleArn"),
+            UpdateParamType::RoleMappingsToAddOrUpdate => write!(f, "RoleMappingsToAddOrUpdate"),
+            UpdateParamType::RoleMappingsToRemove => write!(f, "RoleMappingsToRemove"),
             UpdateParamType::SecurityGroups => write!(f, "SecurityGroups"),
             UpdateParamType::ServiceAccountRoleArn => write!(f, "ServiceAccountRoleArn"),
             UpdateParamType::StorageConfig => write!(f, "StorageConfig"),

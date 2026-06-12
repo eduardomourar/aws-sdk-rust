@@ -22,6 +22,9 @@ pub mod create_chat;
 /// Types for the `CreatePrivateConnection` operation.
 pub mod create_private_connection;
 
+/// Types for the `CreateTrigger` operation.
+pub mod create_trigger;
+
 /// Types for the `DeleteAgentSpace` operation.
 pub mod delete_agent_space;
 
@@ -33,6 +36,9 @@ pub mod delete_asset_file;
 
 /// Types for the `DeletePrivateConnection` operation.
 pub mod delete_private_connection;
+
+/// Types for the `DeleteTrigger` operation.
+pub mod delete_trigger;
 
 /// Types for the `DeregisterService` operation.
 pub mod deregister_service;
@@ -78,6 +84,9 @@ pub mod get_recommendation;
 
 /// Types for the `GetService` operation.
 pub mod get_service;
+
+/// Types for the `GetTrigger` operation.
+pub mod get_trigger;
 
 /// Types for the `ListAgentSpaces` operation.
 pub mod list_agent_spaces;
@@ -127,6 +136,9 @@ pub mod list_services;
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
 
+/// Types for the `ListTriggers` operation.
+pub mod list_triggers;
+
 /// Types for the `ListWebhooks` operation.
 pub mod list_webhooks;
 
@@ -168,6 +180,9 @@ pub mod update_private_connection_certificate;
 
 /// Types for the `UpdateRecommendation` operation.
 pub mod update_recommendation;
+
+/// Types for the `UpdateTrigger` operation.
+pub mod update_trigger;
 
 /// Types for the `ValidateAwsAssociations` operation.
 pub mod validate_aws_associations;

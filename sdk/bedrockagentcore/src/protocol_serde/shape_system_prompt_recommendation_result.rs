@@ -33,6 +33,13 @@ where
                                     crate::protocol_serde::shape_recommendation_result_configuration_bundle::de_recommendation_result_configuration_bundle(tokens, _value, depth + 1)?
                                 );
                         }
+                        "explanation" => {
+                            builder = builder.set_explanation(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "errorCode" => {
                             builder = builder.set_error_code(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

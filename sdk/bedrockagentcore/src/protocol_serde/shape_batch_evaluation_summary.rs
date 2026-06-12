@@ -66,6 +66,9 @@ where
                             builder =
                                 builder.set_evaluators(crate::protocol_serde::shape_evaluator_list::de_evaluator_list(tokens, _value, depth + 1)?);
                         }
+                        "insights" => {
+                            builder = builder.set_insights(crate::protocol_serde::shape_insight_list::de_insight_list(tokens, _value, depth + 1)?);
+                        }
                         "evaluationResults" => {
                             builder = builder.set_evaluation_results(crate::protocol_serde::shape_evaluation_job_results::de_evaluation_job_results(
                                 tokens,
@@ -79,6 +82,13 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "kmsKeyArn" => {
+                            builder = builder.set_kms_key_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "updatedAt" => {
                             builder = builder.set_updated_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

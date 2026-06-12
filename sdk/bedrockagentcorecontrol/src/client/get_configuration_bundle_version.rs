@@ -15,6 +15,7 @@ impl super::Client {
     ///   - [`lineage_metadata(Option<VersionLineageMetadata>)`](crate::operation::get_configuration_bundle_version::GetConfigurationBundleVersionOutput::lineage_metadata): <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
     ///   - [`created_at(DateTime)`](crate::operation::get_configuration_bundle_version::GetConfigurationBundleVersionOutput::created_at): <p>The timestamp when the configuration bundle was created.</p>
     ///   - [`version_created_at(DateTime)`](crate::operation::get_configuration_bundle_version::GetConfigurationBundleVersionOutput::version_created_at): <p>The timestamp when this specific version was created.</p>
+    ///   - [`kms_key_arn(Option<String>)`](crate::operation::get_configuration_bundle_version::GetConfigurationBundleVersionOutput::kms_key_arn): <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
     /// - On failure, responds with [`SdkError<GetConfigurationBundleVersionError>`](crate::operation::get_configuration_bundle_version::GetConfigurationBundleVersionError)
     pub fn get_configuration_bundle_version(
         &self,

@@ -11,12 +11,18 @@ pub struct StartBatchEvaluationOutput {
     pub batch_evaluation_name: ::std::string::String,
     /// <p>The list of evaluators applied during the batch evaluation.</p>
     pub evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     /// <p>The status of the batch evaluation.</p>
     pub status: crate::types::BatchEvaluationStatus,
     /// <p>The timestamp when the batch evaluation was created.</p>
     pub created_at: ::aws_smithy_types::DateTime,
     /// <p>The output configuration specifying where evaluation results are written.</p>
     pub output_config: ::std::option::Option<crate::types::OutputConfig>,
+    /// <p>The tags associated with the batch evaluation.</p>
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The description of the batch evaluation.</p>
     pub description: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -43,6 +49,12 @@ impl StartBatchEvaluationOutput {
     pub fn evaluators(&self) -> &[crate::types::Evaluator] {
         self.evaluators.as_deref().unwrap_or_default()
     }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.insights.is_none()`.
+    pub fn insights(&self) -> &[crate::types::Insight] {
+        self.insights.as_deref().unwrap_or_default()
+    }
     /// <p>The status of the batch evaluation.</p>
     pub fn status(&self) -> &crate::types::BatchEvaluationStatus {
         &self.status
@@ -54,6 +66,14 @@ impl StartBatchEvaluationOutput {
     /// <p>The output configuration specifying where evaluation results are written.</p>
     pub fn output_config(&self) -> ::std::option::Option<&crate::types::OutputConfig> {
         self.output_config.as_ref()
+    }
+    /// <p>The tags associated with the batch evaluation.</p>
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        self.tags.as_ref()
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
     }
     /// <p>The description of the batch evaluation.</p>
     pub fn description(&self) -> ::std::option::Option<&str> {
@@ -80,9 +100,12 @@ pub struct StartBatchEvaluationOutputBuilder {
     pub(crate) batch_evaluation_arn: ::std::option::Option<::std::string::String>,
     pub(crate) batch_evaluation_name: ::std::option::Option<::std::string::String>,
     pub(crate) evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    pub(crate) insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     pub(crate) status: ::std::option::Option<crate::types::BatchEvaluationStatus>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) output_config: ::std::option::Option<crate::types::OutputConfig>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -152,6 +175,26 @@ impl StartBatchEvaluationOutputBuilder {
     pub fn get_evaluators(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluator>> {
         &self.evaluators
     }
+    /// Appends an item to `insights`.
+    ///
+    /// To override the contents of this collection use [`set_insights`](Self::set_insights).
+    ///
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn insights(mut self, input: crate::types::Insight) -> Self {
+        let mut v = self.insights.unwrap_or_default();
+        v.push(input);
+        self.insights = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>) -> Self {
+        self.insights = input;
+        self
+    }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Insight>> {
+        &self.insights
+    }
     /// <p>The status of the batch evaluation.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::BatchEvaluationStatus) -> Self {
@@ -195,6 +238,40 @@ impl StartBatchEvaluationOutputBuilder {
     /// <p>The output configuration specifying where evaluation results are written.</p>
     pub fn get_output_config(&self) -> &::std::option::Option<crate::types::OutputConfig> {
         &self.output_config
+    }
+    /// Adds a key-value pair to `tags`.
+    ///
+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The tags associated with the batch evaluation.</p>
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut hash_map = self.tags.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.tags = ::std::option::Option::Some(hash_map);
+        self
+    }
+    /// <p>The tags associated with the batch evaluation.</p>
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input;
+        self
+    }
+    /// <p>The tags associated with the batch evaluation.</p>
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.tags
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
     }
     /// <p>The description of the batch evaluation.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -250,6 +327,7 @@ impl StartBatchEvaluationOutputBuilder {
                 )
             })?,
             evaluators: self.evaluators,
+            insights: self.insights,
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "status",
@@ -263,6 +341,8 @@ impl StartBatchEvaluationOutputBuilder {
                 )
             })?,
             output_config: self.output_config,
+            tags: self.tags,
+            kms_key_arn: self.kms_key_arn,
             description: self.description,
             _request_id: self._request_id,
         })

@@ -373,6 +373,8 @@ pub use crate::types::_federated_table::FederatedTableBuilder;
 
 pub use crate::types::_view_definition::ViewDefinitionBuilder;
 
+pub use crate::types::_iceberg_table_metadata::IcebergTableMetadataBuilder;
+
 pub use crate::types::_table_status::TableStatusBuilder;
 
 pub use crate::types::_table_optimizer_run::TableOptimizerRunBuilder;

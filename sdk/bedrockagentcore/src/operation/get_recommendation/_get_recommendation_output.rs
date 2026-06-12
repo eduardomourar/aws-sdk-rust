@@ -23,6 +23,8 @@ pub struct GetRecommendationOutput {
     pub updated_at: ::aws_smithy_types::DateTime,
     /// <p>The result of the recommendation, containing the optimized system prompt or tool descriptions. Only present when the recommendation status is <code>COMPLETED</code>.</p>
     pub recommendation_result: ::std::option::Option<crate::types::RecommendationResult>,
+    /// <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetRecommendationOutput {
@@ -69,6 +71,10 @@ impl GetRecommendationOutput {
     pub fn recommendation_result(&self) -> ::std::option::Option<&crate::types::RecommendationResult> {
         self.recommendation_result.as_ref()
     }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
 }
 impl ::aws_types::request_id::RequestId for GetRecommendationOutput {
     fn request_id(&self) -> Option<&str> {
@@ -96,6 +102,7 @@ pub struct GetRecommendationOutputBuilder {
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) recommendation_result: ::std::option::Option<crate::types::RecommendationResult>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetRecommendationOutputBuilder {
@@ -247,6 +254,20 @@ impl GetRecommendationOutputBuilder {
     pub fn get_recommendation_result(&self) -> &::std::option::Option<crate::types::RecommendationResult> {
         &self.recommendation_result
     }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -314,6 +335,7 @@ impl GetRecommendationOutputBuilder {
                 )
             })?,
             recommendation_result: self.recommendation_result,
+            kms_key_arn: self.kms_key_arn,
             _request_id: self._request_id,
         })
     }

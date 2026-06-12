@@ -329,6 +329,36 @@ impl From<crate::operation::create_private_connection::CreatePrivateConnectionEr
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_trigger::CreateTriggerError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_trigger::CreateTriggerError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_trigger::CreateTriggerError> for Error {
+    fn from(err: crate::operation::create_trigger::CreateTriggerError) -> Self {
+        match err {
+            crate::operation::create_trigger::CreateTriggerError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_trigger::CreateTriggerError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::create_trigger::CreateTriggerError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::create_trigger::CreateTriggerError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::create_trigger::CreateTriggerError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_trigger::CreateTriggerError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::create_trigger::CreateTriggerError::ContentSizeExceededException(inner) => Error::ContentSizeExceededException(inner),
+            crate::operation::create_trigger::CreateTriggerError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::create_trigger::CreateTriggerError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::create_trigger::CreateTriggerError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_agent_space::DeleteAgentSpaceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -473,6 +503,36 @@ impl From<crate::operation::delete_private_connection::DeletePrivateConnectionEr
                 Error::ServiceQuotaExceededException(inner)
             }
             crate::operation::delete_private_connection::DeletePrivateConnectionError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_trigger::DeleteTriggerError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_trigger::DeleteTriggerError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_trigger::DeleteTriggerError> for Error {
+    fn from(err: crate::operation::delete_trigger::DeleteTriggerError) -> Self {
+        match err {
+            crate::operation::delete_trigger::DeleteTriggerError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::ContentSizeExceededException(inner) => Error::ContentSizeExceededException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::delete_trigger::DeleteTriggerError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1002,6 +1062,36 @@ impl From<crate::operation::get_service::GetServiceError> for Error {
             crate::operation::get_service::GetServiceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
             crate::operation::get_service::GetServiceError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
             crate::operation::get_service::GetServiceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_trigger::GetTriggerError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_trigger::GetTriggerError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_trigger::GetTriggerError> for Error {
+    fn from(err: crate::operation::get_trigger::GetTriggerError) -> Self {
+        match err {
+            crate::operation::get_trigger::GetTriggerError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_trigger::GetTriggerError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::get_trigger::GetTriggerError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_trigger::GetTriggerError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::get_trigger::GetTriggerError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::get_trigger::GetTriggerError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::get_trigger::GetTriggerError::ContentSizeExceededException(inner) => Error::ContentSizeExceededException(inner),
+            crate::operation::get_trigger::GetTriggerError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::get_trigger::GetTriggerError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::get_trigger::GetTriggerError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1565,6 +1655,36 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_triggers::ListTriggersError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_triggers::ListTriggersError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_triggers::ListTriggersError> for Error {
+    fn from(err: crate::operation::list_triggers::ListTriggersError) -> Self {
+        match err {
+            crate::operation::list_triggers::ListTriggersError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_triggers::ListTriggersError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_triggers::ListTriggersError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_triggers::ListTriggersError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_triggers::ListTriggersError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_triggers::ListTriggersError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::list_triggers::ListTriggersError::ContentSizeExceededException(inner) => Error::ContentSizeExceededException(inner),
+            crate::operation::list_triggers::ListTriggersError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::list_triggers::ListTriggersError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::list_triggers::ListTriggersError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_webhooks::ListWebhooksError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2068,6 +2188,36 @@ impl From<crate::operation::update_recommendation::UpdateRecommendationError> fo
                 Error::ServiceQuotaExceededException(inner)
             }
             crate::operation::update_recommendation::UpdateRecommendationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_trigger::UpdateTriggerError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_trigger::UpdateTriggerError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_trigger::UpdateTriggerError> for Error {
+    fn from(err: crate::operation::update_trigger::UpdateTriggerError) -> Self {
+        match err {
+            crate::operation::update_trigger::UpdateTriggerError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::ContentSizeExceededException(inner) => Error::ContentSizeExceededException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::update_trigger::UpdateTriggerError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

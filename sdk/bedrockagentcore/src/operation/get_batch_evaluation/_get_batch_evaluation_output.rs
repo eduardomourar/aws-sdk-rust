@@ -15,18 +15,28 @@ pub struct GetBatchEvaluationOutput {
     pub created_at: ::aws_smithy_types::DateTime,
     /// <p>The list of evaluators applied during the batch evaluation.</p>
     pub evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     /// <p>The data source configuration specifying where agent traces are pulled from.</p>
     pub data_source_config: ::std::option::Option<crate::types::DataSourceConfig>,
     /// <p>The output configuration specifying where evaluation results are written.</p>
     pub output_config: ::std::option::Option<crate::types::OutputConfig>,
     /// <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
     pub evaluation_results: ::std::option::Option<crate::types::EvaluationJobResults>,
+    /// Unified customer-facing clustering result written to S3.
+    pub failure_analysis_result: ::std::option::Option<crate::types::FailureAnalysisResultContent>,
+    /// Customer-facing user intent clustering result written to S3.
+    pub user_intent_result: ::std::option::Option<crate::types::UserIntentClusteringResultContent>,
+    /// Customer-facing execution summary clustering result written to S3.
+    pub execution_summary_result: ::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent>,
     /// <p>The error details if the batch evaluation encountered failures.</p>
     pub error_details: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The description of the batch evaluation.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The timestamp when the batch evaluation was last updated.</p>
     pub updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetBatchEvaluationOutput {
@@ -59,6 +69,12 @@ impl GetBatchEvaluationOutput {
     pub fn evaluators(&self) -> &[crate::types::Evaluator] {
         self.evaluators.as_deref().unwrap_or_default()
     }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.insights.is_none()`.
+    pub fn insights(&self) -> &[crate::types::Insight] {
+        self.insights.as_deref().unwrap_or_default()
+    }
     /// <p>The data source configuration specifying where agent traces are pulled from.</p>
     pub fn data_source_config(&self) -> ::std::option::Option<&crate::types::DataSourceConfig> {
         self.data_source_config.as_ref()
@@ -70,6 +86,18 @@ impl GetBatchEvaluationOutput {
     /// <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
     pub fn evaluation_results(&self) -> ::std::option::Option<&crate::types::EvaluationJobResults> {
         self.evaluation_results.as_ref()
+    }
+    /// Unified customer-facing clustering result written to S3.
+    pub fn failure_analysis_result(&self) -> ::std::option::Option<&crate::types::FailureAnalysisResultContent> {
+        self.failure_analysis_result.as_ref()
+    }
+    /// Customer-facing user intent clustering result written to S3.
+    pub fn user_intent_result(&self) -> ::std::option::Option<&crate::types::UserIntentClusteringResultContent> {
+        self.user_intent_result.as_ref()
+    }
+    /// Customer-facing execution summary clustering result written to S3.
+    pub fn execution_summary_result(&self) -> ::std::option::Option<&crate::types::ExecutionSummaryClusteringResultContent> {
+        self.execution_summary_result.as_ref()
     }
     /// <p>The error details if the batch evaluation encountered failures.</p>
     ///
@@ -84,6 +112,10 @@ impl GetBatchEvaluationOutput {
     /// <p>The timestamp when the batch evaluation was last updated.</p>
     pub fn updated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.updated_at.as_ref()
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for GetBatchEvaluationOutput {
@@ -108,12 +140,17 @@ pub struct GetBatchEvaluationOutputBuilder {
     pub(crate) status: ::std::option::Option<crate::types::BatchEvaluationStatus>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) evaluators: ::std::option::Option<::std::vec::Vec<crate::types::Evaluator>>,
+    pub(crate) insights: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>,
     pub(crate) data_source_config: ::std::option::Option<crate::types::DataSourceConfig>,
     pub(crate) output_config: ::std::option::Option<crate::types::OutputConfig>,
     pub(crate) evaluation_results: ::std::option::Option<crate::types::EvaluationJobResults>,
+    pub(crate) failure_analysis_result: ::std::option::Option<crate::types::FailureAnalysisResultContent>,
+    pub(crate) user_intent_result: ::std::option::Option<crate::types::UserIntentClusteringResultContent>,
+    pub(crate) execution_summary_result: ::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent>,
     pub(crate) error_details: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetBatchEvaluationOutputBuilder {
@@ -212,6 +249,26 @@ impl GetBatchEvaluationOutputBuilder {
     pub fn get_evaluators(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluator>> {
         &self.evaluators
     }
+    /// Appends an item to `insights`.
+    ///
+    /// To override the contents of this collection use [`set_insights`](Self::set_insights).
+    ///
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn insights(mut self, input: crate::types::Insight) -> Self {
+        let mut v = self.insights.unwrap_or_default();
+        v.push(input);
+        self.insights = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Insight>>) -> Self {
+        self.insights = input;
+        self
+    }
+    /// <p>The list of insight analyses applied during the batch evaluation.</p>
+    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Insight>> {
+        &self.insights
+    }
     /// <p>The data source configuration specifying where agent traces are pulled from.</p>
     pub fn data_source_config(mut self, input: crate::types::DataSourceConfig) -> Self {
         self.data_source_config = ::std::option::Option::Some(input);
@@ -253,6 +310,48 @@ impl GetBatchEvaluationOutputBuilder {
     /// <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
     pub fn get_evaluation_results(&self) -> &::std::option::Option<crate::types::EvaluationJobResults> {
         &self.evaluation_results
+    }
+    /// Unified customer-facing clustering result written to S3.
+    pub fn failure_analysis_result(mut self, input: crate::types::FailureAnalysisResultContent) -> Self {
+        self.failure_analysis_result = ::std::option::Option::Some(input);
+        self
+    }
+    /// Unified customer-facing clustering result written to S3.
+    pub fn set_failure_analysis_result(mut self, input: ::std::option::Option<crate::types::FailureAnalysisResultContent>) -> Self {
+        self.failure_analysis_result = input;
+        self
+    }
+    /// Unified customer-facing clustering result written to S3.
+    pub fn get_failure_analysis_result(&self) -> &::std::option::Option<crate::types::FailureAnalysisResultContent> {
+        &self.failure_analysis_result
+    }
+    /// Customer-facing user intent clustering result written to S3.
+    pub fn user_intent_result(mut self, input: crate::types::UserIntentClusteringResultContent) -> Self {
+        self.user_intent_result = ::std::option::Option::Some(input);
+        self
+    }
+    /// Customer-facing user intent clustering result written to S3.
+    pub fn set_user_intent_result(mut self, input: ::std::option::Option<crate::types::UserIntentClusteringResultContent>) -> Self {
+        self.user_intent_result = input;
+        self
+    }
+    /// Customer-facing user intent clustering result written to S3.
+    pub fn get_user_intent_result(&self) -> &::std::option::Option<crate::types::UserIntentClusteringResultContent> {
+        &self.user_intent_result
+    }
+    /// Customer-facing execution summary clustering result written to S3.
+    pub fn execution_summary_result(mut self, input: crate::types::ExecutionSummaryClusteringResultContent) -> Self {
+        self.execution_summary_result = ::std::option::Option::Some(input);
+        self
+    }
+    /// Customer-facing execution summary clustering result written to S3.
+    pub fn set_execution_summary_result(mut self, input: ::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent>) -> Self {
+        self.execution_summary_result = input;
+        self
+    }
+    /// Customer-facing execution summary clustering result written to S3.
+    pub fn get_execution_summary_result(&self) -> &::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent> {
+        &self.execution_summary_result
     }
     /// Appends an item to `error_details`.
     ///
@@ -301,6 +400,20 @@ impl GetBatchEvaluationOutputBuilder {
     /// <p>The timestamp when the batch evaluation was last updated.</p>
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.updated_at
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
@@ -354,12 +467,17 @@ impl GetBatchEvaluationOutputBuilder {
                 )
             })?,
             evaluators: self.evaluators,
+            insights: self.insights,
             data_source_config: self.data_source_config,
             output_config: self.output_config,
             evaluation_results: self.evaluation_results,
+            failure_analysis_result: self.failure_analysis_result,
+            user_intent_result: self.user_intent_result,
+            execution_summary_result: self.execution_summary_result,
             error_details: self.error_details,
             description: self.description,
             updated_at: self.updated_at,
+            kms_key_arn: self.kms_key_arn,
             _request_id: self._request_id,
         })
     }

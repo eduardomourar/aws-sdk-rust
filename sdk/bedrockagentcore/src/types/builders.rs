@@ -17,6 +17,12 @@ pub use crate::types::_ab_test_results::AbTestResultsBuilder;
 
 pub use crate::types::_evaluation_job_results::EvaluationJobResultsBuilder;
 
+pub use crate::types::_failure_analysis_result_content::FailureAnalysisResultContentBuilder;
+
+pub use crate::types::_user_intent_clustering_result_content::UserIntentClusteringResultContentBuilder;
+
+pub use crate::types::_execution_summary_clustering_result_content::ExecutionSummaryClusteringResultContentBuilder;
+
 pub use crate::types::_branch::BranchBuilder;
 
 pub use crate::types::_event::EventBuilder;
@@ -137,7 +143,11 @@ pub use crate::types::_evaluation_result_content::EvaluationResultContentBuilder
 
 pub use crate::types::_evaluator::EvaluatorBuilder;
 
+pub use crate::types::_insight::InsightBuilder;
+
 pub use crate::types::_cloud_watch_logs_source::CloudWatchLogsSourceBuilder;
+
+pub use crate::types::_online_evaluation_config_source::OnlineEvaluationConfigSourceBuilder;
 
 pub use crate::types::_cloud_watch_output_config::CloudWatchOutputConfigBuilder;
 
@@ -221,7 +231,15 @@ pub use crate::types::_evaluator_metric::EvaluatorMetricBuilder;
 
 pub use crate::types::_cloud_watch_filter_config::CloudWatchFilterConfigBuilder;
 
+pub use crate::types::_session_filter_config::SessionFilterConfigBuilder;
+
 pub use crate::types::_evaluator_summary::EvaluatorSummaryBuilder;
+
+pub use crate::types::_failure_category_cluster::FailureCategoryClusterBuilder;
+
+pub use crate::types::_user_intent_cluster::UserIntentClusterBuilder;
+
+pub use crate::types::_execution_summary_cluster::ExecutionSummaryClusterBuilder;
 
 pub use crate::types::_recommendation_evaluation_config::RecommendationEvaluationConfigBuilder;
 
@@ -269,13 +287,13 @@ pub use crate::types::_span_context::SpanContextBuilder;
 
 pub use crate::types::_control_stats::ControlStatsBuilder;
 
-pub use crate::types::_session_filter_config::SessionFilterConfigBuilder;
-
 pub use crate::types::_evaluator_statistics::EvaluatorStatisticsBuilder;
 
 pub use crate::types::_system_prompt_configuration_bundle::SystemPromptConfigurationBundleBuilder;
 
 pub use crate::types::_cloud_watch_logs_trace_config::CloudWatchLogsTraceConfigBuilder;
+
+pub use crate::types::_batch_evaluation_trace_config::BatchEvaluationTraceConfigBuilder;
 
 pub use crate::types::_tool_description_text_input::ToolDescriptionTextInputBuilder;
 
@@ -298,6 +316,12 @@ pub use crate::types::_harness_tool_use_block::HarnessToolUseBlockBuilder;
 pub use crate::types::_harness_tool_result_block::HarnessToolResultBlockBuilder;
 
 pub use crate::types::_variant_result::VariantResultBuilder;
+
+pub use crate::types::_failure_sub_category_cluster::FailureSubCategoryClusterBuilder;
+
+pub use crate::types::_user_intent_affected_session::UserIntentAffectedSessionBuilder;
+
+pub use crate::types::_execution_summary_affected_session::ExecutionSummaryAffectedSessionBuilder;
 
 pub use crate::types::_cloud_watch_logs_rule::CloudWatchLogsRuleBuilder;
 
@@ -339,6 +363,14 @@ pub use crate::types::_configuration_bundle_tool_entry::ConfigurationBundleToolE
 
 pub use crate::types::_o_auth2_authentication::OAuth2AuthenticationBuilder;
 
+pub use crate::types::_root_cause_cluster::RootCauseClusterBuilder;
+
 pub use crate::types::_cloud_watch_logs_filter::CloudWatchLogsFilterBuilder;
 
 pub use crate::types::_ground_truth_turn::GroundTruthTurnBuilder;
+
+pub use crate::types::_affected_session::AffectedSessionBuilder;
+
+pub use crate::types::_failure_span_detail::FailureSpanDetailBuilder;
+
+pub use crate::types::_insights_failure_signal::InsightsFailureSignalBuilder;

@@ -17,6 +17,7 @@
 ///     UpdateType::AssociateEncryptionConfig => { /* ... */ },
 ///     UpdateType::AssociateIdentityProviderConfig => { /* ... */ },
 ///     UpdateType::AutoModeUpdate => { /* ... */ },
+///     UpdateType::CapabilityUpdate => { /* ... */ },
 ///     UpdateType::ConfigUpdate => { /* ... */ },
 ///     UpdateType::ControlPlaneScalingConfigUpdate => { /* ... */ },
 ///     UpdateType::DeletionProtectionUpdate => { /* ... */ },
@@ -68,6 +69,8 @@ pub enum UpdateType {
     #[allow(missing_docs)] // documentation missing in model
     AutoModeUpdate,
     #[allow(missing_docs)] // documentation missing in model
+    CapabilityUpdate,
+    #[allow(missing_docs)] // documentation missing in model
     ConfigUpdate,
     #[allow(missing_docs)] // documentation missing in model
     ControlPlaneScalingConfigUpdate,
@@ -103,6 +106,7 @@ impl ::std::convert::From<&str> for UpdateType {
             "AssociateEncryptionConfig" => UpdateType::AssociateEncryptionConfig,
             "AssociateIdentityProviderConfig" => UpdateType::AssociateIdentityProviderConfig,
             "AutoModeUpdate" => UpdateType::AutoModeUpdate,
+            "CapabilityUpdate" => UpdateType::CapabilityUpdate,
             "ConfigUpdate" => UpdateType::ConfigUpdate,
             "ControlPlaneScalingConfigUpdate" => UpdateType::ControlPlaneScalingConfigUpdate,
             "DeletionProtectionUpdate" => UpdateType::DeletionProtectionUpdate,
@@ -135,6 +139,7 @@ impl UpdateType {
             UpdateType::AssociateEncryptionConfig => "AssociateEncryptionConfig",
             UpdateType::AssociateIdentityProviderConfig => "AssociateIdentityProviderConfig",
             UpdateType::AutoModeUpdate => "AutoModeUpdate",
+            UpdateType::CapabilityUpdate => "CapabilityUpdate",
             UpdateType::ConfigUpdate => "ConfigUpdate",
             UpdateType::ControlPlaneScalingConfigUpdate => "ControlPlaneScalingConfigUpdate",
             UpdateType::DeletionProtectionUpdate => "DeletionProtectionUpdate",
@@ -158,6 +163,7 @@ impl UpdateType {
             "AssociateEncryptionConfig",
             "AssociateIdentityProviderConfig",
             "AutoModeUpdate",
+            "CapabilityUpdate",
             "ConfigUpdate",
             "ControlPlaneScalingConfigUpdate",
             "DeletionProtectionUpdate",
@@ -198,6 +204,7 @@ impl ::std::fmt::Display for UpdateType {
             UpdateType::AssociateEncryptionConfig => write!(f, "AssociateEncryptionConfig"),
             UpdateType::AssociateIdentityProviderConfig => write!(f, "AssociateIdentityProviderConfig"),
             UpdateType::AutoModeUpdate => write!(f, "AutoModeUpdate"),
+            UpdateType::CapabilityUpdate => write!(f, "CapabilityUpdate"),
             UpdateType::ConfigUpdate => write!(f, "ConfigUpdate"),
             UpdateType::ControlPlaneScalingConfigUpdate => write!(f, "ControlPlaneScalingConfigUpdate"),
             UpdateType::DeletionProtectionUpdate => write!(f, "DeletionProtectionUpdate"),

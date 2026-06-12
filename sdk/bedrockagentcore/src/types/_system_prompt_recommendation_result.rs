@@ -8,6 +8,8 @@ pub struct SystemPromptRecommendationResult {
     pub recommended_system_prompt: ::std::option::Option<::std::string::String>,
     /// <p>The configuration bundle containing the recommended system prompt, if the input was sourced from a configuration bundle.</p>
     pub configuration_bundle: ::std::option::Option<crate::types::RecommendationResultConfigurationBundle>,
+    /// <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+    pub explanation: ::std::option::Option<::std::string::String>,
     /// <p>The error code if the recommendation failed.</p>
     pub error_code: ::std::option::Option<::std::string::String>,
     /// <p>The error message if the recommendation failed.</p>
@@ -21,6 +23,10 @@ impl SystemPromptRecommendationResult {
     /// <p>The configuration bundle containing the recommended system prompt, if the input was sourced from a configuration bundle.</p>
     pub fn configuration_bundle(&self) -> ::std::option::Option<&crate::types::RecommendationResultConfigurationBundle> {
         self.configuration_bundle.as_ref()
+    }
+    /// <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+    pub fn explanation(&self) -> ::std::option::Option<&str> {
+        self.explanation.as_deref()
     }
     /// <p>The error code if the recommendation failed.</p>
     pub fn error_code(&self) -> ::std::option::Option<&str> {
@@ -36,6 +42,7 @@ impl ::std::fmt::Debug for SystemPromptRecommendationResult {
         let mut formatter = f.debug_struct("SystemPromptRecommendationResult");
         formatter.field("recommended_system_prompt", &"*** Sensitive Data Redacted ***");
         formatter.field("configuration_bundle", &self.configuration_bundle);
+        formatter.field("explanation", &self.explanation);
         formatter.field("error_code", &self.error_code);
         formatter.field("error_message", &self.error_message);
         formatter.finish()
@@ -54,6 +61,7 @@ impl SystemPromptRecommendationResult {
 pub struct SystemPromptRecommendationResultBuilder {
     pub(crate) recommended_system_prompt: ::std::option::Option<::std::string::String>,
     pub(crate) configuration_bundle: ::std::option::Option<crate::types::RecommendationResultConfigurationBundle>,
+    pub(crate) explanation: ::std::option::Option<::std::string::String>,
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
     pub(crate) error_message: ::std::option::Option<::std::string::String>,
 }
@@ -85,6 +93,20 @@ impl SystemPromptRecommendationResultBuilder {
     /// <p>The configuration bundle containing the recommended system prompt, if the input was sourced from a configuration bundle.</p>
     pub fn get_configuration_bundle(&self) -> &::std::option::Option<crate::types::RecommendationResultConfigurationBundle> {
         &self.configuration_bundle
+    }
+    /// <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+    pub fn explanation(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.explanation = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+    pub fn set_explanation(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.explanation = input;
+        self
+    }
+    /// <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+    pub fn get_explanation(&self) -> &::std::option::Option<::std::string::String> {
+        &self.explanation
     }
     /// <p>The error code if the recommendation failed.</p>
     pub fn error_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -119,6 +141,7 @@ impl SystemPromptRecommendationResultBuilder {
         crate::types::SystemPromptRecommendationResult {
             recommended_system_prompt: self.recommended_system_prompt,
             configuration_bundle: self.configuration_bundle,
+            explanation: self.explanation,
             error_code: self.error_code,
             error_message: self.error_message,
         }
@@ -129,6 +152,7 @@ impl ::std::fmt::Debug for SystemPromptRecommendationResultBuilder {
         let mut formatter = f.debug_struct("SystemPromptRecommendationResultBuilder");
         formatter.field("recommended_system_prompt", &"*** Sensitive Data Redacted ***");
         formatter.field("configuration_bundle", &self.configuration_bundle);
+        formatter.field("explanation", &self.explanation);
         formatter.field("error_code", &self.error_code);
         formatter.field("error_message", &self.error_message);
         formatter.finish()

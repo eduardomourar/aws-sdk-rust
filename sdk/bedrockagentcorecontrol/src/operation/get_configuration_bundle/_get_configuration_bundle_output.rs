@@ -21,6 +21,8 @@ pub struct GetConfigurationBundleOutput {
     pub created_at: ::aws_smithy_types::DateTime,
     /// <p>The timestamp when the configuration bundle was last updated.</p>
     pub updated_at: ::aws_smithy_types::DateTime,
+    /// <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetConfigurationBundleOutput {
@@ -64,6 +66,10 @@ impl GetConfigurationBundleOutput {
     pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
         &self.updated_at
     }
+    /// <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
 }
 impl ::std::fmt::Debug for GetConfigurationBundleOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -77,6 +83,7 @@ impl ::std::fmt::Debug for GetConfigurationBundleOutput {
         formatter.field("lineage_metadata", &self.lineage_metadata);
         formatter.field("created_at", &self.created_at);
         formatter.field("updated_at", &self.updated_at);
+        formatter.field("kms_key_arn", &self.kms_key_arn);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -106,6 +113,7 @@ pub struct GetConfigurationBundleOutputBuilder {
     pub(crate) lineage_metadata: ::std::option::Option<crate::types::VersionLineageMetadata>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetConfigurationBundleOutputBuilder {
@@ -250,6 +258,20 @@ impl GetConfigurationBundleOutputBuilder {
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.updated_at
     }
+    /// <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -319,6 +341,7 @@ impl GetConfigurationBundleOutputBuilder {
                     "updated_at was not specified but it is required when building GetConfigurationBundleOutput",
                 )
             })?,
+            kms_key_arn: self.kms_key_arn,
             _request_id: self._request_id,
         })
     }
@@ -335,6 +358,7 @@ impl ::std::fmt::Debug for GetConfigurationBundleOutputBuilder {
         formatter.field("lineage_metadata", &self.lineage_metadata);
         formatter.field("created_at", &self.created_at);
         formatter.field("updated_at", &self.updated_at);
+        formatter.field("kms_key_arn", &self.kms_key_arn);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

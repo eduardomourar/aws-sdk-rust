@@ -371,11 +371,15 @@ pub(crate) mod shape_event;
 
 pub(crate) mod shape_event_list;
 
+pub(crate) mod shape_execution_summary_clustering_result_content;
+
 pub(crate) mod shape_extraction_job;
 
 pub(crate) mod shape_extraction_job_filter_input;
 
 pub(crate) mod shape_extraction_job_metadata_list;
+
+pub(crate) mod shape_failure_analysis_result_content;
 
 pub(crate) mod shape_filter_input;
 
@@ -390,6 +394,10 @@ pub(crate) mod shape_harness_skill;
 pub(crate) mod shape_harness_system_content_block;
 
 pub(crate) mod shape_harness_tool;
+
+pub(crate) mod shape_insight;
+
+pub(crate) mod shape_insight_list;
 
 pub(crate) mod shape_invoke_agent_runtime_command_request_body;
 
@@ -451,11 +459,15 @@ pub(crate) mod shape_session_summary_list;
 
 pub(crate) mod shape_stream_update;
 
+pub(crate) mod shape_tags_map;
+
 pub(crate) mod shape_token_balance;
 
 pub(crate) mod shape_tool_arguments;
 
 pub(crate) mod shape_user_identifier;
+
+pub(crate) mod shape_user_intent_clustering_result_content;
 
 pub(crate) mod shape_validation_exception_field_list;
 
@@ -519,7 +531,11 @@ pub(crate) mod shape_evaluator_summary_list;
 
 pub(crate) mod shape_event_metadata_filter_expression;
 
+pub(crate) mod shape_execution_summary_cluster_list;
+
 pub(crate) mod shape_extraction_job_metadata;
+
+pub(crate) mod shape_failure_category_cluster_list;
 
 pub(crate) mod shape_harness_bedrock_model_config;
 
@@ -599,6 +615,8 @@ pub(crate) mod shape_mouse_scroll_result;
 
 pub(crate) mod shape_namespaces_list;
 
+pub(crate) mod shape_online_evaluation_config_source;
+
 pub(crate) mod shape_payload_type_list;
 
 pub(crate) mod shape_payment_instrument_summary;
@@ -645,6 +663,8 @@ pub(crate) mod shape_tool_description_recommendation_config;
 
 pub(crate) mod shape_tool_description_recommendation_result;
 
+pub(crate) mod shape_user_intent_cluster_list;
+
 pub(crate) mod shape_validation_exception_field;
 
 pub(crate) mod shape_variant_configuration;
@@ -667,9 +687,13 @@ pub(crate) mod shape_evaluator_metric;
 
 pub(crate) mod shape_evaluator_summary;
 
+pub(crate) mod shape_execution_summary_cluster;
+
 pub(crate) mod shape_external_proxy;
 
 pub(crate) mod shape_extraction_job_messages;
+
+pub(crate) mod shape_failure_category_cluster;
 
 pub(crate) mod shape_ground_truth_source;
 
@@ -707,6 +731,8 @@ pub(crate) mod shape_s3_location;
 
 pub(crate) mod shape_secrets_manager_location;
 
+pub(crate) mod shape_session_filter_config;
+
 pub(crate) mod shape_span_context;
 
 pub(crate) mod shape_system_prompt_config;
@@ -719,9 +745,13 @@ pub(crate) mod shape_tool_description_result_list;
 
 pub(crate) mod shape_tool_description_source;
 
+pub(crate) mod shape_user_intent_cluster;
+
 pub(crate) mod shape_a2a_descriptor;
 
 pub(crate) mod shape_agent_skills_descriptor;
+
+pub(crate) mod shape_batch_evaluation_trace_config;
 
 pub(crate) mod shape_cloud_watch_logs_trace_config;
 
@@ -738,6 +768,10 @@ pub(crate) mod shape_control_stats;
 pub(crate) mod shape_custom_descriptor;
 
 pub(crate) mod shape_evaluator_statistics;
+
+pub(crate) mod shape_execution_summary_affected_session_list;
+
+pub(crate) mod shape_failure_sub_category_cluster_list;
 
 pub(crate) mod shape_harness_content_block_delta;
 
@@ -775,8 +809,6 @@ pub(crate) mod shape_recommendation_evaluator_list;
 
 pub(crate) mod shape_recommendation_evaluator_reference;
 
-pub(crate) mod shape_session_filter_config;
-
 pub(crate) mod shape_spans;
 
 pub(crate) mod shape_string_value_list;
@@ -791,6 +823,8 @@ pub(crate) mod shape_tool_description_text_input;
 
 pub(crate) mod shape_tool_result_structured_content;
 
+pub(crate) mod shape_user_intent_affected_session_list;
+
 pub(crate) mod shape_variant_result_list;
 
 pub(crate) mod shape_agent_card_definition;
@@ -804,6 +838,10 @@ pub(crate) mod shape_configuration_bundle_tool_entry;
 pub(crate) mod shape_configuration_bundle_tool_entry_list;
 
 pub(crate) mod shape_content_block;
+
+pub(crate) mod shape_execution_summary_affected_session;
+
+pub(crate) mod shape_failure_sub_category_cluster;
 
 pub(crate) mod shape_ground_truth_turn;
 
@@ -839,6 +877,8 @@ pub(crate) mod shape_tool_description_list;
 
 pub(crate) mod shape_tools_definition;
 
+pub(crate) mod shape_user_intent_affected_session;
+
 pub(crate) mod shape_variant_result;
 
 pub(crate) mod shape_cloud_watch_logs_filter;
@@ -853,6 +893,24 @@ pub(crate) mod shape_harness_tool_result_block_delta;
 
 pub(crate) mod shape_resource_content;
 
+pub(crate) mod shape_root_cause_cluster_list;
+
 pub(crate) mod shape_tool_description_config;
 
+pub(crate) mod shape_user_intent_list;
+
 pub(crate) mod shape_filter_value;
+
+pub(crate) mod shape_root_cause_cluster;
+
+pub(crate) mod shape_affected_session_list;
+
+pub(crate) mod shape_affected_session;
+
+pub(crate) mod shape_failure_span_detail_list;
+
+pub(crate) mod shape_failure_span_detail;
+
+pub(crate) mod shape_insights_failure_signal_list;
+
+pub(crate) mod shape_insights_failure_signal;

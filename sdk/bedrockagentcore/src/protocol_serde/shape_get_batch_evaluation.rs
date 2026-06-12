@@ -208,6 +208,30 @@ pub(crate) fn de_get_batch_evaluation(
                 "evaluators" => {
                     builder = builder.set_evaluators(crate::protocol_serde::shape_evaluator_list::de_evaluator_list(tokens, _value, depth + 1)?);
                 }
+                "executionSummaryResult" => {
+                    builder = builder.set_execution_summary_result(
+                        crate::protocol_serde::shape_execution_summary_clustering_result_content::de_execution_summary_clustering_result_content(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "failureAnalysisResult" => {
+                    builder = builder.set_failure_analysis_result(
+                        crate::protocol_serde::shape_failure_analysis_result_content::de_failure_analysis_result_content(tokens, _value, depth + 1)?,
+                    );
+                }
+                "insights" => {
+                    builder = builder.set_insights(crate::protocol_serde::shape_insight_list::de_insight_list(tokens, _value, depth + 1)?);
+                }
+                "kmsKeyArn" => {
+                    builder = builder.set_kms_key_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "outputConfig" => {
                     builder = builder.set_output_config(crate::protocol_serde::shape_output_config::de_output_config(tokens, _value, depth + 1)?);
                 }
@@ -223,6 +247,15 @@ pub(crate) fn de_get_batch_evaluation(
                         tokens.next(),
                         ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                     )?);
+                }
+                "userIntentResult" => {
+                    builder = builder.set_user_intent_result(
+                        crate::protocol_serde::shape_user_intent_clustering_result_content::de_user_intent_clustering_result_content(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

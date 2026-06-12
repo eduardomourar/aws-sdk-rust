@@ -23,17 +23,17 @@ version = "1.8.18"
 [dev-dependencies.aws-runtime]
 path = "../../sdk/aws-runtime"
 features = ["test-util"]
-version = "1.7.4"
+version = "1.7.5"
 
 [dev-dependencies.aws-sdk-dynamodb]
 path = "../../sdk/dynamodb"
 features = ["test-util", "behavior-version-latest"]
-version = "1.115.0"
+version = "1.116.0"
 
 [dev-dependencies.aws-sdk-s3]
 path = "../../sdk/s3"
 features = ["test-util", "behavior-version-latest"]
-version = "1.135.0"
+version = "1.136.0"
 
 [dev-dependencies.aws-smithy-observability]
 path = "../../sdk/aws-smithy-observability"
@@ -50,7 +50,7 @@ version = "1.11.3"
 
 [dev-dependencies.aws-smithy-types]
 path = "../../sdk/aws-smithy-types"
-version = "1.4.9"
+version = "1.5.0"
 
 [dev-dependencies.opentelemetry]
 version = "0.26.0"

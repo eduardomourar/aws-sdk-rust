@@ -531,6 +531,8 @@ pub(crate) mod shape_certificate;
 
 pub(crate) mod shape_certificates;
 
+pub(crate) mod shape_clustering_config;
+
 pub(crate) mod shape_code_interpreter_network_configuration;
 
 pub(crate) mod shape_code_interpreter_summaries;
@@ -620,6 +622,10 @@ pub(crate) mod shape_harness_tool;
 pub(crate) mod shape_harness_truncation_configuration;
 
 pub(crate) mod shape_indexed_key;
+
+pub(crate) mod shape_insight;
+
+pub(crate) mod shape_insight_list;
 
 pub(crate) mod shape_kms_configuration;
 
@@ -774,6 +780,8 @@ pub(crate) mod shape_certificate_location;
 pub(crate) mod shape_cloud_watch_logs_input_config;
 
 pub(crate) mod shape_cloud_watch_output_config;
+
+pub(crate) mod shape_clustering_frequency_list;
 
 pub(crate) mod shape_code_based_evaluator_config;
 

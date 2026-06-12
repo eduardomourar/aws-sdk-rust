@@ -1116,6 +1116,36 @@ pub(crate) fn governed_catalog_target_correct_errors(
     builder
 }
 
+pub(crate) fn iceberg_partition_spec_correct_errors(
+    mut builder: crate::types::builders::IcebergPartitionSpecBuilder,
+) -> crate::types::builders::IcebergPartitionSpecBuilder {
+    if builder.fields.is_none() {
+        builder.fields = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn iceberg_schema_correct_errors(
+    mut builder: crate::types::builders::IcebergSchemaBuilder,
+) -> crate::types::builders::IcebergSchemaBuilder {
+    if builder.fields.is_none() {
+        builder.fields = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn iceberg_sort_order_correct_errors(
+    mut builder: crate::types::builders::IcebergSortOrderBuilder,
+) -> crate::types::builders::IcebergSortOrderBuilder {
+    if builder.order_id.is_none() {
+        builder.order_id = Some(Default::default())
+    }
+    if builder.fields.is_none() {
+        builder.fields = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn jdbc_connector_source_correct_errors(
     mut builder: crate::types::builders::JdbcConnectorSourceBuilder,
 ) -> crate::types::builders::JdbcConnectorSourceBuilder {
@@ -2046,6 +2076,57 @@ pub(crate) fn group_filters_correct_errors(mut builder: crate::types::builders::
     }
     if builder.logical_operator.is_none() {
         builder.logical_operator = "no value was set".parse::<crate::types::FilterLogicalOperator>().ok()
+    }
+    builder
+}
+
+pub(crate) fn iceberg_partition_field_correct_errors(
+    mut builder: crate::types::builders::IcebergPartitionFieldBuilder,
+) -> crate::types::builders::IcebergPartitionFieldBuilder {
+    if builder.source_id.is_none() {
+        builder.source_id = Some(Default::default())
+    }
+    if builder.transform.is_none() {
+        builder.transform = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn iceberg_sort_field_correct_errors(
+    mut builder: crate::types::builders::IcebergSortFieldBuilder,
+) -> crate::types::builders::IcebergSortFieldBuilder {
+    if builder.source_id.is_none() {
+        builder.source_id = Some(Default::default())
+    }
+    if builder.transform.is_none() {
+        builder.transform = Some(Default::default())
+    }
+    if builder.direction.is_none() {
+        builder.direction = "no value was set".parse::<crate::types::IcebergSortDirection>().ok()
+    }
+    if builder.null_order.is_none() {
+        builder.null_order = "no value was set".parse::<crate::types::IcebergNullOrder>().ok()
+    }
+    builder
+}
+
+pub(crate) fn iceberg_struct_field_correct_errors(
+    mut builder: crate::types::builders::IcebergStructFieldBuilder,
+) -> crate::types::builders::IcebergStructFieldBuilder {
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.r#type.is_none() {
+        builder.r#type = Some(Default::default())
+    }
+    if builder.required.is_none() {
+        builder.required = Some(Default::default())
     }
     builder
 }

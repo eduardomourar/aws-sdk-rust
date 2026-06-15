@@ -2743,6 +2743,10 @@ source_hash = '2048630ced83752734acab91b747e383b0f8cdfec43f5f411ae936c31a5b6653'
 category = 'AwsRuntime'
 version = '0.0.0'
 source_hash = 'cd48a666d75ebba7d77758b10af3e6dc36768267cb74940ffbd237bff2b5bd92'
+
+[release]
+tag = 'release-2026-06-15'
+
 [release.crates]
 aws-sdk-bedrockruntime = '1.135.0'
 aws-sdk-cloudwatchlogs = '1.137.0'

@@ -205,6 +205,13 @@ pub(crate) fn de_get_scheduled_query(
                             .transpose()?,
                     );
                 }
+                "endTimeOffset" => {
+                    builder = builder.set_end_time_offset(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?,
+                    );
+                }
                 "destinationConfiguration" => {
                     builder = builder.set_destination_configuration(
                         crate::protocol_serde::shape_destination_configuration::de_destination_configuration(tokens, _value, depth + 1)?,
@@ -214,6 +221,13 @@ pub(crate) fn de_get_scheduled_query(
                     builder = builder.set_state(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| crate::types::ScheduledQueryState::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "scheduleType" => {
+                    builder = builder.set_schedule_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::ScheduleType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

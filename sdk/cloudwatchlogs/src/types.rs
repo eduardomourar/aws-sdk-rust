@@ -49,6 +49,8 @@ pub use crate::types::_get_log_object_response_stream::GetLogObjectResponseStrea
 
 pub use crate::types::_query_statistics::QueryStatistics;
 
+pub use crate::types::_schedule_type::ScheduleType;
+
 pub use crate::types::_execution_status::ExecutionStatus;
 
 pub use crate::types::_list_aggregate_log_group_summaries_group_by::ListAggregateLogGroupSummariesGroupBy;
@@ -574,6 +576,8 @@ mod _s3_table_integration_source;
 mod _s3_table_integration_source_status;
 
 mod _s3_tables_integration;
+
+mod _schedule_type;
 
 mod _scheduled_query_destination;
 

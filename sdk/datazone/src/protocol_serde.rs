@@ -137,6 +137,8 @@ pub(crate) mod shape_delete_glossary;
 
 pub(crate) mod shape_delete_glossary_term;
 
+pub(crate) mod shape_delete_lineage_event;
+
 pub(crate) mod shape_delete_listing;
 
 pub(crate) mod shape_delete_notebook;

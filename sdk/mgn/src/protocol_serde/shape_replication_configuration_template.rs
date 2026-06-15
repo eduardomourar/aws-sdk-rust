@@ -133,6 +133,11 @@ where
                             builder =
                                 builder.set_store_snapshot_on_local_zone(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
+                        "storageConfiguration" => {
+                            builder = builder.set_storage_configuration(
+                                crate::protocol_serde::shape_storage_configuration::de_storage_configuration(tokens, _value, depth + 1)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

@@ -173,6 +173,8 @@ pub use crate::types::_user_profile_status::UserProfileStatus;
 
 pub use crate::types::_user_profile_details::UserProfileDetails;
 
+pub use crate::types::_lineage_event_processing_status::LineageEventProcessingStatus;
+
 pub use crate::types::_time_series_entity_type::TimeSeriesEntityType;
 
 pub use crate::types::_connection_credentials::ConnectionCredentials;
@@ -190,8 +192,6 @@ pub use crate::types::_job_run_details::JobRunDetails;
 pub use crate::types::_job_run_status::JobRunStatus;
 
 pub use crate::types::_job_run_error::JobRunError;
-
-pub use crate::types::_lineage_event_processing_status::LineageEventProcessingStatus;
 
 pub use crate::types::_time_series_data_point_form_output::TimeSeriesDataPointFormOutput;
 

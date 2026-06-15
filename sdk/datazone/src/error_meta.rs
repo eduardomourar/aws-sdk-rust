@@ -2071,6 +2071,35 @@ impl From<crate::operation::delete_glossary_term::DeleteGlossaryTermError> for E
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_lineage_event::DeleteLineageEventError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_lineage_event::DeleteLineageEventError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_lineage_event::DeleteLineageEventError> for Error {
+    fn from(err: crate::operation::delete_lineage_event::DeleteLineageEventError) -> Self {
+        match err {
+            crate::operation::delete_lineage_event::DeleteLineageEventError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_lineage_event::DeleteLineageEventError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::delete_lineage_event::DeleteLineageEventError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_lineage_event::DeleteLineageEventError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_lineage_event::DeleteLineageEventError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::delete_lineage_event::DeleteLineageEventError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::delete_lineage_event::DeleteLineageEventError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_listing::DeleteListingError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

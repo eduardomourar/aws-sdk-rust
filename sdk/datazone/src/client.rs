@@ -277,6 +277,8 @@ mod delete_glossary;
 
 mod delete_glossary_term;
 
+mod delete_lineage_event;
+
 mod delete_listing;
 
 mod delete_notebook;

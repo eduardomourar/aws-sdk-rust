@@ -42,6 +42,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "scheduleType" => {
+                            builder = builder.set_schedule_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ScheduleType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         "lastTriggeredTime" => {
                             builder = builder.set_last_triggered_time(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?

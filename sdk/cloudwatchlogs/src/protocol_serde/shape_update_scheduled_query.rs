@@ -35,6 +35,21 @@ pub fn de_update_scheduled_query_http_error(
             }
             tmp
         }),
+        "ConflictException" => crate::operation::update_scheduled_query::UpdateScheduledQueryError::ConflictException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::ConflictExceptionBuilder::default();
+                output = crate::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::update_scheduled_query::UpdateScheduledQueryError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerException" => crate::operation::update_scheduled_query::UpdateScheduledQueryError::InternalServerException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -209,6 +224,13 @@ pub(crate) fn de_update_scheduled_query(
                             .transpose()?,
                     );
                 }
+                "endTimeOffset" => {
+                    builder = builder.set_end_time_offset(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?,
+                    );
+                }
                 "destinationConfiguration" => {
                     builder = builder.set_destination_configuration(
                         crate::protocol_serde::shape_destination_configuration::de_destination_configuration(tokens, _value, depth + 1)?,
@@ -218,6 +240,13 @@ pub(crate) fn de_update_scheduled_query(
                     builder = builder.set_state(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| crate::types::ScheduledQueryState::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "scheduleType" => {
+                    builder = builder.set_schedule_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::ScheduleType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

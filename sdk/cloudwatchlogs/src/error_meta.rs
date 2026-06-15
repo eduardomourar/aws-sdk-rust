@@ -3666,6 +3666,7 @@ impl From<crate::operation::update_scheduled_query::UpdateScheduledQueryError> f
     fn from(err: crate::operation::update_scheduled_query::UpdateScheduledQueryError) -> Self {
         match err {
             crate::operation::update_scheduled_query::UpdateScheduledQueryError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::update_scheduled_query::UpdateScheduledQueryError::ConflictException(inner) => Error::ConflictException(inner),
             crate::operation::update_scheduled_query::UpdateScheduledQueryError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
             }

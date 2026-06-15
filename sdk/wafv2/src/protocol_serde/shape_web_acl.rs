@@ -157,6 +157,13 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "MonetizationConfig" => {
+                            builder = builder.set_monetization_config(crate::protocol_serde::shape_monetization_config::de_monetization_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

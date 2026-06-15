@@ -33,6 +33,12 @@ pub fn ser_rule_action(
         crate::protocol_serde::shape_challenge_action::ser_challenge_action(&mut object_10, var_9)?;
         object_10.finish();
     }
+    if let Some(var_11) = &input.monetize {
+        #[allow(unused_mut)]
+        let mut object_12 = object.key("Monetize").start_object();
+        crate::protocol_serde::shape_monetize_action::ser_monetize_action(&mut object_12, var_11)?;
+        object_12.finish();
+    }
     Ok(())
 }
 
@@ -72,6 +78,13 @@ where
                         }
                         "Challenge" => {
                             builder = builder.set_challenge(crate::protocol_serde::shape_challenge_action::de_challenge_action(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "Monetize" => {
+                            builder = builder.set_monetize(crate::protocol_serde::shape_monetize_action::de_monetize_action(
                                 tokens,
                                 _value,
                                 depth + 1,

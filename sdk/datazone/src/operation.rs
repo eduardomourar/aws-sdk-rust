@@ -172,6 +172,9 @@ pub mod delete_glossary;
 /// Types for the `DeleteGlossaryTerm` operation.
 pub mod delete_glossary_term;
 
+/// Types for the `DeleteLineageEvent` operation.
+pub mod delete_lineage_event;
+
 /// Types for the `DeleteListing` operation.
 pub mod delete_listing;
 

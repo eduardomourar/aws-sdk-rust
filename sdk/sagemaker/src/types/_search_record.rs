@@ -43,7 +43,7 @@ pub struct SearchRecord {
     pub model_card: ::std::option::Option<crate::types::ModelCard>,
     /// <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
     pub model: ::std::option::Option<crate::types::ModelDashboardModel>,
-    /// Search shape for Job. Mirrors DescribeJobResponse fields. If you update DescribeJobResponse, update this structure as well.
+    /// <p>The properties of a job.</p>
     pub job: ::std::option::Option<crate::types::Job>,
 }
 impl SearchRecord {
@@ -118,7 +118,7 @@ impl SearchRecord {
     pub fn model(&self) -> ::std::option::Option<&crate::types::ModelDashboardModel> {
         self.model.as_ref()
     }
-    /// Search shape for Job. Mirrors DescribeJobResponse fields. If you update DescribeJobResponse, update this structure as well.
+    /// <p>The properties of a job.</p>
     pub fn job(&self) -> ::std::option::Option<&crate::types::Job> {
         self.job.as_ref()
     }
@@ -398,17 +398,17 @@ impl SearchRecordBuilder {
     pub fn get_model(&self) -> &::std::option::Option<crate::types::ModelDashboardModel> {
         &self.model
     }
-    /// Search shape for Job. Mirrors DescribeJobResponse fields. If you update DescribeJobResponse, update this structure as well.
+    /// <p>The properties of a job.</p>
     pub fn job(mut self, input: crate::types::Job) -> Self {
         self.job = ::std::option::Option::Some(input);
         self
     }
-    /// Search shape for Job. Mirrors DescribeJobResponse fields. If you update DescribeJobResponse, update this structure as well.
+    /// <p>The properties of a job.</p>
     pub fn set_job(mut self, input: ::std::option::Option<crate::types::Job>) -> Self {
         self.job = input;
         self
     }
-    /// Search shape for Job. Mirrors DescribeJobResponse fields. If you update DescribeJobResponse, update this structure as well.
+    /// <p>The properties of a job.</p>
     pub fn get_job(&self) -> &::std::option::Option<crate::types::Job> {
         &self.job
     }

@@ -78,6 +78,21 @@ pub fn de_create_transit_virtual_interface_http_error(
                 tmp
             })
         }
+        "LimitExceededException" => crate::operation::create_transit_virtual_interface::CreateTransitVirtualInterfaceError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::create_transit_virtual_interface::CreateTransitVirtualInterfaceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyTagsException" => crate::operation::create_transit_virtual_interface::CreateTransitVirtualInterfaceError::TooManyTagsException({
             #[allow(unused_mut)]
             let mut tmp = {

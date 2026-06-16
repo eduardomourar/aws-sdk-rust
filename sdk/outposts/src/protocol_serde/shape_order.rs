@@ -29,6 +29,20 @@ where
                                         .transpose()?,
                                 );
                             }
+                            "QuoteIdentifier" => {
+                                builder = builder.set_quote_identifier(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "QuoteOptionIdentifier" => {
+                                builder = builder.set_quote_option_identifier(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
                             "OrderId" => {
                                 builder = builder.set_order_id(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

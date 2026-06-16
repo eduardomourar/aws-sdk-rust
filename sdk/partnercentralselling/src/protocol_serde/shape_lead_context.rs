@@ -3,26 +3,32 @@ pub fn ser_lead_context(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::types::LeadContext,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("QualificationStatus").string(input.qualification_status.as_str());
-    }
-    if let Some(var_1) = &input.customer {
+    if let Some(var_1) = &input.insights {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("Customer").start_object();
-        crate::protocol_serde::shape_lead_customer::ser_lead_customer(&mut object_2, var_1)?;
+        let mut object_2 = object.key("Insights").start_object();
+        crate::protocol_serde::shape_lead_insights::ser_lead_insights(&mut object_2, var_1)?;
         object_2.finish();
     }
     {
-        let mut array_3 = object.key("Interactions").start_array();
-        for item_4 in &input.interactions {
+        object.key("QualificationStatus").string(input.qualification_status.as_str());
+    }
+    if let Some(var_3) = &input.customer {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("Customer").start_object();
+        crate::protocol_serde::shape_lead_customer::ser_lead_customer(&mut object_4, var_3)?;
+        object_4.finish();
+    }
+    {
+        let mut array_5 = object.key("Interactions").start_array();
+        for item_6 in &input.interactions {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                crate::protocol_serde::shape_lead_interaction::ser_lead_interaction(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_7 = array_5.value().start_object();
+                crate::protocol_serde::shape_lead_interaction::ser_lead_interaction(&mut object_7, item_6)?;
+                object_7.finish();
             }
         }
-        array_3.finish();
+        array_5.finish();
     }
     Ok(())
 }
@@ -49,6 +55,9 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "Insights" => {
+                            builder = builder.set_insights(crate::protocol_serde::shape_lead_insights::de_lead_insights(tokens, _value, depth + 1)?);
+                        }
                         "QualificationStatus" => {
                             builder = builder.set_qualification_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

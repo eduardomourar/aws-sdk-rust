@@ -91,6 +91,8 @@ pub use crate::types::_batch_update_firewall_rule_error::BatchUpdateFirewallRule
 
 pub use crate::types::_domain_list_type::DomainListType;
 
+pub use crate::types::_partner_threat_protection_config::PartnerThreatProtectionConfig;
+
 pub use crate::types::_firewall_advanced_content_category_config::FirewallAdvancedContentCategoryConfig;
 
 pub use crate::types::_firewall_advanced_threat_category_config::FirewallAdvancedThreatCategoryConfig;
@@ -128,6 +130,8 @@ pub use crate::types::_filter::Filter;
 pub use crate::types::_ip_address_response::IpAddressResponse;
 
 pub use crate::types::_update_ip_address::UpdateIpAddress;
+
+pub use crate::types::_subscription_info::SubscriptionInfo;
 
 pub use crate::types::_ip_address_status::IpAddressStatus;
 
@@ -209,6 +213,8 @@ mod _outpost_resolver;
 
 mod _outpost_resolver_status;
 
+mod _partner_threat_protection_config;
+
 mod _protocol;
 
 mod _resolver_autodefined_reverse_status;
@@ -252,6 +258,8 @@ mod _rule_type_option;
 mod _share_status;
 
 mod _sort_order;
+
+mod _subscription_info;
 
 mod _tag;
 

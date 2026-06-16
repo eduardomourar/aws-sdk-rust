@@ -230,6 +230,13 @@ pub(crate) fn de_get_aws_opportunity_summary(
                         depth + 1,
                     )?);
                 }
+                "CosellMotion" => {
+                    builder = builder.set_cosell_motion(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "Catalog" => {
                     builder = builder.set_catalog(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

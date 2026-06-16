@@ -3,11 +3,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteQuoteInput {
-    /// <p>The ID or ARN of the quote.</p>
+    /// <p>The ID of the quote.</p>
     pub quote_identifier: ::std::option::Option<::std::string::String>,
 }
 impl DeleteQuoteInput {
-    /// <p>The ID or ARN of the quote.</p>
+    /// <p>The ID of the quote.</p>
     pub fn quote_identifier(&self) -> ::std::option::Option<&str> {
         self.quote_identifier.as_deref()
     }
@@ -26,18 +26,18 @@ pub struct DeleteQuoteInputBuilder {
     pub(crate) quote_identifier: ::std::option::Option<::std::string::String>,
 }
 impl DeleteQuoteInputBuilder {
-    /// <p>The ID or ARN of the quote.</p>
+    /// <p>The ID of the quote.</p>
     /// This field is required.
     pub fn quote_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quote_identifier = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID or ARN of the quote.</p>
+    /// <p>The ID of the quote.</p>
     pub fn set_quote_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quote_identifier = input;
         self
     }
-    /// <p>The ID or ARN of the quote.</p>
+    /// <p>The ID of the quote.</p>
     pub fn get_quote_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.quote_identifier
     }

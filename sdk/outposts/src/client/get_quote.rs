@@ -3,7 +3,7 @@ impl super::Client {
     /// Constructs a fluent builder for the [`GetQuote`](crate::operation::get_quote::builders::GetQuoteFluentBuilder) operation.
     ///
     /// - The fluent builder is configurable:
-    ///   - [`quote_identifier(impl Into<String>)`](crate::operation::get_quote::builders::GetQuoteFluentBuilder::quote_identifier) / [`set_quote_identifier(Option<String>)`](crate::operation::get_quote::builders::GetQuoteFluentBuilder::set_quote_identifier):<br>required: **true**<br><p>The ID or ARN of the quote.</p><br>
+    ///   - [`quote_identifier(impl Into<String>)`](crate::operation::get_quote::builders::GetQuoteFluentBuilder::quote_identifier) / [`set_quote_identifier(Option<String>)`](crate::operation::get_quote::builders::GetQuoteFluentBuilder::set_quote_identifier):<br>required: **true**<br><p>The ID of the quote.</p><br>
     /// - On success, responds with [`GetQuoteOutput`](crate::operation::get_quote::GetQuoteOutput) with field(s):
     ///   - [`quote(Option<Quote>)`](crate::operation::get_quote::GetQuoteOutput::quote): <p>Information about the quote.</p>
     /// - On failure, responds with [`SdkError<GetQuoteError>`](crate::operation::get_quote::GetQuoteError)

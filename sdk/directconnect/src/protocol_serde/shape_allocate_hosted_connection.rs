@@ -284,6 +284,13 @@ pub(crate) fn de_allocate_hosted_connection(
                         depth + 1,
                     )?);
                 }
+                "rateLimiterStatus" => {
+                    builder = builder.set_rate_limiter_status(crate::protocol_serde::shape_rate_limiter_status::de_rate_limiter_status(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "partnerInterconnectMacSecCapable" => {
                     builder =
                         builder.set_partner_interconnect_mac_sec_capable(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);

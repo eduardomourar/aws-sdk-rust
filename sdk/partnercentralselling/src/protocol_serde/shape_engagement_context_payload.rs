@@ -16,6 +16,12 @@ pub fn ser_engagement_context_payload(
             crate::protocol_serde::shape_lead_context::ser_lead_context(&mut object_2, inner)?;
             object_2.finish();
         }
+        crate::types::EngagementContextPayload::ProspectingResult(inner) => {
+            #[allow(unused_mut)]
+            let mut object_3 = object_6.key("ProspectingResult").start_object();
+            crate::protocol_serde::shape_prospecting_result::ser_prospecting_result(&mut object_3, inner)?;
+            object_3.finish();
+        }
         crate::types::EngagementContextPayload::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "EngagementContextPayload",
@@ -71,6 +77,11 @@ where
                         "Lead" => Some(crate::types::EngagementContextPayload::Lead(
                             crate::protocol_serde::shape_lead_context::de_lead_context(tokens, _value, depth + 1)?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'Lead' cannot be null"))?,
+                        )),
+                        "ProspectingResult" => Some(crate::types::EngagementContextPayload::ProspectingResult(
+                            crate::protocol_serde::shape_prospecting_result::de_prospecting_result(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'ProspectingResult' cannot be null")
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

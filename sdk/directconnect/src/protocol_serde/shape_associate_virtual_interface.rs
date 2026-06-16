@@ -285,6 +285,13 @@ pub(crate) fn de_associate_virtual_interface(
                     "siteLinkEnabled" => {
                         builder = builder.set_site_link_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                     }
+                    "rateLimit" => {
+                        builder = builder.set_rate_limit(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
             }

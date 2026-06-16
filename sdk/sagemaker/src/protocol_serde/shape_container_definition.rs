@@ -61,6 +61,12 @@ pub fn ser_container_definition(
         crate::protocol_serde::shape_multi_model_config::ser_multi_model_config(&mut object_20, var_19)?;
         object_20.finish();
     }
+    if let Some(var_21) = &input.container_metrics_config {
+        #[allow(unused_mut)]
+        let mut object_22 = object.key("ContainerMetricsConfig").start_object();
+        crate::protocol_serde::shape_container_metrics_config::ser_container_metrics_config(&mut object_22, var_21)?;
+        object_22.finish();
+    }
     Ok(())
 }
 
@@ -161,6 +167,11 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "ContainerMetricsConfig" => {
+                            builder = builder.set_container_metrics_config(
+                                crate::protocol_serde::shape_container_metrics_config::de_container_metrics_config(tokens, _value, depth + 1)?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

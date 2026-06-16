@@ -3,7 +3,7 @@ impl super::Client {
     /// Constructs a fluent builder for the [`DeleteQuote`](crate::operation::delete_quote::builders::DeleteQuoteFluentBuilder) operation.
     ///
     /// - The fluent builder is configurable:
-    ///   - [`quote_identifier(impl Into<String>)`](crate::operation::delete_quote::builders::DeleteQuoteFluentBuilder::quote_identifier) / [`set_quote_identifier(Option<String>)`](crate::operation::delete_quote::builders::DeleteQuoteFluentBuilder::set_quote_identifier):<br>required: **true**<br><p>The ID or ARN of the quote.</p><br>
+    ///   - [`quote_identifier(impl Into<String>)`](crate::operation::delete_quote::builders::DeleteQuoteFluentBuilder::quote_identifier) / [`set_quote_identifier(Option<String>)`](crate::operation::delete_quote::builders::DeleteQuoteFluentBuilder::set_quote_identifier):<br>required: **true**<br><p>The ID of the quote.</p><br>
     /// - On success, responds with [`DeleteQuoteOutput`](crate::operation::delete_quote::DeleteQuoteOutput)
     /// - On failure, responds with [`SdkError<DeleteQuoteError>`](crate::operation::delete_quote::DeleteQuoteError)
     pub fn delete_quote(&self) -> crate::operation::delete_quote::builders::DeleteQuoteFluentBuilder {

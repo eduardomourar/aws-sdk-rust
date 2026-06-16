@@ -2697,6 +2697,8 @@ pub(crate) mod shape_container_config;
 
 pub(crate) mod shape_container_entrypoint;
 
+pub(crate) mod shape_container_metrics_config;
+
 pub(crate) mod shape_content_types;
 
 pub(crate) mod shape_context_summary;
@@ -3490,6 +3492,10 @@ pub(crate) mod shape_labeling_job_sns_data_source;
 pub(crate) mod shape_lifecycle_config_arns;
 
 pub(crate) mod shape_metric_data_list;
+
+pub(crate) mod shape_metrics_endpoint;
+
+pub(crate) mod shape_metrics_endpoint_list;
 
 pub(crate) mod shape_metrics_source;
 

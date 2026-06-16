@@ -41,6 +41,16 @@ pub fn de_metadata_configuration_result(
                 builder = builder.set_inventory_table_configuration_result(var_3);
             }
             ,
+            s if s.matches("AnnotationTableConfigurationResult") /* AnnotationTableConfigurationResult com.amazonaws.s3#MetadataConfigurationResult$AnnotationTableConfigurationResult */ =>  {
+                let var_4 =
+                    Some(
+                        crate::protocol_serde::shape_annotation_table_configuration_result::de_annotation_table_configuration_result(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_annotation_table_configuration_result(var_4);
+            }
+            ,
             _ => {}
         }
     }

@@ -22,7 +22,8 @@ impl crate::operation::delete_firewall_rule::builders::DeleteFirewallRuleInputBu
 }
 /// Fluent builder constructing a request to `DeleteFirewallRule`.
 ///
-/// <p>Deletes the specified firewall rule.</p>
+/// <p>Deletes the specified firewall rule. Identify the rule using either <code>FirewallDomainListId</code> (for domain-list and DNS Firewall Advanced rules) or <code>FirewallThreatProtectionId</code> (for partner-managed and DNS Firewall Advanced rules) — together with <code>FirewallRuleGroupId</code>.</p>
+/// <p><code>DeleteFirewallRule</code> is the only operation that succeeds against a rule whose <code>Status</code> is <code>CREATION_FAILED</code>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteFirewallRuleFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

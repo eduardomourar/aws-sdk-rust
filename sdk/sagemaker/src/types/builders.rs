@@ -649,6 +649,8 @@ pub use crate::types::_model_data_source::ModelDataSourceBuilder;
 
 pub use crate::types::_multi_model_config::MultiModelConfigBuilder;
 
+pub use crate::types::_container_metrics_config::ContainerMetricsConfigBuilder;
+
 pub use crate::types::_monitoring_ground_truth_s3_input::MonitoringGroundTruthS3InputBuilder;
 
 pub use crate::types::_model_quality::ModelQualityBuilder;
@@ -1372,6 +1374,8 @@ pub use crate::types::_phase::PhaseBuilder;
 pub use crate::types::_environment_parameter_ranges::EnvironmentParameterRangesBuilder;
 
 pub use crate::types::_inference_hub_access_config::InferenceHubAccessConfigBuilder;
+
+pub use crate::types::_metrics_endpoint::MetricsEndpointBuilder;
 
 pub use crate::types::_monitoring_input::MonitoringInputBuilder;
 

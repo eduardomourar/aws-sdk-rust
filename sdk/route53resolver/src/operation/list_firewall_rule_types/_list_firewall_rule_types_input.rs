@@ -3,7 +3,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListFirewallRuleTypesInput {
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub rule_type: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
     pub max_results: ::std::option::Option<i32>,
@@ -11,7 +11,7 @@ pub struct ListFirewallRuleTypesInput {
     pub next_token: ::std::option::Option<::std::string::String>,
 }
 impl ListFirewallRuleTypesInput {
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn rule_type(&self) -> ::std::option::Option<&str> {
         self.rule_type.as_deref()
     }
@@ -40,17 +40,17 @@ pub struct ListFirewallRuleTypesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
 impl ListFirewallRuleTypesInputBuilder {
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn rule_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.rule_type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn set_rule_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.rule_type = input;
         self
     }
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn get_rule_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.rule_type
     }

@@ -480,3 +480,6 @@ mod _query_vectors_output;
 
 /// Builders
 pub mod builders;
+
+/// Paginator for this operation
+pub mod paginator;

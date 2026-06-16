@@ -78,6 +78,15 @@ pub(crate) fn firewall_advanced_threat_category_config_correct_errors(
     builder
 }
 
+pub(crate) fn partner_threat_protection_config_correct_errors(
+    mut builder: crate::types::builders::PartnerThreatProtectionConfigBuilder,
+) -> crate::types::builders::PartnerThreatProtectionConfigBuilder {
+    if builder.partner.is_none() {
+        builder.partner = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn update_firewall_rule_entry_correct_errors(
     mut builder: crate::types::builders::UpdateFirewallRuleEntryBuilder,
 ) -> crate::types::builders::UpdateFirewallRuleEntryBuilder {

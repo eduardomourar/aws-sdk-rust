@@ -45,6 +45,8 @@ pub use crate::types::_update_firewall_rule_entry::UpdateFirewallRuleEntryBuilde
 
 pub use crate::types::_batch_update_firewall_rule_error::BatchUpdateFirewallRuleErrorBuilder;
 
+pub use crate::types::_partner_threat_protection_config::PartnerThreatProtectionConfigBuilder;
+
 pub use crate::types::_firewall_advanced_content_category_config::FirewallAdvancedContentCategoryConfigBuilder;
 
 pub use crate::types::_firewall_advanced_threat_category_config::FirewallAdvancedThreatCategoryConfigBuilder;
@@ -66,3 +68,5 @@ pub use crate::types::_filter::FilterBuilder;
 pub use crate::types::_ip_address_response::IpAddressResponseBuilder;
 
 pub use crate::types::_update_ip_address::UpdateIpAddressBuilder;
+
+pub use crate::types::_subscription_info::SubscriptionInfoBuilder;

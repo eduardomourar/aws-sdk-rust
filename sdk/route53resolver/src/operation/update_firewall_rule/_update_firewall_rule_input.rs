@@ -78,12 +78,14 @@ pub struct UpdateFirewallRuleInput {
     /// </note></li>
     /// </ul>
     pub qtype: ::std::option::Option<::std::string::String>,
-    /// <p>The type of the DNS Firewall Advanced rule. Valid values are:</p>
+    /// <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.</p></li>
+    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p></li>
     /// <li>
     /// <p><code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p></li>
+    /// <li>
+    /// <p><code>DICTIONARY_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p></li>
     /// </ul>
     pub dns_threat_protection: ::std::option::Option<crate::types::DnsThreatProtection>,
     /// <p>The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence level values mean:</p>
@@ -96,7 +98,18 @@ pub struct UpdateFirewallRuleInput {
     /// <p><code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives.</p></li>
     /// </ul>
     pub confidence_threshold: ::std::option::Option<crate::types::ConfidenceThreshold>,
-    /// <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+    /// <p>The rule type configuration for the firewall rule. This is a tagged union — set exactly one of its members. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields. Use one of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p></li>
+    /// <li>
+    /// <p><code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p></li>
+    /// <li>
+    /// <p><code>DnsThreatProtection</code> — match a built-in DNS Firewall Advanced threat detector (<code>DGA</code>, <code>DNS_TUNNELING</code>, or <code>DICTIONARY_DGA</code>).</p></li>
+    /// <li>
+    /// <p><code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p></li>
+    /// </ul>
+    /// <p>To enumerate the values supported in your account, call <code>ListFirewallRuleTypes</code>.</p>
     pub firewall_rule_type: ::std::option::Option<crate::types::FirewallRuleType>,
 }
 impl UpdateFirewallRuleInput {
@@ -199,12 +212,14 @@ impl UpdateFirewallRuleInput {
     pub fn qtype(&self) -> ::std::option::Option<&str> {
         self.qtype.as_deref()
     }
-    /// <p>The type of the DNS Firewall Advanced rule. Valid values are:</p>
+    /// <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.</p></li>
+    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p></li>
     /// <li>
     /// <p><code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p></li>
+    /// <li>
+    /// <p><code>DICTIONARY_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p></li>
     /// </ul>
     pub fn dns_threat_protection(&self) -> ::std::option::Option<&crate::types::DnsThreatProtection> {
         self.dns_threat_protection.as_ref()
@@ -221,7 +236,18 @@ impl UpdateFirewallRuleInput {
     pub fn confidence_threshold(&self) -> ::std::option::Option<&crate::types::ConfidenceThreshold> {
         self.confidence_threshold.as_ref()
     }
-    /// <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+    /// <p>The rule type configuration for the firewall rule. This is a tagged union — set exactly one of its members. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields. Use one of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p></li>
+    /// <li>
+    /// <p><code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p></li>
+    /// <li>
+    /// <p><code>DnsThreatProtection</code> — match a built-in DNS Firewall Advanced threat detector (<code>DGA</code>, <code>DNS_TUNNELING</code>, or <code>DICTIONARY_DGA</code>).</p></li>
+    /// <li>
+    /// <p><code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p></li>
+    /// </ul>
+    /// <p>To enumerate the values supported in your account, call <code>ListFirewallRuleTypes</code>.</p>
     pub fn firewall_rule_type(&self) -> ::std::option::Option<&crate::types::FirewallRuleType> {
         self.firewall_rule_type.as_ref()
     }
@@ -576,34 +602,40 @@ impl UpdateFirewallRuleInputBuilder {
     pub fn get_qtype(&self) -> &::std::option::Option<::std::string::String> {
         &self.qtype
     }
-    /// <p>The type of the DNS Firewall Advanced rule. Valid values are:</p>
+    /// <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.</p></li>
+    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p></li>
     /// <li>
     /// <p><code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p></li>
+    /// <li>
+    /// <p><code>DICTIONARY_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p></li>
     /// </ul>
     pub fn dns_threat_protection(mut self, input: crate::types::DnsThreatProtection) -> Self {
         self.dns_threat_protection = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of the DNS Firewall Advanced rule. Valid values are:</p>
+    /// <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.</p></li>
+    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p></li>
     /// <li>
     /// <p><code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p></li>
+    /// <li>
+    /// <p><code>DICTIONARY_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p></li>
     /// </ul>
     pub fn set_dns_threat_protection(mut self, input: ::std::option::Option<crate::types::DnsThreatProtection>) -> Self {
         self.dns_threat_protection = input;
         self
     }
-    /// <p>The type of the DNS Firewall Advanced rule. Valid values are:</p>
+    /// <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.</p></li>
+    /// <p><code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p></li>
     /// <li>
     /// <p><code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p></li>
+    /// <li>
+    /// <p><code>DICTIONARY_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p></li>
     /// </ul>
     pub fn get_dns_threat_protection(&self) -> &::std::option::Option<crate::types::DnsThreatProtection> {
         &self.dns_threat_protection
@@ -646,17 +678,50 @@ impl UpdateFirewallRuleInputBuilder {
     pub fn get_confidence_threshold(&self) -> &::std::option::Option<crate::types::ConfidenceThreshold> {
         &self.confidence_threshold
     }
-    /// <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+    /// <p>The rule type configuration for the firewall rule. This is a tagged union — set exactly one of its members. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields. Use one of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p></li>
+    /// <li>
+    /// <p><code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p></li>
+    /// <li>
+    /// <p><code>DnsThreatProtection</code> — match a built-in DNS Firewall Advanced threat detector (<code>DGA</code>, <code>DNS_TUNNELING</code>, or <code>DICTIONARY_DGA</code>).</p></li>
+    /// <li>
+    /// <p><code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p></li>
+    /// </ul>
+    /// <p>To enumerate the values supported in your account, call <code>ListFirewallRuleTypes</code>.</p>
     pub fn firewall_rule_type(mut self, input: crate::types::FirewallRuleType) -> Self {
         self.firewall_rule_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+    /// <p>The rule type configuration for the firewall rule. This is a tagged union — set exactly one of its members. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields. Use one of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p></li>
+    /// <li>
+    /// <p><code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p></li>
+    /// <li>
+    /// <p><code>DnsThreatProtection</code> — match a built-in DNS Firewall Advanced threat detector (<code>DGA</code>, <code>DNS_TUNNELING</code>, or <code>DICTIONARY_DGA</code>).</p></li>
+    /// <li>
+    /// <p><code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p></li>
+    /// </ul>
+    /// <p>To enumerate the values supported in your account, call <code>ListFirewallRuleTypes</code>.</p>
     pub fn set_firewall_rule_type(mut self, input: ::std::option::Option<crate::types::FirewallRuleType>) -> Self {
         self.firewall_rule_type = input;
         self
     }
-    /// <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+    /// <p>The rule type configuration for the firewall rule. This is a tagged union — set exactly one of its members. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields. Use one of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p></li>
+    /// <li>
+    /// <p><code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p></li>
+    /// <li>
+    /// <p><code>DnsThreatProtection</code> — match a built-in DNS Firewall Advanced threat detector (<code>DGA</code>, <code>DNS_TUNNELING</code>, or <code>DICTIONARY_DGA</code>).</p></li>
+    /// <li>
+    /// <p><code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p></li>
+    /// </ul>
+    /// <p>To enumerate the values supported in your account, call <code>ListFirewallRuleTypes</code>.</p>
     pub fn get_firewall_rule_type(&self) -> &::std::option::Option<crate::types::FirewallRuleType> {
         &self.firewall_rule_type
     }

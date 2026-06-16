@@ -1091,6 +1091,8 @@ pub use crate::types::_model_data_source::ModelDataSource;
 
 pub use crate::types::_multi_model_config::MultiModelConfig;
 
+pub use crate::types::_container_metrics_config::ContainerMetricsConfig;
+
 pub use crate::types::_inference_execution_mode::InferenceExecutionMode;
 
 pub use crate::types::_monitoring_ground_truth_s3_input::MonitoringGroundTruthS3Input;
@@ -2037,6 +2039,8 @@ pub use crate::types::_model_compression_type::ModelCompressionType;
 
 pub use crate::types::_inference_hub_access_config::InferenceHubAccessConfig;
 
+pub use crate::types::_metrics_endpoint::MetricsEndpoint;
+
 pub use crate::types::_monitoring_input::MonitoringInput;
 
 pub use crate::types::_model_speculative_decoding_technique::ModelSpeculativeDecodingTechnique;
@@ -2881,6 +2885,8 @@ mod _container_config;
 
 mod _container_definition;
 
+mod _container_metrics_config;
+
 mod _container_mode;
 
 mod _content_classifier;
@@ -3546,6 +3552,8 @@ mod _metric_set_source;
 mod _metric_specification;
 
 mod _metrics_config;
+
+mod _metrics_endpoint;
 
 mod _metrics_source;
 

@@ -223,6 +223,13 @@ pub(crate) fn de_delete_lag(
                         depth + 1,
                     )?);
                 }
+                "rateLimiterStatus" => {
+                    builder = builder.set_rate_limiter_status(crate::protocol_serde::shape_rate_limiter_status::de_rate_limiter_status(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

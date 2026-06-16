@@ -44,6 +44,20 @@ where
                                 )?,
                             );
                         }
+                        "OpportunityQuality" => {
+                            builder = builder.set_opportunity_quality(crate::protocol_serde::shape_opportunity_quality::de_opportunity_quality(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "Recommendations" => {
+                            builder = builder.set_recommendations(crate::protocol_serde::shape_recommendation_list::de_recommendation_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

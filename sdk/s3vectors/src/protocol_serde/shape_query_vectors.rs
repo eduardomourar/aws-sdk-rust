@@ -228,6 +228,13 @@ pub(crate) fn de_query_vectors(
                             .transpose()?,
                     );
                 }
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "vectors" => {
                     builder = builder.set_vectors(crate::protocol_serde::shape_query_vectors_output_list::de_query_vectors_output_list(
                         tokens,

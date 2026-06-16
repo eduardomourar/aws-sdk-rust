@@ -3,23 +3,29 @@ pub fn ser_firewall_rule_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::types::FirewallRuleType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.firewall_advanced_content_category {
+    if let Some(var_1) = &input.partner_threat_protection {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("FirewallAdvancedContentCategory").start_object();
-        crate::protocol_serde::shape_firewall_advanced_content_category_config::ser_firewall_advanced_content_category_config(&mut object_2, var_1)?;
+        let mut object_2 = object.key("PartnerThreatProtection").start_object();
+        crate::protocol_serde::shape_partner_threat_protection_config::ser_partner_threat_protection_config(&mut object_2, var_1)?;
         object_2.finish();
     }
-    if let Some(var_3) = &input.firewall_advanced_threat_category {
+    if let Some(var_3) = &input.firewall_advanced_content_category {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("FirewallAdvancedThreatCategory").start_object();
-        crate::protocol_serde::shape_firewall_advanced_threat_category_config::ser_firewall_advanced_threat_category_config(&mut object_4, var_3)?;
+        let mut object_4 = object.key("FirewallAdvancedContentCategory").start_object();
+        crate::protocol_serde::shape_firewall_advanced_content_category_config::ser_firewall_advanced_content_category_config(&mut object_4, var_3)?;
         object_4.finish();
     }
-    if let Some(var_5) = &input.dns_threat_protection {
+    if let Some(var_5) = &input.firewall_advanced_threat_category {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("DnsThreatProtection").start_object();
-        crate::protocol_serde::shape_dns_threat_protection_rule_type_config::ser_dns_threat_protection_rule_type_config(&mut object_6, var_5)?;
+        let mut object_6 = object.key("FirewallAdvancedThreatCategory").start_object();
+        crate::protocol_serde::shape_firewall_advanced_threat_category_config::ser_firewall_advanced_threat_category_config(&mut object_6, var_5)?;
         object_6.finish();
+    }
+    if let Some(var_7) = &input.dns_threat_protection {
+        #[allow(unused_mut)]
+        let mut object_8 = object.key("DnsThreatProtection").start_object();
+        crate::protocol_serde::shape_dns_threat_protection_rule_type_config::ser_dns_threat_protection_rule_type_config(&mut object_8, var_7)?;
+        object_8.finish();
     }
     Ok(())
 }
@@ -47,6 +53,15 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         match key.to_unescaped()?.as_ref() {
+                            "PartnerThreatProtection" => {
+                                builder = builder.set_partner_threat_protection(
+                                    crate::protocol_serde::shape_partner_threat_protection_config::de_partner_threat_protection_config(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
                             "FirewallAdvancedContentCategory" => {
                                 builder = builder.set_firewall_advanced_content_category(
                                     crate::protocol_serde::shape_firewall_advanced_content_category_config::de_firewall_advanced_content_category_config(tokens, _value, depth + 1)?

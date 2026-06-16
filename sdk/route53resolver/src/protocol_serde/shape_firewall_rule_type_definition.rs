@@ -49,6 +49,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "SubscriptionInfo" => {
+                            builder = builder.set_subscription_info(crate::protocol_serde::shape_subscription_info::de_subscription_info(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

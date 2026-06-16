@@ -78,6 +78,23 @@ pub fn de_allocate_public_virtual_interface_http_error(
                 tmp
             })
         }
+        "LimitExceededException" => {
+            crate::operation::allocate_public_virtual_interface::AllocatePublicVirtualInterfaceError::LimitExceededException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::allocate_public_virtual_interface::AllocatePublicVirtualInterfaceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "TooManyTagsException" => crate::operation::allocate_public_virtual_interface::AllocatePublicVirtualInterfaceError::TooManyTagsException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -313,6 +330,13 @@ pub(crate) fn de_allocate_public_virtual_interface(
                     }
                     "siteLinkEnabled" => {
                         builder = builder.set_site_link_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                    }
+                    "rateLimit" => {
+                        builder = builder.set_rate_limit(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }

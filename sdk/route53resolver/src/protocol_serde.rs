@@ -461,8 +461,12 @@ pub(crate) mod shape_firewall_rule_type_definition;
 
 pub(crate) mod shape_ip_address_response;
 
+pub(crate) mod shape_partner_threat_protection_config;
+
 pub(crate) mod shape_protocol_list;
 
 pub(crate) mod shape_security_group_ids;
 
 pub(crate) mod shape_target_list;
+
+pub(crate) mod shape_subscription_info;

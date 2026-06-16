@@ -60,6 +60,21 @@ pub fn de_associate_connection_with_lag_http_error(
                 tmp
             })
         }
+        "LimitExceededException" => crate::operation::associate_connection_with_lag::AssociateConnectionWithLagError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::associate_connection_with_lag::AssociateConnectionWithLagError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::associate_connection_with_lag::AssociateConnectionWithLagError::generic(generic),
     })
 }
@@ -245,6 +260,13 @@ pub(crate) fn de_associate_connection_with_lag(
                 }
                 "macSecKeys" => {
                     builder = builder.set_mac_sec_keys(crate::protocol_serde::shape_mac_sec_key_list::de_mac_sec_key_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "rateLimiterStatus" => {
+                    builder = builder.set_rate_limiter_status(crate::protocol_serde::shape_rate_limiter_status::de_rate_limiter_status(
                         tokens,
                         _value,
                         depth + 1,

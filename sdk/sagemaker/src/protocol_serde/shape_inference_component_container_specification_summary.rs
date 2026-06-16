@@ -45,6 +45,11 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "ContainerMetricsConfig" => {
+                            builder = builder.set_container_metrics_config(
+                                crate::protocol_serde::shape_container_metrics_config::de_container_metrics_config(tokens, _value, depth + 1)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

@@ -22,7 +22,8 @@ impl crate::operation::list_firewall_rule_types::builders::ListFirewallRuleTypes
 }
 /// Fluent builder constructing a request to `ListFirewallRuleTypes`.
 ///
-/// <p>Retrieves the available rule types that can be used in DNS Firewall rules.</p>
+/// <p>Retrieves the rule-type variants that can be used in the <code>FirewallRuleType</code> field of <code>CreateFirewallRule</code> and <code>UpdateFirewallRule</code>. Each returned <code>FirewallRuleTypeDefinition</code> identifies one variant + value combination — for example, <code>FirewallAdvancedContentCategory</code> + <code>VIOLENCE_AND_HATE_SPEECH</code>, or <code>PartnerThreatProtection</code> + a partner-managed feed.</p>
+/// <p>The supported <code>RuleType</code> filter values are <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. When a returned definition's variant requires an external subscription (currently only <code>PartnerThreatProtection</code>), the response also includes a <code>SubscriptionInfo</code> identifying the AWS Marketplace product that backs it; absence of <code>SubscriptionInfo</code> means the variant is fully managed by AWS and requires no separate subscription.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListFirewallRuleTypesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -114,17 +115,17 @@ impl ListFirewallRuleTypesFluentBuilder {
     pub fn into_paginator(self) -> crate::operation::list_firewall_rule_types::paginator::ListFirewallRuleTypesPaginator {
         crate::operation::list_firewall_rule_types::paginator::ListFirewallRuleTypesPaginator::new(self.handle, self.inner)
     }
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn rule_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.rule_type(input.into());
         self
     }
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn set_rule_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_rule_type(input);
         self
     }
-    /// <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+    /// <p>An optional filter that restricts the response to a single <code>FirewallRuleType</code> variant. Supported values: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. If omitted, definitions across all variants are returned.</p>
     pub fn get_rule_type(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_rule_type()
     }

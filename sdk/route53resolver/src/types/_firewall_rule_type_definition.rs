@@ -12,6 +12,8 @@ pub struct FirewallRuleTypeDefinition {
     pub display_name: ::std::option::Option<::std::string::String>,
     /// <p>A description of the rule type.</p>
     pub description: ::std::option::Option<::std::string::String>,
+    /// <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the AWS Marketplace product that backs the rule type. Absent for rule types that are managed by AWS and do not require a separate subscription. See <code>SubscriptionInfo</code>.</p>
+    pub subscription_info: ::std::option::Option<crate::types::SubscriptionInfo>,
 }
 impl FirewallRuleTypeDefinition {
     /// <p>The category or class of the rule type, such as <code>FirewallAdvancedContentCategory</code> or <code>FirewallAdvancedThreatCategory</code>.</p>
@@ -30,6 +32,10 @@ impl FirewallRuleTypeDefinition {
     pub fn description(&self) -> ::std::option::Option<&str> {
         self.description.as_deref()
     }
+    /// <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the AWS Marketplace product that backs the rule type. Absent for rule types that are managed by AWS and do not require a separate subscription. See <code>SubscriptionInfo</code>.</p>
+    pub fn subscription_info(&self) -> ::std::option::Option<&crate::types::SubscriptionInfo> {
+        self.subscription_info.as_ref()
+    }
 }
 impl FirewallRuleTypeDefinition {
     /// Creates a new builder-style object to manufacture [`FirewallRuleTypeDefinition`](crate::types::FirewallRuleTypeDefinition).
@@ -46,6 +52,7 @@ pub struct FirewallRuleTypeDefinitionBuilder {
     pub(crate) value: ::std::option::Option<::std::string::String>,
     pub(crate) display_name: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
+    pub(crate) subscription_info: ::std::option::Option<crate::types::SubscriptionInfo>,
 }
 impl FirewallRuleTypeDefinitionBuilder {
     /// <p>The category or class of the rule type, such as <code>FirewallAdvancedContentCategory</code> or <code>FirewallAdvancedThreatCategory</code>.</p>
@@ -104,6 +111,20 @@ impl FirewallRuleTypeDefinitionBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
+    /// <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the AWS Marketplace product that backs the rule type. Absent for rule types that are managed by AWS and do not require a separate subscription. See <code>SubscriptionInfo</code>.</p>
+    pub fn subscription_info(mut self, input: crate::types::SubscriptionInfo) -> Self {
+        self.subscription_info = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the AWS Marketplace product that backs the rule type. Absent for rule types that are managed by AWS and do not require a separate subscription. See <code>SubscriptionInfo</code>.</p>
+    pub fn set_subscription_info(mut self, input: ::std::option::Option<crate::types::SubscriptionInfo>) -> Self {
+        self.subscription_info = input;
+        self
+    }
+    /// <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the AWS Marketplace product that backs the rule type. Absent for rule types that are managed by AWS and do not require a separate subscription. See <code>SubscriptionInfo</code>.</p>
+    pub fn get_subscription_info(&self) -> &::std::option::Option<crate::types::SubscriptionInfo> {
+        &self.subscription_info
+    }
     /// Consumes the builder and constructs a [`FirewallRuleTypeDefinition`](crate::types::FirewallRuleTypeDefinition).
     pub fn build(self) -> crate::types::FirewallRuleTypeDefinition {
         crate::types::FirewallRuleTypeDefinition {
@@ -111,6 +132,7 @@ impl FirewallRuleTypeDefinitionBuilder {
             value: self.value,
             display_name: self.display_name,
             description: self.description,
+            subscription_info: self.subscription_info,
         }
     }
 }

@@ -159,6 +159,26 @@ pub(crate) fn reflens_list_gateways_output_output_next_token(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn reflens_list_harness_endpoints_output_output_next_token(
+    input: &crate::operation::list_harness_endpoints::ListHarnessEndpointsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_harness_versions_output_output_next_token(
+    input: &crate::operation::list_harness_versions::ListHarnessVersionsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn reflens_list_harnesses_output_output_next_token(
     input: &crate::operation::list_harnesses::ListHarnessesOutput,
 ) -> ::std::option::Option<&::std::string::String> {
@@ -438,6 +458,20 @@ pub(crate) fn lens_list_gateways_output_output_items(
     input: crate::operation::list_gateways::ListGatewaysOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::GatewaySummary>> {
     let input = input.items;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_harness_endpoints_output_output_endpoints(
+    input: crate::operation::list_harness_endpoints::ListHarnessEndpointsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::HarnessEndpoint>> {
+    let input = input.endpoints;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_harness_versions_output_output_harness_versions(
+    input: crate::operation::list_harness_versions::ListHarnessVersionsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::HarnessVersionSummary>> {
+    let input = input.harness_versions;
     ::std::option::Option::Some(input)
 }
 

@@ -8,6 +8,8 @@ pub struct RuntimeTargetConfiguration {
     pub arn: ::std::string::String,
     /// <p>The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.</p>
     pub qualifier: ::std::option::Option<::std::string::String>,
+    /// <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+    pub schema: ::std::option::Option<crate::types::HttpApiSchemaConfiguration>,
 }
 impl RuntimeTargetConfiguration {
     /// <p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>
@@ -18,6 +20,10 @@ impl RuntimeTargetConfiguration {
     /// <p>The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.</p>
     pub fn qualifier(&self) -> ::std::option::Option<&str> {
         self.qualifier.as_deref()
+    }
+    /// <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+    pub fn schema(&self) -> ::std::option::Option<&crate::types::HttpApiSchemaConfiguration> {
+        self.schema.as_ref()
     }
 }
 impl RuntimeTargetConfiguration {
@@ -33,6 +39,7 @@ impl RuntimeTargetConfiguration {
 pub struct RuntimeTargetConfigurationBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
+    pub(crate) schema: ::std::option::Option<crate::types::HttpApiSchemaConfiguration>,
 }
 impl RuntimeTargetConfigurationBuilder {
     /// <p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>
@@ -64,6 +71,20 @@ impl RuntimeTargetConfigurationBuilder {
     pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.qualifier
     }
+    /// <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+    pub fn schema(mut self, input: crate::types::HttpApiSchemaConfiguration) -> Self {
+        self.schema = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+    pub fn set_schema(mut self, input: ::std::option::Option<crate::types::HttpApiSchemaConfiguration>) -> Self {
+        self.schema = input;
+        self
+    }
+    /// <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+    pub fn get_schema(&self) -> &::std::option::Option<crate::types::HttpApiSchemaConfiguration> {
+        &self.schema
+    }
     /// Consumes the builder and constructs a [`RuntimeTargetConfiguration`](crate::types::RuntimeTargetConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::types::builders::RuntimeTargetConfigurationBuilder::arn)
@@ -76,6 +97,7 @@ impl RuntimeTargetConfigurationBuilder {
                 )
             })?,
             qualifier: self.qualifier,
+            schema: self.schema,
         })
     }
 }

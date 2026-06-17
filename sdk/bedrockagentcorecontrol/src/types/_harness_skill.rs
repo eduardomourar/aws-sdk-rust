@@ -4,6 +4,8 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum HarnessSkill {
+    /// <p>AWS Skills baked into the harness's underlying Runtime.</p>
+    AwsSkills(crate::types::HarnessSkillAwsSkillsSource),
     /// <p>A git repository containing the skill.</p>
     Git(crate::types::HarnessSkillGitSource),
     /// <p>The filesystem path to the skill definition.</p>
@@ -21,6 +23,19 @@ pub enum HarnessSkill {
     Unknown,
 }
 impl HarnessSkill {
+    /// Tries to convert the enum instance into [`AwsSkills`](crate::types::HarnessSkill::AwsSkills), extracting the inner [`HarnessSkillAwsSkillsSource`](crate::types::HarnessSkillAwsSkillsSource).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_aws_skills(&self) -> ::std::result::Result<&crate::types::HarnessSkillAwsSkillsSource, &Self> {
+        if let HarnessSkill::AwsSkills(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`AwsSkills`](crate::types::HarnessSkill::AwsSkills).
+    pub fn is_aws_skills(&self) -> bool {
+        self.as_aws_skills().is_ok()
+    }
     /// Tries to convert the enum instance into [`Git`](crate::types::HarnessSkill::Git), extracting the inner [`HarnessSkillGitSource`](crate::types::HarnessSkillGitSource).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_git(&self) -> ::std::result::Result<&crate::types::HarnessSkillGitSource, &Self> {

@@ -3,11 +3,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetApiKeyCredentialProviderOutput {
-    /// <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
     pub api_key_secret_arn: ::std::option::Option<crate::types::Secret>,
-    /// <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
     pub api_key_secret_json_key: ::std::option::Option<::std::string::String>,
-    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub api_key_secret_source: ::std::option::Option<crate::types::SecretSourceType>,
     /// <p>The name of the API key credential provider.</p>
     pub name: ::std::string::String,
@@ -20,15 +20,15 @@ pub struct GetApiKeyCredentialProviderOutput {
     _request_id: Option<String>,
 }
 impl GetApiKeyCredentialProviderOutput {
-    /// <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
     pub fn api_key_secret_arn(&self) -> ::std::option::Option<&crate::types::Secret> {
         self.api_key_secret_arn.as_ref()
     }
-    /// <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn api_key_secret_json_key(&self) -> ::std::option::Option<&str> {
         self.api_key_secret_json_key.as_deref()
     }
-    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn api_key_secret_source(&self) -> ::std::option::Option<&crate::types::SecretSourceType> {
         self.api_key_secret_source.as_ref()
     }
@@ -77,46 +77,46 @@ pub struct GetApiKeyCredentialProviderOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetApiKeyCredentialProviderOutputBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
     /// This field is required.
     pub fn api_key_secret_arn(mut self, input: crate::types::Secret) -> Self {
         self.api_key_secret_arn = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
     pub fn set_api_key_secret_arn(mut self, input: ::std::option::Option<crate::types::Secret>) -> Self {
         self.api_key_secret_arn = input;
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
     pub fn get_api_key_secret_arn(&self) -> &::std::option::Option<crate::types::Secret> {
         &self.api_key_secret_arn
     }
-    /// <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn api_key_secret_json_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.api_key_secret_json_key = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn set_api_key_secret_json_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.api_key_secret_json_key = input;
         self
     }
-    /// <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn get_api_key_secret_json_key(&self) -> &::std::option::Option<::std::string::String> {
         &self.api_key_secret_json_key
     }
-    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn api_key_secret_source(mut self, input: crate::types::SecretSourceType) -> Self {
         self.api_key_secret_source = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn set_api_key_secret_source(mut self, input: ::std::option::Option<crate::types::SecretSourceType>) -> Self {
         self.api_key_secret_source = input;
         self
     }
-    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn get_api_key_secret_source(&self) -> &::std::option::Option<crate::types::SecretSourceType> {
         &self.api_key_secret_source
     }

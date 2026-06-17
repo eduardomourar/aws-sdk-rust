@@ -27,5 +27,8 @@ pub fn ser_create_code_review_input_input(
     if let Some(var_8) = &input.title {
         object.key("title").string(var_8.as_str());
     }
+    if let Some(var_9) = &input.validation_mode {
+        object.key("validationMode").string(var_9.as_str());
+    }
     Ok(())
 }

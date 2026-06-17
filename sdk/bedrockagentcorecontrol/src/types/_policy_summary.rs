@@ -18,6 +18,8 @@ pub struct PolicySummary {
     pub policy_arn: ::std::string::String,
     /// <p>The current status of the policy.</p>
     pub status: crate::types::PolicyStatus,
+    /// <p>The current enforcement mode of the policy.</p>
+    pub enforcement_mode: crate::types::EnforcementMode,
 }
 impl PolicySummary {
     /// <p>The unique identifier for the policy.</p>
@@ -52,6 +54,10 @@ impl PolicySummary {
     pub fn status(&self) -> &crate::types::PolicyStatus {
         &self.status
     }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn enforcement_mode(&self) -> &crate::types::EnforcementMode {
+        &self.enforcement_mode
+    }
 }
 impl PolicySummary {
     /// Creates a new builder-style object to manufacture [`PolicySummary`](crate::types::PolicySummary).
@@ -71,6 +77,7 @@ pub struct PolicySummaryBuilder {
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::PolicyStatus>,
+    pub(crate) enforcement_mode: ::std::option::Option<crate::types::EnforcementMode>,
 }
 impl PolicySummaryBuilder {
     /// <p>The unique identifier for the policy.</p>
@@ -178,6 +185,20 @@ impl PolicySummaryBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::PolicyStatus> {
         &self.status
     }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn enforcement_mode(mut self, input: crate::types::EnforcementMode) -> Self {
+        self.enforcement_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn set_enforcement_mode(mut self, input: ::std::option::Option<crate::types::EnforcementMode>) -> Self {
+        self.enforcement_mode = input;
+        self
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn get_enforcement_mode(&self) -> &::std::option::Option<crate::types::EnforcementMode> {
+        &self.enforcement_mode
+    }
     /// Consumes the builder and constructs a [`PolicySummary`](crate::types::PolicySummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`policy_id`](crate::types::builders::PolicySummaryBuilder::policy_id)
@@ -231,6 +252,11 @@ impl PolicySummaryBuilder {
                     "status was not specified but it is required when building PolicySummary",
                 )
             })?,
+            enforcement_mode: self.enforcement_mode.unwrap_or(
+                "ACTIVE"
+                    .parse::<crate::types::EnforcementMode>()
+                    .expect("static value validated to member"),
+            ),
         })
     }
 }

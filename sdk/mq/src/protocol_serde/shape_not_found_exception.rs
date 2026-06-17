@@ -26,6 +26,11 @@ pub(crate) fn de_not_found_exception_json_err(
                             .transpose()?,
                     );
                 }
+                "resourceShareErrors" => {
+                    builder = builder.set_resource_share_errors(
+                        crate::protocol_serde::shape_list_of_resource_share_error::de_list_of_resource_share_error(tokens, _value, depth + 1)?,
+                    );
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

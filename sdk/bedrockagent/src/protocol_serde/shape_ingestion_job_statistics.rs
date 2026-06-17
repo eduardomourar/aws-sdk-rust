@@ -70,6 +70,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "numberOfDocumentsSkipped" => {
+                            builder = builder.set_number_of_documents_skipped(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

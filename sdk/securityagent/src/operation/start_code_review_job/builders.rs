@@ -136,4 +136,18 @@ impl StartCodeReviewJobFluentBuilder {
     pub fn get_code_review_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_code_review_id()
     }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn diff_source(mut self, input: crate::types::DiffSource) -> Self {
+        self.inner = self.inner.diff_source(input);
+        self
+    }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn set_diff_source(mut self, input: ::std::option::Option<crate::types::DiffSource>) -> Self {
+        self.inner = self.inner.set_diff_source(input);
+        self
+    }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn get_diff_source(&self) -> &::std::option::Option<crate::types::DiffSource> {
+        self.inner.get_diff_source()
+    }
 }

@@ -241,6 +241,10 @@ pub use crate::types::_connection_properties_configuration::ConnectionProperties
 
 pub use crate::types::_connector_authentication_configuration::ConnectorAuthenticationConfiguration;
 
+pub use crate::types::_search_sort::SearchSort;
+
+pub use crate::types::_search_filter_clause::SearchFilterClause;
+
 pub use crate::types::_test_connection_input::TestConnectionInput;
 
 pub use crate::types::_update_grok_classifier_request::UpdateGrokClassifierRequest;
@@ -278,6 +282,10 @@ pub use crate::types::_table_version_error::TableVersionError;
 pub use crate::types::_custom_entity_type::CustomEntityType;
 
 pub use crate::types::_data_quality_result::DataQualityResult;
+
+pub use crate::types::_iterable_form_item::IterableFormItem;
+
+pub use crate::types::_item_error::ItemError;
 
 pub use crate::types::_batch_get_table_optimizer_entry::BatchGetTableOptimizerEntry;
 
@@ -394,6 +402,12 @@ pub use crate::types::_inbound_integration::InboundIntegration;
 pub use crate::types::_integration_filter::IntegrationFilter;
 
 pub use crate::types::_integration::Integration;
+
+pub use crate::types::_asset_form_entry::AssetFormEntry;
+
+pub use crate::types::_iterable_form_entry::IterableFormEntry;
+
+pub use crate::types::_asset_type_form_reference::AssetTypeFormReference;
 
 pub use crate::types::_blueprint_status::BlueprintStatus;
 
@@ -529,6 +543,8 @@ pub use crate::types::_workflow_run_statistics::WorkflowRunStatistics;
 
 pub use crate::types::_starting_event_batch_condition::StartingEventBatchCondition;
 
+pub use crate::types::_asset_type_item::AssetTypeItem;
+
 pub use crate::types::_connection_type_brief::ConnectionTypeBrief;
 
 pub use crate::types::_crawls_filter::CrawlsFilter;
@@ -549,9 +565,17 @@ pub use crate::types::_statistic_summary::StatisticSummary;
 
 pub use crate::types::_entity::Entity;
 
+pub use crate::types::_form_type_item::FormTypeItem;
+
+pub use crate::types::_glossary_item::GlossaryItem;
+
+pub use crate::types::_glossary_term_item::GlossaryTermItem;
+
 pub use crate::types::_integration_resource_property_filter::IntegrationResourcePropertyFilter;
 
 pub use crate::types::_integration_resource_property::IntegrationResourceProperty;
+
+pub use crate::types::_iterable_form_list_item::IterableFormListItem;
 
 pub use crate::types::_registry_list_item::RegistryListItem;
 
@@ -570,6 +594,14 @@ pub use crate::types::_connector_o_auth2_properties::ConnectorOAuth2Properties;
 pub use crate::types::_basic_authentication_properties::BasicAuthenticationProperties;
 
 pub use crate::types::_custom_authentication_properties::CustomAuthenticationProperties;
+
+pub use crate::types::_search_sort_order::SearchSortOrder;
+
+pub use crate::types::_search_attribute_filter::SearchAttributeFilter;
+
+pub use crate::types::_search_map_filter::SearchMapFilter;
+
+pub use crate::types::_search_result_item::SearchResultItem;
 
 pub use crate::types::_property_predicate::PropertyPredicate;
 
@@ -891,6 +923,12 @@ pub use crate::types::_jwt_bearer_properties::JwtBearerProperties;
 
 pub use crate::types::_connector_authorization_code_properties::ConnectorAuthorizationCodeProperties;
 
+pub use crate::types::_search_filter_operator::SearchFilterOperator;
+
+pub use crate::types::_search_filter_value::SearchFilterValue;
+
+pub use crate::types::_search_map_filter_value::SearchMapFilterValue;
+
 pub use crate::types::_comparator::Comparator;
 
 pub use crate::types::_sort::Sort;
@@ -1164,6 +1202,12 @@ mod _amazon_redshift_target;
 mod _annotation_error;
 
 mod _apply_mapping;
+
+mod _asset_form_entry;
+
+mod _asset_type_form_reference;
+
+mod _asset_type_item;
 
 mod _athena_connector_source;
 
@@ -1601,9 +1645,15 @@ mod _find_matches_parameters;
 
 mod _find_matches_task_run_properties;
 
+mod _form_type_item;
+
 mod _function_type;
 
 mod _get_connections_filter;
+
+mod _glossary_item;
+
+mod _glossary_term_item;
 
 mod _glue_policy;
 
@@ -1704,6 +1754,14 @@ mod _integration_resource_property_filter;
 mod _integration_status;
 
 mod _integration_type;
+
+mod _item_error;
+
+mod _iterable_form_entry;
+
+mod _iterable_form_item;
+
+mod _iterable_form_list_item;
 
 mod _jdbc_connection_type;
 
@@ -2040,6 +2098,24 @@ mod _schema_version_list_item;
 mod _schema_version_number;
 
 mod _schema_version_status;
+
+mod _search_attribute_filter;
+
+mod _search_filter_clause;
+
+mod _search_filter_operator;
+
+mod _search_filter_value;
+
+mod _search_map_filter;
+
+mod _search_map_filter_value;
+
+mod _search_result_item;
+
+mod _search_sort;
+
+mod _search_sort_order;
 
 mod _security_configuration;
 

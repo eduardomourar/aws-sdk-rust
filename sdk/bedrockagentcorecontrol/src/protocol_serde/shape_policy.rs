@@ -68,6 +68,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "enforcementMode" => {
+                            builder = builder.set_enforcement_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::EnforcementMode::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         "definition" => {
                             builder = builder.set_definition(crate::protocol_serde::shape_policy_definition::de_policy_definition(
                                 tokens,

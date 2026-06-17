@@ -26,6 +26,8 @@ pub struct FindingSummary {
     pub risk_level: ::std::option::Option<crate::types::RiskLevel>,
     /// <p>The confidence level of the finding.</p>
     pub confidence: ::std::option::Option<crate::types::ConfidenceLevel>,
+    /// <p>The simulated validation status of the finding.</p>
+    pub validation_status: ::std::option::Option<crate::types::ValidationStatus>,
     /// <p>The date and time the finding was created, in UTC format.</p>
     pub created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time the finding was last updated, in UTC format.</p>
@@ -78,6 +80,10 @@ impl FindingSummary {
     pub fn confidence(&self) -> ::std::option::Option<&crate::types::ConfidenceLevel> {
         self.confidence.as_ref()
     }
+    /// <p>The simulated validation status of the finding.</p>
+    pub fn validation_status(&self) -> ::std::option::Option<&crate::types::ValidationStatus> {
+        self.validation_status.as_ref()
+    }
     /// <p>The date and time the finding was created, in UTC format.</p>
     pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.created_at.as_ref()
@@ -109,6 +115,7 @@ pub struct FindingSummaryBuilder {
     pub(crate) risk_type: ::std::option::Option<::std::string::String>,
     pub(crate) risk_level: ::std::option::Option<crate::types::RiskLevel>,
     pub(crate) confidence: ::std::option::Option<crate::types::ConfidenceLevel>,
+    pub(crate) validation_status: ::std::option::Option<crate::types::ValidationStatus>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -269,6 +276,20 @@ impl FindingSummaryBuilder {
     pub fn get_confidence(&self) -> &::std::option::Option<crate::types::ConfidenceLevel> {
         &self.confidence
     }
+    /// <p>The simulated validation status of the finding.</p>
+    pub fn validation_status(mut self, input: crate::types::ValidationStatus) -> Self {
+        self.validation_status = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The simulated validation status of the finding.</p>
+    pub fn set_validation_status(mut self, input: ::std::option::Option<crate::types::ValidationStatus>) -> Self {
+        self.validation_status = input;
+        self
+    }
+    /// <p>The simulated validation status of the finding.</p>
+    pub fn get_validation_status(&self) -> &::std::option::Option<crate::types::ValidationStatus> {
+        &self.validation_status
+    }
     /// <p>The date and time the finding was created, in UTC format.</p>
     pub fn created_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.created_at = ::std::option::Option::Some(input);
@@ -324,6 +345,7 @@ impl FindingSummaryBuilder {
             risk_type: self.risk_type,
             risk_level: self.risk_level,
             confidence: self.confidence,
+            validation_status: self.validation_status,
             created_at: self.created_at,
             updated_at: self.updated_at,
         })

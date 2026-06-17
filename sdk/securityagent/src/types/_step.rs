@@ -4,7 +4,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Step {
-    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
     pub name: ::std::option::Option<crate::types::StepName>,
     /// <p>The current status of the step.</p>
     pub status: ::std::option::Option<crate::types::StepStatus>,
@@ -14,7 +14,7 @@ pub struct Step {
     pub updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl Step {
-    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
     pub fn name(&self) -> ::std::option::Option<&crate::types::StepName> {
         self.name.as_ref()
     }
@@ -48,17 +48,17 @@ pub struct StepBuilder {
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl StepBuilder {
-    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
     pub fn name(mut self, input: crate::types::StepName) -> Self {
         self.name = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
     pub fn set_name(mut self, input: ::std::option::Option<crate::types::StepName>) -> Self {
         self.name = input;
         self
     }
-    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+    /// <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
     pub fn get_name(&self) -> &::std::option::Option<crate::types::StepName> {
         &self.name
     }

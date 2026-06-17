@@ -140,6 +140,26 @@ where
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'mcpserversigv4' cannot be null")
                             })?,
                         )),
+                        "remoteagent" => Some(crate::types::AdditionalServiceDetails::Remoteagent(
+                            crate::protocol_serde::shape_registered_remote_agent_details::de_registered_remote_agent_details(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'remoteagent' cannot be null")
+                            })?,
+                        )),
+                        "remoteagentsigv4" => Some(crate::types::AdditionalServiceDetails::Remoteagentsigv4(
+                            crate::protocol_serde::shape_registered_remote_agent_sigv4_details::de_registered_remote_agent_sigv4_details(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'remoteagentsigv4' cannot be null")
+                            })?,
+                        )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(crate::types::AdditionalServiceDetails::Unknown)

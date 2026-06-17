@@ -2,7 +2,7 @@
 
 /// <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct McpGatewayConfiguration {
     /// <p>The supported versions of the Model Context Protocol. This field specifies which versions of the protocol the gateway can use.</p>
     pub supported_versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -39,6 +39,17 @@ impl McpGatewayConfiguration {
         self.streaming_configuration.as_ref()
     }
 }
+impl ::std::fmt::Debug for McpGatewayConfiguration {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("McpGatewayConfiguration");
+        formatter.field("supported_versions", &self.supported_versions);
+        formatter.field("instructions", &"*** Sensitive Data Redacted ***");
+        formatter.field("search_type", &self.search_type);
+        formatter.field("session_configuration", &self.session_configuration);
+        formatter.field("streaming_configuration", &self.streaming_configuration);
+        formatter.finish()
+    }
+}
 impl McpGatewayConfiguration {
     /// Creates a new builder-style object to manufacture [`McpGatewayConfiguration`](crate::types::McpGatewayConfiguration).
     pub fn builder() -> crate::types::builders::McpGatewayConfigurationBuilder {
@@ -47,7 +58,7 @@ impl McpGatewayConfiguration {
 }
 
 /// A builder for [`McpGatewayConfiguration`](crate::types::McpGatewayConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct McpGatewayConfigurationBuilder {
     pub(crate) supported_versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -142,5 +153,16 @@ impl McpGatewayConfigurationBuilder {
             session_configuration: self.session_configuration,
             streaming_configuration: self.streaming_configuration,
         }
+    }
+}
+impl ::std::fmt::Debug for McpGatewayConfigurationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("McpGatewayConfigurationBuilder");
+        formatter.field("supported_versions", &self.supported_versions);
+        formatter.field("instructions", &"*** Sensitive Data Redacted ***");
+        formatter.field("search_type", &self.search_type);
+        formatter.field("session_configuration", &self.session_configuration);
+        formatter.field("streaming_configuration", &self.streaming_configuration);
+        formatter.finish()
     }
 }

@@ -49,6 +49,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "harnessVersion" => {
+                            builder = builder.set_harness_version(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "executionRoleArn" => {
                             builder = builder.set_execution_role_arn(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

@@ -152,6 +152,20 @@ impl InvokeHarnessFluentBuilder {
     pub fn get_harness_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_harness_arn()
     }
+    /// <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
+    pub fn qualifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.qualifier(input.into());
+        self
+    }
+    /// <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
+    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_qualifier(input);
+        self
+    }
+    /// <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
+    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_qualifier()
+    }
     /// <p>The session ID for the invocation. Use the same session ID across requests to continue a conversation.</p>
     pub fn runtime_session_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.runtime_session_id(input.into());

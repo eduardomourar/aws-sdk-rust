@@ -335,6 +335,18 @@ pub(crate) fn create_harness_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn create_harness_endpoint_output_output_correct_errors(
+    mut builder: crate::operation::create_harness_endpoint::builders::CreateHarnessEndpointOutputBuilder,
+) -> crate::operation::create_harness_endpoint::builders::CreateHarnessEndpointOutputBuilder {
+    if builder.endpoint.is_none() {
+        builder.endpoint = {
+            let builder = crate::types::builders::HarnessEndpointBuilder::default();
+            crate::serde_util::harness_endpoint_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn create_oauth2_credential_provider_output_output_correct_errors(
     mut builder: crate::operation::create_oauth2_credential_provider::builders::CreateOauth2CredentialProviderOutputBuilder,
 ) -> crate::operation::create_oauth2_credential_provider::builders::CreateOauth2CredentialProviderOutputBuilder {
@@ -709,6 +721,18 @@ pub(crate) fn delete_gateway_target_output_output_correct_errors(
     }
     if builder.status.is_none() {
         builder.status = "no value was set".parse::<crate::types::TargetStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn delete_harness_endpoint_output_output_correct_errors(
+    mut builder: crate::operation::delete_harness_endpoint::builders::DeleteHarnessEndpointOutputBuilder,
+) -> crate::operation::delete_harness_endpoint::builders::DeleteHarnessEndpointOutputBuilder {
+    if builder.endpoint.is_none() {
+        builder.endpoint = {
+            let builder = crate::types::builders::HarnessEndpointBuilder::default();
+            crate::serde_util::harness_endpoint_correct_errors(builder).build().ok()
+        }
     }
     builder
 }
@@ -1206,6 +1230,18 @@ pub(crate) fn get_harness_output_output_correct_errors(
         builder.harness = {
             let builder = crate::types::builders::HarnessBuilder::default();
             crate::serde_util::harness_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn get_harness_endpoint_output_output_correct_errors(
+    mut builder: crate::operation::get_harness_endpoint::builders::GetHarnessEndpointOutputBuilder,
+) -> crate::operation::get_harness_endpoint::builders::GetHarnessEndpointOutputBuilder {
+    if builder.endpoint.is_none() {
+        builder.endpoint = {
+            let builder = crate::types::builders::HarnessEndpointBuilder::default();
+            crate::serde_util::harness_endpoint_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -1793,6 +1829,24 @@ pub(crate) fn list_gateways_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_harness_endpoints_output_output_correct_errors(
+    mut builder: crate::operation::list_harness_endpoints::builders::ListHarnessEndpointsOutputBuilder,
+) -> crate::operation::list_harness_endpoints::builders::ListHarnessEndpointsOutputBuilder {
+    if builder.endpoints.is_none() {
+        builder.endpoints = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn list_harness_versions_output_output_correct_errors(
+    mut builder: crate::operation::list_harness_versions::builders::ListHarnessVersionsOutputBuilder,
+) -> crate::operation::list_harness_versions::builders::ListHarnessVersionsOutputBuilder {
+    if builder.harness_versions.is_none() {
+        builder.harness_versions = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_harnesses_output_output_correct_errors(
     mut builder: crate::operation::list_harnesses::builders::ListHarnessesOutputBuilder,
 ) -> crate::operation::list_harnesses::builders::ListHarnessesOutputBuilder {
@@ -2261,6 +2315,18 @@ pub(crate) fn update_harness_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn update_harness_endpoint_output_output_correct_errors(
+    mut builder: crate::operation::update_harness_endpoint::builders::UpdateHarnessEndpointOutputBuilder,
+) -> crate::operation::update_harness_endpoint::builders::UpdateHarnessEndpointOutputBuilder {
+    if builder.endpoint.is_none() {
+        builder.endpoint = {
+            let builder = crate::types::builders::HarnessEndpointBuilder::default();
+            crate::serde_util::harness_endpoint_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn update_oauth2_credential_provider_output_output_correct_errors(
     mut builder: crate::operation::update_oauth2_credential_provider::builders::UpdateOauth2CredentialProviderOutputBuilder,
 ) -> crate::operation::update_oauth2_credential_provider::builders::UpdateOauth2CredentialProviderOutputBuilder {
@@ -2604,6 +2670,33 @@ pub(crate) fn harness_correct_errors(mut builder: crate::types::builders::Harnes
     }
     if builder.environment.is_none() {
         builder.environment = Some(crate::types::HarnessEnvironmentProvider::Unknown)
+    }
+    builder
+}
+
+pub(crate) fn harness_endpoint_correct_errors(
+    mut builder: crate::types::builders::HarnessEndpointBuilder,
+) -> crate::types::builders::HarnessEndpointBuilder {
+    if builder.harness_id.is_none() {
+        builder.harness_id = Some(Default::default())
+    }
+    if builder.harness_name.is_none() {
+        builder.harness_name = Some(Default::default())
+    }
+    if builder.endpoint_name.is_none() {
+        builder.endpoint_name = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::HarnessEndpointStatus>().ok()
+    }
+    if builder.created_at.is_none() {
+        builder.created_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.updated_at.is_none() {
+        builder.updated_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -3283,6 +3376,33 @@ pub(crate) fn harness_summary_correct_errors(
     builder
 }
 
+pub(crate) fn harness_version_summary_correct_errors(
+    mut builder: crate::types::builders::HarnessVersionSummaryBuilder,
+) -> crate::types::builders::HarnessVersionSummaryBuilder {
+    if builder.harness_id.is_none() {
+        builder.harness_id = Some(Default::default())
+    }
+    if builder.harness_name.is_none() {
+        builder.harness_name = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.harness_version.is_none() {
+        builder.harness_version = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::HarnessStatus>().ok()
+    }
+    if builder.created_at.is_none() {
+        builder.created_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.updated_at.is_none() {
+        builder.updated_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
 pub(crate) fn included_oauth2_provider_config_output_correct_errors(
     mut builder: crate::types::builders::IncludedOauth2ProviderConfigOutputBuilder,
 ) -> crate::types::builders::IncludedOauth2ProviderConfigOutputBuilder {
@@ -3655,6 +3775,15 @@ pub(crate) fn policy_generation_summary_correct_errors(
     builder
 }
 
+pub(crate) fn policy_statement_correct_errors(
+    mut builder: crate::types::builders::PolicyStatementBuilder,
+) -> crate::types::builders::PolicyStatementBuilder {
+    if builder.statement.is_none() {
+        builder.statement = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn policy_summary_correct_errors(
     mut builder: crate::types::builders::PolicySummaryBuilder,
 ) -> crate::types::builders::PolicySummaryBuilder {
@@ -3891,6 +4020,18 @@ pub(crate) fn api_gateway_target_configuration_correct_errors(
     builder
 }
 
+pub(crate) fn connector_target_configuration_correct_errors(
+    mut builder: crate::types::builders::ConnectorTargetConfigurationBuilder,
+) -> crate::types::builders::ConnectorTargetConfigurationBuilder {
+    if builder.source.is_none() {
+        builder.source = {
+            let builder = crate::types::builders::ConnectorSourceBuilder::default();
+            crate::serde_util::connector_source_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn efs_access_point_configuration_correct_errors(
     mut builder: crate::types::builders::EfsAccessPointConfigurationBuilder,
 ) -> crate::types::builders::EfsAccessPointConfigurationBuilder {
@@ -4011,6 +4152,27 @@ pub(crate) fn indexed_key_correct_errors(mut builder: crate::types::builders::In
     builder
 }
 
+pub(crate) fn inference_connector_target_configuration_correct_errors(
+    mut builder: crate::types::builders::InferenceConnectorTargetConfigurationBuilder,
+) -> crate::types::builders::InferenceConnectorTargetConfigurationBuilder {
+    if builder.source.is_none() {
+        builder.source = {
+            let builder = crate::types::builders::InferenceConnectorSourceBuilder::default();
+            crate::serde_util::inference_connector_source_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn inference_provider_target_configuration_correct_errors(
+    mut builder: crate::types::builders::InferenceProviderTargetConfigurationBuilder,
+) -> crate::types::builders::InferenceProviderTargetConfigurationBuilder {
+    if builder.endpoint.is_none() {
+        builder.endpoint = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn interceptor_input_configuration_correct_errors(
     mut builder: crate::types::builders::InterceptorInputConfigurationBuilder,
 ) -> crate::types::builders::InterceptorInputConfigurationBuilder {
@@ -4096,6 +4258,18 @@ pub(crate) fn on_behalf_of_token_exchange_config_type_correct_errors(
     builder
 }
 
+pub(crate) fn passthrough_target_configuration_correct_errors(
+    mut builder: crate::types::builders::PassthroughTargetConfigurationBuilder,
+) -> crate::types::builders::PassthroughTargetConfigurationBuilder {
+    if builder.endpoint.is_none() {
+        builder.endpoint = Some(Default::default())
+    }
+    if builder.protocol_type.is_none() {
+        builder.protocol_type = "no value was set".parse::<crate::types::PassthroughProtocolType>().ok()
+    }
+    builder
+}
+
 pub(crate) fn payment_credential_provider_configuration_correct_errors(
     mut builder: crate::types::builders::PaymentCredentialProviderConfigurationBuilder,
 ) -> crate::types::builders::PaymentCredentialProviderConfigurationBuilder {
@@ -4153,6 +4327,15 @@ pub(crate) fn bedrock_evaluator_model_config_correct_errors(
     builder
 }
 
+pub(crate) fn connector_source_correct_errors(
+    mut builder: crate::types::builders::ConnectorSourceBuilder,
+) -> crate::types::builders::ConnectorSourceBuilder {
+    if builder.connector_id.is_none() {
+        builder.connector_id = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn custom_claim_validation_type_correct_errors(
     mut builder: crate::types::builders::CustomClaimValidationTypeBuilder,
 ) -> crate::types::builders::CustomClaimValidationTypeBuilder {
@@ -4198,11 +4381,38 @@ pub(crate) fn harness_skill_s3_source_correct_errors(
     builder
 }
 
+pub(crate) fn http_api_schema_configuration_correct_errors(
+    mut builder: crate::types::builders::HttpApiSchemaConfigurationBuilder,
+) -> crate::types::builders::HttpApiSchemaConfigurationBuilder {
+    if builder.source.is_none() {
+        builder.source = Some(crate::types::ApiSchemaConfiguration::Unknown)
+    }
+    builder
+}
+
 pub(crate) fn iam_credential_provider_correct_errors(
     mut builder: crate::types::builders::IamCredentialProviderBuilder,
 ) -> crate::types::builders::IamCredentialProviderBuilder {
     if builder.service.is_none() {
         builder.service = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn inference_connector_source_correct_errors(
+    mut builder: crate::types::builders::InferenceConnectorSourceBuilder,
+) -> crate::types::builders::InferenceConnectorSourceBuilder {
+    if builder.connector_id.is_none() {
+        builder.connector_id = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn interceptor_payload_filter_correct_errors(
+    mut builder: crate::types::builders::InterceptorPayloadFilterBuilder,
+) -> crate::types::builders::InterceptorPayloadFilterBuilder {
+    if builder.exclude.is_none() {
+        builder.exclude = Some(Default::default())
     }
     builder
 }
@@ -4295,6 +4505,15 @@ pub(crate) fn static_route_correct_errors(mut builder: crate::types::builders::S
     builder
 }
 
+pub(crate) fn stickiness_configuration_correct_errors(
+    mut builder: crate::types::builders::StickinessConfigurationBuilder,
+) -> crate::types::builders::StickinessConfigurationBuilder {
+    if builder.identifier.is_none() {
+        builder.identifier = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn token_exchange_grant_type_config_type_correct_errors(
     mut builder: crate::types::builders::TokenExchangeGrantTypeConfigTypeBuilder,
 ) -> crate::types::builders::TokenExchangeGrantTypeConfigTypeBuilder {
@@ -4346,6 +4565,15 @@ pub(crate) fn categorical_scale_definition_correct_errors(
     builder
 }
 
+pub(crate) fn connector_configuration_correct_errors(
+    mut builder: crate::types::builders::ConnectorConfigurationBuilder,
+) -> crate::types::builders::ConnectorConfigurationBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn harness_agent_core_gateway_config_correct_errors(
     mut builder: crate::types::builders::HarnessAgentCoreGatewayConfigBuilder,
 ) -> crate::types::builders::HarnessAgentCoreGatewayConfigBuilder {
@@ -4381,6 +4609,24 @@ pub(crate) fn harness_skill_git_auth_correct_errors(
 ) -> crate::types::builders::HarnessSkillGitAuthBuilder {
     if builder.credential_arn.is_none() {
         builder.credential_arn = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn hosting_environment_correct_errors(
+    mut builder: crate::types::builders::HostingEnvironmentBuilder,
+) -> crate::types::builders::HostingEnvironmentBuilder {
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn inference_operation_configuration_correct_errors(
+    mut builder: crate::types::builders::InferenceOperationConfigurationBuilder,
+) -> crate::types::builders::InferenceOperationConfigurationBuilder {
+    if builder.path.is_none() {
+        builder.path = Some(Default::default())
     }
     builder
 }
@@ -4557,6 +4803,15 @@ pub(crate) fn configuration_bundle_reference_correct_errors(
     builder
 }
 
+pub(crate) fn connector_parameter_override_correct_errors(
+    mut builder: crate::types::builders::ConnectorParameterOverrideBuilder,
+) -> crate::types::builders::ConnectorParameterOverrideBuilder {
+    if builder.path.is_none() {
+        builder.path = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn content_configuration_correct_errors(
     mut builder: crate::types::builders::ContentConfigurationBuilder,
 ) -> crate::types::builders::ContentConfigurationBuilder {
@@ -4598,6 +4853,13 @@ pub(crate) fn episodic_reflection_override_correct_errors(
     }
     if builder.model_id.is_none() {
         builder.model_id = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn model_entry_correct_errors(mut builder: crate::types::builders::ModelEntryBuilder) -> crate::types::builders::ModelEntryBuilder {
+    if builder.model.is_none() {
+        builder.model = Some(Default::default())
     }
     builder
 }

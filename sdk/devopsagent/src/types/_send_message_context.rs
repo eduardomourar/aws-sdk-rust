@@ -8,7 +8,7 @@ pub struct SendMessageContext {
     pub current_page: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the last message in the conversation</p>
     pub last_message: ::std::option::Option<::std::string::String>,
-    /// <p>Response to a UI prompt (not a text conversation message)</p>
+    /// <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
     pub user_action_response: ::std::option::Option<::std::string::String>,
 }
 impl SendMessageContext {
@@ -20,7 +20,7 @@ impl SendMessageContext {
     pub fn last_message(&self) -> ::std::option::Option<&str> {
         self.last_message.as_deref()
     }
-    /// <p>Response to a UI prompt (not a text conversation message)</p>
+    /// <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
     pub fn user_action_response(&self) -> ::std::option::Option<&str> {
         self.user_action_response.as_deref()
     }
@@ -69,17 +69,17 @@ impl SendMessageContextBuilder {
     pub fn get_last_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.last_message
     }
-    /// <p>Response to a UI prompt (not a text conversation message)</p>
+    /// <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
     pub fn user_action_response(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.user_action_response = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Response to a UI prompt (not a text conversation message)</p>
+    /// <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
     pub fn set_user_action_response(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_action_response = input;
         self
     }
-    /// <p>Response to a UI prompt (not a text conversation message)</p>
+    /// <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
     pub fn get_user_action_response(&self) -> &::std::option::Option<::std::string::String> {
         &self.user_action_response
     }

@@ -23,11 +23,11 @@ pub struct GetBatchEvaluationOutput {
     pub output_config: ::std::option::Option<crate::types::OutputConfig>,
     /// <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
     pub evaluation_results: ::std::option::Option<crate::types::EvaluationJobResults>,
-    /// Unified customer-facing clustering result written to S3.
+    /// <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
     pub failure_analysis_result: ::std::option::Option<crate::types::FailureAnalysisResultContent>,
-    /// Customer-facing user intent clustering result written to S3.
+    /// <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
     pub user_intent_result: ::std::option::Option<crate::types::UserIntentClusteringResultContent>,
-    /// Customer-facing execution summary clustering result written to S3.
+    /// <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
     pub execution_summary_result: ::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent>,
     /// <p>The error details if the batch evaluation encountered failures.</p>
     pub error_details: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -87,15 +87,15 @@ impl GetBatchEvaluationOutput {
     pub fn evaluation_results(&self) -> ::std::option::Option<&crate::types::EvaluationJobResults> {
         self.evaluation_results.as_ref()
     }
-    /// Unified customer-facing clustering result written to S3.
+    /// <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
     pub fn failure_analysis_result(&self) -> ::std::option::Option<&crate::types::FailureAnalysisResultContent> {
         self.failure_analysis_result.as_ref()
     }
-    /// Customer-facing user intent clustering result written to S3.
+    /// <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
     pub fn user_intent_result(&self) -> ::std::option::Option<&crate::types::UserIntentClusteringResultContent> {
         self.user_intent_result.as_ref()
     }
-    /// Customer-facing execution summary clustering result written to S3.
+    /// <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
     pub fn execution_summary_result(&self) -> ::std::option::Option<&crate::types::ExecutionSummaryClusteringResultContent> {
         self.execution_summary_result.as_ref()
     }
@@ -311,45 +311,45 @@ impl GetBatchEvaluationOutputBuilder {
     pub fn get_evaluation_results(&self) -> &::std::option::Option<crate::types::EvaluationJobResults> {
         &self.evaluation_results
     }
-    /// Unified customer-facing clustering result written to S3.
+    /// <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
     pub fn failure_analysis_result(mut self, input: crate::types::FailureAnalysisResultContent) -> Self {
         self.failure_analysis_result = ::std::option::Option::Some(input);
         self
     }
-    /// Unified customer-facing clustering result written to S3.
+    /// <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
     pub fn set_failure_analysis_result(mut self, input: ::std::option::Option<crate::types::FailureAnalysisResultContent>) -> Self {
         self.failure_analysis_result = input;
         self
     }
-    /// Unified customer-facing clustering result written to S3.
+    /// <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
     pub fn get_failure_analysis_result(&self) -> &::std::option::Option<crate::types::FailureAnalysisResultContent> {
         &self.failure_analysis_result
     }
-    /// Customer-facing user intent clustering result written to S3.
+    /// <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
     pub fn user_intent_result(mut self, input: crate::types::UserIntentClusteringResultContent) -> Self {
         self.user_intent_result = ::std::option::Option::Some(input);
         self
     }
-    /// Customer-facing user intent clustering result written to S3.
+    /// <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
     pub fn set_user_intent_result(mut self, input: ::std::option::Option<crate::types::UserIntentClusteringResultContent>) -> Self {
         self.user_intent_result = input;
         self
     }
-    /// Customer-facing user intent clustering result written to S3.
+    /// <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
     pub fn get_user_intent_result(&self) -> &::std::option::Option<crate::types::UserIntentClusteringResultContent> {
         &self.user_intent_result
     }
-    /// Customer-facing execution summary clustering result written to S3.
+    /// <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
     pub fn execution_summary_result(mut self, input: crate::types::ExecutionSummaryClusteringResultContent) -> Self {
         self.execution_summary_result = ::std::option::Option::Some(input);
         self
     }
-    /// Customer-facing execution summary clustering result written to S3.
+    /// <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
     pub fn set_execution_summary_result(mut self, input: ::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent>) -> Self {
         self.execution_summary_result = input;
         self
     }
-    /// Customer-facing execution summary clustering result written to S3.
+    /// <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
     pub fn get_execution_summary_result(&self) -> &::std::option::Option<crate::types::ExecutionSummaryClusteringResultContent> {
         &self.execution_summary_result
     }

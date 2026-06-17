@@ -16,6 +16,12 @@ pub fn ser_asset_content(
             crate::protocol_serde::shape_asset_zip_content::ser_asset_zip_content(&mut object_2, inner)?;
             object_2.finish();
         }
+        crate::types::AssetContent::SourceUrl(inner) => {
+            #[allow(unused_mut)]
+            let mut object_3 = object_4.key("sourceUrl").start_object();
+            crate::protocol_serde::shape_asset_source_url_content::ser_asset_source_url_content(&mut object_3, inner)?;
+            object_3.finish();
+        }
         crate::types::AssetContent::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AssetContent")),
     }
     Ok(())

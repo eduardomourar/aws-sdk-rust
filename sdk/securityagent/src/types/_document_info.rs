@@ -8,6 +8,8 @@ pub struct DocumentInfo {
     pub s3_location: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier of the artifact associated with the document.</p>
     pub artifact_id: ::std::option::Option<::std::string::String>,
+    /// <p>A reference to a document in an integrated third-party provider.</p>
+    pub integrated_document: ::std::option::Option<crate::types::IntegratedDocument>,
 }
 impl DocumentInfo {
     /// <p>The Amazon S3 location of the document.</p>
@@ -17,6 +19,10 @@ impl DocumentInfo {
     /// <p>The unique identifier of the artifact associated with the document.</p>
     pub fn artifact_id(&self) -> ::std::option::Option<&str> {
         self.artifact_id.as_deref()
+    }
+    /// <p>A reference to a document in an integrated third-party provider.</p>
+    pub fn integrated_document(&self) -> ::std::option::Option<&crate::types::IntegratedDocument> {
+        self.integrated_document.as_ref()
     }
 }
 impl DocumentInfo {
@@ -32,6 +38,7 @@ impl DocumentInfo {
 pub struct DocumentInfoBuilder {
     pub(crate) s3_location: ::std::option::Option<::std::string::String>,
     pub(crate) artifact_id: ::std::option::Option<::std::string::String>,
+    pub(crate) integrated_document: ::std::option::Option<crate::types::IntegratedDocument>,
 }
 impl DocumentInfoBuilder {
     /// <p>The Amazon S3 location of the document.</p>
@@ -62,11 +69,26 @@ impl DocumentInfoBuilder {
     pub fn get_artifact_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.artifact_id
     }
+    /// <p>A reference to a document in an integrated third-party provider.</p>
+    pub fn integrated_document(mut self, input: crate::types::IntegratedDocument) -> Self {
+        self.integrated_document = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>A reference to a document in an integrated third-party provider.</p>
+    pub fn set_integrated_document(mut self, input: ::std::option::Option<crate::types::IntegratedDocument>) -> Self {
+        self.integrated_document = input;
+        self
+    }
+    /// <p>A reference to a document in an integrated third-party provider.</p>
+    pub fn get_integrated_document(&self) -> &::std::option::Option<crate::types::IntegratedDocument> {
+        &self.integrated_document
+    }
     /// Consumes the builder and constructs a [`DocumentInfo`](crate::types::DocumentInfo).
     pub fn build(self) -> crate::types::DocumentInfo {
         crate::types::DocumentInfo {
             s3_location: self.s3_location,
             artifact_id: self.artifact_id,
+            integrated_document: self.integrated_document,
         }
     }
 }

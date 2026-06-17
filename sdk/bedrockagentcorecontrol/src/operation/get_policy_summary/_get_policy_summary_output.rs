@@ -17,6 +17,8 @@ pub struct GetPolicySummaryOutput {
     pub policy_arn: ::std::string::String,
     /// <p>The current status of the policy.</p>
     pub status: crate::types::PolicyStatus,
+    /// <p>The current enforcement mode of the policy.</p>
+    pub enforcement_mode: crate::types::EnforcementMode,
     _request_id: Option<String>,
 }
 impl GetPolicySummaryOutput {
@@ -52,6 +54,10 @@ impl GetPolicySummaryOutput {
     pub fn status(&self) -> &crate::types::PolicyStatus {
         &self.status
     }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn enforcement_mode(&self) -> &crate::types::EnforcementMode {
+        &self.enforcement_mode
+    }
 }
 impl ::aws_types::request_id::RequestId for GetPolicySummaryOutput {
     fn request_id(&self) -> Option<&str> {
@@ -76,6 +82,7 @@ pub struct GetPolicySummaryOutputBuilder {
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::PolicyStatus>,
+    pub(crate) enforcement_mode: ::std::option::Option<crate::types::EnforcementMode>,
     _request_id: Option<String>,
 }
 impl GetPolicySummaryOutputBuilder {
@@ -184,6 +191,20 @@ impl GetPolicySummaryOutputBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::PolicyStatus> {
         &self.status
     }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn enforcement_mode(mut self, input: crate::types::EnforcementMode) -> Self {
+        self.enforcement_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn set_enforcement_mode(mut self, input: ::std::option::Option<crate::types::EnforcementMode>) -> Self {
+        self.enforcement_mode = input;
+        self
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn get_enforcement_mode(&self) -> &::std::option::Option<crate::types::EnforcementMode> {
+        &self.enforcement_mode
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -248,6 +269,11 @@ impl GetPolicySummaryOutputBuilder {
                     "status was not specified but it is required when building GetPolicySummaryOutput",
                 )
             })?,
+            enforcement_mode: self.enforcement_mode.unwrap_or(
+                "ACTIVE"
+                    .parse::<crate::types::EnforcementMode>()
+                    .expect("static value validated to member"),
+            ),
             _request_id: self._request_id,
         })
     }

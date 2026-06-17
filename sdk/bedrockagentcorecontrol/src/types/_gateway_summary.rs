@@ -61,7 +61,7 @@ impl ::std::fmt::Debug for GatewaySummary {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("GatewaySummary");
         formatter.field("gateway_id", &self.gateway_id);
-        formatter.field("name", &"*** Sensitive Data Redacted ***");
+        formatter.field("name", &self.name);
         formatter.field("status", &self.status);
         formatter.field("description", &"*** Sensitive Data Redacted ***");
         formatter.field("created_at", &self.created_at);
@@ -269,7 +269,7 @@ impl ::std::fmt::Debug for GatewaySummaryBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("GatewaySummaryBuilder");
         formatter.field("gateway_id", &self.gateway_id);
-        formatter.field("name", &"*** Sensitive Data Redacted ***");
+        formatter.field("name", &self.name);
         formatter.field("status", &self.status);
         formatter.field("description", &"*** Sensitive Data Redacted ***");
         formatter.field("created_at", &self.created_at);

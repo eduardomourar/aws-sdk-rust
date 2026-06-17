@@ -15,19 +15,33 @@ pub use crate::types::_vpc_config::VpcConfigBuilder;
 
 pub use crate::types::_network_traffic_config::NetworkTrafficConfigBuilder;
 
+pub use crate::types::_threat_anchor_shape::ThreatAnchorShapeBuilder;
+
+pub use crate::types::_report_destination::ReportDestinationBuilder;
+
 pub use crate::types::_artifact::ArtifactBuilder;
 
 pub use crate::types::_dns_verification::DnsVerificationBuilder;
 
 pub use crate::types::_http_verification::HttpVerificationBuilder;
 
+pub use crate::types::_list_security_requirement_pack_filter::ListSecurityRequirementPackFilterBuilder;
+
 pub use crate::types::_validation_exception_field::ValidationExceptionFieldBuilder;
+
+pub use crate::types::_create_security_requirement_entry::CreateSecurityRequirementEntryBuilder;
+
+pub use crate::types::_batch_create_security_requirement_result::BatchCreateSecurityRequirementResultBuilder;
+
+pub use crate::types::_batch_security_requirement_error::BatchSecurityRequirementErrorBuilder;
 
 pub use crate::types::_delete_code_review_failure::DeleteCodeReviewFailureBuilder;
 
 pub use crate::types::_pentest::PentestBuilder;
 
 pub use crate::types::_delete_pentest_failure::DeletePentestFailureBuilder;
+
+pub use crate::types::_delete_threat_model_failure::DeleteThreatModelFailureBuilder;
 
 pub use crate::types::_artifact_metadata_item::ArtifactMetadataItemBuilder;
 
@@ -43,7 +57,23 @@ pub use crate::types::_pentest_job::PentestJobBuilder;
 
 pub use crate::types::_task::TaskBuilder;
 
+pub use crate::types::_batch_get_security_requirement_result::BatchGetSecurityRequirementResultBuilder;
+
+pub use crate::types::_threat_model_job::ThreatModelJobBuilder;
+
+pub use crate::types::_threat_model_job_task::ThreatModelJobTaskBuilder;
+
+pub use crate::types::_threat_model::ThreatModelBuilder;
+
+pub use crate::types::_threat::ThreatBuilder;
+
+pub use crate::types::_update_security_requirement_entry::UpdateSecurityRequirementEntryBuilder;
+
 pub use crate::types::_user_config::UserConfigBuilder;
+
+pub use crate::types::_threat_evidence_shape::ThreatEvidenceShapeBuilder;
+
+pub use crate::types::_document_info::DocumentInfoBuilder;
 
 pub use crate::types::_artifact_summary::ArtifactSummaryBuilder;
 
@@ -67,6 +97,16 @@ pub use crate::types::_task_summary::TaskSummaryBuilder;
 
 pub use crate::types::_pentest_summary::PentestSummaryBuilder;
 
+pub use crate::types::_security_requirement_summary::SecurityRequirementSummaryBuilder;
+
+pub use crate::types::_threat_model_job_summary::ThreatModelJobSummaryBuilder;
+
+pub use crate::types::_threat_model_job_task_summary::ThreatModelJobTaskSummaryBuilder;
+
+pub use crate::types::_threat_model_summary::ThreatModelSummaryBuilder;
+
+pub use crate::types::_threat_summary::ThreatSummaryBuilder;
+
 pub use crate::types::_integrated_resource_input_item::IntegratedResourceInputItemBuilder;
 
 pub use crate::types::_agent_space_summary::AgentSpaceSummaryBuilder;
@@ -78,6 +118,20 @@ pub use crate::types::_application_summary::ApplicationSummaryBuilder;
 pub use crate::types::_integration_summary::IntegrationSummaryBuilder;
 
 pub use crate::types::_git_hub_integration_input::GitHubIntegrationInputBuilder;
+
+pub use crate::types::_git_lab_integration_input::GitLabIntegrationInputBuilder;
+
+pub use crate::types::_bitbucket_integration_input::BitbucketIntegrationInputBuilder;
+
+pub use crate::types::_confluence_integration_input::ConfluenceIntegrationInputBuilder;
+
+pub use crate::types::_private_connection_summary::PrivateConnectionSummaryBuilder;
+
+pub use crate::types::_service_managed_input::ServiceManagedInputBuilder;
+
+pub use crate::types::_self_managed_input::SelfManagedInputBuilder;
+
+pub use crate::types::_security_requirement_pack_summary::SecurityRequirementPackSummaryBuilder;
 
 pub use crate::types::_target_domain_summary::TargetDomainSummaryBuilder;
 
@@ -95,8 +149,6 @@ pub use crate::types::_endpoint::EndpointBuilder;
 
 pub use crate::types::_actor::ActorBuilder;
 
-pub use crate::types::_document_info::DocumentInfoBuilder;
-
 pub use crate::types::_source_code_repository::SourceCodeRepositoryBuilder;
 
 pub use crate::types::_integrated_repository::IntegratedRepositoryBuilder;
@@ -104,6 +156,10 @@ pub use crate::types::_integrated_repository::IntegratedRepositoryBuilder;
 pub use crate::types::_network_traffic_rule::NetworkTrafficRuleBuilder;
 
 pub use crate::types::_custom_header::CustomHeaderBuilder;
+
+pub use crate::types::_integrated_document::IntegratedDocumentBuilder;
+
+pub use crate::types::_security_requirement_artifact::SecurityRequirementArtifactBuilder;
 
 pub use crate::types::_step::StepBuilder;
 
@@ -117,11 +173,29 @@ pub use crate::types::_authentication::AuthenticationBuilder;
 
 pub use crate::types::_git_hub_repository_metadata::GitHubRepositoryMetadataBuilder;
 
+pub use crate::types::_git_lab_repository_metadata::GitLabRepositoryMetadataBuilder;
+
+pub use crate::types::_bitbucket_repository_metadata::BitbucketRepositoryMetadataBuilder;
+
+pub use crate::types::_confluence_document_metadata::ConfluenceDocumentMetadataBuilder;
+
 pub use crate::types::_git_hub_resource_capabilities::GitHubResourceCapabilitiesBuilder;
+
+pub use crate::types::_git_lab_resource_capabilities::GitLabResourceCapabilitiesBuilder;
+
+pub use crate::types::_bitbucket_resource_capabilities::BitbucketResourceCapabilitiesBuilder;
+
+pub use crate::types::_confluence_resource_capabilities::ConfluenceResourceCapabilitiesBuilder;
 
 pub use crate::types::_user_metadata::UserMetadataBuilder;
 
 pub use crate::types::_git_hub_repository_resource::GitHubRepositoryResourceBuilder;
+
+pub use crate::types::_git_lab_repository_resource::GitLabRepositoryResourceBuilder;
+
+pub use crate::types::_bitbucket_repository_resource::BitbucketRepositoryResourceBuilder;
+
+pub use crate::types::_confluence_document_resource::ConfluenceDocumentResourceBuilder;
 
 pub use crate::types::_code_remediation_task_details::CodeRemediationTaskDetailsBuilder;
 

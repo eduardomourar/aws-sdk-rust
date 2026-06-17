@@ -28,10 +28,12 @@ where
                                     .transpose()?,
                             );
                         }
-                        "sessionFilterConfig" => {
-                            builder = builder.set_session_filter_config(
-                                crate::protocol_serde::shape_session_filter_config::de_session_filter_config(tokens, _value, depth + 1)?,
-                            );
+                        "timeRange" => {
+                            builder = builder.set_time_range(crate::protocol_serde::shape_session_filter_config::de_session_filter_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -63,9 +65,9 @@ pub fn ser_online_evaluation_config_source(
             .key("onlineEvaluationConfigArn")
             .string(input.online_evaluation_config_arn.as_str());
     }
-    if let Some(var_1) = &input.session_filter_config {
+    if let Some(var_1) = &input.time_range {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("sessionFilterConfig").start_object();
+        let mut object_2 = object.key("timeRange").start_object();
         crate::protocol_serde::shape_session_filter_config::ser_session_filter_config(&mut object_2, var_1)?;
         object_2.finish();
     }

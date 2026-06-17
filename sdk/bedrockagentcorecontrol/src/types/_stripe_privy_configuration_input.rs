@@ -8,15 +8,15 @@ pub struct StripePrivyConfigurationInput {
     pub app_id: ::std::string::String,
     /// <p>The app secret provided by Privy.</p>
     pub app_secret: ::std::string::String,
-    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub app_secret_source: ::std::option::Option<crate::types::SecretSourceType>,
-    /// <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub app_secret_config: ::std::option::Option<crate::types::SecretReference>,
     /// <p>The authorization private key for the Stripe Privy integration.</p>
     pub authorization_private_key: ::std::string::String,
-    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub authorization_private_key_source: ::std::option::Option<crate::types::SecretSourceType>,
-    /// <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
     pub authorization_private_key_config: ::std::option::Option<crate::types::SecretReference>,
     /// <p>The authorization ID for the Stripe Privy integration.</p>
     pub authorization_id: ::std::string::String,
@@ -32,11 +32,11 @@ impl StripePrivyConfigurationInput {
         use std::ops::Deref;
         self.app_secret.deref()
     }
-    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn app_secret_source(&self) -> ::std::option::Option<&crate::types::SecretSourceType> {
         self.app_secret_source.as_ref()
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn app_secret_config(&self) -> ::std::option::Option<&crate::types::SecretReference> {
         self.app_secret_config.as_ref()
     }
@@ -45,11 +45,11 @@ impl StripePrivyConfigurationInput {
         use std::ops::Deref;
         self.authorization_private_key.deref()
     }
-    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn authorization_private_key_source(&self) -> ::std::option::Option<&crate::types::SecretSourceType> {
         self.authorization_private_key_source.as_ref()
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn authorization_private_key_config(&self) -> ::std::option::Option<&crate::types::SecretReference> {
         self.authorization_private_key_config.as_ref()
     }
@@ -123,31 +123,31 @@ impl StripePrivyConfigurationInputBuilder {
     pub fn get_app_secret(&self) -> &::std::option::Option<::std::string::String> {
         &self.app_secret
     }
-    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn app_secret_source(mut self, input: crate::types::SecretSourceType) -> Self {
         self.app_secret_source = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn set_app_secret_source(mut self, input: ::std::option::Option<crate::types::SecretSourceType>) -> Self {
         self.app_secret_source = input;
         self
     }
-    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn get_app_secret_source(&self) -> &::std::option::Option<crate::types::SecretSourceType> {
         &self.app_secret_source
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn app_secret_config(mut self, input: crate::types::SecretReference) -> Self {
         self.app_secret_config = ::std::option::Option::Some(input);
         self
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn set_app_secret_config(mut self, input: ::std::option::Option<crate::types::SecretReference>) -> Self {
         self.app_secret_config = input;
         self
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn get_app_secret_config(&self) -> &::std::option::Option<crate::types::SecretReference> {
         &self.app_secret_config
     }
@@ -165,31 +165,31 @@ impl StripePrivyConfigurationInputBuilder {
     pub fn get_authorization_private_key(&self) -> &::std::option::Option<::std::string::String> {
         &self.authorization_private_key
     }
-    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn authorization_private_key_source(mut self, input: crate::types::SecretSourceType) -> Self {
         self.authorization_private_key_source = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn set_authorization_private_key_source(mut self, input: ::std::option::Option<crate::types::SecretSourceType>) -> Self {
         self.authorization_private_key_source = input;
         self
     }
-    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn get_authorization_private_key_source(&self) -> &::std::option::Option<crate::types::SecretSourceType> {
         &self.authorization_private_key_source
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn authorization_private_key_config(mut self, input: crate::types::SecretReference) -> Self {
         self.authorization_private_key_config = ::std::option::Option::Some(input);
         self
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn set_authorization_private_key_config(mut self, input: ::std::option::Option<crate::types::SecretReference>) -> Self {
         self.authorization_private_key_config = input;
         self
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn get_authorization_private_key_config(&self) -> &::std::option::Option<crate::types::SecretReference> {
         &self.authorization_private_key_config
     }

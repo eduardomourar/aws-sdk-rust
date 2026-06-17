@@ -145,6 +145,11 @@ pub(crate) fn de_get_gateway(
                         ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                     )?);
                 }
+                "customTransformConfiguration" => {
+                    builder = builder.set_custom_transform_configuration(
+                        crate::protocol_serde::shape_custom_transform_configuration::de_custom_transform_configuration(tokens, _value, depth + 1)?,
+                    );
+                }
                 "description" => {
                     builder = builder.set_description(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -246,6 +251,20 @@ pub(crate) fn de_get_gateway(
                         tokens.next(),
                         ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                     )?);
+                }
+                "wafConfiguration" => {
+                    builder = builder.set_waf_configuration(crate::protocol_serde::shape_waf_configuration::de_waf_configuration(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "webAclArn" => {
+                    builder = builder.set_web_acl_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
                 "workloadIdentityDetails" => {
                     builder = builder.set_workload_identity_details(

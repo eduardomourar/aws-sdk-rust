@@ -26,6 +26,10 @@ pub enum ServiceDetails {
     Mcpserversplunk(crate::types::McpServerDetails),
     /// <p>PagerDuty specific service details.</p>
     Pagerduty(crate::types::PagerDutyDetails),
+    /// <p>Remote A2A agent service details (token-based auth).</p>
+    Remoteagent(crate::types::RemoteAgentServiceDetails),
+    /// <p>Remote A2A agent service details (SigV4 auth).</p>
+    Remoteagentsigv4(crate::types::RemoteAgentSigV4ServiceDetails),
     /// <p>ServiceNow-specific service details.</p>
     Servicenow(crate::types::ServiceNowServiceDetails),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -181,6 +185,32 @@ impl ServiceDetails {
     /// Returns true if this is a [`Pagerduty`](crate::types::ServiceDetails::Pagerduty).
     pub fn is_pagerduty(&self) -> bool {
         self.as_pagerduty().is_ok()
+    }
+    /// Tries to convert the enum instance into [`Remoteagent`](crate::types::ServiceDetails::Remoteagent), extracting the inner [`RemoteAgentServiceDetails`](crate::types::RemoteAgentServiceDetails).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_remoteagent(&self) -> ::std::result::Result<&crate::types::RemoteAgentServiceDetails, &Self> {
+        if let ServiceDetails::Remoteagent(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`Remoteagent`](crate::types::ServiceDetails::Remoteagent).
+    pub fn is_remoteagent(&self) -> bool {
+        self.as_remoteagent().is_ok()
+    }
+    /// Tries to convert the enum instance into [`Remoteagentsigv4`](crate::types::ServiceDetails::Remoteagentsigv4), extracting the inner [`RemoteAgentSigV4ServiceDetails`](crate::types::RemoteAgentSigV4ServiceDetails).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_remoteagentsigv4(&self) -> ::std::result::Result<&crate::types::RemoteAgentSigV4ServiceDetails, &Self> {
+        if let ServiceDetails::Remoteagentsigv4(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`Remoteagentsigv4`](crate::types::ServiceDetails::Remoteagentsigv4).
+    pub fn is_remoteagentsigv4(&self) -> bool {
+        self.as_remoteagentsigv4().is_ok()
     }
     /// Tries to convert the enum instance into [`Servicenow`](crate::types::ServiceDetails::Servicenow), extracting the inner [`ServiceNowServiceDetails`](crate::types::ServiceNowServiceDetails).
     /// Returns `Err(&Self)` if it can't be converted.

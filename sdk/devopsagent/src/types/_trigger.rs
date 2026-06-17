@@ -4,9 +4,9 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Trigger {
-    /// <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+    /// <p>The unique identifier for this Trigger</p>
     pub trigger_id: ::std::string::String,
-    /// <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+    /// <p>The agent space this Trigger belongs to</p>
     pub agent_space_id: ::std::string::String,
     /// <p>How this Trigger fires</p>
     pub r#type: ::std::string::String,
@@ -22,12 +22,12 @@ pub struct Trigger {
     pub updated_at: ::aws_smithy_types::DateTime,
 }
 impl Trigger {
-    /// <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+    /// <p>The unique identifier for this Trigger</p>
     pub fn trigger_id(&self) -> &str {
         use std::ops::Deref;
         self.trigger_id.deref()
     }
-    /// <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+    /// <p>The agent space this Trigger belongs to</p>
     pub fn agent_space_id(&self) -> &str {
         use std::ops::Deref;
         self.agent_space_id.deref()
@@ -80,33 +80,33 @@ pub struct TriggerBuilder {
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl TriggerBuilder {
-    /// <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+    /// <p>The unique identifier for this Trigger</p>
     /// This field is required.
     pub fn trigger_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.trigger_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+    /// <p>The unique identifier for this Trigger</p>
     pub fn set_trigger_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.trigger_id = input;
         self
     }
-    /// <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+    /// <p>The unique identifier for this Trigger</p>
     pub fn get_trigger_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.trigger_id
     }
-    /// <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+    /// <p>The agent space this Trigger belongs to</p>
     /// This field is required.
     pub fn agent_space_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.agent_space_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+    /// <p>The agent space this Trigger belongs to</p>
     pub fn set_agent_space_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.agent_space_id = input;
         self
     }
-    /// <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+    /// <p>The agent space this Trigger belongs to</p>
     pub fn get_agent_space_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.agent_space_id
     }

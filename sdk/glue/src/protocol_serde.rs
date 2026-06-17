@@ -23,6 +23,8 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+pub(crate) mod shape_associate_glossary_terms;
+
 pub(crate) mod shape_batch_create_partition;
 
 pub(crate) mod shape_batch_delete_connection;
@@ -42,6 +44,8 @@ pub(crate) mod shape_batch_get_custom_entity_types;
 pub(crate) mod shape_batch_get_data_quality_result;
 
 pub(crate) mod shape_batch_get_dev_endpoints;
+
+pub(crate) mod shape_batch_get_iterable_forms;
 
 pub(crate) mod shape_batch_get_jobs;
 
@@ -89,6 +93,10 @@ pub(crate) mod shape_create_database;
 
 pub(crate) mod shape_create_dev_endpoint;
 
+pub(crate) mod shape_create_glossary;
+
+pub(crate) mod shape_create_glossary_term;
+
 pub(crate) mod shape_create_glue_identity_center_configuration;
 
 pub(crate) mod shape_create_integration;
@@ -127,6 +135,12 @@ pub(crate) mod shape_create_user_defined_function;
 
 pub(crate) mod shape_create_workflow;
 
+pub(crate) mod shape_delete_asset;
+
+pub(crate) mod shape_delete_asset_type;
+
+pub(crate) mod shape_delete_attachment;
+
 pub(crate) mod shape_delete_blueprint;
 
 pub(crate) mod shape_delete_catalog;
@@ -152,6 +166,12 @@ pub(crate) mod shape_delete_data_quality_ruleset;
 pub(crate) mod shape_delete_database;
 
 pub(crate) mod shape_delete_dev_endpoint;
+
+pub(crate) mod shape_delete_form_type;
+
+pub(crate) mod shape_delete_glossary;
+
+pub(crate) mod shape_delete_glossary_term;
 
 pub(crate) mod shape_delete_glue_identity_center_configuration;
 
@@ -202,6 +222,12 @@ pub(crate) mod shape_describe_entity;
 pub(crate) mod shape_describe_inbound_integrations;
 
 pub(crate) mod shape_describe_integrations;
+
+pub(crate) mod shape_disassociate_glossary_terms;
+
+pub(crate) mod shape_get_asset;
+
+pub(crate) mod shape_get_asset_type;
 
 pub(crate) mod shape_get_blueprint;
 
@@ -268,6 +294,12 @@ pub(crate) mod shape_get_dev_endpoint;
 pub(crate) mod shape_get_dev_endpoints;
 
 pub(crate) mod shape_get_entity_records;
+
+pub(crate) mod shape_get_form_type;
+
+pub(crate) mod shape_get_glossary;
+
+pub(crate) mod shape_get_glossary_term;
 
 pub(crate) mod shape_get_glue_identity_center_configuration;
 
@@ -367,6 +399,8 @@ pub(crate) mod shape_get_workflow_runs;
 
 pub(crate) mod shape_import_catalog_to_glue;
 
+pub(crate) mod shape_list_asset_types;
+
 pub(crate) mod shape_list_blueprints;
 
 pub(crate) mod shape_list_column_statistics_task_runs;
@@ -395,7 +429,15 @@ pub(crate) mod shape_list_dev_endpoints;
 
 pub(crate) mod shape_list_entities;
 
+pub(crate) mod shape_list_form_types;
+
+pub(crate) mod shape_list_glossaries;
+
+pub(crate) mod shape_list_glossary_terms;
+
 pub(crate) mod shape_list_integration_resource_properties;
+
+pub(crate) mod shape_list_iterable_forms;
 
 pub(crate) mod shape_list_jobs;
 
@@ -423,9 +465,17 @@ pub(crate) mod shape_list_workflows;
 
 pub(crate) mod shape_modify_integration;
 
+pub(crate) mod shape_put_asset;
+
+pub(crate) mod shape_put_asset_type;
+
+pub(crate) mod shape_put_attachment;
+
 pub(crate) mod shape_put_data_catalog_encryption_settings;
 
 pub(crate) mod shape_put_data_quality_profile_annotation;
+
+pub(crate) mod shape_put_form_type;
 
 pub(crate) mod shape_put_resource_policy;
 
@@ -446,6 +496,8 @@ pub(crate) mod shape_reset_job_bookmark;
 pub(crate) mod shape_resume_workflow_run;
 
 pub(crate) mod shape_run_statement;
+
+pub(crate) mod shape_search;
 
 pub(crate) mod shape_search_tables;
 
@@ -525,6 +577,10 @@ pub(crate) mod shape_update_database;
 
 pub(crate) mod shape_update_dev_endpoint;
 
+pub(crate) mod shape_update_glossary;
+
+pub(crate) mod shape_update_glossary_term;
+
 pub(crate) mod shape_update_glue_identity_center_configuration;
 
 pub(crate) mod shape_update_integration_resource_property;
@@ -569,6 +625,8 @@ pub(crate) mod shape_access_denied_exception;
 
 pub(crate) mod shape_already_exists_exception;
 
+pub(crate) mod shape_associate_glossary_terms_input;
+
 pub(crate) mod shape_batch_create_partition_input;
 
 pub(crate) mod shape_batch_delete_connection_input;
@@ -588,6 +646,8 @@ pub(crate) mod shape_batch_get_custom_entity_types_input;
 pub(crate) mod shape_batch_get_data_quality_result_input;
 
 pub(crate) mod shape_batch_get_dev_endpoints_input;
+
+pub(crate) mod shape_batch_get_iterable_forms_input;
 
 pub(crate) mod shape_batch_get_jobs_input;
 
@@ -655,6 +715,10 @@ pub(crate) mod shape_create_database_input;
 
 pub(crate) mod shape_create_dev_endpoint_input;
 
+pub(crate) mod shape_create_glossary_input;
+
+pub(crate) mod shape_create_glossary_term_input;
+
 pub(crate) mod shape_create_glue_identity_center_configuration_input;
 
 pub(crate) mod shape_create_integration_input;
@@ -693,6 +757,12 @@ pub(crate) mod shape_create_user_defined_function_input;
 
 pub(crate) mod shape_create_workflow_input;
 
+pub(crate) mod shape_delete_asset_input;
+
+pub(crate) mod shape_delete_asset_type_input;
+
+pub(crate) mod shape_delete_attachment_input;
+
 pub(crate) mod shape_delete_blueprint_input;
 
 pub(crate) mod shape_delete_catalog_input;
@@ -718,6 +788,12 @@ pub(crate) mod shape_delete_data_quality_ruleset_input;
 pub(crate) mod shape_delete_database_input;
 
 pub(crate) mod shape_delete_dev_endpoint_input;
+
+pub(crate) mod shape_delete_form_type_input;
+
+pub(crate) mod shape_delete_glossary_input;
+
+pub(crate) mod shape_delete_glossary_term_input;
 
 pub(crate) mod shape_delete_integration_input;
 
@@ -767,6 +843,8 @@ pub(crate) mod shape_describe_inbound_integrations_input;
 
 pub(crate) mod shape_describe_integrations_input;
 
+pub(crate) mod shape_disassociate_glossary_terms_input;
+
 pub(crate) mod shape_entity_not_found_exception;
 
 pub(crate) mod shape_federated_resource_already_exists_exception;
@@ -774,6 +852,10 @@ pub(crate) mod shape_federated_resource_already_exists_exception;
 pub(crate) mod shape_federation_source_exception;
 
 pub(crate) mod shape_federation_source_retryable_exception;
+
+pub(crate) mod shape_get_asset_input;
+
+pub(crate) mod shape_get_asset_type_input;
 
 pub(crate) mod shape_get_blueprint_input;
 
@@ -840,6 +922,12 @@ pub(crate) mod shape_get_dev_endpoint_input;
 pub(crate) mod shape_get_dev_endpoints_input;
 
 pub(crate) mod shape_get_entity_records_input;
+
+pub(crate) mod shape_get_form_type_input;
+
+pub(crate) mod shape_get_glossary_input;
+
+pub(crate) mod shape_get_glossary_term_input;
 
 pub(crate) mod shape_get_integration_resource_property_input;
 
@@ -965,6 +1053,8 @@ pub(crate) mod shape_invalid_state_exception;
 
 pub(crate) mod shape_kms_key_not_accessible_fault;
 
+pub(crate) mod shape_list_asset_types_input;
+
 pub(crate) mod shape_list_blueprints_input;
 
 pub(crate) mod shape_list_column_statistics_task_runs_input;
@@ -993,7 +1083,15 @@ pub(crate) mod shape_list_dev_endpoints_input;
 
 pub(crate) mod shape_list_entities_input;
 
+pub(crate) mod shape_list_form_types_input;
+
+pub(crate) mod shape_list_glossaries_input;
+
+pub(crate) mod shape_list_glossary_terms_input;
+
 pub(crate) mod shape_list_integration_resource_properties_input;
+
+pub(crate) mod shape_list_iterable_forms_input;
 
 pub(crate) mod shape_list_jobs_input;
 
@@ -1037,9 +1135,17 @@ pub(crate) mod shape_operation_timeout_exception;
 
 pub(crate) mod shape_permission_type_mismatch_exception;
 
+pub(crate) mod shape_put_asset_input;
+
+pub(crate) mod shape_put_asset_type_input;
+
+pub(crate) mod shape_put_attachment_input;
+
 pub(crate) mod shape_put_data_catalog_encryption_settings_input;
 
 pub(crate) mod shape_put_data_quality_profile_annotation_input;
+
+pub(crate) mod shape_put_form_type_input;
 
 pub(crate) mod shape_put_resource_policy_input;
 
@@ -1072,6 +1178,8 @@ pub(crate) mod shape_scheduler_not_running_exception;
 pub(crate) mod shape_scheduler_running_exception;
 
 pub(crate) mod shape_scheduler_transitioning_exception;
+
+pub(crate) mod shape_search_input;
 
 pub(crate) mod shape_search_tables_input;
 
@@ -1157,6 +1265,10 @@ pub(crate) mod shape_update_database_input;
 
 pub(crate) mod shape_update_dev_endpoint_input;
 
+pub(crate) mod shape_update_glossary_input;
+
+pub(crate) mod shape_update_glossary_term_input;
+
 pub(crate) mod shape_update_glue_identity_center_configuration_input;
 
 pub(crate) mod shape_update_integration_resource_property_input;
@@ -1198,6 +1310,16 @@ pub(crate) mod shape_action;
 pub(crate) mod shape_annotation_error_list;
 
 pub(crate) mod shape_annotation_list;
+
+pub(crate) mod shape_asset_form_entry;
+
+pub(crate) mod shape_asset_form_map;
+
+pub(crate) mod shape_asset_type_form_reference;
+
+pub(crate) mod shape_asset_type_forms_map;
+
+pub(crate) mod shape_asset_type_item_list;
 
 pub(crate) mod shape_audit_context;
 
@@ -1389,11 +1511,19 @@ pub(crate) mod shape_execution_property;
 
 pub(crate) mod shape_fields_list;
 
+pub(crate) mod shape_form_type_item_list;
+
 pub(crate) mod shape_get_connections_filter;
 
 pub(crate) mod shape_get_resource_policies_response_list;
 
 pub(crate) mod shape_get_table_versions_list;
+
+pub(crate) mod shape_glossary_item_list;
+
+pub(crate) mod shape_glossary_term_id_list;
+
+pub(crate) mod shape_glossary_term_item_list;
 
 pub(crate) mod shape_glue_table;
 
@@ -1416,6 +1546,14 @@ pub(crate) mod shape_integration_resource_property_list;
 pub(crate) mod shape_integration_tags_list;
 
 pub(crate) mod shape_integrations_list;
+
+pub(crate) mod shape_item_error_list;
+
+pub(crate) mod shape_iterable_form_item_list;
+
+pub(crate) mod shape_iterable_form_list_item_list;
+
+pub(crate) mod shape_iterable_form_map;
 
 pub(crate) mod shape_job;
 
@@ -1512,6 +1650,12 @@ pub(crate) mod shape_schema_version_error_list;
 pub(crate) mod shape_schema_version_list;
 
 pub(crate) mod shape_schema_version_number;
+
+pub(crate) mod shape_search_filter_clause;
+
+pub(crate) mod shape_search_result_item_list;
+
+pub(crate) mod shape_search_sort;
 
 pub(crate) mod shape_security_configuration;
 
@@ -1650,6 +1794,8 @@ pub(crate) mod shape_amazon_redshift_target;
 pub(crate) mod shape_annotation_error;
 
 pub(crate) mod shape_apply_mapping;
+
+pub(crate) mod shape_asset_type_item;
 
 pub(crate) mod shape_athena_connector_source;
 
@@ -1837,7 +1983,13 @@ pub(crate) mod shape_find_matches_parameters;
 
 pub(crate) mod shape_find_matches_task_run_properties;
 
+pub(crate) mod shape_form_type_item;
+
 pub(crate) mod shape_generic_map;
+
+pub(crate) mod shape_glossary_item;
+
+pub(crate) mod shape_glossary_term_item;
 
 pub(crate) mod shape_glue_policy;
 
@@ -1870,6 +2022,14 @@ pub(crate) mod shape_integration_partition_spec_list;
 pub(crate) mod shape_integration_resource_property;
 
 pub(crate) mod shape_integration_source_properties_map;
+
+pub(crate) mod shape_item_error;
+
+pub(crate) mod shape_iterable_form_entry;
+
+pub(crate) mod shape_iterable_form_item;
+
+pub(crate) mod shape_iterable_form_list_item;
 
 pub(crate) mod shape_jdbc_connector_source;
 
@@ -2018,6 +2178,12 @@ pub(crate) mod shape_schema_list_item;
 pub(crate) mod shape_schema_version_error_item;
 
 pub(crate) mod shape_schema_version_list_item;
+
+pub(crate) mod shape_search_attribute_filter;
+
+pub(crate) mod shape_search_map_filter;
+
+pub(crate) mod shape_search_result_item;
 
 pub(crate) mod shape_select_fields;
 
@@ -2282,6 +2448,10 @@ pub(crate) mod shape_s3_source_additional_options;
 pub(crate) mod shape_s3_target_list;
 
 pub(crate) mod shape_schema_reference;
+
+pub(crate) mod shape_search_filter_value;
+
+pub(crate) mod shape_search_map_filter_value;
 
 pub(crate) mod shape_security_group_id_list;
 

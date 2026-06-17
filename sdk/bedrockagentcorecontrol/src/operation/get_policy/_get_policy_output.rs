@@ -17,6 +17,8 @@ pub struct GetPolicyOutput {
     pub policy_arn: ::std::string::String,
     /// <p>The current status of the policy.</p>
     pub status: crate::types::PolicyStatus,
+    /// <p>The current enforcement mode of the policy.</p>
+    pub enforcement_mode: crate::types::EnforcementMode,
     /// <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
     pub definition: ::std::option::Option<crate::types::PolicyDefinition>,
     /// <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
@@ -58,6 +60,10 @@ impl GetPolicyOutput {
     pub fn status(&self) -> &crate::types::PolicyStatus {
         &self.status
     }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn enforcement_mode(&self) -> &crate::types::EnforcementMode {
+        &self.enforcement_mode
+    }
     /// <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
     pub fn definition(&self) -> ::std::option::Option<&crate::types::PolicyDefinition> {
         self.definition.as_ref()
@@ -82,6 +88,7 @@ impl ::std::fmt::Debug for GetPolicyOutput {
         formatter.field("updated_at", &self.updated_at);
         formatter.field("policy_arn", &self.policy_arn);
         formatter.field("status", &self.status);
+        formatter.field("enforcement_mode", &self.enforcement_mode);
         formatter.field("definition", &self.definition);
         formatter.field("description", &"*** Sensitive Data Redacted ***");
         formatter.field("status_reasons", &self.status_reasons);
@@ -112,6 +119,7 @@ pub struct GetPolicyOutputBuilder {
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::PolicyStatus>,
+    pub(crate) enforcement_mode: ::std::option::Option<crate::types::EnforcementMode>,
     pub(crate) definition: ::std::option::Option<crate::types::PolicyDefinition>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) status_reasons: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -222,6 +230,20 @@ impl GetPolicyOutputBuilder {
     /// <p>The current status of the policy.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::PolicyStatus> {
         &self.status
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn enforcement_mode(mut self, input: crate::types::EnforcementMode) -> Self {
+        self.enforcement_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn set_enforcement_mode(mut self, input: ::std::option::Option<crate::types::EnforcementMode>) -> Self {
+        self.enforcement_mode = input;
+        self
+    }
+    /// <p>The current enforcement mode of the policy.</p>
+    pub fn get_enforcement_mode(&self) -> &::std::option::Option<crate::types::EnforcementMode> {
+        &self.enforcement_mode
     }
     /// <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
     /// This field is required.
@@ -335,6 +357,11 @@ impl GetPolicyOutputBuilder {
                     "status was not specified but it is required when building GetPolicyOutput",
                 )
             })?,
+            enforcement_mode: self.enforcement_mode.unwrap_or(
+                "ACTIVE"
+                    .parse::<crate::types::EnforcementMode>()
+                    .expect("static value validated to member"),
+            ),
             definition: self.definition,
             description: self.description,
             status_reasons: self.status_reasons.ok_or_else(|| {
@@ -357,6 +384,7 @@ impl ::std::fmt::Debug for GetPolicyOutputBuilder {
         formatter.field("updated_at", &self.updated_at);
         formatter.field("policy_arn", &self.policy_arn);
         formatter.field("status", &self.status);
+        formatter.field("enforcement_mode", &self.enforcement_mode);
         formatter.field("definition", &self.definition);
         formatter.field("description", &"*** Sensitive Data Redacted ***");
         formatter.field("status_reasons", &self.status_reasons);

@@ -5,6 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeploymentLifecycleHookTimeoutConfiguration {
     /// <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+    /// <p>Default: 1440 (24 hours)</p>
     pub timeout_in_minutes: ::std::option::Option<i32>,
     /// <p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are:</p>
     /// <ul>
@@ -13,10 +14,12 @@ pub struct DeploymentLifecycleHookTimeoutConfiguration {
     /// <li>
     /// <p><code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p></li>
     /// </ul>
+    /// <p>Default: <code>ROLLBACK</code></p>
     pub action: ::std::option::Option<crate::types::DeploymentLifecycleHookAction>,
 }
 impl DeploymentLifecycleHookTimeoutConfiguration {
     /// <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+    /// <p>Default: 1440 (24 hours)</p>
     pub fn timeout_in_minutes(&self) -> ::std::option::Option<i32> {
         self.timeout_in_minutes
     }
@@ -27,6 +30,7 @@ impl DeploymentLifecycleHookTimeoutConfiguration {
     /// <li>
     /// <p><code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p></li>
     /// </ul>
+    /// <p>Default: <code>ROLLBACK</code></p>
     pub fn action(&self) -> ::std::option::Option<&crate::types::DeploymentLifecycleHookAction> {
         self.action.as_ref()
     }
@@ -47,16 +51,19 @@ pub struct DeploymentLifecycleHookTimeoutConfigurationBuilder {
 }
 impl DeploymentLifecycleHookTimeoutConfigurationBuilder {
     /// <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+    /// <p>Default: 1440 (24 hours)</p>
     pub fn timeout_in_minutes(mut self, input: i32) -> Self {
         self.timeout_in_minutes = ::std::option::Option::Some(input);
         self
     }
     /// <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+    /// <p>Default: 1440 (24 hours)</p>
     pub fn set_timeout_in_minutes(mut self, input: ::std::option::Option<i32>) -> Self {
         self.timeout_in_minutes = input;
         self
     }
     /// <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+    /// <p>Default: 1440 (24 hours)</p>
     pub fn get_timeout_in_minutes(&self) -> &::std::option::Option<i32> {
         &self.timeout_in_minutes
     }
@@ -67,6 +74,7 @@ impl DeploymentLifecycleHookTimeoutConfigurationBuilder {
     /// <li>
     /// <p><code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p></li>
     /// </ul>
+    /// <p>Default: <code>ROLLBACK</code></p>
     pub fn action(mut self, input: crate::types::DeploymentLifecycleHookAction) -> Self {
         self.action = ::std::option::Option::Some(input);
         self
@@ -78,6 +86,7 @@ impl DeploymentLifecycleHookTimeoutConfigurationBuilder {
     /// <li>
     /// <p><code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p></li>
     /// </ul>
+    /// <p>Default: <code>ROLLBACK</code></p>
     pub fn set_action(mut self, input: ::std::option::Option<crate::types::DeploymentLifecycleHookAction>) -> Self {
         self.action = input;
         self
@@ -89,6 +98,7 @@ impl DeploymentLifecycleHookTimeoutConfigurationBuilder {
     /// <li>
     /// <p><code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p></li>
     /// </ul>
+    /// <p>Default: <code>ROLLBACK</code></p>
     pub fn get_action(&self) -> &::std::option::Option<crate::types::DeploymentLifecycleHookAction> {
         &self.action
     }

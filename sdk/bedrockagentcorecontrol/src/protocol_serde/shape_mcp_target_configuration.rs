@@ -74,6 +74,14 @@ where
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'apiGateway' cannot be null")
                             })?,
                         )),
+                        "connector" => Some(crate::types::McpTargetConfiguration::Connector(
+                            crate::protocol_serde::shape_connector_target_configuration::de_connector_target_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'connector' cannot be null"))?,
+                        )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(crate::types::McpTargetConfiguration::Unknown)
@@ -135,6 +143,12 @@ pub fn ser_mcp_target_configuration(
             let mut object_5 = object_1.key("apiGateway").start_object();
             crate::protocol_serde::shape_api_gateway_target_configuration::ser_api_gateway_target_configuration(&mut object_5, inner)?;
             object_5.finish();
+        }
+        crate::types::McpTargetConfiguration::Connector(inner) => {
+            #[allow(unused_mut)]
+            let mut object_6 = object_1.key("connector").start_object();
+            crate::protocol_serde::shape_connector_target_configuration::ser_connector_target_configuration(&mut object_6, inner)?;
+            object_6.finish();
         }
         crate::types::McpTargetConfiguration::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(

@@ -139,8 +139,78 @@ pub(crate) fn reflens_list_pentests_output_output_next_token(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn reflens_list_private_connections_output_output_next_token(
+    input: &crate::operation::list_private_connections::ListPrivateConnectionsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_security_requirement_packs_output_output_next_token(
+    input: &crate::operation::list_security_requirement_packs::ListSecurityRequirementPacksOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_security_requirements_output_output_next_token(
+    input: &crate::operation::list_security_requirements::ListSecurityRequirementsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn reflens_list_target_domains_output_output_next_token(
     input: &crate::operation::list_target_domains::ListTargetDomainsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_threat_model_job_tasks_output_output_next_token(
+    input: &crate::operation::list_threat_model_job_tasks::ListThreatModelJobTasksOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_threat_model_jobs_output_output_next_token(
+    input: &crate::operation::list_threat_model_jobs::ListThreatModelJobsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_threat_models_output_output_next_token(
+    input: &crate::operation::list_threat_models::ListThreatModelsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_threats_output_output_next_token(
+    input: &crate::operation::list_threats::ListThreatsOutput,
 ) -> ::std::option::Option<&::std::string::String> {
     let input = match &input.next_token {
         ::std::option::Option::None => return ::std::option::Option::None,
@@ -247,9 +317,58 @@ pub(crate) fn lens_list_pentests_output_output_pentest_summaries(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn lens_list_private_connections_output_output_private_connections(
+    input: crate::operation::list_private_connections::ListPrivateConnectionsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::PrivateConnectionSummary>> {
+    let input = input.private_connections;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_security_requirement_packs_output_output_security_requirement_pack_summaries(
+    input: crate::operation::list_security_requirement_packs::ListSecurityRequirementPacksOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::SecurityRequirementPackSummary>> {
+    let input = input.security_requirement_pack_summaries;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_security_requirements_output_output_security_requirement_summaries(
+    input: crate::operation::list_security_requirements::ListSecurityRequirementsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::SecurityRequirementSummary>> {
+    let input = input.security_requirement_summaries;
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn lens_list_target_domains_output_output_target_domain_summaries(
     input: crate::operation::list_target_domains::ListTargetDomainsOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::TargetDomainSummary>> {
     let input = input.target_domain_summaries?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_threat_model_job_tasks_output_output_threat_model_job_task_summaries(
+    input: crate::operation::list_threat_model_job_tasks::ListThreatModelJobTasksOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::ThreatModelJobTaskSummary>> {
+    let input = input.threat_model_job_task_summaries?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_threat_model_jobs_output_output_threat_model_job_summaries(
+    input: crate::operation::list_threat_model_jobs::ListThreatModelJobsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::ThreatModelJobSummary>> {
+    let input = input.threat_model_job_summaries?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_threat_models_output_output_threat_model_summaries(
+    input: crate::operation::list_threat_models::ListThreatModelsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::ThreatModelSummary>> {
+    let input = input.threat_model_summaries?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_threats_output_output_threats(
+    input: crate::operation::list_threats::ListThreatsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::ThreatSummary>> {
+    let input = input.threats?;
     ::std::option::Option::Some(input)
 }

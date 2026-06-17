@@ -76,6 +76,18 @@ pub fn ser_service_details(
             crate::protocol_serde::shape_mcp_server_sigv4_service_details::ser_mcp_server_sigv4_service_details(&mut object_12, inner)?;
             object_12.finish();
         }
+        crate::types::ServiceDetails::Remoteagent(inner) => {
+            #[allow(unused_mut)]
+            let mut object_13 = object_6.key("remoteagent").start_object();
+            crate::protocol_serde::shape_remote_agent_service_details::ser_remote_agent_service_details(&mut object_13, inner)?;
+            object_13.finish();
+        }
+        crate::types::ServiceDetails::Remoteagentsigv4(inner) => {
+            #[allow(unused_mut)]
+            let mut object_14 = object_6.key("remoteagentsigv4").start_object();
+            crate::protocol_serde::shape_remote_agent_sigv4_service_details::ser_remote_agent_sigv4_service_details(&mut object_14, inner)?;
+            object_14.finish();
+        }
         crate::types::ServiceDetails::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "ServiceDetails",

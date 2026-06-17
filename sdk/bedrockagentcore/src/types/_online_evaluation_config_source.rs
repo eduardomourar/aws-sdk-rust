@@ -7,7 +7,7 @@ pub struct OnlineEvaluationConfigSource {
     /// <p>The Amazon Resource Name (ARN) of the online evaluation configuration to use as the session source.</p>
     pub online_evaluation_config_arn: ::std::string::String,
     /// <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
-    pub session_filter_config: ::std::option::Option<crate::types::SessionFilterConfig>,
+    pub time_range: ::std::option::Option<crate::types::SessionFilterConfig>,
 }
 impl OnlineEvaluationConfigSource {
     /// <p>The Amazon Resource Name (ARN) of the online evaluation configuration to use as the session source.</p>
@@ -16,8 +16,8 @@ impl OnlineEvaluationConfigSource {
         self.online_evaluation_config_arn.deref()
     }
     /// <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
-    pub fn session_filter_config(&self) -> ::std::option::Option<&crate::types::SessionFilterConfig> {
-        self.session_filter_config.as_ref()
+    pub fn time_range(&self) -> ::std::option::Option<&crate::types::SessionFilterConfig> {
+        self.time_range.as_ref()
     }
 }
 impl OnlineEvaluationConfigSource {
@@ -32,7 +32,7 @@ impl OnlineEvaluationConfigSource {
 #[non_exhaustive]
 pub struct OnlineEvaluationConfigSourceBuilder {
     pub(crate) online_evaluation_config_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) session_filter_config: ::std::option::Option<crate::types::SessionFilterConfig>,
+    pub(crate) time_range: ::std::option::Option<crate::types::SessionFilterConfig>,
 }
 impl OnlineEvaluationConfigSourceBuilder {
     /// <p>The Amazon Resource Name (ARN) of the online evaluation configuration to use as the session source.</p>
@@ -51,18 +51,18 @@ impl OnlineEvaluationConfigSourceBuilder {
         &self.online_evaluation_config_arn
     }
     /// <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
-    pub fn session_filter_config(mut self, input: crate::types::SessionFilterConfig) -> Self {
-        self.session_filter_config = ::std::option::Option::Some(input);
+    pub fn time_range(mut self, input: crate::types::SessionFilterConfig) -> Self {
+        self.time_range = ::std::option::Option::Some(input);
         self
     }
     /// <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
-    pub fn set_session_filter_config(mut self, input: ::std::option::Option<crate::types::SessionFilterConfig>) -> Self {
-        self.session_filter_config = input;
+    pub fn set_time_range(mut self, input: ::std::option::Option<crate::types::SessionFilterConfig>) -> Self {
+        self.time_range = input;
         self
     }
     /// <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
-    pub fn get_session_filter_config(&self) -> &::std::option::Option<crate::types::SessionFilterConfig> {
-        &self.session_filter_config
+    pub fn get_time_range(&self) -> &::std::option::Option<crate::types::SessionFilterConfig> {
+        &self.time_range
     }
     /// Consumes the builder and constructs a [`OnlineEvaluationConfigSource`](crate::types::OnlineEvaluationConfigSource).
     /// This method will fail if any of the following fields are not set:
@@ -75,7 +75,7 @@ impl OnlineEvaluationConfigSourceBuilder {
                     "online_evaluation_config_arn was not specified but it is required when building OnlineEvaluationConfigSource",
                 )
             })?,
-            session_filter_config: self.session_filter_config,
+            time_range: self.time_range,
         })
     }
 }

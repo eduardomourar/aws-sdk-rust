@@ -150,4 +150,28 @@ impl UpdateAssociationFluentBuilder {
     pub fn get_configuration(&self) -> &::std::option::Option<crate::types::ServiceConfiguration> {
         self.inner.get_configuration()
     }
+    ///
+    /// Adds a key-value pair to `capabilities`.
+    ///
+    /// To override the contents of this collection use [`set_capabilities`](Self::set_capabilities).
+    ///
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn capabilities(mut self, k: crate::types::CapabilityType, v: crate::types::CapabilityConfiguration) -> Self {
+        self.inner = self.inner.capabilities(k, v);
+        self
+    }
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn set_capabilities(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>>,
+    ) -> Self {
+        self.inner = self.inner.set_capabilities(input);
+        self
+    }
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn get_capabilities(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>> {
+        self.inner.get_capabilities()
+    }
 }

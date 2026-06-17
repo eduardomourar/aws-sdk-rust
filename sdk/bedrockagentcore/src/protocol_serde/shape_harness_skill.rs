@@ -19,6 +19,12 @@ pub fn ser_harness_skill(
             crate::protocol_serde::shape_harness_skill_git_source::ser_harness_skill_git_source(&mut object_2, inner)?;
             object_2.finish();
         }
+        crate::types::HarnessSkill::AwsSkills(inner) => {
+            #[allow(unused_mut)]
+            let mut object_3 = object_16.key("awsSkills").start_object();
+            crate::protocol_serde::shape_harness_skill_aws_skills_source::ser_harness_skill_aws_skills_source(&mut object_3, inner)?;
+            object_3.finish();
+        }
         crate::types::HarnessSkill::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("HarnessSkill")),
     }
     Ok(())

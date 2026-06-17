@@ -612,6 +612,44 @@ impl From<crate::operation::create_harness::CreateHarnessError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_harness_endpoint::CreateHarnessEndpointError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_harness_endpoint::CreateHarnessEndpointError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_harness_endpoint::CreateHarnessEndpointError> for Error {
+    fn from(err: crate::operation::create_harness_endpoint::CreateHarnessEndpointError) -> Self {
+        match err {
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::ServiceQuotaExceededException(inner) => {
+                Error::ServiceQuotaExceededException(inner)
+            }
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::create_harness_endpoint::CreateHarnessEndpointError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_memory::CreateMemoryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -1501,6 +1539,41 @@ impl From<crate::operation::delete_harness::DeleteHarnessError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError> for Error {
+    fn from(err: crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError) -> Self {
+        match err {
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::delete_harness_endpoint::DeleteHarnessEndpointError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_memory::DeleteMemoryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2352,6 +2425,34 @@ impl From<crate::operation::get_harness::GetHarnessError> for Error {
             crate::operation::get_harness::GetHarnessError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::get_harness::GetHarnessError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::get_harness::GetHarnessError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_harness_endpoint::GetHarnessEndpointError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_harness_endpoint::GetHarnessEndpointError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_harness_endpoint::GetHarnessEndpointError> for Error {
+    fn from(err: crate::operation::get_harness_endpoint::GetHarnessEndpointError) -> Self {
+        match err {
+            crate::operation::get_harness_endpoint::GetHarnessEndpointError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_harness_endpoint::GetHarnessEndpointError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::get_harness_endpoint::GetHarnessEndpointError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_harness_endpoint::GetHarnessEndpointError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::get_harness_endpoint::GetHarnessEndpointError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::get_harness_endpoint::GetHarnessEndpointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3392,9 +3493,42 @@ impl From<crate::operation::list_gateway_targets::ListGatewayTargetsError> for E
         match err {
             crate::operation::list_gateway_targets::ListGatewayTargetsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
             crate::operation::list_gateway_targets::ListGatewayTargetsError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_gateway_targets::ListGatewayTargetsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
             crate::operation::list_gateway_targets::ListGatewayTargetsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::list_gateway_targets::ListGatewayTargetsError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::list_gateway_targets::ListGatewayTargetsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_harness_endpoints::ListHarnessEndpointsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_harness_endpoints::ListHarnessEndpointsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_harness_endpoints::ListHarnessEndpointsError> for Error {
+    fn from(err: crate::operation::list_harness_endpoints::ListHarnessEndpointsError) -> Self {
+        match err {
+            crate::operation::list_harness_endpoints::ListHarnessEndpointsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_harness_endpoints::ListHarnessEndpointsError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::list_harness_endpoints::ListHarnessEndpointsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_harness_endpoints::ListHarnessEndpointsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_harness_endpoints::ListHarnessEndpointsError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_harness_endpoints::ListHarnessEndpointsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3420,6 +3554,36 @@ impl From<crate::operation::list_harnesses::ListHarnessesError> for Error {
             crate::operation::list_harnesses::ListHarnessesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::list_harnesses::ListHarnessesError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::list_harnesses::ListHarnessesError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_harness_versions::ListHarnessVersionsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_harness_versions::ListHarnessVersionsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_harness_versions::ListHarnessVersionsError> for Error {
+    fn from(err: crate::operation::list_harness_versions::ListHarnessVersionsError) -> Self {
+        match err {
+            crate::operation::list_harness_versions::ListHarnessVersionsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_harness_versions::ListHarnessVersionsError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::list_harness_versions::ListHarnessVersionsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_harness_versions::ListHarnessVersionsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_harness_versions::ListHarnessVersionsError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_harness_versions::ListHarnessVersionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4636,6 +4800,44 @@ impl From<crate::operation::update_harness::UpdateHarnessError> for Error {
             crate::operation::update_harness::UpdateHarnessError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::update_harness::UpdateHarnessError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::update_harness::UpdateHarnessError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_harness_endpoint::UpdateHarnessEndpointError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_harness_endpoint::UpdateHarnessEndpointError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_harness_endpoint::UpdateHarnessEndpointError> for Error {
+    fn from(err: crate::operation::update_harness_endpoint::UpdateHarnessEndpointError) -> Self {
+        match err {
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::ServiceQuotaExceededException(inner) => {
+                Error::ServiceQuotaExceededException(inner)
+            }
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::update_harness_endpoint::UpdateHarnessEndpointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

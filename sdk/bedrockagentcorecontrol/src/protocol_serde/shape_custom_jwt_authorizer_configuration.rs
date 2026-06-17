@@ -63,6 +63,12 @@ pub fn ser_custom_jwt_authorizer_configuration(
         }
         array_17.finish();
     }
+    if let Some(var_20) = &input.allowed_workload_configuration {
+        #[allow(unused_mut)]
+        let mut object_21 = object.key("allowedWorkloadConfiguration").start_object();
+        crate::protocol_serde::shape_allowed_workload_configuration::ser_allowed_workload_configuration(&mut object_21, var_20)?;
+        object_21.finish();
+    }
     Ok(())
 }
 
@@ -135,6 +141,15 @@ where
                         "privateEndpointOverrides" => {
                             builder = builder.set_private_endpoint_overrides(
                                 crate::protocol_serde::shape_private_endpoint_overrides::de_private_endpoint_overrides(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "allowedWorkloadConfiguration" => {
+                            builder = builder.set_allowed_workload_configuration(
+                                crate::protocol_serde::shape_allowed_workload_configuration::de_allowed_workload_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

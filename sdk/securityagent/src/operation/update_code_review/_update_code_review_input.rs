@@ -18,6 +18,8 @@ pub struct UpdateCodeReviewInput {
     pub log_config: ::std::option::Option<crate::types::CloudWatchLog>,
     /// <p>The updated code remediation strategy for the code review.</p>
     pub code_remediation_strategy: ::std::option::Option<crate::types::CodeRemediationStrategy>,
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub validation_mode: ::std::option::Option<crate::types::ValidationMode>,
 }
 impl UpdateCodeReviewInput {
     /// <p>The unique identifier of the code review to update.</p>
@@ -48,6 +50,10 @@ impl UpdateCodeReviewInput {
     pub fn code_remediation_strategy(&self) -> ::std::option::Option<&crate::types::CodeRemediationStrategy> {
         self.code_remediation_strategy.as_ref()
     }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn validation_mode(&self) -> ::std::option::Option<&crate::types::ValidationMode> {
+        self.validation_mode.as_ref()
+    }
 }
 impl UpdateCodeReviewInput {
     /// Creates a new builder-style object to manufacture [`UpdateCodeReviewInput`](crate::operation::update_code_review::UpdateCodeReviewInput).
@@ -67,6 +73,7 @@ pub struct UpdateCodeReviewInputBuilder {
     pub(crate) service_role: ::std::option::Option<::std::string::String>,
     pub(crate) log_config: ::std::option::Option<crate::types::CloudWatchLog>,
     pub(crate) code_remediation_strategy: ::std::option::Option<crate::types::CodeRemediationStrategy>,
+    pub(crate) validation_mode: ::std::option::Option<crate::types::ValidationMode>,
 }
 impl UpdateCodeReviewInputBuilder {
     /// <p>The unique identifier of the code review to update.</p>
@@ -169,6 +176,20 @@ impl UpdateCodeReviewInputBuilder {
     pub fn get_code_remediation_strategy(&self) -> &::std::option::Option<crate::types::CodeRemediationStrategy> {
         &self.code_remediation_strategy
     }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn validation_mode(mut self, input: crate::types::ValidationMode) -> Self {
+        self.validation_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn set_validation_mode(mut self, input: ::std::option::Option<crate::types::ValidationMode>) -> Self {
+        self.validation_mode = input;
+        self
+    }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn get_validation_mode(&self) -> &::std::option::Option<crate::types::ValidationMode> {
+        &self.validation_mode
+    }
     /// Consumes the builder and constructs a [`UpdateCodeReviewInput`](crate::operation::update_code_review::UpdateCodeReviewInput).
     pub fn build(
         self,
@@ -181,6 +202,7 @@ impl UpdateCodeReviewInputBuilder {
             service_role: self.service_role,
             log_config: self.log_config,
             code_remediation_strategy: self.code_remediation_strategy,
+            validation_mode: self.validation_mode,
         })
     }
 }

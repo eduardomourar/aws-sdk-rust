@@ -8,9 +8,9 @@ pub struct GithubOauth2ProviderConfigInput {
     pub client_id: ::std::string::String,
     /// <p>The client secret for the GitHub OAuth2 provider.</p>
     pub client_secret: ::std::string::String,
-    /// <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub client_secret_config: ::std::option::Option<crate::types::SecretReference>,
-    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub client_secret_source: ::std::option::Option<crate::types::SecretSourceType>,
 }
 impl GithubOauth2ProviderConfigInput {
@@ -24,11 +24,11 @@ impl GithubOauth2ProviderConfigInput {
         use std::ops::Deref;
         self.client_secret.deref()
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn client_secret_config(&self) -> ::std::option::Option<&crate::types::SecretReference> {
         self.client_secret_config.as_ref()
     }
-    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn client_secret_source(&self) -> ::std::option::Option<&crate::types::SecretSourceType> {
         self.client_secret_source.as_ref()
     }
@@ -89,31 +89,31 @@ impl GithubOauth2ProviderConfigInputBuilder {
     pub fn get_client_secret(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_secret
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn client_secret_config(mut self, input: crate::types::SecretReference) -> Self {
         self.client_secret_config = ::std::option::Option::Some(input);
         self
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn set_client_secret_config(mut self, input: ::std::option::Option<crate::types::SecretReference>) -> Self {
         self.client_secret_config = input;
         self
     }
-    /// <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+    /// <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
     pub fn get_client_secret_config(&self) -> &::std::option::Option<crate::types::SecretReference> {
         &self.client_secret_config
     }
-    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn client_secret_source(mut self, input: crate::types::SecretSourceType) -> Self {
         self.client_secret_source = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn set_client_secret_source(mut self, input: ::std::option::Option<crate::types::SecretSourceType>) -> Self {
         self.client_secret_source = input;
         self
     }
-    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
     pub fn get_client_secret_source(&self) -> &::std::option::Option<crate::types::SecretSourceType> {
         &self.client_secret_source
     }

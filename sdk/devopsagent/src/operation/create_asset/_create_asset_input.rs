@@ -10,7 +10,7 @@ pub struct CreateAssetInput {
     pub asset_type: ::std::option::Option<::std::string::String>,
     /// <p>The metadata describing this asset</p>
     pub metadata: ::std::option::Option<::aws_smithy_types::Document>,
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub content: ::std::option::Option<crate::types::AssetContent>,
     /// <p>A unique, case-sensitive identifier used for idempotent asset creation</p>
     pub client_token: ::std::option::Option<::std::string::String>,
@@ -28,7 +28,7 @@ impl CreateAssetInput {
     pub fn metadata(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.metadata.as_ref()
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub fn content(&self) -> ::std::option::Option<&crate::types::AssetContent> {
         self.content.as_ref()
     }
@@ -99,18 +99,18 @@ impl CreateAssetInputBuilder {
     pub fn get_metadata(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.metadata
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     /// This field is required.
     pub fn content(mut self, input: crate::types::AssetContent) -> Self {
         self.content = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub fn set_content(mut self, input: ::std::option::Option<crate::types::AssetContent>) -> Self {
         self.content = input;
         self
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub fn get_content(&self) -> &::std::option::Option<crate::types::AssetContent> {
         &self.content
     }

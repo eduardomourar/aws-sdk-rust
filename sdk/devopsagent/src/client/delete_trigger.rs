@@ -3,8 +3,8 @@ impl super::Client {
     /// Constructs a fluent builder for the [`DeleteTrigger`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder) operation.
     ///
     /// - The fluent builder is configurable:
-    ///   - [`agent_space_id(impl Into<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::agent_space_id) / [`set_agent_space_id(Option<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::set_agent_space_id):<br>required: **true**<br><p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p><br>
-    ///   - [`trigger_id(impl Into<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::trigger_id) / [`set_trigger_id(Option<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::set_trigger_id):<br>required: **true**<br><p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p><br>
+    ///   - [`agent_space_id(impl Into<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::agent_space_id) / [`set_agent_space_id(Option<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::set_agent_space_id):<br>required: **true**<br><p>The unique identifier for the agent space containing the Trigger</p><br>
+    ///   - [`trigger_id(impl Into<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::trigger_id) / [`set_trigger_id(Option<String>)`](crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder::set_trigger_id):<br>required: **true**<br><p>The unique identifier of the Trigger to delete</p><br>
     /// - On success, responds with [`DeleteTriggerOutput`](crate::operation::delete_trigger::DeleteTriggerOutput)
     /// - On failure, responds with [`SdkError<DeleteTriggerError>`](crate::operation::delete_trigger::DeleteTriggerError)
     pub fn delete_trigger(&self) -> crate::operation::delete_trigger::builders::DeleteTriggerFluentBuilder {

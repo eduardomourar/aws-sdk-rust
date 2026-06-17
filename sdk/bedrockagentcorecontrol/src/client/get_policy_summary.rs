@@ -13,6 +13,7 @@ impl super::Client {
     ///   - [`updated_at(DateTime)`](crate::operation::get_policy_summary::GetPolicySummaryOutput::updated_at): <p>The timestamp when the policy was last modified.</p>
     ///   - [`policy_arn(String)`](crate::operation::get_policy_summary::GetPolicySummaryOutput::policy_arn): <p>The Amazon Resource Name (ARN) of the policy.</p>
     ///   - [`status(PolicyStatus)`](crate::operation::get_policy_summary::GetPolicySummaryOutput::status): <p>The current status of the policy.</p>
+    ///   - [`enforcement_mode(EnforcementMode)`](crate::operation::get_policy_summary::GetPolicySummaryOutput::enforcement_mode): <p>The current enforcement mode of the policy.</p>
     /// - On failure, responds with [`SdkError<GetPolicySummaryError>`](crate::operation::get_policy_summary::GetPolicySummaryError)
     pub fn get_policy_summary(&self) -> crate::operation::get_policy_summary::builders::GetPolicySummaryFluentBuilder {
         crate::operation::get_policy_summary::builders::GetPolicySummaryFluentBuilder::new(self.handle.clone())

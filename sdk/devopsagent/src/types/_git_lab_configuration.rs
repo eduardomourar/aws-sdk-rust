@@ -10,6 +10,8 @@ pub struct GitLabConfiguration {
     pub project_path: ::std::string::String,
     /// <p>GitLab instance identifier (e.g., gitlab.com or e2e.gamma.dev.us-east-1.gitlab.falco.ai.aws.dev)</p>
     pub instance_identifier: ::std::option::Option<::std::string::String>,
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub runtime_role_arn: ::std::option::Option<::std::string::String>,
 }
 impl GitLabConfiguration {
     /// <p>GitLab numeric project ID.</p>
@@ -26,6 +28,10 @@ impl GitLabConfiguration {
     pub fn instance_identifier(&self) -> ::std::option::Option<&str> {
         self.instance_identifier.as_deref()
     }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn runtime_role_arn(&self) -> ::std::option::Option<&str> {
+        self.runtime_role_arn.as_deref()
+    }
 }
 impl GitLabConfiguration {
     /// Creates a new builder-style object to manufacture [`GitLabConfiguration`](crate::types::GitLabConfiguration).
@@ -41,6 +47,7 @@ pub struct GitLabConfigurationBuilder {
     pub(crate) project_id: ::std::option::Option<::std::string::String>,
     pub(crate) project_path: ::std::option::Option<::std::string::String>,
     pub(crate) instance_identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) runtime_role_arn: ::std::option::Option<::std::string::String>,
 }
 impl GitLabConfigurationBuilder {
     /// <p>GitLab numeric project ID.</p>
@@ -87,6 +94,20 @@ impl GitLabConfigurationBuilder {
     pub fn get_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.instance_identifier
     }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn runtime_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.runtime_role_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn set_runtime_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.runtime_role_arn = input;
+        self
+    }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn get_runtime_role_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.runtime_role_arn
+    }
     /// Consumes the builder and constructs a [`GitLabConfiguration`](crate::types::GitLabConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`project_id`](crate::types::builders::GitLabConfigurationBuilder::project_id)
@@ -106,6 +127,7 @@ impl GitLabConfigurationBuilder {
                 )
             })?,
             instance_identifier: self.instance_identifier,
+            runtime_role_arn: self.runtime_role_arn,
         })
     }
 }

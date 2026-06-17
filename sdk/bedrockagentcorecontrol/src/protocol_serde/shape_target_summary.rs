@@ -68,6 +68,33 @@ where
                                     .transpose()?,
                             );
                         }
+                        "lastSynchronizedAt" => {
+                            builder = builder.set_last_synchronized_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                                tokens.next(),
+                                ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
+                            )?);
+                        }
+                        "authorizationData" => {
+                            builder = builder.set_authorization_data(crate::protocol_serde::shape_authorization_data::de_authorization_data(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "targetType" => {
+                            builder = builder.set_target_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::TargetType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "listingMode" => {
+                            builder = builder.set_listing_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ListingMode::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

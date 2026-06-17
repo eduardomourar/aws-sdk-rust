@@ -22,7 +22,7 @@ impl crate::operation::create_harness::builders::CreateHarnessInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateHarness`.
 ///
-/// <p>Operation to create a Harness.</p>
+/// <p>Operation to create a harness.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateHarnessFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

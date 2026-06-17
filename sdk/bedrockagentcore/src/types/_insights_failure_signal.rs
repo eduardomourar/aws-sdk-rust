@@ -4,7 +4,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct InsightsFailureSignal {
-    /// Failure category taxonomy for agent session insights. Values must stay in sync with the category registry in AgentCoreLens (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+    /// <p>The failure category classification for this signal.</p>
     pub category: crate::types::InsightsFailureCategory,
     /// <p>The evidence supporting the failure detection.</p>
     pub evidence: ::std::string::String,
@@ -12,7 +12,7 @@ pub struct InsightsFailureSignal {
     pub confidence: f64,
 }
 impl InsightsFailureSignal {
-    /// Failure category taxonomy for agent session insights. Values must stay in sync with the category registry in AgentCoreLens (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+    /// <p>The failure category classification for this signal.</p>
     pub fn category(&self) -> &crate::types::InsightsFailureCategory {
         &self.category
     }
@@ -42,18 +42,18 @@ pub struct InsightsFailureSignalBuilder {
     pub(crate) confidence: ::std::option::Option<f64>,
 }
 impl InsightsFailureSignalBuilder {
-    /// Failure category taxonomy for agent session insights. Values must stay in sync with the category registry in AgentCoreLens (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+    /// <p>The failure category classification for this signal.</p>
     /// This field is required.
     pub fn category(mut self, input: crate::types::InsightsFailureCategory) -> Self {
         self.category = ::std::option::Option::Some(input);
         self
     }
-    /// Failure category taxonomy for agent session insights. Values must stay in sync with the category registry in AgentCoreLens (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+    /// <p>The failure category classification for this signal.</p>
     pub fn set_category(mut self, input: ::std::option::Option<crate::types::InsightsFailureCategory>) -> Self {
         self.category = input;
         self
     }
-    /// Failure category taxonomy for agent session insights. Values must stay in sync with the category registry in AgentCoreLens (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+    /// <p>The failure category classification for this signal.</p>
     pub fn get_category(&self) -> &::std::option::Option<crate::types::InsightsFailureCategory> {
         &self.category
     }

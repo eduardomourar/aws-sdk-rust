@@ -55,9 +55,15 @@ pub use crate::types::_version_filter::VersionFilterBuilder;
 
 pub use crate::types::_gateway_policy_engine_configuration::GatewayPolicyEngineConfigurationBuilder;
 
+pub use crate::types::_custom_transform_configuration::CustomTransformConfigurationBuilder;
+
+pub use crate::types::_waf_configuration::WafConfigurationBuilder;
+
 pub use crate::types::_system_managed_block::SystemManagedBlockBuilder;
 
 pub use crate::types::_metadata_configuration::MetadataConfigurationBuilder;
+
+pub use crate::types::_harness_endpoint::HarnessEndpointBuilder;
 
 pub use crate::types::_harness_truncation_configuration::HarnessTruncationConfigurationBuilder;
 
@@ -149,6 +155,8 @@ pub use crate::types::_mcp_gateway_configuration::McpGatewayConfigurationBuilder
 
 pub use crate::types::_gateway_interceptor_configuration::GatewayInterceptorConfigurationBuilder;
 
+pub use crate::types::_lambda_transform_configuration::LambdaTransformConfigurationBuilder;
+
 pub use crate::types::_gateway_summary::GatewaySummaryBuilder;
 
 pub use crate::types::_gateway_rule_detail::GatewayRuleDetailBuilder;
@@ -179,7 +187,13 @@ pub use crate::types::_harness_tool::HarnessToolBuilder;
 
 pub use crate::types::_harness_agent_core_memory_configuration::HarnessAgentCoreMemoryConfigurationBuilder;
 
+pub use crate::types::_harness_managed_memory_configuration::HarnessManagedMemoryConfigurationBuilder;
+
+pub use crate::types::_harness_disabled_memory_configuration::HarnessDisabledMemoryConfigurationBuilder;
+
 pub use crate::types::_harness_summary::HarnessSummaryBuilder;
+
+pub use crate::types::_harness_version_summary::HarnessVersionSummaryBuilder;
 
 pub use crate::types::_memory_summary::MemorySummaryBuilder;
 
@@ -241,6 +255,8 @@ pub use crate::types::_cedar_policy::CedarPolicyBuilder;
 
 pub use crate::types::_policy_generation_details::PolicyGenerationDetailsBuilder;
 
+pub use crate::types::_policy_statement::PolicyStatementBuilder;
+
 pub use crate::types::_policy_summary::PolicySummaryBuilder;
 
 pub use crate::types::_registry_record_summary::RegistryRecordSummaryBuilder;
@@ -269,6 +285,8 @@ pub use crate::types::_private_endpoint_override::PrivateEndpointOverrideBuilder
 
 pub use crate::types::_payment_connector_summary::PaymentConnectorSummaryBuilder;
 
+pub use crate::types::_allowed_workload_configuration::AllowedWorkloadConfigurationBuilder;
+
 pub use crate::types::_session_storage_configuration::SessionStorageConfigurationBuilder;
 
 pub use crate::types::_s3_files_access_point_configuration::S3FilesAccessPointConfigurationBuilder;
@@ -293,11 +311,21 @@ pub use crate::types::_mcp_server_target_configuration::McpServerTargetConfigura
 
 pub use crate::types::_api_gateway_target_configuration::ApiGatewayTargetConfigurationBuilder;
 
+pub use crate::types::_connector_target_configuration::ConnectorTargetConfigurationBuilder;
+
 pub use crate::types::_runtime_target_configuration::RuntimeTargetConfigurationBuilder;
+
+pub use crate::types::_passthrough_target_configuration::PassthroughTargetConfigurationBuilder;
+
+pub use crate::types::_inference_connector_target_configuration::InferenceConnectorTargetConfigurationBuilder;
+
+pub use crate::types::_inference_provider_target_configuration::InferenceProviderTargetConfigurationBuilder;
 
 pub use crate::types::_harness_skill_s3_source::HarnessSkillS3SourceBuilder;
 
 pub use crate::types::_harness_skill_git_source::HarnessSkillGitSourceBuilder;
+
+pub use crate::types::_harness_skill_aws_skills_source::HarnessSkillAwsSkillsSourceBuilder;
 
 pub use crate::types::_harness_sliding_window_configuration::HarnessSlidingWindowConfigurationBuilder;
 
@@ -351,6 +379,8 @@ pub use crate::types::_bedrock_evaluator_model_config::BedrockEvaluatorModelConf
 
 pub use crate::types::_lambda_interceptor_configuration::LambdaInterceptorConfigurationBuilder;
 
+pub use crate::types::_interceptor_payload_filter::InterceptorPayloadFilterBuilder;
+
 pub use crate::types::_static_override::StaticOverrideBuilder;
 
 pub use crate::types::_weighted_override::WeightedOverrideBuilder;
@@ -362,6 +392,16 @@ pub use crate::types::_weighted_route::WeightedRouteBuilder;
 pub use crate::types::_s3_configuration::S3ConfigurationBuilder;
 
 pub use crate::types::_api_gateway_tool_configuration::ApiGatewayToolConfigurationBuilder;
+
+pub use crate::types::_connector_source::ConnectorSourceBuilder;
+
+pub use crate::types::_http_api_schema_configuration::HttpApiSchemaConfigurationBuilder;
+
+pub use crate::types::_stickiness_configuration::StickinessConfigurationBuilder;
+
+pub use crate::types::_inference_connector_source::InferenceConnectorSourceBuilder;
+
+pub use crate::types::_model_mapping::ModelMappingBuilder;
 
 pub use crate::types::_o_auth_credential_provider::OAuthCredentialProviderBuilder;
 
@@ -403,11 +443,19 @@ pub use crate::types::_updated_agent_skills_descriptor_fields::UpdatedAgentSkill
 
 pub use crate::types::_authorizing_claim_match_value_type::AuthorizingClaimMatchValueTypeBuilder;
 
+pub use crate::types::_hosting_environment::HostingEnvironmentBuilder;
+
 pub use crate::types::_numerical_scale_definition::NumericalScaleDefinitionBuilder;
 
 pub use crate::types::_categorical_scale_definition::CategoricalScaleDefinitionBuilder;
 
 pub use crate::types::_inference_configuration::InferenceConfigurationBuilder;
+
+pub use crate::types::_connector_configuration::ConnectorConfigurationBuilder;
+
+pub use crate::types::_provider_prefix::ProviderPrefixBuilder;
+
+pub use crate::types::_inference_operation_configuration::InferenceOperationConfigurationBuilder;
 
 pub use crate::types::_semantic_override_configuration_input::SemanticOverrideConfigurationInputBuilder;
 
@@ -480,6 +528,10 @@ pub use crate::types::_registry_record_iam_credential_provider::RegistryRecordIa
 pub use crate::types::_configuration_bundle_reference::ConfigurationBundleReferenceBuilder;
 
 pub use crate::types::_schema_definition::SchemaDefinitionBuilder;
+
+pub use crate::types::_connector_parameter_override::ConnectorParameterOverrideBuilder;
+
+pub use crate::types::_model_entry::ModelEntryBuilder;
 
 pub use crate::types::_semantic_extraction_override::SemanticExtractionOverrideBuilder;
 

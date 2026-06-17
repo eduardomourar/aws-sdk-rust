@@ -83,6 +83,8 @@ pub use crate::types::_service::Service;
 
 pub use crate::types::_asset_file_content::AssetFileContent;
 
+pub use crate::types::_asset_source_url_content::AssetSourceUrlContent;
+
 pub use crate::types::_validation_exception_field::ValidationExceptionField;
 
 pub use crate::types::_reference_output::ReferenceOutput;
@@ -163,6 +165,10 @@ pub use crate::types::_registered_azure_identity_details::RegisteredAzureIdentit
 
 pub use crate::types::_mcp_server_sigv4_service_details::McpServerSigV4ServiceDetails;
 
+pub use crate::types::_remote_agent_service_details::RemoteAgentServiceDetails;
+
+pub use crate::types::_remote_agent_sigv4_service_details::RemoteAgentSigV4ServiceDetails;
+
 pub use crate::types::_o_auth_additional_step_details::OAuthAdditionalStepDetails;
 
 pub use crate::types::_additional_service_details::AdditionalServiceDetails;
@@ -211,6 +217,14 @@ pub use crate::types::_pager_duty_configuration::PagerDutyConfiguration;
 
 pub use crate::types::_mcp_server_sigv4_configuration::McpServerSigV4Configuration;
 
+pub use crate::types::_remote_agent_configuration::RemoteAgentConfiguration;
+
+pub use crate::types::_remote_agent_sigv4_configuration::RemoteAgentSigV4Configuration;
+
+pub use crate::types::_capability_type::CapabilityType;
+
+pub use crate::types::_capability_configuration::CapabilityConfiguration;
+
 pub use crate::types::_validation_status::ValidationStatus;
 
 pub use crate::types::_webhook_type::WebhookType;
@@ -237,6 +251,10 @@ pub use crate::types::_pager_duty_authorization_config::PagerDutyAuthorizationCo
 
 pub use crate::types::_mcp_server_sigv4_authorization_config::McpServerSigV4AuthorizationConfig;
 
+pub use crate::types::_remote_agent_authorization_config::RemoteAgentAuthorizationConfig;
+
+pub use crate::types::_remote_agent_sigv4_authorization_config::RemoteAgentSigV4AuthorizationConfig;
+
 pub use crate::types::_registered_github_service_details::RegisteredGithubServiceDetails;
 
 pub use crate::types::_registered_slack_service_details::RegisteredSlackServiceDetails;
@@ -256,6 +274,10 @@ pub use crate::types::_registered_grafana_server_details::RegisteredGrafanaServe
 pub use crate::types::_registered_pager_duty_details::RegisteredPagerDutyDetails;
 
 pub use crate::types::_registered_mcp_server_sigv4_details::RegisteredMcpServerSigV4Details;
+
+pub use crate::types::_registered_remote_agent_details::RegisteredRemoteAgentDetails;
+
+pub use crate::types::_registered_remote_agent_sigv4_details::RegisteredRemoteAgentSigV4Details;
 
 pub use crate::types::_send_message_text_delta::SendMessageTextDelta;
 
@@ -287,9 +309,17 @@ pub use crate::types::_new_relic_api_key_config::NewRelicApiKeyConfig;
 
 pub use crate::types::_pager_duty_o_auth_client_credentials_config::PagerDutyOAuthClientCredentialsConfig;
 
+pub use crate::types::_remote_agent_api_key_config::RemoteAgentApiKeyConfig;
+
+pub use crate::types::_remote_agent_o_auth_client_credentials_config::RemoteAgentOAuthClientCredentialsConfig;
+
+pub use crate::types::_remote_agent_bearer_token_config::RemoteAgentBearerTokenConfig;
+
 pub use crate::types::_mcp_server_authorization_method::McpServerAuthorizationMethod;
 
 pub use crate::types::_new_relic_region::NewRelicRegion;
+
+pub use crate::types::_remote_agent_authorization_method::RemoteAgentAuthorizationMethod;
 
 pub use crate::types::_user_message_block::UserMessageBlock;
 
@@ -315,6 +345,8 @@ mod _asset_file_content;
 
 mod _asset_file_summary;
 
+mod _asset_source_url_content;
+
 mod _asset_type_summary;
 
 mod _asset_version_metadata;
@@ -332,6 +364,10 @@ mod _aws_configuration;
 mod _azure_configuration;
 
 mod _azure_dev_ops_configuration;
+
+mod _capability_configuration;
+
+mod _capability_type;
 
 mod _chat_execution;
 
@@ -493,11 +529,35 @@ mod _registered_new_relic_details;
 
 mod _registered_pager_duty_details;
 
+mod _registered_remote_agent_details;
+
+mod _registered_remote_agent_sigv4_details;
+
 mod _registered_service;
 
 mod _registered_service_now_details;
 
 mod _registered_slack_service_details;
+
+mod _remote_agent_api_key_config;
+
+mod _remote_agent_authorization_config;
+
+mod _remote_agent_authorization_method;
+
+mod _remote_agent_bearer_token_config;
+
+mod _remote_agent_configuration;
+
+mod _remote_agent_o_auth_client_credentials_config;
+
+mod _remote_agent_service_details;
+
+mod _remote_agent_sigv4_authorization_config;
+
+mod _remote_agent_sigv4_configuration;
+
+mod _remote_agent_sigv4_service_details;
 
 mod _resource_config_dns_resolution;
 

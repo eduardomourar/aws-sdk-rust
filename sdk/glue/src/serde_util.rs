@@ -65,6 +65,18 @@ pub(crate) fn delete_integration_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn get_asset_output_output_correct_errors(
+    mut builder: crate::operation::get_asset::builders::GetAssetOutputBuilder,
+) -> crate::operation::get_asset::builders::GetAssetOutputBuilder {
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.asset_type_id.is_none() {
+        builder.asset_type_id = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn get_catalogs_output_output_correct_errors(
     mut builder: crate::operation::get_catalogs::builders::GetCatalogsOutputBuilder,
 ) -> crate::operation::get_catalogs::builders::GetCatalogsOutputBuilder {
@@ -131,6 +143,15 @@ pub(crate) fn list_data_quality_results_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_form_types_output_output_correct_errors(
+    mut builder: crate::operation::list_form_types::builders::ListFormTypesOutputBuilder,
+) -> crate::operation::list_form_types::builders::ListFormTypesOutputBuilder {
+    if builder.items.is_none() {
+        builder.items = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_ml_transforms_output_output_correct_errors(
     mut builder: crate::operation::list_ml_transforms::builders::ListMlTransformsOutputBuilder,
 ) -> crate::operation::list_ml_transforms::builders::ListMlTransformsOutputBuilder {
@@ -160,6 +181,18 @@ pub(crate) fn modify_integration_output_output_correct_errors(
     }
     if builder.create_time.is_none() {
         builder.create_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn put_asset_output_output_correct_errors(
+    mut builder: crate::operation::put_asset::builders::PutAssetOutputBuilder,
+) -> crate::operation::put_asset::builders::PutAssetOutputBuilder {
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
     }
     builder
 }
@@ -251,6 +284,15 @@ pub(crate) fn transform_parameters_correct_errors(
 ) -> crate::types::builders::TransformParametersBuilder {
     if builder.transform_type.is_none() {
         builder.transform_type = "no value was set".parse::<crate::types::TransformType>().ok()
+    }
+    builder
+}
+
+pub(crate) fn asset_type_form_reference_correct_errors(
+    mut builder: crate::types::builders::AssetTypeFormReferenceBuilder,
+) -> crate::types::builders::AssetTypeFormReferenceBuilder {
+    if builder.form_type_identifier.is_none() {
+        builder.form_type_identifier = Some(Default::default())
     }
     builder
 }

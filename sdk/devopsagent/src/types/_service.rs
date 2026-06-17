@@ -26,6 +26,8 @@
 ///     Service::McpServerSigv4 => { /* ... */ },
 ///     Service::McpServerSplunk => { /* ... */ },
 ///     Service::Pagerduty => { /* ... */ },
+///     Service::RemoteAgent => { /* ... */ },
+///     Service::RemoteAgentSigv4 => { /* ... */ },
 ///     Service::Servicenow => { /* ... */ },
 ///     Service::Slack => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -84,6 +86,10 @@ pub enum Service {
     McpServerSplunk,
     #[allow(missing_docs)] // documentation missing in model
     Pagerduty,
+    /// <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>
+    RemoteAgent,
+    /// <p>Remote A2A agent with SigV4 authentication.</p>
+    RemoteAgentSigv4,
     #[allow(missing_docs)] // documentation missing in model
     Servicenow,
     #[allow(missing_docs)] // documentation missing in model
@@ -109,6 +115,8 @@ impl ::std::convert::From<&str> for Service {
             "mcpserversigv4" => Service::McpServerSigv4,
             "mcpserversplunk" => Service::McpServerSplunk,
             "pagerduty" => Service::Pagerduty,
+            "remoteagent" => Service::RemoteAgent,
+            "remoteagentsigv4" => Service::RemoteAgentSigv4,
             "servicenow" => Service::Servicenow,
             "slack" => Service::Slack,
             other => Service::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -140,6 +148,8 @@ impl Service {
             Service::McpServerSigv4 => "mcpserversigv4",
             Service::McpServerSplunk => "mcpserversplunk",
             Service::Pagerduty => "pagerduty",
+            Service::RemoteAgent => "remoteagent",
+            Service::RemoteAgentSigv4 => "remoteagentsigv4",
             Service::Servicenow => "servicenow",
             Service::Slack => "slack",
             Service::Unknown(value) => value.as_str(),
@@ -162,6 +172,8 @@ impl Service {
             "mcpserversigv4",
             "mcpserversplunk",
             "pagerduty",
+            "remoteagent",
+            "remoteagentsigv4",
             "servicenow",
             "slack",
         ]
@@ -201,6 +213,8 @@ impl ::std::fmt::Display for Service {
             Service::McpServerSigv4 => write!(f, "mcpserversigv4"),
             Service::McpServerSplunk => write!(f, "mcpserversplunk"),
             Service::Pagerduty => write!(f, "pagerduty"),
+            Service::RemoteAgent => write!(f, "remoteagent"),
+            Service::RemoteAgentSigv4 => write!(f, "remoteagentsigv4"),
             Service::Servicenow => write!(f, "servicenow"),
             Service::Slack => write!(f, "slack"),
             Service::Unknown(value) => write!(f, "{value}"),

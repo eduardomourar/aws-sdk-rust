@@ -57,8 +57,11 @@ pub struct ServiceDeployment {
     /// <p>POST_TEST_TRAFFIC_SHIFT</p>
     /// <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p></li>
     /// <li>
+    /// <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p>
+    /// <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p></li>
+    /// <li>
     /// <p>PRODUCTION_TRAFFIC_SHIFT</p>
-    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p></li>
+    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p></li>
     /// <li>
     /// <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
     /// <p>The production traffic shift is complete.</p></li>
@@ -160,8 +163,11 @@ impl ServiceDeployment {
     /// <p>POST_TEST_TRAFFIC_SHIFT</p>
     /// <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p></li>
     /// <li>
+    /// <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p>
+    /// <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p></li>
+    /// <li>
     /// <p>PRODUCTION_TRAFFIC_SHIFT</p>
-    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p></li>
+    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p></li>
     /// <li>
     /// <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
     /// <p>The production traffic shift is complete.</p></li>
@@ -445,8 +451,11 @@ impl ServiceDeploymentBuilder {
     /// <p>POST_TEST_TRAFFIC_SHIFT</p>
     /// <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p></li>
     /// <li>
+    /// <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p>
+    /// <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p></li>
+    /// <li>
     /// <p>PRODUCTION_TRAFFIC_SHIFT</p>
-    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p></li>
+    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p></li>
     /// <li>
     /// <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
     /// <p>The production traffic shift is complete.</p></li>
@@ -482,8 +491,11 @@ impl ServiceDeploymentBuilder {
     /// <p>POST_TEST_TRAFFIC_SHIFT</p>
     /// <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p></li>
     /// <li>
+    /// <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p>
+    /// <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p></li>
+    /// <li>
     /// <p>PRODUCTION_TRAFFIC_SHIFT</p>
-    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p></li>
+    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p></li>
     /// <li>
     /// <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
     /// <p>The production traffic shift is complete.</p></li>
@@ -519,8 +531,11 @@ impl ServiceDeploymentBuilder {
     /// <p>POST_TEST_TRAFFIC_SHIFT</p>
     /// <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p></li>
     /// <li>
+    /// <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p>
+    /// <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p></li>
+    /// <li>
     /// <p>PRODUCTION_TRAFFIC_SHIFT</p>
-    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p></li>
+    /// <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p></li>
     /// <li>
     /// <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
     /// <p>The production traffic shift is complete.</p></li>

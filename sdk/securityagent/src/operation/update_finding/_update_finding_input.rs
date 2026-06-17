@@ -8,10 +8,24 @@ pub struct UpdateFindingInput {
     pub finding_id: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier of the agent space that contains the finding.</p>
     pub agent_space_id: ::std::option::Option<::std::string::String>,
+    /// <p>The updated name for the finding.</p>
+    pub name: ::std::option::Option<::std::string::String>,
+    /// <p>The updated description for the finding.</p>
+    pub description: ::std::option::Option<::std::string::String>,
+    /// <p>The updated risk type for the finding.</p>
+    pub risk_type: ::std::option::Option<::std::string::String>,
     /// <p>The updated risk level for the finding.</p>
     pub risk_level: ::std::option::Option<crate::types::RiskLevel>,
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub risk_score: ::std::option::Option<::std::string::String>,
+    /// <p>The updated attack script for the finding.</p>
+    pub attack_script: ::std::option::Option<::std::string::String>,
+    /// <p>The updated reasoning for the finding.</p>
+    pub reasoning: ::std::option::Option<::std::string::String>,
     /// <p>The updated status for the finding.</p>
     pub status: ::std::option::Option<crate::types::FindingStatus>,
+    /// <p>A customer-provided note on the finding.</p>
+    pub customer_note: ::std::option::Option<::std::string::String>,
 }
 impl UpdateFindingInput {
     /// <p>The unique identifier of the finding to update.</p>
@@ -22,13 +36,41 @@ impl UpdateFindingInput {
     pub fn agent_space_id(&self) -> ::std::option::Option<&str> {
         self.agent_space_id.as_deref()
     }
+    /// <p>The updated name for the finding.</p>
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn description(&self) -> ::std::option::Option<&str> {
+        self.description.as_deref()
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn risk_type(&self) -> ::std::option::Option<&str> {
+        self.risk_type.as_deref()
+    }
     /// <p>The updated risk level for the finding.</p>
     pub fn risk_level(&self) -> ::std::option::Option<&crate::types::RiskLevel> {
         self.risk_level.as_ref()
     }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn risk_score(&self) -> ::std::option::Option<&str> {
+        self.risk_score.as_deref()
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn attack_script(&self) -> ::std::option::Option<&str> {
+        self.attack_script.as_deref()
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn reasoning(&self) -> ::std::option::Option<&str> {
+        self.reasoning.as_deref()
+    }
     /// <p>The updated status for the finding.</p>
     pub fn status(&self) -> ::std::option::Option<&crate::types::FindingStatus> {
         self.status.as_ref()
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn customer_note(&self) -> ::std::option::Option<&str> {
+        self.customer_note.as_deref()
     }
 }
 impl UpdateFindingInput {
@@ -44,8 +86,15 @@ impl UpdateFindingInput {
 pub struct UpdateFindingInputBuilder {
     pub(crate) finding_id: ::std::option::Option<::std::string::String>,
     pub(crate) agent_space_id: ::std::option::Option<::std::string::String>,
+    pub(crate) name: ::std::option::Option<::std::string::String>,
+    pub(crate) description: ::std::option::Option<::std::string::String>,
+    pub(crate) risk_type: ::std::option::Option<::std::string::String>,
     pub(crate) risk_level: ::std::option::Option<crate::types::RiskLevel>,
+    pub(crate) risk_score: ::std::option::Option<::std::string::String>,
+    pub(crate) attack_script: ::std::option::Option<::std::string::String>,
+    pub(crate) reasoning: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::FindingStatus>,
+    pub(crate) customer_note: ::std::option::Option<::std::string::String>,
 }
 impl UpdateFindingInputBuilder {
     /// <p>The unique identifier of the finding to update.</p>
@@ -78,6 +127,48 @@ impl UpdateFindingInputBuilder {
     pub fn get_agent_space_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.agent_space_id
     }
+    /// <p>The updated name for the finding.</p>
+    pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The updated name for the finding.</p>
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
+    /// <p>The updated name for the finding.</p>
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.description = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn risk_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.risk_type = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn set_risk_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.risk_type = input;
+        self
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn get_risk_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.risk_type
+    }
     /// <p>The updated risk level for the finding.</p>
     pub fn risk_level(mut self, input: crate::types::RiskLevel) -> Self {
         self.risk_level = ::std::option::Option::Some(input);
@@ -91,6 +182,48 @@ impl UpdateFindingInputBuilder {
     /// <p>The updated risk level for the finding.</p>
     pub fn get_risk_level(&self) -> &::std::option::Option<crate::types::RiskLevel> {
         &self.risk_level
+    }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn risk_score(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.risk_score = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn set_risk_score(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.risk_score = input;
+        self
+    }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn get_risk_score(&self) -> &::std::option::Option<::std::string::String> {
+        &self.risk_score
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn attack_script(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.attack_script = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn set_attack_script(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.attack_script = input;
+        self
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn get_attack_script(&self) -> &::std::option::Option<::std::string::String> {
+        &self.attack_script
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn reasoning(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.reasoning = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn set_reasoning(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.reasoning = input;
+        self
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn get_reasoning(&self) -> &::std::option::Option<::std::string::String> {
+        &self.reasoning
     }
     /// <p>The updated status for the finding.</p>
     pub fn status(mut self, input: crate::types::FindingStatus) -> Self {
@@ -106,6 +239,20 @@ impl UpdateFindingInputBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::FindingStatus> {
         &self.status
     }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn customer_note(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.customer_note = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn set_customer_note(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.customer_note = input;
+        self
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn get_customer_note(&self) -> &::std::option::Option<::std::string::String> {
+        &self.customer_note
+    }
     /// Consumes the builder and constructs a [`UpdateFindingInput`](crate::operation::update_finding::UpdateFindingInput).
     pub fn build(
         self,
@@ -113,8 +260,15 @@ impl UpdateFindingInputBuilder {
         ::std::result::Result::Ok(crate::operation::update_finding::UpdateFindingInput {
             finding_id: self.finding_id,
             agent_space_id: self.agent_space_id,
+            name: self.name,
+            description: self.description,
+            risk_type: self.risk_type,
             risk_level: self.risk_level,
+            risk_score: self.risk_score,
+            attack_script: self.attack_script,
+            reasoning: self.reasoning,
             status: self.status,
+            customer_note: self.customer_note,
         })
     }
 }

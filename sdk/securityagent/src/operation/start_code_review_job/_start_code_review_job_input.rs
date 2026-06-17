@@ -8,6 +8,8 @@ pub struct StartCodeReviewJobInput {
     pub agent_space_id: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier of the code review to start a job for.</p>
     pub code_review_id: ::std::option::Option<::std::string::String>,
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub diff_source: ::std::option::Option<crate::types::DiffSource>,
 }
 impl StartCodeReviewJobInput {
     /// <p>The unique identifier of the agent space.</p>
@@ -17,6 +19,10 @@ impl StartCodeReviewJobInput {
     /// <p>The unique identifier of the code review to start a job for.</p>
     pub fn code_review_id(&self) -> ::std::option::Option<&str> {
         self.code_review_id.as_deref()
+    }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn diff_source(&self) -> ::std::option::Option<&crate::types::DiffSource> {
+        self.diff_source.as_ref()
     }
 }
 impl StartCodeReviewJobInput {
@@ -32,6 +38,7 @@ impl StartCodeReviewJobInput {
 pub struct StartCodeReviewJobInputBuilder {
     pub(crate) agent_space_id: ::std::option::Option<::std::string::String>,
     pub(crate) code_review_id: ::std::option::Option<::std::string::String>,
+    pub(crate) diff_source: ::std::option::Option<crate::types::DiffSource>,
 }
 impl StartCodeReviewJobInputBuilder {
     /// <p>The unique identifier of the agent space.</p>
@@ -64,6 +71,20 @@ impl StartCodeReviewJobInputBuilder {
     pub fn get_code_review_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.code_review_id
     }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn diff_source(mut self, input: crate::types::DiffSource) -> Self {
+        self.diff_source = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn set_diff_source(mut self, input: ::std::option::Option<crate::types::DiffSource>) -> Self {
+        self.diff_source = input;
+        self
+    }
+    /// <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+    pub fn get_diff_source(&self) -> &::std::option::Option<crate::types::DiffSource> {
+        &self.diff_source
+    }
     /// Consumes the builder and constructs a [`StartCodeReviewJobInput`](crate::operation::start_code_review_job::StartCodeReviewJobInput).
     pub fn build(
         self,
@@ -72,6 +93,7 @@ impl StartCodeReviewJobInputBuilder {
         ::std::result::Result::Ok(crate::operation::start_code_review_job::StartCodeReviewJobInput {
             agent_space_id: self.agent_space_id,
             code_review_id: self.code_review_id,
+            diff_source: self.diff_source,
         })
     }
 }

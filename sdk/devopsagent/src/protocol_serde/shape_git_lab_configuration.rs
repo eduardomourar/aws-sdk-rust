@@ -12,6 +12,9 @@ pub fn ser_git_lab_configuration(
     if let Some(var_1) = &input.instance_identifier {
         object.key("instanceIdentifier").string(var_1.as_str());
     }
+    if let Some(var_2) = &input.runtime_role_arn {
+        object.key("runtimeRoleArn").string(var_2.as_str());
+    }
     Ok(())
 }
 
@@ -53,6 +56,13 @@ where
                         }
                         "instanceIdentifier" => {
                             builder = builder.set_instance_identifier(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "runtimeRoleArn" => {
+                            builder = builder.set_runtime_role_arn(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,

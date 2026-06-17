@@ -11,6 +11,8 @@ impl super::Client {
     ///   - [`provider_type(ProviderType)`](crate::operation::get_integration::GetIntegrationOutput::provider_type): <p>The type of the integration provider.</p>
     ///   - [`display_name(Option<String>)`](crate::operation::get_integration::GetIntegrationOutput::display_name): <p>The display name of the integration.</p>
     ///   - [`kms_key_id(Option<String>)`](crate::operation::get_integration::GetIntegrationOutput::kms_key_id): <p>The identifier of the AWS KMS key used to encrypt data associated with the integration.</p>
+    ///   - [`target_url(Option<String>)`](crate::operation::get_integration::GetIntegrationOutput::target_url): <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    ///   - [`private_connection_name(Option<String>)`](crate::operation::get_integration::GetIntegrationOutput::private_connection_name): <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
     /// - On failure, responds with [`SdkError<GetIntegrationError>`](crate::operation::get_integration::GetIntegrationError)
     pub fn get_integration(&self) -> crate::operation::get_integration::builders::GetIntegrationFluentBuilder {
         crate::operation::get_integration::builders::GetIntegrationFluentBuilder::new(self.handle.clone())

@@ -150,17 +150,17 @@ impl CreateAssetFluentBuilder {
     pub fn get_metadata(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_metadata()
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub fn content(mut self, input: crate::types::AssetContent) -> Self {
         self.inner = self.inner.content(input);
         self
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub fn set_content(mut self, input: ::std::option::Option<crate::types::AssetContent>) -> Self {
         self.inner = self.inner.set_content(input);
         self
     }
-    /// <p>The content for the asset. Provide a single file or a zip bundle.</p>
+    /// <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
     pub fn get_content(&self) -> &::std::option::Option<crate::types::AssetContent> {
         self.inner.get_content()
     }

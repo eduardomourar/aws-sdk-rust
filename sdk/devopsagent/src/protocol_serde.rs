@@ -265,6 +265,8 @@ pub(crate) mod shape_association;
 
 pub(crate) mod shape_associations_list;
 
+pub(crate) mod shape_capability_configuration;
+
 pub(crate) mod shape_chat_execution_list;
 
 pub(crate) mod shape_execution_list;
@@ -333,9 +335,13 @@ pub(crate) mod shape_asset_file_content;
 
 pub(crate) mod shape_asset_file_summary;
 
+pub(crate) mod shape_asset_source_url_content;
+
 pub(crate) mod shape_asset_type_summary;
 
 pub(crate) mod shape_asset_version_metadata;
+
+pub(crate) mod shape_association_capabilities;
 
 pub(crate) mod shape_aws_configuration;
 
@@ -407,6 +413,14 @@ pub(crate) mod shape_reference_output;
 
 pub(crate) mod shape_registered_azure_identity_details;
 
+pub(crate) mod shape_remote_agent_configuration;
+
+pub(crate) mod shape_remote_agent_service_details;
+
+pub(crate) mod shape_remote_agent_sigv4_configuration;
+
+pub(crate) mod shape_remote_agent_sigv4_service_details;
+
 pub(crate) mod shape_schedule_condition;
 
 pub(crate) mod shape_self_managed_input;
@@ -471,9 +485,17 @@ pub(crate) mod shape_registered_new_relic_details;
 
 pub(crate) mod shape_registered_pager_duty_details;
 
+pub(crate) mod shape_registered_remote_agent_details;
+
+pub(crate) mod shape_registered_remote_agent_sigv4_details;
+
 pub(crate) mod shape_registered_service_now_details;
 
 pub(crate) mod shape_registered_slack_service_details;
+
+pub(crate) mod shape_remote_agent_authorization_config;
+
+pub(crate) mod shape_remote_agent_sigv4_authorization_config;
 
 pub(crate) mod shape_service_now_service_authorization_config;
 
@@ -508,6 +530,12 @@ pub(crate) mod shape_pager_duty_o_auth_client_credentials_config;
 pub(crate) mod shape_pager_duty_scopes_list;
 
 pub(crate) mod shape_pager_duty_services_list;
+
+pub(crate) mod shape_remote_agent_api_key_config;
+
+pub(crate) mod shape_remote_agent_bearer_token_config;
+
+pub(crate) mod shape_remote_agent_o_auth_client_credentials_config;
 
 pub(crate) mod shape_send_message_content_block_delta;
 

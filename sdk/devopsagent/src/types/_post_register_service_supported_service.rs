@@ -23,6 +23,8 @@
 ///     PostRegisterServiceSupportedService::McpServerSigv4 => { /* ... */ },
 ///     PostRegisterServiceSupportedService::McpServerSplunk => { /* ... */ },
 ///     PostRegisterServiceSupportedService::Pagerduty => { /* ... */ },
+///     PostRegisterServiceSupportedService::RemoteAgent => { /* ... */ },
+///     PostRegisterServiceSupportedService::RemoteAgentSigv4 => { /* ... */ },
 ///     PostRegisterServiceSupportedService::Servicenow => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -74,6 +76,10 @@ pub enum PostRegisterServiceSupportedService {
     McpServerSplunk,
     #[allow(missing_docs)] // documentation missing in model
     Pagerduty,
+    /// <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>
+    RemoteAgent,
+    /// <p>Remote A2A agent with SigV4 authentication.</p>
+    RemoteAgentSigv4,
     #[allow(missing_docs)] // documentation missing in model
     Servicenow,
     /// `Unknown` contains new variants that have been added since this code was generated.
@@ -94,6 +100,8 @@ impl ::std::convert::From<&str> for PostRegisterServiceSupportedService {
             "mcpserversigv4" => PostRegisterServiceSupportedService::McpServerSigv4,
             "mcpserversplunk" => PostRegisterServiceSupportedService::McpServerSplunk,
             "pagerduty" => PostRegisterServiceSupportedService::Pagerduty,
+            "remoteagent" => PostRegisterServiceSupportedService::RemoteAgent,
+            "remoteagentsigv4" => PostRegisterServiceSupportedService::RemoteAgentSigv4,
             "servicenow" => PostRegisterServiceSupportedService::Servicenow,
             other => PostRegisterServiceSupportedService::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -121,6 +129,8 @@ impl PostRegisterServiceSupportedService {
             PostRegisterServiceSupportedService::McpServerSigv4 => "mcpserversigv4",
             PostRegisterServiceSupportedService::McpServerSplunk => "mcpserversplunk",
             PostRegisterServiceSupportedService::Pagerduty => "pagerduty",
+            PostRegisterServiceSupportedService::RemoteAgent => "remoteagent",
+            PostRegisterServiceSupportedService::RemoteAgentSigv4 => "remoteagentsigv4",
             PostRegisterServiceSupportedService::Servicenow => "servicenow",
             PostRegisterServiceSupportedService::Unknown(value) => value.as_str(),
         }
@@ -139,6 +149,8 @@ impl PostRegisterServiceSupportedService {
             "mcpserversigv4",
             "mcpserversplunk",
             "pagerduty",
+            "remoteagent",
+            "remoteagentsigv4",
             "servicenow",
         ]
     }
@@ -174,6 +186,8 @@ impl ::std::fmt::Display for PostRegisterServiceSupportedService {
             PostRegisterServiceSupportedService::McpServerSigv4 => write!(f, "mcpserversigv4"),
             PostRegisterServiceSupportedService::McpServerSplunk => write!(f, "mcpserversplunk"),
             PostRegisterServiceSupportedService::Pagerduty => write!(f, "pagerduty"),
+            PostRegisterServiceSupportedService::RemoteAgent => write!(f, "remoteagent"),
+            PostRegisterServiceSupportedService::RemoteAgentSigv4 => write!(f, "remoteagentsigv4"),
             PostRegisterServiceSupportedService::Servicenow => write!(f, "servicenow"),
             PostRegisterServiceSupportedService::Unknown(value) => write!(f, "{value}"),
         }

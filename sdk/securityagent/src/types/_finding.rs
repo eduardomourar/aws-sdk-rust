@@ -34,16 +34,22 @@ pub struct Finding {
     pub reasoning: ::std::option::Option<::std::string::String>,
     /// <p>The confidence level of the finding. Valid values include FALSE_POSITIVE, UNCONFIRMED, LOW, MEDIUM, and HIGH.</p>
     pub confidence: ::std::option::Option<crate::types::ConfidenceLevel>,
+    /// <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+    pub validation_status: ::std::option::Option<crate::types::ValidationStatus>,
     /// <p>The attack script used to reproduce the finding.</p>
     pub attack_script: ::std::option::Option<::std::string::String>,
     /// <p>The code remediation task associated with the finding, if code remediation was initiated.</p>
     pub code_remediation_task: ::std::option::Option<crate::types::CodeRemediationTask>,
     /// <p>The identifier of the entity that last updated the finding.</p>
     pub last_updated_by: ::std::option::Option<::std::string::String>,
+    /// <p>A customer-provided note on the finding.</p>
+    pub customer_note: ::std::option::Option<::std::string::String>,
     /// <p>The file locations involved in the vulnerability, as reported by the code scanner.</p>
     pub code_locations: ::std::option::Option<::std::vec::Vec<crate::types::CodeLocation>>,
     /// <p>The verification script metadata for reproducing the finding, including download URL, instructions, and required environment variables.</p>
     pub verification_script: ::std::option::Option<crate::types::VerificationScript>,
+    /// <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+    pub alignment_rationale: ::std::option::Option<::std::string::String>,
     /// <p>The date and time the finding was created, in UTC format.</p>
     pub created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time the finding was last updated, in UTC format.</p>
@@ -112,6 +118,10 @@ impl Finding {
     pub fn confidence(&self) -> ::std::option::Option<&crate::types::ConfidenceLevel> {
         self.confidence.as_ref()
     }
+    /// <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+    pub fn validation_status(&self) -> ::std::option::Option<&crate::types::ValidationStatus> {
+        self.validation_status.as_ref()
+    }
     /// <p>The attack script used to reproduce the finding.</p>
     pub fn attack_script(&self) -> ::std::option::Option<&str> {
         self.attack_script.as_deref()
@@ -124,6 +134,10 @@ impl Finding {
     pub fn last_updated_by(&self) -> ::std::option::Option<&str> {
         self.last_updated_by.as_deref()
     }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn customer_note(&self) -> ::std::option::Option<&str> {
+        self.customer_note.as_deref()
+    }
     /// <p>The file locations involved in the vulnerability, as reported by the code scanner.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.code_locations.is_none()`.
@@ -133,6 +147,10 @@ impl Finding {
     /// <p>The verification script metadata for reproducing the finding, including download URL, instructions, and required environment variables.</p>
     pub fn verification_script(&self) -> ::std::option::Option<&crate::types::VerificationScript> {
         self.verification_script.as_ref()
+    }
+    /// <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+    pub fn alignment_rationale(&self) -> ::std::option::Option<&str> {
+        self.alignment_rationale.as_deref()
     }
     /// <p>The date and time the finding was created, in UTC format.</p>
     pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
@@ -169,11 +187,14 @@ pub struct FindingBuilder {
     pub(crate) risk_score: ::std::option::Option<::std::string::String>,
     pub(crate) reasoning: ::std::option::Option<::std::string::String>,
     pub(crate) confidence: ::std::option::Option<crate::types::ConfidenceLevel>,
+    pub(crate) validation_status: ::std::option::Option<crate::types::ValidationStatus>,
     pub(crate) attack_script: ::std::option::Option<::std::string::String>,
     pub(crate) code_remediation_task: ::std::option::Option<crate::types::CodeRemediationTask>,
     pub(crate) last_updated_by: ::std::option::Option<::std::string::String>,
+    pub(crate) customer_note: ::std::option::Option<::std::string::String>,
     pub(crate) code_locations: ::std::option::Option<::std::vec::Vec<crate::types::CodeLocation>>,
     pub(crate) verification_script: ::std::option::Option<crate::types::VerificationScript>,
+    pub(crate) alignment_rationale: ::std::option::Option<::std::string::String>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -390,6 +411,20 @@ impl FindingBuilder {
     pub fn get_confidence(&self) -> &::std::option::Option<crate::types::ConfidenceLevel> {
         &self.confidence
     }
+    /// <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+    pub fn validation_status(mut self, input: crate::types::ValidationStatus) -> Self {
+        self.validation_status = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+    pub fn set_validation_status(mut self, input: ::std::option::Option<crate::types::ValidationStatus>) -> Self {
+        self.validation_status = input;
+        self
+    }
+    /// <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+    pub fn get_validation_status(&self) -> &::std::option::Option<crate::types::ValidationStatus> {
+        &self.validation_status
+    }
     /// <p>The attack script used to reproduce the finding.</p>
     pub fn attack_script(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attack_script = ::std::option::Option::Some(input.into());
@@ -432,6 +467,20 @@ impl FindingBuilder {
     pub fn get_last_updated_by(&self) -> &::std::option::Option<::std::string::String> {
         &self.last_updated_by
     }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn customer_note(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.customer_note = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn set_customer_note(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.customer_note = input;
+        self
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn get_customer_note(&self) -> &::std::option::Option<::std::string::String> {
+        &self.customer_note
+    }
     /// Appends an item to `code_locations`.
     ///
     /// To override the contents of this collection use [`set_code_locations`](Self::set_code_locations).
@@ -465,6 +514,20 @@ impl FindingBuilder {
     /// <p>The verification script metadata for reproducing the finding, including download URL, instructions, and required environment variables.</p>
     pub fn get_verification_script(&self) -> &::std::option::Option<crate::types::VerificationScript> {
         &self.verification_script
+    }
+    /// <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+    pub fn alignment_rationale(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.alignment_rationale = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+    pub fn set_alignment_rationale(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.alignment_rationale = input;
+        self
+    }
+    /// <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+    pub fn get_alignment_rationale(&self) -> &::std::option::Option<::std::string::String> {
+        &self.alignment_rationale
     }
     /// <p>The date and time the finding was created, in UTC format.</p>
     pub fn created_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
@@ -525,11 +588,14 @@ impl FindingBuilder {
             risk_score: self.risk_score,
             reasoning: self.reasoning,
             confidence: self.confidence,
+            validation_status: self.validation_status,
             attack_script: self.attack_script,
             code_remediation_task: self.code_remediation_task,
             last_updated_by: self.last_updated_by,
+            customer_note: self.customer_note,
             code_locations: self.code_locations,
             verification_script: self.verification_script,
+            alignment_rationale: self.alignment_rationale,
             created_at: self.created_at,
             updated_at: self.updated_at,
         })

@@ -9,5 +9,11 @@ pub fn ser_start_code_review_job_input_input(
     if let Some(var_2) = &input.code_review_id {
         object.key("codeReviewId").string(var_2.as_str());
     }
+    if let Some(var_3) = &input.diff_source {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("diffSource").start_object();
+        crate::protocol_serde::shape_diff_source::ser_diff_source(&mut object_4, var_3)?;
+        object_4.finish();
+    }
     Ok(())
 }

@@ -150,17 +150,17 @@ impl UpdateAssetFluentBuilder {
     pub fn get_metadata(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_metadata()
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn content(mut self, input: crate::types::AssetContent) -> Self {
         self.inner = self.inner.content(input);
         self
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn set_content(mut self, input: ::std::option::Option<crate::types::AssetContent>) -> Self {
         self.inner = self.inner.set_content(input);
         self
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn get_content(&self) -> &::std::option::Option<crate::types::AssetContent> {
         self.inner.get_content()
     }

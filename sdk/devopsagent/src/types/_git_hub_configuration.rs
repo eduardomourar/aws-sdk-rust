@@ -14,6 +14,8 @@ pub struct GitHubConfiguration {
     pub owner_type: crate::types::GithubRepoOwnerType,
     /// <p>GitHub instance identifier (e.g., github.com or github.enterprise.com)</p>
     pub instance_identifier: ::std::option::Option<::std::string::String>,
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub runtime_role_arn: ::std::option::Option<::std::string::String>,
 }
 impl GitHubConfiguration {
     /// <p>Associated Github repo name</p>
@@ -39,6 +41,10 @@ impl GitHubConfiguration {
     pub fn instance_identifier(&self) -> ::std::option::Option<&str> {
         self.instance_identifier.as_deref()
     }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn runtime_role_arn(&self) -> ::std::option::Option<&str> {
+        self.runtime_role_arn.as_deref()
+    }
 }
 impl GitHubConfiguration {
     /// Creates a new builder-style object to manufacture [`GitHubConfiguration`](crate::types::GitHubConfiguration).
@@ -56,6 +62,7 @@ pub struct GitHubConfigurationBuilder {
     pub(crate) owner: ::std::option::Option<::std::string::String>,
     pub(crate) owner_type: ::std::option::Option<crate::types::GithubRepoOwnerType>,
     pub(crate) instance_identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) runtime_role_arn: ::std::option::Option<::std::string::String>,
 }
 impl GitHubConfigurationBuilder {
     /// <p>Associated Github repo name</p>
@@ -132,6 +139,20 @@ impl GitHubConfigurationBuilder {
     pub fn get_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.instance_identifier
     }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn runtime_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.runtime_role_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn set_runtime_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.runtime_role_arn = input;
+        self
+    }
+    /// <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+    pub fn get_runtime_role_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.runtime_role_arn
+    }
     /// Consumes the builder and constructs a [`GitHubConfiguration`](crate::types::GitHubConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`repo_name`](crate::types::builders::GitHubConfigurationBuilder::repo_name)
@@ -165,6 +186,7 @@ impl GitHubConfigurationBuilder {
                 )
             })?,
             instance_identifier: self.instance_identifier,
+            runtime_role_arn: self.runtime_role_arn,
         })
     }
 }

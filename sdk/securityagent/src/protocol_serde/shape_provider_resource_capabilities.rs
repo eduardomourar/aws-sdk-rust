@@ -10,6 +10,24 @@ pub fn ser_provider_resource_capabilities(
             crate::protocol_serde::shape_git_hub_resource_capabilities::ser_git_hub_resource_capabilities(&mut object_1, inner)?;
             object_1.finish();
         }
+        crate::types::ProviderResourceCapabilities::Gitlab(inner) => {
+            #[allow(unused_mut)]
+            let mut object_2 = object_4.key("gitlab").start_object();
+            crate::protocol_serde::shape_git_lab_resource_capabilities::ser_git_lab_resource_capabilities(&mut object_2, inner)?;
+            object_2.finish();
+        }
+        crate::types::ProviderResourceCapabilities::Bitbucket(inner) => {
+            #[allow(unused_mut)]
+            let mut object_3 = object_4.key("bitbucket").start_object();
+            crate::protocol_serde::shape_bitbucket_resource_capabilities::ser_bitbucket_resource_capabilities(&mut object_3, inner)?;
+            object_3.finish();
+        }
+        crate::types::ProviderResourceCapabilities::Confluence(inner) => {
+            #[allow(unused_mut)]
+            let mut object_4 = object_4.key("confluence").start_object();
+            crate::protocol_serde::shape_confluence_resource_capabilities::ser_confluence_resource_capabilities(&mut object_4, inner)?;
+            object_4.finish();
+        }
         crate::types::ProviderResourceCapabilities::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "ProviderResourceCapabilities",
@@ -61,6 +79,30 @@ where
                                 .ok_or_else(|| {
                                     ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'github' cannot be null")
                                 })?,
+                        )),
+                        "gitlab" => Some(crate::types::ProviderResourceCapabilities::Gitlab(
+                            crate::protocol_serde::shape_git_lab_resource_capabilities::de_git_lab_resource_capabilities(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'gitlab' cannot be null")
+                                })?,
+                        )),
+                        "bitbucket" => Some(crate::types::ProviderResourceCapabilities::Bitbucket(
+                            crate::protocol_serde::shape_bitbucket_resource_capabilities::de_bitbucket_resource_capabilities(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bitbucket' cannot be null"))?,
+                        )),
+                        "confluence" => Some(crate::types::ProviderResourceCapabilities::Confluence(
+                            crate::protocol_serde::shape_confluence_resource_capabilities::de_confluence_resource_capabilities(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'confluence' cannot be null")
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

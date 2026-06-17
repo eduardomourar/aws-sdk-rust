@@ -1388,6 +1388,39 @@ pub(crate) fn registered_pager_duty_details_correct_errors(
     builder
 }
 
+pub(crate) fn registered_remote_agent_details_correct_errors(
+    mut builder: crate::types::builders::RegisteredRemoteAgentDetailsBuilder,
+) -> crate::types::builders::RegisteredRemoteAgentDetailsBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.endpoint.is_none() {
+        builder.endpoint = Some(Default::default())
+    }
+    if builder.authorization_method.is_none() {
+        builder.authorization_method = "no value was set".parse::<crate::types::RemoteAgentAuthorizationMethod>().ok()
+    }
+    builder
+}
+
+pub(crate) fn registered_remote_agent_sigv4_details_correct_errors(
+    mut builder: crate::types::builders::RegisteredRemoteAgentSigV4DetailsBuilder,
+) -> crate::types::builders::RegisteredRemoteAgentSigV4DetailsBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.endpoint.is_none() {
+        builder.endpoint = Some(Default::default())
+    }
+    if builder.region.is_none() {
+        builder.region = Some(Default::default())
+    }
+    if builder.service.is_none() {
+        builder.service = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn registered_slack_service_details_correct_errors(
     mut builder: crate::types::builders::RegisteredSlackServiceDetailsBuilder,
 ) -> crate::types::builders::RegisteredSlackServiceDetailsBuilder {

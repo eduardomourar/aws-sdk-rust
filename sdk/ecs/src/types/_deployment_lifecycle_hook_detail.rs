@@ -11,13 +11,7 @@ pub struct DeploymentLifecycleHookDetail {
     pub target_type: ::std::option::Option<crate::types::DeploymentLifecycleHookTargetType>,
     /// <p>The Amazon Resource Name (ARN) of the hook target. For <code>AWS_LAMBDA</code> hooks, this is the Lambda function ARN. For <code>PAUSE</code> hooks, this field is not set.</p>
     pub target_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The status of the lifecycle hook. Valid values depend on the hook type:</p>
-    /// <ul>
-    /// <li>
-    /// <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// <li>
-    /// <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// </ul>
+    /// <p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>
     pub status: ::std::option::Option<crate::types::DeploymentLifecycleHookStatus>,
     /// <p>The time when the lifecycle hook times out. If the hook has not been completed by this time, Amazon ECS takes the timeout action.</p>
     pub expires_at: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -37,13 +31,7 @@ impl DeploymentLifecycleHookDetail {
     pub fn target_arn(&self) -> ::std::option::Option<&str> {
         self.target_arn.as_deref()
     }
-    /// <p>The status of the lifecycle hook. Valid values depend on the hook type:</p>
-    /// <ul>
-    /// <li>
-    /// <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// <li>
-    /// <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// </ul>
+    /// <p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>
     pub fn status(&self) -> ::std::option::Option<&crate::types::DeploymentLifecycleHookStatus> {
         self.status.as_ref()
     }
@@ -117,35 +105,17 @@ impl DeploymentLifecycleHookDetailBuilder {
     pub fn get_target_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.target_arn
     }
-    /// <p>The status of the lifecycle hook. Valid values depend on the hook type:</p>
-    /// <ul>
-    /// <li>
-    /// <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// <li>
-    /// <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// </ul>
+    /// <p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>
     pub fn status(mut self, input: crate::types::DeploymentLifecycleHookStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the lifecycle hook. Valid values depend on the hook type:</p>
-    /// <ul>
-    /// <li>
-    /// <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// <li>
-    /// <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// </ul>
+    /// <p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::DeploymentLifecycleHookStatus>) -> Self {
         self.status = input;
         self
     }
-    /// <p>The status of the lifecycle hook. Valid values depend on the hook type:</p>
-    /// <ul>
-    /// <li>
-    /// <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// <li>
-    /// <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p></li>
-    /// </ul>
+    /// <p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::DeploymentLifecycleHookStatus> {
         &self.status
     }

@@ -40,6 +40,7 @@
 ///     InsightsFailureCategory::OrchestrationPrematureTermination => { /* ... */ },
 ///     InsightsFailureCategory::OrchestrationReasoningMismatch => { /* ... */ },
 ///     InsightsFailureCategory::OrchestrationUnawareTermination => { /* ... */ },
+///     InsightsFailureCategory::Other => { /* ... */ },
 ///     InsightsFailureCategory::RepetitiveBehaviorInfo => { /* ... */ },
 ///     InsightsFailureCategory::RepetitiveBehaviorTool => { /* ... */ },
 ///     InsightsFailureCategory::RepetitiveBehaviorStep => { /* ... */ },
@@ -132,6 +133,8 @@ pub enum InsightsFailureCategory {
     #[allow(missing_docs)] // documentation missing in model
     OrchestrationUnawareTermination,
     #[allow(missing_docs)] // documentation missing in model
+    Other,
+    #[allow(missing_docs)] // documentation missing in model
     RepetitiveBehaviorInfo,
     #[allow(missing_docs)] // documentation missing in model
     RepetitiveBehaviorTool,
@@ -176,6 +179,7 @@ impl ::std::convert::From<&str> for InsightsFailureCategory {
             "orchestration-related-errors-category-premature-termination" => InsightsFailureCategory::OrchestrationPrematureTermination,
             "orchestration-related-errors-category-reasoning-mismatch" => InsightsFailureCategory::OrchestrationReasoningMismatch,
             "orchestration-related-errors-category-unaware-termination" => InsightsFailureCategory::OrchestrationUnawareTermination,
+            "other" => InsightsFailureCategory::Other,
             "repetitive-behavior-category-repetition-info" => InsightsFailureCategory::RepetitiveBehaviorInfo,
             "repetitive-behavior-category-repetition-tool" => InsightsFailureCategory::RepetitiveBehaviorTool,
             "repetitive-behavior-category-step-repetition" => InsightsFailureCategory::RepetitiveBehaviorStep,
@@ -224,6 +228,7 @@ impl InsightsFailureCategory {
             InsightsFailureCategory::OrchestrationPrematureTermination => "orchestration-related-errors-category-premature-termination",
             InsightsFailureCategory::OrchestrationReasoningMismatch => "orchestration-related-errors-category-reasoning-mismatch",
             InsightsFailureCategory::OrchestrationUnawareTermination => "orchestration-related-errors-category-unaware-termination",
+            InsightsFailureCategory::Other => "other",
             InsightsFailureCategory::RepetitiveBehaviorInfo => "repetitive-behavior-category-repetition-info",
             InsightsFailureCategory::RepetitiveBehaviorTool => "repetitive-behavior-category-repetition-tool",
             InsightsFailureCategory::RepetitiveBehaviorStep => "repetitive-behavior-category-step-repetition",
@@ -263,6 +268,7 @@ impl InsightsFailureCategory {
             "orchestration-related-errors-category-premature-termination",
             "orchestration-related-errors-category-reasoning-mismatch",
             "orchestration-related-errors-category-unaware-termination",
+            "other",
             "repetitive-behavior-category-repetition-info",
             "repetitive-behavior-category-repetition-tool",
             "repetitive-behavior-category-step-repetition",
@@ -319,6 +325,7 @@ impl ::std::fmt::Display for InsightsFailureCategory {
             InsightsFailureCategory::OrchestrationPrematureTermination => write!(f, "orchestration-related-errors-category-premature-termination"),
             InsightsFailureCategory::OrchestrationReasoningMismatch => write!(f, "orchestration-related-errors-category-reasoning-mismatch"),
             InsightsFailureCategory::OrchestrationUnawareTermination => write!(f, "orchestration-related-errors-category-unaware-termination"),
+            InsightsFailureCategory::Other => write!(f, "other"),
             InsightsFailureCategory::RepetitiveBehaviorInfo => write!(f, "repetitive-behavior-category-repetition-info"),
             InsightsFailureCategory::RepetitiveBehaviorTool => write!(f, "repetitive-behavior-category-repetition-tool"),
             InsightsFailureCategory::RepetitiveBehaviorStep => write!(f, "repetitive-behavior-category-step-repetition"),

@@ -13,6 +13,8 @@ pub struct CreateIntegrationInput {
     pub kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>The tags to associate with the integration.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub private_connection_name: ::std::option::Option<::std::string::String>,
 }
 impl CreateIntegrationInput {
     /// <p>The integration provider. Currently, only GITHUB is supported.</p>
@@ -35,6 +37,10 @@ impl CreateIntegrationInput {
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn private_connection_name(&self) -> ::std::option::Option<&str> {
+        self.private_connection_name.as_deref()
+    }
 }
 impl CreateIntegrationInput {
     /// Creates a new builder-style object to manufacture [`CreateIntegrationInput`](crate::operation::create_integration::CreateIntegrationInput).
@@ -52,6 +58,7 @@ pub struct CreateIntegrationInputBuilder {
     pub(crate) integration_display_name: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) private_connection_name: ::std::option::Option<::std::string::String>,
 }
 impl CreateIntegrationInputBuilder {
     /// <p>The integration provider. Currently, only GITHUB is supported.</p>
@@ -133,6 +140,20 @@ impl CreateIntegrationInputBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.private_connection_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn set_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.private_connection_name = input;
+        self
+    }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn get_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.private_connection_name
+    }
     /// Consumes the builder and constructs a [`CreateIntegrationInput`](crate::operation::create_integration::CreateIntegrationInput).
     pub fn build(
         self,
@@ -143,6 +164,7 @@ impl CreateIntegrationInputBuilder {
             integration_display_name: self.integration_display_name,
             kms_key_id: self.kms_key_id,
             tags: self.tags,
+            private_connection_name: self.private_connection_name,
         })
     }
 }

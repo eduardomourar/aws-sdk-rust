@@ -1394,6 +1394,7 @@ impl From<crate::operation::invoke_harness::InvokeHarnessError> for Error {
             crate::operation::invoke_harness::InvokeHarnessError::InternalServerException(inner) => Error::InternalServerException(inner),
             crate::operation::invoke_harness::InvokeHarnessError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::invoke_harness::InvokeHarnessError::RuntimeClientError(inner) => Error::RuntimeClientError(inner),
+            crate::operation::invoke_harness::InvokeHarnessError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
             crate::operation::invoke_harness::InvokeHarnessError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::invoke_harness::InvokeHarnessError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::invoke_harness::InvokeHarnessError::Unhandled(inner) => Error::Unhandled(inner),

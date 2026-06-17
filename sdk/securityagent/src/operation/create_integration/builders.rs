@@ -183,4 +183,18 @@ impl CreateIntegrationFluentBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.private_connection_name(input.into());
+        self
+    }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn set_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_private_connection_name(input);
+        self
+    }
+    /// <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+    pub fn get_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_private_connection_name()
+    }
 }

@@ -22,6 +22,8 @@ pub struct UpdateCodeReviewOutput {
     pub agent_space_id: ::std::option::Option<::std::string::String>,
     /// <p>The code remediation strategy for the code review.</p>
     pub code_remediation_strategy: ::std::option::Option<crate::types::CodeRemediationStrategy>,
+    /// <p>The validation mode for the code review.</p>
+    pub validation_mode: ::std::option::Option<crate::types::ValidationMode>,
     _request_id: Option<String>,
 }
 impl UpdateCodeReviewOutput {
@@ -62,6 +64,10 @@ impl UpdateCodeReviewOutput {
     pub fn code_remediation_strategy(&self) -> ::std::option::Option<&crate::types::CodeRemediationStrategy> {
         self.code_remediation_strategy.as_ref()
     }
+    /// <p>The validation mode for the code review.</p>
+    pub fn validation_mode(&self) -> ::std::option::Option<&crate::types::ValidationMode> {
+        self.validation_mode.as_ref()
+    }
 }
 impl ::aws_types::request_id::RequestId for UpdateCodeReviewOutput {
     fn request_id(&self) -> Option<&str> {
@@ -88,6 +94,7 @@ pub struct UpdateCodeReviewOutputBuilder {
     pub(crate) log_config: ::std::option::Option<crate::types::CloudWatchLog>,
     pub(crate) agent_space_id: ::std::option::Option<::std::string::String>,
     pub(crate) code_remediation_strategy: ::std::option::Option<crate::types::CodeRemediationStrategy>,
+    pub(crate) validation_mode: ::std::option::Option<crate::types::ValidationMode>,
     _request_id: Option<String>,
 }
 impl UpdateCodeReviewOutputBuilder {
@@ -218,6 +225,20 @@ impl UpdateCodeReviewOutputBuilder {
     pub fn get_code_remediation_strategy(&self) -> &::std::option::Option<crate::types::CodeRemediationStrategy> {
         &self.code_remediation_strategy
     }
+    /// <p>The validation mode for the code review.</p>
+    pub fn validation_mode(mut self, input: crate::types::ValidationMode) -> Self {
+        self.validation_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The validation mode for the code review.</p>
+    pub fn set_validation_mode(mut self, input: ::std::option::Option<crate::types::ValidationMode>) -> Self {
+        self.validation_mode = input;
+        self
+    }
+    /// <p>The validation mode for the code review.</p>
+    pub fn get_validation_mode(&self) -> &::std::option::Option<crate::types::ValidationMode> {
+        &self.validation_mode
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -248,6 +269,7 @@ impl UpdateCodeReviewOutputBuilder {
             log_config: self.log_config,
             agent_space_id: self.agent_space_id,
             code_remediation_strategy: self.code_remediation_strategy,
+            validation_mode: self.validation_mode,
             _request_id: self._request_id,
         })
     }

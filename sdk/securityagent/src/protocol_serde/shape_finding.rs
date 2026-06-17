@@ -126,6 +126,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "validationStatus" => {
+                            builder = builder.set_validation_status(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ValidationStatus::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         "attackScript" => {
                             builder = builder.set_attack_script(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -145,6 +152,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "customerNote" => {
+                            builder = builder.set_customer_note(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "codeLocations" => {
                             builder = builder.set_code_locations(crate::protocol_serde::shape_code_location_list::de_code_location_list(
                                 tokens,
@@ -158,6 +172,13 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "alignmentRationale" => {
+                            builder = builder.set_alignment_rationale(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "createdAt" => {
                             builder = builder.set_created_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

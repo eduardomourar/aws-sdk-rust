@@ -6,6 +6,8 @@
 pub enum TargetConfiguration {
     /// <p>The HTTP target configuration. Use this to route gateway requests to an HTTP-based endpoint such as an AgentCore Runtime.</p>
     Http(crate::types::HttpTargetConfiguration),
+    /// <p>The inference configuration for the target. This configuration routes requests to a large language model (LLM) provider.</p>
+    Inference(crate::types::InferenceTargetConfiguration),
     /// <p>The Model Context Protocol (MCP) configuration for the target. This configuration defines how the gateway uses MCP to communicate with the target.</p>
     Mcp(crate::types::McpTargetConfiguration),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -31,6 +33,19 @@ impl TargetConfiguration {
     /// Returns true if this is a [`Http`](crate::types::TargetConfiguration::Http).
     pub fn is_http(&self) -> bool {
         self.as_http().is_ok()
+    }
+    /// Tries to convert the enum instance into [`Inference`](crate::types::TargetConfiguration::Inference), extracting the inner [`InferenceTargetConfiguration`](crate::types::InferenceTargetConfiguration).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_inference(&self) -> ::std::result::Result<&crate::types::InferenceTargetConfiguration, &Self> {
+        if let TargetConfiguration::Inference(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`Inference`](crate::types::TargetConfiguration::Inference).
+    pub fn is_inference(&self) -> bool {
+        self.as_inference().is_ok()
     }
     /// Tries to convert the enum instance into [`Mcp`](crate::types::TargetConfiguration::Mcp), extracting the inner [`McpTargetConfiguration`](crate::types::McpTargetConfiguration).
     /// Returns `Err(&Self)` if it can't be converted.

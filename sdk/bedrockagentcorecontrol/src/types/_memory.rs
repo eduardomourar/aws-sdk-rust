@@ -32,6 +32,8 @@ pub struct Memory {
     pub indexed_keys: ::std::option::Option<::std::vec::Vec<crate::types::IndexedKey>>,
     /// <p>Configuration for streaming memory record data to external resources.</p>
     pub stream_delivery_resources: ::std::option::Option<crate::types::StreamDeliveryResources>,
+    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    pub managed_by_resource_arn: ::std::option::Option<::std::string::String>,
 }
 impl Memory {
     /// <p>The Amazon Resource Name (ARN) of the memory.</p>
@@ -97,6 +99,10 @@ impl Memory {
     pub fn stream_delivery_resources(&self) -> ::std::option::Option<&crate::types::StreamDeliveryResources> {
         self.stream_delivery_resources.as_ref()
     }
+    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    pub fn managed_by_resource_arn(&self) -> ::std::option::Option<&str> {
+        self.managed_by_resource_arn.as_deref()
+    }
 }
 impl ::std::fmt::Debug for Memory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -115,6 +121,7 @@ impl ::std::fmt::Debug for Memory {
         formatter.field("strategies", &self.strategies);
         formatter.field("indexed_keys", &self.indexed_keys);
         formatter.field("stream_delivery_resources", &self.stream_delivery_resources);
+        formatter.field("managed_by_resource_arn", &self.managed_by_resource_arn);
         formatter.finish()
     }
 }
@@ -143,6 +150,7 @@ pub struct MemoryBuilder {
     pub(crate) strategies: ::std::option::Option<::std::vec::Vec<crate::types::MemoryStrategy>>,
     pub(crate) indexed_keys: ::std::option::Option<::std::vec::Vec<crate::types::IndexedKey>>,
     pub(crate) stream_delivery_resources: ::std::option::Option<crate::types::StreamDeliveryResources>,
+    pub(crate) managed_by_resource_arn: ::std::option::Option<::std::string::String>,
 }
 impl MemoryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the memory.</p>
@@ -360,6 +368,20 @@ impl MemoryBuilder {
     pub fn get_stream_delivery_resources(&self) -> &::std::option::Option<crate::types::StreamDeliveryResources> {
         &self.stream_delivery_resources
     }
+    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    pub fn managed_by_resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.managed_by_resource_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    pub fn set_managed_by_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.managed_by_resource_arn = input;
+        self
+    }
+    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    pub fn get_managed_by_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.managed_by_resource_arn
+    }
     /// Consumes the builder and constructs a [`Memory`](crate::types::Memory).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::types::builders::MemoryBuilder::arn)
@@ -417,6 +439,7 @@ impl MemoryBuilder {
             strategies: self.strategies,
             indexed_keys: self.indexed_keys,
             stream_delivery_resources: self.stream_delivery_resources,
+            managed_by_resource_arn: self.managed_by_resource_arn,
         })
     }
 }
@@ -437,6 +460,7 @@ impl ::std::fmt::Debug for MemoryBuilder {
         formatter.field("strategies", &self.strategies);
         formatter.field("indexed_keys", &self.indexed_keys);
         formatter.field("stream_delivery_resources", &self.stream_delivery_resources);
+        formatter.field("managed_by_resource_arn", &self.managed_by_resource_arn);
         formatter.finish()
     }
 }

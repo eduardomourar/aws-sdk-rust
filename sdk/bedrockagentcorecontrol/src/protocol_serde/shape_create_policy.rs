@@ -192,6 +192,13 @@ pub(crate) fn de_create_policy(
                             .transpose()?,
                     );
                 }
+                "enforcementMode" => {
+                    builder = builder.set_enforcement_mode(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::EnforcementMode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "name" => {
                     builder = builder.set_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

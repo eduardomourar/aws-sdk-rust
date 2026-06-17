@@ -14,6 +14,10 @@ pub struct IntegrationSummary {
     pub provider_type: crate::types::ProviderType,
     /// <p>The display name of the integration.</p>
     pub display_name: ::std::string::String,
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub target_url: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub private_connection_name: ::std::option::Option<::std::string::String>,
 }
 impl IntegrationSummary {
     /// <p>The unique identifier of the integration.</p>
@@ -39,6 +43,14 @@ impl IntegrationSummary {
         use std::ops::Deref;
         self.display_name.deref()
     }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn target_url(&self) -> ::std::option::Option<&str> {
+        self.target_url.as_deref()
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn private_connection_name(&self) -> ::std::option::Option<&str> {
+        self.private_connection_name.as_deref()
+    }
 }
 impl IntegrationSummary {
     /// Creates a new builder-style object to manufacture [`IntegrationSummary`](crate::types::IntegrationSummary).
@@ -56,6 +68,8 @@ pub struct IntegrationSummaryBuilder {
     pub(crate) provider: ::std::option::Option<crate::types::Provider>,
     pub(crate) provider_type: ::std::option::Option<crate::types::ProviderType>,
     pub(crate) display_name: ::std::option::Option<::std::string::String>,
+    pub(crate) target_url: ::std::option::Option<::std::string::String>,
+    pub(crate) private_connection_name: ::std::option::Option<::std::string::String>,
 }
 impl IntegrationSummaryBuilder {
     /// <p>The unique identifier of the integration.</p>
@@ -133,6 +147,34 @@ impl IntegrationSummaryBuilder {
     pub fn get_display_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.display_name
     }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn target_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.target_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn set_target_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.target_url = input;
+        self
+    }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn get_target_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.target_url
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.private_connection_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn set_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.private_connection_name = input;
+        self
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn get_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.private_connection_name
+    }
     /// Consumes the builder and constructs a [`IntegrationSummary`](crate::types::IntegrationSummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`integration_id`](crate::types::builders::IntegrationSummaryBuilder::integration_id)
@@ -172,6 +214,8 @@ impl IntegrationSummaryBuilder {
                     "display_name was not specified but it is required when building IntegrationSummary",
                 )
             })?,
+            target_url: self.target_url,
+            private_connection_name: self.private_connection_name,
         })
     }
 }

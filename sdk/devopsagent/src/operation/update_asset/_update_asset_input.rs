@@ -10,7 +10,7 @@ pub struct UpdateAssetInput {
     pub asset_id: ::std::option::Option<::std::string::String>,
     /// <p>Metadata fields to update. Only the fields present in this document are updated. Omitted fields retain their current values.</p>
     pub metadata: ::std::option::Option<::aws_smithy_types::Document>,
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub content: ::std::option::Option<crate::types::AssetContent>,
     /// <p>A unique, case-sensitive identifier used for idempotent asset update</p>
     pub client_token: ::std::option::Option<::std::string::String>,
@@ -28,7 +28,7 @@ impl UpdateAssetInput {
     pub fn metadata(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.metadata.as_ref()
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn content(&self) -> ::std::option::Option<&crate::types::AssetContent> {
         self.content.as_ref()
     }
@@ -99,17 +99,17 @@ impl UpdateAssetInputBuilder {
     pub fn get_metadata(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.metadata
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn content(mut self, input: crate::types::AssetContent) -> Self {
         self.content = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn set_content(mut self, input: ::std::option::Option<crate::types::AssetContent>) -> Self {
         self.content = input;
         self
     }
-    /// <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+    /// <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
     pub fn get_content(&self) -> &::std::option::Option<crate::types::AssetContent> {
         &self.content
     }

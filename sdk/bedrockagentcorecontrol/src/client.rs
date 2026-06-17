@@ -220,6 +220,8 @@ mod create_gateway_target;
 
 mod create_harness;
 
+mod create_harness_endpoint;
+
 mod create_memory;
 
 mod create_oauth2_credential_provider;
@@ -297,6 +299,8 @@ mod delete_gateway_target;
 
 mod delete_harness;
 
+mod delete_harness_endpoint;
+
 mod delete_memory;
 
 mod delete_oauth2_credential_provider;
@@ -348,6 +352,8 @@ mod get_gateway_rule;
 mod get_gateway_target;
 
 mod get_harness;
+
+mod get_harness_endpoint;
 
 mod get_memory;
 
@@ -414,6 +420,10 @@ mod list_gateway_rules;
 mod list_gateway_targets;
 
 mod list_gateways;
+
+mod list_harness_endpoints;
+
+mod list_harness_versions;
 
 mod list_harnesses;
 
@@ -486,6 +496,8 @@ mod update_gateway_rule;
 mod update_gateway_target;
 
 mod update_harness;
+
+mod update_harness_endpoint;
 
 mod update_memory;
 

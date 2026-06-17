@@ -319,6 +319,8 @@ pub use crate::types::_harness_skill_s3_source::HarnessSkillS3Source;
 
 pub use crate::types::_harness_skill_git_source::HarnessSkillGitSource;
 
+pub use crate::types::_harness_skill_aws_skills_source::HarnessSkillAwsSkillsSource;
+
 pub use crate::types::_harness_content_block_start::HarnessContentBlockStart;
 
 pub use crate::types::_harness_content_block_delta::HarnessContentBlockDelta;
@@ -852,6 +854,8 @@ mod _harness_reasoning_text_block;
 mod _harness_remote_mcp_config;
 
 mod _harness_skill;
+
+mod _harness_skill_aws_skills_source;
 
 mod _harness_skill_git_auth;
 

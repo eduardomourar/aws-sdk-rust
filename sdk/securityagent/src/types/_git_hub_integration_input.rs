@@ -10,6 +10,10 @@ pub struct GitHubIntegrationInput {
     pub state: ::std::string::String,
     /// <p>The name of the GitHub organization to integrate with.</p>
     pub organization_name: ::std::option::Option<::std::string::String>,
+    /// <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+    pub target_url: ::std::option::Option<::std::string::String>,
+    /// <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+    pub installation_id: ::std::option::Option<::std::string::String>,
 }
 impl GitHubIntegrationInput {
     /// <p>The OAuth authorization code received from GitHub.</p>
@@ -26,6 +30,14 @@ impl GitHubIntegrationInput {
     pub fn organization_name(&self) -> ::std::option::Option<&str> {
         self.organization_name.as_deref()
     }
+    /// <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+    pub fn target_url(&self) -> ::std::option::Option<&str> {
+        self.target_url.as_deref()
+    }
+    /// <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+    pub fn installation_id(&self) -> ::std::option::Option<&str> {
+        self.installation_id.as_deref()
+    }
 }
 impl GitHubIntegrationInput {
     /// Creates a new builder-style object to manufacture [`GitHubIntegrationInput`](crate::types::GitHubIntegrationInput).
@@ -41,6 +53,8 @@ pub struct GitHubIntegrationInputBuilder {
     pub(crate) code: ::std::option::Option<::std::string::String>,
     pub(crate) state: ::std::option::Option<::std::string::String>,
     pub(crate) organization_name: ::std::option::Option<::std::string::String>,
+    pub(crate) target_url: ::std::option::Option<::std::string::String>,
+    pub(crate) installation_id: ::std::option::Option<::std::string::String>,
 }
 impl GitHubIntegrationInputBuilder {
     /// <p>The OAuth authorization code received from GitHub.</p>
@@ -87,6 +101,34 @@ impl GitHubIntegrationInputBuilder {
     pub fn get_organization_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_name
     }
+    /// <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+    pub fn target_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.target_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+    pub fn set_target_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.target_url = input;
+        self
+    }
+    /// <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+    pub fn get_target_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.target_url
+    }
+    /// <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+    pub fn installation_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.installation_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+    pub fn set_installation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.installation_id = input;
+        self
+    }
+    /// <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+    pub fn get_installation_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.installation_id
+    }
     /// Consumes the builder and constructs a [`GitHubIntegrationInput`](crate::types::GitHubIntegrationInput).
     /// This method will fail if any of the following fields are not set:
     /// - [`code`](crate::types::builders::GitHubIntegrationInputBuilder::code)
@@ -106,6 +148,8 @@ impl GitHubIntegrationInputBuilder {
                 )
             })?,
             organization_name: self.organization_name,
+            target_url: self.target_url,
+            installation_id: self.installation_id,
         })
     }
 }

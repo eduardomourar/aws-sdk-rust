@@ -22,7 +22,7 @@ impl crate::operation::update_harness::builders::UpdateHarnessInputBuilder {
 }
 /// Fluent builder constructing a request to `UpdateHarness`.
 ///
-/// <p>Operation to update a Harness.</p>
+/// <p>Operation to update a harness.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateHarnessFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

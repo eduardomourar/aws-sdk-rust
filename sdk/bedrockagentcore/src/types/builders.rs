@@ -209,6 +209,8 @@ pub use crate::types::_harness_skill_s3_source::HarnessSkillS3SourceBuilder;
 
 pub use crate::types::_harness_skill_git_source::HarnessSkillGitSourceBuilder;
 
+pub use crate::types::_harness_skill_aws_skills_source::HarnessSkillAwsSkillsSourceBuilder;
+
 pub use crate::types::_harness_token_usage::HarnessTokenUsageBuilder;
 
 pub use crate::types::_harness_stream_metrics::HarnessStreamMetricsBuilder;

@@ -17,6 +17,8 @@ pub struct DeletePolicyOutput {
     pub policy_arn: ::std::string::String,
     /// <p>The status of the policy deletion operation. This provides information about any issues that occurred during the deletion process.</p>
     pub status: crate::types::PolicyStatus,
+    /// <p>The enforcement mode of the deleted policy.</p>
+    pub enforcement_mode: crate::types::EnforcementMode,
     /// <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
     pub definition: ::std::option::Option<crate::types::PolicyDefinition>,
     /// <p>The human-readable description of the deleted policy.</p>
@@ -58,6 +60,10 @@ impl DeletePolicyOutput {
     pub fn status(&self) -> &crate::types::PolicyStatus {
         &self.status
     }
+    /// <p>The enforcement mode of the deleted policy.</p>
+    pub fn enforcement_mode(&self) -> &crate::types::EnforcementMode {
+        &self.enforcement_mode
+    }
     /// <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
     pub fn definition(&self) -> ::std::option::Option<&crate::types::PolicyDefinition> {
         self.definition.as_ref()
@@ -82,6 +88,7 @@ impl ::std::fmt::Debug for DeletePolicyOutput {
         formatter.field("updated_at", &self.updated_at);
         formatter.field("policy_arn", &self.policy_arn);
         formatter.field("status", &self.status);
+        formatter.field("enforcement_mode", &self.enforcement_mode);
         formatter.field("definition", &self.definition);
         formatter.field("description", &"*** Sensitive Data Redacted ***");
         formatter.field("status_reasons", &self.status_reasons);
@@ -112,6 +119,7 @@ pub struct DeletePolicyOutputBuilder {
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::PolicyStatus>,
+    pub(crate) enforcement_mode: ::std::option::Option<crate::types::EnforcementMode>,
     pub(crate) definition: ::std::option::Option<crate::types::PolicyDefinition>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) status_reasons: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -222,6 +230,20 @@ impl DeletePolicyOutputBuilder {
     /// <p>The status of the policy deletion operation. This provides information about any issues that occurred during the deletion process.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::PolicyStatus> {
         &self.status
+    }
+    /// <p>The enforcement mode of the deleted policy.</p>
+    pub fn enforcement_mode(mut self, input: crate::types::EnforcementMode) -> Self {
+        self.enforcement_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The enforcement mode of the deleted policy.</p>
+    pub fn set_enforcement_mode(mut self, input: ::std::option::Option<crate::types::EnforcementMode>) -> Self {
+        self.enforcement_mode = input;
+        self
+    }
+    /// <p>The enforcement mode of the deleted policy.</p>
+    pub fn get_enforcement_mode(&self) -> &::std::option::Option<crate::types::EnforcementMode> {
+        &self.enforcement_mode
     }
     /// <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
     /// This field is required.
@@ -337,6 +359,11 @@ impl DeletePolicyOutputBuilder {
                     "status was not specified but it is required when building DeletePolicyOutput",
                 )
             })?,
+            enforcement_mode: self.enforcement_mode.unwrap_or(
+                "ACTIVE"
+                    .parse::<crate::types::EnforcementMode>()
+                    .expect("static value validated to member"),
+            ),
             definition: self.definition,
             description: self.description,
             status_reasons: self.status_reasons.ok_or_else(|| {
@@ -359,6 +386,7 @@ impl ::std::fmt::Debug for DeletePolicyOutputBuilder {
         formatter.field("updated_at", &self.updated_at);
         formatter.field("policy_arn", &self.policy_arn);
         formatter.field("status", &self.status);
+        formatter.field("enforcement_mode", &self.enforcement_mode);
         formatter.field("definition", &self.definition);
         formatter.field("description", &"*** Sensitive Data Redacted ***");
         formatter.field("status_reasons", &self.status_reasons);

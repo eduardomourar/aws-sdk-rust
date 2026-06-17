@@ -559,6 +559,8 @@ pub(crate) mod shape_harness_metadata_event;
 
 pub(crate) mod shape_harness_open_ai_model_config;
 
+pub(crate) mod shape_harness_skill_aws_skills_source;
+
 pub(crate) mod shape_harness_skill_git_source;
 
 pub(crate) mod shape_harness_skill_s3_source;

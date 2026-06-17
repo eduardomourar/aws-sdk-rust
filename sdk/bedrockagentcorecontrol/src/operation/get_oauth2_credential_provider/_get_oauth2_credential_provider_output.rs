@@ -3,11 +3,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetOauth2CredentialProviderOutput {
-    /// <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
     pub client_secret_arn: ::std::option::Option<crate::types::Secret>,
-    /// <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
     pub client_secret_json_key: ::std::option::Option<::std::string::String>,
-    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub client_secret_source: ::std::option::Option<crate::types::SecretSourceType>,
     /// <p>The name of the OAuth2 credential provider.</p>
     pub name: ::std::string::String,
@@ -30,15 +30,15 @@ pub struct GetOauth2CredentialProviderOutput {
     _request_id: Option<String>,
 }
 impl GetOauth2CredentialProviderOutput {
-    /// <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
     pub fn client_secret_arn(&self) -> ::std::option::Option<&crate::types::Secret> {
         self.client_secret_arn.as_ref()
     }
-    /// <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn client_secret_json_key(&self) -> ::std::option::Option<&str> {
         self.client_secret_json_key.as_deref()
     }
-    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn client_secret_source(&self) -> ::std::option::Option<&crate::types::SecretSourceType> {
         self.client_secret_source.as_ref()
     }
@@ -112,46 +112,46 @@ pub struct GetOauth2CredentialProviderOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetOauth2CredentialProviderOutputBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
     /// This field is required.
     pub fn client_secret_arn(mut self, input: crate::types::Secret) -> Self {
         self.client_secret_arn = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
     pub fn set_client_secret_arn(mut self, input: ::std::option::Option<crate::types::Secret>) -> Self {
         self.client_secret_arn = input;
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+    /// <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
     pub fn get_client_secret_arn(&self) -> &::std::option::Option<crate::types::Secret> {
         &self.client_secret_arn
     }
-    /// <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn client_secret_json_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_secret_json_key = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn set_client_secret_json_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_secret_json_key = input;
         self
     }
-    /// <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+    /// <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
     pub fn get_client_secret_json_key(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_secret_json_key
     }
-    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn client_secret_source(mut self, input: crate::types::SecretSourceType) -> Self {
         self.client_secret_source = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn set_client_secret_source(mut self, input: ::std::option::Option<crate::types::SecretSourceType>) -> Self {
         self.client_secret_source = input;
         self
     }
-    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+    /// <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
     pub fn get_client_secret_source(&self) -> &::std::option::Option<crate::types::SecretSourceType> {
         &self.client_secret_source
     }

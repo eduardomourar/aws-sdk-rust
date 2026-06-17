@@ -42,6 +42,24 @@ where
                                     ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'githubRepository' cannot be null")
                                 })?,
                         )),
+                        "gitlabRepository" => Some(crate::types::IntegratedResourceMetadata::GitlabRepository(
+                            crate::protocol_serde::shape_git_lab_repository_metadata::de_git_lab_repository_metadata(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'gitlabRepository' cannot be null")
+                                })?,
+                        )),
+                        "bitbucketRepository" => Some(crate::types::IntegratedResourceMetadata::BitbucketRepository(
+                            crate::protocol_serde::shape_bitbucket_repository_metadata::de_bitbucket_repository_metadata(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bitbucketRepository' cannot be null")
+                                })?,
+                        )),
+                        "confluenceDocument" => Some(crate::types::IntegratedResourceMetadata::ConfluenceDocument(
+                            crate::protocol_serde::shape_confluence_document_metadata::de_confluence_document_metadata(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'confluenceDocument' cannot be null")
+                                })?,
+                        )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(crate::types::IntegratedResourceMetadata::Unknown)

@@ -206,4 +206,18 @@ impl UpdateCodeReviewFluentBuilder {
     pub fn get_code_remediation_strategy(&self) -> &::std::option::Option<crate::types::CodeRemediationStrategy> {
         self.inner.get_code_remediation_strategy()
     }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn validation_mode(mut self, input: crate::types::ValidationMode) -> Self {
+        self.inner = self.inner.validation_mode(input);
+        self
+    }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn set_validation_mode(mut self, input: ::std::option::Option<crate::types::ValidationMode>) -> Self {
+        self.inner = self.inner.set_validation_mode(input);
+        self
+    }
+    /// <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn get_validation_mode(&self) -> &::std::option::Option<crate::types::ValidationMode> {
+        self.inner.get_validation_mode()
+    }
 }

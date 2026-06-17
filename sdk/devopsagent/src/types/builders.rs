@@ -35,6 +35,8 @@ pub use crate::types::_registered_service::RegisteredServiceBuilder;
 
 pub use crate::types::_asset_file_content::AssetFileContentBuilder;
 
+pub use crate::types::_asset_source_url_content::AssetSourceUrlContentBuilder;
+
 pub use crate::types::_validation_exception_field::ValidationExceptionFieldBuilder;
 
 pub use crate::types::_reference_output::ReferenceOutputBuilder;
@@ -111,6 +113,10 @@ pub use crate::types::_registered_azure_identity_details::RegisteredAzureIdentit
 
 pub use crate::types::_mcp_server_sigv4_service_details::McpServerSigV4ServiceDetailsBuilder;
 
+pub use crate::types::_remote_agent_service_details::RemoteAgentServiceDetailsBuilder;
+
+pub use crate::types::_remote_agent_sigv4_service_details::RemoteAgentSigV4ServiceDetailsBuilder;
+
 pub use crate::types::_o_auth_additional_step_details::OAuthAdditionalStepDetailsBuilder;
 
 pub use crate::types::_user_reference::UserReferenceBuilder;
@@ -151,9 +157,17 @@ pub use crate::types::_pager_duty_configuration::PagerDutyConfigurationBuilder;
 
 pub use crate::types::_mcp_server_sigv4_configuration::McpServerSigV4ConfigurationBuilder;
 
+pub use crate::types::_remote_agent_configuration::RemoteAgentConfigurationBuilder;
+
+pub use crate::types::_remote_agent_sigv4_configuration::RemoteAgentSigV4ConfigurationBuilder;
+
+pub use crate::types::_capability_configuration::CapabilityConfigurationBuilder;
+
 pub use crate::types::_webhook::WebhookBuilder;
 
 pub use crate::types::_mcp_server_sigv4_authorization_config::McpServerSigV4AuthorizationConfigBuilder;
+
+pub use crate::types::_remote_agent_sigv4_authorization_config::RemoteAgentSigV4AuthorizationConfigBuilder;
 
 pub use crate::types::_registered_github_service_details::RegisteredGithubServiceDetailsBuilder;
 
@@ -174,6 +188,10 @@ pub use crate::types::_registered_grafana_server_details::RegisteredGrafanaServe
 pub use crate::types::_registered_pager_duty_details::RegisteredPagerDutyDetailsBuilder;
 
 pub use crate::types::_registered_mcp_server_sigv4_details::RegisteredMcpServerSigV4DetailsBuilder;
+
+pub use crate::types::_registered_remote_agent_details::RegisteredRemoteAgentDetailsBuilder;
+
+pub use crate::types::_registered_remote_agent_sigv4_details::RegisteredRemoteAgentSigV4DetailsBuilder;
 
 pub use crate::types::_send_message_text_delta::SendMessageTextDeltaBuilder;
 
@@ -198,5 +216,11 @@ pub use crate::types::_mcp_server_bearer_token_config::McpServerBearerTokenConfi
 pub use crate::types::_new_relic_api_key_config::NewRelicApiKeyConfigBuilder;
 
 pub use crate::types::_pager_duty_o_auth_client_credentials_config::PagerDutyOAuthClientCredentialsConfigBuilder;
+
+pub use crate::types::_remote_agent_api_key_config::RemoteAgentApiKeyConfigBuilder;
+
+pub use crate::types::_remote_agent_o_auth_client_credentials_config::RemoteAgentOAuthClientCredentialsConfigBuilder;
+
+pub use crate::types::_remote_agent_bearer_token_config::RemoteAgentBearerTokenConfigBuilder;
 
 pub use crate::types::_slack_channel::SlackChannelBuilder;

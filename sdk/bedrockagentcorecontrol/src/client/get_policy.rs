@@ -13,6 +13,7 @@ impl super::Client {
     ///   - [`updated_at(DateTime)`](crate::operation::get_policy::GetPolicyOutput::updated_at): <p>The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration.</p>
     ///   - [`policy_arn(String)`](crate::operation::get_policy::GetPolicyOutput::policy_arn): <p>The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
     ///   - [`status(PolicyStatus)`](crate::operation::get_policy::GetPolicyOutput::status): <p>The current status of the policy.</p>
+    ///   - [`enforcement_mode(EnforcementMode)`](crate::operation::get_policy::GetPolicyOutput::enforcement_mode): <p>The current enforcement mode of the policy.</p>
     ///   - [`definition(Option<PolicyDefinition>)`](crate::operation::get_policy::GetPolicyOutput::definition): <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
     ///   - [`description(Option<String>)`](crate::operation::get_policy::GetPolicyOutput::description): <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
     ///   - [`status_reasons(Vec::<String>)`](crate::operation::get_policy::GetPolicyOutput::status_reasons): <p>Additional information about the policy status. This provides details about any failures or the current state of the policy.</p>

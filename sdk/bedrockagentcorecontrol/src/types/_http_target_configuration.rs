@@ -6,6 +6,8 @@
 pub enum HttpTargetConfiguration {
     /// <p>The AgentCore Runtime target configuration for HTTP-based communication with an agent runtime.</p>
     AgentcoreRuntime(crate::types::RuntimeTargetConfiguration),
+    /// <p>The passthrough configuration for the HTTP target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+    Passthrough(crate::types::PassthroughTargetConfiguration),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -17,7 +19,6 @@ pub enum HttpTargetConfiguration {
     Unknown,
 }
 impl HttpTargetConfiguration {
-    #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`AgentcoreRuntime`](crate::types::HttpTargetConfiguration::AgentcoreRuntime), extracting the inner [`RuntimeTargetConfiguration`](crate::types::RuntimeTargetConfiguration).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_agentcore_runtime(&self) -> ::std::result::Result<&crate::types::RuntimeTargetConfiguration, &Self> {
@@ -30,6 +31,19 @@ impl HttpTargetConfiguration {
     /// Returns true if this is a [`AgentcoreRuntime`](crate::types::HttpTargetConfiguration::AgentcoreRuntime).
     pub fn is_agentcore_runtime(&self) -> bool {
         self.as_agentcore_runtime().is_ok()
+    }
+    /// Tries to convert the enum instance into [`Passthrough`](crate::types::HttpTargetConfiguration::Passthrough), extracting the inner [`PassthroughTargetConfiguration`](crate::types::PassthroughTargetConfiguration).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_passthrough(&self) -> ::std::result::Result<&crate::types::PassthroughTargetConfiguration, &Self> {
+        if let HttpTargetConfiguration::Passthrough(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`Passthrough`](crate::types::HttpTargetConfiguration::Passthrough).
+    pub fn is_passthrough(&self) -> bool {
+        self.as_passthrough().is_ok()
     }
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {

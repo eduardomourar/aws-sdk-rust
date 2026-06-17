@@ -4,11 +4,20 @@ pub use ::aws_types::request_id::RequestId;
 /// Types for the `AddArtifact` operation.
 pub mod add_artifact;
 
+/// Types for the `BatchCreateSecurityRequirements` operation.
+pub mod batch_create_security_requirements;
+
 /// Types for the `BatchDeleteCodeReviews` operation.
 pub mod batch_delete_code_reviews;
 
 /// Types for the `BatchDeletePentests` operation.
 pub mod batch_delete_pentests;
+
+/// Types for the `BatchDeleteSecurityRequirements` operation.
+pub mod batch_delete_security_requirements;
+
+/// Types for the `BatchDeleteThreatModels` operation.
+pub mod batch_delete_threat_models;
 
 /// Types for the `BatchGetAgentSpaces` operation.
 pub mod batch_get_agent_spaces;
@@ -37,8 +46,26 @@ pub mod batch_get_pentest_jobs;
 /// Types for the `BatchGetPentests` operation.
 pub mod batch_get_pentests;
 
+/// Types for the `BatchGetSecurityRequirements` operation.
+pub mod batch_get_security_requirements;
+
 /// Types for the `BatchGetTargetDomains` operation.
 pub mod batch_get_target_domains;
+
+/// Types for the `BatchGetThreatModelJobTasks` operation.
+pub mod batch_get_threat_model_job_tasks;
+
+/// Types for the `BatchGetThreatModelJobs` operation.
+pub mod batch_get_threat_model_jobs;
+
+/// Types for the `BatchGetThreatModels` operation.
+pub mod batch_get_threat_models;
+
+/// Types for the `BatchGetThreats` operation.
+pub mod batch_get_threats;
+
+/// Types for the `BatchUpdateSecurityRequirements` operation.
+pub mod batch_update_security_requirements;
 
 /// Types for the `CreateAgentSpace` operation.
 pub mod create_agent_space;
@@ -58,8 +85,20 @@ pub mod create_membership;
 /// Types for the `CreatePentest` operation.
 pub mod create_pentest;
 
+/// Types for the `CreatePrivateConnection` operation.
+pub mod create_private_connection;
+
+/// Types for the `CreateSecurityRequirementPack` operation.
+pub mod create_security_requirement_pack;
+
 /// Types for the `CreateTargetDomain` operation.
 pub mod create_target_domain;
+
+/// Types for the `CreateThreat` operation.
+pub mod create_threat;
+
+/// Types for the `CreateThreatModel` operation.
+pub mod create_threat_model;
 
 /// Types for the `DeleteAgentSpace` operation.
 pub mod delete_agent_space;
@@ -76,8 +115,17 @@ pub mod delete_integration;
 /// Types for the `DeleteMembership` operation.
 pub mod delete_membership;
 
+/// Types for the `DeletePrivateConnection` operation.
+pub mod delete_private_connection;
+
+/// Types for the `DeleteSecurityRequirementPack` operation.
+pub mod delete_security_requirement_pack;
+
 /// Types for the `DeleteTargetDomain` operation.
 pub mod delete_target_domain;
+
+/// Types for the `DescribePrivateConnection` operation.
+pub mod describe_private_connection;
 
 /// Types for the `GetApplication` operation.
 pub mod get_application;
@@ -87,6 +135,12 @@ pub mod get_artifact;
 
 /// Types for the `GetIntegration` operation.
 pub mod get_integration;
+
+/// Types for the `GetSecurityRequirementPack` operation.
+pub mod get_security_requirement_pack;
+
+/// Types for the `ImportSecurityRequirements` operation.
+pub mod import_security_requirements;
 
 /// Types for the `InitiateProviderRegistration` operation.
 pub mod initiate_provider_registration;
@@ -133,11 +187,32 @@ pub mod list_pentest_jobs_for_pentest;
 /// Types for the `ListPentests` operation.
 pub mod list_pentests;
 
+/// Types for the `ListPrivateConnections` operation.
+pub mod list_private_connections;
+
+/// Types for the `ListSecurityRequirementPacks` operation.
+pub mod list_security_requirement_packs;
+
+/// Types for the `ListSecurityRequirements` operation.
+pub mod list_security_requirements;
+
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
 
 /// Types for the `ListTargetDomains` operation.
 pub mod list_target_domains;
+
+/// Types for the `ListThreatModelJobTasks` operation.
+pub mod list_threat_model_job_tasks;
+
+/// Types for the `ListThreatModelJobs` operation.
+pub mod list_threat_model_jobs;
+
+/// Types for the `ListThreatModels` operation.
+pub mod list_threat_models;
+
+/// Types for the `ListThreats` operation.
+pub mod list_threats;
 
 /// Types for the `StartCodeRemediation` operation.
 pub mod start_code_remediation;
@@ -148,11 +223,17 @@ pub mod start_code_review_job;
 /// Types for the `StartPentestJob` operation.
 pub mod start_pentest_job;
 
+/// Types for the `StartThreatModelJob` operation.
+pub mod start_threat_model_job;
+
 /// Types for the `StopCodeReviewJob` operation.
 pub mod stop_code_review_job;
 
 /// Types for the `StopPentestJob` operation.
 pub mod stop_pentest_job;
+
+/// Types for the `StopThreatModelJob` operation.
+pub mod stop_threat_model_job;
 
 /// Types for the `TagResource` operation.
 pub mod tag_resource;
@@ -178,8 +259,20 @@ pub mod update_integrated_resources;
 /// Types for the `UpdatePentest` operation.
 pub mod update_pentest;
 
+/// Types for the `UpdatePrivateConnectionCertificate` operation.
+pub mod update_private_connection_certificate;
+
+/// Types for the `UpdateSecurityRequirementPack` operation.
+pub mod update_security_requirement_pack;
+
 /// Types for the `UpdateTargetDomain` operation.
 pub mod update_target_domain;
+
+/// Types for the `UpdateThreat` operation.
+pub mod update_threat;
+
+/// Types for the `UpdateThreatModel` operation.
+pub mod update_threat_model;
 
 /// Types for the `VerifyTargetDomain` operation.
 pub mod verify_target_domain;

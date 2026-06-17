@@ -93,6 +93,24 @@ where
                                     )?,
                                 );
                             }
+                            "oneDriveLocation" => {
+                                builder = builder.set_one_drive_location(
+                                    crate::protocol_serde::shape_retrieval_result_one_drive_location::de_retrieval_result_one_drive_location(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "googleDriveLocation" => {
+                                builder = builder.set_google_drive_location(
+                                    crate::protocol_serde::shape_retrieval_result_google_drive_location::de_retrieval_result_google_drive_location(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }

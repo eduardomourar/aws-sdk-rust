@@ -224,6 +224,10 @@ pub(crate) fn de_update_broker(
                             .transpose()?,
                     );
                 }
+                "resourceShareArns" => {
+                    builder =
+                        builder.set_resource_share_arns(crate::protocol_serde::shape_list_of_string::de_list_of_string(tokens, _value, depth + 1)?);
+                }
                 "securityGroups" => {
                     builder = builder.set_security_groups(crate::protocol_serde::shape_list_of_string::de_list_of_string(tokens, _value, depth + 1)?);
                 }

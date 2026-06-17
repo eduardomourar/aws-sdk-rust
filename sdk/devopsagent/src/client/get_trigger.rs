@@ -3,8 +3,8 @@ impl super::Client {
     /// Constructs a fluent builder for the [`GetTrigger`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder) operation.
     ///
     /// - The fluent builder is configurable:
-    ///   - [`agent_space_id(impl Into<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::agent_space_id) / [`set_agent_space_id(Option<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::set_agent_space_id):<br>required: **true**<br><p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p><br>
-    ///   - [`trigger_id(impl Into<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::trigger_id) / [`set_trigger_id(Option<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::set_trigger_id):<br>required: **true**<br><p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p><br>
+    ///   - [`agent_space_id(impl Into<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::agent_space_id) / [`set_agent_space_id(Option<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::set_agent_space_id):<br>required: **true**<br><p>The unique identifier for the agent space containing the Trigger</p><br>
+    ///   - [`trigger_id(impl Into<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::trigger_id) / [`set_trigger_id(Option<String>)`](crate::operation::get_trigger::builders::GetTriggerFluentBuilder::set_trigger_id):<br>required: **true**<br><p>The unique identifier of the Trigger to retrieve</p><br>
     /// - On success, responds with [`GetTriggerOutput`](crate::operation::get_trigger::GetTriggerOutput) with field(s):
     ///   - [`trigger(Option<Trigger>)`](crate::operation::get_trigger::GetTriggerOutput::trigger): <p>The Trigger object</p>
     /// - On failure, responds with [`SdkError<GetTriggerError>`](crate::operation::get_trigger::GetTriggerError)

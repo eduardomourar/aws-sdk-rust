@@ -53,6 +53,8 @@ pub(crate) mod shape_create_gateway_target;
 
 pub(crate) mod shape_create_harness;
 
+pub(crate) mod shape_create_harness_endpoint;
+
 pub(crate) mod shape_create_memory;
 
 pub(crate) mod shape_create_oauth2_credential_provider;
@@ -102,6 +104,8 @@ pub(crate) mod shape_delete_gateway_rule;
 pub(crate) mod shape_delete_gateway_target;
 
 pub(crate) mod shape_delete_harness;
+
+pub(crate) mod shape_delete_harness_endpoint;
 
 pub(crate) mod shape_delete_memory;
 
@@ -154,6 +158,8 @@ pub(crate) mod shape_get_gateway_rule;
 pub(crate) mod shape_get_gateway_target;
 
 pub(crate) mod shape_get_harness;
+
+pub(crate) mod shape_get_harness_endpoint;
 
 pub(crate) mod shape_get_memory;
 
@@ -220,6 +226,10 @@ pub(crate) mod shape_list_gateway_rules;
 pub(crate) mod shape_list_gateway_targets;
 
 pub(crate) mod shape_list_gateways;
+
+pub(crate) mod shape_list_harness_endpoints;
+
+pub(crate) mod shape_list_harness_versions;
 
 pub(crate) mod shape_list_harnesses;
 
@@ -293,6 +303,8 @@ pub(crate) mod shape_update_gateway_target;
 
 pub(crate) mod shape_update_harness;
 
+pub(crate) mod shape_update_harness_endpoint;
+
 pub(crate) mod shape_update_memory;
 
 pub(crate) mod shape_update_oauth2_credential_provider;
@@ -358,6 +370,8 @@ pub(crate) mod shape_create_gateway_input;
 pub(crate) mod shape_create_gateway_rule_input;
 
 pub(crate) mod shape_create_gateway_target_input;
+
+pub(crate) mod shape_create_harness_endpoint_input;
 
 pub(crate) mod shape_create_harness_input;
 
@@ -467,6 +481,8 @@ pub(crate) mod shape_update_gateway_rule_input;
 
 pub(crate) mod shape_update_gateway_target_input;
 
+pub(crate) mod shape_update_harness_endpoint_input;
+
 pub(crate) mod shape_update_harness_input;
 
 pub(crate) mod shape_update_memory_input;
@@ -559,6 +575,8 @@ pub(crate) mod shape_credentials_provider_configuration;
 
 pub(crate) mod shape_credentials_provider_configurations;
 
+pub(crate) mod shape_custom_transform_configuration;
+
 pub(crate) mod shape_data_source_config;
 
 pub(crate) mod shape_data_source_type;
@@ -603,6 +621,10 @@ pub(crate) mod shape_gateway_target_list;
 
 pub(crate) mod shape_harness;
 
+pub(crate) mod shape_harness_endpoint;
+
+pub(crate) mod shape_harness_endpoints;
+
 pub(crate) mod shape_harness_environment_artifact;
 
 pub(crate) mod shape_harness_environment_provider_request;
@@ -620,6 +642,8 @@ pub(crate) mod shape_harness_system_content_block;
 pub(crate) mod shape_harness_tool;
 
 pub(crate) mod shape_harness_truncation_configuration;
+
+pub(crate) mod shape_harness_version_summaries;
 
 pub(crate) mod shape_indexed_key;
 
@@ -745,6 +769,8 @@ pub(crate) mod shape_version_filter;
 
 pub(crate) mod shape_version_lineage_metadata;
 
+pub(crate) mod shape_waf_configuration;
+
 pub(crate) mod shape_workload_identity_details;
 
 pub(crate) mod shape_workload_identity_list;
@@ -855,13 +881,19 @@ pub(crate) mod shape_harness_allowed_tools;
 
 pub(crate) mod shape_harness_bedrock_model_config;
 
+pub(crate) mod shape_harness_disabled_memory_configuration;
+
 pub(crate) mod shape_harness_environment_provider;
 
 pub(crate) mod shape_harness_gemini_model_config;
 
 pub(crate) mod shape_harness_lite_llm_model_config;
 
+pub(crate) mod shape_harness_managed_memory_configuration;
+
 pub(crate) mod shape_harness_open_ai_model_config;
+
+pub(crate) mod shape_harness_skill_aws_skills_source;
 
 pub(crate) mod shape_harness_skill_git_source;
 
@@ -879,6 +911,8 @@ pub(crate) mod shape_harness_tools;
 
 pub(crate) mod shape_harness_truncation_strategy_configuration;
 
+pub(crate) mod shape_harness_version_summary;
+
 pub(crate) mod shape_http_target_configuration;
 
 pub(crate) mod shape_included_oauth2_provider_config_input;
@@ -887,11 +921,15 @@ pub(crate) mod shape_included_oauth2_provider_config_output;
 
 pub(crate) mod shape_indexed_keys_list;
 
+pub(crate) mod shape_inference_target_configuration;
+
 pub(crate) mod shape_inline_examples_source;
 
 pub(crate) mod shape_interceptor_configuration;
 
 pub(crate) mod shape_interceptor_input_configuration;
+
+pub(crate) mod shape_lambda_transform_configuration;
 
 pub(crate) mod shape_linkedin_oauth2_provider_config_input;
 
@@ -950,6 +988,8 @@ pub(crate) mod shape_policy_generation_asset;
 pub(crate) mod shape_policy_generation_details;
 
 pub(crate) mod shape_policy_generation_summary;
+
+pub(crate) mod shape_policy_statement;
 
 pub(crate) mod shape_policy_summary;
 
@@ -1015,11 +1055,15 @@ pub(crate) mod shape_allowed_clients_list;
 
 pub(crate) mod shape_allowed_scopes_type;
 
+pub(crate) mod shape_allowed_workload_configuration;
+
 pub(crate) mod shape_api_gateway_target_configuration;
 
 pub(crate) mod shape_api_schema_configuration;
 
 pub(crate) mod shape_code;
+
+pub(crate) mod shape_connector_target_configuration;
 
 pub(crate) mod shape_custom_claim_validation_type;
 
@@ -1063,6 +1107,12 @@ pub(crate) mod shape_harness_summarization_configuration;
 
 pub(crate) mod shape_iam_credential_provider;
 
+pub(crate) mod shape_inference_connector_target_configuration;
+
+pub(crate) mod shape_inference_provider_target_configuration;
+
+pub(crate) mod shape_interceptor_payload_filter;
+
 pub(crate) mod shape_kinesis_resource;
 
 pub(crate) mod shape_lambda_evaluator_config;
@@ -1090,6 +1140,8 @@ pub(crate) mod shape_o_auth_credential_provider;
 pub(crate) mod shape_oauth2_discovery;
 
 pub(crate) mod shape_on_behalf_of_token_exchange_config_type;
+
+pub(crate) mod shape_passthrough_target_configuration;
 
 pub(crate) mod shape_private_endpoint_override;
 
@@ -1155,7 +1207,15 @@ pub(crate) mod shape_categorical_scale_definition;
 
 pub(crate) mod shape_categorical_scale_definitions;
 
+pub(crate) mod shape_connector_configuration;
+
+pub(crate) mod shape_connector_configurations;
+
+pub(crate) mod shape_connector_source;
+
 pub(crate) mod shape_content_configuration;
+
+pub(crate) mod shape_enabled_connectors;
 
 pub(crate) mod shape_episodic_override_configuration_input;
 
@@ -1165,7 +1225,23 @@ pub(crate) mod shape_harness_agent_core_memory_retrieval_configs;
 
 pub(crate) mod shape_harness_gateway_outbound_auth;
 
+pub(crate) mod shape_harness_managed_memory_strategy_list;
+
+pub(crate) mod shape_hosting_environment;
+
+pub(crate) mod shape_hosting_environment_list_type;
+
+pub(crate) mod shape_http_api_schema_configuration;
+
 pub(crate) mod shape_iam_principal;
+
+pub(crate) mod shape_inference_connector_source;
+
+pub(crate) mod shape_inference_operation_configuration;
+
+pub(crate) mod shape_inference_operation_configurations;
+
+pub(crate) mod shape_interceptor_payload_exclusion_selector;
 
 pub(crate) mod shape_match_path_patterns;
 
@@ -1174,6 +1250,8 @@ pub(crate) mod shape_match_principal_entries;
 pub(crate) mod shape_mcp_tool_schema_configuration;
 
 pub(crate) mod shape_metadata_schema_entry;
+
+pub(crate) mod shape_model_mapping;
 
 pub(crate) mod shape_modify_consolidation_configuration;
 
@@ -1199,6 +1277,8 @@ pub(crate) mod shape_self_managed_configuration_input;
 
 pub(crate) mod shape_semantic_override_configuration_input;
 
+pub(crate) mod shape_stickiness_configuration;
+
 pub(crate) mod shape_strategy_configuration;
 
 pub(crate) mod shape_summary_override_configuration_input;
@@ -1217,6 +1297,8 @@ pub(crate) mod shape_updated_mcp_descriptor_fields;
 
 pub(crate) mod shape_user_preference_override_configuration_input;
 
+pub(crate) mod shape_workload_identity_name_list_type;
+
 pub(crate) mod shape_api_gateway_tool_filter;
 
 pub(crate) mod shape_api_gateway_tool_filters;
@@ -1228,6 +1310,8 @@ pub(crate) mod shape_api_gateway_tool_overrides;
 pub(crate) mod shape_claim_match_value_type;
 
 pub(crate) mod shape_configuration_bundle_reference;
+
+pub(crate) mod shape_connector_parameter_override;
 
 pub(crate) mod shape_consolidation_configuration;
 
@@ -1247,17 +1331,25 @@ pub(crate) mod shape_extraction_config;
 
 pub(crate) mod shape_extraction_configuration;
 
+pub(crate) mod shape_harness_aws_skill_paths;
+
 pub(crate) mod shape_inference_configuration;
+
+pub(crate) mod shape_interceptor_payload_exclusion_selector_list;
 
 pub(crate) mod shape_invocation_configuration_input;
 
 pub(crate) mod shape_metadata_schema_list;
+
+pub(crate) mod shape_model_entry;
 
 pub(crate) mod shape_modify_invocation_configuration_input;
 
 pub(crate) mod shape_o_auth_custom_parameters;
 
 pub(crate) mod shape_o_auth_scopes;
+
+pub(crate) mod shape_provider_prefix;
 
 pub(crate) mod shape_reflection_configuration;
 
@@ -1301,6 +1393,8 @@ pub(crate) mod shape_user_preference_override_consolidation_configuration_input;
 
 pub(crate) mod shape_user_preference_override_extraction_configuration_input;
 
+pub(crate) mod shape_connector_parameter_overrides;
+
 pub(crate) mod shape_content_configuration_list;
 
 pub(crate) mod shape_custom_consolidation_configuration;
@@ -1318,6 +1412,8 @@ pub(crate) mod shape_invocation_configuration;
 pub(crate) mod shape_llm_extraction_config;
 
 pub(crate) mod shape_message_based_trigger_input;
+
+pub(crate) mod shape_model_entries;
 
 pub(crate) mod shape_non_empty_string_list;
 

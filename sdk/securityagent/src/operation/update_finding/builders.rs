@@ -136,6 +136,48 @@ impl UpdateFindingFluentBuilder {
     pub fn get_agent_space_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_agent_space_id()
     }
+    /// <p>The updated name for the finding.</p>
+    pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.name(input.into());
+        self
+    }
+    /// <p>The updated name for the finding.</p>
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_name(input);
+        self
+    }
+    /// <p>The updated name for the finding.</p>
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_name()
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.description(input.into());
+        self
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_description(input);
+        self
+    }
+    /// <p>The updated description for the finding.</p>
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_description()
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn risk_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.risk_type(input.into());
+        self
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn set_risk_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_risk_type(input);
+        self
+    }
+    /// <p>The updated risk type for the finding.</p>
+    pub fn get_risk_type(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_risk_type()
+    }
     /// <p>The updated risk level for the finding.</p>
     pub fn risk_level(mut self, input: crate::types::RiskLevel) -> Self {
         self.inner = self.inner.risk_level(input);
@@ -150,6 +192,48 @@ impl UpdateFindingFluentBuilder {
     pub fn get_risk_level(&self) -> &::std::option::Option<crate::types::RiskLevel> {
         self.inner.get_risk_level()
     }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn risk_score(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.risk_score(input.into());
+        self
+    }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn set_risk_score(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_risk_score(input);
+        self
+    }
+    /// <p>The updated numerical risk score for the finding.</p>
+    pub fn get_risk_score(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_risk_score()
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn attack_script(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.attack_script(input.into());
+        self
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn set_attack_script(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_attack_script(input);
+        self
+    }
+    /// <p>The updated attack script for the finding.</p>
+    pub fn get_attack_script(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_attack_script()
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn reasoning(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.reasoning(input.into());
+        self
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn set_reasoning(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_reasoning(input);
+        self
+    }
+    /// <p>The updated reasoning for the finding.</p>
+    pub fn get_reasoning(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_reasoning()
+    }
     /// <p>The updated status for the finding.</p>
     pub fn status(mut self, input: crate::types::FindingStatus) -> Self {
         self.inner = self.inner.status(input);
@@ -163,5 +247,19 @@ impl UpdateFindingFluentBuilder {
     /// <p>The updated status for the finding.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::FindingStatus> {
         self.inner.get_status()
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn customer_note(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.customer_note(input.into());
+        self
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn set_customer_note(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_customer_note(input);
+        self
+    }
+    /// <p>A customer-provided note on the finding.</p>
+    pub fn get_customer_note(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_customer_note()
     }
 }

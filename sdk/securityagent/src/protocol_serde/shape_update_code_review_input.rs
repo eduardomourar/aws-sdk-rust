@@ -30,5 +30,8 @@ pub fn ser_update_code_review_input_input(
     if let Some(var_9) = &input.title {
         object.key("title").string(var_9.as_str());
     }
+    if let Some(var_10) = &input.validation_mode {
+        object.key("validationMode").string(var_10.as_str());
+    }
     Ok(())
 }

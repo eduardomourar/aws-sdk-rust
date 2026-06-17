@@ -138,9 +138,15 @@ impl Client {
 
 mod add_artifact;
 
+mod batch_create_security_requirements;
+
 mod batch_delete_code_reviews;
 
 mod batch_delete_pentests;
+
+mod batch_delete_security_requirements;
+
+mod batch_delete_threat_models;
 
 mod batch_get_agent_spaces;
 
@@ -160,7 +166,19 @@ mod batch_get_pentest_jobs;
 
 mod batch_get_pentests;
 
+mod batch_get_security_requirements;
+
 mod batch_get_target_domains;
+
+mod batch_get_threat_model_job_tasks;
+
+mod batch_get_threat_model_jobs;
+
+mod batch_get_threat_models;
+
+mod batch_get_threats;
+
+mod batch_update_security_requirements;
 
 mod create_agent_space;
 
@@ -174,7 +192,15 @@ mod create_membership;
 
 mod create_pentest;
 
+mod create_private_connection;
+
+mod create_security_requirement_pack;
+
 mod create_target_domain;
+
+mod create_threat;
+
+mod create_threat_model;
 
 /// Operation customization and supporting types.
 ///
@@ -213,13 +239,23 @@ mod delete_integration;
 
 mod delete_membership;
 
+mod delete_private_connection;
+
+mod delete_security_requirement_pack;
+
 mod delete_target_domain;
+
+mod describe_private_connection;
 
 mod get_application;
 
 mod get_artifact;
 
 mod get_integration;
+
+mod get_security_requirement_pack;
+
+mod import_security_requirements;
 
 mod initiate_provider_registration;
 
@@ -251,9 +287,23 @@ mod list_pentest_jobs_for_pentest;
 
 mod list_pentests;
 
+mod list_private_connections;
+
+mod list_security_requirement_packs;
+
+mod list_security_requirements;
+
 mod list_tags_for_resource;
 
 mod list_target_domains;
+
+mod list_threat_model_job_tasks;
+
+mod list_threat_model_jobs;
+
+mod list_threat_models;
+
+mod list_threats;
 
 mod start_code_remediation;
 
@@ -261,9 +311,13 @@ mod start_code_review_job;
 
 mod start_pentest_job;
 
+mod start_threat_model_job;
+
 mod stop_code_review_job;
 
 mod stop_pentest_job;
+
+mod stop_threat_model_job;
 
 mod tag_resource;
 
@@ -281,6 +335,14 @@ mod update_integrated_resources;
 
 mod update_pentest;
 
+mod update_private_connection_certificate;
+
+mod update_security_requirement_pack;
+
 mod update_target_domain;
+
+mod update_threat;
+
+mod update_threat_model;
 
 mod verify_target_domain;

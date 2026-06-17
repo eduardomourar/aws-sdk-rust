@@ -115,6 +115,10 @@ pub use crate::types::_exception_level::ExceptionLevel;
 
 pub use crate::types::_gateway_status::GatewayStatus;
 
+pub use crate::types::_custom_transform_configuration::CustomTransformConfiguration;
+
+pub use crate::types::_waf_configuration::WafConfiguration;
+
 pub use crate::types::_gateway_rule_status::GatewayRuleStatus;
 
 pub use crate::types::_system_managed_block::SystemManagedBlock;
@@ -130,6 +134,8 @@ pub use crate::types::_target_status::TargetStatus;
 pub use crate::types::_authorization_data::AuthorizationData;
 
 pub use crate::types::_target_protocol_type::TargetProtocolType;
+
+pub use crate::types::_harness_endpoint::HarnessEndpoint;
 
 pub use crate::types::_harness_environment_provider_request::HarnessEnvironmentProviderRequest;
 
@@ -192,6 +198,8 @@ pub use crate::types::_policy_generation_status::PolicyGenerationStatus;
 pub use crate::types::_policy_definition::PolicyDefinition;
 
 pub use crate::types::_policy_validation_mode::PolicyValidationMode;
+
+pub use crate::types::_enforcement_mode::EnforcementMode;
 
 pub use crate::types::_policy_status::PolicyStatus;
 
@@ -295,6 +303,10 @@ pub use crate::types::_gateway_interceptor_configuration::GatewayInterceptorConf
 
 pub use crate::types::_gateway_policy_engine_mode::GatewayPolicyEngineMode;
 
+pub use crate::types::_lambda_transform_configuration::LambdaTransformConfiguration;
+
+pub use crate::types::_waf_failure_mode::WafFailureMode;
+
 pub use crate::types::_gateway_summary::GatewaySummary;
 
 pub use crate::types::_condition::Condition;
@@ -306,6 +318,8 @@ pub use crate::types::_gateway_rule_detail::GatewayRuleDetail;
 pub use crate::types::_mcp_target_configuration::McpTargetConfiguration;
 
 pub use crate::types::_http_target_configuration::HttpTargetConfiguration;
+
+pub use crate::types::_inference_target_configuration::InferenceTargetConfiguration;
 
 pub use crate::types::_credential_provider_configuration::CredentialProviderConfiguration;
 
@@ -320,6 +334,8 @@ pub use crate::types::_o_auth2_authorization_data::OAuth2AuthorizationData;
 pub use crate::types::_target_summary::TargetSummary;
 
 pub use crate::types::_gateway_target::GatewayTarget;
+
+pub use crate::types::_harness_endpoint_status::HarnessEndpointStatus;
 
 pub use crate::types::_harness_agent_core_runtime_environment_request::HarnessAgentCoreRuntimeEnvironmentRequest;
 
@@ -339,6 +355,10 @@ pub use crate::types::_harness_skill::HarnessSkill;
 
 pub use crate::types::_harness_agent_core_memory_configuration::HarnessAgentCoreMemoryConfiguration;
 
+pub use crate::types::_harness_managed_memory_configuration::HarnessManagedMemoryConfiguration;
+
+pub use crate::types::_harness_disabled_memory_configuration::HarnessDisabledMemoryConfiguration;
+
 pub use crate::types::_harness_truncation_strategy::HarnessTruncationStrategy;
 
 pub use crate::types::_harness_truncation_strategy_configuration::HarnessTruncationStrategyConfiguration;
@@ -348,6 +368,8 @@ pub use crate::types::_harness_status::HarnessStatus;
 pub use crate::types::_harness_environment_provider::HarnessEnvironmentProvider;
 
 pub use crate::types::_harness_summary::HarnessSummary;
+
+pub use crate::types::_harness_version_summary::HarnessVersionSummary;
 
 pub use crate::types::_memory_summary::MemorySummary;
 
@@ -413,6 +435,8 @@ pub use crate::types::_cedar_policy::CedarPolicy;
 
 pub use crate::types::_policy_generation_details::PolicyGenerationDetails;
 
+pub use crate::types::_policy_statement::PolicyStatement;
+
 pub use crate::types::_policy_summary::PolicySummary;
 
 pub use crate::types::_registry_record_summary::RegistryRecordSummary;
@@ -448,6 +472,8 @@ pub use crate::types::_credentials_provider_configuration::CredentialsProviderCo
 pub use crate::types::_code::Code;
 
 pub use crate::types::_agent_managed_runtime_type::AgentManagedRuntimeType;
+
+pub use crate::types::_allowed_workload_configuration::AllowedWorkloadConfiguration;
 
 pub use crate::types::_session_storage_configuration::SessionStorageConfiguration;
 
@@ -495,13 +521,25 @@ pub use crate::types::_mcp_server_target_configuration::McpServerTargetConfigura
 
 pub use crate::types::_api_gateway_target_configuration::ApiGatewayTargetConfiguration;
 
+pub use crate::types::_connector_target_configuration::ConnectorTargetConfiguration;
+
 pub use crate::types::_runtime_target_configuration::RuntimeTargetConfiguration;
+
+pub use crate::types::_passthrough_target_configuration::PassthroughTargetConfiguration;
+
+pub use crate::types::_inference_connector_target_configuration::InferenceConnectorTargetConfiguration;
+
+pub use crate::types::_inference_provider_target_configuration::InferenceProviderTargetConfiguration;
 
 pub use crate::types::_credential_provider_type::CredentialProviderType;
 
 pub use crate::types::_credential_provider::CredentialProvider;
 
 pub use crate::types::_endpoint_ip_address_type::EndpointIpAddressType;
+
+pub use crate::types::_target_type::TargetType;
+
+pub use crate::types::_listing_mode::ListingMode;
 
 pub use crate::types::_harness_bedrock_api_format::HarnessBedrockApiFormat;
 
@@ -514,6 +552,8 @@ pub use crate::types::_harness_tool_configuration::HarnessToolConfiguration;
 pub use crate::types::_harness_skill_s3_source::HarnessSkillS3Source;
 
 pub use crate::types::_harness_skill_git_source::HarnessSkillGitSource;
+
+pub use crate::types::_harness_skill_aws_skills_source::HarnessSkillAwsSkillsSource;
 
 pub use crate::types::_harness_sliding_window_configuration::HarnessSlidingWindowConfiguration;
 
@@ -577,6 +617,8 @@ pub use crate::types::_lambda_interceptor_configuration::LambdaInterceptorConfig
 
 pub use crate::types::_gateway_interception_point::GatewayInterceptionPoint;
 
+pub use crate::types::_interceptor_payload_filter::InterceptorPayloadFilter;
+
 pub use crate::types::_static_override::StaticOverride;
 
 pub use crate::types::_weighted_override::WeightedOverride;
@@ -591,9 +633,19 @@ pub use crate::types::_tool_schema::ToolSchema;
 
 pub use crate::types::_mcp_tool_schema_configuration::McpToolSchemaConfiguration;
 
-pub use crate::types::_listing_mode::ListingMode;
-
 pub use crate::types::_api_gateway_tool_configuration::ApiGatewayToolConfiguration;
+
+pub use crate::types::_connector_source::ConnectorSource;
+
+pub use crate::types::_http_api_schema_configuration::HttpApiSchemaConfiguration;
+
+pub use crate::types::_passthrough_protocol_type::PassthroughProtocolType;
+
+pub use crate::types::_stickiness_configuration::StickinessConfiguration;
+
+pub use crate::types::_inference_connector_source::InferenceConnectorSource;
+
+pub use crate::types::_model_mapping::ModelMapping;
 
 pub use crate::types::_o_auth_credential_provider::OAuthCredentialProvider;
 
@@ -614,6 +666,8 @@ pub use crate::types::_harness_agent_core_code_interpreter_config::HarnessAgentC
 pub use crate::types::_harness_skill_git_auth::HarnessSkillGitAuth;
 
 pub use crate::types::_harness_agent_core_memory_retrieval_config::HarnessAgentCoreMemoryRetrievalConfig;
+
+pub use crate::types::_harness_managed_memory_strategy_type::HarnessManagedMemoryStrategyType;
 
 pub use crate::types::_memory_record_schema::MemoryRecordSchema;
 
@@ -647,6 +701,8 @@ pub use crate::types::_inbound_token_claim_value_type::InboundTokenClaimValueTyp
 
 pub use crate::types::_authorizing_claim_match_value_type::AuthorizingClaimMatchValueType;
 
+pub use crate::types::_hosting_environment::HostingEnvironment;
+
 pub use crate::types::_numerical_scale_definition::NumericalScaleDefinition;
 
 pub use crate::types::_categorical_scale_definition::CategoricalScaleDefinition;
@@ -654,6 +710,12 @@ pub use crate::types::_categorical_scale_definition::CategoricalScaleDefinition;
 pub use crate::types::_inference_configuration::InferenceConfiguration;
 
 pub use crate::types::_match_principal_entry::MatchPrincipalEntry;
+
+pub use crate::types::_connector_configuration::ConnectorConfiguration;
+
+pub use crate::types::_provider_prefix::ProviderPrefix;
+
+pub use crate::types::_inference_operation_configuration::InferenceOperationConfiguration;
 
 pub use crate::types::_o_auth_grant_type::OAuthGrantType;
 
@@ -706,6 +768,8 @@ pub use crate::types::_updated_skill_definition::UpdatedSkillDefinition;
 pub use crate::types::_claim_match_value_type::ClaimMatchValueType;
 
 pub use crate::types::_claim_match_operator_type::ClaimMatchOperatorType;
+
+pub use crate::types::_interceptor_payload_exclusion_selector::InterceptorPayloadExclusionSelector;
 
 pub use crate::types::_iam_principal::IamPrincipal;
 
@@ -765,6 +829,8 @@ pub use crate::types::_registry_record_o_auth_credential_provider::RegistryRecor
 
 pub use crate::types::_registry_record_iam_credential_provider::RegistryRecordIamCredentialProvider;
 
+pub use crate::types::_interceptor_payload_exclusion::InterceptorPayloadExclusion;
+
 pub use crate::types::_principal_match_operator::PrincipalMatchOperator;
 
 pub use crate::types::_configuration_bundle_reference::ConfigurationBundleReference;
@@ -772,6 +838,10 @@ pub use crate::types::_configuration_bundle_reference::ConfigurationBundleRefere
 pub use crate::types::_schema_definition::SchemaDefinition;
 
 pub use crate::types::_rest_api_method::RestApiMethod;
+
+pub use crate::types::_connector_parameter_override::ConnectorParameterOverride;
+
+pub use crate::types::_model_entry::ModelEntry;
 
 pub use crate::types::_extraction_type::ExtractionType;
 
@@ -848,6 +918,8 @@ mod _agent_runtime_endpoint_status;
 mod _agent_runtime_status;
 
 mod _agent_skills_descriptor;
+
+mod _allowed_workload_configuration;
 
 mod _api_gateway_target_configuration;
 
@@ -953,6 +1025,14 @@ mod _configuration_bundle_summary;
 
 mod _configuration_bundle_version_summary;
 
+mod _connector_configuration;
+
+mod _connector_parameter_override;
+
+mod _connector_source;
+
+mod _connector_target_configuration;
+
 mod _consolidation_configuration;
 
 mod _container_configuration;
@@ -1001,6 +1081,8 @@ mod _custom_reflection_configuration;
 
 mod _custom_reflection_configuration_input;
 
+mod _custom_transform_configuration;
+
 mod _data_source_config;
 
 mod _data_source_type;
@@ -1024,6 +1106,8 @@ mod _draft_status;
 mod _efs_access_point_configuration;
 
 mod _endpoint_ip_address_type;
+
+mod _enforcement_mode;
 
 mod _episodic_consolidation_override;
 
@@ -1133,6 +1217,12 @@ mod _harness_bedrock_api_format;
 
 mod _harness_bedrock_model_config;
 
+mod _harness_disabled_memory_configuration;
+
+mod _harness_endpoint;
+
+mod _harness_endpoint_status;
+
 mod _harness_environment_artifact;
 
 mod _harness_environment_provider;
@@ -1147,6 +1237,10 @@ mod _harness_inline_function_config;
 
 mod _harness_lite_llm_model_config;
 
+mod _harness_managed_memory_configuration;
+
+mod _harness_managed_memory_strategy_type;
+
 mod _harness_memory_configuration;
 
 mod _harness_model_configuration;
@@ -1158,6 +1252,8 @@ mod _harness_open_ai_model_config;
 mod _harness_remote_mcp_config;
 
 mod _harness_skill;
+
+mod _harness_skill_aws_skills_source;
 
 mod _harness_skill_git_auth;
 
@@ -1187,6 +1283,12 @@ mod _harness_truncation_strategy;
 
 mod _harness_truncation_strategy_configuration;
 
+mod _harness_version_summary;
+
+mod _hosting_environment;
+
+mod _http_api_schema_configuration;
+
 mod _http_target_configuration;
 
 mod _iam_credential_provider;
@@ -1205,6 +1307,16 @@ mod _indexed_key;
 
 mod _inference_configuration;
 
+mod _inference_connector_source;
+
+mod _inference_connector_target_configuration;
+
+mod _inference_operation_configuration;
+
+mod _inference_provider_target_configuration;
+
+mod _inference_target_configuration;
+
 mod _inline_examples_source;
 
 mod _insight;
@@ -1212,6 +1324,12 @@ mod _insight;
 mod _interceptor_configuration;
 
 mod _interceptor_input_configuration;
+
+mod _interceptor_payload_exclusion;
+
+mod _interceptor_payload_exclusion_selector;
+
+mod _interceptor_payload_filter;
 
 mod _invocation_configuration;
 
@@ -1226,6 +1344,8 @@ mod _kms_configuration;
 mod _lambda_evaluator_config;
 
 mod _lambda_interceptor_configuration;
+
+mod _lambda_transform_configuration;
 
 mod _lifecycle_configuration;
 
@@ -1293,6 +1413,10 @@ mod _microsoft_oauth2_provider_config_input;
 
 mod _microsoft_oauth2_provider_config_output;
 
+mod _model_entry;
+
+mod _model_mapping;
+
 mod _modify_consolidation_configuration;
 
 mod _modify_extraction_configuration;
@@ -1347,6 +1471,10 @@ mod _output_config;
 
 mod _override_type;
 
+mod _passthrough_protocol_type;
+
+mod _passthrough_target_configuration;
+
 mod _payment_connector_status;
 
 mod _payment_connector_summary;
@@ -1389,6 +1517,8 @@ mod _policy_generation_status;
 
 mod _policy_generation_summary;
 
+mod _policy_statement;
+
 mod _policy_status;
 
 mod _policy_summary;
@@ -1402,6 +1532,8 @@ mod _private_endpoint;
 mod _private_endpoint_override;
 
 mod _protocol_configuration;
+
+mod _provider_prefix;
 
 mod _rating_scale;
 
@@ -1519,6 +1651,8 @@ mod _static_route;
 
 mod _status;
 
+mod _stickiness_configuration;
+
 mod _strategy_configuration;
 
 mod _stream_delivery_resource;
@@ -1558,6 +1692,8 @@ mod _target_status;
 mod _target_summary;
 
 mod _target_traffic_split_entry;
+
+mod _target_type;
 
 mod _time_based_trigger;
 
@@ -1646,6 +1782,10 @@ mod _version_filter;
 mod _version_lineage_metadata;
 
 mod _vpc_config;
+
+mod _waf_configuration;
+
+mod _waf_failure_mode;
 
 mod _weighted_override;
 

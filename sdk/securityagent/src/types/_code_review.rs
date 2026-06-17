@@ -18,6 +18,8 @@ pub struct CodeReview {
     pub log_config: ::std::option::Option<crate::types::CloudWatchLog>,
     /// <p>The code remediation strategy for the code review.</p>
     pub code_remediation_strategy: ::std::option::Option<crate::types::CodeRemediationStrategy>,
+    /// <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub validation_mode: ::std::option::Option<crate::types::ValidationMode>,
     /// <p>The date and time the code review was created, in UTC format.</p>
     pub created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time the code review was last updated, in UTC format.</p>
@@ -55,6 +57,10 @@ impl CodeReview {
     pub fn code_remediation_strategy(&self) -> ::std::option::Option<&crate::types::CodeRemediationStrategy> {
         self.code_remediation_strategy.as_ref()
     }
+    /// <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn validation_mode(&self) -> ::std::option::Option<&crate::types::ValidationMode> {
+        self.validation_mode.as_ref()
+    }
     /// <p>The date and time the code review was created, in UTC format.</p>
     pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.created_at.as_ref()
@@ -82,6 +88,7 @@ pub struct CodeReviewBuilder {
     pub(crate) service_role: ::std::option::Option<::std::string::String>,
     pub(crate) log_config: ::std::option::Option<crate::types::CloudWatchLog>,
     pub(crate) code_remediation_strategy: ::std::option::Option<crate::types::CodeRemediationStrategy>,
+    pub(crate) validation_mode: ::std::option::Option<crate::types::ValidationMode>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -188,6 +195,20 @@ impl CodeReviewBuilder {
     pub fn get_code_remediation_strategy(&self) -> &::std::option::Option<crate::types::CodeRemediationStrategy> {
         &self.code_remediation_strategy
     }
+    /// <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn validation_mode(mut self, input: crate::types::ValidationMode) -> Self {
+        self.validation_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn set_validation_mode(mut self, input: ::std::option::Option<crate::types::ValidationMode>) -> Self {
+        self.validation_mode = input;
+        self
+    }
+    /// <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+    pub fn get_validation_mode(&self) -> &::std::option::Option<crate::types::ValidationMode> {
+        &self.validation_mode
+    }
     /// <p>The date and time the code review was created, in UTC format.</p>
     pub fn created_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.created_at = ::std::option::Option::Some(input);
@@ -245,6 +266,7 @@ impl CodeReviewBuilder {
             service_role: self.service_role,
             log_config: self.log_config,
             code_remediation_strategy: self.code_remediation_strategy,
+            validation_mode: self.validation_mode,
             created_at: self.created_at,
             updated_at: self.updated_at,
         })

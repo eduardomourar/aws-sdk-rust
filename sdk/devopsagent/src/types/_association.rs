@@ -18,6 +18,8 @@ pub struct Association {
     pub service_id: ::std::string::String,
     /// <p>The configuration that directs how AgentSpace interacts with the given service.</p>
     pub configuration: ::std::option::Option<crate::types::ServiceConfiguration>,
+    /// <p>Enabled capabilities for this association.</p>
+    pub capabilities: ::std::option::Option<::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>>,
 }
 impl Association {
     /// <p>The unique identifier of the AgentSpace</p>
@@ -51,6 +53,12 @@ impl Association {
     pub fn configuration(&self) -> ::std::option::Option<&crate::types::ServiceConfiguration> {
         self.configuration.as_ref()
     }
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn capabilities(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>> {
+        self.capabilities.as_ref()
+    }
 }
 impl Association {
     /// Creates a new builder-style object to manufacture [`Association`](crate::types::Association).
@@ -70,6 +78,7 @@ pub struct AssociationBuilder {
     pub(crate) association_id: ::std::option::Option<::std::string::String>,
     pub(crate) service_id: ::std::option::Option<::std::string::String>,
     pub(crate) configuration: ::std::option::Option<crate::types::ServiceConfiguration>,
+    pub(crate) capabilities: ::std::option::Option<::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>>,
 }
 impl AssociationBuilder {
     /// <p>The unique identifier of the AgentSpace</p>
@@ -176,6 +185,31 @@ impl AssociationBuilder {
     pub fn get_configuration(&self) -> &::std::option::Option<crate::types::ServiceConfiguration> {
         &self.configuration
     }
+    /// Adds a key-value pair to `capabilities`.
+    ///
+    /// To override the contents of this collection use [`set_capabilities`](Self::set_capabilities).
+    ///
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn capabilities(mut self, k: crate::types::CapabilityType, v: crate::types::CapabilityConfiguration) -> Self {
+        let mut hash_map = self.capabilities.unwrap_or_default();
+        hash_map.insert(k, v);
+        self.capabilities = ::std::option::Option::Some(hash_map);
+        self
+    }
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn set_capabilities(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>>,
+    ) -> Self {
+        self.capabilities = input;
+        self
+    }
+    /// <p>Enabled capabilities for this association.</p>
+    pub fn get_capabilities(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::CapabilityType, crate::types::CapabilityConfiguration>> {
+        &self.capabilities
+    }
     /// Consumes the builder and constructs a [`Association`](crate::types::Association).
     /// This method will fail if any of the following fields are not set:
     /// - [`agent_space_id`](crate::types::builders::AssociationBuilder::agent_space_id)
@@ -217,6 +251,7 @@ impl AssociationBuilder {
                 )
             })?,
             configuration: self.configuration,
+            capabilities: self.capabilities,
         })
     }
 }

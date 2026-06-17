@@ -15,6 +15,10 @@ pub struct GetIntegrationOutput {
     pub display_name: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the AWS KMS key used to encrypt data associated with the integration.</p>
     pub kms_key_id: ::std::option::Option<::std::string::String>,
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub target_url: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub private_connection_name: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetIntegrationOutput {
@@ -44,6 +48,14 @@ impl GetIntegrationOutput {
     pub fn kms_key_id(&self) -> ::std::option::Option<&str> {
         self.kms_key_id.as_deref()
     }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn target_url(&self) -> ::std::option::Option<&str> {
+        self.target_url.as_deref()
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn private_connection_name(&self) -> ::std::option::Option<&str> {
+        self.private_connection_name.as_deref()
+    }
 }
 impl ::aws_types::request_id::RequestId for GetIntegrationOutput {
     fn request_id(&self) -> Option<&str> {
@@ -67,6 +79,8 @@ pub struct GetIntegrationOutputBuilder {
     pub(crate) provider_type: ::std::option::Option<crate::types::ProviderType>,
     pub(crate) display_name: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
+    pub(crate) target_url: ::std::option::Option<::std::string::String>,
+    pub(crate) private_connection_name: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetIntegrationOutputBuilder {
@@ -158,6 +172,34 @@ impl GetIntegrationOutputBuilder {
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.kms_key_id
     }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn target_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.target_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn set_target_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.target_url = input;
+        self
+    }
+    /// <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+    pub fn get_target_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.target_url
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn private_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.private_connection_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn set_private_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.private_connection_name = input;
+        self
+    }
+    /// <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+    pub fn get_private_connection_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.private_connection_name
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -203,6 +245,8 @@ impl GetIntegrationOutputBuilder {
             })?,
             display_name: self.display_name,
             kms_key_id: self.kms_key_id,
+            target_url: self.target_url,
+            private_connection_name: self.private_connection_name,
             _request_id: self._request_id,
         })
     }

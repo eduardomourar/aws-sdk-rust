@@ -84,6 +84,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "CurrentImageReleaseVersion" => {
+                            builder = builder.set_current_image_release_version(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "ImageVersionStatus" => {
                             builder = builder.set_image_version_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

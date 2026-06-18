@@ -19,6 +19,7 @@
 ///     UpdateType::AutoModeUpdate => { /* ... */ },
 ///     UpdateType::CapabilityUpdate => { /* ... */ },
 ///     UpdateType::ConfigUpdate => { /* ... */ },
+///     UpdateType::ControlPlaneEgressUpdate => { /* ... */ },
 ///     UpdateType::ControlPlaneScalingConfigUpdate => { /* ... */ },
 ///     UpdateType::DeletionProtectionUpdate => { /* ... */ },
 ///     UpdateType::DisassociateIdentityProviderConfig => { /* ... */ },
@@ -73,6 +74,8 @@ pub enum UpdateType {
     #[allow(missing_docs)] // documentation missing in model
     ConfigUpdate,
     #[allow(missing_docs)] // documentation missing in model
+    ControlPlaneEgressUpdate,
+    #[allow(missing_docs)] // documentation missing in model
     ControlPlaneScalingConfigUpdate,
     #[allow(missing_docs)] // documentation missing in model
     DeletionProtectionUpdate,
@@ -108,6 +111,7 @@ impl ::std::convert::From<&str> for UpdateType {
             "AutoModeUpdate" => UpdateType::AutoModeUpdate,
             "CapabilityUpdate" => UpdateType::CapabilityUpdate,
             "ConfigUpdate" => UpdateType::ConfigUpdate,
+            "ControlPlaneEgressUpdate" => UpdateType::ControlPlaneEgressUpdate,
             "ControlPlaneScalingConfigUpdate" => UpdateType::ControlPlaneScalingConfigUpdate,
             "DeletionProtectionUpdate" => UpdateType::DeletionProtectionUpdate,
             "DisassociateIdentityProviderConfig" => UpdateType::DisassociateIdentityProviderConfig,
@@ -141,6 +145,7 @@ impl UpdateType {
             UpdateType::AutoModeUpdate => "AutoModeUpdate",
             UpdateType::CapabilityUpdate => "CapabilityUpdate",
             UpdateType::ConfigUpdate => "ConfigUpdate",
+            UpdateType::ControlPlaneEgressUpdate => "ControlPlaneEgressUpdate",
             UpdateType::ControlPlaneScalingConfigUpdate => "ControlPlaneScalingConfigUpdate",
             UpdateType::DeletionProtectionUpdate => "DeletionProtectionUpdate",
             UpdateType::DisassociateIdentityProviderConfig => "DisassociateIdentityProviderConfig",
@@ -165,6 +170,7 @@ impl UpdateType {
             "AutoModeUpdate",
             "CapabilityUpdate",
             "ConfigUpdate",
+            "ControlPlaneEgressUpdate",
             "ControlPlaneScalingConfigUpdate",
             "DeletionProtectionUpdate",
             "DisassociateIdentityProviderConfig",
@@ -206,6 +212,7 @@ impl ::std::fmt::Display for UpdateType {
             UpdateType::AutoModeUpdate => write!(f, "AutoModeUpdate"),
             UpdateType::CapabilityUpdate => write!(f, "CapabilityUpdate"),
             UpdateType::ConfigUpdate => write!(f, "ConfigUpdate"),
+            UpdateType::ControlPlaneEgressUpdate => write!(f, "ControlPlaneEgressUpdate"),
             UpdateType::ControlPlaneScalingConfigUpdate => write!(f, "ControlPlaneScalingConfigUpdate"),
             UpdateType::DeletionProtectionUpdate => write!(f, "DeletionProtectionUpdate"),
             UpdateType::DisassociateIdentityProviderConfig => write!(f, "DisassociateIdentityProviderConfig"),

@@ -5,6 +5,12 @@ pub use crate::types::_preload_data_config::PreloadDataConfigBuilder;
 
 pub use crate::types::_identity_provider_configuration::IdentityProviderConfigurationBuilder;
 
+pub use crate::types::_analytics_configuration::AnalyticsConfigurationBuilder;
+
+pub use crate::types::_nlp_configuration::NlpConfigurationBuilder;
+
+pub use crate::types::_profile_configuration::ProfileConfigurationBuilder;
+
 pub use crate::types::_datastore_properties::DatastorePropertiesBuilder;
 
 pub use crate::types::_export_job_properties::ExportJobPropertiesBuilder;
@@ -12,12 +18,6 @@ pub use crate::types::_export_job_properties::ExportJobPropertiesBuilder;
 pub use crate::types::_import_job_properties::ImportJobPropertiesBuilder;
 
 pub use crate::types::_datastore_filter::DatastoreFilterBuilder;
-
-pub use crate::types::_analytics_configuration::AnalyticsConfigurationBuilder;
-
-pub use crate::types::_nlp_configuration::NlpConfigurationBuilder;
-
-pub use crate::types::_profile_configuration::ProfileConfigurationBuilder;
 
 pub use crate::types::_kms_encryption_config::KmsEncryptionConfigBuilder;
 

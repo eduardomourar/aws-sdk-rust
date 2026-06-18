@@ -125,6 +125,8 @@ pub use crate::types::_capability_configuration_response::CapabilityConfiguratio
 
 pub use crate::types::_capability_health::CapabilityHealth;
 
+pub use crate::types::_control_plane_egress_mode_type::ControlPlaneEgressModeType;
+
 pub use crate::types::_ip_family::IpFamily;
 
 pub use crate::types::_elastic_load_balancing::ElasticLoadBalancing;
@@ -424,6 +426,8 @@ mod _connector_config_provider;
 mod _connector_config_request;
 
 mod _connector_config_response;
+
+mod _control_plane_egress_mode_type;
 
 mod _control_plane_placement_request;
 

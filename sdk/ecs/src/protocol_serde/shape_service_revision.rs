@@ -152,6 +152,13 @@ where
                                 crate::protocol_serde::shape_ecs_managed_resources::de_ecs_managed_resources(tokens, _value, depth + 1)?,
                             );
                         }
+                        "monitoring" => {
+                            builder = builder.set_monitoring(crate::protocol_serde::shape_monitoring_configuration::de_monitoring_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

@@ -5,6 +5,10 @@
 pub struct DescribeContainerGroupPortMappingsOutput {
     /// <p>A unique identifier for the container fleet.</p>
     pub fleet_id: ::std::option::Option<::std::string::String>,
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>
+    /// ::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912
+    /// </region></code>. In a GameLift fleet ARN, the resource ID matches the <code>FleetId</code> value.</p>
+    pub fleet_arn: ::std::option::Option<::std::string::String>,
     /// <p>The location of the fleet instance, expressed as an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
     pub location: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to the container group definition. The ARN value also identifies the specific container group definition version in use.</p>
@@ -23,6 +27,12 @@ impl DescribeContainerGroupPortMappingsOutput {
     /// <p>A unique identifier for the container fleet.</p>
     pub fn fleet_id(&self) -> ::std::option::Option<&str> {
         self.fleet_id.as_deref()
+    }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>
+    /// ::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912
+    /// </region></code>. In a GameLift fleet ARN, the resource ID matches the <code>FleetId</code> value.</p>
+    pub fn fleet_arn(&self) -> ::std::option::Option<&str> {
+        self.fleet_arn.as_deref()
     }
     /// <p>The location of the fleet instance, expressed as an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
     pub fn location(&self) -> ::std::option::Option<&str> {
@@ -68,6 +78,7 @@ impl DescribeContainerGroupPortMappingsOutput {
 #[non_exhaustive]
 pub struct DescribeContainerGroupPortMappingsOutputBuilder {
     pub(crate) fleet_id: ::std::option::Option<::std::string::String>,
+    pub(crate) fleet_arn: ::std::option::Option<::std::string::String>,
     pub(crate) location: ::std::option::Option<::std::string::String>,
     pub(crate) container_group_definition_arn: ::std::option::Option<::std::string::String>,
     pub(crate) container_group_type: ::std::option::Option<crate::types::ContainerGroupType>,
@@ -90,6 +101,26 @@ impl DescribeContainerGroupPortMappingsOutputBuilder {
     /// <p>A unique identifier for the container fleet.</p>
     pub fn get_fleet_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.fleet_id
+    }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>
+    /// ::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912
+    /// </region></code>. In a GameLift fleet ARN, the resource ID matches the <code>FleetId</code> value.</p>
+    pub fn fleet_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.fleet_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>
+    /// ::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912
+    /// </region></code>. In a GameLift fleet ARN, the resource ID matches the <code>FleetId</code> value.</p>
+    pub fn set_fleet_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.fleet_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>
+    /// ::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912
+    /// </region></code>. In a GameLift fleet ARN, the resource ID matches the <code>FleetId</code> value.</p>
+    pub fn get_fleet_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.fleet_arn
     }
     /// <p>The location of the fleet instance, expressed as an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
     pub fn location(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -197,6 +228,7 @@ impl DescribeContainerGroupPortMappingsOutputBuilder {
     pub fn build(self) -> crate::operation::describe_container_group_port_mappings::DescribeContainerGroupPortMappingsOutput {
         crate::operation::describe_container_group_port_mappings::DescribeContainerGroupPortMappingsOutput {
             fleet_id: self.fleet_id,
+            fleet_arn: self.fleet_arn,
             location: self.location,
             container_group_definition_arn: self.container_group_definition_arn,
             container_group_type: self.container_group_type,

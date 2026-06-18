@@ -479,6 +479,8 @@ pub(crate) mod shape_load_balancer;
 
 pub(crate) mod shape_managed_agent_state_change;
 
+pub(crate) mod shape_monitoring_configuration;
+
 pub(crate) mod shape_network_binding;
 
 pub(crate) mod shape_network_configuration;
@@ -672,6 +674,8 @@ pub(crate) mod shape_managed_instances_provider;
 pub(crate) mod shape_managed_scaling;
 
 pub(crate) mod shape_managed_storage_configuration;
+
+pub(crate) mod shape_metric_configuration;
 
 pub(crate) mod shape_mount_point;
 
@@ -871,6 +875,8 @@ pub(crate) mod shape_memory_gib_per_v_cpu_request;
 
 pub(crate) mod shape_memory_mib_request;
 
+pub(crate) mod shape_metric_configuration_list;
+
 pub(crate) mod shape_mount_point_list;
 
 pub(crate) mod shape_network_bandwidth_gbps_request;
@@ -978,6 +984,8 @@ pub(crate) mod shape_managed_listener_rule;
 pub(crate) mod shape_managed_load_balancer;
 
 pub(crate) mod shape_managed_target_groups;
+
+pub(crate) mod shape_metric_names_list;
 
 pub(crate) mod shape_service_connect_client_alias_list;
 

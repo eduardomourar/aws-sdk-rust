@@ -34,7 +34,7 @@ impl crate::operation::describe_container_group_port_mappings::builders::Describ
 /// <p>Optionally filter results to a single container by providing a <code>ContainerName</code>.</p></li>
 /// </ul>
 /// <p><b>Results</b></p>
-/// <p>This operation returns the fleet ID, location, container group definition ARN, container group type, compute name (for game server container groups), instance ID, and a list of <code>ContainerGroupPortMapping</code> objects. Each object contains the container name, runtime ID, and a list of port mappings that show how container ports map to connection ports on the instance.</p>
+/// <p>This operation returns the fleet ID, fleet ARN, location, container group definition ARN, container group type, compute name (for game server container groups), instance ID, and a list of <code>ContainerGroupPortMapping</code> objects. Each object contains the container name, runtime ID, and a list of port mappings that show how container ports map to connection ports on the instance.</p>
 /// <p><b>Learn more</b></p>
 /// <p><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-remote-access.html">Connect to containers</a></p>
 /// <p><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Create a container group definition</a></p>

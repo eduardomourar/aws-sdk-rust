@@ -151,6 +151,11 @@ where
                                     crate::protocol_serde::shape_visual_references_output::de_visual_references_output(tokens, _value, depth + 1)?,
                                 );
                             }
+                            "MultiLocationConfig" => {
+                                builder = builder.set_multi_location_config(
+                                    crate::protocol_serde::shape_multi_location_config::de_multi_location_config(tokens, _value, depth + 1)?,
+                                );
+                            }
                             "Tags" => {
                                 builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value, depth + 1)?);
                             }

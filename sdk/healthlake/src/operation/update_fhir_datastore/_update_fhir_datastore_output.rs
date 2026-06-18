@@ -3,16 +3,12 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct UpdateFhirDatastoreOutput {
-    /// <para>
-    /// The data store properties.
-    /// </para>
+    /// <p>The data store properties.</p>
     pub datastore_properties: ::std::option::Option<crate::types::DatastoreProperties>,
     _request_id: Option<String>,
 }
 impl UpdateFhirDatastoreOutput {
-    /// <para>
-    /// The data store properties.
-    /// </para>
+    /// <p>The data store properties.</p>
     pub fn datastore_properties(&self) -> ::std::option::Option<&crate::types::DatastoreProperties> {
         self.datastore_properties.as_ref()
     }
@@ -37,24 +33,18 @@ pub struct UpdateFhirDatastoreOutputBuilder {
     _request_id: Option<String>,
 }
 impl UpdateFhirDatastoreOutputBuilder {
-    /// <para>
-    /// The data store properties.
-    /// </para>
+    /// <p>The data store properties.</p>
     /// This field is required.
     pub fn datastore_properties(mut self, input: crate::types::DatastoreProperties) -> Self {
         self.datastore_properties = ::std::option::Option::Some(input);
         self
     }
-    /// <para>
-    /// The data store properties.
-    /// </para>
+    /// <p>The data store properties.</p>
     pub fn set_datastore_properties(mut self, input: ::std::option::Option<crate::types::DatastoreProperties>) -> Self {
         self.datastore_properties = input;
         self
     }
-    /// <para>
-    /// The data store properties.
-    /// </para>
+    /// <p>The data store properties.</p>
     pub fn get_datastore_properties(&self) -> &::std::option::Option<crate::types::DatastoreProperties> {
         &self.datastore_properties
     }

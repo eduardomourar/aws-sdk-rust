@@ -27,6 +27,12 @@ pub use crate::types::error::_invalid_code_signature_exception::InvalidCodeSigna
 
 pub use crate::types::error::_precondition_failed_exception::PreconditionFailedExceptionBuilder;
 
+pub use crate::types::error::_code_artifact_user_deleted_exception::CodeArtifactUserDeletedExceptionBuilder;
+
+pub use crate::types::error::_code_artifact_user_failed_exception::CodeArtifactUserFailedExceptionBuilder;
+
+pub use crate::types::error::_code_artifact_user_pending_exception::CodeArtifactUserPendingExceptionBuilder;
+
 pub use crate::types::error::_durable_execution_already_started_exception::DurableExecutionAlreadyStartedExceptionBuilder;
 
 pub use crate::types::error::_ec2_access_denied_exception::Ec2AccessDeniedExceptionBuilder;
@@ -44,6 +50,8 @@ pub use crate::types::error::_efs_mount_failure_exception::EfsMountFailureExcept
 pub use crate::types::error::_efs_mount_timeout_exception::EfsMountTimeoutExceptionBuilder;
 
 pub use crate::types::error::_eni_limit_reached_exception::EniLimitReachedExceptionBuilder;
+
+pub use crate::types::error::_eni_not_ready_exception::EniNotReadyExceptionBuilder;
 
 pub use crate::types::error::_invalid_request_content_exception::InvalidRequestContentExceptionBuilder;
 
@@ -63,6 +71,8 @@ pub use crate::types::error::_kms_invalid_state_exception::KmsInvalidStateExcept
 
 pub use crate::types::error::_kms_not_found_exception::KmsNotFoundExceptionBuilder;
 
+pub use crate::types::error::_mode_not_supported_exception::ModeNotSupportedExceptionBuilder;
+
 pub use crate::types::error::_no_published_version_exception::NoPublishedVersionExceptionBuilder;
 
 pub use crate::types::error::_recursive_invocation_exception::RecursiveInvocationExceptionBuilder;
@@ -79,9 +89,13 @@ pub use crate::types::error::_s3_files_mount_timeout_exception::S3FilesMountTime
 
 pub use crate::types::error::_serialized_request_entity_too_large_exception::SerializedRequestEntityTooLargeExceptionBuilder;
 
+pub use crate::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededExceptionBuilder;
+
 pub use crate::types::error::_snap_start_exception::SnapStartExceptionBuilder;
 
 pub use crate::types::error::_snap_start_not_ready_exception::SnapStartNotReadyExceptionBuilder;
+
+pub use crate::types::error::_snap_start_regeneration_failure_exception::SnapStartRegenerationFailureExceptionBuilder;
 
 pub use crate::types::error::_snap_start_timeout_exception::SnapStartTimeoutExceptionBuilder;
 
@@ -89,6 +103,10 @@ pub use crate::types::error::_subnet_ip_address_limit_reached_exception::SubnetI
 
 pub use crate::types::error::_unsupported_media_type_exception::UnsupportedMediaTypeExceptionBuilder;
 
+pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceededExceptionBuilder;
+
 pub use crate::types::error::_policy_length_exceeded_exception::PolicyLengthExceededExceptionBuilder;
+
+pub use crate::types::error::_public_policy_exception::PublicPolicyExceptionBuilder;
 
 pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundExceptionBuilder;

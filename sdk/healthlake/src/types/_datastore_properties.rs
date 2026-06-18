@@ -26,17 +26,11 @@ pub struct DatastoreProperties {
     pub identity_provider_configuration: ::std::option::Option<crate::types::IdentityProviderConfiguration>,
     /// <p>The error cause for the current data store operation.</p>
     pub error_cause: ::std::option::Option<crate::types::ErrorCause>,
-    /// <para>
-    /// The natural language processing (NLP) configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub nlp_configuration: ::std::option::Option<crate::types::NlpConfiguration>,
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
+    /// <p>The analytics configuration for the data store.</p>
     pub analytics_configuration: ::std::option::Option<crate::types::AnalyticsConfiguration>,
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub profile_configuration: ::std::option::Option<crate::types::ProfileConfiguration>,
 }
 impl DatastoreProperties {
@@ -87,21 +81,15 @@ impl DatastoreProperties {
     pub fn error_cause(&self) -> ::std::option::Option<&crate::types::ErrorCause> {
         self.error_cause.as_ref()
     }
-    /// <para>
-    /// The natural language processing (NLP) configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn nlp_configuration(&self) -> ::std::option::Option<&crate::types::NlpConfiguration> {
         self.nlp_configuration.as_ref()
     }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
+    /// <p>The analytics configuration for the data store.</p>
     pub fn analytics_configuration(&self) -> ::std::option::Option<&crate::types::AnalyticsConfiguration> {
         self.analytics_configuration.as_ref()
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub fn profile_configuration(&self) -> ::std::option::Option<&crate::types::ProfileConfiguration> {
         self.profile_configuration.as_ref()
     }
@@ -292,63 +280,45 @@ impl DatastorePropertiesBuilder {
     pub fn get_error_cause(&self) -> &::std::option::Option<crate::types::ErrorCause> {
         &self.error_cause
     }
-    /// <para>
-    /// The natural language processing (NLP) configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn nlp_configuration(mut self, input: crate::types::NlpConfiguration) -> Self {
         self.nlp_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <para>
-    /// The natural language processing (NLP) configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn set_nlp_configuration(mut self, input: ::std::option::Option<crate::types::NlpConfiguration>) -> Self {
         self.nlp_configuration = input;
         self
     }
-    /// <para>
-    /// The natural language processing (NLP) configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn get_nlp_configuration(&self) -> &::std::option::Option<crate::types::NlpConfiguration> {
         &self.nlp_configuration
     }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
+    /// <p>The analytics configuration for the data store.</p>
     pub fn analytics_configuration(mut self, input: crate::types::AnalyticsConfiguration) -> Self {
         self.analytics_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
+    /// <p>The analytics configuration for the data store.</p>
     pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
         self.analytics_configuration = input;
         self
     }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
+    /// <p>The analytics configuration for the data store.</p>
     pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
         &self.analytics_configuration
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub fn profile_configuration(mut self, input: crate::types::ProfileConfiguration) -> Self {
         self.profile_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub fn set_profile_configuration(mut self, input: ::std::option::Option<crate::types::ProfileConfiguration>) -> Self {
         self.profile_configuration = input;
         self
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub fn get_profile_configuration(&self) -> &::std::option::Option<crate::types::ProfileConfiguration> {
         &self.profile_configuration
     }

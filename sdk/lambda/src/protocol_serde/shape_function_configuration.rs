@@ -207,18 +207,6 @@ where
                                     crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?,
                                 );
                             }
-                            "PackageType" => {
-                                builder = builder.set_package_type(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| crate::types::PackageType::from(u.as_ref())))
-                                        .transpose()?,
-                                );
-                            }
-                            "ImageConfigResponse" => {
-                                builder = builder.set_image_config_response(
-                                    crate::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?,
-                                );
-                            }
                             "SigningProfileVersionArn" => {
                                 builder = builder.set_signing_profile_version_arn(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -231,6 +219,18 @@ where
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                         .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                         .transpose()?,
+                                );
+                            }
+                            "PackageType" => {
+                                builder = builder.set_package_type(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::PackageType::from(u.as_ref())))
+                                        .transpose()?,
+                                );
+                            }
+                            "ImageConfigResponse" => {
+                                builder = builder.set_image_config_response(
+                                    crate::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?,
                                 );
                             }
                             "Architectures" => {
@@ -266,6 +266,13 @@ where
                                     depth + 1,
                                 )?);
                             }
+                            "TenancyConfig" => {
+                                builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
                             "CapacityProviderConfig" => {
                                 builder = builder.set_capacity_provider_config(
                                     crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
@@ -280,13 +287,6 @@ where
                             }
                             "DurableConfig" => {
                                 builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
-                            }
-                            "TenancyConfig" => {
-                                builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(
                                     tokens,
                                     _value,
                                     depth + 1,

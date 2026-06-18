@@ -193,6 +193,8 @@ pub use crate::types::_o_auth_flow_type::OAuthFlowType;
 
 pub use crate::types::_feature_type::FeatureType;
 
+pub use crate::types::_security_policy_type::SecurityPolicyType;
+
 pub use crate::types::_failover_type::FailoverType;
 
 pub use crate::types::_replica_status_type::ReplicaStatusType;
@@ -504,6 +506,8 @@ mod _routing_type;
 mod _s3_configuration_type;
 
 mod _schema_attribute_type;
+
+mod _security_policy_type;
 
 mod _sign_in_policy_type;
 

@@ -38,6 +38,10 @@ pub struct ClusterNodeDetails {
     pub current_image_id: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the Amazon Machine Image (AMI) desired for the node.</p>
     pub desired_image_id: ::std::option::Option<::std::string::String>,
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub current_image_release_version: ::std::option::Option<::std::string::String>,
+    /// <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+    pub desired_image_release_version: ::std::option::Option<::std::string::String>,
     /// <p>The status of the image version for the cluster node.</p>
     pub image_version_status: ::std::option::Option<crate::types::ClusterImageVersionStatus>,
     /// <p>Contains information about the UltraServer.</p>
@@ -120,6 +124,14 @@ impl ClusterNodeDetails {
     pub fn desired_image_id(&self) -> ::std::option::Option<&str> {
         self.desired_image_id.as_deref()
     }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn current_image_release_version(&self) -> ::std::option::Option<&str> {
+        self.current_image_release_version.as_deref()
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+    pub fn desired_image_release_version(&self) -> ::std::option::Option<&str> {
+        self.desired_image_release_version.as_deref()
+    }
     /// <p>The status of the image version for the cluster node.</p>
     pub fn image_version_status(&self) -> ::std::option::Option<&crate::types::ClusterImageVersionStatus> {
         self.image_version_status.as_ref()
@@ -169,6 +181,8 @@ pub struct ClusterNodeDetailsBuilder {
     pub(crate) placement: ::std::option::Option<crate::types::ClusterInstancePlacement>,
     pub(crate) current_image_id: ::std::option::Option<::std::string::String>,
     pub(crate) desired_image_id: ::std::option::Option<::std::string::String>,
+    pub(crate) current_image_release_version: ::std::option::Option<::std::string::String>,
+    pub(crate) desired_image_release_version: ::std::option::Option<::std::string::String>,
     pub(crate) image_version_status: ::std::option::Option<crate::types::ClusterImageVersionStatus>,
     pub(crate) ultra_server_info: ::std::option::Option<crate::types::UltraServerInfo>,
     pub(crate) kubernetes_config: ::std::option::Option<crate::types::ClusterKubernetesConfigNodeDetails>,
@@ -420,6 +434,34 @@ impl ClusterNodeDetailsBuilder {
     pub fn get_desired_image_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.desired_image_id
     }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn current_image_release_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.current_image_release_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn set_current_image_release_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.current_image_release_version = input;
+        self
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn get_current_image_release_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.current_image_release_version
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+    pub fn desired_image_release_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.desired_image_release_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+    pub fn set_desired_image_release_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.desired_image_release_version = input;
+        self
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+    pub fn get_desired_image_release_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.desired_image_release_version
+    }
     /// <p>The status of the image version for the cluster node.</p>
     pub fn image_version_status(mut self, input: crate::types::ClusterImageVersionStatus) -> Self {
         self.image_version_status = ::std::option::Option::Some(input);
@@ -510,6 +552,8 @@ impl ClusterNodeDetailsBuilder {
             placement: self.placement,
             current_image_id: self.current_image_id,
             desired_image_id: self.desired_image_id,
+            current_image_release_version: self.current_image_release_version,
+            desired_image_release_version: self.desired_image_release_version,
             image_version_status: self.image_version_status,
             ultra_server_info: self.ultra_server_info,
             kubernetes_config: self.kubernetes_config,

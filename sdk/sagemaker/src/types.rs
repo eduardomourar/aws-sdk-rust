@@ -1551,6 +1551,8 @@ pub use crate::types::_cluster_instance_requirements::ClusterInstanceRequirement
 
 pub use crate::types::_scheduled_update_config::ScheduledUpdateConfig;
 
+pub use crate::types::_cluster_auto_patch_config::ClusterAutoPatchConfig;
+
 pub use crate::types::_cluster_kubernetes_config::ClusterKubernetesConfig;
 
 pub use crate::types::_cluster_slurm_config::ClusterSlurmConfig;
@@ -1793,6 +1795,8 @@ pub use crate::types::_cluster_instance_requirement_details::ClusterInstanceRequ
 
 pub use crate::types::_instance_group_status::InstanceGroupStatus;
 
+pub use crate::types::_cluster_auto_patch_config_details::ClusterAutoPatchConfigDetails;
+
 pub use crate::types::_cluster_kubernetes_config_details::ClusterKubernetesConfigDetails;
 
 pub use crate::types::_software_update_status::SoftwareUpdateStatus;
@@ -1947,6 +1951,10 @@ pub use crate::types::_holiday_config_attributes::HolidayConfigAttributes;
 
 pub use crate::types::_deep_health_check_type::DeepHealthCheckType;
 
+pub use crate::types::_cluster_patching_strategy::ClusterPatchingStrategy;
+
+pub use crate::types::_cluster_patch_schedule::ClusterPatchSchedule;
+
 pub use crate::types::_cluster_slurm_node_type::ClusterSlurmNodeType;
 
 pub use crate::types::_cluster_spot_options::ClusterSpotOptions;
@@ -2094,6 +2102,8 @@ pub use crate::types::_candidate_step_type::CandidateStepType;
 pub use crate::types::_metric_datum::MetricDatum;
 
 pub use crate::types::_cluster_instance_type_detail::ClusterInstanceTypeDetail;
+
+pub use crate::types::_cluster_patch_schedule_details::ClusterPatchScheduleDetails;
 
 pub use crate::types::_active_cluster_operation_name::ActiveClusterOperationName;
 
@@ -2717,6 +2727,10 @@ mod _clarify_text_granularity;
 
 mod _clarify_text_language;
 
+mod _cluster_auto_patch_config;
+
+mod _cluster_auto_patch_config_details;
+
 mod _cluster_auto_scaler_type;
 
 mod _cluster_auto_scaling_config;
@@ -2806,6 +2820,12 @@ mod _cluster_orchestrator;
 mod _cluster_orchestrator_eks_config;
 
 mod _cluster_orchestrator_slurm_config;
+
+mod _cluster_patch_schedule;
+
+mod _cluster_patch_schedule_details;
+
+mod _cluster_patching_strategy;
 
 mod _cluster_restricted_instance_group_details;
 

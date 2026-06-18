@@ -17,6 +17,7 @@
 ///     UpdateParamType::ClusterLogging => { /* ... */ },
 ///     UpdateParamType::ComputeConfig => { /* ... */ },
 ///     UpdateParamType::ConfigurationValues => { /* ... */ },
+///     UpdateParamType::ControlPlaneEgressMode => { /* ... */ },
 ///     UpdateParamType::DeletionProtection => { /* ... */ },
 ///     UpdateParamType::DesiredSize => { /* ... */ },
 ///     UpdateParamType::EncryptionConfig => { /* ... */ },
@@ -100,6 +101,8 @@ pub enum UpdateParamType {
     ComputeConfig,
     #[allow(missing_docs)] // documentation missing in model
     ConfigurationValues,
+    #[allow(missing_docs)] // documentation missing in model
+    ControlPlaneEgressMode,
     #[allow(missing_docs)] // documentation missing in model
     DeletionProtection,
     #[allow(missing_docs)] // documentation missing in model
@@ -202,6 +205,7 @@ impl ::std::convert::From<&str> for UpdateParamType {
             "ClusterLogging" => UpdateParamType::ClusterLogging,
             "ComputeConfig" => UpdateParamType::ComputeConfig,
             "ConfigurationValues" => UpdateParamType::ConfigurationValues,
+            "ControlPlaneEgressMode" => UpdateParamType::ControlPlaneEgressMode,
             "DeletionProtection" => UpdateParamType::DeletionProtection,
             "DesiredSize" => UpdateParamType::DesiredSize,
             "EncryptionConfig" => UpdateParamType::EncryptionConfig,
@@ -267,6 +271,7 @@ impl UpdateParamType {
             UpdateParamType::ClusterLogging => "ClusterLogging",
             UpdateParamType::ComputeConfig => "ComputeConfig",
             UpdateParamType::ConfigurationValues => "ConfigurationValues",
+            UpdateParamType::ControlPlaneEgressMode => "ControlPlaneEgressMode",
             UpdateParamType::DeletionProtection => "DeletionProtection",
             UpdateParamType::DesiredSize => "DesiredSize",
             UpdateParamType::EncryptionConfig => "EncryptionConfig",
@@ -323,6 +328,7 @@ impl UpdateParamType {
             "ClusterLogging",
             "ComputeConfig",
             "ConfigurationValues",
+            "ControlPlaneEgressMode",
             "DeletionProtection",
             "DesiredSize",
             "EncryptionConfig",
@@ -396,6 +402,7 @@ impl ::std::fmt::Display for UpdateParamType {
             UpdateParamType::ClusterLogging => write!(f, "ClusterLogging"),
             UpdateParamType::ComputeConfig => write!(f, "ComputeConfig"),
             UpdateParamType::ConfigurationValues => write!(f, "ConfigurationValues"),
+            UpdateParamType::ControlPlaneEgressMode => write!(f, "ControlPlaneEgressMode"),
             UpdateParamType::DeletionProtection => write!(f, "DeletionProtection"),
             UpdateParamType::DesiredSize => write!(f, "DesiredSize"),
             UpdateParamType::EncryptionConfig => write!(f, "EncryptionConfig"),

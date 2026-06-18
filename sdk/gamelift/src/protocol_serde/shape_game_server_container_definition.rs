@@ -48,6 +48,14 @@ pub(crate) fn de_game_server_container_definition(
             "ServerSdkVersion" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
                 Ok(builder.set_server_sdk_version(Some(decoder.string()?)))
             })?,
+            "LinuxCapabilities" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
+                Ok(
+                    builder.set_linux_capabilities(Some(crate::protocol_serde::shape_linux_capabilities::de_linux_capabilities(
+                        decoder,
+                        depth + 1,
+                    )?)),
+                )
+            })?,
             _ => {
                 decoder.skip()?;
                 builder

@@ -51,6 +51,8 @@ pub use crate::types::_deployment_controller::DeploymentControllerBuilder;
 
 pub use crate::types::_service_connect_configuration::ServiceConnectConfigurationBuilder;
 
+pub use crate::types::_monitoring_configuration::MonitoringConfigurationBuilder;
+
 pub use crate::types::_service::ServiceBuilder;
 
 pub use crate::types::_updated_express_gateway_service::UpdatedExpressGatewayServiceBuilder;
@@ -236,6 +238,8 @@ pub use crate::types::_deployment_lifecycle_hook::DeploymentLifecycleHookBuilder
 pub use crate::types::_service_connect_service::ServiceConnectServiceBuilder;
 
 pub use crate::types::_service_managed_ebs_volume_configuration::ServiceManagedEbsVolumeConfigurationBuilder;
+
+pub use crate::types::_metric_configuration::MetricConfigurationBuilder;
 
 pub use crate::types::_deployment::DeploymentBuilder;
 

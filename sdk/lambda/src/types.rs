@@ -37,6 +37,12 @@ pub use crate::types::_code_signing_config::CodeSigningConfig;
 
 pub use crate::types::_filter_criteria::FilterCriteria;
 
+pub use crate::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfig;
+
+pub use crate::types::_event_source_mapping_logging_config::EventSourceMappingLoggingConfig;
+
+pub use crate::types::_scaling_config::ScalingConfig;
+
 pub use crate::types::_event_source_position::EventSourcePosition;
 
 pub use crate::types::_self_managed_event_source::SelfManagedEventSource;
@@ -45,13 +51,7 @@ pub use crate::types::_amazon_managed_kafka_event_source_config::AmazonManagedKa
 
 pub use crate::types::_self_managed_kafka_event_source_config::SelfManagedKafkaEventSourceConfig;
 
-pub use crate::types::_scaling_config::ScalingConfig;
-
 pub use crate::types::_document_db_event_source_config::DocumentDbEventSourceConfig;
-
-pub use crate::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfig;
-
-pub use crate::types::_event_source_mapping_logging_config::EventSourceMappingLoggingConfig;
 
 pub use crate::types::_provisioned_poller_config::ProvisionedPollerConfig;
 
@@ -62,6 +62,8 @@ pub use crate::types::_function_version::FunctionVersion;
 pub use crate::types::_runtime::Runtime;
 
 pub use crate::types::_function_code::FunctionCode;
+
+pub use crate::types::_function_version_latest_published::FunctionVersionLatestPublished;
 
 pub use crate::types::_vpc_config::VpcConfig;
 
@@ -81,13 +83,11 @@ pub use crate::types::_snap_start::SnapStart;
 
 pub use crate::types::_logging_config::LoggingConfig;
 
+pub use crate::types::_tenancy_config::TenancyConfig;
+
 pub use crate::types::_capacity_provider_config::CapacityProviderConfig;
 
-pub use crate::types::_function_version_latest_published::FunctionVersionLatestPublished;
-
 pub use crate::types::_durable_config::DurableConfig;
-
-pub use crate::types::_tenancy_config::TenancyConfig;
 
 pub use crate::types::_vpc_config_response::VpcConfigResponse;
 
@@ -171,6 +171,8 @@ pub use crate::types::_code_signing_policy::CodeSigningPolicy;
 
 pub use crate::types::_event_source_mapping_configuration::EventSourceMappingConfiguration;
 
+pub use crate::types::_event_source_mapping_system_log_level::EventSourceMappingSystemLogLevel;
+
 pub use crate::types::_source_access_configuration::SourceAccessConfiguration;
 
 pub use crate::types::_function_response_type::FunctionResponseType;
@@ -178,8 +180,6 @@ pub use crate::types::_function_response_type::FunctionResponseType;
 pub use crate::types::_kafka_schema_registry_config::KafkaSchemaRegistryConfig;
 
 pub use crate::types::_full_document::FullDocument;
-
-pub use crate::types::_event_source_mapping_system_log_level::EventSourceMappingSystemLogLevel;
 
 pub use crate::types::_tracing_mode::TracingMode;
 
@@ -193,9 +193,9 @@ pub use crate::types::_application_log_level::ApplicationLogLevel;
 
 pub use crate::types::_system_log_level::SystemLogLevel;
 
-pub use crate::types::_lambda_managed_instances_capacity_provider_config::LambdaManagedInstancesCapacityProviderConfig;
-
 pub use crate::types::_tenant_isolation_mode::TenantIsolationMode;
+
+pub use crate::types::_lambda_managed_instances_capacity_provider_config::LambdaManagedInstancesCapacityProviderConfig;
 
 pub use crate::types::_environment_error::EnvironmentError;
 
@@ -207,13 +207,13 @@ pub use crate::types::_snap_start_optimization_status::SnapStartOptimizationStat
 
 pub use crate::types::_runtime_version_error::RuntimeVersionError;
 
-pub use crate::types::_function_url_config::FunctionUrlConfig;
-
 pub use crate::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItem;
 
 pub use crate::types::_invoke_response_stream_update::InvokeResponseStreamUpdate;
 
 pub use crate::types::_invoke_with_response_stream_complete_event::InvokeWithResponseStreamCompleteEvent;
+
+pub use crate::types::_function_url_config::FunctionUrlConfig;
 
 pub use crate::types::_alias_configuration::AliasConfiguration;
 
@@ -303,13 +303,13 @@ pub use crate::types::_target_tracking_scaling_policy::TargetTrackingScalingPoli
 
 pub use crate::types::_filter::Filter;
 
+pub use crate::types::_event_source_mapping_metric::EventSourceMappingMetric;
+
 pub use crate::types::_source_access_type::SourceAccessType;
 
 pub use crate::types::_end_point_type::EndPointType;
 
 pub use crate::types::_schema_registry_event_record_format::SchemaRegistryEventRecordFormat;
-
-pub use crate::types::_event_source_mapping_metric::EventSourceMappingMetric;
 
 pub use crate::types::_event_input::EventInput;
 

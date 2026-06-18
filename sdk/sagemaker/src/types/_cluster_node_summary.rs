@@ -22,6 +22,8 @@ pub struct ClusterNodeSummary {
     pub ultra_server_info: ::std::option::Option<crate::types::UltraServerInfo>,
     /// <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
     pub private_dns_hostname: ::std::option::Option<::std::string::String>,
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub current_image_release_version: ::std::option::Option<::std::string::String>,
     /// <p>The status of the image version for the cluster node.</p>
     pub image_version_status: ::std::option::Option<crate::types::ClusterImageVersionStatus>,
 }
@@ -62,6 +64,10 @@ impl ClusterNodeSummary {
     pub fn private_dns_hostname(&self) -> ::std::option::Option<&str> {
         self.private_dns_hostname.as_deref()
     }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn current_image_release_version(&self) -> ::std::option::Option<&str> {
+        self.current_image_release_version.as_deref()
+    }
     /// <p>The status of the image version for the cluster node.</p>
     pub fn image_version_status(&self) -> ::std::option::Option<&crate::types::ClusterImageVersionStatus> {
         self.image_version_status.as_ref()
@@ -87,6 +93,7 @@ pub struct ClusterNodeSummaryBuilder {
     pub(crate) instance_status: ::std::option::Option<crate::types::ClusterInstanceStatusDetails>,
     pub(crate) ultra_server_info: ::std::option::Option<crate::types::UltraServerInfo>,
     pub(crate) private_dns_hostname: ::std::option::Option<::std::string::String>,
+    pub(crate) current_image_release_version: ::std::option::Option<::std::string::String>,
     pub(crate) image_version_status: ::std::option::Option<crate::types::ClusterImageVersionStatus>,
 }
 impl ClusterNodeSummaryBuilder {
@@ -221,6 +228,20 @@ impl ClusterNodeSummaryBuilder {
     pub fn get_private_dns_hostname(&self) -> &::std::option::Option<::std::string::String> {
         &self.private_dns_hostname
     }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn current_image_release_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.current_image_release_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn set_current_image_release_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.current_image_release_version = input;
+        self
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+    pub fn get_current_image_release_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.current_image_release_version
+    }
     /// <p>The status of the image version for the cluster node.</p>
     pub fn image_version_status(mut self, input: crate::types::ClusterImageVersionStatus) -> Self {
         self.image_version_status = ::std::option::Option::Some(input);
@@ -247,6 +268,7 @@ impl ClusterNodeSummaryBuilder {
             instance_status: self.instance_status,
             ultra_server_info: self.ultra_server_info,
             private_dns_hostname: self.private_dns_hostname,
+            current_image_release_version: self.current_image_release_version,
             image_version_status: self.image_version_status,
         }
     }

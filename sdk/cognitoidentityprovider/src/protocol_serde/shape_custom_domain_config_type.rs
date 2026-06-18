@@ -6,6 +6,9 @@ pub fn ser_custom_domain_config_type(
     {
         object.key("CertificateArn").string(input.certificate_arn.as_str());
     }
+    if let Some(var_1) = &input.security_policy {
+        object.key("SecurityPolicy").string(var_1.as_str());
+    }
     Ok(())
 }
 
@@ -35,6 +38,13 @@ where
                             builder = builder.set_certificate_arn(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "SecurityPolicy" => {
+                            builder = builder.set_security_policy(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::SecurityPolicyType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

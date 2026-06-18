@@ -421,6 +421,18 @@ pub(crate) fn memory_mib_request_correct_errors(
     builder
 }
 
+pub(crate) fn metric_configuration_correct_errors(
+    mut builder: crate::types::builders::MetricConfigurationBuilder,
+) -> crate::types::builders::MetricConfigurationBuilder {
+    if builder.metric_names.is_none() {
+        builder.metric_names = Some(Default::default())
+    }
+    if builder.resolution_seconds.is_none() {
+        builder.resolution_seconds = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn resource_requirement_correct_errors(
     mut builder: crate::types::builders::ResourceRequirementBuilder,
 ) -> crate::types::builders::ResourceRequirementBuilder {

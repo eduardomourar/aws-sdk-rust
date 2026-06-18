@@ -53,10 +53,16 @@ pub struct ClusterInstanceGroupDetails {
     pub override_vpc_config: ::std::option::Option<crate::types::VpcConfig>,
     /// <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
     pub scheduled_update_config: ::std::option::Option<crate::types::ScheduledUpdateConfig>,
+    /// <p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>
+    pub auto_patch_config: ::std::option::Option<crate::types::ClusterAutoPatchConfigDetails>,
     /// <p>The ID of the Amazon Machine Image (AMI) currently in use by the instance group.</p>
     pub current_image_id: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the Amazon Machine Image (AMI) desired for the instance group.</p>
     pub desired_image_id: ::std::option::Option<::std::string::String>,
+    /// <p>The version of the HyperPod-managed AMI currently running on the instance group.</p>
+    pub current_image_release_version: ::std::option::Option<::std::string::String>,
+    /// <p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>
+    pub desired_image_release_version: ::std::option::Option<::std::string::String>,
     /// <p>The status of the image version for the instance group. Indicates whether the instance group is running the latest image version or if an update is available.</p>
     pub image_version_status: ::std::option::Option<crate::types::ClusterImageVersionStatus>,
     /// <p>A map indicating active operations currently in progress for the instance group of a SageMaker HyperPod cluster. When there is a scaling operation in progress, this map contains a key <code>Scaling</code> with value 1.</p>
@@ -181,6 +187,10 @@ impl ClusterInstanceGroupDetails {
     pub fn scheduled_update_config(&self) -> ::std::option::Option<&crate::types::ScheduledUpdateConfig> {
         self.scheduled_update_config.as_ref()
     }
+    /// <p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>
+    pub fn auto_patch_config(&self) -> ::std::option::Option<&crate::types::ClusterAutoPatchConfigDetails> {
+        self.auto_patch_config.as_ref()
+    }
     /// <p>The ID of the Amazon Machine Image (AMI) currently in use by the instance group.</p>
     pub fn current_image_id(&self) -> ::std::option::Option<&str> {
         self.current_image_id.as_deref()
@@ -188,6 +198,14 @@ impl ClusterInstanceGroupDetails {
     /// <p>The ID of the Amazon Machine Image (AMI) desired for the instance group.</p>
     pub fn desired_image_id(&self) -> ::std::option::Option<&str> {
         self.desired_image_id.as_deref()
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the instance group.</p>
+    pub fn current_image_release_version(&self) -> ::std::option::Option<&str> {
+        self.current_image_release_version.as_deref()
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>
+    pub fn desired_image_release_version(&self) -> ::std::option::Option<&str> {
+        self.desired_image_release_version.as_deref()
     }
     /// <p>The status of the image version for the instance group. Indicates whether the instance group is running the latest image version or if an update is available.</p>
     pub fn image_version_status(&self) -> ::std::option::Option<&crate::types::ClusterImageVersionStatus> {
@@ -269,8 +287,11 @@ pub struct ClusterInstanceGroupDetailsBuilder {
     pub(crate) training_plan_status: ::std::option::Option<::std::string::String>,
     pub(crate) override_vpc_config: ::std::option::Option<crate::types::VpcConfig>,
     pub(crate) scheduled_update_config: ::std::option::Option<crate::types::ScheduledUpdateConfig>,
+    pub(crate) auto_patch_config: ::std::option::Option<crate::types::ClusterAutoPatchConfigDetails>,
     pub(crate) current_image_id: ::std::option::Option<::std::string::String>,
     pub(crate) desired_image_id: ::std::option::Option<::std::string::String>,
+    pub(crate) current_image_release_version: ::std::option::Option<::std::string::String>,
+    pub(crate) desired_image_release_version: ::std::option::Option<::std::string::String>,
     pub(crate) image_version_status: ::std::option::Option<crate::types::ClusterImageVersionStatus>,
     pub(crate) active_operations: ::std::option::Option<::std::collections::HashMap<crate::types::ActiveClusterOperationName, i32>>,
     pub(crate) kubernetes_config: ::std::option::Option<crate::types::ClusterKubernetesConfigDetails>,
@@ -583,6 +604,20 @@ impl ClusterInstanceGroupDetailsBuilder {
     pub fn get_scheduled_update_config(&self) -> &::std::option::Option<crate::types::ScheduledUpdateConfig> {
         &self.scheduled_update_config
     }
+    /// <p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>
+    pub fn auto_patch_config(mut self, input: crate::types::ClusterAutoPatchConfigDetails) -> Self {
+        self.auto_patch_config = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>
+    pub fn set_auto_patch_config(mut self, input: ::std::option::Option<crate::types::ClusterAutoPatchConfigDetails>) -> Self {
+        self.auto_patch_config = input;
+        self
+    }
+    /// <p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>
+    pub fn get_auto_patch_config(&self) -> &::std::option::Option<crate::types::ClusterAutoPatchConfigDetails> {
+        &self.auto_patch_config
+    }
     /// <p>The ID of the Amazon Machine Image (AMI) currently in use by the instance group.</p>
     pub fn current_image_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.current_image_id = ::std::option::Option::Some(input.into());
@@ -610,6 +645,34 @@ impl ClusterInstanceGroupDetailsBuilder {
     /// <p>The ID of the Amazon Machine Image (AMI) desired for the instance group.</p>
     pub fn get_desired_image_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.desired_image_id
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the instance group.</p>
+    pub fn current_image_release_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.current_image_release_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the instance group.</p>
+    pub fn set_current_image_release_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.current_image_release_version = input;
+        self
+    }
+    /// <p>The version of the HyperPod-managed AMI currently running on the instance group.</p>
+    pub fn get_current_image_release_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.current_image_release_version
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>
+    pub fn desired_image_release_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.desired_image_release_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>
+    pub fn set_desired_image_release_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.desired_image_release_version = input;
+        self
+    }
+    /// <p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>
+    pub fn get_desired_image_release_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.desired_image_release_version
     }
     /// <p>The status of the image version for the instance group. Indicates whether the instance group is running the latest image version or if an update is available.</p>
     pub fn image_version_status(mut self, input: crate::types::ClusterImageVersionStatus) -> Self {
@@ -811,8 +874,11 @@ impl ClusterInstanceGroupDetailsBuilder {
             training_plan_status: self.training_plan_status,
             override_vpc_config: self.override_vpc_config,
             scheduled_update_config: self.scheduled_update_config,
+            auto_patch_config: self.auto_patch_config,
             current_image_id: self.current_image_id,
             desired_image_id: self.desired_image_id,
+            current_image_release_version: self.current_image_release_version,
+            desired_image_release_version: self.desired_image_release_version,
             image_version_status: self.image_version_status,
             active_operations: self.active_operations,
             kubernetes_config: self.kubernetes_config,

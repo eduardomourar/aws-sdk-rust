@@ -2627,6 +2627,8 @@ pub(crate) mod shape_channel_specifications;
 
 pub(crate) mod shape_clarify_explainer_config;
 
+pub(crate) mod shape_cluster_auto_patch_config;
+
 pub(crate) mod shape_cluster_capacity_requirements;
 
 pub(crate) mod shape_cluster_event_summary;
@@ -3325,6 +3327,8 @@ pub(crate) mod shape_clarify_inference_config;
 
 pub(crate) mod shape_clarify_shap_config;
 
+pub(crate) mod shape_cluster_auto_patch_config_details;
+
 pub(crate) mod shape_cluster_availability_zones;
 
 pub(crate) mod shape_cluster_ebs_volume_config;
@@ -3348,6 +3352,8 @@ pub(crate) mod shape_cluster_kubernetes_taint;
 pub(crate) mod shape_cluster_kubernetes_taints;
 
 pub(crate) mod shape_cluster_on_demand_options;
+
+pub(crate) mod shape_cluster_patch_schedule;
 
 pub(crate) mod shape_cluster_slurm_config_details;
 
@@ -3716,6 +3722,8 @@ pub(crate) mod shape_cluster_instance_type_detail;
 pub(crate) mod shape_cluster_metadata;
 
 pub(crate) mod shape_cluster_partition_names;
+
+pub(crate) mod shape_cluster_patch_schedule_details;
 
 pub(crate) mod shape_collection_parameters;
 

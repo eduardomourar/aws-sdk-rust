@@ -281,6 +281,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteFunctio
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum DeleteFunctionUrlConfigError {
+    /// <p>One of the parameters in the request is not valid.</p>
+    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
     /// <p>The resource already exists, or another operation is in progress.</p>
     ResourceConflictException(crate::types::error::ResourceConflictException),
     /// <p>The resource specified in the request does not exist.</p>
@@ -322,12 +324,17 @@ impl DeleteFunctionUrlConfigError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InvalidParameterValueException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceConflictException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ServiceException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `DeleteFunctionUrlConfigError::InvalidParameterValueException`.
+    pub fn is_invalid_parameter_value_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterValueException(_))
     }
     /// Returns `true` if the error kind is `DeleteFunctionUrlConfigError::ResourceConflictException`.
     pub fn is_resource_conflict_exception(&self) -> bool {
@@ -349,6 +356,7 @@ impl DeleteFunctionUrlConfigError {
 impl ::std::error::Error for DeleteFunctionUrlConfigError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::InvalidParameterValueException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceConflictException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceException(_inner) => ::std::option::Option::Some(_inner),
@@ -360,6 +368,7 @@ impl ::std::error::Error for DeleteFunctionUrlConfigError {
 impl ::std::fmt::Display for DeleteFunctionUrlConfigError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::InvalidParameterValueException(_inner) => _inner.fmt(f),
             Self::ResourceConflictException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
             Self::ServiceException(_inner) => _inner.fmt(f),
@@ -385,6 +394,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteFunctionUrlConfigErro
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteFunctionUrlConfigError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InvalidParameterValueException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceConflictException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ServiceException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

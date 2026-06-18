@@ -95,6 +95,8 @@ pub use crate::types::_deployment_details::DeploymentDetailsBuilder;
 
 pub use crate::types::_container_port_configuration::ContainerPortConfigurationBuilder;
 
+pub use crate::types::_linux_capabilities::LinuxCapabilitiesBuilder;
+
 pub use crate::types::_support_container_definition_input::SupportContainerDefinitionInputBuilder;
 
 pub use crate::types::_game_server_container_definition::GameServerContainerDefinitionBuilder;

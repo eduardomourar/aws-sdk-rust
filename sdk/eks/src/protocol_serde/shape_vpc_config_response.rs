@@ -52,6 +52,13 @@ where
                             builder =
                                 builder.set_public_access_cidrs(crate::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
+                        "controlPlaneEgressMode" => {
+                            builder = builder.set_control_plane_egress_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ControlPlaneEgressModeType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

@@ -181,6 +181,9 @@ pub(crate) fn de_describe_container_group_port_mappings(
             "FleetId" => {
                 ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| Ok(builder.set_fleet_id(Some(decoder.string()?))))?
             }
+            "FleetArn" => {
+                ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| Ok(builder.set_fleet_arn(Some(decoder.string()?))))?
+            }
             "Location" => {
                 ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| Ok(builder.set_location(Some(decoder.string()?))))?
             }

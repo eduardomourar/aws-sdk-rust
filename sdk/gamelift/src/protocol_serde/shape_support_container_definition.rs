@@ -60,6 +60,14 @@ pub(crate) fn de_support_container_definition(
                 Ok(builder.set_resolved_image_digest(Some(decoder.string()?)))
             })?,
             "Vcpu" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| Ok(builder.set_vcpu(Some(decoder.double()?))))?,
+            "LinuxCapabilities" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
+                Ok(
+                    builder.set_linux_capabilities(Some(crate::protocol_serde::shape_linux_capabilities::de_linux_capabilities(
+                        decoder,
+                        depth + 1,
+                    )?)),
+                )
+            })?,
             _ => {
                 decoder.skip()?;
                 builder

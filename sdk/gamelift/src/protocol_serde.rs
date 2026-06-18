@@ -759,6 +759,8 @@ pub(crate) mod shape_instance_credentials;
 
 pub(crate) mod shape_instance_definitions;
 
+pub(crate) mod shape_linux_capabilities;
+
 pub(crate) mod shape_location_attributes;
 
 pub(crate) mod shape_location_state;
@@ -832,6 +834,8 @@ pub(crate) mod shape_container_port_mapping;
 pub(crate) mod shape_container_port_range_list;
 
 pub(crate) mod shape_latency_map;
+
+pub(crate) mod shape_linux_capability_list;
 
 pub(crate) mod shape_matched_player_session;
 

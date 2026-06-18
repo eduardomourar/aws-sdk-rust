@@ -22,9 +22,7 @@ impl crate::operation::update_fhir_datastore::builders::UpdateFhirDatastoreInput
 }
 /// Fluent builder constructing a request to `UpdateFHIRDatastore`.
 ///
-/// <para>
-/// Update the properties of a FHIR-enabled data store.
-/// </para>
+/// <p>Update the properties of a FHIR-enabled data store.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateFHIRDatastoreFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -110,123 +108,87 @@ impl UpdateFHIRDatastoreFluentBuilder {
         self.config_override = config_override;
         self
     }
-    /// <para>
-    /// The data store identifier.
-    /// </para>
+    /// <p>The data store identifier.</p>
     pub fn datastore_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.datastore_id(input.into());
         self
     }
-    /// <para>
-    /// The data store identifier.
-    /// </para>
+    /// <p>The data store identifier.</p>
     pub fn set_datastore_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_datastore_id(input);
         self
     }
-    /// <para>
-    /// The data store identifier.
-    /// </para>
+    /// <p>The data store identifier.</p>
     pub fn get_datastore_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_datastore_id()
     }
-    /// <para>
-    /// The data store name.
-    /// </para>
+    /// <p>The data store name.</p>
     pub fn datastore_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.datastore_name(input.into());
         self
     }
-    /// <para>
-    /// The data store name.
-    /// </para>
+    /// <p>The data store name.</p>
     pub fn set_datastore_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_datastore_name(input);
         self
     }
-    /// <para>
-    /// The data store name.
-    /// </para>
+    /// <p>The data store name.</p>
     pub fn get_datastore_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_datastore_name()
     }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
-    pub fn analytics_configuration(mut self, input: crate::types::AnalyticsConfiguration) -> Self {
-        self.inner = self.inner.analytics_configuration(input);
-        self
-    }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
-    pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
-        self.inner = self.inner.set_analytics_configuration(input);
-        self
-    }
-    /// <para>
-    /// The analytics configuration for the data store.
-    /// </para>
-    pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
-        self.inner.get_analytics_configuration()
-    }
-    /// <para>
-    /// The NLP configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn nlp_configuration(mut self, input: crate::types::NlpConfiguration) -> Self {
         self.inner = self.inner.nlp_configuration(input);
         self
     }
-    /// <para>
-    /// The NLP configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn set_nlp_configuration(mut self, input: ::std::option::Option<crate::types::NlpConfiguration>) -> Self {
         self.inner = self.inner.set_nlp_configuration(input);
         self
     }
-    /// <para>
-    /// The NLP configuration for the data store.
-    /// </para>
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
     pub fn get_nlp_configuration(&self) -> &::std::option::Option<crate::types::NlpConfiguration> {
         self.inner.get_nlp_configuration()
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The analytics configuration for the data store.</p>
+    pub fn analytics_configuration(mut self, input: crate::types::AnalyticsConfiguration) -> Self {
+        self.inner = self.inner.analytics_configuration(input);
+        self
+    }
+    /// <p>The analytics configuration for the data store.</p>
+    pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
+        self.inner = self.inner.set_analytics_configuration(input);
+        self
+    }
+    /// <p>The analytics configuration for the data store.</p>
+    pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
+        self.inner.get_analytics_configuration()
+    }
+    /// <p>The profile configuration for the data store.</p>
     pub fn profile_configuration(mut self, input: crate::types::ProfileConfiguration) -> Self {
         self.inner = self.inner.profile_configuration(input);
         self
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub fn set_profile_configuration(mut self, input: ::std::option::Option<crate::types::ProfileConfiguration>) -> Self {
         self.inner = self.inner.set_profile_configuration(input);
         self
     }
-    /// <para>
-    /// The profile configuration for the data store.
-    /// </para>
+    /// <p>The profile configuration for the data store.</p>
     pub fn get_profile_configuration(&self) -> &::std::option::Option<crate::types::ProfileConfiguration> {
         self.inner.get_profile_configuration()
     }
-    /// <para>
-    /// The identity provider configuration for the data store.
-    /// </para>
+    /// <p>The identity provider configuration for the data store.</p>
     pub fn identity_provider_configuration(mut self, input: crate::types::IdentityProviderConfiguration) -> Self {
         self.inner = self.inner.identity_provider_configuration(input);
         self
     }
-    /// <para>
-    /// The identity provider configuration for the data store.
-    /// </para>
+    /// <p>The identity provider configuration for the data store.</p>
     pub fn set_identity_provider_configuration(mut self, input: ::std::option::Option<crate::types::IdentityProviderConfiguration>) -> Self {
         self.inner = self.inner.set_identity_provider_configuration(input);
         self
     }
-    /// <para>
-    /// The identity provider configuration for the data store.
-    /// </para>
+    /// <p>The identity provider configuration for the data store.</p>
     pub fn get_identity_provider_configuration(&self) -> &::std::option::Option<crate::types::IdentityProviderConfiguration> {
         self.inner.get_identity_provider_configuration()
     }

@@ -9,16 +9,16 @@ pub fn ser_update_fhir_datastore_input_input(
     if let Some(var_2) = &input.datastore_name {
         object.key("DatastoreName").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.analytics_configuration {
+    if let Some(var_3) = &input.nlp_configuration {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("AnalyticsConfiguration").start_object();
-        crate::protocol_serde::shape_analytics_configuration::ser_analytics_configuration(&mut object_4, var_3)?;
+        let mut object_4 = object.key("NlpConfiguration").start_object();
+        crate::protocol_serde::shape_nlp_configuration::ser_nlp_configuration(&mut object_4, var_3)?;
         object_4.finish();
     }
-    if let Some(var_5) = &input.nlp_configuration {
+    if let Some(var_5) = &input.analytics_configuration {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("NlpConfiguration").start_object();
-        crate::protocol_serde::shape_nlp_configuration::ser_nlp_configuration(&mut object_6, var_5)?;
+        let mut object_6 = object.key("AnalyticsConfiguration").start_object();
+        crate::protocol_serde::shape_analytics_configuration::ser_analytics_configuration(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.profile_configuration {

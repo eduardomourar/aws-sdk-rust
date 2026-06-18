@@ -76,6 +76,43 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "FilterCriteriaError" => {
+                            builder = builder.set_filter_criteria_error(
+                                crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "KMSKeyArn" => {
+                            builder = builder.set_kms_key_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "MetricsConfig" => {
+                            builder = builder.set_metrics_config(
+                                crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "LoggingConfig" => {
+                            builder = builder.set_logging_config(
+                                crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "ScalingConfig" => {
+                            builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         "FunctionArn" => {
                             builder = builder.set_function_arn(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -185,13 +222,6 @@ where
                                 )?,
                             );
                         }
-                        "ScalingConfig" => {
-                            builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
-                        }
                         "DocumentDBEventSourceConfig" => {
                             builder = builder.set_document_db_event_source_config(
                                 crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
@@ -201,41 +231,11 @@ where
                                 )?,
                             );
                         }
-                        "KMSKeyArn" => {
-                            builder = builder.set_kms_key_arn(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
-                        }
-                        "FilterCriteriaError" => {
-                            builder = builder.set_filter_criteria_error(
-                                crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
-                            );
-                        }
                         "EventSourceMappingArn" => {
                             builder = builder.set_event_source_mapping_arn(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "MetricsConfig" => {
-                            builder = builder.set_metrics_config(
-                                crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
-                        }
-                        "LoggingConfig" => {
-                            builder = builder.set_logging_config(
-                                crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
                             );
                         }
                         "ProvisionedPollerConfig" => {

@@ -1017,6 +1017,8 @@ pub use crate::types::_cluster_instance_requirements::ClusterInstanceRequirement
 
 pub use crate::types::_scheduled_update_config::ScheduledUpdateConfigBuilder;
 
+pub use crate::types::_cluster_auto_patch_config::ClusterAutoPatchConfigBuilder;
+
 pub use crate::types::_cluster_kubernetes_config::ClusterKubernetesConfigBuilder;
 
 pub use crate::types::_cluster_slurm_config::ClusterSlurmConfigBuilder;
@@ -1195,6 +1197,8 @@ pub use crate::types::_text_generation_resolved_attributes::TextGenerationResolv
 
 pub use crate::types::_cluster_instance_requirement_details::ClusterInstanceRequirementDetailsBuilder;
 
+pub use crate::types::_cluster_auto_patch_config_details::ClusterAutoPatchConfigDetailsBuilder;
+
 pub use crate::types::_cluster_kubernetes_config_details::ClusterKubernetesConfigDetailsBuilder;
 
 pub use crate::types::_cluster_slurm_config_details::ClusterSlurmConfigDetailsBuilder;
@@ -1315,6 +1319,8 @@ pub use crate::types::_auto_ml_algorithm_config::AutoMlAlgorithmConfigBuilder;
 
 pub use crate::types::_holiday_config_attributes::HolidayConfigAttributesBuilder;
 
+pub use crate::types::_cluster_patch_schedule::ClusterPatchScheduleBuilder;
+
 pub use crate::types::_cluster_spot_options::ClusterSpotOptionsBuilder;
 
 pub use crate::types::_cluster_on_demand_options::ClusterOnDemandOptionsBuilder;
@@ -1412,6 +1418,8 @@ pub use crate::types::_ai_recommendation_performance_metric::AiRecommendationPer
 pub use crate::types::_metric_datum::MetricDatumBuilder;
 
 pub use crate::types::_cluster_instance_type_detail::ClusterInstanceTypeDetailBuilder;
+
+pub use crate::types::_cluster_patch_schedule_details::ClusterPatchScheduleDetailsBuilder;
 
 pub use crate::types::_cluster_metadata::ClusterMetadataBuilder;
 

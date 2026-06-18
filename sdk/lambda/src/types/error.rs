@@ -27,6 +27,12 @@ pub use crate::types::error::_invalid_code_signature_exception::InvalidCodeSigna
 
 pub use crate::types::error::_precondition_failed_exception::PreconditionFailedException;
 
+pub use crate::types::error::_code_artifact_user_deleted_exception::CodeArtifactUserDeletedException;
+
+pub use crate::types::error::_code_artifact_user_failed_exception::CodeArtifactUserFailedException;
+
+pub use crate::types::error::_code_artifact_user_pending_exception::CodeArtifactUserPendingException;
+
 pub use crate::types::error::_durable_execution_already_started_exception::DurableExecutionAlreadyStartedException;
 
 pub use crate::types::error::_ec2_access_denied_exception::Ec2AccessDeniedException;
@@ -44,6 +50,8 @@ pub use crate::types::error::_efs_mount_failure_exception::EfsMountFailureExcept
 pub use crate::types::error::_efs_mount_timeout_exception::EfsMountTimeoutException;
 
 pub use crate::types::error::_eni_limit_reached_exception::EniLimitReachedException;
+
+pub use crate::types::error::_eni_not_ready_exception::EniNotReadyException;
 
 pub use crate::types::error::_invalid_request_content_exception::InvalidRequestContentException;
 
@@ -63,6 +71,8 @@ pub use crate::types::error::_kms_invalid_state_exception::KmsInvalidStateExcept
 
 pub use crate::types::error::_kms_not_found_exception::KmsNotFoundException;
 
+pub use crate::types::error::_mode_not_supported_exception::ModeNotSupportedException;
+
 pub use crate::types::error::_no_published_version_exception::NoPublishedVersionException;
 
 pub use crate::types::error::_recursive_invocation_exception::RecursiveInvocationException;
@@ -79,9 +89,13 @@ pub use crate::types::error::_s3_files_mount_timeout_exception::S3FilesMountTime
 
 pub use crate::types::error::_serialized_request_entity_too_large_exception::SerializedRequestEntityTooLargeException;
 
+pub use crate::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededException;
+
 pub use crate::types::error::_snap_start_exception::SnapStartException;
 
 pub use crate::types::error::_snap_start_not_ready_exception::SnapStartNotReadyException;
+
+pub use crate::types::error::_snap_start_regeneration_failure_exception::SnapStartRegenerationFailureException;
 
 pub use crate::types::error::_snap_start_timeout_exception::SnapStartTimeoutException;
 
@@ -89,7 +103,11 @@ pub use crate::types::error::_subnet_ip_address_limit_reached_exception::SubnetI
 
 pub use crate::types::error::_unsupported_media_type_exception::UnsupportedMediaTypeException;
 
+pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceededException;
+
 pub use crate::types::error::_policy_length_exceeded_exception::PolicyLengthExceededException;
+
+pub use crate::types::error::_public_policy_exception::PublicPolicyException;
 
 pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundException;
 
@@ -186,9 +204,17 @@ impl ::aws_types::request_id::RequestId for crate::types::error::InvokeWithRespo
     }
 }
 
+mod _alias_limit_exceeded_exception;
+
 mod _callback_timeout_exception;
 
 mod _capacity_provider_limit_exceeded_exception;
+
+mod _code_artifact_user_deleted_exception;
+
+mod _code_artifact_user_failed_exception;
+
+mod _code_artifact_user_pending_exception;
 
 mod _code_signing_config_not_found_exception;
 
@@ -214,6 +240,8 @@ mod _efsio_exception;
 
 mod _eni_limit_reached_exception;
 
+mod _eni_not_ready_exception;
+
 mod _function_versions_per_capacity_provider_limit_exceeded_exception;
 
 mod _invalid_code_signature_exception;
@@ -238,6 +266,8 @@ mod _kms_invalid_state_exception;
 
 mod _kms_not_found_exception;
 
+mod _mode_not_supported_exception;
+
 mod _no_published_version_exception;
 
 mod _policy_length_exceeded_exception;
@@ -245,6 +275,8 @@ mod _policy_length_exceeded_exception;
 mod _precondition_failed_exception;
 
 mod _provisioned_concurrency_config_not_found_exception;
+
+mod _public_policy_exception;
 
 mod _recursive_invocation_exception;
 
@@ -268,9 +300,13 @@ mod _serialized_request_entity_too_large_exception;
 
 mod _service_exception;
 
+mod _service_quota_exceeded_exception;
+
 mod _snap_start_exception;
 
 mod _snap_start_not_ready_exception;
+
+mod _snap_start_regeneration_failure_exception;
 
 mod _snap_start_timeout_exception;
 

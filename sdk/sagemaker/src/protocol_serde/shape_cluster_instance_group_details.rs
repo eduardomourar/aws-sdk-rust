@@ -137,6 +137,15 @@ where
                                 crate::protocol_serde::shape_scheduled_update_config::de_scheduled_update_config(tokens, _value, depth + 1)?,
                             );
                         }
+                        "AutoPatchConfig" => {
+                            builder = builder.set_auto_patch_config(
+                                crate::protocol_serde::shape_cluster_auto_patch_config_details::de_cluster_auto_patch_config_details(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         "CurrentImageId" => {
                             builder = builder.set_current_image_id(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -146,6 +155,20 @@ where
                         }
                         "DesiredImageId" => {
                             builder = builder.set_desired_image_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "CurrentImageReleaseVersion" => {
+                            builder = builder.set_current_image_release_version(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "DesiredImageReleaseVersion" => {
+                            builder = builder.set_desired_image_release_version(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,

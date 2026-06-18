@@ -85,6 +85,8 @@ pub use crate::types::_propagate_tags::PropagateTags;
 
 pub use crate::types::_service_connect_configuration::ServiceConnectConfiguration;
 
+pub use crate::types::_monitoring_configuration::MonitoringConfiguration;
+
 pub use crate::types::_service::Service;
 
 pub use crate::types::_resource_management_type::ResourceManagementType;
@@ -380,6 +382,8 @@ pub use crate::types::_service_connect_access_logging_format::ServiceConnectAcce
 pub use crate::types::_service_connect_include_query_parameters::ServiceConnectIncludeQueryParameters;
 
 pub use crate::types::_service_managed_ebs_volume_configuration::ServiceManagedEbsVolumeConfiguration;
+
+pub use crate::types::_metric_configuration::MetricConfiguration;
 
 pub use crate::types::_deployment::Deployment;
 
@@ -964,6 +968,10 @@ mod _managed_termination_protection;
 mod _memory_gib_per_v_cpu_request;
 
 mod _memory_mib_request;
+
+mod _metric_configuration;
+
+mod _monitoring_configuration;
 
 mod _mount_point;
 

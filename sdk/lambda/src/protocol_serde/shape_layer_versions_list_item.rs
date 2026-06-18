@@ -49,6 +49,11 @@ where
                                     .transpose()?,
                             );
                         }
+                        "CompatibleArchitectures" => {
+                            builder = builder.set_compatible_architectures(
+                                crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
+                            );
+                        }
                         "CompatibleRuntimes" => {
                             builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
                                 tokens,
@@ -61,11 +66,6 @@ where
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "CompatibleArchitectures" => {
-                            builder = builder.set_compatible_architectures(
-                                crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

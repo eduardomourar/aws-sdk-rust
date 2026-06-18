@@ -12,6 +12,8 @@
 /// ```text
 /// # let clusterimageversionstatus = unimplemented!();
 /// match clusterimageversionstatus {
+///     ClusterImageVersionStatus::EndOfLife => { /* ... */ },
+///     ClusterImageVersionStatus::SecurityUpdateRequired => { /* ... */ },
 ///     ClusterImageVersionStatus::UpToDate => { /* ... */ },
 ///     ClusterImageVersionStatus::UpdateAvailable => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -36,12 +38,16 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// <p>The status of the Amazon Machine Image (AMI) version for the HyperPod cluster instance group, node, or cluster. The AMI version is determined at the instance group level, and all nodes within an instance group run the same AMI. The cluster-level status is aggregated across all instance groups.</p> <ul> <li> <p> <code>UpToDate</code>: The resource is running the latest available AMI version.</p> </li> <li> <p> <code>UpdateAvailable</code>: A newer AMI version is available for the resource.</p> </li> </ul>
+/// <p>The status of the Amazon Machine Image (AMI) version for the HyperPod cluster instance group, node, or cluster. The AMI version is determined at the instance group level, and all nodes within an instance group run the same AMI. The cluster-level status is aggregated across all instance groups.</p> <ul> <li> <p> <code>UpToDate</code>: The resource is running the latest available AMI version.</p> </li> <li> <p> <code>UpdateAvailable</code>: A newer AMI version is available for the resource.</p> </li> <li> <p> <code>SecurityUpdateRequired</code>: The current AMI has known security vulnerabilities, and a patched version is available.</p> </li> <li> <p> <code>EndOfLife</code>: The AMI variant has reached end of support and an upgrade is required.</p> </li> </ul>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum ClusterImageVersionStatus {
+    #[allow(missing_docs)] // documentation missing in model
+    EndOfLife,
+    #[allow(missing_docs)] // documentation missing in model
+    SecurityUpdateRequired,
     #[allow(missing_docs)] // documentation missing in model
     UpToDate,
     #[allow(missing_docs)] // documentation missing in model
@@ -53,6 +59,8 @@ pub enum ClusterImageVersionStatus {
 impl ::std::convert::From<&str> for ClusterImageVersionStatus {
     fn from(s: &str) -> Self {
         match s {
+            "EndOfLife" => ClusterImageVersionStatus::EndOfLife,
+            "SecurityUpdateRequired" => ClusterImageVersionStatus::SecurityUpdateRequired,
             "UpToDate" => ClusterImageVersionStatus::UpToDate,
             "UpdateAvailable" => ClusterImageVersionStatus::UpdateAvailable,
             other => ClusterImageVersionStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -70,6 +78,8 @@ impl ClusterImageVersionStatus {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            ClusterImageVersionStatus::EndOfLife => "EndOfLife",
+            ClusterImageVersionStatus::SecurityUpdateRequired => "SecurityUpdateRequired",
             ClusterImageVersionStatus::UpToDate => "UpToDate",
             ClusterImageVersionStatus::UpdateAvailable => "UpdateAvailable",
             ClusterImageVersionStatus::Unknown(value) => value.as_str(),
@@ -77,7 +87,7 @@ impl ClusterImageVersionStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["UpToDate", "UpdateAvailable"]
+        &["EndOfLife", "SecurityUpdateRequired", "UpToDate", "UpdateAvailable"]
     }
 }
 impl ::std::convert::AsRef<str> for ClusterImageVersionStatus {
@@ -100,6 +110,8 @@ impl ClusterImageVersionStatus {
 impl ::std::fmt::Display for ClusterImageVersionStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            ClusterImageVersionStatus::EndOfLife => write!(f, "EndOfLife"),
+            ClusterImageVersionStatus::SecurityUpdateRequired => write!(f, "SecurityUpdateRequired"),
             ClusterImageVersionStatus::UpToDate => write!(f, "UpToDate"),
             ClusterImageVersionStatus::UpdateAvailable => write!(f, "UpdateAvailable"),
             ClusterImageVersionStatus::Unknown(value) => write!(f, "{value}"),

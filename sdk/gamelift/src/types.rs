@@ -161,6 +161,8 @@ pub use crate::types::_deployment_details::DeploymentDetails;
 
 pub use crate::types::_container_port_configuration::ContainerPortConfiguration;
 
+pub use crate::types::_linux_capabilities::LinuxCapabilities;
+
 pub use crate::types::_support_container_definition_input::SupportContainerDefinitionInput;
 
 pub use crate::types::_game_server_container_definition::GameServerContainerDefinition;
@@ -302,6 +304,8 @@ pub use crate::types::_container_dependency_condition::ContainerDependencyCondit
 pub use crate::types::_container_mount_point_access_level::ContainerMountPointAccessLevel;
 
 pub use crate::types::_container_port_range::ContainerPortRange;
+
+pub use crate::types::_linux_capability::LinuxCapability;
 
 pub use crate::types::_container_port_mapping::ContainerPortMapping;
 
@@ -504,6 +508,10 @@ mod _ip_permission;
 mod _ip_protocol;
 
 mod _launch_template_specification;
+
+mod _linux_capabilities;
+
+mod _linux_capability;
 
 mod _list_compute_input_status;
 

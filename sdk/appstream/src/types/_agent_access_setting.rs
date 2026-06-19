@@ -4,13 +4,13 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AgentAccessSetting {
-    /// <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+    /// <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
     pub agent_action: ::std::option::Option<crate::types::AgentAction>,
     /// <p>Whether the agent action is enabled or disabled.</p>
     pub permission: ::std::option::Option<crate::types::Permission>,
 }
 impl AgentAccessSetting {
-    /// <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+    /// <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
     pub fn agent_action(&self) -> ::std::option::Option<&crate::types::AgentAction> {
         self.agent_action.as_ref()
     }
@@ -34,18 +34,18 @@ pub struct AgentAccessSettingBuilder {
     pub(crate) permission: ::std::option::Option<crate::types::Permission>,
 }
 impl AgentAccessSettingBuilder {
-    /// <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+    /// <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
     /// This field is required.
     pub fn agent_action(mut self, input: crate::types::AgentAction) -> Self {
         self.agent_action = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+    /// <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
     pub fn set_agent_action(mut self, input: ::std::option::Option<crate::types::AgentAction>) -> Self {
         self.agent_action = input;
         self
     }
-    /// <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+    /// <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
     pub fn get_agent_action(&self) -> &::std::option::Option<crate::types::AgentAction> {
         &self.agent_action
     }

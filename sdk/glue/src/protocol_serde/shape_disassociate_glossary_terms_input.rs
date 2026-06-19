@@ -3,8 +3,8 @@ pub fn ser_disassociate_glossary_terms_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::operation::disassociate_glossary_terms::DisassociateGlossaryTermsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.identifier {
-        object.key("Identifier").string(var_1.as_str());
+    if let Some(var_1) = &input.asset_identifier {
+        object.key("AssetIdentifier").string(var_1.as_str());
     }
     if let Some(var_2) = &input.glossary_term_identifiers {
         let mut array_3 = object.key("GlossaryTermIdentifiers").start_array();

@@ -14,6 +14,7 @@
 /// match agentaction {
 ///     AgentAction::ComputerInput => { /* ... */ },
 ///     AgentAction::ComputerVision => { /* ... */ },
+///     AgentAction::ForwardMcpTools => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -44,6 +45,9 @@
 /// <li>
 /// <p>COMPUTER_INPUT - Allows agents to click, type, and scroll on the desktop. Requires COMPUTER_VISION to also be enabled.</p>
 /// </li>
+/// <li>
+/// <p>FORWARD_MCP_TOOLS - Allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.</p>
+/// </li>
 /// </ul>
 #[non_exhaustive]
 #[derive(
@@ -54,6 +58,8 @@ pub enum AgentAction {
     ComputerInput,
     #[allow(missing_docs)] // documentation missing in model
     ComputerVision,
+    #[allow(missing_docs)] // documentation missing in model
+    ForwardMcpTools,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -63,6 +69,7 @@ impl ::std::convert::From<&str> for AgentAction {
         match s {
             "COMPUTER_INPUT" => AgentAction::ComputerInput,
             "COMPUTER_VISION" => AgentAction::ComputerVision,
+            "FORWARD_MCP_TOOLS" => AgentAction::ForwardMcpTools,
             other => AgentAction::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -80,12 +87,13 @@ impl AgentAction {
         match self {
             AgentAction::ComputerInput => "COMPUTER_INPUT",
             AgentAction::ComputerVision => "COMPUTER_VISION",
+            AgentAction::ForwardMcpTools => "FORWARD_MCP_TOOLS",
             AgentAction::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["COMPUTER_INPUT", "COMPUTER_VISION"]
+        &["COMPUTER_INPUT", "COMPUTER_VISION", "FORWARD_MCP_TOOLS"]
     }
 }
 impl ::std::convert::AsRef<str> for AgentAction {
@@ -110,6 +118,7 @@ impl ::std::fmt::Display for AgentAction {
         match self {
             AgentAction::ComputerInput => write!(f, "COMPUTER_INPUT"),
             AgentAction::ComputerVision => write!(f, "COMPUTER_VISION"),
+            AgentAction::ForwardMcpTools => write!(f, "FORWARD_MCP_TOOLS"),
             AgentAction::Unknown(value) => write!(f, "{value}"),
         }
     }

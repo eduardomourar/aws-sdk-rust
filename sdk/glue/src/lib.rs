@@ -35,7 +35,7 @@
 //! ```toml
 //! [dependencies]
 //! aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
-//! aws-sdk-glue = "1.151.0"
+//! aws-sdk-glue = "1.152.0"
 //! tokio = { version = "1", features = ["full"] }
 //! ```
 //!
@@ -159,7 +159,7 @@ pub use config::Config;
 ///
 /// ```rust,ignore
 /// let result = client.associate_glossary_terms()
-///     .identifier("example")
+///     .asset_identifier("example")
 ///     .send()
 ///     .await;
 /// ```

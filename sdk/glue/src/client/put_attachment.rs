@@ -11,7 +11,7 @@ impl super::Client {
     ///   - [`form_type_id(impl Into<String>)`](crate::operation::put_attachment::builders::PutAttachmentFluentBuilder::form_type_id) / [`set_form_type_id(Option<String>)`](crate::operation::put_attachment::builders::PutAttachmentFluentBuilder::set_form_type_id):<br>required: **true**<br><p>The identifier of the form type for this attachment.</p><br>
     ///   - [`client_token(impl Into<String>)`](crate::operation::put_attachment::builders::PutAttachmentFluentBuilder::client_token) / [`set_client_token(Option<String>)`](crate::operation::put_attachment::builders::PutAttachmentFluentBuilder::set_client_token):<br>required: **false**<br><p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p><br>
     /// - On success, responds with [`PutAttachmentOutput`](crate::operation::put_attachment::PutAttachmentOutput) with field(s):
-    ///   - [`asset_id(Option<String>)`](crate::operation::put_attachment::PutAttachmentOutput::asset_id): <p>The unique identifier of the asset.</p>
+    ///   - [`asset_identifier(Option<String>)`](crate::operation::put_attachment::PutAttachmentOutput::asset_identifier): <p>The unique identifier of the asset.</p>
     ///   - [`iterable_form_name(Option<String>)`](crate::operation::put_attachment::PutAttachmentOutput::iterable_form_name): <p>The name of the iterable form, if the attachment targets an item.</p>
     ///   - [`item_identifier(Option<String>)`](crate::operation::put_attachment::PutAttachmentOutput::item_identifier): <p>The identifier of the item within the iterable form, if applicable.</p>
     ///   - [`attachment_name(Option<String>)`](crate::operation::put_attachment::PutAttachmentOutput::attachment_name): <p>The name of the attachment.</p>

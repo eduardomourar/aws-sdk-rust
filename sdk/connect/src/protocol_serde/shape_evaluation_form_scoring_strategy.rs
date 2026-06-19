@@ -9,6 +9,18 @@ pub fn ser_evaluation_form_scoring_strategy(
     {
         object.key("Status").string(input.status.as_str());
     }
+    if let Some(var_1) = &input.score_thresholds {
+        let mut array_2 = object.key("ScoreThresholds").start_array();
+        for item_3 in var_1 {
+            {
+                #[allow(unused_mut)]
+                let mut object_4 = array_2.value().start_object();
+                crate::protocol_serde::shape_evaluation_form_score_threshold::ser_evaluation_form_score_threshold(&mut object_4, item_3)?;
+                object_4.finish();
+            }
+        }
+        array_2.finish();
+    }
     Ok(())
 }
 
@@ -46,6 +58,15 @@ where
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::EvaluationFormScoringStatus::from(u.as_ref())))
                                     .transpose()?,
+                            );
+                        }
+                        "ScoreThresholds" => {
+                            builder = builder.set_score_thresholds(
+                                crate::protocol_serde::shape_evaluation_form_score_threshold_list::de_evaluation_form_score_threshold_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

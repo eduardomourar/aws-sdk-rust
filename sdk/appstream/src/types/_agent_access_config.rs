@@ -14,6 +14,8 @@ pub struct AgentAccessConfig {
     pub screen_resolution: ::std::option::Option<crate::types::ScreenResolution>,
     /// <p>The image format for agent screen captures.</p>
     pub screen_image_format: ::std::option::Option<crate::types::ScreenImageFormat>,
+    /// <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+    pub user_control_mode: ::std::option::Option<crate::types::UserControlMode>,
 }
 impl AgentAccessConfig {
     /// <p>The list of agent access settings that define permissions for each agent action. You must specify at least one setting.</p>
@@ -38,6 +40,10 @@ impl AgentAccessConfig {
     pub fn screen_image_format(&self) -> ::std::option::Option<&crate::types::ScreenImageFormat> {
         self.screen_image_format.as_ref()
     }
+    /// <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+    pub fn user_control_mode(&self) -> ::std::option::Option<&crate::types::UserControlMode> {
+        self.user_control_mode.as_ref()
+    }
 }
 impl AgentAccessConfig {
     /// Creates a new builder-style object to manufacture [`AgentAccessConfig`](crate::types::AgentAccessConfig).
@@ -55,6 +61,7 @@ pub struct AgentAccessConfigBuilder {
     pub(crate) screenshots_upload_enabled: ::std::option::Option<bool>,
     pub(crate) screen_resolution: ::std::option::Option<crate::types::ScreenResolution>,
     pub(crate) screen_image_format: ::std::option::Option<crate::types::ScreenImageFormat>,
+    pub(crate) user_control_mode: ::std::option::Option<crate::types::UserControlMode>,
 }
 impl AgentAccessConfigBuilder {
     /// Appends an item to `settings`.
@@ -135,6 +142,20 @@ impl AgentAccessConfigBuilder {
     pub fn get_screen_image_format(&self) -> &::std::option::Option<crate::types::ScreenImageFormat> {
         &self.screen_image_format
     }
+    /// <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+    pub fn user_control_mode(mut self, input: crate::types::UserControlMode) -> Self {
+        self.user_control_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+    pub fn set_user_control_mode(mut self, input: ::std::option::Option<crate::types::UserControlMode>) -> Self {
+        self.user_control_mode = input;
+        self
+    }
+    /// <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+    pub fn get_user_control_mode(&self) -> &::std::option::Option<crate::types::UserControlMode> {
+        &self.user_control_mode
+    }
     /// Consumes the builder and constructs a [`AgentAccessConfig`](crate::types::AgentAccessConfig).
     pub fn build(self) -> crate::types::AgentAccessConfig {
         crate::types::AgentAccessConfig {
@@ -143,6 +164,7 @@ impl AgentAccessConfigBuilder {
             screenshots_upload_enabled: self.screenshots_upload_enabled,
             screen_resolution: self.screen_resolution,
             screen_image_format: self.screen_image_format,
+            user_control_mode: self.user_control_mode,
         }
     }
 }

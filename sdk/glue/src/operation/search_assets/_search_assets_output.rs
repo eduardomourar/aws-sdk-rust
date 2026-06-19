@@ -2,14 +2,14 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SearchOutput {
+pub struct SearchAssetsOutput {
     /// <p>The list of assets matching the search criteria.</p>
     pub items: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
     /// <p>A continuation token, present if the current segment is not the last.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
-impl SearchOutput {
+impl SearchAssetsOutput {
     /// <p>The list of assets matching the search criteria.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.items.is_none()`.
@@ -21,27 +21,27 @@ impl SearchOutput {
         self.next_token.as_deref()
     }
 }
-impl ::aws_types::request_id::RequestId for SearchOutput {
+impl ::aws_types::request_id::RequestId for SearchAssetsOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
     }
 }
-impl SearchOutput {
-    /// Creates a new builder-style object to manufacture [`SearchOutput`](crate::operation::search::SearchOutput).
-    pub fn builder() -> crate::operation::search::builders::SearchOutputBuilder {
-        crate::operation::search::builders::SearchOutputBuilder::default()
+impl SearchAssetsOutput {
+    /// Creates a new builder-style object to manufacture [`SearchAssetsOutput`](crate::operation::search_assets::SearchAssetsOutput).
+    pub fn builder() -> crate::operation::search_assets::builders::SearchAssetsOutputBuilder {
+        crate::operation::search_assets::builders::SearchAssetsOutputBuilder::default()
     }
 }
 
-/// A builder for [`SearchOutput`](crate::operation::search::SearchOutput).
+/// A builder for [`SearchAssetsOutput`](crate::operation::search_assets::SearchAssetsOutput).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
-pub struct SearchOutputBuilder {
+pub struct SearchAssetsOutputBuilder {
     pub(crate) items: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
-impl SearchOutputBuilder {
+impl SearchAssetsOutputBuilder {
     /// Appends an item to `items`.
     ///
     /// To override the contents of this collection use [`set_items`](Self::set_items).
@@ -85,9 +85,9 @@ impl SearchOutputBuilder {
         self._request_id = request_id;
         self
     }
-    /// Consumes the builder and constructs a [`SearchOutput`](crate::operation::search::SearchOutput).
-    pub fn build(self) -> crate::operation::search::SearchOutput {
-        crate::operation::search::SearchOutput {
+    /// Consumes the builder and constructs a [`SearchAssetsOutput`](crate::operation::search_assets::SearchAssetsOutput).
+    pub fn build(self) -> crate::operation::search_assets::SearchAssetsOutput {
+        crate::operation::search_assets::SearchAssetsOutput {
             items: self.items,
             next_token: self.next_token,
             _request_id: self._request_id,

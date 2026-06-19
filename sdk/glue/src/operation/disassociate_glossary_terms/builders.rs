@@ -109,18 +109,18 @@ impl DisassociateGlossaryTermsFluentBuilder {
         self
     }
     /// <p>The unique identifier of the asset to disassociate glossary terms from.</p>
-    pub fn identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.inner = self.inner.identifier(input.into());
+    pub fn asset_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.asset_identifier(input.into());
         self
     }
     /// <p>The unique identifier of the asset to disassociate glossary terms from.</p>
-    pub fn set_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.inner = self.inner.set_identifier(input);
+    pub fn set_asset_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_asset_identifier(input);
         self
     }
     /// <p>The unique identifier of the asset to disassociate glossary terms from.</p>
-    pub fn get_identifier(&self) -> &::std::option::Option<::std::string::String> {
-        self.inner.get_identifier()
+    pub fn get_asset_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_asset_identifier()
     }
     ///
     /// Appends an item to `GlossaryTermIdentifiers`.

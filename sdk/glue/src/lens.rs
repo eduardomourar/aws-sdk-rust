@@ -499,8 +499,8 @@ pub(crate) fn reflens_list_workflows_output_output_next_token(
     ::std::option::Option::Some(input)
 }
 
-pub(crate) fn reflens_search_output_output_next_token(
-    input: &crate::operation::search::SearchOutput,
+pub(crate) fn reflens_search_assets_output_output_next_token(
+    input: &crate::operation::search_assets::SearchAssetsOutput,
 ) -> ::std::option::Option<&::std::string::String> {
     let input = match &input.next_token {
         ::std::option::Option::None => return ::std::option::Option::None,
@@ -694,8 +694,8 @@ pub(crate) fn lens_list_workflows_output_output_workflows(
     ::std::option::Option::Some(input)
 }
 
-pub(crate) fn lens_search_output_output_items(
-    input: crate::operation::search::SearchOutput,
+pub(crate) fn lens_search_assets_output_output_items(
+    input: crate::operation::search_assets::SearchAssetsOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>> {
     let input = input.items?;
     ::std::option::Option::Some(input)

@@ -27,6 +27,9 @@ pub fn ser_agent_access_config(
     if let Some(var_8) = &input.screen_image_format {
         object.key("ScreenImageFormat").string(var_8.as_str());
     }
+    if let Some(var_9) = &input.user_control_mode {
+        object.key("UserControlMode").string(var_9.as_str());
+    }
     Ok(())
 }
 
@@ -81,6 +84,13 @@ where
                             builder = builder.set_screen_image_format(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::ScreenImageFormat::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "UserControlMode" => {
+                            builder = builder.set_user_control_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::UserControlMode::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

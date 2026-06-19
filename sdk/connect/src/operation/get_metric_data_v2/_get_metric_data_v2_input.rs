@@ -50,7 +50,7 @@ pub struct GetMetricDataV2Input {
     /// <li>
     /// <p><code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and <code>connect:WebRTC</code> are valid filter value examples (not exhaustive) for the <code>contact/segmentAttributes/connect:Subtype</code> filter key.</p></li>
     /// <li>
-    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. This filter is case-sensitive and order-sensitive. JSON string fields must be sorted in ascending order, and JSON array order must be preserved.</p></li>
+    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p></li>
     /// <li>
     /// <p>TRUE and FALSE are the only valid filter values for the <code>Q_CONNECT_ENABLED</code> filter key.</p>
     /// <ul>
@@ -1530,7 +1530,7 @@ impl GetMetricDataV2Input {
     /// <li>
     /// <p><code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and <code>connect:WebRTC</code> are valid filter value examples (not exhaustive) for the <code>contact/segmentAttributes/connect:Subtype</code> filter key.</p></li>
     /// <li>
-    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. This filter is case-sensitive and order-sensitive. JSON string fields must be sorted in ascending order, and JSON array order must be preserved.</p></li>
+    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p></li>
     /// <li>
     /// <p>TRUE and FALSE are the only valid filter values for the <code>Q_CONNECT_ENABLED</code> filter key.</p>
     /// <ul>
@@ -3138,7 +3138,7 @@ impl GetMetricDataV2InputBuilder {
     /// <li>
     /// <p><code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and <code>connect:WebRTC</code> are valid filter value examples (not exhaustive) for the <code>contact/segmentAttributes/connect:Subtype</code> filter key.</p></li>
     /// <li>
-    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. This filter is case-sensitive and order-sensitive. JSON string fields must be sorted in ascending order, and JSON array order must be preserved.</p></li>
+    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p></li>
     /// <li>
     /// <p>TRUE and FALSE are the only valid filter values for the <code>Q_CONNECT_ENABLED</code> filter key.</p>
     /// <ul>
@@ -3177,7 +3177,7 @@ impl GetMetricDataV2InputBuilder {
     /// <li>
     /// <p><code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and <code>connect:WebRTC</code> are valid filter value examples (not exhaustive) for the <code>contact/segmentAttributes/connect:Subtype</code> filter key.</p></li>
     /// <li>
-    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. This filter is case-sensitive and order-sensitive. JSON string fields must be sorted in ascending order, and JSON array order must be preserved.</p></li>
+    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p></li>
     /// <li>
     /// <p>TRUE and FALSE are the only valid filter values for the <code>Q_CONNECT_ENABLED</code> filter key.</p>
     /// <ul>
@@ -3214,7 +3214,7 @@ impl GetMetricDataV2InputBuilder {
     /// <li>
     /// <p><code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and <code>connect:WebRTC</code> are valid filter value examples (not exhaustive) for the <code>contact/segmentAttributes/connect:Subtype</code> filter key.</p></li>
     /// <li>
-    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. This filter is case-sensitive and order-sensitive. JSON string fields must be sorted in ascending order, and JSON array order must be preserved.</p></li>
+    /// <p><code>ROUTING_STEP_EXPRESSION</code> accepts a filter value up to 3,000 characters in length. Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p></li>
     /// <li>
     /// <p>TRUE and FALSE are the only valid filter values for the <code>Q_CONNECT_ENABLED</code> filter key.</p>
     /// <ul>

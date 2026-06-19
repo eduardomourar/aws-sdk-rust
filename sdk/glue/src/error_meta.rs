@@ -7866,11 +7866,11 @@ impl From<crate::operation::run_statement::RunStatementError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search::SearchError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_assets::SearchAssetsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search::SearchError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_assets::SearchAssetsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -7880,14 +7880,14 @@ where
         }
     }
 }
-impl From<crate::operation::search::SearchError> for Error {
-    fn from(err: crate::operation::search::SearchError) -> Self {
+impl From<crate::operation::search_assets::SearchAssetsError> for Error {
+    fn from(err: crate::operation::search_assets::SearchAssetsError) -> Self {
         match err {
-            crate::operation::search::SearchError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::search::SearchError::InternalServiceException(inner) => Error::InternalServiceException(inner),
-            crate::operation::search::SearchError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::search::SearchError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::operation::search::SearchError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::search_assets::SearchAssetsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::search_assets::SearchAssetsError::InternalServiceException(inner) => Error::InternalServiceException(inner),
+            crate::operation::search_assets::SearchAssetsError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::search_assets::SearchAssetsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::search_assets::SearchAssetsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

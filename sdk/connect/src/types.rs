@@ -209,6 +209,8 @@ pub use crate::types::_filters::Filters;
 
 pub use crate::types::_user_data_filters::UserDataFilters;
 
+pub use crate::types::_evaluation_form_validation_status::EvaluationFormValidationStatus;
+
 pub use crate::types::_credentials::Credentials;
 
 pub use crate::types::_interval_details::IntervalDetails;
@@ -637,6 +639,8 @@ pub use crate::types::_effective_hours_of_operations::EffectiveHoursOfOperations
 
 pub use crate::types::_effective_override_hours::EffectiveOverrideHours;
 
+pub use crate::types::_evaluation_form_validation_finding::EvaluationFormValidationFinding;
+
 pub use crate::types::_historical_metric::HistoricalMetric;
 
 pub use crate::types::_historical_metric_result::HistoricalMetricResult;
@@ -777,6 +781,8 @@ pub use crate::types::_date_time_condition::DateTimeCondition;
 
 pub use crate::types::_decimal_condition::DecimalCondition;
 
+pub use crate::types::_contact_evaluation_attribute_filter::ContactEvaluationAttributeFilter;
+
 pub use crate::types::_evaluation_search_summary::EvaluationSearchSummary;
 
 pub use crate::types::_control_plane_tag_filter::ControlPlaneTagFilter;
@@ -890,6 +896,8 @@ pub use crate::types::_reference_status::ReferenceStatus;
 pub use crate::types::_evaluation_form_section::EvaluationFormSection;
 
 pub use crate::types::_evaluation_form_question::EvaluationFormQuestion;
+
+pub use crate::types::_evaluation_form_score_threshold::EvaluationFormScoreThreshold;
 
 pub use crate::types::_evaluation_review_notification_recipient::EvaluationReviewNotificationRecipient;
 
@@ -1011,6 +1019,8 @@ pub use crate::types::_hierarchy_path_reference::HierarchyPathReference;
 
 pub use crate::types::_agent_status_reference::AgentStatusReference;
 
+pub use crate::types::_evaluation_form_validation_finding_severity::EvaluationFormValidationFindingSeverity;
+
 pub use crate::types::_historical_metric_name::HistoricalMetricName;
 
 pub use crate::types::_threshold::Threshold;
@@ -1073,6 +1083,10 @@ pub use crate::types::_date_time_comparison_type::DateTimeComparisonType;
 
 pub use crate::types::_decimal_comparison_type::DecimalComparisonType;
 
+pub use crate::types::_contact_evaluation_attribute_and_condition::ContactEvaluationAttributeAndCondition;
+
+pub use crate::types::_contact_evaluation_attribute_condition::ContactEvaluationAttributeCondition;
+
 pub use crate::types::_evaluation_search_metadata::EvaluationSearchMetadata;
 
 pub use crate::types::_contact_flow_attribute_and_condition::ContactFlowAttributeAndCondition;
@@ -1118,6 +1132,10 @@ pub use crate::types::_evaluation_form_question_type::EvaluationFormQuestionType
 pub use crate::types::_evaluation_form_question_type_properties::EvaluationFormQuestionTypeProperties;
 
 pub use crate::types::_evaluation_form_item_enablement_configuration::EvaluationFormItemEnablementConfiguration;
+
+pub use crate::types::_evaluation_form_question_scoring_configuration::EvaluationFormQuestionScoringConfiguration;
+
+pub use crate::types::_performance_category_name::PerformanceCategoryName;
 
 pub use crate::types::_evaluation_review_notification_recipient_type::EvaluationReviewNotificationRecipientType;
 
@@ -1191,6 +1209,8 @@ pub use crate::types::_operational_hour::OperationalHour;
 
 pub use crate::types::_override_hour::OverrideHour;
 
+pub use crate::types::_evaluation_form_validation_finding_item::EvaluationFormValidationFindingItem;
+
 pub use crate::types::_comparison::Comparison;
 
 pub use crate::types::_historical_metric_data::HistoricalMetricData;
@@ -1214,6 +1234,12 @@ pub use crate::types::_real_time_contact_analysis_post_contact_summary_status::R
 pub use crate::types::_real_time_contact_analysis_post_contact_summary_failure_code::RealTimeContactAnalysisPostContactSummaryFailureCode;
 
 pub use crate::types::_action_summary::ActionSummary;
+
+pub use crate::types::_contact_evaluation_attribute_key::ContactEvaluationAttributeKey;
+
+pub use crate::types::_contact_evaluation_attribute_value::ContactEvaluationAttributeValue;
+
+pub use crate::types::_contact_evaluation_attribute_comparison_type::ContactEvaluationAttributeComparisonType;
 
 pub use crate::types::_searchable_routing_criteria_step::SearchableRoutingCriteriaStep;
 
@@ -1254,6 +1280,8 @@ pub use crate::types::_evaluation_form_multi_select_question_properties::Evaluat
 pub use crate::types::_evaluation_form_item_enablement_condition::EvaluationFormItemEnablementCondition;
 
 pub use crate::types::_evaluation_form_item_enablement_action::EvaluationFormItemEnablementAction;
+
+pub use crate::types::_question_points_configuration::QuestionPointsConfiguration;
 
 pub use crate::types::_field_value::FieldValue;
 
@@ -1370,6 +1398,8 @@ pub use crate::types::_real_time_contact_analysis_transcript_item_with_content::
 pub use crate::types::_agents_criteria::AgentsCriteria;
 
 pub use crate::types::_automatic_fail_configuration::AutomaticFailConfiguration;
+
+pub use crate::types::_question_option_points_configuration::QuestionOptionPointsConfiguration;
 
 pub use crate::types::_numeric_question_property_automation_label::NumericQuestionPropertyAutomationLabel;
 
@@ -1602,6 +1632,18 @@ mod _contact_data_request;
 mod _contact_details;
 
 mod _contact_evaluation;
+
+mod _contact_evaluation_attribute_and_condition;
+
+mod _contact_evaluation_attribute_comparison_type;
+
+mod _contact_evaluation_attribute_condition;
+
+mod _contact_evaluation_attribute_filter;
+
+mod _contact_evaluation_attribute_key;
+
+mod _contact_evaluation_attribute_value;
 
 mod _contact_filter;
 
@@ -1889,9 +1931,13 @@ mod _evaluation_form_question_automation_answer_source;
 
 mod _evaluation_form_question_automation_answer_source_type;
 
+mod _evaluation_form_question_scoring_configuration;
+
 mod _evaluation_form_question_type;
 
 mod _evaluation_form_question_type_properties;
+
+mod _evaluation_form_score_threshold;
 
 mod _evaluation_form_scoring_mode;
 
@@ -1924,6 +1970,14 @@ mod _evaluation_form_target_configuration;
 mod _evaluation_form_text_question_automation;
 
 mod _evaluation_form_text_question_properties;
+
+mod _evaluation_form_validation_finding;
+
+mod _evaluation_form_validation_finding_item;
+
+mod _evaluation_form_validation_finding_severity;
+
+mod _evaluation_form_validation_status;
 
 mod _evaluation_form_version_status;
 
@@ -2299,6 +2353,8 @@ mod _participant_token_credentials;
 
 mod _participant_type;
 
+mod _performance_category_name;
+
 mod _persistent_chat;
 
 mod _persistent_connection_config;
@@ -2358,6 +2414,10 @@ mod _property_validation_exception_property;
 mod _property_validation_exception_reason;
 
 mod _quality_metrics;
+
+mod _question_option_points_configuration;
+
+mod _question_points_configuration;
 
 mod _question_rule_category_automation_condition;
 

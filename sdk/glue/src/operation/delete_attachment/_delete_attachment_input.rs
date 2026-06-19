@@ -4,14 +4,26 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteAttachmentInput {
     /// <p>The unique identifier of the asset from which to delete the attachment.</p>
-    pub identifier: ::std::option::Option<::std::string::String>,
+    pub asset_identifier: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment is deleted from an item within the iterable form rather than from the asset itself.</p>
+    pub iterable_form_name: ::std::option::Option<::std::string::String>,
+    /// <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+    pub item_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The name of the attachment to delete.</p>
     pub attachment_name: ::std::option::Option<::std::string::String>,
 }
 impl DeleteAttachmentInput {
     /// <p>The unique identifier of the asset from which to delete the attachment.</p>
-    pub fn identifier(&self) -> ::std::option::Option<&str> {
-        self.identifier.as_deref()
+    pub fn asset_identifier(&self) -> ::std::option::Option<&str> {
+        self.asset_identifier.as_deref()
+    }
+    /// <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment is deleted from an item within the iterable form rather than from the asset itself.</p>
+    pub fn iterable_form_name(&self) -> ::std::option::Option<&str> {
+        self.iterable_form_name.as_deref()
+    }
+    /// <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+    pub fn item_identifier(&self) -> ::std::option::Option<&str> {
+        self.item_identifier.as_deref()
     }
     /// <p>The name of the attachment to delete.</p>
     pub fn attachment_name(&self) -> ::std::option::Option<&str> {
@@ -29,24 +41,54 @@ impl DeleteAttachmentInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteAttachmentInputBuilder {
-    pub(crate) identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) asset_identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) iterable_form_name: ::std::option::Option<::std::string::String>,
+    pub(crate) item_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) attachment_name: ::std::option::Option<::std::string::String>,
 }
 impl DeleteAttachmentInputBuilder {
     /// <p>The unique identifier of the asset from which to delete the attachment.</p>
     /// This field is required.
-    pub fn identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.identifier = ::std::option::Option::Some(input.into());
+    pub fn asset_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.asset_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the asset from which to delete the attachment.</p>
-    pub fn set_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identifier = input;
+    pub fn set_asset_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.asset_identifier = input;
         self
     }
     /// <p>The unique identifier of the asset from which to delete the attachment.</p>
-    pub fn get_identifier(&self) -> &::std::option::Option<::std::string::String> {
-        &self.identifier
+    pub fn get_asset_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.asset_identifier
+    }
+    /// <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment is deleted from an item within the iterable form rather than from the asset itself.</p>
+    pub fn iterable_form_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.iterable_form_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment is deleted from an item within the iterable form rather than from the asset itself.</p>
+    pub fn set_iterable_form_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.iterable_form_name = input;
+        self
+    }
+    /// <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment is deleted from an item within the iterable form rather than from the asset itself.</p>
+    pub fn get_iterable_form_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.iterable_form_name
+    }
+    /// <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+    pub fn item_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.item_identifier = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+    pub fn set_item_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.item_identifier = input;
+        self
+    }
+    /// <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+    pub fn get_item_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.item_identifier
     }
     /// <p>The name of the attachment to delete.</p>
     /// This field is required.
@@ -68,7 +110,9 @@ impl DeleteAttachmentInputBuilder {
         self,
     ) -> ::std::result::Result<crate::operation::delete_attachment::DeleteAttachmentInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::delete_attachment::DeleteAttachmentInput {
-            identifier: self.identifier,
+            asset_identifier: self.asset_identifier,
+            iterable_form_name: self.iterable_form_name,
+            item_identifier: self.item_identifier,
             attachment_name: self.attachment_name,
         })
     }

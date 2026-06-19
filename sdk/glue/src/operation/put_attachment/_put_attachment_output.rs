@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PutAttachmentOutput {
     /// <p>The unique identifier of the asset.</p>
-    pub asset_id: ::std::option::Option<::std::string::String>,
+    pub asset_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The name of the iterable form, if the attachment targets an item.</p>
     pub iterable_form_name: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the item within the iterable form, if applicable.</p>
@@ -17,8 +17,8 @@ pub struct PutAttachmentOutput {
 }
 impl PutAttachmentOutput {
     /// <p>The unique identifier of the asset.</p>
-    pub fn asset_id(&self) -> ::std::option::Option<&str> {
-        self.asset_id.as_deref()
+    pub fn asset_identifier(&self) -> ::std::option::Option<&str> {
+        self.asset_identifier.as_deref()
     }
     /// <p>The name of the iterable form, if the attachment targets an item.</p>
     pub fn iterable_form_name(&self) -> ::std::option::Option<&str> {
@@ -53,7 +53,7 @@ impl PutAttachmentOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAttachmentOutputBuilder {
-    pub(crate) asset_id: ::std::option::Option<::std::string::String>,
+    pub(crate) asset_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) iterable_form_name: ::std::option::Option<::std::string::String>,
     pub(crate) item_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) attachment_name: ::std::option::Option<::std::string::String>,
@@ -62,18 +62,18 @@ pub struct PutAttachmentOutputBuilder {
 }
 impl PutAttachmentOutputBuilder {
     /// <p>The unique identifier of the asset.</p>
-    pub fn asset_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.asset_id = ::std::option::Option::Some(input.into());
+    pub fn asset_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.asset_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the asset.</p>
-    pub fn set_asset_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.asset_id = input;
+    pub fn set_asset_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.asset_identifier = input;
         self
     }
     /// <p>The unique identifier of the asset.</p>
-    pub fn get_asset_id(&self) -> &::std::option::Option<::std::string::String> {
-        &self.asset_id
+    pub fn get_asset_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.asset_identifier
     }
     /// <p>The name of the iterable form, if the attachment targets an item.</p>
     pub fn iterable_form_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -143,7 +143,7 @@ impl PutAttachmentOutputBuilder {
     /// Consumes the builder and constructs a [`PutAttachmentOutput`](crate::operation::put_attachment::PutAttachmentOutput).
     pub fn build(self) -> crate::operation::put_attachment::PutAttachmentOutput {
         crate::operation::put_attachment::PutAttachmentOutput {
-            asset_id: self.asset_id,
+            asset_identifier: self.asset_identifier,
             iterable_form_name: self.iterable_form_name,
             item_identifier: self.item_identifier,
             attachment_name: self.attachment_name,

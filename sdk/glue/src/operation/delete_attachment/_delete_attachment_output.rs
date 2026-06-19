@@ -4,13 +4,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteAttachmentOutput {
     /// <p>The unique identifier of the asset.</p>
-    pub identifier: ::std::option::Option<::std::string::String>,
+    pub asset_identifier: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl DeleteAttachmentOutput {
     /// <p>The unique identifier of the asset.</p>
-    pub fn identifier(&self) -> ::std::option::Option<&str> {
-        self.identifier.as_deref()
+    pub fn asset_identifier(&self) -> ::std::option::Option<&str> {
+        self.asset_identifier.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for DeleteAttachmentOutput {
@@ -29,23 +29,23 @@ impl DeleteAttachmentOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteAttachmentOutputBuilder {
-    pub(crate) identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) asset_identifier: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl DeleteAttachmentOutputBuilder {
     /// <p>The unique identifier of the asset.</p>
-    pub fn identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.identifier = ::std::option::Option::Some(input.into());
+    pub fn asset_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.asset_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the asset.</p>
-    pub fn set_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identifier = input;
+    pub fn set_asset_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.asset_identifier = input;
         self
     }
     /// <p>The unique identifier of the asset.</p>
-    pub fn get_identifier(&self) -> &::std::option::Option<::std::string::String> {
-        &self.identifier
+    pub fn get_asset_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.asset_identifier
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
@@ -59,7 +59,7 @@ impl DeleteAttachmentOutputBuilder {
     /// Consumes the builder and constructs a [`DeleteAttachmentOutput`](crate::operation::delete_attachment::DeleteAttachmentOutput).
     pub fn build(self) -> crate::operation::delete_attachment::DeleteAttachmentOutput {
         crate::operation::delete_attachment::DeleteAttachmentOutput {
-            identifier: self.identifier,
+            asset_identifier: self.asset_identifier,
             _request_id: self._request_id,
         }
     }

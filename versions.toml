@@ -168,9 +168,9 @@ model_hash = '02fae6cd23a09c4946a3d419924cee0bde4333cfa7445e133ecb9532860f8d9c'
 
 [crates.aws-sdk-appstream]
 category = 'AwsSdk'
-version = '1.116.0'
-source_hash = '7fb306c7516154d0a4bb1030a21a0a08def17d9bffbb3f485a853c7e3f6e695e'
-model_hash = '951c8550e003c06417fdbde6fa32dfb1e81a606537d7a1e49cef0a63d11c3159'
+version = '1.117.0'
+source_hash = '34f4d4660038461271700684ac37f55b6478988ffef0be46b8ae4679adddaaec'
+model_hash = 'c82ef081551cd2a18b479c4b6babd6cf178fe1ac0eeb822487c93104c2d6d286'
 
 [crates.aws-sdk-appsync]
 category = 'AwsSdk'
@@ -282,9 +282,9 @@ model_hash = '96baefe9a2cf51e8a65b35ae4378ae6e4dade12358279766a88c2512011feb9c'
 
 [crates.aws-sdk-bedrockagent]
 category = 'AwsSdk'
-version = '1.135.0'
-source_hash = '490d7ef748e9d09be3d36d49ab6a0d2969a020524f281f5a71ba3ef9eee84bc0'
-model_hash = 'd4c1e0c6a1ee2b263808df524eb48debc7266830cc5c41f7c549b64cbe196970'
+version = '1.136.0'
+source_hash = '85643a0704f5ab7001d85a34fb25380bfe788c02c4403145fb3dee9684507c62'
+model_hash = '4b508781453bce8e891ef0839336c5ba097c6ca616ea0cf6a539b6e6a4347c7a'
 
 [crates.aws-sdk-bedrockagentcore]
 category = 'AwsSdk'
@@ -612,9 +612,9 @@ model_hash = 'acc70d6316030221104540715b5f79860f52e251f7cda4db828e3feef5e2ec3e'
 
 [crates.aws-sdk-connect]
 category = 'AwsSdk'
-version = '1.178.0'
-source_hash = 'eb350de83bc11a221af73d1b242933a138f19abdc4fddf14cc3b209f50d0a79e'
-model_hash = '12c6d57acf62a9d9750034c59892c193fbf57acde3360dfa0feb5291c5536fbc'
+version = '1.179.0'
+source_hash = 'bccb4192db1b2e9262840bb82a801cba84647f98ab000aa8d124b6a913f5aa22'
+model_hash = '94349e4138b586079ceb883113f093496c047231a14395098f0a30e7c9acc41c'
 
 [crates.aws-sdk-connectcampaigns]
 category = 'AwsSdk'
@@ -1056,9 +1056,9 @@ model_hash = '49e79b09a292deabd92ff649f62f6481a349625f4ab3da8399dfc786117bfbed'
 
 [crates.aws-sdk-glue]
 category = 'AwsSdk'
-version = '1.151.0'
-source_hash = '92bdee05079c7fef1ebc02295f880b3cd0a8fee4df0e8fed25288bd90d696c59'
-model_hash = '085f026b3ec17b3fc7c12f8bba5e9d3e6a7b38b38bf26e65567339f3d029dd87'
+version = '1.152.0'
+source_hash = '1d8aa8ecd80077c894e20c44edb67cbe04946626b9e910e61c4357dcf24d0d51'
+model_hash = '265d6840134e3dd5cdb8443c27289dae1dff2f4d5ff00f78f07ac45a30457e43'
 
 [crates.aws-sdk-grafana]
 category = 'AwsSdk'
@@ -1722,9 +1722,9 @@ model_hash = '99c7e67cf8d162d3983c5844fd9c3109127388e7d8a588397fb313185b52ac15'
 
 [crates.aws-sdk-opensearch]
 category = 'AwsSdk'
-version = '1.133.0'
-source_hash = 'f80b6a7b7033619acf5b7eecd491cb382ebcb74b87aa4f0c3cf161bbd0caa6a9'
-model_hash = 'a9ae8dd6b5448fbd352a61a4a924748b7c6afa5a38972b95e2e8acf53f712c52'
+version = '1.134.0'
+source_hash = '3bbced5fd64d3a302c3f85a7f58dd95342bdc95b3813705e951e1cacbf12115f'
+model_hash = '08b00a617bb84ecba397d3de22d2688faadcdaa9b9c1f626d892764d0e23e13b'
 
 [crates.aws-sdk-opensearchserverless]
 category = 'AwsSdk'
@@ -2647,7 +2647,7 @@ source_hash = 'cd1782da73f6fefae3a14187594f2ea4b246e167c6d34f92dbcdf9733999c5a1'
 [crates.aws-smithy-http-fuzz]
 category = 'SmithyRuntime'
 version = '0.0.0'
-source_hash = '1bbb71b3aceeb61085b187e782ee04747a9603276bb16bc1f9ab0a70c5bb8c3d'
+source_hash = '6e980f4cc521d299dbe7d5ff09966efaeabf4a9463b51287a858ce67151c9ff3'
 
 [crates.aws-smithy-json]
 category = 'SmithyRuntime'
@@ -2743,21 +2743,9 @@ source_hash = '2048630ced83752734acab91b747e383b0f8cdfec43f5f411ae936c31a5b6653'
 category = 'AwsRuntime'
 version = '0.0.0'
 source_hash = 'cd48a666d75ebba7d77758b10af3e6dc36768267cb74940ffbd237bff2b5bd92'
-
-[release]
-tag = 'release-2026-06-18'
-
 [release.crates]
-aws-sdk-applicationautoscaling = '1.110.0'
-aws-sdk-batch = '1.118.0'
-aws-sdk-cloudwatchlogs = '1.138.0'
-aws-sdk-cognitoidentityprovider = '1.122.0'
-aws-sdk-computeoptimizer = '1.111.0'
-aws-sdk-ec2 = '1.232.1'
-aws-sdk-ecs = '1.132.0'
-aws-sdk-eks = '1.136.0'
-aws-sdk-gamelift = '1.116.0'
-aws-sdk-healthlake = '1.107.0'
-aws-sdk-lambda = '1.128.0'
-aws-sdk-sagemaker = '1.210.0'
-aws-sdk-synthetics = '1.112.0'
+aws-sdk-appstream = '1.117.0'
+aws-sdk-bedrockagent = '1.136.0'
+aws-sdk-connect = '1.179.0'
+aws-sdk-glue = '1.152.0'
+aws-sdk-opensearch = '1.134.0'

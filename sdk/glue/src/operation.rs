@@ -712,8 +712,8 @@ pub mod resume_workflow_run;
 /// Types for the `RunStatement` operation.
 pub mod run_statement;
 
-/// Types for the `Search` operation.
-pub mod search;
+/// Types for the `SearchAssets` operation.
+pub mod search_assets;
 
 /// Types for the `SearchTables` operation.
 pub mod search_tables;

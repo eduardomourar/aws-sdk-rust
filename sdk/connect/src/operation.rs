@@ -499,6 +499,9 @@ pub mod get_current_user_data;
 /// Types for the `GetEffectiveHoursOfOperations` operation.
 pub mod get_effective_hours_of_operations;
 
+/// Types for the `GetEvaluationFormValidation` operation.
+pub mod get_evaluation_form_validation;
+
 /// Types for the `GetFederationToken` operation.
 pub mod get_federation_token;
 
@@ -861,6 +864,9 @@ pub mod start_contact_streaming;
 
 /// Types for the `StartEmailContact` operation.
 pub mod start_email_contact;
+
+/// Types for the `StartEvaluationFormValidation` operation.
+pub mod start_evaluation_form_validation;
 
 /// Types for the `StartOutboundChatContact` operation.
 pub mod start_outbound_chat_contact;

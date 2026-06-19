@@ -477,6 +477,8 @@ pub use crate::types::_effective_hours_of_operations::EffectiveHoursOfOperations
 
 pub use crate::types::_effective_override_hours::EffectiveOverrideHoursBuilder;
 
+pub use crate::types::_evaluation_form_validation_finding::EvaluationFormValidationFindingBuilder;
+
 pub use crate::types::_historical_metric::HistoricalMetricBuilder;
 
 pub use crate::types::_historical_metric_result::HistoricalMetricResultBuilder;
@@ -603,6 +605,8 @@ pub use crate::types::_date_time_condition::DateTimeConditionBuilder;
 
 pub use crate::types::_decimal_condition::DecimalConditionBuilder;
 
+pub use crate::types::_contact_evaluation_attribute_filter::ContactEvaluationAttributeFilterBuilder;
+
 pub use crate::types::_evaluation_search_summary::EvaluationSearchSummaryBuilder;
 
 pub use crate::types::_control_plane_tag_filter::ControlPlaneTagFilterBuilder;
@@ -686,6 +690,8 @@ pub use crate::types::_encryption_config::EncryptionConfigBuilder;
 pub use crate::types::_evaluation_form_section::EvaluationFormSectionBuilder;
 
 pub use crate::types::_evaluation_form_question::EvaluationFormQuestionBuilder;
+
+pub use crate::types::_evaluation_form_score_threshold::EvaluationFormScoreThresholdBuilder;
 
 pub use crate::types::_evaluation_review_notification_recipient::EvaluationReviewNotificationRecipientBuilder;
 
@@ -817,6 +823,10 @@ pub use crate::types::_common_attribute_and_condition::CommonAttributeAndConditi
 
 pub use crate::types::_tag_condition::TagConditionBuilder;
 
+pub use crate::types::_contact_evaluation_attribute_and_condition::ContactEvaluationAttributeAndConditionBuilder;
+
+pub use crate::types::_contact_evaluation_attribute_condition::ContactEvaluationAttributeConditionBuilder;
+
 pub use crate::types::_evaluation_search_metadata::EvaluationSearchMetadataBuilder;
 
 pub use crate::types::_contact_flow_attribute_and_condition::ContactFlowAttributeAndConditionBuilder;
@@ -846,6 +856,8 @@ pub use crate::types::_routing_criteria_input_step::RoutingCriteriaInputStepBuil
 pub use crate::types::_primary_value_response::PrimaryValueResponseBuilder;
 
 pub use crate::types::_evaluation_form_item_enablement_configuration::EvaluationFormItemEnablementConfigurationBuilder;
+
+pub use crate::types::_evaluation_form_question_scoring_configuration::EvaluationFormQuestionScoringConfigurationBuilder;
 
 pub use crate::types::_evaluation_review_notification_recipient_value::EvaluationReviewNotificationRecipientValueBuilder;
 
@@ -891,6 +903,8 @@ pub use crate::types::_operational_hour::OperationalHourBuilder;
 
 pub use crate::types::_override_hour::OverrideHourBuilder;
 
+pub use crate::types::_evaluation_form_validation_finding_item::EvaluationFormValidationFindingItemBuilder;
+
 pub use crate::types::_historical_metric_data::HistoricalMetricDataBuilder;
 
 pub use crate::types::_threshold_v2::ThresholdV2Builder;
@@ -902,6 +916,8 @@ pub use crate::types::_metric_data_v2::MetricDataV2Builder;
 pub use crate::types::_real_time_contact_analysis_transcript_item_redaction::RealTimeContactAnalysisTranscriptItemRedactionBuilder;
 
 pub use crate::types::_action_summary::ActionSummaryBuilder;
+
+pub use crate::types::_contact_evaluation_attribute_value::ContactEvaluationAttributeValueBuilder;
 
 pub use crate::types::_searchable_routing_criteria_step::SearchableRoutingCriteriaStepBuilder;
 
@@ -938,6 +954,8 @@ pub use crate::types::_evaluation_form_text_question_properties::EvaluationFormT
 pub use crate::types::_evaluation_form_multi_select_question_properties::EvaluationFormMultiSelectQuestionPropertiesBuilder;
 
 pub use crate::types::_evaluation_form_item_enablement_condition::EvaluationFormItemEnablementConditionBuilder;
+
+pub use crate::types::_question_points_configuration::QuestionPointsConfigurationBuilder;
 
 pub use crate::types::_field_value::FieldValueBuilder;
 
@@ -1006,6 +1024,8 @@ pub use crate::types::_real_time_contact_analysis_transcript_item_with_content::
 pub use crate::types::_agents_criteria::AgentsCriteriaBuilder;
 
 pub use crate::types::_automatic_fail_configuration::AutomaticFailConfigurationBuilder;
+
+pub use crate::types::_question_option_points_configuration::QuestionOptionPointsConfigurationBuilder;
 
 pub use crate::types::_evaluation_form_item_enablement_expression::EvaluationFormItemEnablementExpressionBuilder;
 

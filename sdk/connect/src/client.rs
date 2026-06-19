@@ -495,6 +495,8 @@ mod get_current_user_data;
 
 mod get_effective_hours_of_operations;
 
+mod get_evaluation_form_validation;
+
 mod get_federation_token;
 
 mod get_flow_association;
@@ -736,6 +738,8 @@ mod start_contact_recording;
 mod start_contact_streaming;
 
 mod start_email_contact;
+
+mod start_evaluation_form_validation;
 
 mod start_outbound_chat_contact;
 

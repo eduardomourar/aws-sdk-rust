@@ -148,6 +148,8 @@ mod associate_package;
 
 mod associate_packages;
 
+mod attach_data_source;
+
 mod authorize_vpc_endpoint_access;
 
 mod cancel_domain_config_change;
@@ -213,6 +215,8 @@ mod delete_vpc_endpoint;
 
 mod deregister_capability;
 
+mod describe_data_source_attachment;
+
 mod describe_domain;
 
 mod describe_domain_auto_tunes;
@@ -245,6 +249,8 @@ mod describe_reserved_instances;
 
 mod describe_vpc_endpoints;
 
+mod detach_data_source;
+
 mod dissociate_package;
 
 mod dissociate_packages;
@@ -272,6 +278,8 @@ mod get_upgrade_history;
 mod get_upgrade_status;
 
 mod list_applications;
+
+mod list_data_source_attachments;
 
 mod list_data_sources;
 

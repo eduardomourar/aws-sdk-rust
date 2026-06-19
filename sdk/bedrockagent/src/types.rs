@@ -55,6 +55,8 @@ pub use crate::types::_data_source_status::DataSourceStatus;
 
 pub use crate::types::_flow_status::FlowStatus;
 
+pub use crate::types::_included_data::IncludedData;
+
 pub use crate::types::_ingestion_job::IngestionJob;
 
 pub use crate::types::_ingestion_job_sort_by::IngestionJobSortBy;
@@ -880,6 +882,8 @@ mod _hierarchical_chunking_level_configuration;
 mod _image_extraction_configuration;
 
 mod _include_exclude;
+
+mod _included_data;
 
 mod _incompatible_connection_data_type_flow_validation_details;
 

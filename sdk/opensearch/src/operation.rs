@@ -19,6 +19,9 @@ pub mod associate_package;
 /// Types for the `AssociatePackages` operation.
 pub mod associate_packages;
 
+/// Types for the `AttachDataSource` operation.
+pub mod attach_data_source;
+
 /// Types for the `AuthorizeVpcEndpointAccess` operation.
 pub mod authorize_vpc_endpoint_access;
 
@@ -76,6 +79,9 @@ pub mod delete_vpc_endpoint;
 /// Types for the `DeregisterCapability` operation.
 pub mod deregister_capability;
 
+/// Types for the `DescribeDataSourceAttachment` operation.
+pub mod describe_data_source_attachment;
+
 /// Types for the `DescribeDomain` operation.
 pub mod describe_domain;
 
@@ -124,6 +130,9 @@ pub mod describe_reserved_instances;
 /// Types for the `DescribeVpcEndpoints` operation.
 pub mod describe_vpc_endpoints;
 
+/// Types for the `DetachDataSource` operation.
+pub mod detach_data_source;
+
 /// Types for the `DissociatePackage` operation.
 pub mod dissociate_package;
 
@@ -165,6 +174,9 @@ pub mod get_upgrade_status;
 
 /// Types for the `ListApplications` operation.
 pub mod list_applications;
+
+/// Types for the `ListDataSourceAttachments` operation.
+pub mod list_data_source_attachments;
 
 /// Types for the `ListDataSources` operation.
 pub mod list_data_sources;

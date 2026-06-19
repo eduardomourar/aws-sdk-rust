@@ -6476,6 +6476,46 @@ impl From<crate::operation::get_effective_hours_of_operations::GetEffectiveHours
         }
     }
 }
+impl<R>
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError> for Error {
+    fn from(err: crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError) -> Self {
+        match err {
+            crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError::InternalServiceException(inner) => {
+                Error::InternalServiceException(inner)
+            }
+            crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_evaluation_form_validation::GetEvaluationFormValidationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_federation_token::GetFederationTokenError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -10679,6 +10719,53 @@ impl From<crate::operation::start_email_contact::StartEmailContactError> for Err
             }
             crate::operation::start_email_contact::StartEmailContactError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::start_email_contact::StartEmailContactError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError, R>,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError> for Error {
+    fn from(err: crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError) -> Self {
+        match err {
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::InternalServiceException(inner) => {
+                Error::InternalServiceException(inner)
+            }
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::ResourceConflictException(inner) => {
+                Error::ResourceConflictException(inner)
+            }
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::ServiceQuotaExceededException(inner) => {
+                Error::ServiceQuotaExceededException(inner)
+            }
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::start_evaluation_form_validation::StartEvaluationFormValidationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

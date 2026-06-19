@@ -135,6 +135,8 @@ pub use crate::types::_screen_resolution::ScreenResolution;
 
 pub use crate::types::_screen_image_format::ScreenImageFormat;
 
+pub use crate::types::_user_control_mode::UserControlMode;
+
 pub use crate::types::_application_settings_response::ApplicationSettingsResponse;
 
 pub use crate::types::_theme_footer_link::ThemeFooterLink;
@@ -404,6 +406,8 @@ mod _usage_report_schedule;
 mod _usage_report_subscription;
 
 mod _user;
+
+mod _user_control_mode;
 
 mod _user_setting;
 

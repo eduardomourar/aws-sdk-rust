@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AssociateGlossaryTermsInput {
     /// <p>The unique identifier of the asset to associate glossary terms with.</p>
-    pub identifier: ::std::option::Option<::std::string::String>,
+    pub asset_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The list of glossary term identifiers to associate with the asset.</p>
     pub glossary_term_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -12,8 +12,8 @@ pub struct AssociateGlossaryTermsInput {
 }
 impl AssociateGlossaryTermsInput {
     /// <p>The unique identifier of the asset to associate glossary terms with.</p>
-    pub fn identifier(&self) -> ::std::option::Option<&str> {
-        self.identifier.as_deref()
+    pub fn asset_identifier(&self) -> ::std::option::Option<&str> {
+        self.asset_identifier.as_deref()
     }
     /// <p>The list of glossary term identifiers to associate with the asset.</p>
     ///
@@ -37,25 +37,25 @@ impl AssociateGlossaryTermsInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateGlossaryTermsInputBuilder {
-    pub(crate) identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) asset_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) glossary_term_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
 }
 impl AssociateGlossaryTermsInputBuilder {
     /// <p>The unique identifier of the asset to associate glossary terms with.</p>
     /// This field is required.
-    pub fn identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.identifier = ::std::option::Option::Some(input.into());
+    pub fn asset_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.asset_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the asset to associate glossary terms with.</p>
-    pub fn set_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identifier = input;
+    pub fn set_asset_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.asset_identifier = input;
         self
     }
     /// <p>The unique identifier of the asset to associate glossary terms with.</p>
-    pub fn get_identifier(&self) -> &::std::option::Option<::std::string::String> {
-        &self.identifier
+    pub fn get_asset_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.asset_identifier
     }
     /// Appends an item to `glossary_term_identifiers`.
     ///
@@ -99,7 +99,7 @@ impl AssociateGlossaryTermsInputBuilder {
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(crate::operation::associate_glossary_terms::AssociateGlossaryTermsInput {
-            identifier: self.identifier,
+            asset_identifier: self.asset_identifier,
             glossary_term_identifiers: self.glossary_term_identifiers,
             client_token: self.client_token,
         })

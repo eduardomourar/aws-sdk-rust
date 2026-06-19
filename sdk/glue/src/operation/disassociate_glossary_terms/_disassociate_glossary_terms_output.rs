@@ -4,15 +4,15 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DisassociateGlossaryTermsOutput {
     /// <p>The unique identifier of the asset.</p>
-    pub identifier: ::std::option::Option<::std::string::String>,
+    pub asset_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The remaining glossary terms associated with the asset.</p>
     pub glossary_terms: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     _request_id: Option<String>,
 }
 impl DisassociateGlossaryTermsOutput {
     /// <p>The unique identifier of the asset.</p>
-    pub fn identifier(&self) -> ::std::option::Option<&str> {
-        self.identifier.as_deref()
+    pub fn asset_identifier(&self) -> ::std::option::Option<&str> {
+        self.asset_identifier.as_deref()
     }
     /// <p>The remaining glossary terms associated with the asset.</p>
     ///
@@ -37,24 +37,24 @@ impl DisassociateGlossaryTermsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisassociateGlossaryTermsOutputBuilder {
-    pub(crate) identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) asset_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) glossary_terms: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     _request_id: Option<String>,
 }
 impl DisassociateGlossaryTermsOutputBuilder {
     /// <p>The unique identifier of the asset.</p>
-    pub fn identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.identifier = ::std::option::Option::Some(input.into());
+    pub fn asset_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.asset_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the asset.</p>
-    pub fn set_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identifier = input;
+    pub fn set_asset_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.asset_identifier = input;
         self
     }
     /// <p>The unique identifier of the asset.</p>
-    pub fn get_identifier(&self) -> &::std::option::Option<::std::string::String> {
-        &self.identifier
+    pub fn get_asset_identifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.asset_identifier
     }
     /// Appends an item to `glossary_terms`.
     ///
@@ -88,7 +88,7 @@ impl DisassociateGlossaryTermsOutputBuilder {
     /// Consumes the builder and constructs a [`DisassociateGlossaryTermsOutput`](crate::operation::disassociate_glossary_terms::DisassociateGlossaryTermsOutput).
     pub fn build(self) -> crate::operation::disassociate_glossary_terms::DisassociateGlossaryTermsOutput {
         crate::operation::disassociate_glossary_terms::DisassociateGlossaryTermsOutput {
-            identifier: self.identifier,
+            asset_identifier: self.asset_identifier,
             glossary_terms: self.glossary_terms,
             _request_id: self._request_id,
         }

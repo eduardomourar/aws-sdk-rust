@@ -24,6 +24,12 @@ pub fn ser_evaluation_form_single_select_question_option(
         crate::protocol_serde::shape_automatic_fail_configuration::ser_automatic_fail_configuration(&mut object_2, var_1)?;
         object_2.finish();
     }
+    if let Some(var_3) = &input.points_configuration {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("PointsConfiguration").start_object();
+        crate::protocol_serde::shape_question_option_points_configuration::ser_question_option_points_configuration(&mut object_4, var_3)?;
+        object_4.finish();
+    }
     Ok(())
 }
 
@@ -76,6 +82,15 @@ where
                         "AutomaticFailConfiguration" => {
                             builder = builder.set_automatic_fail_configuration(
                                 crate::protocol_serde::shape_automatic_fail_configuration::de_automatic_fail_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "PointsConfiguration" => {
+                            builder = builder.set_points_configuration(
+                                crate::protocol_serde::shape_question_option_points_configuration::de_question_option_points_configuration(
                                     tokens,
                                     _value,
                                     depth + 1,

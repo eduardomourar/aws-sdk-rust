@@ -5,6 +5,8 @@ pub use crate::types::_package_association_configuration::PackageAssociationConf
 
 pub use crate::types::_domain_package_details::DomainPackageDetailsBuilder;
 
+pub use crate::types::_workspace_configuration_input::WorkspaceConfigurationInputBuilder;
+
 pub use crate::types::_service_options::ServiceOptionsBuilder;
 
 pub use crate::types::_authorized_principal::AuthorizedPrincipalBuilder;
@@ -228,6 +230,8 @@ pub use crate::types::_package_version_history::PackageVersionHistoryBuilder;
 pub use crate::types::_upgrade_history::UpgradeHistoryBuilder;
 
 pub use crate::types::_application_summary::ApplicationSummaryBuilder;
+
+pub use crate::types::_data_source_attachment_summary::DataSourceAttachmentSummaryBuilder;
 
 pub use crate::types::_data_source_details::DataSourceDetailsBuilder;
 

@@ -9,6 +9,10 @@ pub use crate::types::_package_association_configuration::PackageAssociationConf
 
 pub use crate::types::_domain_package_details::DomainPackageDetails;
 
+pub use crate::types::_workspace_configuration_input::WorkspaceConfigurationInput;
+
+pub use crate::types::_data_source_attachment_status::DataSourceAttachmentStatus;
+
 pub use crate::types::_aws_service_principal::AwsServicePrincipal;
 
 pub use crate::types::_service_options::ServiceOptions;
@@ -323,6 +327,8 @@ pub use crate::types::_upgrade_history::UpgradeHistory;
 
 pub use crate::types::_application_summary::ApplicationSummary;
 
+pub use crate::types::_data_source_attachment_summary::DataSourceAttachmentSummary;
+
 pub use crate::types::_data_source_details::DataSourceDetails;
 
 pub use crate::types::_direct_query_data_source::DirectQueryDataSource;
@@ -556,6 +562,10 @@ mod _connection_properties;
 mod _cross_cluster_search_connection_properties;
 
 mod _data_source;
+
+mod _data_source_attachment_status;
+
+mod _data_source_attachment_summary;
 
 mod _data_source_details;
 
@@ -882,6 +892,8 @@ mod _vpc_endpoint_summary;
 mod _vpc_options;
 
 mod _window_start_time;
+
+mod _workspace_configuration_input;
 
 mod _zone_awareness_config;
 

@@ -27,5 +27,8 @@ pub fn ser_agent_access_config_for_update(
     if let Some(var_8) = &input.screen_image_format {
         object.key("ScreenImageFormat").string(var_8.as_str());
     }
+    if let Some(var_9) = &input.user_control_mode {
+        object.key("UserControlMode").string(var_9.as_str());
+    }
     Ok(())
 }

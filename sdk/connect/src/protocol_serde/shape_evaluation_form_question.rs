@@ -39,6 +39,15 @@ pub fn ser_evaluation_form_question(
             ::aws_smithy_types::Number::Float((input.weight).into()),
         );
     }
+    if let Some(var_6) = &input.scoring_configuration {
+        #[allow(unused_mut)]
+        let mut object_7 = object.key("ScoringConfiguration").start_object();
+        crate::protocol_serde::shape_evaluation_form_question_scoring_configuration::ser_evaluation_form_question_scoring_configuration(
+            &mut object_7,
+            var_6,
+        )?;
+        object_7.finish();
+    }
     Ok(())
 }
 
@@ -110,6 +119,11 @@ where
                             "Weight" => {
                                 builder = builder.set_weight(
                                     ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
+                                );
+                            }
+                            "ScoringConfiguration" => {
+                                builder = builder.set_scoring_configuration(
+                                    crate::protocol_serde::shape_evaluation_form_question_scoring_configuration::de_evaluation_form_question_scoring_configuration(tokens, _value, depth + 1)?
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

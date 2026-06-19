@@ -497,7 +497,7 @@ pub(crate) mod shape_resume_workflow_run;
 
 pub(crate) mod shape_run_statement;
 
-pub(crate) mod shape_search;
+pub(crate) mod shape_search_assets;
 
 pub(crate) mod shape_search_tables;
 
@@ -1179,7 +1179,7 @@ pub(crate) mod shape_scheduler_running_exception;
 
 pub(crate) mod shape_scheduler_transitioning_exception;
 
-pub(crate) mod shape_search_input;
+pub(crate) mod shape_search_assets_input;
 
 pub(crate) mod shape_search_tables_input;
 

@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SearchInput {
+pub struct SearchAssetsInput {
     /// <p>The text to search for. At least one of <code>searchText</code> or <code>filterClause</code> must be provided.</p>
     pub search_text: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of results to return in the response.</p>
@@ -14,7 +14,7 @@ pub struct SearchInput {
     /// <p>The filter clause to apply to the search. Supports nested AND/OR logic with attribute-level and map-level filters.</p>
     pub filter_clause: ::std::option::Option<crate::types::SearchFilterClause>,
 }
-impl SearchInput {
+impl SearchAssetsInput {
     /// <p>The text to search for. At least one of <code>searchText</code> or <code>filterClause</code> must be provided.</p>
     pub fn search_text(&self) -> ::std::option::Option<&str> {
         self.search_text.as_deref()
@@ -36,24 +36,24 @@ impl SearchInput {
         self.filter_clause.as_ref()
     }
 }
-impl SearchInput {
-    /// Creates a new builder-style object to manufacture [`SearchInput`](crate::operation::search::SearchInput).
-    pub fn builder() -> crate::operation::search::builders::SearchInputBuilder {
-        crate::operation::search::builders::SearchInputBuilder::default()
+impl SearchAssetsInput {
+    /// Creates a new builder-style object to manufacture [`SearchAssetsInput`](crate::operation::search_assets::SearchAssetsInput).
+    pub fn builder() -> crate::operation::search_assets::builders::SearchAssetsInputBuilder {
+        crate::operation::search_assets::builders::SearchAssetsInputBuilder::default()
     }
 }
 
-/// A builder for [`SearchInput`](crate::operation::search::SearchInput).
+/// A builder for [`SearchAssetsInput`](crate::operation::search_assets::SearchAssetsInput).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
-pub struct SearchInputBuilder {
+pub struct SearchAssetsInputBuilder {
     pub(crate) search_text: ::std::option::Option<::std::string::String>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) sort: ::std::option::Option<crate::types::SearchSort>,
     pub(crate) filter_clause: ::std::option::Option<crate::types::SearchFilterClause>,
 }
-impl SearchInputBuilder {
+impl SearchAssetsInputBuilder {
     /// <p>The text to search for. At least one of <code>searchText</code> or <code>filterClause</code> must be provided.</p>
     pub fn search_text(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.search_text = ::std::option::Option::Some(input.into());
@@ -124,9 +124,11 @@ impl SearchInputBuilder {
     pub fn get_filter_clause(&self) -> &::std::option::Option<crate::types::SearchFilterClause> {
         &self.filter_clause
     }
-    /// Consumes the builder and constructs a [`SearchInput`](crate::operation::search::SearchInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::search::SearchInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::search::SearchInput {
+    /// Consumes the builder and constructs a [`SearchAssetsInput`](crate::operation::search_assets::SearchAssetsInput).
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::search_assets::SearchAssetsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::search_assets::SearchAssetsInput {
             search_text: self.search_text,
             max_results: self.max_results,
             next_token: self.next_token,

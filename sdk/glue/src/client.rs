@@ -66,7 +66,7 @@ pub(crate) struct Handle {
 ///
 /// ```rust,ignore
 /// let result = client.associate_glossary_terms()
-///     .identifier("example")
+///     .asset_identifier("example")
 ///     .send()
 ///     .await;
 /// ```
@@ -637,7 +637,7 @@ mod resume_workflow_run;
 
 mod run_statement;
 
-mod search;
+mod search_assets;
 
 mod search_tables;
 

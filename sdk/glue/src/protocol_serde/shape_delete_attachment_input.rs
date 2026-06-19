@@ -3,11 +3,17 @@ pub fn ser_delete_attachment_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::operation::delete_attachment::DeleteAttachmentInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.identifier {
-        object.key("Identifier").string(var_1.as_str());
+    if let Some(var_1) = &input.asset_identifier {
+        object.key("AssetIdentifier").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.attachment_name {
-        object.key("AttachmentName").string(var_2.as_str());
+    if let Some(var_2) = &input.iterable_form_name {
+        object.key("IterableFormName").string(var_2.as_str());
+    }
+    if let Some(var_3) = &input.item_identifier {
+        object.key("ItemIdentifier").string(var_3.as_str());
+    }
+    if let Some(var_4) = &input.attachment_name {
+        object.key("AttachmentName").string(var_4.as_str());
     }
     Ok(())
 }

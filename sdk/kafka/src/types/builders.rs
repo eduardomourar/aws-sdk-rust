@@ -179,6 +179,8 @@ pub use crate::types::_vpc_connectivity_client_authentication::VpcConnectivityCl
 
 pub use crate::types::_kafka_cluster_sasl_scram_authentication::KafkaClusterSaslScramAuthenticationBuilder;
 
+pub use crate::types::_kafka_cluster_mtls_authentication::KafkaClusterMtlsAuthenticationBuilder;
+
 pub use crate::types::_replication_starting_position::ReplicationStartingPositionBuilder;
 
 pub use crate::types::_replication_topic_name_configuration::ReplicationTopicNameConfigurationBuilder;

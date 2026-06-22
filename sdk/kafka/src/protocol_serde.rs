@@ -425,6 +425,8 @@ pub(crate) mod shape_iam;
 
 pub(crate) mod shape_jmx_exporter_info;
 
+pub(crate) mod shape_kafka_cluster_mtls_authentication;
+
 pub(crate) mod shape_kafka_cluster_sasl_scram_authentication;
 
 pub(crate) mod shape_list_of_broker_ebs_volume_info;

@@ -104,6 +104,7 @@ The AWS SDK for Rust contains one crate for each AWS service, as well as [aws-co
 | AWS Key Management Service | [aws-sdk-kms](https://crates.io/crates/aws-sdk-kms) ([docs](https://docs.rs/aws-sdk-kms)) |
 | AWS Lake Formation | [aws-sdk-lakeformation](https://crates.io/crates/aws-sdk-lakeformation) ([docs](https://docs.rs/aws-sdk-lakeformation)) |
 | AWS Lambda | [aws-sdk-lambda](https://crates.io/crates/aws-sdk-lambda) ([docs](https://docs.rs/aws-sdk-lambda)) |
+| AWS Lambda Core | [aws-sdk-lambdacore](https://crates.io/crates/aws-sdk-lambdacore) ([docs](https://docs.rs/aws-sdk-lambdacore)) |
 | AWS Launch Wizard | [aws-sdk-launchwizard](https://crates.io/crates/aws-sdk-launchwizard) ([docs](https://docs.rs/aws-sdk-launchwizard)) |
 | AWS License Manager | [aws-sdk-licensemanager](https://crates.io/crates/aws-sdk-licensemanager) ([docs](https://docs.rs/aws-sdk-licensemanager)) |
 | AWS License Manager Linux Subscriptions | [aws-sdk-licensemanagerlinuxsubscriptions](https://crates.io/crates/aws-sdk-licensemanagerlinuxsubscriptions) ([docs](https://docs.rs/aws-sdk-licensemanagerlinuxsubscriptions)) |
@@ -398,6 +399,7 @@ The AWS SDK for Rust contains one crate for each AWS service, as well as [aws-co
 | Inspector Scan | [aws-sdk-inspectorscan](https://crates.io/crates/aws-sdk-inspectorscan) ([docs](https://docs.rs/aws-sdk-inspectorscan)) |
 | Inspector2 | [aws-sdk-inspector2](https://crates.io/crates/aws-sdk-inspector2) ([docs](https://docs.rs/aws-sdk-inspector2)) |
 | Interconnect | [aws-sdk-interconnect](https://crates.io/crates/aws-sdk-interconnect) ([docs](https://docs.rs/aws-sdk-interconnect)) |
+| Lambda MicroVMs | [aws-sdk-lambdamicrovms](https://crates.io/crates/aws-sdk-lambdamicrovms) ([docs](https://docs.rs/aws-sdk-lambdamicrovms)) |
 | MailManager | [aws-sdk-mailmanager](https://crates.io/crates/aws-sdk-mailmanager) ([docs](https://docs.rs/aws-sdk-mailmanager)) |
 | Managed Streaming for Kafka | [aws-sdk-kafka](https://crates.io/crates/aws-sdk-kafka) ([docs](https://docs.rs/aws-sdk-kafka)) |
 | Managed Streaming for Kafka Connect | [aws-sdk-kafkaconnect](https://crates.io/crates/aws-sdk-kafkaconnect) ([docs](https://docs.rs/aws-sdk-kafkaconnect)) |

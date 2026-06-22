@@ -101,6 +101,8 @@ pub use crate::types::_scheduled_query_summary::ScheduledQuerySummaryBuilder;
 
 pub use crate::types::_s3_table_integration_source::S3TableIntegrationSourceBuilder;
 
+pub use crate::types::_syslog_configuration::SyslogConfigurationBuilder;
+
 pub use crate::types::_open_search_resource_config::OpenSearchResourceConfigBuilder;
 
 pub use crate::types::_input_log_event::InputLogEventBuilder;

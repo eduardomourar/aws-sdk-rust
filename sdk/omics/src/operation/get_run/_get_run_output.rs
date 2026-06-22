@@ -79,6 +79,8 @@ pub struct GetRunOutput {
     pub workflow_uuid: ::std::option::Option<::std::string::String>,
     /// <p>Configuration for run networking behavior. If absent, this will default to RESTRICTED.</p>
     pub networking_mode: ::std::option::Option<crate::types::NetworkingMode>,
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
     /// <p>Configuration details for the workflow run.</p>
     pub configuration: ::std::option::Option<crate::types::ConfigurationDetails>,
     /// <p>VPC configuration for the workflow run.</p>
@@ -240,6 +242,10 @@ impl GetRunOutput {
     pub fn networking_mode(&self) -> ::std::option::Option<&crate::types::NetworkingMode> {
         self.networking_mode.as_ref()
     }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn scratch_storage_mode(&self) -> ::std::option::Option<&crate::types::ScratchStorageMode> {
+        self.scratch_storage_mode.as_ref()
+    }
     /// <p>Configuration details for the workflow run.</p>
     pub fn configuration(&self) -> ::std::option::Option<&crate::types::ConfigurationDetails> {
         self.configuration.as_ref()
@@ -307,6 +313,7 @@ pub struct GetRunOutputBuilder {
     pub(crate) workflow_version_name: ::std::option::Option<::std::string::String>,
     pub(crate) workflow_uuid: ::std::option::Option<::std::string::String>,
     pub(crate) networking_mode: ::std::option::Option<crate::types::NetworkingMode>,
+    pub(crate) scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
     pub(crate) configuration: ::std::option::Option<crate::types::ConfigurationDetails>,
     pub(crate) vpc_config: ::std::option::Option<crate::types::VpcConfigResponse>,
     pub(crate) engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
@@ -864,6 +871,20 @@ impl GetRunOutputBuilder {
     pub fn get_networking_mode(&self) -> &::std::option::Option<crate::types::NetworkingMode> {
         &self.networking_mode
     }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn scratch_storage_mode(mut self, input: crate::types::ScratchStorageMode) -> Self {
+        self.scratch_storage_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn set_scratch_storage_mode(mut self, input: ::std::option::Option<crate::types::ScratchStorageMode>) -> Self {
+        self.scratch_storage_mode = input;
+        self
+    }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn get_scratch_storage_mode(&self) -> &::std::option::Option<crate::types::ScratchStorageMode> {
+        &self.scratch_storage_mode
+    }
     /// <p>Configuration details for the workflow run.</p>
     pub fn configuration(mut self, input: crate::types::ConfigurationDetails) -> Self {
         self.configuration = ::std::option::Option::Some(input);
@@ -956,6 +977,7 @@ impl GetRunOutputBuilder {
             workflow_version_name: self.workflow_version_name,
             workflow_uuid: self.workflow_uuid,
             networking_mode: self.networking_mode,
+            scratch_storage_mode: self.scratch_storage_mode,
             configuration: self.configuration,
             vpc_config: self.vpc_config,
             engine_settings: self.engine_settings,

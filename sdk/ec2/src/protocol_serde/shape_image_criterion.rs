@@ -61,6 +61,16 @@ pub fn de_image_criterion(
                 builder = builder.set_creation_date_condition(var_5);
             }
             ,
+            s if s.matches("imageWatermarkSet") /* ImageWatermarks com.amazonaws.ec2#ImageCriterion$ImageWatermarks */ =>  {
+                let var_6 =
+                    Some(
+                        crate::protocol_serde::shape_image_watermark_filter_response_list::de_image_watermark_filter_response_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_image_watermarks(var_6);
+            }
+            ,
             _ => {}
         }
     }

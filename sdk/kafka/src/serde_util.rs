@@ -275,6 +275,15 @@ pub(crate) fn jmx_exporter_correct_errors(mut builder: crate::types::builders::J
     builder
 }
 
+pub(crate) fn kafka_cluster_mtls_authentication_correct_errors(
+    mut builder: crate::types::builders::KafkaClusterMtlsAuthenticationBuilder,
+) -> crate::types::builders::KafkaClusterMtlsAuthenticationBuilder {
+    if builder.secret_arn.is_none() {
+        builder.secret_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn kafka_cluster_sasl_scram_authentication_correct_errors(
     mut builder: crate::types::builders::KafkaClusterSaslScramAuthenticationBuilder,
 ) -> crate::types::builders::KafkaClusterSaslScramAuthenticationBuilder {

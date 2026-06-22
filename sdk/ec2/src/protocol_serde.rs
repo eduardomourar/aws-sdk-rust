@@ -3693,6 +3693,8 @@ pub(crate) mod shape_image_usage_report_list;
 
 pub(crate) mod shape_image_usage_resource_type_option_request;
 
+pub(crate) mod shape_image_watermark_filter_request;
+
 pub(crate) mod shape_import_image_license_specification_list_response;
 
 pub(crate) mod shape_import_image_task_list;
@@ -5227,6 +5229,8 @@ pub(crate) mod shape_image_provider_list;
 
 pub(crate) mod shape_image_usage_resource_type_list;
 
+pub(crate) mod shape_image_watermark_filter_response_list;
+
 pub(crate) mod shape_image_watermark_list;
 
 pub(crate) mod shape_import_instance_volume_detail_set;
@@ -5614,6 +5618,8 @@ pub(crate) mod shape_host_instance;
 pub(crate) mod shape_image_usage_resource_type;
 
 pub(crate) mod shape_image_watermark;
+
+pub(crate) mod shape_image_watermark_filter_response;
 
 pub(crate) mod shape_import_instance_volume_detail_item;
 

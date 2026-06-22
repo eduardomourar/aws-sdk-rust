@@ -46,6 +46,8 @@ pub struct DefaultRunSetting {
     pub configuration_name: ::std::option::Option<::std::string::String>,
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
 }
 impl DefaultRunSetting {
     /// <p>The identifier of the workflow to run.</p>
@@ -134,6 +136,10 @@ impl DefaultRunSetting {
     pub fn engine_settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.engine_settings.as_ref()
     }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn scratch_storage_mode(&self) -> ::std::option::Option<&crate::types::ScratchStorageMode> {
+        self.scratch_storage_mode.as_ref()
+    }
 }
 impl DefaultRunSetting {
     /// Creates a new builder-style object to manufacture [`DefaultRunSetting`](crate::types::DefaultRunSetting).
@@ -167,6 +173,7 @@ pub struct DefaultRunSettingBuilder {
     pub(crate) networking_mode: ::std::option::Option<crate::types::NetworkingMode>,
     pub(crate) configuration_name: ::std::option::Option<::std::string::String>,
     pub(crate) engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
+    pub(crate) scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
 }
 impl DefaultRunSettingBuilder {
     /// <p>The identifier of the workflow to run.</p>
@@ -471,6 +478,20 @@ impl DefaultRunSettingBuilder {
     pub fn get_engine_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.engine_settings
     }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn scratch_storage_mode(mut self, input: crate::types::ScratchStorageMode) -> Self {
+        self.scratch_storage_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn set_scratch_storage_mode(mut self, input: ::std::option::Option<crate::types::ScratchStorageMode>) -> Self {
+        self.scratch_storage_mode = input;
+        self
+    }
+    /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+    pub fn get_scratch_storage_mode(&self) -> &::std::option::Option<crate::types::ScratchStorageMode> {
+        &self.scratch_storage_mode
+    }
     /// Consumes the builder and constructs a [`DefaultRunSetting`](crate::types::DefaultRunSetting).
     /// This method will fail if any of the following fields are not set:
     /// - [`workflow_id`](crate::types::builders::DefaultRunSettingBuilder::workflow_id)
@@ -508,6 +529,7 @@ impl DefaultRunSettingBuilder {
             networking_mode: self.networking_mode,
             configuration_name: self.configuration_name,
             engine_settings: self.engine_settings,
+            scratch_storage_mode: self.scratch_storage_mode,
         })
     }
 }

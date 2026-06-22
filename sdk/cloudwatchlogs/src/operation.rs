@@ -94,6 +94,9 @@ pub mod delete_scheduled_query;
 /// Types for the `DeleteSubscriptionFilter` operation.
 pub mod delete_subscription_filter;
 
+/// Types for the `DeleteSyslogConfiguration` operation.
+pub mod delete_syslog_configuration;
+
 /// Types for the `DeleteTransformer` operation.
 pub mod delete_transformer;
 
@@ -238,6 +241,9 @@ pub mod list_scheduled_queries;
 /// Types for the `ListSourcesForS3TableIntegration` operation.
 pub mod list_sources_for_s3_table_integration;
 
+/// Types for the `ListSyslogConfigurations` operation.
+pub mod list_syslog_configurations;
+
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
 
@@ -294,6 +300,9 @@ pub mod put_retention_policy;
 
 /// Types for the `PutSubscriptionFilter` operation.
 pub mod put_subscription_filter;
+
+/// Types for the `PutSyslogConfiguration` operation.
+pub mod put_syslog_configuration;
 
 /// Types for the `PutTransformer` operation.
 pub mod put_transformer;

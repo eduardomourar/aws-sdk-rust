@@ -179,6 +179,18 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "contentQualityAnalysisType" => {
+                            builder = builder.set_content_quality_analysis_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::RouterContentQualityAnalysisType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "contentQualityAnalysisConfiguration" => {
+                            builder = builder.set_content_quality_analysis_configuration(
+                                    crate::protocol_serde::shape_router_content_quality_analysis_configuration::de_router_content_quality_analysis_configuration(tokens, _value, depth + 1)?
+                                );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

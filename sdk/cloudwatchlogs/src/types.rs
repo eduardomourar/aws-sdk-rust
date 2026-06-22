@@ -157,6 +157,8 @@ pub use crate::types::_scheduled_query_summary::ScheduledQuerySummary;
 
 pub use crate::types::_s3_table_integration_source::S3TableIntegrationSource;
 
+pub use crate::types::_syslog_configuration::SyslogConfiguration;
+
 pub use crate::types::_index_source::IndexSource;
 
 pub use crate::types::_open_search_resource_config::OpenSearchResourceConfig;
@@ -262,6 +264,8 @@ pub use crate::types::_upper_case_string::UpperCaseString;
 pub use crate::types::_state::State;
 
 pub use crate::types::_s3_table_integration_source_status::S3TableIntegrationSourceStatus;
+
+pub use crate::types::_syslog_source_type::SyslogSourceType;
 
 pub use crate::types::_standard_unit::StandardUnit;
 
@@ -614,6 +618,10 @@ mod _suppression_state;
 mod _suppression_type;
 
 mod _suppression_unit;
+
+mod _syslog_configuration;
+
+mod _syslog_source_type;
 
 mod _tag_filter;
 

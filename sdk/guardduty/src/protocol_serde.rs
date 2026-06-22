@@ -33,6 +33,8 @@ pub(crate) mod shape_create_detector;
 
 pub(crate) mod shape_create_filter;
 
+pub(crate) mod shape_create_investigation;
+
 pub(crate) mod shape_create_ip_set;
 
 pub(crate) mod shape_create_malware_protection_plan;
@@ -99,6 +101,8 @@ pub(crate) mod shape_get_findings;
 
 pub(crate) mod shape_get_findings_statistics;
 
+pub(crate) mod shape_get_investigation;
+
 pub(crate) mod shape_get_invitations_count;
 
 pub(crate) mod shape_get_ip_set;
@@ -136,6 +140,8 @@ pub(crate) mod shape_list_detectors;
 pub(crate) mod shape_list_filters;
 
 pub(crate) mod shape_list_findings;
+
+pub(crate) mod shape_list_investigations;
 
 pub(crate) mod shape_list_invitations;
 
@@ -221,6 +227,8 @@ pub(crate) mod shape_create_detector_input;
 
 pub(crate) mod shape_create_filter_input;
 
+pub(crate) mod shape_create_investigation_input;
+
 pub(crate) mod shape_create_ip_set_input;
 
 pub(crate) mod shape_create_malware_protection_plan_input;
@@ -272,6 +280,8 @@ pub(crate) mod shape_invite_members_input;
 pub(crate) mod shape_list_coverage_input;
 
 pub(crate) mod shape_list_findings_input;
+
+pub(crate) mod shape_list_investigations_input;
 
 pub(crate) mod shape_list_malware_scans_input;
 
@@ -359,6 +369,12 @@ pub(crate) mod shape_findings;
 
 pub(crate) mod shape_get_malware_scan_result_details;
 
+pub(crate) mod shape_investigation;
+
+pub(crate) mod shape_investigation_sort_criteria;
+
+pub(crate) mod shape_investigation_summaries;
+
 pub(crate) mod shape_invitations;
 
 pub(crate) mod shape_ip_set_ids;
@@ -427,6 +443,8 @@ pub(crate) mod shape_account_free_trial_info;
 
 pub(crate) mod shape_admin_account;
 
+pub(crate) mod shape_cloud_details;
+
 pub(crate) mod shape_cloud_trail_configuration_result;
 
 pub(crate) mod shape_condition;
@@ -470,6 +488,10 @@ pub(crate) mod shape_grouped_by_resource;
 pub(crate) mod shape_grouped_by_severity;
 
 pub(crate) mod shape_incremental_scan_details;
+
+pub(crate) mod shape_investigation_metadata;
+
+pub(crate) mod shape_investigation_summary;
 
 pub(crate) mod shape_invitation;
 
@@ -588,6 +610,8 @@ pub(crate) mod shape_organization_kubernetes_audit_logs_configuration_result;
 pub(crate) mod shape_organization_scan_ec2_instance_with_findings;
 
 pub(crate) mod shape_organization_scan_ec2_instance_with_findings_result;
+
+pub(crate) mod shape_product;
 
 pub(crate) mod shape_resource;
 

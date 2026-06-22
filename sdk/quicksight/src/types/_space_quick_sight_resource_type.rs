@@ -13,11 +13,9 @@
 /// # let spacequicksightresourcetype = unimplemented!();
 /// match spacequicksightresourcetype {
 ///     SpaceQuickSightResourceType::ActionConnector => { /* ... */ },
-///     SpaceQuickSightResourceType::Artifact => { /* ... */ },
 ///     SpaceQuickSightResourceType::Dashboard => { /* ... */ },
 ///     SpaceQuickSightResourceType::DataSet => { /* ... */ },
 ///     SpaceQuickSightResourceType::KnowledgeBase => { /* ... */ },
-///     SpaceQuickSightResourceType::Space => { /* ... */ },
 ///     SpaceQuickSightResourceType::Topic => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -50,15 +48,11 @@ pub enum SpaceQuickSightResourceType {
     #[allow(missing_docs)] // documentation missing in model
     ActionConnector,
     #[allow(missing_docs)] // documentation missing in model
-    Artifact,
-    #[allow(missing_docs)] // documentation missing in model
     Dashboard,
     #[allow(missing_docs)] // documentation missing in model
     DataSet,
     #[allow(missing_docs)] // documentation missing in model
     KnowledgeBase,
-    #[allow(missing_docs)] // documentation missing in model
-    Space,
     #[allow(missing_docs)] // documentation missing in model
     Topic,
     /// `Unknown` contains new variants that have been added since this code was generated.
@@ -69,11 +63,9 @@ impl ::std::convert::From<&str> for SpaceQuickSightResourceType {
     fn from(s: &str) -> Self {
         match s {
             "ACTION_CONNECTOR" => SpaceQuickSightResourceType::ActionConnector,
-            "ARTIFACT" => SpaceQuickSightResourceType::Artifact,
             "DASHBOARD" => SpaceQuickSightResourceType::Dashboard,
             "DATA_SET" => SpaceQuickSightResourceType::DataSet,
             "KNOWLEDGE_BASE" => SpaceQuickSightResourceType::KnowledgeBase,
-            "SPACE" => SpaceQuickSightResourceType::Space,
             "TOPIC" => SpaceQuickSightResourceType::Topic,
             other => SpaceQuickSightResourceType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -91,26 +83,16 @@ impl SpaceQuickSightResourceType {
     pub fn as_str(&self) -> &str {
         match self {
             SpaceQuickSightResourceType::ActionConnector => "ACTION_CONNECTOR",
-            SpaceQuickSightResourceType::Artifact => "ARTIFACT",
             SpaceQuickSightResourceType::Dashboard => "DASHBOARD",
             SpaceQuickSightResourceType::DataSet => "DATA_SET",
             SpaceQuickSightResourceType::KnowledgeBase => "KNOWLEDGE_BASE",
-            SpaceQuickSightResourceType::Space => "SPACE",
             SpaceQuickSightResourceType::Topic => "TOPIC",
             SpaceQuickSightResourceType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "ACTION_CONNECTOR",
-            "ARTIFACT",
-            "DASHBOARD",
-            "DATA_SET",
-            "KNOWLEDGE_BASE",
-            "SPACE",
-            "TOPIC",
-        ]
+        &["ACTION_CONNECTOR", "DASHBOARD", "DATA_SET", "KNOWLEDGE_BASE", "TOPIC"]
     }
 }
 impl ::std::convert::AsRef<str> for SpaceQuickSightResourceType {
@@ -134,11 +116,9 @@ impl ::std::fmt::Display for SpaceQuickSightResourceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             SpaceQuickSightResourceType::ActionConnector => write!(f, "ACTION_CONNECTOR"),
-            SpaceQuickSightResourceType::Artifact => write!(f, "ARTIFACT"),
             SpaceQuickSightResourceType::Dashboard => write!(f, "DASHBOARD"),
             SpaceQuickSightResourceType::DataSet => write!(f, "DATA_SET"),
             SpaceQuickSightResourceType::KnowledgeBase => write!(f, "KNOWLEDGE_BASE"),
-            SpaceQuickSightResourceType::Space => write!(f, "SPACE"),
             SpaceQuickSightResourceType::Topic => write!(f, "TOPIC"),
             SpaceQuickSightResourceType::Unknown(value) => write!(f, "{value}"),
         }

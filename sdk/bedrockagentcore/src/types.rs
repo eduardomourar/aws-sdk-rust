@@ -83,6 +83,8 @@ pub use crate::types::_evaluation_metadata::EvaluationMetadata;
 
 pub use crate::types::_branch::Branch;
 
+pub use crate::types::_extraction_mode::ExtractionMode;
+
 pub use crate::types::_event::Event;
 
 pub use crate::types::_memory_record::MemoryRecord;
@@ -778,6 +780,8 @@ mod _extraction_job_messages;
 mod _extraction_job_metadata;
 
 mod _extraction_job_status;
+
+mod _extraction_mode;
 
 mod _failure_analysis_result_content;
 

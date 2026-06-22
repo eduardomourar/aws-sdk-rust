@@ -2475,6 +2475,8 @@ pub use crate::types::_enable_fast_snapshot_restore_state_error_item::EnableFast
 
 pub use crate::types::_verified_access_instance_open_vpn_client_configuration_route::VerifiedAccessInstanceOpenVpnClientConfigurationRoute;
 
+pub use crate::types::_image_watermark_filter_response::ImageWatermarkFilterResponse;
+
 pub use crate::types::_metric_point::MetricPoint;
 
 pub use crate::types::_filter_by_dimension::FilterByDimension;
@@ -2516,6 +2518,8 @@ pub use crate::types::_launch_template_overrides::LaunchTemplateOverrides;
 pub use crate::types::_verified_access_log_delivery_status::VerifiedAccessLogDeliveryStatus;
 
 pub use crate::types::_monitoring_state::MonitoringState;
+
+pub use crate::types::_image_watermark_filter_request::ImageWatermarkFilterRequest;
 
 pub use crate::types::_replacement_strategy::ReplacementStrategy;
 
@@ -3658,6 +3662,10 @@ mod _image_usage_resource_type_option_request;
 mod _image_usage_resource_type_request;
 
 mod _image_watermark;
+
+mod _image_watermark_filter_request;
+
+mod _image_watermark_filter_response;
 
 mod _imds_support_values;
 

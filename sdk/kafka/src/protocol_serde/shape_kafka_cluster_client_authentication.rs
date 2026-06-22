@@ -9,6 +9,12 @@ pub fn ser_kafka_cluster_client_authentication(
         crate::protocol_serde::shape_kafka_cluster_sasl_scram_authentication::ser_kafka_cluster_sasl_scram_authentication(&mut object_2, var_1)?;
         object_2.finish();
     }
+    if let Some(var_3) = &input.mtls {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("mTLS").start_object();
+        crate::protocol_serde::shape_kafka_cluster_mtls_authentication::ser_kafka_cluster_mtls_authentication(&mut object_4, var_3)?;
+        object_4.finish();
+    }
     Ok(())
 }
 
@@ -37,6 +43,15 @@ where
                         "saslScram" => {
                             builder = builder.set_sasl_scram(
                                 crate::protocol_serde::shape_kafka_cluster_sasl_scram_authentication::de_kafka_cluster_sasl_scram_authentication(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "mTLS" => {
+                            builder = builder.set_mtls(
+                                crate::protocol_serde::shape_kafka_cluster_mtls_authentication::de_kafka_cluster_mtls_authentication(
                                     tokens,
                                     _value,
                                     depth + 1,

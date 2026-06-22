@@ -85,6 +85,8 @@ pub(crate) mod shape_delete_scheduled_query;
 
 pub(crate) mod shape_delete_subscription_filter;
 
+pub(crate) mod shape_delete_syslog_configuration;
+
 pub(crate) mod shape_delete_transformer;
 
 pub(crate) mod shape_describe_account_policies;
@@ -181,6 +183,8 @@ pub(crate) mod shape_list_scheduled_queries;
 
 pub(crate) mod shape_list_sources_for_s3_table_integration;
 
+pub(crate) mod shape_list_syslog_configurations;
+
 pub(crate) mod shape_list_tags_for_resource;
 
 pub(crate) mod shape_list_tags_log_group;
@@ -218,6 +222,8 @@ pub(crate) mod shape_put_resource_policy;
 pub(crate) mod shape_put_retention_policy;
 
 pub(crate) mod shape_put_subscription_filter;
+
+pub(crate) mod shape_put_syslog_configuration;
 
 pub(crate) mod shape_put_transformer;
 
@@ -324,6 +330,8 @@ pub(crate) mod shape_delete_retention_policy_input;
 pub(crate) mod shape_delete_scheduled_query_input;
 
 pub(crate) mod shape_delete_subscription_filter_input;
+
+pub(crate) mod shape_delete_syslog_configuration_input;
 
 pub(crate) mod shape_delete_transformer_input;
 
@@ -435,6 +443,8 @@ pub(crate) mod shape_list_scheduled_queries_input;
 
 pub(crate) mod shape_list_sources_for_s3_table_integration_input;
 
+pub(crate) mod shape_list_syslog_configurations_input;
+
 pub(crate) mod shape_list_tags_for_resource_input;
 
 pub(crate) mod shape_list_tags_log_group_input;
@@ -476,6 +486,8 @@ pub(crate) mod shape_put_resource_policy_input;
 pub(crate) mod shape_put_retention_policy_input;
 
 pub(crate) mod shape_put_subscription_filter_input;
+
+pub(crate) mod shape_put_syslog_configuration_input;
 
 pub(crate) mod shape_put_transformer_input;
 
@@ -665,6 +677,8 @@ pub(crate) mod shape_subscription_filters;
 
 pub(crate) mod shape_suppression_period;
 
+pub(crate) mod shape_syslog_configurations;
+
 pub(crate) mod shape_tag_filter;
 
 pub(crate) mod shape_tags;
@@ -784,6 +798,8 @@ pub(crate) mod shape_split_string;
 pub(crate) mod shape_subscription_filter;
 
 pub(crate) mod shape_substitute_string;
+
+pub(crate) mod shape_syslog_configuration;
 
 pub(crate) mod shape_transformed_log_record;
 

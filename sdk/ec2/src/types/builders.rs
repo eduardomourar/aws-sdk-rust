@@ -1621,6 +1621,8 @@ pub use crate::types::_enable_fast_snapshot_restore_state_error_item::EnableFast
 
 pub use crate::types::_verified_access_instance_open_vpn_client_configuration_route::VerifiedAccessInstanceOpenVpnClientConfigurationRouteBuilder;
 
+pub use crate::types::_image_watermark_filter_response::ImageWatermarkFilterResponseBuilder;
+
 pub use crate::types::_metric_point::MetricPointBuilder;
 
 pub use crate::types::_metric_value::MetricValueBuilder;
@@ -1650,6 +1652,8 @@ pub use crate::types::_import_instance_volume_detail_item::ImportInstanceVolumeD
 pub use crate::types::_launch_template_overrides::LaunchTemplateOverridesBuilder;
 
 pub use crate::types::_verified_access_log_delivery_status::VerifiedAccessLogDeliveryStatusBuilder;
+
+pub use crate::types::_image_watermark_filter_request::ImageWatermarkFilterRequestBuilder;
 
 pub use crate::types::_spot_fleet_monitoring::SpotFleetMonitoringBuilder;
 

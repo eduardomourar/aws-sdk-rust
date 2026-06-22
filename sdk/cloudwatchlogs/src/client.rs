@@ -225,6 +225,8 @@ mod delete_scheduled_query;
 
 mod delete_subscription_filter;
 
+mod delete_syslog_configuration;
+
 mod delete_transformer;
 
 mod describe_account_policies;
@@ -321,6 +323,8 @@ mod list_scheduled_queries;
 
 mod list_sources_for_s3_table_integration;
 
+mod list_syslog_configurations;
+
 mod list_tags_for_resource;
 
 mod list_tags_log_group;
@@ -358,6 +362,8 @@ mod put_resource_policy;
 mod put_retention_policy;
 
 mod put_subscription_filter;
+
+mod put_syslog_configuration;
 
 mod put_transformer;
 

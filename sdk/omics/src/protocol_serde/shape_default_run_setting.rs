@@ -156,6 +156,13 @@ where
                         "engineSettings" => {
                             builder = builder.set_engine_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
+                        "scratchStorageMode" => {
+                            builder = builder.set_scratch_storage_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ScratchStorageMode::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {
@@ -254,6 +261,9 @@ pub fn ser_default_run_setting(
     }
     if let Some(var_22) = &input.engine_settings {
         object.key("engineSettings").document(var_22);
+    }
+    if let Some(var_23) = &input.scratch_storage_mode {
+        object.key("scratchStorageMode").string(var_23.as_str());
     }
     Ok(())
 }

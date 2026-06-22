@@ -338,6 +338,13 @@ pub(crate) fn de_get_run(
                             .transpose()?,
                     );
                 }
+                "scratchStorageMode" => {
+                    builder = builder.set_scratch_storage_mode(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::ScratchStorageMode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "startTime" => {
                     builder = builder.set_start_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),

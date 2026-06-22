@@ -1,9 +1,9 @@
 [workspace]
 resolver = "2"
 exclude = [
-    "tests/no-default-features",
-    "tests/webassembly-no-os",
     "tests/webassembly-wstd",
+    "tests/webassembly-no-os",
+    "tests/no-default-features",
     "tests/telemetry"
 ]
 members = [
@@ -259,6 +259,8 @@ members = [
     "sdk/kms",
     "sdk/lakeformation",
     "sdk/lambda",
+    "sdk/lambdacore",
+    "sdk/lambdamicrovms",
     "sdk/launchwizard",
     "sdk/lexmodelbuilding",
     "sdk/lexmodelsv2",

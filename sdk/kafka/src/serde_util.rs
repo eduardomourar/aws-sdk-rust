@@ -167,18 +167,6 @@ pub(crate) fn encryption_at_rest_correct_errors(
     builder
 }
 
-pub(crate) fn kafka_cluster_client_authentication_correct_errors(
-    mut builder: crate::types::builders::KafkaClusterClientAuthenticationBuilder,
-) -> crate::types::builders::KafkaClusterClientAuthenticationBuilder {
-    if builder.sasl_scram.is_none() {
-        builder.sasl_scram = {
-            let builder = crate::types::builders::KafkaClusterSaslScramAuthenticationBuilder::default();
-            Some(crate::serde_util::kafka_cluster_sasl_scram_authentication_correct_errors(builder).build())
-        }
-    }
-    builder
-}
-
 pub(crate) fn kafka_cluster_client_vpc_config_correct_errors(
     mut builder: crate::types::builders::KafkaClusterClientVpcConfigBuilder,
 ) -> crate::types::builders::KafkaClusterClientVpcConfigBuilder {

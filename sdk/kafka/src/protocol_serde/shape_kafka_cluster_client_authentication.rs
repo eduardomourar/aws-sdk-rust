@@ -67,9 +67,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                crate::serde_util::kafka_cluster_client_authentication_correct_errors(builder).build(),
-            ))
+            Ok(Some(builder.build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

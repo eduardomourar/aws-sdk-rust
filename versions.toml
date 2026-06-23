@@ -1254,9 +1254,9 @@ model_hash = 'e88726e90401ea25f6f1c6f507825d467049d2bf919f30dcbd42806a5a9e0b10'
 
 [crates.aws-sdk-kafka]
 category = 'AwsSdk'
-version = '1.113.0'
-source_hash = 'b8e953d0a083d09d141c856192fe6bc9b2222b4f340d1647500e3fbc3e21a040'
-model_hash = '4e12f98185fd0501305e5baf81f118feb40b8a68c61b5cfa29e7d57f588fdfa1'
+version = '1.114.0'
+source_hash = '7646954e56fd213b9edad633ed06d1f20e19cfb9ac9e56ecc225e7e63d8aafcc'
+model_hash = '9c6d1f189994ec5d7c5fe7c9148fceb366fa32f4d04e530fd88aa15fd35f3690'
 
 [crates.aws-sdk-kafkaconnect]
 category = 'AwsSdk'
@@ -2755,21 +2755,5 @@ source_hash = '2048630ced83752734acab91b747e383b0f8cdfec43f5f411ae936c31a5b6653'
 category = 'AwsRuntime'
 version = '0.0.0'
 source_hash = 'cd48a666d75ebba7d77758b10af3e6dc36768267cb74940ffbd237bff2b5bd92'
-
-[release]
-tag = 'release-2026-06-22'
-
 [release.crates]
-aws-sdk-applicationsignals = '1.84.0'
-aws-sdk-bedrockagentcore = '1.51.0'
-aws-sdk-cloudwatchlogs = '1.139.0'
-aws-sdk-directconnect = '1.109.0'
-aws-sdk-ec2 = '1.233.0'
-aws-sdk-guardduty = '1.126.0'
-aws-sdk-kafka = '1.113.0'
-aws-sdk-lambda = '1.129.0'
-aws-sdk-lambdacore = '1.0.0'
-aws-sdk-lambdamicrovms = '1.0.0'
-aws-sdk-mediaconnect = '1.113.0'
-aws-sdk-omics = '1.116.0'
-aws-sdk-quicksight = '1.140.0'
+aws-sdk-kafka = '1.114.0'

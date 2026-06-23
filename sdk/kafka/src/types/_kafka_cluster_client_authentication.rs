@@ -35,7 +35,6 @@ pub struct KafkaClusterClientAuthenticationBuilder {
 }
 impl KafkaClusterClientAuthenticationBuilder {
     /// <p>Details for SASL/SCRAM client authentication.</p>
-    /// This field is required.
     pub fn sasl_scram(mut self, input: crate::types::KafkaClusterSaslScramAuthentication) -> Self {
         self.sasl_scram = ::std::option::Option::Some(input);
         self

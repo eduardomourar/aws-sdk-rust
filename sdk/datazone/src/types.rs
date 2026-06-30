@@ -383,6 +383,8 @@ pub use crate::types::_spark_glue_properties_input::SparkGluePropertiesInput;
 
 pub use crate::types::_s3_properties_input::S3PropertiesInput;
 
+pub use crate::types::_snowflake_properties_input::SnowflakePropertiesInput;
+
 pub use crate::types::_amazon_q_properties_input::AmazonQPropertiesInput;
 
 pub use crate::types::_mlflow_properties_input::MlflowPropertiesInput;
@@ -412,6 +414,8 @@ pub use crate::types::_spark_emr_properties_output::SparkEmrPropertiesOutput;
 pub use crate::types::_spark_glue_properties_output::SparkGluePropertiesOutput;
 
 pub use crate::types::_s3_properties_output::S3PropertiesOutput;
+
+pub use crate::types::_snowflake_properties_output::SnowflakePropertiesOutput;
 
 pub use crate::types::_amazon_q_properties_output::AmazonQPropertiesOutput;
 
@@ -569,6 +573,8 @@ pub use crate::types::_spark_emr_properties_patch::SparkEmrPropertiesPatch;
 
 pub use crate::types::_s3_properties_patch::S3PropertiesPatch;
 
+pub use crate::types::_snowflake_properties_patch::SnowflakePropertiesPatch;
+
 pub use crate::types::_amazon_q_properties_patch::AmazonQPropertiesPatch;
 
 pub use crate::types::_mlflow_properties_patch::MlflowPropertiesPatch;
@@ -661,6 +667,12 @@ pub use crate::types::_redshift_lineage_sync_configuration_input::RedshiftLineag
 
 pub use crate::types::_spark_glue_args::SparkGlueArgs;
 
+pub use crate::types::_connectivity_properties::ConnectivityProperties;
+
+pub use crate::types::_identity_mapping::IdentityMapping;
+
+pub use crate::types::_lineage_sync_input::LineageSyncInput;
+
 pub use crate::types::_glue_connection::GlueConnection;
 
 pub use crate::types::_protocol::Protocol;
@@ -676,6 +688,8 @@ pub use crate::types::_username_password::UsernamePassword;
 pub use crate::types::_governance_type::GovernanceType;
 
 pub use crate::types::_managed_endpoint_credentials::ManagedEndpointCredentials;
+
+pub use crate::types::_lineage_sync_output::LineageSyncOutput;
 
 pub use crate::types::_configurable_action_type_authorization::ConfigurableActionTypeAuthorization;
 
@@ -742,6 +756,8 @@ pub use crate::types::_form_type_data::FormTypeData;
 pub use crate::types::_lineage_node_type_item::LineageNodeTypeItem;
 
 pub use crate::types::_glue_connection_patch::GlueConnectionPatch;
+
+pub use crate::types::_connectivity_properties_patch::ConnectivityPropertiesPatch;
 
 pub use crate::types::_detailed_glossary_term::DetailedGlossaryTerm;
 
@@ -1023,6 +1039,10 @@ mod _connection_summary;
 
 mod _connection_type;
 
+mod _connectivity_properties;
+
+mod _connectivity_properties_patch;
+
 mod _create_asset_type_policy_grant_detail;
 
 mod _create_domain_unit_policy_grant_detail;
@@ -1269,6 +1289,8 @@ mod _iam_properties_patch;
 
 mod _iam_user_profile_details;
 
+mod _identity_mapping;
+
 mod _import;
 
 mod _in_expression;
@@ -1324,6 +1346,10 @@ mod _lineage_node_type_item;
 mod _lineage_run_details;
 
 mod _lineage_sql_query_run_details;
+
+mod _lineage_sync_input;
+
+mod _lineage_sync_output;
 
 mod _lineage_sync_schedule;
 
@@ -1612,6 +1638,12 @@ mod _self_grant_status_detail;
 mod _self_grant_status_output;
 
 mod _single_sign_on;
+
+mod _snowflake_properties_input;
+
+mod _snowflake_properties_output;
+
+mod _snowflake_properties_patch;
 
 mod _sort_field_account_pool;
 

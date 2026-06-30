@@ -259,6 +259,8 @@ pub use crate::types::_chat_message::ChatMessageBuilder;
 
 pub use crate::types::_persistent_chat::PersistentChatBuilder;
 
+pub use crate::types::_analytics_configuration::AnalyticsConfigurationBuilder;
+
 pub use crate::types::_auto_evaluation_configuration::AutoEvaluationConfigurationBuilder;
 
 pub use crate::types::_voice_recording_configuration::VoiceRecordingConfigurationBuilder;
@@ -660,6 +662,16 @@ pub use crate::types::_workspace_association_search_summary::WorkspaceAssociatio
 pub use crate::types::_workspace_search_summary::WorkspaceSearchSummaryBuilder;
 
 pub use crate::types::_outbound_raw_message::OutboundRawMessageBuilder;
+
+pub use crate::types::_language_configuration::LanguageConfigurationBuilder;
+
+pub use crate::types::_redaction_configuration::RedactionConfigurationBuilder;
+
+pub use crate::types::_sentiment_configuration::SentimentConfigurationBuilder;
+
+pub use crate::types::_summary_configuration::SummaryConfigurationBuilder;
+
+pub use crate::types::_rules_configuration::RulesConfigurationBuilder;
 
 pub use crate::types::_inbound_raw_message::InboundRawMessageBuilder;
 

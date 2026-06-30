@@ -373,6 +373,16 @@ pub fn de_describe_change_set(
                 builder = builder.set_deployment_mode(var_23);
             }
             ,
+            s if s.matches("DeploymentConfig") /* DeploymentConfig com.amazonaws.cloudformation.synthetic#DescribeChangeSetOutput$DeploymentConfig */ =>  {
+                let var_24 =
+                    Some(
+                        crate::protocol_serde::shape_deployment_config::de_deployment_config(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_deployment_config(var_24);
+            }
+            ,
             _ => {}
         }
         }

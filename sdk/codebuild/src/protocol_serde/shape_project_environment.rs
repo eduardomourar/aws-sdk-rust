@@ -57,6 +57,9 @@ pub fn ser_project_environment(
         crate::protocol_serde::shape_docker_server::ser_docker_server(&mut object_15, var_14)?;
         object_15.finish();
     }
+    if let Some(var_16) = &input.host_kernel {
+        object.key("hostKernel").string(var_16.as_str());
+    }
     Ok(())
 }
 
@@ -143,6 +146,13 @@ where
                         "dockerServer" => {
                             builder =
                                 builder.set_docker_server(crate::protocol_serde::shape_docker_server::de_docker_server(tokens, _value, depth + 1)?);
+                        }
+                        "hostKernel" => {
+                            builder = builder.set_host_kernel(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::HostKernel::from(u.as_ref())))
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

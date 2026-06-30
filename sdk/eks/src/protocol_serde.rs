@@ -29,6 +29,8 @@ pub(crate) mod shape_associate_encryption_config;
 
 pub(crate) mod shape_associate_identity_provider_config;
 
+pub(crate) mod shape_cancel_update;
+
 pub(crate) mod shape_create_access_entry;
 
 pub(crate) mod shape_create_addon;
@@ -168,6 +170,8 @@ pub(crate) mod shape_associate_encryption_config_input;
 pub(crate) mod shape_associate_identity_provider_config_input;
 
 pub(crate) mod shape_bad_request_exception;
+
+pub(crate) mod shape_cancel_update_input;
 
 pub(crate) mod shape_client_exception;
 
@@ -327,6 +331,8 @@ pub(crate) mod shape_remote_access_config;
 
 pub(crate) mod shape_remote_network_config_request;
 
+pub(crate) mod shape_rollback_config;
+
 pub(crate) mod shape_storage_config_request;
 
 pub(crate) mod shape_string_list;
@@ -370,6 +376,8 @@ pub(crate) mod shape_addon_pod_identity_configuration;
 pub(crate) mod shape_argo_cd_config_request;
 
 pub(crate) mod shape_block_storage;
+
+pub(crate) mod shape_cancellation;
 
 pub(crate) mod shape_capability_configuration_response;
 

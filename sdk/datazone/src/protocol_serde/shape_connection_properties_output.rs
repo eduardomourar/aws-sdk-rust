@@ -81,6 +81,12 @@ where
                                 || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Properties' cannot be null"),
                             )?,
                         )),
+                        "snowflakeProperties" => Some(crate::types::ConnectionPropertiesOutput::SnowflakeProperties(
+                            crate::protocol_serde::shape_snowflake_properties_output::de_snowflake_properties_output(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'snowflakeProperties' cannot be null")
+                                })?,
+                        )),
                         "amazonQProperties" => Some(crate::types::ConnectionPropertiesOutput::AmazonQProperties(
                             crate::protocol_serde::shape_amazon_q_properties_output::de_amazon_q_properties_output(tokens, _value, depth + 1)?
                                 .ok_or_else(|| {

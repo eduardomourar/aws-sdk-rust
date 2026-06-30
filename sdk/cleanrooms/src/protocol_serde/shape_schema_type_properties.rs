@@ -36,21 +36,29 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "idMappingTable" => Some(crate::types::SchemaTypeProperties::IdMappingTable(
-                            crate::protocol_serde::shape_id_mapping_table_schema_type_properties::de_id_mapping_table_schema_type_properties(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?
-                            .ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'idMappingTable' cannot be null")
-                            })?,
-                        )),
-                        _ => {
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
-                            Some(crate::types::SchemaTypeProperties::Unknown)
-                        }
-                    };
+                            "idMappingTable" => {
+                                Some(crate::types::SchemaTypeProperties::IdMappingTable(
+                                    crate::protocol_serde::shape_id_mapping_table_schema_type_properties::de_id_mapping_table_schema_type_properties(tokens, _value, depth + 1)?
+                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'idMappingTable' cannot be null"))?
+                                ))
+                            }
+                            "intermediateTable" => {
+                                Some(crate::types::SchemaTypeProperties::IntermediateTable(
+                                    crate::protocol_serde::shape_intermediate_table_schema_type_properties::de_intermediate_table_schema_type_properties(tokens, _value, depth + 1)?
+                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'intermediateTable' cannot be null"))?
+                                ))
+                            }
+                            "configuredTableAssociation" => {
+                                Some(crate::types::SchemaTypeProperties::ConfiguredTableAssociation(
+                                    crate::protocol_serde::shape_configured_table_association_schema_type_properties::de_configured_table_association_schema_type_properties(tokens, _value, depth + 1)?
+                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'configuredTableAssociation' cannot be null"))?
+                                ))
+                            }
+                            _ => {
+                                                                              ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
+                                                                              Some(crate::types::SchemaTypeProperties::Unknown)
+                                                                            }
+                        };
                 }
                 other => {
                     return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(

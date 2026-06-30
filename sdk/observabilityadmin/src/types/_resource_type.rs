@@ -28,6 +28,7 @@
 ///     ResourceType::AwsLamdbaFunction => { /* ... */ },
 ///     ResourceType::AwsMskCluster => { /* ... */ },
 ///     ResourceType::AwsRoute53ResolverResolverEndpoint => { /* ... */ },
+///     ResourceType::AwsS3Bucket => { /* ... */ },
 ///     ResourceType::AwsSecurityHub => { /* ... */ },
 ///     ResourceType::AwsSecurityHubHubv2 => { /* ... */ },
 ///     ResourceType::AwsWafV2WebAcl => { /* ... */ },
@@ -92,6 +93,8 @@ pub enum ResourceType {
     #[allow(missing_docs)] // documentation missing in model
     AwsRoute53ResolverResolverEndpoint,
     #[allow(missing_docs)] // documentation missing in model
+    AwsS3Bucket,
+    #[allow(missing_docs)] // documentation missing in model
     AwsSecurityHub,
     #[allow(missing_docs)] // documentation missing in model
     AwsSecurityHubHubv2,
@@ -120,6 +123,7 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::Lambda::Function" => ResourceType::AwsLamdbaFunction,
             "AWS::MSK::Cluster" => ResourceType::AwsMskCluster,
             "AWS::Route53Resolver::ResolverEndpoint" => ResourceType::AwsRoute53ResolverResolverEndpoint,
+            "AWS::S3::Bucket" => ResourceType::AwsS3Bucket,
             "AWS::SecurityHub::Hub" => ResourceType::AwsSecurityHub,
             "AWS::SecurityHub::HubV2" => ResourceType::AwsSecurityHubHubv2,
             "AWS::WAFv2::WebACL" => ResourceType::AwsWafV2WebAcl,
@@ -154,6 +158,7 @@ impl ResourceType {
             ResourceType::AwsLamdbaFunction => "AWS::Lambda::Function",
             ResourceType::AwsMskCluster => "AWS::MSK::Cluster",
             ResourceType::AwsRoute53ResolverResolverEndpoint => "AWS::Route53Resolver::ResolverEndpoint",
+            ResourceType::AwsS3Bucket => "AWS::S3::Bucket",
             ResourceType::AwsSecurityHub => "AWS::SecurityHub::Hub",
             ResourceType::AwsSecurityHubHubv2 => "AWS::SecurityHub::HubV2",
             ResourceType::AwsWafV2WebAcl => "AWS::WAFv2::WebACL",
@@ -179,6 +184,7 @@ impl ResourceType {
             "AWS::Lambda::Function",
             "AWS::MSK::Cluster",
             "AWS::Route53Resolver::ResolverEndpoint",
+            "AWS::S3::Bucket",
             "AWS::SecurityHub::Hub",
             "AWS::SecurityHub::HubV2",
             "AWS::WAFv2::WebACL",
@@ -221,6 +227,7 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::AwsLamdbaFunction => write!(f, "AWS::Lambda::Function"),
             ResourceType::AwsMskCluster => write!(f, "AWS::MSK::Cluster"),
             ResourceType::AwsRoute53ResolverResolverEndpoint => write!(f, "AWS::Route53Resolver::ResolverEndpoint"),
+            ResourceType::AwsS3Bucket => write!(f, "AWS::S3::Bucket"),
             ResourceType::AwsSecurityHub => write!(f, "AWS::SecurityHub::Hub"),
             ResourceType::AwsSecurityHubHubv2 => write!(f, "AWS::SecurityHub::HubV2"),
             ResourceType::AwsWafV2WebAcl => write!(f, "AWS::WAFv2::WebACL"),

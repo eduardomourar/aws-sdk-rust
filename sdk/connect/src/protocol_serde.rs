@@ -89,6 +89,8 @@ pub(crate) mod shape_complete_attached_file_upload;
 
 pub(crate) mod shape_create_agent_status;
 
+pub(crate) mod shape_create_attached_file;
+
 pub(crate) mod shape_create_contact;
 
 pub(crate) mod shape_create_contact_flow;
@@ -589,6 +591,8 @@ pub(crate) mod shape_start_attached_file_upload;
 
 pub(crate) mod shape_start_chat_contact;
 
+pub(crate) mod shape_start_contact_conversational_analytics_job;
+
 pub(crate) mod shape_start_contact_evaluation;
 
 pub(crate) mod shape_start_contact_media_processing;
@@ -849,6 +853,8 @@ pub(crate) mod shape_contact_not_found_exception;
 
 pub(crate) mod shape_create_agent_status_input;
 
+pub(crate) mod shape_create_attached_file_input;
+
 pub(crate) mod shape_create_contact_flow_input;
 
 pub(crate) mod shape_create_contact_flow_module_alias_input;
@@ -1087,6 +1093,8 @@ pub(crate) mod shape_start_attached_file_upload_input;
 
 pub(crate) mod shape_start_chat_contact_input;
 
+pub(crate) mod shape_start_contact_conversational_analytics_job_input;
+
 pub(crate) mod shape_start_contact_evaluation_input;
 
 pub(crate) mod shape_start_contact_media_processing_input;
@@ -1288,6 +1296,8 @@ pub(crate) mod shape_alias_configuration_list;
 pub(crate) mod shape_allowed_capabilities;
 
 pub(crate) mod shape_allowed_flow_modules;
+
+pub(crate) mod shape_analytics_configuration;
 
 pub(crate) mod shape_analytics_data_association_results;
 
@@ -2141,6 +2151,8 @@ pub(crate) mod shape_kinesis_stream_config;
 
 pub(crate) mod shape_kinesis_video_stream_config;
 
+pub(crate) mod shape_language_configuration;
+
 pub(crate) mod shape_lex_bot_config;
 
 pub(crate) mod shape_list_condition;
@@ -2223,6 +2235,8 @@ pub(crate) mod shape_recordings;
 
 pub(crate) mod shape_recurrence_pattern;
 
+pub(crate) mod shape_redaction_configuration;
+
 pub(crate) mod shape_reference_summary;
 
 pub(crate) mod shape_replication_status_summary_list;
@@ -2244,6 +2258,8 @@ pub(crate) mod shape_routing_profile_summary;
 pub(crate) mod shape_rule_actions;
 
 pub(crate) mod shape_rule_summary;
+
+pub(crate) mod shape_rules_configuration;
 
 pub(crate) mod shape_s3_config;
 
@@ -2267,6 +2283,8 @@ pub(crate) mod shape_segment_attributes;
 
 pub(crate) mod shape_send_notification_action_definition;
 
+pub(crate) mod shape_sentiment_configuration;
+
 pub(crate) mod shape_sign_in_distribution;
 
 pub(crate) mod shape_sign_in_distribution_list;
@@ -2278,6 +2296,8 @@ pub(crate) mod shape_submit_auto_evaluation_action_definition;
 pub(crate) mod shape_successful_batch_association_summary;
 
 pub(crate) mod shape_successful_request;
+
+pub(crate) mod shape_summary_configuration;
 
 pub(crate) mod shape_tag_restricted_resource_list;
 

@@ -1517,6 +1517,39 @@ impl From<crate::operation::create_agent_status::CreateAgentStatusError> for Err
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_attached_file::CreateAttachedFileError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_attached_file::CreateAttachedFileError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_attached_file::CreateAttachedFileError> for Error {
+    fn from(err: crate::operation::create_attached_file::CreateAttachedFileError) -> Self {
+        match err {
+            crate::operation::create_attached_file::CreateAttachedFileError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_attached_file::CreateAttachedFileError::InternalServiceException(inner) => {
+                Error::InternalServiceException(inner)
+            }
+            crate::operation::create_attached_file::CreateAttachedFileError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::create_attached_file::CreateAttachedFileError::ResourceConflictException(inner) => {
+                Error::ResourceConflictException(inner)
+            }
+            crate::operation::create_attached_file::CreateAttachedFileError::ServiceQuotaExceededException(inner) => {
+                Error::ServiceQuotaExceededException(inner)
+            }
+            crate::operation::create_attached_file::CreateAttachedFileError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_attached_file::CreateAttachedFileError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact::CreateContactError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -10523,6 +10556,58 @@ impl From<crate::operation::start_chat_contact::StartChatContactError> for Error
             crate::operation::start_chat_contact::StartChatContactError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::operation::start_chat_contact::StartChatContactError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::start_chat_contact::StartChatContactError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError> for Error {
+    fn from(err: crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError) -> Self {
+        match err {
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::AccessDeniedException(
+                inner,
+            ) => Error::AccessDeniedException(inner),
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::IdempotencyException(
+                inner,
+            ) => Error::IdempotencyException(inner),
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::InternalServiceException(
+                inner,
+            ) => Error::InternalServiceException(inner),
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::InvalidRequestException(
+                inner,
+            ) => Error::InvalidRequestException(inner),
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::start_contact_conversational_analytics_job::StartContactConversationalAnalyticsJobError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }

@@ -343,6 +343,10 @@ pub(crate) mod shape_aws_marketplace_offer_identifiers;
 
 pub(crate) mod shape_aws_marketplace_offer_set_identifiers;
 
+pub(crate) mod shape_aws_marketplace_product_identifiers;
+
+pub(crate) mod shape_aws_marketplace_solution_identifiers;
+
 pub(crate) mod shape_aws_opportunity_summary_full_view;
 
 pub(crate) mod shape_aws_product_identifiers;

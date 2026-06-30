@@ -39,6 +39,24 @@ pub fn ser_analysis_rule_custom(
         crate::protocol_serde::shape_differential_privacy_configuration::ser_differential_privacy_configuration(&mut object_11, var_10)?;
         object_11.finish();
     }
+    if let Some(var_12) = &input.allowed_result_receivers {
+        let mut array_13 = object.key("allowedResultReceivers").start_array();
+        for item_14 in var_12 {
+            {
+                array_13.value().string(item_14.as_str());
+            }
+        }
+        array_13.finish();
+    }
+    if let Some(var_15) = &input.allowed_additional_analyses {
+        let mut array_16 = object.key("allowedAdditionalAnalyses").start_array();
+        for item_17 in var_15 {
+            {
+                array_16.value().string(item_17.as_str());
+            }
+        }
+        array_16.finish();
+    }
     Ok(())
 }
 
@@ -99,6 +117,16 @@ where
                                     _value,
                                     depth + 1,
                                 )?,
+                            );
+                        }
+                        "allowedResultReceivers" => {
+                            builder = builder.set_allowed_result_receivers(
+                                crate::protocol_serde::shape_allowed_result_receivers::de_allowed_result_receivers(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "allowedAdditionalAnalyses" => {
+                            builder = builder.set_allowed_additional_analyses(
+                                crate::protocol_serde::shape_allowed_additional_analyses::de_allowed_additional_analyses(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

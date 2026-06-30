@@ -1119,6 +1119,8 @@ pub use crate::types::_verified_access_log_kinesis_data_firehose_destination_opt
 
 pub use crate::types::_verified_access_logs::VerifiedAccessLogsBuilder;
 
+pub use crate::types::_payer_responsibility_entry::PayerResponsibilityEntryBuilder;
+
 pub use crate::types::_added_principal::AddedPrincipalBuilder;
 
 pub use crate::types::_vpn_tunnel_log_options_specification::VpnTunnelLogOptionsSpecificationBuilder;

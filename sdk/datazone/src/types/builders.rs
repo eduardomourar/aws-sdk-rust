@@ -177,6 +177,8 @@ pub use crate::types::_spark_glue_properties_input::SparkGluePropertiesInputBuil
 
 pub use crate::types::_s3_properties_input::S3PropertiesInputBuilder;
 
+pub use crate::types::_snowflake_properties_input::SnowflakePropertiesInputBuilder;
+
 pub use crate::types::_amazon_q_properties_input::AmazonQPropertiesInputBuilder;
 
 pub use crate::types::_mlflow_properties_input::MlflowPropertiesInputBuilder;
@@ -206,6 +208,8 @@ pub use crate::types::_spark_emr_properties_output::SparkEmrPropertiesOutputBuil
 pub use crate::types::_spark_glue_properties_output::SparkGluePropertiesOutputBuilder;
 
 pub use crate::types::_s3_properties_output::S3PropertiesOutputBuilder;
+
+pub use crate::types::_snowflake_properties_output::SnowflakePropertiesOutputBuilder;
 
 pub use crate::types::_amazon_q_properties_output::AmazonQPropertiesOutputBuilder;
 
@@ -339,6 +343,8 @@ pub use crate::types::_spark_emr_properties_patch::SparkEmrPropertiesPatchBuilde
 
 pub use crate::types::_s3_properties_patch::S3PropertiesPatchBuilder;
 
+pub use crate::types::_snowflake_properties_patch::SnowflakePropertiesPatchBuilder;
+
 pub use crate::types::_amazon_q_properties_patch::AmazonQPropertiesPatchBuilder;
 
 pub use crate::types::_mlflow_properties_patch::MlflowPropertiesPatchBuilder;
@@ -407,6 +413,12 @@ pub use crate::types::_redshift_lineage_sync_configuration_input::RedshiftLineag
 
 pub use crate::types::_spark_glue_args::SparkGlueArgsBuilder;
 
+pub use crate::types::_connectivity_properties::ConnectivityPropertiesBuilder;
+
+pub use crate::types::_identity_mapping::IdentityMappingBuilder;
+
+pub use crate::types::_lineage_sync_input::LineageSyncInputBuilder;
+
 pub use crate::types::_glue_connection::GlueConnectionBuilder;
 
 pub use crate::types::_redshift_lineage_sync_configuration_output::RedshiftLineageSyncConfigurationOutputBuilder;
@@ -414,6 +426,8 @@ pub use crate::types::_redshift_lineage_sync_configuration_output::RedshiftLinea
 pub use crate::types::_username_password::UsernamePasswordBuilder;
 
 pub use crate::types::_managed_endpoint_credentials::ManagedEndpointCredentialsBuilder;
+
+pub use crate::types::_lineage_sync_output::LineageSyncOutputBuilder;
 
 pub use crate::types::_environment_resolved_account::EnvironmentResolvedAccountBuilder;
 
@@ -464,6 +478,8 @@ pub use crate::types::_form_type_data::FormTypeDataBuilder;
 pub use crate::types::_lineage_node_type_item::LineageNodeTypeItemBuilder;
 
 pub use crate::types::_glue_connection_patch::GlueConnectionPatchBuilder;
+
+pub use crate::types::_connectivity_properties_patch::ConnectivityPropertiesPatchBuilder;
 
 pub use crate::types::_detailed_glossary_term::DetailedGlossaryTermBuilder;
 

@@ -69,6 +69,20 @@ where
                                     .transpose()?,
                             );
                         }
+                        "PrimaryRegion" => {
+                            builder = builder.set_primary_region(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "Regions" => {
+                            builder = builder.set_regions(crate::protocol_serde::shape_region_metadata_list::de_region_metadata_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

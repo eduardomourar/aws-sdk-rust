@@ -17,6 +17,8 @@ pub use crate::types::_status::Status;
 
 pub use crate::types::_telemetry_pipeline_configuration::TelemetryPipelineConfiguration;
 
+pub use crate::types::_signal_type::SignalType;
+
 pub use crate::types::_telemetry_pipeline::TelemetryPipeline;
 
 pub use crate::types::_centralization_rule_source::CentralizationRuleSource;
@@ -224,6 +226,8 @@ mod _region_status;
 mod _resource_type;
 
 mod _rule_health;
+
+mod _signal_type;
 
 mod _single_header;
 

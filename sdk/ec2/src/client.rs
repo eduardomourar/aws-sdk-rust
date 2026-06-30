@@ -1790,6 +1790,8 @@ mod modify_vpc_endpoint;
 
 mod modify_vpc_endpoint_connection_notification;
 
+mod modify_vpc_endpoint_payer_responsibility;
+
 mod modify_vpc_endpoint_service_configuration;
 
 mod modify_vpc_endpoint_service_payer_responsibility;

@@ -71,6 +71,10 @@ pub use crate::types::_schedule_configuration::ScheduleConfigurationBuilder;
 
 pub use crate::types::_managed_rule::ManagedRuleBuilder;
 
+pub use crate::types::_wall_clock_window::WallClockWindowBuilder;
+
+pub use crate::types::_sliding_window::SlidingWindowBuilder;
+
 pub use crate::types::_alarm_prom_ql_criteria::AlarmPromQlCriteriaBuilder;
 
 pub use crate::types::_metric_datum::MetricDatumBuilder;

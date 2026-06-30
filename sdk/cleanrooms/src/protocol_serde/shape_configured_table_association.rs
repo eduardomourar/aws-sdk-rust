@@ -101,6 +101,13 @@ where
                                 ::aws_smithy_types::date_time::Format::EpochSeconds,
                             )?);
                         }
+                        "childResources" => {
+                            builder = builder.set_child_resources(crate::protocol_serde::shape_child_resource_list::de_child_resource_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

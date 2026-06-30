@@ -202,6 +202,8 @@ mod complete_attached_file_upload;
 
 mod create_agent_status;
 
+mod create_attached_file;
+
 mod create_contact;
 
 mod create_contact_flow;
@@ -728,6 +730,8 @@ mod send_outbound_email;
 mod start_attached_file_upload;
 
 mod start_chat_contact;
+
+mod start_contact_conversational_analytics_job;
 
 mod start_contact_evaluation;
 

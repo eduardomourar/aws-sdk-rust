@@ -1,10 +1,10 @@
 [workspace]
 resolver = "2"
 exclude = [
-    "tests/webassembly-no-os",
     "tests/no-default-features",
+    "tests/telemetry",
     "tests/webassembly-wstd",
-    "tests/telemetry"
+    "tests/webassembly-no-os"
 ]
 members = [
     "sdk/accessanalyzer",
@@ -229,8 +229,6 @@ members = [
     "sdk/iot",
     "sdk/iotdataplane",
     "sdk/iotdeviceadvisor",
-    "sdk/iotevents",
-    "sdk/ioteventsdata",
     "sdk/iotfleetwise",
     "sdk/iotjobsdataplane",
     "sdk/iotmanagedintegrations",
@@ -327,7 +325,6 @@ members = [
     "sdk/organizations",
     "sdk/osis",
     "sdk/outposts",
-    "sdk/panorama",
     "sdk/partnercentralaccount",
     "sdk/partnercentralbenefits",
     "sdk/partnercentralchannel",
@@ -414,7 +411,6 @@ members = [
     "sdk/signerdata",
     "sdk/signin",
     "sdk/simpledbv2",
-    "sdk/simspaceweaver",
     "sdk/snowball",
     "sdk/snowdevicemanagement",
     "sdk/sns",
@@ -434,6 +430,7 @@ members = [
     "sdk/supplychain",
     "sdk/support",
     "sdk/supportapp",
+    "sdk/supportauthz",
     "sdk/sustainability",
     "sdk/swf",
     "sdk/synthetics",

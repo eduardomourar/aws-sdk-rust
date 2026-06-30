@@ -28,6 +28,12 @@ pub fn ser_protected_query_output_configuration(
             )?;
             object_3.finish();
         }
+        crate::types::ProtectedQueryOutputConfiguration::IntermediateTable(inner) => {
+            #[allow(unused_mut)]
+            let mut object_4 = object_2.key("intermediateTable").start_object();
+            crate::protocol_serde::shape_intermediate_table_output_configuration::ser_intermediate_table_output_configuration(&mut object_4, inner)?;
+            object_4.finish();
+        }
         crate::types::ProtectedQueryOutputConfiguration::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "ProtectedQueryOutputConfiguration",
@@ -90,6 +96,12 @@ where
                                 Some(crate::types::ProtectedQueryOutputConfiguration::Distribute(
                                     crate::protocol_serde::shape_protected_query_distribute_output_configuration::de_protected_query_distribute_output_configuration(tokens, _value, depth + 1)?
                                     .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'distribute' cannot be null"))?
+                                ))
+                            }
+                            "intermediateTable" => {
+                                Some(crate::types::ProtectedQueryOutputConfiguration::IntermediateTable(
+                                    crate::protocol_serde::shape_intermediate_table_output_configuration::de_intermediate_table_output_configuration(tokens, _value, depth + 1)?
+                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'intermediateTable' cannot be null"))?
                                 ))
                             }
                             _ => {

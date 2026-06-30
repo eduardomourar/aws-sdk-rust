@@ -2041,6 +2041,9 @@ pub mod modify_vpc_endpoint;
 /// Types for the `ModifyVpcEndpointConnectionNotification` operation.
 pub mod modify_vpc_endpoint_connection_notification;
 
+/// Types for the `ModifyVpcEndpointPayerResponsibility` operation.
+pub mod modify_vpc_endpoint_payer_responsibility;
+
 /// Types for the `ModifyVpcEndpointServiceConfiguration` operation.
 pub mod modify_vpc_endpoint_service_configuration;
 

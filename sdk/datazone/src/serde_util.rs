@@ -3170,6 +3170,30 @@ pub(crate) fn sage_maker_run_configuration_output_correct_errors(
     builder
 }
 
+pub(crate) fn snowflake_properties_output_correct_errors(
+    mut builder: crate::types::builders::SnowflakePropertiesOutputBuilder,
+) -> crate::types::builders::SnowflakePropertiesOutputBuilder {
+    if builder.snowflake_role.is_none() {
+        builder.snowflake_role = Some(Default::default())
+    }
+    if builder.identity_mapping.is_none() {
+        builder.identity_mapping = {
+            let builder = crate::types::builders::IdentityMappingBuilder::default();
+            crate::serde_util::identity_mapping_correct_errors(builder).build().ok()
+        }
+    }
+    if builder.lineage_sync.is_none() {
+        builder.lineage_sync = {
+            let builder = crate::types::builders::LineageSyncOutputBuilder::default();
+            Some(builder.build())
+        }
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::ConnectionStatus>().ok()
+    }
+    builder
+}
+
 pub(crate) fn subscribed_asset_correct_errors(
     mut builder: crate::types::builders::SubscribedAssetBuilder,
 ) -> crate::types::builders::SubscribedAssetBuilder {
@@ -3500,6 +3524,15 @@ pub(crate) fn glossary_term_item_correct_errors(
     }
     if builder.status.is_none() {
         builder.status = "no value was set".parse::<crate::types::GlossaryTermStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn identity_mapping_correct_errors(
+    mut builder: crate::types::builders::IdentityMappingBuilder,
+) -> crate::types::builders::IdentityMappingBuilder {
+    if builder.username_attribute.is_none() {
+        builder.username_attribute = Some(Default::default())
     }
     builder
 }

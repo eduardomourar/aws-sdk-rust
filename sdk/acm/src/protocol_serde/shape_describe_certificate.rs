@@ -50,6 +50,21 @@ pub fn de_describe_certificate_http_error(
             }
             tmp
         }),
+        "ValidationException" => crate::operation::describe_certificate::DescribeCertificateError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::describe_certificate::DescribeCertificateError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::describe_certificate::DescribeCertificateError::generic(generic),
     })
 }

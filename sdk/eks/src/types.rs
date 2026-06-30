@@ -95,6 +95,8 @@ pub use crate::types::_update_capability_configuration::UpdateCapabilityConfigur
 
 pub use crate::types::_update_access_config_request::UpdateAccessConfigRequest;
 
+pub use crate::types::_rollback_config::RollbackConfig;
+
 pub use crate::types::_update_labels_payload::UpdateLabelsPayload;
 
 pub use crate::types::_update_taints_payload::UpdateTaintsPayload;
@@ -106,6 +108,8 @@ pub use crate::types::_encryption_config::EncryptionConfig;
 pub use crate::types::_update_status::UpdateStatus;
 
 pub use crate::types::_update_type::UpdateType;
+
+pub use crate::types::_cancellation::Cancellation;
 
 pub use crate::types::_addon_pod_identity_associations::AddonPodIdentityAssociations;
 
@@ -224,6 +228,8 @@ pub use crate::types::_provider::Provider;
 pub use crate::types::_update_param::UpdateParam;
 
 pub use crate::types::_error_detail::ErrorDetail;
+
+pub use crate::types::_cancellation_status::CancellationStatus;
 
 pub use crate::types::_argo_cd_aws_idc_config_request::ArgoCdAwsIdcConfigRequest;
 
@@ -370,6 +376,10 @@ mod _authentication_mode;
 mod _auto_scaling_group;
 
 mod _block_storage;
+
+mod _cancellation;
+
+mod _cancellation_status;
 
 mod _capability;
 
@@ -566,6 +576,8 @@ mod _remote_pod_network;
 mod _repair_action;
 
 mod _resolve_conflicts;
+
+mod _rollback_config;
 
 mod _spread_level;
 

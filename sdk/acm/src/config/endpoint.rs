@@ -36,6 +36,7 @@ mod test {
             .region("af-south-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -56,6 +57,7 @@ mod test {
             .region("ap-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -76,6 +78,7 @@ mod test {
             .region("ap-northeast-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -96,6 +99,7 @@ mod test {
             .region("ap-northeast-2".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -116,6 +120,7 @@ mod test {
             .region("ap-northeast-3".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -136,6 +141,7 @@ mod test {
             .region("ap-south-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -156,6 +162,7 @@ mod test {
             .region("ap-southeast-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -176,6 +183,7 @@ mod test {
             .region("ap-southeast-2".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -196,6 +204,7 @@ mod test {
             .region("ap-southeast-3".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -216,6 +225,7 @@ mod test {
             .region("ca-central-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -229,33 +239,14 @@ mod test {
         );
     }
 
-    /// For region ca-central-1 with FIPS enabled and DualStack disabled
-    #[test]
-    fn test_11() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("ca-central-1".to_string())
-            .use_fips(true)
-            .use_dual_stack(false)
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.ca-central-1.amazonaws.com");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm-fips.ca-central-1.amazonaws.com")
-                .build()
-        );
-    }
-
     /// For region eu-central-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_12() {
+    fn test_11() {
         let params = crate::config::endpoint::Params::builder()
             .region("eu-central-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -271,11 +262,12 @@ mod test {
 
     /// For region eu-north-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_13() {
+    fn test_12() {
         let params = crate::config::endpoint::Params::builder()
             .region("eu-north-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -291,11 +283,12 @@ mod test {
 
     /// For region eu-south-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_14() {
+    fn test_13() {
         let params = crate::config::endpoint::Params::builder()
             .region("eu-south-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -311,11 +304,12 @@ mod test {
 
     /// For region eu-west-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_15() {
+    fn test_14() {
         let params = crate::config::endpoint::Params::builder()
             .region("eu-west-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -331,11 +325,12 @@ mod test {
 
     /// For region eu-west-2 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_16() {
+    fn test_15() {
         let params = crate::config::endpoint::Params::builder()
             .region("eu-west-2".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -351,11 +346,12 @@ mod test {
 
     /// For region eu-west-3 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_17() {
+    fn test_16() {
         let params = crate::config::endpoint::Params::builder()
             .region("eu-west-3".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -371,11 +367,12 @@ mod test {
 
     /// For region me-south-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_18() {
+    fn test_17() {
         let params = crate::config::endpoint::Params::builder()
             .region("me-south-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -391,11 +388,12 @@ mod test {
 
     /// For region sa-east-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_19() {
+    fn test_18() {
         let params = crate::config::endpoint::Params::builder()
             .region("sa-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -411,11 +409,12 @@ mod test {
 
     /// For region us-east-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_20() {
+    fn test_19() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -429,33 +428,14 @@ mod test {
         );
     }
 
-    /// For region us-east-1 with FIPS enabled and DualStack disabled
-    #[test]
-    fn test_21() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-east-1".to_string())
-            .use_fips(true)
-            .use_dual_stack(false)
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-east-1.amazonaws.com");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm-fips.us-east-1.amazonaws.com")
-                .build()
-        );
-    }
-
     /// For region us-east-2 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_22() {
+    fn test_20() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -469,33 +449,14 @@ mod test {
         );
     }
 
-    /// For region us-east-2 with FIPS enabled and DualStack disabled
-    #[test]
-    fn test_23() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-east-2".to_string())
-            .use_fips(true)
-            .use_dual_stack(false)
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-east-2.amazonaws.com");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm-fips.us-east-2.amazonaws.com")
-                .build()
-        );
-    }
-
     /// For region us-west-1 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_24() {
+    fn test_21() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-west-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -509,33 +470,14 @@ mod test {
         );
     }
 
-    /// For region us-west-1 with FIPS enabled and DualStack disabled
-    #[test]
-    fn test_25() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-west-1".to_string())
-            .use_fips(true)
-            .use_dual_stack(false)
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-west-1.amazonaws.com");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm-fips.us-west-1.amazonaws.com")
-                .build()
-        );
-    }
-
     /// For region us-west-2 with FIPS disabled and DualStack disabled
     #[test]
-    fn test_26() {
+    fn test_22() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-west-2".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -549,6 +491,90 @@ mod test {
         );
     }
 
+    /// For region ca-central-1 with FIPS enabled and DualStack disabled
+    #[test]
+    fn test_23() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("ca-central-1".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .service_type("ACM".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.ca-central-1.amazonaws.com");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://acm-fips.ca-central-1.amazonaws.com")
+                .build()
+        );
+    }
+
+    /// For region us-east-1 with FIPS enabled and DualStack disabled
+    #[test]
+    fn test_24() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-east-1".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .service_type("ACM".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-east-1.amazonaws.com");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://acm-fips.us-east-1.amazonaws.com")
+                .build()
+        );
+    }
+
+    /// For region us-east-2 with FIPS enabled and DualStack disabled
+    #[test]
+    fn test_25() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-east-2".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .service_type("ACM".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-east-2.amazonaws.com");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://acm-fips.us-east-2.amazonaws.com")
+                .build()
+        );
+    }
+
+    /// For region us-west-1 with FIPS enabled and DualStack disabled
+    #[test]
+    fn test_26() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-west-1".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .service_type("ACM".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-west-1.amazonaws.com");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://acm-fips.us-west-1.amazonaws.com")
+                .build()
+        );
+    }
+
     /// For region us-west-2 with FIPS enabled and DualStack disabled
     #[test]
     fn test_27() {
@@ -556,6 +582,7 @@ mod test {
             .region("us-west-2".to_string())
             .use_fips(true)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -576,6 +603,7 @@ mod test {
             .region("us-east-1".to_string())
             .use_fips(true)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -596,6 +624,7 @@ mod test {
             .region("us-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -616,6 +645,7 @@ mod test {
             .region("cn-north-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -636,6 +666,7 @@ mod test {
             .region("cn-northwest-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -656,6 +687,7 @@ mod test {
             .region("cn-north-1".to_string())
             .use_fips(true)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -676,6 +708,7 @@ mod test {
             .region("cn-north-1".to_string())
             .use_fips(true)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -696,6 +729,7 @@ mod test {
             .region("cn-north-1".to_string())
             .use_fips(false)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -716,6 +750,7 @@ mod test {
             .region("us-gov-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -736,6 +771,7 @@ mod test {
             .region("us-gov-west-1".to_string())
             .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -756,6 +792,7 @@ mod test {
             .region("us-gov-east-1".to_string())
             .use_fips(true)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -776,6 +813,7 @@ mod test {
             .region("us-gov-east-1".to_string())
             .use_fips(true)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -796,6 +834,7 @@ mod test {
             .region("us-gov-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -809,166 +848,159 @@ mod test {
         );
     }
 
-    /// For region us-iso-east-1 with FIPS enabled and DualStack disabled
+    /// For custom endpoint with region set and fips disabled and DualStack disabled
     #[test]
     fn test_40() {
         let params = crate::config::endpoint::Params::builder()
-            .region("us-iso-east-1".to_string())
-            .use_fips(true)
+            .region("us-east-1".to_string())
+            .use_fips(false)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
+            .endpoint("https://example.com".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://example.com");
         assert_eq!(
             endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm-fips.us-iso-east-1.c2s.ic.gov")
-                .build()
+            ::aws_smithy_types::endpoint::Endpoint::builder().url("https://example.com").build()
         );
     }
 
-    /// For region us-iso-east-1 with FIPS disabled and DualStack disabled
+    /// For custom endpoint with FIPS enabled and DualStack disabled
     #[test]
     fn test_41() {
         let params = crate::config::endpoint::Params::builder()
-            .region("us-iso-east-1".to_string())
-            .use_fips(false)
+            .region("us-east-1".to_string())
+            .use_fips(true)
             .use_dual_stack(false)
+            .service_type("ACM".to_string())
+            .endpoint("https://example.com".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://example.com");
         assert_eq!(
             endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm.us-iso-east-1.c2s.ic.gov")
-                .build()
+            ::aws_smithy_types::endpoint::Endpoint::builder().url("https://example.com").build()
         );
     }
 
-    /// For region us-isob-east-1 with FIPS enabled and DualStack disabled
+    /// For custom endpoint with FIPS disabled and dualstack enabled
     #[test]
     fn test_42() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-isob-east-1".to_string())
-            .use_fips(true)
-            .use_dual_stack(false)
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-fips.us-isob-east-1.sc2s.sgov.gov");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm-fips.us-isob-east-1.sc2s.sgov.gov")
-                .build()
-        );
-    }
-
-    /// For region us-isob-east-1 with FIPS disabled and DualStack disabled
-    #[test]
-    fn test_43() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-isob-east-1".to_string())
-            .use_fips(false)
-            .use_dual_stack(false)
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://acm.us-isob-east-1.sc2s.sgov.gov");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://acm.us-isob-east-1.sc2s.sgov.gov")
-                .build()
-        );
-    }
-
-    /// For custom endpoint with region set and fips disabled and dualstack disabled
-    #[test]
-    fn test_44() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-east-1".to_string())
-            .use_fips(false)
-            .use_dual_stack(false)
-            .endpoint("https://example.com".to_string())
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://example.com");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder().url("https://example.com").build()
-        );
-    }
-
-    /// For custom endpoint with region not set and fips disabled and dualstack disabled
-    #[test]
-    fn test_45() {
-        let params = crate::config::endpoint::Params::builder()
-            .use_fips(false)
-            .use_dual_stack(false)
-            .endpoint("https://example.com".to_string())
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://example.com");
-        assert_eq!(
-            endpoint,
-            ::aws_smithy_types::endpoint::Endpoint::builder().url("https://example.com").build()
-        );
-    }
-
-    /// For custom endpoint with fips enabled and dualstack disabled
-    #[test]
-    fn test_46() {
-        let params = crate::config::endpoint::Params::builder()
-            .region("us-east-1".to_string())
-            .use_fips(true)
-            .use_dual_stack(false)
-            .endpoint("https://example.com".to_string())
-            .build()
-            .expect("invalid params");
-        let resolver = crate::config::endpoint::DefaultResolver::new();
-        let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid Configuration: FIPS and custom endpoint are not supported [For custom endpoint with fips enabled and dualstack disabled]");
-        assert_eq!(format!("{}", error), "Invalid Configuration: FIPS and custom endpoint are not supported")
-    }
-
-    /// For custom endpoint with fips disabled and dualstack enabled
-    #[test]
-    fn test_47() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-1".to_string())
             .use_fips(false)
             .use_dual_stack(true)
+            .service_type("ACM".to_string())
             .endpoint("https://example.com".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid Configuration: Dualstack and custom endpoint are not supported [For custom endpoint with fips disabled and dualstack enabled]");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://example.com");
         assert_eq!(
-            format!("{}", error),
-            "Invalid Configuration: Dualstack and custom endpoint are not supported"
-        )
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder().url("https://example.com").build()
+        );
     }
 
-    /// Missing region
+    /// ACM-ACME standard endpoint for us-east-1
     #[test]
-    fn test_48() {
-        let params = crate::config::endpoint::Params::builder().build().expect("invalid params");
+    fn test_43() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-east-1".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .service_type("ACM-ACME".to_string())
+            .build()
+            .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid Configuration: Missing Region [Missing region]");
-        assert_eq!(format!("{}", error), "Invalid Configuration: Missing Region")
+        let endpoint = endpoint.expect("Expected valid endpoint: https://acm-acme.us-east-1.api.aws");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://acm-acme.us-east-1.api.aws")
+                .build()
+        );
+    }
+
+    /// ACM-ACME FIPS returns error
+    #[test]
+    fn test_44() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-west-2".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .service_type("ACM-ACME".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err("expected error: FIPS endpoints are not available for ACME operations [ACM-ACME FIPS returns error]");
+        assert_eq!(format!("{}", error), "FIPS endpoints are not available for ACME operations")
+    }
+
+    /// ACM-ACME custom endpoint
+    #[test]
+    fn test_45() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-east-1".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .service_type("ACM-ACME".to_string())
+            .endpoint("https://custom.example.com".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://custom.example.com");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://custom.example.com")
+                .build()
+        );
+    }
+
+    /// ACM-ACME in us-gov-west-1 returns partition error
+    #[test]
+    fn test_46() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("us-gov-west-1".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .service_type("ACM-ACME".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err(
+            "expected error: ACME operations are only available in commercial AWS partitions [ACM-ACME in us-gov-west-1 returns partition error]",
+        );
+        assert_eq!(format!("{}", error), "ACME operations are only available in commercial AWS partitions")
+    }
+
+    /// ACM-ACME in cn-north-1 returns partition error
+    #[test]
+    fn test_47() {
+        let params = crate::config::endpoint::Params::builder()
+            .region("cn-north-1".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .service_type("ACM-ACME".to_string())
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err(
+            "expected error: ACME operations are only available in commercial AWS partitions [ACM-ACME in cn-north-1 returns partition error]",
+        );
+        assert_eq!(format!("{}", error), "ACME operations are only available in commercial AWS partitions")
     }
 }
 
@@ -1050,9 +1082,10 @@ impl DefaultResolver {
 
         // Param bindings
         let region = &params.region;
-        let use_dual_stack = &params.use_dual_stack;
-        let use_fips = &params.use_fips;
         let endpoint = &params.endpoint;
+        let use_fips = &params.use_fips;
+        let use_dual_stack = &params.use_dual_stack;
+        let service_type = &params.service_type;
 
         let mut current_ref: i32 = 2;
         loop {
@@ -1062,18 +1095,36 @@ impl DefaultResolver {
                         0 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "No endpoint rule matched",
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        1 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "Invalid Configuration: FIPS and custom endpoint are not supported".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        2 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "Invalid Configuration: Dualstack and custom endpoint are not supported".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        3 => {
+                        1 => {
                             let endpoint = params.endpoint.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned()).build())
                         }
-                        4 => {
-                            let region = params.region.as_deref().unwrap_or_default();
+                        2 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                            "FIPS endpoints are not available for ACME operations".to_string(),
+                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        3 => {
+                            let region = &params.region;
+                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+                            ::std::result::Result::Ok(
+                                ::aws_smithy_types::endpoint::Endpoint::builder()
+                                    .url({
+                                        let mut out = String::new();
+                                        out.push_str("https://acm-acme.");
+                                        #[allow(clippy::needless_borrow)]
+                                        out.push_str(&region.as_ref());
+                                        out.push('.');
+                                        #[allow(clippy::needless_borrow)]
+                                        out.push_str(&partition_result.dual_stack_dns_suffix());
+                                        out
+                                    })
+                                    .build(),
+                            )
+                        }
+                        4 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                            "ACME operations are only available in commercial AWS partitions".to_string(),
+                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        5 => {
+                            let region = &params.region;
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1090,11 +1141,8 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        5 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "FIPS and DualStack are enabled, but this partition does not support one or both".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
                         6 => {
-                            let region = params.region.as_deref().unwrap_or_default();
+                            let region = &params.region;
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
                                     .url({
@@ -1109,7 +1157,7 @@ impl DefaultResolver {
                             )
                         }
                         7 => {
-                            let region = params.region.as_deref().unwrap_or_default();
+                            let region = &params.region;
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1126,11 +1174,8 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        8 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "FIPS is enabled but this partition does not support FIPS".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        9 => {
-                            let region = params.region.as_deref().unwrap_or_default();
+                        8 => {
+                            let region = &params.region;
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1147,11 +1192,8 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        10 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "DualStack is enabled but this partition does not support DualStack".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        11 => {
-                            let region = params.region.as_deref().unwrap_or_default();
+                        9 => {
+                            let region = &params.region;
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1168,8 +1210,8 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        12 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "Invalid Configuration: Missing Region".to_string(),
+                        10 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                            "Region must be set to resolve an endpoint.".to_string(),
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
                         _ => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "No endpoint rule matched",
@@ -1187,38 +1229,32 @@ impl DefaultResolver {
                     let node = &NODES[(ref_val.unsigned_abs() as usize) - 1];
                     let condition_result = match node.condition_index {
                         0 => endpoint.is_some(),
-                        1 => region.is_some(),
-                        2 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        1 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &mut context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             {
                                 *partition_result = partition_resolver
-                                    .resolve_partition(if let Some(param) = region { param } else { return false }, _diagnostic_collector)
+                                    .resolve_partition(region, _diagnostic_collector)
                                     .map(|inner| inner.into());
                                 partition_result.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        3 => (use_fips) == (&true),
-                        4 => (use_dual_stack) == (&true),
-                        5 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        2 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                            let partition_resolver = &self.partition_resolver;
+                            (service_type) == ("ACM-ACME")
+                        })(&mut _diagnostic_collector),
+                        3 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
-                                inner.supports_dual_stack()
+                                inner.name()
                             } else {
                                 return false;
-                            }) == (true)
+                            }) == ("aws")
                         })(&mut _diagnostic_collector),
+                        4 => (use_fips) == (&true),
+                        5 => (use_dual_stack) == (&true),
                         6 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-                            let partition_result = &context.partition_result;
-                            let partition_resolver = &self.partition_resolver;
-                            (if let Some(inner) = partition_result {
-                                inner.supports_fips()
-                            } else {
-                                return false;
-                            }) == (true)
-                        })(&mut _diagnostic_collector),
-                        7 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
@@ -1253,7 +1289,7 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
 }
-const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 14] = [
+const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 10] = [
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: -1,
         high_ref: 1,
@@ -1261,63 +1297,43 @@ const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 14] = [
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 0,
-        high_ref: 13,
+        high_ref: 100000001,
         low_ref: 3,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 1,
         high_ref: 4,
-        low_ref: 100000012,
+        low_ref: 100000010,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 2,
-        high_ref: 5,
-        low_ref: 100000012,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 3,
-        high_ref: 8,
-        low_ref: 6,
+        high_ref: 9,
+        low_ref: 5,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 7,
-        low_ref: 100000011,
+        low_ref: 6,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
-        high_ref: 100000009,
-        low_ref: 100000010,
+        high_ref: 100000008,
+        low_ref: 100000009,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 4,
-        high_ref: 11,
-        low_ref: 9,
+        condition_index: 5,
+        high_ref: 100000005,
+        low_ref: 8,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
-        high_ref: 10,
-        low_ref: 100000008,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 7,
         high_ref: 100000006,
         low_ref: 100000007,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 5,
-        high_ref: 12,
-        low_ref: 100000005,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 6,
-        high_ref: 100000004,
-        low_ref: 100000005,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 3,
-        high_ref: 100000001,
-        low_ref: 14,
+        high_ref: 10,
+        low_ref: 100000004,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
@@ -1339,35 +1355,41 @@ pub(crate) struct ConditionContext<'a> {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 /// Configuration parameters for resolving the correct endpoint
 pub struct Params {
-    /// The AWS region used to dispatch the request.
-    pub(crate) region: ::std::option::Option<::std::string::String>,
-    /// When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.
-    pub(crate) use_dual_stack: bool,
-    /// When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.
-    pub(crate) use_fips: bool,
-    /// Override the endpoint used to send this request
+    /// The AWS region to send requests to.
+    pub(crate) region: ::std::string::String,
+    /// Override the endpoint used to send requests.
     pub(crate) endpoint: ::std::option::Option<::std::string::String>,
+    /// Use FIPS endpoints.
+    pub(crate) use_fips: bool,
+    /// Use dual-stack endpoints.
+    pub(crate) use_dual_stack: bool,
+    /// The service type: ACM or ACM-ACME. Injected via @staticContextParams.
+    pub(crate) service_type: ::std::string::String,
 }
 impl Params {
     /// Create a builder for [`Params`]
     pub fn builder() -> crate::config::endpoint::ParamsBuilder {
         crate::config::endpoint::ParamsBuilder::default()
     }
-    /// The AWS region used to dispatch the request.
+    /// The AWS region to send requests to.
     pub fn region(&self) -> ::std::option::Option<&str> {
-        self.region.as_deref()
+        Some(&self.region)
     }
-    /// When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.
-    pub fn use_dual_stack(&self) -> ::std::option::Option<bool> {
-        Some(self.use_dual_stack)
+    /// Override the endpoint used to send requests.
+    pub fn endpoint(&self) -> ::std::option::Option<&str> {
+        self.endpoint.as_deref()
     }
-    /// When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.
+    /// Use FIPS endpoints.
     pub fn use_fips(&self) -> ::std::option::Option<bool> {
         Some(self.use_fips)
     }
-    /// Override the endpoint used to send this request
-    pub fn endpoint(&self) -> ::std::option::Option<&str> {
-        self.endpoint.as_deref()
+    /// Use dual-stack endpoints.
+    pub fn use_dual_stack(&self) -> ::std::option::Option<bool> {
+        Some(self.use_dual_stack)
+    }
+    /// The service type: ACM or ACM-ACME. Injected via @staticContextParams.
+    pub fn service_type(&self) -> ::std::option::Option<&str> {
+        Some(&self.service_type)
     }
 }
 
@@ -1375,9 +1397,10 @@ impl Params {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ParamsBuilder {
     region: ::std::option::Option<::std::string::String>,
-    use_dual_stack: ::std::option::Option<bool>,
-    use_fips: ::std::option::Option<bool>,
     endpoint: ::std::option::Option<::std::string::String>,
+    use_fips: ::std::option::Option<bool>,
+    use_dual_stack: ::std::option::Option<bool>,
+    service_type: ::std::option::Option<::std::string::String>,
 }
 impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
@@ -1397,22 +1420,25 @@ impl ParamsBuilder {
         Ok(
             #[allow(clippy::unnecessary_lazy_evaluations)]
             crate::config::endpoint::Params {
-                region: self.region,
-                use_dual_stack: self
-                    .use_dual_stack
-                    .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
+                region: self.region.ok_or_else(|| crate::config::endpoint::InvalidParams::missing("region"))?,
+                endpoint: self.endpoint,
                 use_fips: self
                     .use_fips
                     .or_else(|| Some(false))
                     .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_fips"))?,
-                endpoint: self.endpoint,
+                use_dual_stack: self
+                    .use_dual_stack
+                    .or_else(|| Some(false))
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
+                service_type: self
+                    .service_type
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("service_type"))?,
             },
         )
     }
     /// Sets the value for region
     ///
-    /// The AWS region used to dispatch the request.
+    /// The AWS region to send requests to.
     pub fn region(mut self, value: impl Into<::std::string::String>) -> Self {
         self.region = Some(value.into());
         self
@@ -1420,32 +1446,30 @@ impl ParamsBuilder {
 
     /// Sets the value for region
     ///
-    /// The AWS region used to dispatch the request.
+    /// The AWS region to send requests to.
     pub fn set_region(mut self, param: Option<::std::string::String>) -> Self {
         self.region = param;
         self
     }
-    /// Sets the value for use_dual_stack
+    /// Sets the value for endpoint
     ///
-    /// When unset, this parameter has a default value of `false`.
-    /// When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.
-    pub fn use_dual_stack(mut self, value: impl Into<bool>) -> Self {
-        self.use_dual_stack = Some(value.into());
+    /// Override the endpoint used to send requests.
+    pub fn endpoint(mut self, value: impl Into<::std::string::String>) -> Self {
+        self.endpoint = Some(value.into());
         self
     }
 
-    /// Sets the value for use_dual_stack
+    /// Sets the value for endpoint
     ///
-    /// When unset, this parameter has a default value of `false`.
-    /// When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.
-    pub fn set_use_dual_stack(mut self, param: Option<bool>) -> Self {
-        self.use_dual_stack = param;
+    /// Override the endpoint used to send requests.
+    pub fn set_endpoint(mut self, param: Option<::std::string::String>) -> Self {
+        self.endpoint = param;
         self
     }
     /// Sets the value for use_fips
     ///
     /// When unset, this parameter has a default value of `false`.
-    /// When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.
+    /// Use FIPS endpoints.
     pub fn use_fips(mut self, value: impl Into<bool>) -> Self {
         self.use_fips = Some(value.into());
         self
@@ -1454,24 +1478,41 @@ impl ParamsBuilder {
     /// Sets the value for use_fips
     ///
     /// When unset, this parameter has a default value of `false`.
-    /// When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.
+    /// Use FIPS endpoints.
     pub fn set_use_fips(mut self, param: Option<bool>) -> Self {
         self.use_fips = param;
         self
     }
-    /// Sets the value for endpoint
+    /// Sets the value for use_dual_stack
     ///
-    /// Override the endpoint used to send this request
-    pub fn endpoint(mut self, value: impl Into<::std::string::String>) -> Self {
-        self.endpoint = Some(value.into());
+    /// When unset, this parameter has a default value of `false`.
+    /// Use dual-stack endpoints.
+    pub fn use_dual_stack(mut self, value: impl Into<bool>) -> Self {
+        self.use_dual_stack = Some(value.into());
         self
     }
 
-    /// Sets the value for endpoint
+    /// Sets the value for use_dual_stack
     ///
-    /// Override the endpoint used to send this request
-    pub fn set_endpoint(mut self, param: Option<::std::string::String>) -> Self {
-        self.endpoint = param;
+    /// When unset, this parameter has a default value of `false`.
+    /// Use dual-stack endpoints.
+    pub fn set_use_dual_stack(mut self, param: Option<bool>) -> Self {
+        self.use_dual_stack = param;
+        self
+    }
+    /// Sets the value for service_type
+    ///
+    /// The service type: ACM or ACM-ACME. Injected via @staticContextParams.
+    pub fn service_type(mut self, value: impl Into<::std::string::String>) -> Self {
+        self.service_type = Some(value.into());
+        self
+    }
+
+    /// Sets the value for service_type
+    ///
+    /// The service type: ACM or ACM-ACME. Injected via @staticContextParams.
+    pub fn set_service_type(mut self, param: Option<::std::string::String>) -> Self {
+        self.service_type = param;
         self
     }
 }

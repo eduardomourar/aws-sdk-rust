@@ -719,6 +719,10 @@ pub use crate::types::_vpc_encryption_control_mode::VpcEncryptionControlMode;
 
 pub use crate::types::_vpc_encryption_control_exclusion_state_input::VpcEncryptionControlExclusionStateInput;
 
+pub use crate::types::_payer_responsibility_type::PayerResponsibilityType;
+
+pub use crate::types::_payer_responsibility_scope::PayerResponsibilityScope;
+
 pub use crate::types::_payer_responsibility::PayerResponsibility;
 
 pub use crate::types::_peering_connection_options_request::PeeringConnectionOptionsRequest;
@@ -1698,6 +1702,8 @@ pub use crate::types::_verified_access_log_kinesis_data_firehose_destination_opt
 pub use crate::types::_verified_access_logs::VerifiedAccessLogs;
 
 pub use crate::types::_volume_modification_state::VolumeModificationState;
+
+pub use crate::types::_payer_responsibility_entry::PayerResponsibilityEntry;
 
 pub use crate::types::_added_principal::AddedPrincipal;
 
@@ -4458,6 +4464,12 @@ mod _path_statement;
 mod _path_statement_request;
 
 mod _payer_responsibility;
+
+mod _payer_responsibility_entry;
+
+mod _payer_responsibility_scope;
+
+mod _payer_responsibility_type;
 
 mod _payment_option;
 

@@ -14,7 +14,7 @@ pub struct DeploymentCircuitBreaker {
     pub rollback: bool,
     /// <p>Determines whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to <code>true</code>, a healthy task resets the failure count to <code>0</code>; when <code>false</code>, it doesn't.</p>
     pub reset_on_healthy_task: ::std::option::Option<bool>,
-    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
     pub threshold_configuration: ::std::option::Option<crate::types::ThresholdConfiguration>,
 }
 impl DeploymentCircuitBreaker {
@@ -30,7 +30,7 @@ impl DeploymentCircuitBreaker {
     pub fn reset_on_healthy_task(&self) -> ::std::option::Option<bool> {
         self.reset_on_healthy_task
     }
-    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
     pub fn threshold_configuration(&self) -> ::std::option::Option<&crate::types::ThresholdConfiguration> {
         self.threshold_configuration.as_ref()
     }
@@ -96,17 +96,17 @@ impl DeploymentCircuitBreakerBuilder {
     pub fn get_reset_on_healthy_task(&self) -> &::std::option::Option<bool> {
         &self.reset_on_healthy_task
     }
-    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
     pub fn threshold_configuration(mut self, input: crate::types::ThresholdConfiguration) -> Self {
         self.threshold_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
     pub fn set_threshold_configuration(mut self, input: ::std::option::Option<crate::types::ThresholdConfiguration>) -> Self {
         self.threshold_configuration = input;
         self
     }
-    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+    /// <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
     pub fn get_threshold_configuration(&self) -> &::std::option::Option<crate::types::ThresholdConfiguration> {
         &self.threshold_configuration
     }

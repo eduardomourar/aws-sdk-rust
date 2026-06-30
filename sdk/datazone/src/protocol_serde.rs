@@ -1191,6 +1191,12 @@ pub(crate) mod shape_search_types_result_item;
 
 pub(crate) mod shape_security_group_ids;
 
+pub(crate) mod shape_snowflake_properties_input;
+
+pub(crate) mod shape_snowflake_properties_output;
+
+pub(crate) mod shape_snowflake_properties_patch;
+
 pub(crate) mod shape_spark_emr_properties_input;
 
 pub(crate) mod shape_spark_emr_properties_output;
@@ -1275,6 +1281,10 @@ pub(crate) mod shape_aws_region_list;
 
 pub(crate) mod shape_configurable_action_parameter_list;
 
+pub(crate) mod shape_connectivity_properties;
+
+pub(crate) mod shape_connectivity_properties_patch;
+
 pub(crate) mod shape_data_product_listing_item;
 
 pub(crate) mod shape_data_product_result_item;
@@ -1311,6 +1321,8 @@ pub(crate) mod shape_glue_connection_names;
 
 pub(crate) mod shape_glue_connection_patch;
 
+pub(crate) mod shape_identity_mapping;
+
 pub(crate) mod shape_item_glossary_terms;
 
 pub(crate) mod shape_lineage_info;
@@ -1320,6 +1332,10 @@ pub(crate) mod shape_lineage_node_item;
 pub(crate) mod shape_lineage_node_type_item;
 
 pub(crate) mod shape_lineage_sql_query_run_details;
+
+pub(crate) mod shape_lineage_sync_input;
+
+pub(crate) mod shape_lineage_sync_output;
 
 pub(crate) mod shape_listing_summaries;
 

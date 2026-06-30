@@ -2743,6 +2743,10 @@ pub(crate) mod shape_modify_vpc_endpoint_connection_notification_input;
 
 pub(crate) mod shape_modify_vpc_endpoint_input;
 
+pub(crate) mod shape_modify_vpc_endpoint_payer_responsibility;
+
+pub(crate) mod shape_modify_vpc_endpoint_payer_responsibility_input;
+
 pub(crate) mod shape_modify_vpc_endpoint_service_configuration;
 
 pub(crate) mod shape_modify_vpc_endpoint_service_configuration_input;
@@ -3999,6 +4003,8 @@ pub(crate) mod shape_outpost_lag_set;
 
 pub(crate) mod shape_path_statement_request;
 
+pub(crate) mod shape_payer_responsibility_set;
+
 pub(crate) mod shape_peering_connection_options;
 
 pub(crate) mod shape_phase1_dh_group_numbers_request_list_value;
@@ -4808,6 +4814,8 @@ pub(crate) mod shape_packet_header_statement_request;
 pub(crate) mod shape_path_component_list;
 
 pub(crate) mod shape_path_filter;
+
+pub(crate) mod shape_payer_responsibility_entry;
 
 pub(crate) mod shape_peering_attachment_status;
 

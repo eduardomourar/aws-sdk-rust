@@ -77,11 +77,15 @@ pub use crate::types::_update_capability_configuration::UpdateCapabilityConfigur
 
 pub use crate::types::_update_access_config_request::UpdateAccessConfigRequestBuilder;
 
+pub use crate::types::_rollback_config::RollbackConfigBuilder;
+
 pub use crate::types::_update_labels_payload::UpdateLabelsPayloadBuilder;
 
 pub use crate::types::_update_taints_payload::UpdateTaintsPayloadBuilder;
 
 pub use crate::types::_encryption_config::EncryptionConfigBuilder;
+
+pub use crate::types::_cancellation::CancellationBuilder;
 
 pub use crate::types::_addon_pod_identity_associations::AddonPodIdentityAssociationsBuilder;
 

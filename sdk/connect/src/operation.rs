@@ -100,6 +100,9 @@ pub mod complete_attached_file_upload;
 /// Types for the `CreateAgentStatus` operation.
 pub mod create_agent_status;
 
+/// Types for the `CreateAttachedFile` operation.
+pub mod create_attached_file;
+
 /// Types for the `CreateContact` operation.
 pub mod create_contact;
 
@@ -849,6 +852,9 @@ pub mod start_attached_file_upload;
 
 /// Types for the `StartChatContact` operation.
 pub mod start_chat_contact;
+
+/// Types for the `StartContactConversationalAnalyticsJob` operation.
+pub mod start_contact_conversational_analytics_job;
 
 /// Types for the `StartContactEvaluation` operation.
 pub mod start_contact_evaluation;

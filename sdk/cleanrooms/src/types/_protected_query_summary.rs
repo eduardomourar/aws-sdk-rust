@@ -18,6 +18,8 @@ pub struct ProtectedQuerySummary {
     pub receiver_configurations: ::std::vec::Vec<crate::types::ReceiverConfiguration>,
     /// <p>The account ID of the member that pays for the query compute costs.</p>
     pub query_compute_payer_account_id: ::std::option::Option<::std::string::String>,
+    /// <p>The intermediate table configuration, present when the protected query was triggered by a populate operation.</p>
+    pub intermediate_table_configuration: ::std::option::Option<crate::types::IntermediateTableOutputConfiguration>,
 }
 impl ProtectedQuerySummary {
     /// <p>The unique ID of the protected query.</p>
@@ -52,6 +54,10 @@ impl ProtectedQuerySummary {
     pub fn query_compute_payer_account_id(&self) -> ::std::option::Option<&str> {
         self.query_compute_payer_account_id.as_deref()
     }
+    /// <p>The intermediate table configuration, present when the protected query was triggered by a populate operation.</p>
+    pub fn intermediate_table_configuration(&self) -> ::std::option::Option<&crate::types::IntermediateTableOutputConfiguration> {
+        self.intermediate_table_configuration.as_ref()
+    }
 }
 impl ProtectedQuerySummary {
     /// Creates a new builder-style object to manufacture [`ProtectedQuerySummary`](crate::types::ProtectedQuerySummary).
@@ -71,6 +77,7 @@ pub struct ProtectedQuerySummaryBuilder {
     pub(crate) status: ::std::option::Option<crate::types::ProtectedQueryStatus>,
     pub(crate) receiver_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ReceiverConfiguration>>,
     pub(crate) query_compute_payer_account_id: ::std::option::Option<::std::string::String>,
+    pub(crate) intermediate_table_configuration: ::std::option::Option<crate::types::IntermediateTableOutputConfiguration>,
 }
 impl ProtectedQuerySummaryBuilder {
     /// <p>The unique ID of the protected query.</p>
@@ -182,6 +189,20 @@ impl ProtectedQuerySummaryBuilder {
     pub fn get_query_compute_payer_account_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.query_compute_payer_account_id
     }
+    /// <p>The intermediate table configuration, present when the protected query was triggered by a populate operation.</p>
+    pub fn intermediate_table_configuration(mut self, input: crate::types::IntermediateTableOutputConfiguration) -> Self {
+        self.intermediate_table_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The intermediate table configuration, present when the protected query was triggered by a populate operation.</p>
+    pub fn set_intermediate_table_configuration(mut self, input: ::std::option::Option<crate::types::IntermediateTableOutputConfiguration>) -> Self {
+        self.intermediate_table_configuration = input;
+        self
+    }
+    /// <p>The intermediate table configuration, present when the protected query was triggered by a populate operation.</p>
+    pub fn get_intermediate_table_configuration(&self) -> &::std::option::Option<crate::types::IntermediateTableOutputConfiguration> {
+        &self.intermediate_table_configuration
+    }
     /// Consumes the builder and constructs a [`ProtectedQuerySummary`](crate::types::ProtectedQuerySummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::ProtectedQuerySummaryBuilder::id)
@@ -223,6 +244,7 @@ impl ProtectedQuerySummaryBuilder {
             })?,
             receiver_configurations: self.receiver_configurations.unwrap_or_default(),
             query_compute_payer_account_id: self.query_compute_payer_account_id,
+            intermediate_table_configuration: self.intermediate_table_configuration,
         })
     }
 }

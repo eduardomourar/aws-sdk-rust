@@ -100,6 +100,27 @@ where
                                     .transpose()?,
                             );
                         }
+                        "CertificateKeyPairOrigin" => {
+                            builder = builder.set_certificate_key_pair_origin(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CertificateKeyPairOrigin::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "AcmeEndpointArn" => {
+                            builder = builder.set_acme_endpoint_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "AcmeAccountId" => {
+                            builder = builder.set_acme_account_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

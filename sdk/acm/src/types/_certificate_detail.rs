@@ -60,6 +60,12 @@ pub struct CertificateDetail {
     pub renewal_eligibility: ::std::option::Option<crate::types::RenewalEligibility>,
     /// <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
     pub options: ::std::option::Option<crate::types::CertificateOptions>,
+    /// <p>The origin of the certificate's key pair.</p>
+    pub certificate_key_pair_origin: ::std::option::Option<crate::types::CertificateKeyPairOrigin>,
+    /// <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+    pub acme_endpoint_arn: ::std::option::Option<::std::string::String>,
+    /// <p>The ACME account identifier associated with the certificate.</p>
+    pub acme_account_id: ::std::option::Option<::std::string::String>,
 }
 impl CertificateDetail {
     /// <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -182,6 +188,18 @@ impl CertificateDetail {
     pub fn options(&self) -> ::std::option::Option<&crate::types::CertificateOptions> {
         self.options.as_ref()
     }
+    /// <p>The origin of the certificate's key pair.</p>
+    pub fn certificate_key_pair_origin(&self) -> ::std::option::Option<&crate::types::CertificateKeyPairOrigin> {
+        self.certificate_key_pair_origin.as_ref()
+    }
+    /// <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+    pub fn acme_endpoint_arn(&self) -> ::std::option::Option<&str> {
+        self.acme_endpoint_arn.as_deref()
+    }
+    /// <p>The ACME account identifier associated with the certificate.</p>
+    pub fn acme_account_id(&self) -> ::std::option::Option<&str> {
+        self.acme_account_id.as_deref()
+    }
 }
 impl CertificateDetail {
     /// Creates a new builder-style object to manufacture [`CertificateDetail`](crate::types::CertificateDetail).
@@ -221,6 +239,9 @@ pub struct CertificateDetailBuilder {
     pub(crate) certificate_authority_arn: ::std::option::Option<::std::string::String>,
     pub(crate) renewal_eligibility: ::std::option::Option<crate::types::RenewalEligibility>,
     pub(crate) options: ::std::option::Option<crate::types::CertificateOptions>,
+    pub(crate) certificate_key_pair_origin: ::std::option::Option<crate::types::CertificateKeyPairOrigin>,
+    pub(crate) acme_endpoint_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) acme_account_id: ::std::option::Option<::std::string::String>,
 }
 impl CertificateDetailBuilder {
     /// <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -637,6 +658,48 @@ impl CertificateDetailBuilder {
     pub fn get_options(&self) -> &::std::option::Option<crate::types::CertificateOptions> {
         &self.options
     }
+    /// <p>The origin of the certificate's key pair.</p>
+    pub fn certificate_key_pair_origin(mut self, input: crate::types::CertificateKeyPairOrigin) -> Self {
+        self.certificate_key_pair_origin = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The origin of the certificate's key pair.</p>
+    pub fn set_certificate_key_pair_origin(mut self, input: ::std::option::Option<crate::types::CertificateKeyPairOrigin>) -> Self {
+        self.certificate_key_pair_origin = input;
+        self
+    }
+    /// <p>The origin of the certificate's key pair.</p>
+    pub fn get_certificate_key_pair_origin(&self) -> &::std::option::Option<crate::types::CertificateKeyPairOrigin> {
+        &self.certificate_key_pair_origin
+    }
+    /// <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+    pub fn acme_endpoint_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.acme_endpoint_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+    pub fn set_acme_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.acme_endpoint_arn = input;
+        self
+    }
+    /// <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+    pub fn get_acme_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.acme_endpoint_arn
+    }
+    /// <p>The ACME account identifier associated with the certificate.</p>
+    pub fn acme_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.acme_account_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ACME account identifier associated with the certificate.</p>
+    pub fn set_acme_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.acme_account_id = input;
+        self
+    }
+    /// <p>The ACME account identifier associated with the certificate.</p>
+    pub fn get_acme_account_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.acme_account_id
+    }
     /// Consumes the builder and constructs a [`CertificateDetail`](crate::types::CertificateDetail).
     pub fn build(self) -> crate::types::CertificateDetail {
         crate::types::CertificateDetail {
@@ -667,6 +730,9 @@ impl CertificateDetailBuilder {
             certificate_authority_arn: self.certificate_authority_arn,
             renewal_eligibility: self.renewal_eligibility,
             options: self.options,
+            certificate_key_pair_origin: self.certificate_key_pair_origin,
+            acme_endpoint_arn: self.acme_endpoint_arn,
+            acme_account_id: self.acme_account_id,
         }
     }
 }

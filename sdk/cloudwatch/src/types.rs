@@ -35,6 +35,8 @@ pub use crate::types::_scheduled_query_configuration::ScheduledQueryConfiguratio
 
 pub use crate::types::_comparison_operator::ComparisonOperator;
 
+pub use crate::types::_evaluation_window::EvaluationWindow;
+
 pub use crate::types::_evaluation_criteria::EvaluationCriteria;
 
 pub use crate::types::_dimension::Dimension;
@@ -96,6 +98,10 @@ pub use crate::types::_dashboard_validation_message::DashboardValidationMessage;
 pub use crate::types::_schedule_configuration::ScheduleConfiguration;
 
 pub use crate::types::_managed_rule::ManagedRule;
+
+pub use crate::types::_wall_clock_window::WallClockWindow;
+
+pub use crate::types::_sliding_window::SlidingWindow;
 
 pub use crate::types::_alarm_prom_ql_criteria::AlarmPromQlCriteria;
 
@@ -169,6 +175,8 @@ mod _evaluation_criteria;
 
 mod _evaluation_state;
 
+mod _evaluation_window;
+
 mod _history_item_type;
 
 mod _insight_rule;
@@ -239,6 +247,8 @@ mod _scheduled_query_configuration;
 
 mod _single_metric_anomaly_detector;
 
+mod _sliding_window;
+
 mod _standard_unit;
 
 mod _state_value;
@@ -250,6 +260,8 @@ mod _statistic_set;
 mod _status_code;
 
 mod _tag;
+
+mod _wall_clock_window;
 
 /// Builders
 pub mod builders;

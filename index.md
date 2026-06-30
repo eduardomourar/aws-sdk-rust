@@ -91,8 +91,6 @@ The AWS SDK for Rust contains one crate for each AWS service, as well as [aws-co
 | AWS IoT | [aws-sdk-iot](https://crates.io/crates/aws-sdk-iot) ([docs](https://docs.rs/aws-sdk-iot)) |
 | AWS IoT Core Device Advisor | [aws-sdk-iotdeviceadvisor](https://crates.io/crates/aws-sdk-iotdeviceadvisor) ([docs](https://docs.rs/aws-sdk-iotdeviceadvisor)) |
 | AWS IoT Data Plane | [aws-sdk-iotdataplane](https://crates.io/crates/aws-sdk-iotdataplane) ([docs](https://docs.rs/aws-sdk-iotdataplane)) |
-| AWS IoT Events | [aws-sdk-iotevents](https://crates.io/crates/aws-sdk-iotevents) ([docs](https://docs.rs/aws-sdk-iotevents)) |
-| AWS IoT Events Data | [aws-sdk-ioteventsdata](https://crates.io/crates/aws-sdk-ioteventsdata) ([docs](https://docs.rs/aws-sdk-ioteventsdata)) |
 | AWS IoT FleetWise | [aws-sdk-iotfleetwise](https://crates.io/crates/aws-sdk-iotfleetwise) ([docs](https://docs.rs/aws-sdk-iotfleetwise)) |
 | AWS IoT Greengrass V2 | [aws-sdk-greengrassv2](https://crates.io/crates/aws-sdk-greengrassv2) ([docs](https://docs.rs/aws-sdk-greengrassv2)) |
 | AWS IoT Jobs Data Plane | [aws-sdk-iotjobsdataplane](https://crates.io/crates/aws-sdk-iotjobsdataplane) ([docs](https://docs.rs/aws-sdk-iotjobsdataplane)) |
@@ -127,7 +125,6 @@ The AWS SDK for Rust contains one crate for each AWS service, as well as [aws-co
 | AWS Network Manager | [aws-sdk-networkmanager](https://crates.io/crates/aws-sdk-networkmanager) ([docs](https://docs.rs/aws-sdk-networkmanager)) |
 | AWS Organizations | [aws-sdk-organizations](https://crates.io/crates/aws-sdk-organizations) ([docs](https://docs.rs/aws-sdk-organizations)) |
 | AWS Outposts | [aws-sdk-outposts](https://crates.io/crates/aws-sdk-outposts) ([docs](https://docs.rs/aws-sdk-outposts)) |
-| AWS Panorama | [aws-sdk-panorama](https://crates.io/crates/aws-sdk-panorama) ([docs](https://docs.rs/aws-sdk-panorama)) |
 | AWS Parallel Computing Service | [aws-sdk-pcs](https://crates.io/crates/aws-sdk-pcs) ([docs](https://docs.rs/aws-sdk-pcs)) |
 | AWS Performance Insights | [aws-sdk-pi](https://crates.io/crates/aws-sdk-pi) ([docs](https://docs.rs/aws-sdk-pi)) |
 | AWS Price List Service | [aws-sdk-pricing](https://crates.io/crates/aws-sdk-pricing) ([docs](https://docs.rs/aws-sdk-pricing)) |
@@ -156,7 +153,6 @@ The AWS SDK for Rust contains one crate for each AWS service, as well as [aws-co
 | AWS Sign-In Service | [aws-sdk-signin](https://crates.io/crates/aws-sdk-signin) ([docs](https://docs.rs/aws-sdk-signin)) |
 | AWS Signer | [aws-sdk-signer](https://crates.io/crates/aws-sdk-signer) ([docs](https://docs.rs/aws-sdk-signer)) |
 | AWS Signer Data Plane | [aws-sdk-signerdata](https://crates.io/crates/aws-sdk-signerdata) ([docs](https://docs.rs/aws-sdk-signerdata)) |
-| AWS SimSpace Weaver | [aws-sdk-simspaceweaver](https://crates.io/crates/aws-sdk-simspaceweaver) ([docs](https://docs.rs/aws-sdk-simspaceweaver)) |
 | AWS Single Sign-On | [aws-sdk-sso](https://crates.io/crates/aws-sdk-sso) ([docs](https://docs.rs/aws-sdk-sso)) |
 | AWS Single Sign-On Admin | [aws-sdk-ssoadmin](https://crates.io/crates/aws-sdk-ssoadmin) ([docs](https://docs.rs/aws-sdk-ssoadmin)) |
 | AWS Snow Device Management | [aws-sdk-snowdevicemanagement](https://crates.io/crates/aws-sdk-snowdevicemanagement) ([docs](https://docs.rs/aws-sdk-snowdevicemanagement)) |
@@ -428,6 +424,7 @@ The AWS SDK for Rust contains one crate for each AWS service, as well as [aws-co
 | Schemas | [aws-sdk-schemas](https://crates.io/crates/aws-sdk-schemas) ([docs](https://docs.rs/aws-sdk-schemas)) |
 | Security Incident Response | [aws-sdk-securityir](https://crates.io/crates/aws-sdk-securityir) ([docs](https://docs.rs/aws-sdk-securityir)) |
 | Service Quotas | [aws-sdk-servicequotas](https://crates.io/crates/aws-sdk-servicequotas) ([docs](https://docs.rs/aws-sdk-servicequotas)) |
+| SupportAuthZ | [aws-sdk-supportauthz](https://crates.io/crates/aws-sdk-supportauthz) ([docs](https://docs.rs/aws-sdk-supportauthz)) |
 | Synthetics | [aws-sdk-synthetics](https://crates.io/crates/aws-sdk-synthetics) ([docs](https://docs.rs/aws-sdk-synthetics)) |
 | Tax Settings | [aws-sdk-taxsettings](https://crates.io/crates/aws-sdk-taxsettings) ([docs](https://docs.rs/aws-sdk-taxsettings)) |
 | Timestream InfluxDB | [aws-sdk-timestreaminfluxdb](https://crates.io/crates/aws-sdk-timestreaminfluxdb) ([docs](https://docs.rs/aws-sdk-timestreaminfluxdb)) |

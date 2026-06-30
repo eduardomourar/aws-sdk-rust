@@ -23,6 +23,10 @@ pub use crate::types::_list_flow_association_resource_type::ListFlowAssociationR
 
 pub use crate::types::_agent_status_state::AgentStatusState;
 
+pub use crate::types::_file_use_case_type::FileUseCaseType;
+
+pub use crate::types::_file_status_type::FileStatusType;
+
 pub use crate::types::_channel::Channel;
 
 pub use crate::types::_contact_initiation_method::ContactInitiationMethod;
@@ -197,10 +201,6 @@ pub use crate::types::_vocabulary::Vocabulary;
 
 pub use crate::types::_workspace::Workspace;
 
-pub use crate::types::_file_status_type::FileStatusType;
-
-pub use crate::types::_file_use_case_type::FileUseCaseType;
-
 pub use crate::types::_created_by_info::CreatedByInfo;
 
 pub use crate::types::_download_url_metadata::DownloadUrlMetadata;
@@ -360,6 +360,8 @@ pub use crate::types::_participant_configuration::ParticipantConfiguration;
 pub use crate::types::_chat_message::ChatMessage;
 
 pub use crate::types::_persistent_chat::PersistentChat;
+
+pub use crate::types::_analytics_configuration::AnalyticsConfiguration;
 
 pub use crate::types::_auto_evaluation_configuration::AutoEvaluationConfiguration;
 
@@ -853,6 +855,18 @@ pub use crate::types::_response_mode::ResponseMode;
 
 pub use crate::types::_disconnect_on_customer_exit_participant_type::DisconnectOnCustomerExitParticipantType;
 
+pub use crate::types::_analytics_mode::AnalyticsMode;
+
+pub use crate::types::_language_configuration::LanguageConfiguration;
+
+pub use crate::types::_redaction_configuration::RedactionConfiguration;
+
+pub use crate::types::_sentiment_configuration::SentimentConfiguration;
+
+pub use crate::types::_summary_configuration::SummaryConfiguration;
+
+pub use crate::types::_rules_configuration::RulesConfiguration;
+
 pub use crate::types::_voice_recording_track::VoiceRecordingTrack;
 
 pub use crate::types::_ivr_recording_track::IvrRecordingTrack;
@@ -1111,6 +1125,12 @@ pub use crate::types::_hierarchy_group_match_type::HierarchyGroupMatchType;
 
 pub use crate::types::_user_identity_info_lite::UserIdentityInfoLite;
 
+pub use crate::types::_behavior::Behavior;
+
+pub use crate::types::_policy::Policy;
+
+pub use crate::types::_mask_mode::MaskMode;
+
 pub use crate::types::_agent_first::AgentFirst;
 
 pub use crate::types::_media_placement::MediaPlacement;
@@ -1256,6 +1276,8 @@ pub use crate::types::_contact_search_summary_segment_attribute_value::ContactSe
 pub use crate::types::_contact_search_summary_ai_agent_info::ContactSearchSummaryAiAgentInfo;
 
 pub use crate::types::_condition::Condition;
+
+pub use crate::types::_summary_mode::SummaryMode;
 
 pub use crate::types::_email_header_type::EmailHeaderType;
 
@@ -1501,9 +1523,13 @@ mod _allowed_extension;
 
 mod _allowed_user_action;
 
+mod _analytics_configuration;
+
 mod _analytics_data_association_result;
 
 mod _analytics_data_sets_result;
+
+mod _analytics_mode;
 
 mod _answer_machine_detection_config;
 
@@ -1580,6 +1606,8 @@ mod _batch_describe_data_table_value_success_result;
 mod _batch_update_data_table_value_failure_result;
 
 mod _batch_update_data_table_value_success_result;
+
+mod _behavior;
 
 mod _behavior_type;
 
@@ -2195,6 +2223,8 @@ mod _kinesis_stream_config;
 
 mod _kinesis_video_stream_config;
 
+mod _language_configuration;
+
 mod _lex_bot;
 
 mod _lex_bot_config;
@@ -2210,6 +2240,8 @@ mod _list_flow_association_resource_type;
 mod _list_phone_numbers_summary;
 
 mod _locale_code;
+
+mod _mask_mode;
 
 mod _match_criteria;
 
@@ -2375,6 +2407,8 @@ mod _phone_number_workflow_status;
 
 mod _phone_type;
 
+mod _policy;
+
 mod _post_accept_timeout_config;
 
 mod _predefined_attribute;
@@ -2517,6 +2551,8 @@ mod _recurrence_frequency;
 
 mod _recurrence_pattern;
 
+mod _redaction_configuration;
+
 mod _reference;
 
 mod _reference_status;
@@ -2579,6 +2615,8 @@ mod _rule_summary;
 
 mod _rule_trigger_event_source;
 
+mod _rules_configuration;
+
 mod _s3_config;
 
 mod _screen_share_capability;
@@ -2633,6 +2671,8 @@ mod _segment_attribute_value;
 
 mod _send_notification_action_definition;
 
+mod _sentiment_configuration;
+
 mod _service_quota_exceeded_exception_reason;
 
 mod _sign_in_config;
@@ -2678,6 +2718,10 @@ mod _submit_auto_evaluation_action_definition;
 mod _successful_batch_association_summary;
 
 mod _successful_request;
+
+mod _summary_configuration;
+
+mod _summary_mode;
 
 mod _tag_condition;
 

@@ -35,6 +35,24 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "AwsMarketplaceSolutions" => {
+                            builder = builder.set_aws_marketplace_solutions(
+                                crate::protocol_serde::shape_aws_marketplace_solution_identifiers::de_aws_marketplace_solution_identifiers(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "AwsMarketplaceProducts" => {
+                            builder = builder.set_aws_marketplace_products(
+                                crate::protocol_serde::shape_aws_marketplace_product_identifiers::de_aws_marketplace_product_identifiers(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

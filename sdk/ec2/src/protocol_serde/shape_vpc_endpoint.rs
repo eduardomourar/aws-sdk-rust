@@ -314,6 +314,16 @@ pub fn de_vpc_endpoint(
                 builder = builder.set_service_region(var_25);
             }
             ,
+            s if s.matches("payerResponsibilitySet") /* PayerResponsibilities com.amazonaws.ec2#VpcEndpoint$PayerResponsibilities */ =>  {
+                let var_26 =
+                    Some(
+                        crate::protocol_serde::shape_payer_responsibility_set::de_payer_responsibility_set(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_payer_responsibilities(var_26);
+            }
+            ,
             _ => {}
         }
     }

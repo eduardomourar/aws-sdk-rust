@@ -292,6 +292,8 @@ pub(crate) mod shape_entity_metric_data;
 
 pub(crate) mod shape_evaluation_criteria;
 
+pub(crate) mod shape_evaluation_window;
+
 pub(crate) mod shape_insight_rule_contributor_key_labels;
 
 pub(crate) mod shape_insight_rule_contributors;
@@ -402,7 +404,11 @@ pub(crate) mod shape_schedule;
 
 pub(crate) mod shape_schedule_configuration;
 
+pub(crate) mod shape_sliding_window;
+
 pub(crate) mod shape_statistic_set;
+
+pub(crate) mod shape_wall_clock_window;
 
 pub(crate) mod shape_contributor_attributes;
 

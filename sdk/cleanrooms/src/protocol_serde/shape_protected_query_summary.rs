@@ -71,6 +71,15 @@ where
                                     .transpose()?,
                             );
                         }
+                        "intermediateTableConfiguration" => {
+                            builder = builder.set_intermediate_table_configuration(
+                                crate::protocol_serde::shape_intermediate_table_output_configuration::de_intermediate_table_output_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

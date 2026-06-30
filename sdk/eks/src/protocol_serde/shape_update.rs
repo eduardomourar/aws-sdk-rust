@@ -54,6 +54,10 @@ where
                         "errors" => {
                             builder = builder.set_errors(crate::protocol_serde::shape_error_details::de_error_details(tokens, _value, depth + 1)?);
                         }
+                        "cancellation" => {
+                            builder =
+                                builder.set_cancellation(crate::protocol_serde::shape_cancellation::de_cancellation(tokens, _value, depth + 1)?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

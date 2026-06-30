@@ -22,6 +22,8 @@ pub enum ConnectionPropertiesOutput {
     RedshiftProperties(crate::types::RedshiftPropertiesOutput),
     /// <p>The Amazon S3 properties of a connection.</p>
     S3Properties(crate::types::S3PropertiesOutput),
+    /// <p>The Snowflake-specific connection properties for an existing connection.</p>
+    SnowflakeProperties(crate::types::SnowflakePropertiesOutput),
     /// <p>The Spark EMR properties of a connection.</p>
     SparkEmrProperties(crate::types::SparkEmrPropertiesOutput),
     /// <p>The Spark Amazon Web Services Glue properties of a connection.</p>
@@ -159,6 +161,19 @@ impl ConnectionPropertiesOutput {
     /// Returns true if this is a [`S3Properties`](crate::types::ConnectionPropertiesOutput::S3Properties).
     pub fn is_s3_properties(&self) -> bool {
         self.as_s3_properties().is_ok()
+    }
+    /// Tries to convert the enum instance into [`SnowflakeProperties`](crate::types::ConnectionPropertiesOutput::SnowflakeProperties), extracting the inner [`SnowflakePropertiesOutput`](crate::types::SnowflakePropertiesOutput).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_snowflake_properties(&self) -> ::std::result::Result<&crate::types::SnowflakePropertiesOutput, &Self> {
+        if let ConnectionPropertiesOutput::SnowflakeProperties(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`SnowflakeProperties`](crate::types::ConnectionPropertiesOutput::SnowflakeProperties).
+    pub fn is_snowflake_properties(&self) -> bool {
+        self.as_snowflake_properties().is_ok()
     }
     /// Tries to convert the enum instance into [`SparkEmrProperties`](crate::types::ConnectionPropertiesOutput::SparkEmrProperties), extracting the inner [`SparkEmrPropertiesOutput`](crate::types::SparkEmrPropertiesOutput).
     /// Returns `Err(&Self)` if it can't be converted.

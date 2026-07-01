@@ -727,6 +727,8 @@ mod send_chat_integration_event;
 
 mod send_outbound_email;
 
+mod send_outbound_web_notification;
+
 mod start_attached_file_upload;
 
 mod start_chat_contact;

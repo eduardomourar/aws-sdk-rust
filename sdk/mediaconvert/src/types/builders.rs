@@ -193,6 +193,8 @@ pub use crate::types::_deinterlacer::DeinterlacerBuilder;
 
 pub use crate::types::_dolby_vision::DolbyVisionBuilder;
 
+pub use crate::types::_duration_control::DurationControlBuilder;
+
 pub use crate::types::_hdr10_plus::Hdr10PlusBuilder;
 
 pub use crate::types::_noise_reducer::NoiseReducerBuilder;

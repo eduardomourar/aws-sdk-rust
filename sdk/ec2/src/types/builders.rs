@@ -13,6 +13,8 @@ pub use crate::types::_vpc_peering_connection::VpcPeeringConnectionBuilder;
 
 pub use crate::types::_byoip_cidr::ByoipCidrBuilder;
 
+pub use crate::types::_host_cpu_options_request::HostCpuOptionsRequestBuilder;
+
 pub use crate::types::_ipam_pool_allocation::IpamPoolAllocationBuilder;
 
 pub use crate::types::_association_status::AssociationStatusBuilder;
@@ -308,6 +310,8 @@ pub use crate::types::_instance_tag_notification_attribute::InstanceTagNotificat
 pub use crate::types::_transit_gateway_multicast_deregistered_group_members::TransitGatewayMulticastDeregisteredGroupMembersBuilder;
 
 pub use crate::types::_transit_gateway_multicast_deregistered_group_sources::TransitGatewayMulticastDeregisteredGroupSourcesBuilder;
+
+pub use crate::types::_account_vpc_encryption_control::AccountVpcEncryptionControlBuilder;
 
 pub use crate::types::_fpga_image_attribute::FpgaImageAttributeBuilder;
 
@@ -734,6 +738,8 @@ pub use crate::types::_ipam_pool_cidr_failure_reason::IpamPoolCidrFailureReasonB
 pub use crate::types::_delete_snapshot_return_code::DeleteSnapshotReturnCodeBuilder;
 
 pub use crate::types::_account_attribute::AccountAttributeBuilder;
+
+pub use crate::types::_account_vpc_encryption_control_exclusions::AccountVpcEncryptionControlExclusionsBuilder;
 
 pub use crate::types::_filter::FilterBuilder;
 
@@ -1324,6 +1330,8 @@ pub use crate::types::_fpga_image_state::FpgaImageStateBuilder;
 pub use crate::types::_available_capacity::AvailableCapacityBuilder;
 
 pub use crate::types::_host_properties::HostPropertiesBuilder;
+
+pub use crate::types::_host_cpu_options::HostCpuOptionsBuilder;
 
 pub use crate::types::_ebs_instance_block_device::EbsInstanceBlockDeviceBuilder;
 

@@ -811,6 +811,9 @@ pub mod deregister_transit_gateway_multicast_group_sources;
 /// Types for the `DescribeAccountAttributes` operation.
 pub mod describe_account_attributes;
 
+/// Types for the `DescribeAccountVpcEncryptionControl` operation.
+pub mod describe_account_vpc_encryption_control;
+
 /// Types for the `DescribeAddressTransfers` operation.
 pub mod describe_address_transfers;
 
@@ -1830,6 +1833,9 @@ pub mod list_volumes_in_recycle_bin;
 
 /// Types for the `LockSnapshot` operation.
 pub mod lock_snapshot;
+
+/// Types for the `ModifyAccountVpcEncryptionControl` operation.
+pub mod modify_account_vpc_encryption_control;
 
 /// Types for the `ModifyAddressAttribute` operation.
 pub mod modify_address_attribute;

@@ -28,15 +28,16 @@ impl crate::operation::cancel_capacity_reservation::builders::CancelCapacityRese
 /// <li>
 /// <p><code>assessing</code></p></li>
 /// <li>
-/// <p><code>scheduled</code></p></li>
+/// <p><code>scheduled</code> — requires a cancellation quote. Use <code>CreateCapacityReservationCancellationQuote</code> to generate a quote, then pass the quote ID with <code>ApplyCancellationCharges</code> set to <code>commitment-wind-down</code>. The cancellation charge depends on how close the reservation is to its start date.</p></li>
 /// <li>
 /// <p><code>active</code> and there is no commitment duration or the commitment duration has elapsed.</p></li>
 /// <li>
-/// <p><code>active</code> during the commitment duration, if you provide a cancellation quote ID and accept the cancellation charges. Use <code>CreateCapacityReservationCancellationQuote</code> to generate a quote. The Capacity Reservation transitions to <code>cancelling</code> while charges are applied.</p></li>
+/// <p><code>active</code> during the commitment duration — requires a cancellation quote. Use <code>CreateCapacityReservationCancellationQuote</code> to generate a quote, then pass the quote ID with <code>ApplyCancellationCharges</code> set to <code>commitment-wind-down</code>. The Capacity Reservation transitions to <code>cancelling</code> while charges are applied.</p></li>
+/// <li>
+/// <p><code>delayed</code> — the commitment duration is waived, so no cancellation charge applies.</p></li>
 /// </ul><note>
 /// <p>You can't modify or cancel a Capacity Block. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html">Capacity Blocks for ML</a>.</p>
 /// </note>
-/// <p>If a future-dated Capacity Reservation enters the <code>delayed</code> state, the commitment duration is waived, and you can cancel it as soon as it enters the <code>active</code> state.</p>
 /// <p>Instances running in the reserved capacity continue running until you stop them. Stopped instances that target the Capacity Reservation can no longer launch. Modify these instances to either target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation that has matching attributes and sufficient capacity.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CancelCapacityReservationFluentBuilder {

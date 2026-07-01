@@ -50,6 +50,10 @@ pub struct DomainConfig {
     pub deployment_strategy_options: ::std::option::Option<crate::types::DeploymentStrategyOptionsStatus>,
     /// <p>Specifies <code>AutomatedSnapshotPauseOptions</code> for the domain.</p>
     pub automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseOptionsStatus>,
+    /// <p>The use case configured for the domain.</p>
+    pub use_case: ::std::option::Option<crate::types::UseCaseStatus>,
+    /// <p>The engine mode configured for the domain.</p>
+    pub engine_mode: ::std::option::Option<crate::types::EngineModeStatus>,
 }
 impl DomainConfig {
     /// <p>The OpenSearch or Elasticsearch version that the domain is running.</p>
@@ -146,6 +150,14 @@ impl DomainConfig {
     pub fn automated_snapshot_pause_options(&self) -> ::std::option::Option<&crate::types::AutomatedSnapshotPauseOptionsStatus> {
         self.automated_snapshot_pause_options.as_ref()
     }
+    /// <p>The use case configured for the domain.</p>
+    pub fn use_case(&self) -> ::std::option::Option<&crate::types::UseCaseStatus> {
+        self.use_case.as_ref()
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn engine_mode(&self) -> ::std::option::Option<&crate::types::EngineModeStatus> {
+        self.engine_mode.as_ref()
+    }
 }
 impl DomainConfig {
     /// Creates a new builder-style object to manufacture [`DomainConfig`](crate::types::DomainConfig).
@@ -181,6 +193,8 @@ pub struct DomainConfigBuilder {
     pub(crate) aiml_options: ::std::option::Option<crate::types::AimlOptionsStatus>,
     pub(crate) deployment_strategy_options: ::std::option::Option<crate::types::DeploymentStrategyOptionsStatus>,
     pub(crate) automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseOptionsStatus>,
+    pub(crate) use_case: ::std::option::Option<crate::types::UseCaseStatus>,
+    pub(crate) engine_mode: ::std::option::Option<crate::types::EngineModeStatus>,
 }
 impl DomainConfigBuilder {
     /// <p>The OpenSearch or Elasticsearch version that the domain is running.</p>
@@ -511,6 +525,34 @@ impl DomainConfigBuilder {
     pub fn get_automated_snapshot_pause_options(&self) -> &::std::option::Option<crate::types::AutomatedSnapshotPauseOptionsStatus> {
         &self.automated_snapshot_pause_options
     }
+    /// <p>The use case configured for the domain.</p>
+    pub fn use_case(mut self, input: crate::types::UseCaseStatus) -> Self {
+        self.use_case = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The use case configured for the domain.</p>
+    pub fn set_use_case(mut self, input: ::std::option::Option<crate::types::UseCaseStatus>) -> Self {
+        self.use_case = input;
+        self
+    }
+    /// <p>The use case configured for the domain.</p>
+    pub fn get_use_case(&self) -> &::std::option::Option<crate::types::UseCaseStatus> {
+        &self.use_case
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn engine_mode(mut self, input: crate::types::EngineModeStatus) -> Self {
+        self.engine_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn set_engine_mode(mut self, input: ::std::option::Option<crate::types::EngineModeStatus>) -> Self {
+        self.engine_mode = input;
+        self
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn get_engine_mode(&self) -> &::std::option::Option<crate::types::EngineModeStatus> {
+        &self.engine_mode
+    }
     /// Consumes the builder and constructs a [`DomainConfig`](crate::types::DomainConfig).
     pub fn build(self) -> crate::types::DomainConfig {
         crate::types::DomainConfig {
@@ -537,6 +579,8 @@ impl DomainConfigBuilder {
             aiml_options: self.aiml_options,
             deployment_strategy_options: self.deployment_strategy_options,
             automated_snapshot_pause_options: self.automated_snapshot_pause_options,
+            use_case: self.use_case,
+            engine_mode: self.engine_mode,
         }
     }
 }

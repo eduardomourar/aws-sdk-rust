@@ -385,6 +385,8 @@ pub(crate) mod shape_deinterlacer;
 
 pub(crate) mod shape_dolby_vision;
 
+pub(crate) mod shape_duration_control;
+
 pub(crate) mod shape_dvb_nit_settings;
 
 pub(crate) mod shape_dvb_sdt_settings;

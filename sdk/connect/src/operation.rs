@@ -847,6 +847,9 @@ pub mod send_chat_integration_event;
 /// Types for the `SendOutboundEmail` operation.
 pub mod send_outbound_email;
 
+/// Types for the `SendOutboundWebNotification` operation.
+pub mod send_outbound_web_notification;
+
 /// Types for the `StartAttachedFileUpload` operation.
 pub mod start_attached_file_upload;
 

@@ -1103,6 +1103,10 @@ pub(crate) mod shape_describe_account_attributes;
 
 pub(crate) mod shape_describe_account_attributes_input;
 
+pub(crate) mod shape_describe_account_vpc_encryption_control;
+
+pub(crate) mod shape_describe_account_vpc_encryption_control_input;
+
 pub(crate) mod shape_describe_address_transfers;
 
 pub(crate) mod shape_describe_address_transfers_input;
@@ -2463,6 +2467,10 @@ pub(crate) mod shape_lock_snapshot;
 
 pub(crate) mod shape_lock_snapshot_input;
 
+pub(crate) mod shape_modify_account_vpc_encryption_control;
+
+pub(crate) mod shape_modify_account_vpc_encryption_control_input;
+
 pub(crate) mod shape_modify_address_attribute;
 
 pub(crate) mod shape_modify_address_attribute_input;
@@ -3209,6 +3217,8 @@ pub(crate) mod shape_fleet_launch_template_config_request;
 
 pub(crate) mod shape_hibernation_options_request;
 
+pub(crate) mod shape_host_cpu_options_request;
+
 pub(crate) mod shape_iam_instance_profile_specification;
 
 pub(crate) mod shape_icmp_type_code;
@@ -3414,6 +3424,8 @@ pub(crate) mod shape_accelerator_total_memory_mib_request;
 pub(crate) mod shape_access_scope_analysis_finding_list;
 
 pub(crate) mod shape_account_attribute_list;
+
+pub(crate) mod shape_account_vpc_encryption_control;
 
 pub(crate) mod shape_active_instance_set;
 
@@ -4443,6 +4455,8 @@ pub(crate) mod shape_access_scope_path_list;
 
 pub(crate) mod shape_account_attribute;
 
+pub(crate) mod shape_account_vpc_encryption_control_exclusions;
+
 pub(crate) mod shape_active_instance;
 
 pub(crate) mod shape_added_principal;
@@ -5224,6 +5238,8 @@ pub(crate) mod shape_fpga_info;
 pub(crate) mod shape_gpu_info;
 
 pub(crate) mod shape_hibernation_options;
+
+pub(crate) mod shape_host_cpu_options;
 
 pub(crate) mod shape_host_instance_list;
 

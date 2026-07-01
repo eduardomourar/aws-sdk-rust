@@ -277,6 +277,8 @@ mod get_upgrade_history;
 
 mod get_upgrade_status;
 
+mod insight_feedback;
+
 mod list_applications;
 
 mod list_data_source_attachments;

@@ -19,6 +19,8 @@ pub use crate::types::_host_recovery::HostRecovery;
 
 pub use crate::types::_host_maintenance::HostMaintenance;
 
+pub use crate::types::_host_cpu_options_request::HostCpuOptionsRequest;
+
 pub use crate::types::_auto_placement::AutoPlacement;
 
 pub use crate::types::_ipam_pool_allocation::IpamPoolAllocation;
@@ -453,6 +455,8 @@ pub use crate::types::_transit_gateway_multicast_deregistered_group_members::Tra
 
 pub use crate::types::_transit_gateway_multicast_deregistered_group_sources::TransitGatewayMulticastDeregisteredGroupSources;
 
+pub use crate::types::_account_vpc_encryption_control::AccountVpcEncryptionControl;
+
 pub use crate::types::_address_attribute_name::AddressAttributeName;
 
 pub use crate::types::_caller_role::CallerRole;
@@ -619,6 +623,10 @@ pub use crate::types::_lock_mode::LockMode;
 
 pub use crate::types::_lock_state::LockState;
 
+pub use crate::types::_account_vpc_encryption_control_mode::AccountVpcEncryptionControlMode;
+
+pub use crate::types::_vpc_encryption_control_exclusion_state_input::VpcEncryptionControlExclusionStateInput;
+
 pub use crate::types::_address_attribute::AddressAttribute;
 
 pub use crate::types::_modify_availability_zone_opt_in_status::ModifyAvailabilityZoneOptInStatus;
@@ -716,8 +724,6 @@ pub use crate::types::_volume_modification::VolumeModification;
 pub use crate::types::_internet_gateway_block_mode::InternetGatewayBlockMode;
 
 pub use crate::types::_vpc_encryption_control_mode::VpcEncryptionControlMode;
-
-pub use crate::types::_vpc_encryption_control_exclusion_state_input::VpcEncryptionControlExclusionStateInput;
 
 pub use crate::types::_payer_responsibility_type::PayerResponsibilityType;
 
@@ -830,6 +836,8 @@ pub use crate::types::_vpc_peering_connection_vpc_info::VpcPeeringConnectionVpcI
 pub use crate::types::_vpc_peering_connection_state_reason::VpcPeeringConnectionStateReason;
 
 pub use crate::types::_byoip_cidr_state::ByoipCidrState;
+
+pub use crate::types::_amd_sev_snp::AmdSevSnp;
 
 pub use crate::types::_ipam_pool_allocation_resource_type::IpamPoolAllocationResourceType;
 
@@ -1266,6 +1274,10 @@ pub use crate::types::_delete_snapshot_return_code::DeleteSnapshotReturnCode;
 pub use crate::types::_account_attribute_name::AccountAttributeName;
 
 pub use crate::types::_account_attribute::AccountAttribute;
+
+pub use crate::types::_account_vpc_encryption_control_state::AccountVpcEncryptionControlState;
+
+pub use crate::types::_account_vpc_encryption_control_exclusions::AccountVpcEncryptionControlExclusions;
 
 pub use crate::types::_filter::Filter;
 
@@ -1943,6 +1955,8 @@ pub use crate::types::_ipam_pool_cidr_failure_code::IpamPoolCidrFailureCode;
 
 pub use crate::types::_snapshot_return_codes::SnapshotReturnCodes;
 
+pub use crate::types::_vpc_encryption_control_exclusion_state::VpcEncryptionControlExclusionState;
+
 pub use crate::types::_service_managed::ServiceManaged;
 
 pub use crate::types::_availability_zone_opt_in_status::AvailabilityZoneOptInStatus;
@@ -2018,6 +2032,8 @@ pub use crate::types::_host_properties::HostProperties;
 pub use crate::types::_allocation_state::AllocationState;
 
 pub use crate::types::_allows_multiple_instance_types::AllowsMultipleInstanceTypes;
+
+pub use crate::types::_host_cpu_options::HostCpuOptions;
 
 pub use crate::types::_permission_group::PermissionGroup;
 
@@ -2356,8 +2372,6 @@ pub use crate::types::_encryption_state_value::EncryptionStateValue;
 pub use crate::types::_transit_gateway_attachment_bgp_configuration::TransitGatewayAttachmentBgpConfiguration;
 
 pub use crate::types::_verified_access_endpoint_port_range::VerifiedAccessEndpointPortRange;
-
-pub use crate::types::_vpc_encryption_control_exclusion_state::VpcEncryptionControlExclusionState;
 
 pub use crate::types::_service_type::ServiceType;
 
@@ -2767,6 +2781,14 @@ mod _account_attribute_name;
 
 mod _account_attribute_value;
 
+mod _account_vpc_encryption_control;
+
+mod _account_vpc_encryption_control_exclusions;
+
+mod _account_vpc_encryption_control_mode;
+
+mod _account_vpc_encryption_control_state;
+
 mod _active_instance;
 
 mod _active_vpn_tunnel_status;
@@ -2812,6 +2834,8 @@ mod _allowed_principal;
 mod _allows_multiple_instance_types;
 
 mod _alternate_path_hint;
+
+mod _amd_sev_snp;
 
 mod _amd_sev_snp_specification;
 
@@ -3584,6 +3608,10 @@ mod _history_record;
 mod _history_record_entry;
 
 mod _host;
+
+mod _host_cpu_options;
+
+mod _host_cpu_options_request;
 
 mod _host_instance;
 

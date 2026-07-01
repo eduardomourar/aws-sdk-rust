@@ -450,6 +450,21 @@ pub(crate) fn encryption_at_rest_options_status_correct_errors(
     builder
 }
 
+pub(crate) fn engine_mode_status_correct_errors(
+    mut builder: crate::types::builders::EngineModeStatusBuilder,
+) -> crate::types::builders::EngineModeStatusBuilder {
+    if builder.options.is_none() {
+        builder.options = "no value was set".parse::<crate::types::EngineMode>().ok()
+    }
+    if builder.status.is_none() {
+        builder.status = {
+            let builder = crate::types::builders::OptionStatusBuilder::default();
+            crate::serde_util::option_status_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn identity_center_options_status_correct_errors(
     mut builder: crate::types::builders::IdentityCenterOptionsStatusBuilder,
 ) -> crate::types::builders::IdentityCenterOptionsStatusBuilder {
@@ -589,6 +604,21 @@ pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder
     }
     if builder.value.is_none() {
         builder.value = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn use_case_status_correct_errors(
+    mut builder: crate::types::builders::UseCaseStatusBuilder,
+) -> crate::types::builders::UseCaseStatusBuilder {
+    if builder.options.is_none() {
+        builder.options = "no value was set".parse::<crate::types::DomainUseCase>().ok()
+    }
+    if builder.status.is_none() {
+        builder.status = {
+            let builder = crate::types::builders::OptionStatusBuilder::default();
+            crate::serde_util::option_status_correct_errors(builder).build().ok()
+        }
     }
     builder
 }

@@ -561,6 +561,8 @@ pub use crate::types::_s3_source::S3SourceBuilder;
 
 pub use crate::types::_saa_s_table::SaaSTableBuilder;
 
+pub use crate::types::_file_source::FileSourceBuilder;
+
 pub use crate::types::_logical_table_source::LogicalTableSourceBuilder;
 
 pub use crate::types::_geo_spatial_column_group::GeoSpatialColumnGroupBuilder;

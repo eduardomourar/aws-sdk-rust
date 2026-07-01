@@ -79,72 +79,78 @@ pub fn ser_create_domain_input_input(
         crate::protocol_serde::shape_encryption_at_rest_options::ser_encryption_at_rest_options(&mut object_26, var_25)?;
         object_26.finish();
     }
-    if let Some(var_27) = &input.engine_version {
-        object.key("EngineVersion").string(var_27.as_str());
+    if let Some(var_27) = &input.engine_mode {
+        object.key("EngineMode").string(var_27.as_str());
     }
-    if let Some(var_28) = &input.ip_address_type {
-        object.key("IPAddressType").string(var_28.as_str());
+    if let Some(var_28) = &input.engine_version {
+        object.key("EngineVersion").string(var_28.as_str());
     }
-    if let Some(var_29) = &input.identity_center_options {
+    if let Some(var_29) = &input.ip_address_type {
+        object.key("IPAddressType").string(var_29.as_str());
+    }
+    if let Some(var_30) = &input.identity_center_options {
         #[allow(unused_mut)]
-        let mut object_30 = object.key("IdentityCenterOptions").start_object();
-        crate::protocol_serde::shape_identity_center_options_input::ser_identity_center_options_input(&mut object_30, var_29)?;
-        object_30.finish();
+        let mut object_31 = object.key("IdentityCenterOptions").start_object();
+        crate::protocol_serde::shape_identity_center_options_input::ser_identity_center_options_input(&mut object_31, var_30)?;
+        object_31.finish();
     }
-    if let Some(var_31) = &input.log_publishing_options {
+    if let Some(var_32) = &input.log_publishing_options {
         #[allow(unused_mut)]
-        let mut object_32 = object.key("LogPublishingOptions").start_object();
-        for (key_33, value_34) in var_31 {
+        let mut object_33 = object.key("LogPublishingOptions").start_object();
+        for (key_34, value_35) in var_32 {
             {
                 #[allow(unused_mut)]
-                let mut object_35 = object_32.key(key_33.as_str()).start_object();
-                crate::protocol_serde::shape_log_publishing_option::ser_log_publishing_option(&mut object_35, value_34)?;
-                object_35.finish();
+                let mut object_36 = object_33.key(key_34.as_str()).start_object();
+                crate::protocol_serde::shape_log_publishing_option::ser_log_publishing_option(&mut object_36, value_35)?;
+                object_36.finish();
             }
         }
-        object_32.finish();
+        object_33.finish();
     }
-    if let Some(var_36) = &input.node_to_node_encryption_options {
+    if let Some(var_37) = &input.node_to_node_encryption_options {
         #[allow(unused_mut)]
-        let mut object_37 = object.key("NodeToNodeEncryptionOptions").start_object();
-        crate::protocol_serde::shape_node_to_node_encryption_options::ser_node_to_node_encryption_options(&mut object_37, var_36)?;
-        object_37.finish();
+        let mut object_38 = object.key("NodeToNodeEncryptionOptions").start_object();
+        crate::protocol_serde::shape_node_to_node_encryption_options::ser_node_to_node_encryption_options(&mut object_38, var_37)?;
+        object_38.finish();
     }
-    if let Some(var_38) = &input.off_peak_window_options {
+    if let Some(var_39) = &input.off_peak_window_options {
         #[allow(unused_mut)]
-        let mut object_39 = object.key("OffPeakWindowOptions").start_object();
-        crate::protocol_serde::shape_off_peak_window_options::ser_off_peak_window_options(&mut object_39, var_38)?;
-        object_39.finish();
+        let mut object_40 = object.key("OffPeakWindowOptions").start_object();
+        crate::protocol_serde::shape_off_peak_window_options::ser_off_peak_window_options(&mut object_40, var_39)?;
+        object_40.finish();
     }
-    if let Some(var_40) = &input.snapshot_options {
+    if let Some(var_41) = &input.snapshot_options {
         #[allow(unused_mut)]
-        let mut object_41 = object.key("SnapshotOptions").start_object();
-        crate::protocol_serde::shape_snapshot_options::ser_snapshot_options(&mut object_41, var_40)?;
-        object_41.finish();
+        let mut object_42 = object.key("SnapshotOptions").start_object();
+        crate::protocol_serde::shape_snapshot_options::ser_snapshot_options(&mut object_42, var_41)?;
+        object_42.finish();
     }
-    if let Some(var_42) = &input.software_update_options {
+    if let Some(var_43) = &input.software_update_options {
         #[allow(unused_mut)]
-        let mut object_43 = object.key("SoftwareUpdateOptions").start_object();
-        crate::protocol_serde::shape_software_update_options::ser_software_update_options(&mut object_43, var_42)?;
-        object_43.finish();
+        let mut object_44 = object.key("SoftwareUpdateOptions").start_object();
+        crate::protocol_serde::shape_software_update_options::ser_software_update_options(&mut object_44, var_43)?;
+        object_44.finish();
     }
-    if let Some(var_44) = &input.tag_list {
-        let mut array_45 = object.key("TagList").start_array();
-        for item_46 in var_44 {
+    if let Some(var_45) = &input.tag_list {
+        let mut array_46 = object.key("TagList").start_array();
+        for item_47 in var_45 {
             {
                 #[allow(unused_mut)]
-                let mut object_47 = array_45.value().start_object();
-                crate::protocol_serde::shape_tag::ser_tag(&mut object_47, item_46)?;
-                object_47.finish();
+                let mut object_48 = array_46.value().start_object();
+                crate::protocol_serde::shape_tag::ser_tag(&mut object_48, item_47)?;
+                object_48.finish();
             }
         }
-        array_45.finish();
+        array_46.finish();
     }
-    if let Some(var_48) = &input.vpc_options {
+    if let Some(var_49) = &input.use_case {
+        object.key("UseCase").string(var_49.as_str());
+    }
+    if let Some(var_50) = &input.vpc_options {
         #[allow(unused_mut)]
-        let mut object_49 = object.key("VPCOptions").start_object();
-        crate::protocol_serde::shape_vpc_options::ser_vpc_options(&mut object_49, var_48)?;
-        object_49.finish();
+        let mut object_51 = object.key("VPCOptions").start_object();
+        crate::protocol_serde::shape_vpc_options::ser_vpc_options(&mut object_51, var_50)?;
+        object_51.finish();
     }
     Ok(())
 }

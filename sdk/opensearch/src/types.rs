@@ -59,6 +59,10 @@ pub use crate::types::_deployment_strategy_options::DeploymentStrategyOptions;
 
 pub use crate::types::_automated_snapshot_pause_request_options::AutomatedSnapshotPauseRequestOptions;
 
+pub use crate::types::_domain_use_case::DomainUseCase;
+
+pub use crate::types::_engine_mode::EngineMode;
+
 pub use crate::types::_domain_status::DomainStatus;
 
 pub use crate::types::_index_status::IndexStatus;
@@ -122,6 +126,12 @@ pub use crate::types::_maintenance_type::MaintenanceType;
 pub use crate::types::_upgrade_step::UpgradeStep;
 
 pub use crate::types::_upgrade_status::UpgradeStatus;
+
+pub use crate::types::_insight_feedback_entity::InsightFeedbackEntity;
+
+pub use crate::types::_insight_feedback_thumbs::InsightFeedbackThumbs;
+
+pub use crate::types::_insight_response_status::InsightResponseStatus;
 
 pub use crate::types::_engine_type::EngineType;
 
@@ -295,6 +305,10 @@ pub use crate::types::_deployment_strategy_options_status::DeploymentStrategyOpt
 
 pub use crate::types::_automated_snapshot_pause_options_status::AutomatedSnapshotPauseOptionsStatus;
 
+pub use crate::types::_use_case_status::UseCaseStatus;
+
+pub use crate::types::_engine_mode_status::EngineModeStatus;
+
 pub use crate::types::_environment_info::EnvironmentInfo;
 
 pub use crate::types::_domain_nodes_status::DomainNodesStatus;
@@ -324,6 +338,8 @@ pub use crate::types::_compatible_versions_map::CompatibleVersionsMap;
 pub use crate::types::_package_version_history::PackageVersionHistory;
 
 pub use crate::types::_upgrade_history::UpgradeHistory;
+
+pub use crate::types::_insight_feedback_entity_type::InsightFeedbackEntityType;
 
 pub use crate::types::_application_summary::ApplicationSummary;
 
@@ -615,6 +631,8 @@ mod _domain_state;
 
 mod _domain_status;
 
+mod _domain_use_case;
+
 mod _dry_run_mode;
 
 mod _dry_run_progress_status;
@@ -630,6 +648,10 @@ mod _ebs_options_status;
 mod _encryption_at_rest_options;
 
 mod _encryption_at_rest_options_status;
+
+mod _engine_mode;
+
+mod _engine_mode_status;
 
 mod _engine_type;
 
@@ -669,11 +691,19 @@ mod _insight_entity;
 
 mod _insight_entity_type;
 
+mod _insight_feedback_entity;
+
+mod _insight_feedback_entity_type;
+
+mod _insight_feedback_thumbs;
+
 mod _insight_field;
 
 mod _insight_field_type;
 
 mod _insight_priority_level;
+
+mod _insight_response_status;
 
 mod _insight_sort_order;
 
@@ -868,6 +898,8 @@ mod _upgrade_status;
 mod _upgrade_step;
 
 mod _upgrade_step_item;
+
+mod _use_case_status;
 
 mod _validation_failure;
 

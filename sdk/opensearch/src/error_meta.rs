@@ -1894,6 +1894,33 @@ impl From<crate::operation::get_upgrade_status::GetUpgradeStatusError> for Error
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::insight_feedback::InsightFeedbackError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::insight_feedback::InsightFeedbackError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::insight_feedback::InsightFeedbackError> for Error {
+    fn from(err: crate::operation::insight_feedback::InsightFeedbackError) -> Self {
+        match err {
+            crate::operation::insight_feedback::InsightFeedbackError::BaseException(inner) => Error::BaseException(inner),
+            crate::operation::insight_feedback::InsightFeedbackError::DisabledOperationException(inner) => Error::DisabledOperationException(inner),
+            crate::operation::insight_feedback::InsightFeedbackError::InternalException(inner) => Error::InternalException(inner),
+            crate::operation::insight_feedback::InsightFeedbackError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::insight_feedback::InsightFeedbackError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::insight_feedback::InsightFeedbackError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::insight_feedback::InsightFeedbackError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_applications::ListApplicationsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

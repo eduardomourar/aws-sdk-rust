@@ -268,6 +268,16 @@ pub fn de_host(
                 builder = builder.set_asset_id(var_20);
             }
             ,
+            s if s.matches("cpuOptions") /* CpuOptions com.amazonaws.ec2#Host$CpuOptions */ =>  {
+                let var_21 =
+                    Some(
+                        crate::protocol_serde::shape_host_cpu_options::de_host_cpu_options(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_cpu_options(var_21);
+            }
+            ,
             _ => {}
         }
     }

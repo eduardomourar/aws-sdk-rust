@@ -172,6 +172,9 @@ pub mod get_upgrade_history;
 /// Types for the `GetUpgradeStatus` operation.
 pub mod get_upgrade_status;
 
+/// Types for the `InsightFeedback` operation.
+pub mod insight_feedback;
+
 /// Types for the `ListApplications` operation.
 pub mod list_applications;
 

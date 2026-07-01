@@ -10491,6 +10491,49 @@ impl From<crate::operation::send_outbound_email::SendOutboundEmailError> for Err
         }
     }
 }
+impl<R>
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError> for Error {
+    fn from(err: crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError) -> Self {
+        match err {
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError::InternalServiceException(inner) => {
+                Error::InternalServiceException(inner)
+            }
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::send_outbound_web_notification::SendOutboundWebNotificationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_attached_file_upload::StartAttachedFileUploadError, R>>
     for Error
 where

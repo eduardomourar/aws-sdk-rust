@@ -137,6 +137,8 @@ pub(crate) mod shape_get_upgrade_history;
 
 pub(crate) mod shape_get_upgrade_status;
 
+pub(crate) mod shape_insight_feedback;
+
 pub(crate) mod shape_list_applications;
 
 pub(crate) mod shape_list_data_source_attachments;
@@ -272,6 +274,8 @@ pub(crate) mod shape_detach_data_source_input;
 pub(crate) mod shape_disabled_operation_exception;
 
 pub(crate) mod shape_dissociate_packages_input;
+
+pub(crate) mod shape_insight_feedback_input;
 
 pub(crate) mod shape_internal_exception;
 
@@ -445,6 +449,8 @@ pub(crate) mod shape_inbound_connections;
 
 pub(crate) mod shape_insight_entity;
 
+pub(crate) mod shape_insight_feedback_entity;
+
 pub(crate) mod shape_insight_field_list;
 
 pub(crate) mod shape_insight_list;
@@ -599,6 +605,8 @@ pub(crate) mod shape_encryption_at_rest_options_status;
 
 pub(crate) mod shape_endpoints_map;
 
+pub(crate) mod shape_engine_mode_status;
+
 pub(crate) mod shape_environment_info;
 
 pub(crate) mod shape_error_details;
@@ -672,6 +680,8 @@ pub(crate) mod shape_software_update_options_status;
 pub(crate) mod shape_string_list;
 
 pub(crate) mod shape_upgrade_history;
+
+pub(crate) mod shape_use_case_status;
 
 pub(crate) mod shape_validation_failures;
 

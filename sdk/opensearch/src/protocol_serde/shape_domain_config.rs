@@ -187,6 +187,20 @@ where
                                     )?,
                                 );
                             }
+                            "UseCase" => {
+                                builder = builder.set_use_case(crate::protocol_serde::shape_use_case_status::de_use_case_status(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "EngineMode" => {
+                                builder = builder.set_engine_mode(crate::protocol_serde::shape_engine_mode_status::de_engine_mode_status(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }

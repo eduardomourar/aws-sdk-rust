@@ -713,6 +713,8 @@ pub use crate::types::_s3_source::S3Source;
 
 pub use crate::types::_saa_s_table::SaaSTable;
 
+pub use crate::types::_file_source::FileSource;
+
 pub use crate::types::_logical_table_source::LogicalTableSource;
 
 pub use crate::types::_geo_spatial_column_group::GeoSpatialColumnGroup;
@@ -3804,6 +3806,8 @@ mod _field_sort_options;
 mod _field_tooltip_item;
 
 mod _file_format;
+
+mod _file_source;
 
 mod _filled_map_aggregated_field_wells;
 

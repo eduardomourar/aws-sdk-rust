@@ -970,6 +970,8 @@ mod deregister_transit_gateway_multicast_group_sources;
 
 mod describe_account_attributes;
 
+mod describe_account_vpc_encryption_control;
+
 mod describe_address_transfers;
 
 mod describe_addresses;
@@ -1649,6 +1651,8 @@ mod list_snapshots_in_recycle_bin;
 mod list_volumes_in_recycle_bin;
 
 mod lock_snapshot;
+
+mod modify_account_vpc_encryption_control;
 
 mod modify_address_attribute;
 

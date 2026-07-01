@@ -2049,6 +2049,19 @@ pub(crate) fn destination_table_correct_errors(
     builder
 }
 
+pub(crate) fn file_source_correct_errors(mut builder: crate::types::builders::FileSourceBuilder) -> crate::types::builders::FileSourceBuilder {
+    if builder.data_source_arn.is_none() {
+        builder.data_source_arn = Some(Default::default())
+    }
+    if builder.sheet_index.is_none() {
+        builder.sheet_index = Some(Default::default())
+    }
+    if builder.input_columns.is_none() {
+        builder.input_columns = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn geo_spatial_column_group_correct_errors(
     mut builder: crate::types::builders::GeoSpatialColumnGroupBuilder,
 ) -> crate::types::builders::GeoSpatialColumnGroupBuilder {

@@ -68,6 +68,10 @@ pub struct UpdateDomainConfigInput {
     /// </important>
     /// <p>Maximum suspension duration: 3 days.</p>
     pub automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseRequestOptions>,
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub use_case: ::std::option::Option<crate::types::DomainUseCase>,
+    /// <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+    pub engine_mode: ::std::option::Option<crate::types::EngineMode>,
 }
 impl UpdateDomainConfigInput {
     /// <p>The name of the domain that you're updating.</p>
@@ -182,6 +186,14 @@ impl UpdateDomainConfigInput {
     pub fn automated_snapshot_pause_options(&self) -> ::std::option::Option<&crate::types::AutomatedSnapshotPauseRequestOptions> {
         self.automated_snapshot_pause_options.as_ref()
     }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn use_case(&self) -> ::std::option::Option<&crate::types::DomainUseCase> {
+        self.use_case.as_ref()
+    }
+    /// <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+    pub fn engine_mode(&self) -> ::std::option::Option<&crate::types::EngineMode> {
+        self.engine_mode.as_ref()
+    }
 }
 impl UpdateDomainConfigInput {
     /// Creates a new builder-style object to manufacture [`UpdateDomainConfigInput`](crate::operation::update_domain_config::UpdateDomainConfigInput).
@@ -217,6 +229,8 @@ pub struct UpdateDomainConfigInputBuilder {
     pub(crate) aiml_options: ::std::option::Option<crate::types::AimlOptionsInput>,
     pub(crate) deployment_strategy_options: ::std::option::Option<crate::types::DeploymentStrategyOptions>,
     pub(crate) automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseRequestOptions>,
+    pub(crate) use_case: ::std::option::Option<crate::types::DomainUseCase>,
+    pub(crate) engine_mode: ::std::option::Option<crate::types::EngineMode>,
 }
 impl UpdateDomainConfigInputBuilder {
     /// <p>The name of the domain that you're updating.</p>
@@ -620,6 +634,34 @@ impl UpdateDomainConfigInputBuilder {
     pub fn get_automated_snapshot_pause_options(&self) -> &::std::option::Option<crate::types::AutomatedSnapshotPauseRequestOptions> {
         &self.automated_snapshot_pause_options
     }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn use_case(mut self, input: crate::types::DomainUseCase) -> Self {
+        self.use_case = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn set_use_case(mut self, input: ::std::option::Option<crate::types::DomainUseCase>) -> Self {
+        self.use_case = input;
+        self
+    }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn get_use_case(&self) -> &::std::option::Option<crate::types::DomainUseCase> {
+        &self.use_case
+    }
+    /// <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+    pub fn engine_mode(mut self, input: crate::types::EngineMode) -> Self {
+        self.engine_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+    pub fn set_engine_mode(mut self, input: ::std::option::Option<crate::types::EngineMode>) -> Self {
+        self.engine_mode = input;
+        self
+    }
+    /// <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+    pub fn get_engine_mode(&self) -> &::std::option::Option<crate::types::EngineMode> {
+        &self.engine_mode
+    }
     /// Consumes the builder and constructs a [`UpdateDomainConfigInput`](crate::operation::update_domain_config::UpdateDomainConfigInput).
     pub fn build(
         self,
@@ -649,6 +691,8 @@ impl UpdateDomainConfigInputBuilder {
             aiml_options: self.aiml_options,
             deployment_strategy_options: self.deployment_strategy_options,
             automated_snapshot_pause_options: self.automated_snapshot_pause_options,
+            use_case: self.use_case,
+            engine_mode: self.engine_mode,
         })
     }
 }

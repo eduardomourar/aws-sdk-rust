@@ -587,6 +587,8 @@ pub(crate) mod shape_send_chat_integration_event;
 
 pub(crate) mod shape_send_outbound_email;
 
+pub(crate) mod shape_send_outbound_web_notification;
+
 pub(crate) mod shape_start_attached_file_upload;
 
 pub(crate) mod shape_start_chat_contact;
@@ -1086,6 +1088,8 @@ pub(crate) mod shape_search_workspaces_input;
 pub(crate) mod shape_send_chat_integration_event_input;
 
 pub(crate) mod shape_send_outbound_email_input;
+
+pub(crate) mod shape_send_outbound_web_notification_input;
 
 pub(crate) mod shape_service_quota_exceeded_exception;
 
@@ -1887,6 +1891,12 @@ pub(crate) mod shape_voice_enhancement_config;
 
 pub(crate) mod shape_voice_recording_configuration;
 
+pub(crate) mod shape_web_notification_content;
+
+pub(crate) mod shape_web_notification_source;
+
+pub(crate) mod shape_widget_destination;
+
 pub(crate) mod shape_workspace;
 
 pub(crate) mod shape_workspace_association_search_criteria;
@@ -2006,6 +2016,8 @@ pub(crate) mod shape_contact_metric_result;
 pub(crate) mod shape_contact_search_summary;
 
 pub(crate) mod shape_contact_tag_map;
+
+pub(crate) mod shape_content_attributes;
 
 pub(crate) mod shape_control_plane_attribute_filter;
 
@@ -2524,6 +2536,8 @@ pub(crate) mod shape_real_time_contact_analysis_segment_issues;
 pub(crate) mod shape_real_time_contact_analysis_segment_post_contact_summary;
 
 pub(crate) mod shape_real_time_contact_analysis_segment_transcript;
+
+pub(crate) mod shape_recommender_config;
 
 pub(crate) mod shape_recording_info;
 

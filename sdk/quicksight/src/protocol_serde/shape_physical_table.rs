@@ -28,6 +28,12 @@ pub fn ser_physical_table(
             crate::protocol_serde::shape_saa_s_table::ser_saa_s_table(&mut object_4, inner)?;
             object_4.finish();
         }
+        crate::types::PhysicalTable::FileSource(inner) => {
+            #[allow(unused_mut)]
+            let mut object_5 = object_43.key("FileSource").start_object();
+            crate::protocol_serde::shape_file_source::ser_file_source(&mut object_5, inner)?;
+            object_5.finish();
+        }
         crate::types::PhysicalTable::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("PhysicalTable"))
         }
@@ -90,6 +96,11 @@ where
                         "SaaSTable" => Some(crate::types::PhysicalTable::SaaSTable(
                             crate::protocol_serde::shape_saa_s_table::de_saa_s_table(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'SaaSTable' cannot be null")
+                            })?,
+                        )),
+                        "FileSource" => Some(crate::types::PhysicalTable::FileSource(
+                            crate::protocol_serde::shape_file_source::de_file_source(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'FileSource' cannot be null")
                             })?,
                         )),
                         _ => {

@@ -351,6 +351,12 @@ pub use crate::types::_traffic_type::TrafficType;
 
 pub use crate::types::_source_campaign::SourceCampaign;
 
+pub use crate::types::_web_notification_source::WebNotificationSource;
+
+pub use crate::types::_widget_destination::WidgetDestination;
+
+pub use crate::types::_web_notification_content::WebNotificationContent;
+
 pub use crate::types::_upload_url_metadata::UploadUrlMetadata;
 
 pub use crate::types::_participant_details::ParticipantDetails;
@@ -851,6 +857,10 @@ pub use crate::types::_outbound_message_source_type::OutboundMessageSourceType;
 
 pub use crate::types::_outbound_raw_message::OutboundRawMessage;
 
+pub use crate::types::_notification_type::NotificationType;
+
+pub use crate::types::_content_attributes::ContentAttributes;
+
 pub use crate::types::_response_mode::ResponseMode;
 
 pub use crate::types::_disconnect_on_customer_exit_participant_type::DisconnectOnCustomerExitParticipantType;
@@ -1124,6 +1134,8 @@ pub use crate::types::_target_list_type::TargetListType;
 pub use crate::types::_hierarchy_group_match_type::HierarchyGroupMatchType;
 
 pub use crate::types::_user_identity_info_lite::UserIdentityInfoLite;
+
+pub use crate::types::_recommender_config::RecommenderConfig;
 
 pub use crate::types::_behavior::Behavior;
 
@@ -1745,6 +1757,8 @@ mod _contact_search_summary_segment_attribute_value;
 
 mod _contact_state;
 
+mod _content_attributes;
+
 mod _control_plane_attribute_filter;
 
 mod _control_plane_tag_filter;
@@ -2307,6 +2321,8 @@ mod _notification_source;
 
 mod _notification_status;
 
+mod _notification_type;
+
 mod _number_comparison_type;
 
 mod _number_condition;
@@ -2538,6 +2554,8 @@ mod _real_time_contact_analysis_transcript_item_with_character_offsets;
 mod _real_time_contact_analysis_transcript_item_with_content;
 
 mod _realtime_contact_analysis_segment;
+
+mod _recommender_config;
 
 mod _record_primary_value;
 
@@ -2890,6 +2908,12 @@ mod _voice_enhancement_mode;
 mod _voice_recording_configuration;
 
 mod _voice_recording_track;
+
+mod _web_notification_content;
+
+mod _web_notification_source;
+
+mod _widget_destination;
 
 mod _wisdom_info;
 

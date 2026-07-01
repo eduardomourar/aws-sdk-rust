@@ -83,6 +83,8 @@ pub use crate::types::_dry_run_results::DryRunResultsBuilder;
 
 pub use crate::types::_insight_entity::InsightEntityBuilder;
 
+pub use crate::types::_insight_feedback_entity::InsightFeedbackEntityBuilder;
+
 pub use crate::types::_insight_time_range::InsightTimeRangeBuilder;
 
 pub use crate::types::_rollback_service_software_options::RollbackServiceSoftwareOptionsBuilder;
@@ -200,6 +202,10 @@ pub use crate::types::_aiml_options_status::AimlOptionsStatusBuilder;
 pub use crate::types::_deployment_strategy_options_status::DeploymentStrategyOptionsStatusBuilder;
 
 pub use crate::types::_automated_snapshot_pause_options_status::AutomatedSnapshotPauseOptionsStatusBuilder;
+
+pub use crate::types::_use_case_status::UseCaseStatusBuilder;
+
+pub use crate::types::_engine_mode_status::EngineModeStatusBuilder;
 
 pub use crate::types::_environment_info::EnvironmentInfoBuilder;
 

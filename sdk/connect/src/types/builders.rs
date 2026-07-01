@@ -249,6 +249,12 @@ pub use crate::types::_outbound_email_content::OutboundEmailContentBuilder;
 
 pub use crate::types::_source_campaign::SourceCampaignBuilder;
 
+pub use crate::types::_web_notification_source::WebNotificationSourceBuilder;
+
+pub use crate::types::_widget_destination::WidgetDestinationBuilder;
+
+pub use crate::types::_web_notification_content::WebNotificationContentBuilder;
+
 pub use crate::types::_upload_url_metadata::UploadUrlMetadataBuilder;
 
 pub use crate::types::_participant_details::ParticipantDetailsBuilder;
@@ -663,6 +669,8 @@ pub use crate::types::_workspace_search_summary::WorkspaceSearchSummaryBuilder;
 
 pub use crate::types::_outbound_raw_message::OutboundRawMessageBuilder;
 
+pub use crate::types::_content_attributes::ContentAttributesBuilder;
+
 pub use crate::types::_language_configuration::LanguageConfigurationBuilder;
 
 pub use crate::types::_redaction_configuration::RedactionConfigurationBuilder;
@@ -854,6 +862,8 @@ pub use crate::types::_contact_search_summary_agent_info::ContactSearchSummaryAg
 pub use crate::types::_attribute_and_condition::AttributeAndConditionBuilder;
 
 pub use crate::types::_user_identity_info_lite::UserIdentityInfoLiteBuilder;
+
+pub use crate::types::_recommender_config::RecommenderConfigBuilder;
 
 pub use crate::types::_agent_first::AgentFirstBuilder;
 

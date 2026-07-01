@@ -413,6 +413,8 @@ pub use crate::types::_deinterlacer::Deinterlacer;
 
 pub use crate::types::_dolby_vision::DolbyVision;
 
+pub use crate::types::_duration_control::DurationControl;
+
 pub use crate::types::_hdr10_plus::Hdr10Plus;
 
 pub use crate::types::_noise_reducer::NoiseReducer;
@@ -596,6 +598,8 @@ pub use crate::types::_h264_dynamic_sub_gop::H264DynamicSubGop;
 pub use crate::types::_h264_end_of_stream_markers::H264EndOfStreamMarkers;
 
 pub use crate::types::_h264_entropy_encoding::H264EntropyEncoding;
+
+pub use crate::types::_h264_explicit_weighted_prediction::H264ExplicitWeightedPrediction;
 
 pub use crate::types::_h264_field_encoding::H264FieldEncoding;
 
@@ -1749,6 +1753,8 @@ mod _dolby_vision_profile;
 
 mod _drop_frame_timecode;
 
+mod _duration_control;
+
 mod _dvb_nit_settings;
 
 mod _dvb_sdt_settings;
@@ -1912,6 +1918,8 @@ mod _h264_dynamic_sub_gop;
 mod _h264_end_of_stream_markers;
 
 mod _h264_entropy_encoding;
+
+mod _h264_explicit_weighted_prediction;
 
 mod _h264_field_encoding;
 

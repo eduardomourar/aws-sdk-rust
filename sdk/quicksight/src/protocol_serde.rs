@@ -1495,6 +1495,8 @@ pub(crate) mod shape_failed_to_update_association;
 
 pub(crate) mod shape_field_folder_map;
 
+pub(crate) mod shape_file_source;
+
 pub(crate) mod shape_filter_group;
 
 pub(crate) mod shape_filter_group_list;

@@ -311,6 +311,8 @@ mod get_identity_provider_by_identifier;
 
 mod get_log_delivery_configuration;
 
+mod get_provisioned_limit;
+
 mod get_signing_certificate;
 
 mod get_tokens_from_refresh_token;
@@ -396,6 +398,8 @@ mod update_group;
 mod update_identity_provider;
 
 mod update_managed_login_branding;
+
+mod update_provisioned_limit;
 
 mod update_resource_server;
 

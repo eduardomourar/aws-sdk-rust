@@ -28,6 +28,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "DualStackManifestEndpointPrefix" => {
+                            builder = builder.set_dual_stack_manifest_endpoint_prefix(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "MpdLocation" => {
                             builder = builder.set_mpd_location(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

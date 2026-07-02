@@ -171,6 +171,8 @@ pub(crate) mod shape_get_identity_provider_by_identifier;
 
 pub(crate) mod shape_get_log_delivery_configuration;
 
+pub(crate) mod shape_get_provisioned_limit;
+
 pub(crate) mod shape_get_signing_certificate;
 
 pub(crate) mod shape_get_tokens_from_refresh_token;
@@ -256,6 +258,8 @@ pub(crate) mod shape_update_group;
 pub(crate) mod shape_update_identity_provider;
 
 pub(crate) mod shape_update_managed_login_branding;
+
+pub(crate) mod shape_update_provisioned_limit;
 
 pub(crate) mod shape_update_resource_server;
 
@@ -453,6 +457,8 @@ pub(crate) mod shape_get_identity_provider_by_identifier_input;
 
 pub(crate) mod shape_get_log_delivery_configuration_input;
 
+pub(crate) mod shape_get_provisioned_limit_input;
+
 pub(crate) mod shape_get_signing_certificate_input;
 
 pub(crate) mod shape_get_tokens_from_refresh_token_input;
@@ -549,6 +555,8 @@ pub(crate) mod shape_revoke_token_input;
 
 pub(crate) mod shape_scope_does_not_exist_exception;
 
+pub(crate) mod shape_service_quota_exceeded_exception;
+
 pub(crate) mod shape_set_log_delivery_configuration_input;
 
 pub(crate) mod shape_set_risk_configuration_input;
@@ -604,6 +612,8 @@ pub(crate) mod shape_update_group_input;
 pub(crate) mod shape_update_identity_provider_input;
 
 pub(crate) mod shape_update_managed_login_branding_input;
+
+pub(crate) mod shape_update_provisioned_limit_input;
 
 pub(crate) mod shape_update_resource_server_input;
 
@@ -718,6 +728,10 @@ pub(crate) mod shape_issuer_configuration_type;
 pub(crate) mod shape_key_configuration_type;
 
 pub(crate) mod shape_lambda_config_type;
+
+pub(crate) mod shape_limit_definition_type;
+
+pub(crate) mod shape_limit_type;
 
 pub(crate) mod shape_list_of_string_types;
 
@@ -922,6 +936,8 @@ pub(crate) mod shape_recovery_mechanisms_type;
 pub(crate) mod shape_replica_regions_type;
 
 pub(crate) mod shape_skipped_ip_range_list_type;
+
+pub(crate) mod shape_string_to_string_map_type;
 
 pub(crate) mod shape_web_authn_authenticator_transports_list;
 

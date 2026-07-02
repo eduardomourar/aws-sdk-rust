@@ -113,6 +113,8 @@ pub use crate::types::error::_unsupported_token_type_exception::UnsupportedToken
 
 pub use crate::types::error::_web_authn_configuration_missing_exception::WebAuthnConfigurationMissingException;
 
+pub use crate::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededException;
+
 pub use crate::types::error::_enable_software_token_mfa_exception::EnableSoftwareTokenMfaException;
 
 mod _access_denied_exception;
@@ -180,6 +182,8 @@ mod _refresh_token_reuse_exception;
 mod _resource_not_found_exception;
 
 mod _scope_does_not_exist_exception;
+
+mod _service_quota_exceeded_exception;
 
 mod _software_token_mfa_not_found_exception;
 

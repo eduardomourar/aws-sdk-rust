@@ -223,6 +223,9 @@ pub mod get_identity_provider_by_identifier;
 /// Types for the `GetLogDeliveryConfiguration` operation.
 pub mod get_log_delivery_configuration;
 
+/// Types for the `GetProvisionedLimit` operation.
+pub mod get_provisioned_limit;
+
 /// Types for the `GetSigningCertificate` operation.
 pub mod get_signing_certificate;
 
@@ -351,6 +354,9 @@ pub mod update_identity_provider;
 
 /// Types for the `UpdateManagedLoginBranding` operation.
 pub mod update_managed_login_branding;
+
+/// Types for the `UpdateProvisionedLimit` operation.
+pub mod update_provisioned_limit;
 
 /// Types for the `UpdateResourceServer` operation.
 pub mod update_resource_server;

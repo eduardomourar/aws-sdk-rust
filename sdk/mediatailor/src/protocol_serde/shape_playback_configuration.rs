@@ -120,8 +120,22 @@ where
                                     .transpose()?,
                             );
                         }
+                        "DualStackPlaybackEndpointPrefix" => {
+                            builder = builder.set_dual_stack_playback_endpoint_prefix(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "SessionInitializationEndpointPrefix" => {
                             builder = builder.set_session_initialization_endpoint_prefix(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "DualStackSessionInitializationEndpointPrefix" => {
+                            builder = builder.set_dual_stack_session_initialization_endpoint_prefix(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,

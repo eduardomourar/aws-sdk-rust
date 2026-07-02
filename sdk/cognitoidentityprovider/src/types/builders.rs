@@ -87,6 +87,10 @@ pub use crate::types::_code_delivery_details_type::CodeDeliveryDetailsTypeBuilde
 
 pub use crate::types::_log_delivery_configuration_type::LogDeliveryConfigurationTypeBuilder;
 
+pub use crate::types::_limit_definition_type::LimitDefinitionTypeBuilder;
+
+pub use crate::types::_limit_type::LimitTypeBuilder;
+
 pub use crate::types::_ui_customization_type::UiCustomizationTypeBuilder;
 
 pub use crate::types::_sms_mfa_config_type::SmsMfaConfigTypeBuilder;

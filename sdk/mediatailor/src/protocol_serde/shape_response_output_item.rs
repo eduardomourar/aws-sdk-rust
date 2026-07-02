@@ -45,6 +45,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "DualStackPlaybackUrl" => {
+                            builder = builder.set_dual_stack_playback_url(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "SourceGroup" => {
                             builder = builder.set_source_group(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

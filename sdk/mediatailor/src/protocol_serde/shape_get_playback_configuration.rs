@@ -103,6 +103,20 @@ pub(crate) fn de_get_playback_configuration(
                         depth + 1,
                     )?);
                 }
+                "DualStackPlaybackEndpointPrefix" => {
+                    builder = builder.set_dual_stack_playback_endpoint_prefix(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "DualStackSessionInitializationEndpointPrefix" => {
+                    builder = builder.set_dual_stack_session_initialization_endpoint_prefix(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "FunctionMapping" => {
                     builder = builder.set_function_mapping(crate::protocol_serde::shape_function_mapping::de_function_mapping(
                         tokens,

@@ -69,6 +69,8 @@ pub enum Error {
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
     /// <p>This exception is thrown when the specified scope doesn't exist.</p>
     ScopeDoesNotExistException(crate::types::error::ScopeDoesNotExistException),
+    /// <p>The request exceeded your account's service quota. To increase your limit, use or submit a Service Quotas increase request.</p>
+    ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
     /// <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
     SoftwareTokenMfaNotFoundException(crate::types::error::SoftwareTokenMfaNotFoundException),
     /// <p>Terms document names must be unique to the app client. This exception is thrown when you attempt to create terms documents with a duplicate <code>TermsName</code>.</p>
@@ -164,6 +166,7 @@ impl ::std::fmt::Display for Error {
             Error::RefreshTokenReuseException(inner) => inner.fmt(f),
             Error::ResourceNotFoundException(inner) => inner.fmt(f),
             Error::ScopeDoesNotExistException(inner) => inner.fmt(f),
+            Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
             Error::SoftwareTokenMfaNotFoundException(inner) => inner.fmt(f),
             Error::TermsExistsException(inner) => inner.fmt(f),
             Error::TierChangeNotAllowedException(inner) => inner.fmt(f),
@@ -243,6 +246,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::RefreshTokenReuseException(inner) => inner.meta(),
             Self::ResourceNotFoundException(inner) => inner.meta(),
             Self::ScopeDoesNotExistException(inner) => inner.meta(),
+            Self::ServiceQuotaExceededException(inner) => inner.meta(),
             Self::SoftwareTokenMfaNotFoundException(inner) => inner.meta(),
             Self::TermsExistsException(inner) => inner.meta(),
             Self::TierChangeNotAllowedException(inner) => inner.meta(),
@@ -3484,6 +3488,38 @@ impl From<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfig
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_provisioned_limit::GetProvisionedLimitError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_provisioned_limit::GetProvisionedLimitError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_provisioned_limit::GetProvisionedLimitError> for Error {
+    fn from(err: crate::operation::get_provisioned_limit::GetProvisionedLimitError) -> Self {
+        match err {
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_signing_certificate::GetSigningCertificateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -5216,6 +5252,47 @@ impl From<crate::operation::update_managed_login_branding::UpdateManagedLoginBra
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_provisioned_limit::UpdateProvisionedLimitError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_provisioned_limit::UpdateProvisionedLimitError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::update_provisioned_limit::UpdateProvisionedLimitError> for Error {
+    fn from(err: crate::operation::update_provisioned_limit::UpdateProvisionedLimitError) -> Self {
+        match err {
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::ServiceQuotaExceededException(inner) => {
+                Error::ServiceQuotaExceededException(inner)
+            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_resource_server::UpdateResourceServerError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -5683,6 +5760,7 @@ impl ::std::error::Error for Error {
             Error::RefreshTokenReuseException(inner) => inner.source(),
             Error::ResourceNotFoundException(inner) => inner.source(),
             Error::ScopeDoesNotExistException(inner) => inner.source(),
+            Error::ServiceQuotaExceededException(inner) => inner.source(),
             Error::SoftwareTokenMfaNotFoundException(inner) => inner.source(),
             Error::TermsExistsException(inner) => inner.source(),
             Error::TierChangeNotAllowedException(inner) => inner.source(),
@@ -5748,6 +5826,7 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::RefreshTokenReuseException(e) => e.request_id(),
             Self::ResourceNotFoundException(e) => e.request_id(),
             Self::ScopeDoesNotExistException(e) => e.request_id(),
+            Self::ServiceQuotaExceededException(e) => e.request_id(),
             Self::SoftwareTokenMfaNotFoundException(e) => e.request_id(),
             Self::TermsExistsException(e) => e.request_id(),
             Self::TierChangeNotAllowedException(e) => e.request_id(),

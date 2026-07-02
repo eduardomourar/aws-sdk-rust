@@ -1079,6 +1079,21 @@ pub(crate) fn value_range_correct_errors(mut builder: crate::types::builders::Va
     builder
 }
 
+pub(crate) fn diversity_column_correct_errors(
+    mut builder: crate::types::builders::DiversityColumnBuilder,
+) -> crate::types::builders::DiversityColumnBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.cap_type.is_none() {
+        builder.cap_type = "no value was set".parse::<crate::types::DiversityCapType>().ok()
+    }
+    if builder.target.is_none() {
+        builder.target = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn event_parameters_correct_errors(
     mut builder: crate::types::builders::EventParametersBuilder,
 ) -> crate::types::builders::EventParametersBuilder {

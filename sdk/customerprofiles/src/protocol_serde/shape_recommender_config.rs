@@ -53,6 +53,12 @@ pub fn ser_recommender_config(
         }
         object_13.finish();
     }
+    if let Some(var_18) = &input.diversity_config {
+        #[allow(unused_mut)]
+        let mut object_19 = object.key("DiversityConfig").start_object();
+        crate::protocol_serde::shape_diversity_config::ser_diversity_config(&mut object_19, var_18)?;
+        object_19.finish();
+    }
     Ok(())
 }
 
@@ -105,6 +111,13 @@ where
                         }
                         "ExcludedColumns" => {
                             builder = builder.set_excluded_columns(crate::protocol_serde::shape_included_columns::de_included_columns(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "DiversityConfig" => {
+                            builder = builder.set_diversity_config(crate::protocol_serde::shape_diversity_config::de_diversity_config(
                                 tokens,
                                 _value,
                                 depth + 1,

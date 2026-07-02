@@ -35,8 +35,12 @@ pub struct PutPlaybackConfigurationOutput {
     pub playback_configuration_arn: ::std::option::Option<::std::string::String>,
     /// <p>The playback endpoint prefix associated with the playback configuration.</p>
     pub playback_endpoint_prefix: ::std::option::Option<::std::string::String>,
+    /// <p>The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.</p>
+    pub dual_stack_playback_endpoint_prefix: ::std::option::Option<::std::string::String>,
     /// <p>The session initialization endpoint prefix associated with the playback configuration.</p>
     pub session_initialization_endpoint_prefix: ::std::option::Option<::std::string::String>,
+    /// <p>The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.</p>
+    pub dual_stack_session_initialization_endpoint_prefix: ::std::option::Option<::std::string::String>,
     /// <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
     pub slate_ad_url: ::std::option::Option<::std::string::String>,
     /// <p>The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
@@ -118,9 +122,17 @@ impl PutPlaybackConfigurationOutput {
     pub fn playback_endpoint_prefix(&self) -> ::std::option::Option<&str> {
         self.playback_endpoint_prefix.as_deref()
     }
+    /// <p>The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.</p>
+    pub fn dual_stack_playback_endpoint_prefix(&self) -> ::std::option::Option<&str> {
+        self.dual_stack_playback_endpoint_prefix.as_deref()
+    }
     /// <p>The session initialization endpoint prefix associated with the playback configuration.</p>
     pub fn session_initialization_endpoint_prefix(&self) -> ::std::option::Option<&str> {
         self.session_initialization_endpoint_prefix.as_deref()
+    }
+    /// <p>The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.</p>
+    pub fn dual_stack_session_initialization_endpoint_prefix(&self) -> ::std::option::Option<&str> {
+        self.dual_stack_session_initialization_endpoint_prefix.as_deref()
     }
     /// <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
     pub fn slate_ad_url(&self) -> ::std::option::Option<&str> {
@@ -184,7 +196,9 @@ pub struct PutPlaybackConfigurationOutputBuilder {
     pub(crate) personalization_threshold_seconds: ::std::option::Option<i32>,
     pub(crate) playback_configuration_arn: ::std::option::Option<::std::string::String>,
     pub(crate) playback_endpoint_prefix: ::std::option::Option<::std::string::String>,
+    pub(crate) dual_stack_playback_endpoint_prefix: ::std::option::Option<::std::string::String>,
     pub(crate) session_initialization_endpoint_prefix: ::std::option::Option<::std::string::String>,
+    pub(crate) dual_stack_session_initialization_endpoint_prefix: ::std::option::Option<::std::string::String>,
     pub(crate) slate_ad_url: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) transcode_profile_name: ::std::option::Option<::std::string::String>,
@@ -424,6 +438,20 @@ impl PutPlaybackConfigurationOutputBuilder {
     pub fn get_playback_endpoint_prefix(&self) -> &::std::option::Option<::std::string::String> {
         &self.playback_endpoint_prefix
     }
+    /// <p>The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.</p>
+    pub fn dual_stack_playback_endpoint_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.dual_stack_playback_endpoint_prefix = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.</p>
+    pub fn set_dual_stack_playback_endpoint_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.dual_stack_playback_endpoint_prefix = input;
+        self
+    }
+    /// <p>The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.</p>
+    pub fn get_dual_stack_playback_endpoint_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.dual_stack_playback_endpoint_prefix
+    }
     /// <p>The session initialization endpoint prefix associated with the playback configuration.</p>
     pub fn session_initialization_endpoint_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.session_initialization_endpoint_prefix = ::std::option::Option::Some(input.into());
@@ -437,6 +465,20 @@ impl PutPlaybackConfigurationOutputBuilder {
     /// <p>The session initialization endpoint prefix associated with the playback configuration.</p>
     pub fn get_session_initialization_endpoint_prefix(&self) -> &::std::option::Option<::std::string::String> {
         &self.session_initialization_endpoint_prefix
+    }
+    /// <p>The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.</p>
+    pub fn dual_stack_session_initialization_endpoint_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.dual_stack_session_initialization_endpoint_prefix = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.</p>
+    pub fn set_dual_stack_session_initialization_endpoint_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.dual_stack_session_initialization_endpoint_prefix = input;
+        self
+    }
+    /// <p>The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.</p>
+    pub fn get_dual_stack_session_initialization_endpoint_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.dual_stack_session_initialization_endpoint_prefix
     }
     /// <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
     pub fn slate_ad_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -582,7 +624,9 @@ impl PutPlaybackConfigurationOutputBuilder {
             personalization_threshold_seconds: self.personalization_threshold_seconds,
             playback_configuration_arn: self.playback_configuration_arn,
             playback_endpoint_prefix: self.playback_endpoint_prefix,
+            dual_stack_playback_endpoint_prefix: self.dual_stack_playback_endpoint_prefix,
             session_initialization_endpoint_prefix: self.session_initialization_endpoint_prefix,
+            dual_stack_session_initialization_endpoint_prefix: self.dual_stack_session_initialization_endpoint_prefix,
             slate_ad_url: self.slate_ad_url,
             tags: self.tags,
             transcode_profile_name: self.transcode_profile_name,

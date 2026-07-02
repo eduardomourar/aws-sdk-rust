@@ -14,6 +14,8 @@ pub struct RecommenderConfig {
     pub included_columns: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
     /// <p>A map of dataset type to a list of column names to exclude from training. The <code>_webAnalytics</code> and <code>_catalogItem</code> keys are supported. The column names must be valid columns defined in the recommender schema. All columns in the schema except the listed columns will be used for training. The following columns are mandatory and cannot be excluded: <code>Item.Id</code>, <code>EventTimestamp</code>, and <code>EventType</code> for <code>_webAnalytics</code>; <code>Id</code> for <code>_catalogItem</code>. Mutually exclusive with IncludedColumns — both cannot be specified in the same request.</p>
     pub excluded_columns: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
+    /// <p>Configuration for diversity-aware recommendations. When set, the recommender applies diversity constraints defined per item column to reduce over-concentration of similar items in the results.</p>
+    pub diversity_config: ::std::option::Option<crate::types::DiversityConfig>,
 }
 impl RecommenderConfig {
     /// <p>Configuration settings for how the recommender processes and uses events.</p>
@@ -40,6 +42,10 @@ impl RecommenderConfig {
     ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>> {
         self.excluded_columns.as_ref()
     }
+    /// <p>Configuration for diversity-aware recommendations. When set, the recommender applies diversity constraints defined per item column to reduce over-concentration of similar items in the results.</p>
+    pub fn diversity_config(&self) -> ::std::option::Option<&crate::types::DiversityConfig> {
+        self.diversity_config.as_ref()
+    }
 }
 impl RecommenderConfig {
     /// Creates a new builder-style object to manufacture [`RecommenderConfig`](crate::types::RecommenderConfig).
@@ -57,6 +63,7 @@ pub struct RecommenderConfigBuilder {
     pub(crate) inference_config: ::std::option::Option<crate::types::InferenceConfig>,
     pub(crate) included_columns: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
     pub(crate) excluded_columns: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
+    pub(crate) diversity_config: ::std::option::Option<crate::types::DiversityConfig>,
 }
 impl RecommenderConfigBuilder {
     /// <p>Configuration settings for how the recommender processes and uses events.</p>
@@ -151,6 +158,20 @@ impl RecommenderConfigBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>> {
         &self.excluded_columns
     }
+    /// <p>Configuration for diversity-aware recommendations. When set, the recommender applies diversity constraints defined per item column to reduce over-concentration of similar items in the results.</p>
+    pub fn diversity_config(mut self, input: crate::types::DiversityConfig) -> Self {
+        self.diversity_config = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Configuration for diversity-aware recommendations. When set, the recommender applies diversity constraints defined per item column to reduce over-concentration of similar items in the results.</p>
+    pub fn set_diversity_config(mut self, input: ::std::option::Option<crate::types::DiversityConfig>) -> Self {
+        self.diversity_config = input;
+        self
+    }
+    /// <p>Configuration for diversity-aware recommendations. When set, the recommender applies diversity constraints defined per item column to reduce over-concentration of similar items in the results.</p>
+    pub fn get_diversity_config(&self) -> &::std::option::Option<crate::types::DiversityConfig> {
+        &self.diversity_config
+    }
     /// Consumes the builder and constructs a [`RecommenderConfig`](crate::types::RecommenderConfig).
     pub fn build(self) -> crate::types::RecommenderConfig {
         crate::types::RecommenderConfig {
@@ -159,6 +180,7 @@ impl RecommenderConfigBuilder {
             inference_config: self.inference_config,
             included_columns: self.included_columns,
             excluded_columns: self.excluded_columns,
+            diversity_config: self.diversity_config,
         }
     }
 }

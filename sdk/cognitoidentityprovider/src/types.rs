@@ -113,6 +113,10 @@ pub use crate::types::_code_delivery_details_type::CodeDeliveryDetailsType;
 
 pub use crate::types::_log_delivery_configuration_type::LogDeliveryConfigurationType;
 
+pub use crate::types::_limit_definition_type::LimitDefinitionType;
+
+pub use crate::types::_limit_type::LimitType;
+
 pub use crate::types::_ui_customization_type::UiCustomizationType;
 
 pub use crate::types::_sms_mfa_config_type::SmsMfaConfigType;
@@ -202,6 +206,8 @@ pub use crate::types::_replica_status_type::ReplicaStatusType;
 pub use crate::types::_replica_role_type::ReplicaRoleType;
 
 pub use crate::types::_domain_status_type::DomainStatusType;
+
+pub use crate::types::_limit_class::LimitClass;
 
 pub use crate::types::_auth_factor_type::AuthFactorType;
 
@@ -442,6 +448,12 @@ mod _issuer_type;
 mod _key_configuration_type;
 
 mod _lambda_config_type;
+
+mod _limit_class;
+
+mod _limit_definition_type;
+
+mod _limit_type;
 
 mod _log_configuration_type;
 

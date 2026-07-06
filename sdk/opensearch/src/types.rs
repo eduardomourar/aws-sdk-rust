@@ -123,6 +123,10 @@ pub use crate::types::_maintenance_status::MaintenanceStatus;
 
 pub use crate::types::_maintenance_type::MaintenanceType;
 
+pub use crate::types::_migration_source::MigrationSource;
+
+pub use crate::types::_migration_error::MigrationError;
+
 pub use crate::types::_upgrade_step::UpgradeStep;
 
 pub use crate::types::_upgrade_status::UpgradeStatus;
@@ -144,6 +148,8 @@ pub use crate::types::_capability_base_request_config::CapabilityBaseRequestConf
 pub use crate::types::_capability_base_response_config::CapabilityBaseResponseConfig;
 
 pub use crate::types::_rollback_service_software_options::RollbackServiceSoftwareOptions;
+
+pub use crate::types::_migration_options::MigrationOptions;
 
 pub use crate::types::_schedule_at::ScheduleAt;
 
@@ -357,6 +363,12 @@ pub use crate::types::_insight::Insight;
 
 pub use crate::types::_instance_type_details::InstanceTypeDetails;
 
+pub use crate::types::_migration_summary::MigrationSummary;
+
+pub use crate::types::_migration_workspace::MigrationWorkspace;
+
+pub use crate::types::_export_options::ExportOptions;
+
 pub use crate::types::_rollback_on_disable::RollbackOnDisable;
 
 pub use crate::types::_action_severity::ActionSeverity;
@@ -454,6 +466,8 @@ pub use crate::types::_additional_limit::AdditionalLimit;
 pub use crate::types::_recurring_charge::RecurringCharge;
 
 pub use crate::types::_upgrade_step_item::UpgradeStepItem;
+
+pub use crate::types::_saved_object_identifier::SavedObjectIdentifier;
 
 pub use crate::types::_time_unit::TimeUnit;
 
@@ -659,6 +673,8 @@ mod _environment_info;
 
 mod _error_details;
 
+mod _export_options;
+
 mod _filter;
 
 mod _iam_federation_options_input;
@@ -744,6 +760,16 @@ mod _maintenance_type;
 mod _master_node_status;
 
 mod _master_user_options;
+
+mod _migration_error;
+
+mod _migration_options;
+
+mod _migration_source;
+
+mod _migration_summary;
+
+mod _migration_workspace;
 
 mod _modifying_properties;
 
@@ -848,6 +874,8 @@ mod _saml_idp;
 mod _saml_options_input;
 
 mod _saml_options_output;
+
+mod _saved_object_identifier;
 
 mod _schedule_at;
 

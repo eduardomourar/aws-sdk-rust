@@ -271,6 +271,8 @@ mod get_domain_maintenance_status;
 
 mod get_index;
 
+mod get_migration;
+
 mod get_package_version_history;
 
 mod get_upgrade_history;
@@ -296,6 +298,8 @@ mod list_domains_for_package;
 mod list_insights;
 
 mod list_instance_type_details;
+
+mod list_migrations;
 
 mod list_packages_for_domain;
 
@@ -326,6 +330,8 @@ mod revoke_vpc_endpoint_access;
 mod rollback_service_software_update;
 
 mod start_domain_maintenance;
+
+mod start_migration;
 
 mod start_service_software_update;
 

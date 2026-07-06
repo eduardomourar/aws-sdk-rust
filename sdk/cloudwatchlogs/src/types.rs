@@ -53,6 +53,8 @@ pub use crate::types::_schedule_type::ScheduleType;
 
 pub use crate::types::_execution_status::ExecutionStatus;
 
+pub use crate::types::_storage_tier::StorageTier;
+
 pub use crate::types::_list_aggregate_log_group_summaries_group_by::ListAggregateLogGroupSummariesGroupBy;
 
 pub use crate::types::_suppression_state::SuppressionState;
@@ -604,6 +606,8 @@ mod _standard_unit;
 mod _start_live_tail_response_stream;
 
 mod _state;
+
+mod _storage_tier;
 
 mod _subscription_filter;
 

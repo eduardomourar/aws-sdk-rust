@@ -13,7 +13,7 @@ pub struct PutDeliverySourceInput {
     /// <li>
     /// <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p></li>
     /// <li>
-    /// <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p></li>
+    /// <p>For Amazon Bedrock Knowledge Bases, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
     /// <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
@@ -56,6 +56,8 @@ pub struct PutDeliverySourceInput {
     /// <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p></li>
+    /// <li>
+    /// <p>For Amazon S3, the valid value is <code>S3_SERVER_ACCESS_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Web Services Security Hub CSPM, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p></li>
     /// <li>
@@ -89,7 +91,7 @@ impl PutDeliverySourceInput {
     /// <li>
     /// <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p></li>
     /// <li>
-    /// <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p></li>
+    /// <p>For Amazon Bedrock Knowledge Bases, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
     /// <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
@@ -132,6 +134,8 @@ impl PutDeliverySourceInput {
     /// <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p></li>
+    /// <li>
+    /// <p>For Amazon S3, the valid value is <code>S3_SERVER_ACCESS_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Web Services Security Hub CSPM, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p></li>
     /// <li>
@@ -212,7 +216,7 @@ impl PutDeliverySourceInputBuilder {
     /// <li>
     /// <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p></li>
     /// <li>
-    /// <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p></li>
+    /// <p>For Amazon Bedrock Knowledge Bases, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
     /// <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
@@ -255,6 +259,8 @@ impl PutDeliverySourceInputBuilder {
     /// <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p></li>
+    /// <li>
+    /// <p>For Amazon S3, the valid value is <code>S3_SERVER_ACCESS_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Web Services Security Hub CSPM, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p></li>
     /// <li>
@@ -276,7 +282,7 @@ impl PutDeliverySourceInputBuilder {
     /// <li>
     /// <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p></li>
     /// <li>
-    /// <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p></li>
+    /// <p>For Amazon Bedrock Knowledge Bases, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
     /// <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
@@ -319,6 +325,8 @@ impl PutDeliverySourceInputBuilder {
     /// <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p></li>
+    /// <li>
+    /// <p>For Amazon S3, the valid value is <code>S3_SERVER_ACCESS_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Web Services Security Hub CSPM, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p></li>
     /// <li>
@@ -339,7 +347,7 @@ impl PutDeliverySourceInputBuilder {
     /// <li>
     /// <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p></li>
     /// <li>
-    /// <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p></li>
+    /// <p>For Amazon Bedrock Knowledge Bases, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
     /// <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p></li>
     /// <li>
@@ -382,6 +390,8 @@ impl PutDeliverySourceInputBuilder {
     /// <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p></li>
+    /// <li>
+    /// <p>For Amazon S3, the valid value is <code>S3_SERVER_ACCESS_LOGS</code>.</p></li>
     /// <li>
     /// <p>For Amazon Web Services Security Hub CSPM, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p></li>
     /// <li>

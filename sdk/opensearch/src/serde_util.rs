@@ -222,6 +222,15 @@ pub(crate) fn dry_run_progress_status_correct_errors(
     builder
 }
 
+pub(crate) fn migration_source_correct_errors(
+    mut builder: crate::types::builders::MigrationSourceBuilder,
+) -> crate::types::builders::MigrationSourceBuilder {
+    if builder.datasource_arn.is_none() {
+        builder.datasource_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn scheduled_action_correct_errors(
     mut builder: crate::types::builders::ScheduledActionBuilder,
 ) -> crate::types::builders::ScheduledActionBuilder {

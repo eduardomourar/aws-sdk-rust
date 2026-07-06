@@ -1801,6 +1801,32 @@ impl From<crate::operation::get_index::GetIndexError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_migration::GetMigrationError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_migration::GetMigrationError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_migration::GetMigrationError> for Error {
+    fn from(err: crate::operation::get_migration::GetMigrationError) -> Self {
+        match err {
+            crate::operation::get_migration::GetMigrationError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_migration::GetMigrationError::DisabledOperationException(inner) => Error::DisabledOperationException(inner),
+            crate::operation::get_migration::GetMigrationError::InternalException(inner) => Error::InternalException(inner),
+            crate::operation::get_migration::GetMigrationError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_migration::GetMigrationError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::get_migration::GetMigrationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_package_version_history::GetPackageVersionHistoryError, R>>
     for Error
 where
@@ -2194,6 +2220,31 @@ impl From<crate::operation::list_instance_type_details::ListInstanceTypeDetailsE
                 Error::ValidationException(inner)
             }
             crate::operation::list_instance_type_details::ListInstanceTypeDetailsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_migrations::ListMigrationsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_migrations::ListMigrationsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_migrations::ListMigrationsError> for Error {
+    fn from(err: crate::operation::list_migrations::ListMigrationsError) -> Self {
+        match err {
+            crate::operation::list_migrations::ListMigrationsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_migrations::ListMigrationsError::DisabledOperationException(inner) => Error::DisabledOperationException(inner),
+            crate::operation::list_migrations::ListMigrationsError::InternalException(inner) => Error::InternalException(inner),
+            crate::operation::list_migrations::ListMigrationsError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_migrations::ListMigrationsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2686,6 +2737,33 @@ impl From<crate::operation::start_domain_maintenance::StartDomainMaintenanceErro
             }
             crate::operation::start_domain_maintenance::StartDomainMaintenanceError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::start_domain_maintenance::StartDomainMaintenanceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_migration::StartMigrationError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_migration::StartMigrationError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::start_migration::StartMigrationError> for Error {
+    fn from(err: crate::operation::start_migration::StartMigrationError) -> Self {
+        match err {
+            crate::operation::start_migration::StartMigrationError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::start_migration::StartMigrationError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::start_migration::StartMigrationError::DisabledOperationException(inner) => Error::DisabledOperationException(inner),
+            crate::operation::start_migration::StartMigrationError::InternalException(inner) => Error::InternalException(inner),
+            crate::operation::start_migration::StartMigrationError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::start_migration::StartMigrationError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::start_migration::StartMigrationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

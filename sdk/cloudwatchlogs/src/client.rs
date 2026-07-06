@@ -305,6 +305,8 @@ mod get_scheduled_query;
 
 mod get_scheduled_query_history;
 
+mod get_storage_tier_policy;
+
 mod get_transformer;
 
 mod list_aggregate_log_group_summaries;
@@ -360,6 +362,8 @@ mod put_query_definition;
 mod put_resource_policy;
 
 mod put_retention_policy;
+
+mod put_storage_tier_policy;
 
 mod put_subscription_filter;
 

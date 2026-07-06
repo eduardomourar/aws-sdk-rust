@@ -165,6 +165,8 @@ pub(crate) mod shape_get_scheduled_query;
 
 pub(crate) mod shape_get_scheduled_query_history;
 
+pub(crate) mod shape_get_storage_tier_policy;
+
 pub(crate) mod shape_get_transformer;
 
 pub(crate) mod shape_list_aggregate_log_group_summaries;
@@ -220,6 +222,8 @@ pub(crate) mod shape_put_query_definition;
 pub(crate) mod shape_put_resource_policy;
 
 pub(crate) mod shape_put_retention_policy;
+
+pub(crate) mod shape_put_storage_tier_policy;
 
 pub(crate) mod shape_put_subscription_filter;
 
@@ -484,6 +488,8 @@ pub(crate) mod shape_put_query_definition_input;
 pub(crate) mod shape_put_resource_policy_input;
 
 pub(crate) mod shape_put_retention_policy_input;
+
+pub(crate) mod shape_put_storage_tier_policy_input;
 
 pub(crate) mod shape_put_subscription_filter_input;
 

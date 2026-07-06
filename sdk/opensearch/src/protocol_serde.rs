@@ -131,6 +131,8 @@ pub(crate) mod shape_get_domain_maintenance_status;
 
 pub(crate) mod shape_get_index;
 
+pub(crate) mod shape_get_migration;
+
 pub(crate) mod shape_get_package_version_history;
 
 pub(crate) mod shape_get_upgrade_history;
@@ -156,6 +158,8 @@ pub(crate) mod shape_list_domains_for_package;
 pub(crate) mod shape_list_insights;
 
 pub(crate) mod shape_list_instance_type_details;
+
+pub(crate) mod shape_list_migrations;
 
 pub(crate) mod shape_list_packages_for_domain;
 
@@ -186,6 +190,8 @@ pub(crate) mod shape_revoke_vpc_endpoint_access;
 pub(crate) mod shape_rollback_service_software_update;
 
 pub(crate) mod shape_start_domain_maintenance;
+
+pub(crate) mod shape_start_migration;
 
 pub(crate) mod shape_start_service_software_update;
 
@@ -310,6 +316,8 @@ pub(crate) mod shape_service_quota_exceeded_exception;
 pub(crate) mod shape_slot_not_available_exception;
 
 pub(crate) mod shape_start_domain_maintenance_input;
+
+pub(crate) mod shape_start_migration_input;
 
 pub(crate) mod shape_start_service_software_update_input;
 
@@ -463,6 +471,14 @@ pub(crate) mod shape_limits_by_role;
 
 pub(crate) mod shape_log_publishing_option;
 
+pub(crate) mod shape_migration_error;
+
+pub(crate) mod shape_migration_options;
+
+pub(crate) mod shape_migration_source;
+
+pub(crate) mod shape_migration_summary_list;
+
 pub(crate) mod shape_node_to_node_encryption_options;
 
 pub(crate) mod shape_off_peak_window_options;
@@ -611,6 +627,8 @@ pub(crate) mod shape_environment_info;
 
 pub(crate) mod shape_error_details;
 
+pub(crate) mod shape_export_options;
+
 pub(crate) mod shape_iam_federation_options_input;
 
 pub(crate) mod shape_identity_center_options;
@@ -638,6 +656,10 @@ pub(crate) mod shape_log_publishing_options;
 pub(crate) mod shape_log_publishing_options_status;
 
 pub(crate) mod shape_master_user_options;
+
+pub(crate) mod shape_migration_summary;
+
+pub(crate) mod shape_migration_workspace;
 
 pub(crate) mod shape_modifying_properties_list;
 
@@ -734,6 +756,8 @@ pub(crate) mod shape_regions_list;
 pub(crate) mod shape_saml_idp;
 
 pub(crate) mod shape_saml_options_output;
+
+pub(crate) mod shape_saved_object_identifier;
 
 pub(crate) mod shape_storage_type_list;
 

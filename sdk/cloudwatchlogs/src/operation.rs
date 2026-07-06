@@ -214,6 +214,9 @@ pub mod get_scheduled_query;
 /// Types for the `GetScheduledQueryHistory` operation.
 pub mod get_scheduled_query_history;
 
+/// Types for the `GetStorageTierPolicy` operation.
+pub mod get_storage_tier_policy;
+
 /// Types for the `GetTransformer` operation.
 pub mod get_transformer;
 
@@ -297,6 +300,9 @@ pub mod put_resource_policy;
 
 /// Types for the `PutRetentionPolicy` operation.
 pub mod put_retention_policy;
+
+/// Types for the `PutStorageTierPolicy` operation.
+pub mod put_storage_tier_policy;
 
 /// Types for the `PutSubscriptionFilter` operation.
 pub mod put_subscription_filter;

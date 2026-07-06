@@ -163,6 +163,9 @@ pub mod get_domain_maintenance_status;
 /// Types for the `GetIndex` operation.
 pub mod get_index;
 
+/// Types for the `GetMigration` operation.
+pub mod get_migration;
+
 /// Types for the `GetPackageVersionHistory` operation.
 pub mod get_package_version_history;
 
@@ -201,6 +204,9 @@ pub mod list_insights;
 
 /// Types for the `ListInstanceTypeDetails` operation.
 pub mod list_instance_type_details;
+
+/// Types for the `ListMigrations` operation.
+pub mod list_migrations;
 
 /// Types for the `ListPackagesForDomain` operation.
 pub mod list_packages_for_domain;
@@ -246,6 +252,9 @@ pub mod rollback_service_software_update;
 
 /// Types for the `StartDomainMaintenance` operation.
 pub mod start_domain_maintenance;
+
+/// Types for the `StartMigration` operation.
+pub mod start_migration;
 
 /// Types for the `StartServiceSoftwareUpdate` operation.
 pub mod start_service_software_update;

@@ -83,11 +83,17 @@ pub use crate::types::_dry_run_results::DryRunResultsBuilder;
 
 pub use crate::types::_insight_entity::InsightEntityBuilder;
 
+pub use crate::types::_migration_source::MigrationSourceBuilder;
+
+pub use crate::types::_migration_error::MigrationErrorBuilder;
+
 pub use crate::types::_insight_feedback_entity::InsightFeedbackEntityBuilder;
 
 pub use crate::types::_insight_time_range::InsightTimeRangeBuilder;
 
 pub use crate::types::_rollback_service_software_options::RollbackServiceSoftwareOptionsBuilder;
+
+pub use crate::types::_migration_options::MigrationOptionsBuilder;
 
 pub use crate::types::_auto_tune_options::AutoTuneOptionsBuilder;
 
@@ -251,6 +257,12 @@ pub use crate::types::_insight::InsightBuilder;
 
 pub use crate::types::_instance_type_details::InstanceTypeDetailsBuilder;
 
+pub use crate::types::_migration_summary::MigrationSummaryBuilder;
+
+pub use crate::types::_migration_workspace::MigrationWorkspaceBuilder;
+
+pub use crate::types::_export_options::ExportOptionsBuilder;
+
 pub use crate::types::_node_option::NodeOptionBuilder;
 
 pub use crate::types::_saml_idp::SamlIdpBuilder;
@@ -298,5 +310,7 @@ pub use crate::types::_additional_limit::AdditionalLimitBuilder;
 pub use crate::types::_recurring_charge::RecurringChargeBuilder;
 
 pub use crate::types::_upgrade_step_item::UpgradeStepItemBuilder;
+
+pub use crate::types::_saved_object_identifier::SavedObjectIdentifierBuilder;
 
 pub use crate::types::_storage_type_limit::StorageTypeLimitBuilder;

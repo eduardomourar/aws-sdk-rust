@@ -219,6 +219,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListConnecto
                         query.push_kv("ConnectorStatus", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                     }
                 }
+                if let ::std::option::Option::Some(inner_5) = &_input.enablement_status {
+                    {
+                        query.push_kv("EnablementStatus", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
+                    }
+                }
                 ::std::result::Result::Ok(())
             }
             #[allow(clippy::unnecessary_wraps)]

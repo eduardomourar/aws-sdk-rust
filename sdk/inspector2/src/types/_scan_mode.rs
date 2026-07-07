@@ -15,6 +15,7 @@
 ///     ScanMode::Ec2Agentless => { /* ... */ },
 ///     ScanMode::Ec2InspectorAgentBased => { /* ... */ },
 ///     ScanMode::Ec2SsmAgentBased => { /* ... */ },
+///     ScanMode::VmInspectorAgentBased => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -49,6 +50,8 @@ pub enum ScanMode {
     Ec2InspectorAgentBased,
     #[allow(missing_docs)] // documentation missing in model
     Ec2SsmAgentBased,
+    #[allow(missing_docs)] // documentation missing in model
+    VmInspectorAgentBased,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -59,6 +62,7 @@ impl ::std::convert::From<&str> for ScanMode {
             "EC2_AGENTLESS" => ScanMode::Ec2Agentless,
             "EC2_INSPECTOR_AGENT_BASED" => ScanMode::Ec2InspectorAgentBased,
             "EC2_SSM_AGENT_BASED" => ScanMode::Ec2SsmAgentBased,
+            "VM_INSPECTOR_AGENT_BASED" => ScanMode::VmInspectorAgentBased,
             other => ScanMode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -77,12 +81,18 @@ impl ScanMode {
             ScanMode::Ec2Agentless => "EC2_AGENTLESS",
             ScanMode::Ec2InspectorAgentBased => "EC2_INSPECTOR_AGENT_BASED",
             ScanMode::Ec2SsmAgentBased => "EC2_SSM_AGENT_BASED",
+            ScanMode::VmInspectorAgentBased => "VM_INSPECTOR_AGENT_BASED",
             ScanMode::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["EC2_AGENTLESS", "EC2_INSPECTOR_AGENT_BASED", "EC2_SSM_AGENT_BASED"]
+        &[
+            "EC2_AGENTLESS",
+            "EC2_INSPECTOR_AGENT_BASED",
+            "EC2_SSM_AGENT_BASED",
+            "VM_INSPECTOR_AGENT_BASED",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ScanMode {
@@ -108,6 +118,7 @@ impl ::std::fmt::Display for ScanMode {
             ScanMode::Ec2Agentless => write!(f, "EC2_AGENTLESS"),
             ScanMode::Ec2InspectorAgentBased => write!(f, "EC2_INSPECTOR_AGENT_BASED"),
             ScanMode::Ec2SsmAgentBased => write!(f, "EC2_SSM_AGENT_BASED"),
+            ScanMode::VmInspectorAgentBased => write!(f, "VM_INSPECTOR_AGENT_BASED"),
             ScanMode::Unknown(value) => write!(f, "{value}"),
         }
     }

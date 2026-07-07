@@ -204,6 +204,8 @@ mod create_agent_status;
 
 mod create_attached_file;
 
+mod create_auth_code;
+
 mod create_contact;
 
 mod create_contact_flow;
@@ -352,6 +354,8 @@ mod delete_routing_profile;
 mod delete_rule;
 
 mod delete_security_profile;
+
+mod delete_session;
 
 mod delete_task_template;
 

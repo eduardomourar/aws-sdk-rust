@@ -459,6 +459,42 @@ pub fn ser_automation_rules_finding_filters(
         }
         array_150.finish();
     }
+    if let Some(var_153) = &input.resource_provider {
+        let mut array_154 = object.key("ResourceProvider").start_array();
+        for item_155 in var_153 {
+            {
+                #[allow(unused_mut)]
+                let mut object_156 = array_154.value().start_object();
+                crate::protocol_serde::shape_string_filter::ser_string_filter(&mut object_156, item_155)?;
+                object_156.finish();
+            }
+        }
+        array_154.finish();
+    }
+    if let Some(var_157) = &input.resource_owner_account_id {
+        let mut array_158 = object.key("ResourceOwnerAccountId").start_array();
+        for item_159 in var_157 {
+            {
+                #[allow(unused_mut)]
+                let mut object_160 = array_158.value().start_object();
+                crate::protocol_serde::shape_string_filter::ser_string_filter(&mut object_160, item_159)?;
+                object_160.finish();
+            }
+        }
+        array_158.finish();
+    }
+    if let Some(var_161) = &input.resource_owner_org_id {
+        let mut array_162 = object.key("ResourceOwnerOrgId").start_array();
+        for item_163 in var_161 {
+            {
+                #[allow(unused_mut)]
+                let mut object_164 = array_162.value().start_object();
+                crate::protocol_serde::shape_string_filter::ser_string_filter(&mut object_164, item_163)?;
+                object_164.finish();
+            }
+        }
+        array_162.finish();
+    }
     Ok(())
 }
 
@@ -736,6 +772,25 @@ where
                             }
                             "AwsAccountName" => {
                                 builder = builder.set_aws_account_name(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ResourceProvider" => {
+                                builder = builder.set_resource_provider(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ResourceOwnerAccountId" => {
+                                builder = builder.set_resource_owner_account_id(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "ResourceOwnerOrgId" => {
+                                builder = builder.set_resource_owner_org_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
                                     tokens,
                                     _value,
                                     depth + 1,

@@ -119,6 +119,9 @@ pub(crate) fn de_describe_security_hub_v2(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Features" => {
+                    builder = builder.set_features(crate::protocol_serde::shape_features::de_features(tokens, _value, depth + 1)?);
+                }
                 "HubV2Arn" => {
                     builder = builder.set_hub_v2_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

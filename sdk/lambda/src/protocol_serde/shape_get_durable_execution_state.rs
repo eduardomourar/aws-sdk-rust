@@ -44,6 +44,66 @@ pub fn de_get_durable_execution_state_http_error(
                 tmp
             })
         }
+        "KMSAccessDeniedException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsAccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSDisabledException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::KmsDisabledExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSInvalidStateException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsInvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSNotFoundException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {

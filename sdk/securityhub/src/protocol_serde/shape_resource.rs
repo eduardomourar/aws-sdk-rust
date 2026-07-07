@@ -15,36 +15,45 @@ pub fn ser_resource(
     if let Some(var_4) = &input.region {
         object.key("Region").string(var_4.as_str());
     }
-    if let Some(var_5) = &input.resource_role {
-        object.key("ResourceRole").string(var_5.as_str());
+    if let Some(var_5) = &input.provider {
+        object.key("Provider").string(var_5.as_str());
     }
-    if let Some(var_6) = &input.tags {
+    if let Some(var_6) = &input.owner {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("Tags").start_object();
-        for (key_8, value_9) in var_6 {
-            {
-                object_7.key(key_8.as_str()).string(value_9.as_str());
-            }
-        }
+        let mut object_7 = object.key("Owner").start_object();
+        crate::protocol_serde::shape_resource_owner::ser_resource_owner(&mut object_7, var_6)?;
         object_7.finish();
     }
-    if let Some(var_10) = &input.data_classification {
+    if let Some(var_8) = &input.resource_role {
+        object.key("ResourceRole").string(var_8.as_str());
+    }
+    if let Some(var_9) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("DataClassification").start_object();
-        crate::protocol_serde::shape_data_classification_details::ser_data_classification_details(&mut object_11, var_10)?;
-        object_11.finish();
+        let mut object_10 = object.key("Tags").start_object();
+        for (key_11, value_12) in var_9 {
+            {
+                object_10.key(key_11.as_str()).string(value_12.as_str());
+            }
+        }
+        object_10.finish();
     }
-    if let Some(var_12) = &input.details {
+    if let Some(var_13) = &input.data_classification {
         #[allow(unused_mut)]
-        let mut object_13 = object.key("Details").start_object();
-        crate::protocol_serde::shape_resource_details::ser_resource_details(&mut object_13, var_12)?;
-        object_13.finish();
+        let mut object_14 = object.key("DataClassification").start_object();
+        crate::protocol_serde::shape_data_classification_details::ser_data_classification_details(&mut object_14, var_13)?;
+        object_14.finish();
     }
-    if let Some(var_14) = &input.application_name {
-        object.key("ApplicationName").string(var_14.as_str());
+    if let Some(var_15) = &input.details {
+        #[allow(unused_mut)]
+        let mut object_16 = object.key("Details").start_object();
+        crate::protocol_serde::shape_resource_details::ser_resource_details(&mut object_16, var_15)?;
+        object_16.finish();
     }
-    if let Some(var_15) = &input.application_arn {
-        object.key("ApplicationArn").string(var_15.as_str());
+    if let Some(var_17) = &input.application_name {
+        object.key("ApplicationName").string(var_17.as_str());
+    }
+    if let Some(var_18) = &input.application_arn {
+        object.key("ApplicationArn").string(var_18.as_str());
     }
     Ok(())
 }
@@ -98,6 +107,16 @@ where
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
                             );
+                        }
+                        "Provider" => {
+                            builder = builder.set_provider(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CloudProviderName::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "Owner" => {
+                            builder = builder.set_owner(crate::protocol_serde::shape_resource_owner::de_resource_owner(tokens, _value, depth + 1)?);
                         }
                         "ResourceRole" => {
                             builder = builder.set_resource_role(

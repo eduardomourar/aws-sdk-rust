@@ -7,6 +7,7 @@
 pub struct UsageRecord {
     /// <p>Timestamp, in UTC, for which the usage is being reported.</p>
     /// <p>Your application can meter usage for up to 24 hours in the past. Make sure the <code>timestamp</code> value is not before the start of the software usage.</p>
+    /// <p>At the end of each billing cycle, you have a 6-hour grace period to submit usage records for the previous billing month before 06:00 UTC on the first day of the next month.</p>
     pub timestamp: ::aws_smithy_types::DateTime,
     /// <p>The <code>CustomerIdentifier</code> is obtained through the <code>ResolveCustomer</code> operation and represents an individual buyer in your application.</p>
     pub customer_identifier: ::std::string::String,
@@ -28,6 +29,7 @@ pub struct UsageRecord {
 impl UsageRecord {
     /// <p>Timestamp, in UTC, for which the usage is being reported.</p>
     /// <p>Your application can meter usage for up to 24 hours in the past. Make sure the <code>timestamp</code> value is not before the start of the software usage.</p>
+    /// <p>At the end of each billing cycle, you have a 6-hour grace period to submit usage records for the previous billing month before 06:00 UTC on the first day of the next month.</p>
     pub fn timestamp(&self) -> &::aws_smithy_types::DateTime {
         &self.timestamp
     }
@@ -86,6 +88,7 @@ pub struct UsageRecordBuilder {
 impl UsageRecordBuilder {
     /// <p>Timestamp, in UTC, for which the usage is being reported.</p>
     /// <p>Your application can meter usage for up to 24 hours in the past. Make sure the <code>timestamp</code> value is not before the start of the software usage.</p>
+    /// <p>At the end of each billing cycle, you have a 6-hour grace period to submit usage records for the previous billing month before 06:00 UTC on the first day of the next month.</p>
     /// This field is required.
     pub fn timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.timestamp = ::std::option::Option::Some(input);
@@ -93,12 +96,14 @@ impl UsageRecordBuilder {
     }
     /// <p>Timestamp, in UTC, for which the usage is being reported.</p>
     /// <p>Your application can meter usage for up to 24 hours in the past. Make sure the <code>timestamp</code> value is not before the start of the software usage.</p>
+    /// <p>At the end of each billing cycle, you have a 6-hour grace period to submit usage records for the previous billing month before 06:00 UTC on the first day of the next month.</p>
     pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.timestamp = input;
         self
     }
     /// <p>Timestamp, in UTC, for which the usage is being reported.</p>
     /// <p>Your application can meter usage for up to 24 hours in the past. Make sure the <code>timestamp</code> value is not before the start of the software usage.</p>
+    /// <p>At the end of each billing cycle, you have a 6-hour grace period to submit usage records for the previous billing month before 06:00 UTC on the first day of the next month.</p>
     pub fn get_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.timestamp
     }

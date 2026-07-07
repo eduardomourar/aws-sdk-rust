@@ -13,6 +13,8 @@ pub use crate::types::_execution_status::ExecutionStatus;
 
 pub use crate::types::_trace_header::TraceHeader;
 
+pub use crate::types::_durable_config::DurableConfig;
+
 pub use crate::types::_destination_config::DestinationConfig;
 
 pub use crate::types::_capacity_provider_state::CapacityProviderState;
@@ -86,8 +88,6 @@ pub use crate::types::_logging_config::LoggingConfig;
 pub use crate::types::_tenancy_config::TenancyConfig;
 
 pub use crate::types::_capacity_provider_config::CapacityProviderConfig;
-
-pub use crate::types::_durable_config::DurableConfig;
 
 pub use crate::types::_vpc_config_response::VpcConfigResponse;
 

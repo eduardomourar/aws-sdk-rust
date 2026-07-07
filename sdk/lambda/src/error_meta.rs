@@ -367,6 +367,18 @@ impl From<crate::operation::checkpoint_durable_execution::CheckpointDurableExecu
             crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
             }
+            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsDisabledException(inner) => {
+                Error::KmsDisabledException(inner)
+            }
+            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsNotFoundException(inner) => {
+                Error::KmsNotFoundException(inner)
+            }
             crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::ServiceException(inner) => {
                 Error::ServiceException(inner)
             }
@@ -1129,6 +1141,14 @@ impl From<crate::operation::get_durable_execution::GetDurableExecutionError> for
             crate::operation::get_durable_execution::GetDurableExecutionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
             }
+            crate::operation::get_durable_execution::GetDurableExecutionError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::get_durable_execution::GetDurableExecutionError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
+            crate::operation::get_durable_execution::GetDurableExecutionError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::get_durable_execution::GetDurableExecutionError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
             crate::operation::get_durable_execution::GetDurableExecutionError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -1162,6 +1182,18 @@ impl From<crate::operation::get_durable_execution_history::GetDurableExecutionHi
         match err {
             crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsDisabledException(inner) => {
+                Error::KmsDisabledException(inner)
+            }
+            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsNotFoundException(inner) => {
+                Error::KmsNotFoundException(inner)
             }
             crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
@@ -1198,6 +1230,18 @@ impl From<crate::operation::get_durable_execution_state::GetDurableExecutionStat
         match err {
             crate::operation::get_durable_execution_state::GetDurableExecutionStateError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
+            }
+            crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsDisabledException(inner) => {
+                Error::KmsDisabledException(inner)
+            }
+            crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsNotFoundException(inner) => {
+                Error::KmsNotFoundException(inner)
             }
             crate::operation::get_durable_execution_state::GetDurableExecutionStateError::ServiceException(inner) => Error::ServiceException(inner),
             crate::operation::get_durable_execution_state::GetDurableExecutionStateError::TooManyRequestsException(inner) => {
@@ -2930,6 +2974,18 @@ impl From<crate::operation::send_durable_execution_callback_failure::SendDurable
             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::InvalidParameterValueException(
                 inner,
             ) => Error::InvalidParameterValueException(inner),
+            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsDisabledException(inner) => {
+                Error::KmsDisabledException(inner)
+            }
+            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsNotFoundException(inner) => {
+                Error::KmsNotFoundException(inner)
+            }
             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -3016,6 +3072,18 @@ impl From<crate::operation::send_durable_execution_callback_success::SendDurable
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::InvalidParameterValueException(
                 inner,
             ) => Error::InvalidParameterValueException(inner),
+            crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsDisabledException(inner) => {
+                Error::KmsDisabledException(inner)
+            }
+            crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsNotFoundException(inner) => {
+                Error::KmsNotFoundException(inner)
+            }
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -3051,6 +3119,14 @@ impl From<crate::operation::stop_durable_execution::StopDurableExecutionError> f
             crate::operation::stop_durable_execution::StopDurableExecutionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
             }
+            crate::operation::stop_durable_execution::StopDurableExecutionError::KmsAccessDeniedException(inner) => {
+                Error::KmsAccessDeniedException(inner)
+            }
+            crate::operation::stop_durable_execution::StopDurableExecutionError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
+            crate::operation::stop_durable_execution::StopDurableExecutionError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::stop_durable_execution::StopDurableExecutionError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
             crate::operation::stop_durable_execution::StopDurableExecutionError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }

@@ -1550,6 +1550,33 @@ impl From<crate::operation::create_attached_file::CreateAttachedFileError> for E
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_auth_code::CreateAuthCodeError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_auth_code::CreateAuthCodeError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_auth_code::CreateAuthCodeError> for Error {
+    fn from(err: crate::operation::create_auth_code::CreateAuthCodeError) -> Self {
+        match err {
+            crate::operation::create_auth_code::CreateAuthCodeError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_auth_code::CreateAuthCodeError::InternalServiceException(inner) => Error::InternalServiceException(inner),
+            crate::operation::create_auth_code::CreateAuthCodeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::create_auth_code::CreateAuthCodeError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::create_auth_code::CreateAuthCodeError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::create_auth_code::CreateAuthCodeError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_auth_code::CreateAuthCodeError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact::CreateContactError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -3880,6 +3907,33 @@ impl From<crate::operation::delete_security_profile::DeleteSecurityProfileError>
             }
             crate::operation::delete_security_profile::DeleteSecurityProfileError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::delete_security_profile::DeleteSecurityProfileError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_session::DeleteSessionError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_session::DeleteSessionError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_session::DeleteSessionError> for Error {
+    fn from(err: crate::operation::delete_session::DeleteSessionError) -> Self {
+        match err {
+            crate::operation::delete_session::DeleteSessionError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_session::DeleteSessionError::InternalServiceException(inner) => Error::InternalServiceException(inner),
+            crate::operation::delete_session::DeleteSessionError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::delete_session::DeleteSessionError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::delete_session::DeleteSessionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_session::DeleteSessionError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_session::DeleteSessionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6579,6 +6633,7 @@ impl From<crate::operation::get_federation_token::GetFederationTokenError> for E
             crate::operation::get_federation_token::GetFederationTokenError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
+            crate::operation::get_federation_token::GetFederationTokenError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::get_federation_token::GetFederationTokenError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
             crate::operation::get_federation_token::GetFederationTokenError::Unhandled(inner) => Error::Unhandled(inner),
         }

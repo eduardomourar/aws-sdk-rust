@@ -9,6 +9,8 @@ pub use crate::types::_error_object::ErrorObjectBuilder;
 
 pub use crate::types::_trace_header::TraceHeaderBuilder;
 
+pub use crate::types::_durable_config::DurableConfigBuilder;
+
 pub use crate::types::_destination_config::DestinationConfigBuilder;
 
 pub use crate::types::_capacity_provider_vpc_config::CapacityProviderVpcConfigBuilder;
@@ -70,8 +72,6 @@ pub use crate::types::_logging_config::LoggingConfigBuilder;
 pub use crate::types::_tenancy_config::TenancyConfigBuilder;
 
 pub use crate::types::_capacity_provider_config::CapacityProviderConfigBuilder;
-
-pub use crate::types::_durable_config::DurableConfigBuilder;
 
 pub use crate::types::_vpc_config_response::VpcConfigResponseBuilder;
 

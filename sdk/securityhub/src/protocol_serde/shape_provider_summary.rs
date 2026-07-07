@@ -35,6 +35,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "ProviderConfiguration" => {
+                            builder = builder.set_provider_configuration(crate::protocol_serde::shape_provider_detail::de_provider_detail(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

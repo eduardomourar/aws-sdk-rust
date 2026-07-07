@@ -103,6 +103,9 @@ pub mod create_agent_status;
 /// Types for the `CreateAttachedFile` operation.
 pub mod create_attached_file;
 
+/// Types for the `CreateAuthCode` operation.
+pub mod create_auth_code;
+
 /// Types for the `CreateContact` operation.
 pub mod create_contact;
 
@@ -285,6 +288,9 @@ pub mod delete_rule;
 
 /// Types for the `DeleteSecurityProfile` operation.
 pub mod delete_security_profile;
+
+/// Types for the `DeleteSession` operation.
+pub mod delete_session;
 
 /// Types for the `DeleteTaskTemplate` operation.
 pub mod delete_task_template;

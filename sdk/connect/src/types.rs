@@ -27,6 +27,10 @@ pub use crate::types::_file_use_case_type::FileUseCaseType;
 
 pub use crate::types::_file_status_type::FileStatusType;
 
+pub use crate::types::_auth_scope::AuthScope;
+
+pub use crate::types::_auth_code_entity_type::AuthCodeEntityType;
+
 pub use crate::types::_channel::Channel;
 
 pub use crate::types::_contact_initiation_method::ContactInitiationMethod;
@@ -1586,6 +1590,10 @@ mod _attribute_condition;
 mod _audio_features;
 
 mod _audio_quality_metrics_info;
+
+mod _auth_code_entity_type;
+
+mod _auth_scope;
 
 mod _authentication_profile;
 

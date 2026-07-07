@@ -209,6 +209,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeStan
                         query.push_kv("MaxResults", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
+                if let ::std::option::Option::Some(inner_3) = &_input.providers {
+                    {
+                        for inner_4 in inner_3 {
+                            query.push_kv("Providers", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
+                        }
+                    }
+                }
                 ::std::result::Result::Ok(())
             }
             #[allow(clippy::unnecessary_wraps)]

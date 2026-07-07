@@ -170,6 +170,20 @@ pub(crate) fn de_get_connector_v2(
                             .transpose()?,
                     );
                 }
+                "EnablementStatus" => {
+                    builder = builder.set_enablement_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::EnablementStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "EnablementStatusReason" => {
+                    builder = builder.set_enablement_status_reason(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "Health" => {
                     builder = builder.set_health(crate::protocol_serde::shape_health_check::de_health_check(tokens, _value, depth + 1)?);
                 }

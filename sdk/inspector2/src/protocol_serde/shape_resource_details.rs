@@ -47,6 +47,19 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "vm" => {
+                            builder = builder.set_vm(crate::protocol_serde::shape_vm::de_vm(tokens, _value, depth + 1)?);
+                        }
+                        "image" => {
+                            builder = builder.set_image(crate::protocol_serde::shape_image::de_image(tokens, _value, depth + 1)?);
+                        }
+                        "serverlessFunction" => {
+                            builder = builder.set_serverless_function(crate::protocol_serde::shape_serverless_function::de_serverless_function(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

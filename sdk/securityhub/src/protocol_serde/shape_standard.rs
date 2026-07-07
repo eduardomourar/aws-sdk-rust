@@ -46,6 +46,13 @@ where
                             "EnabledByDefault" => {
                                 builder = builder.set_enabled_by_default(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                             }
+                            "Provider" => {
+                                builder = builder.set_provider(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::StandardsProvider::from(u.as_ref())))
+                                        .transpose()?,
+                                );
+                            }
                             "StandardsManagedBy" => {
                                 builder = builder.set_standards_managed_by(
                                     crate::protocol_serde::shape_standards_managed_by::de_standards_managed_by(tokens, _value, depth + 1)?,

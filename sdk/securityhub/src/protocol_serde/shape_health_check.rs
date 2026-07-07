@@ -41,6 +41,13 @@ where
                                 ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                             )?);
                         }
+                        "Issues" => {
+                            builder = builder.set_issues(crate::protocol_serde::shape_health_issue_list::de_health_issue_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

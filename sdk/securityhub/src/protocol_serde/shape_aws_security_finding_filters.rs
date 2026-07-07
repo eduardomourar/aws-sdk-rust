@@ -1251,6 +1251,42 @@ pub fn ser_aws_security_finding_filters(
         }
         array_414.finish();
     }
+    if let Some(var_417) = &input.resource_owner_account_id {
+        let mut array_418 = object.key("ResourceOwnerAccountId").start_array();
+        for item_419 in var_417 {
+            {
+                #[allow(unused_mut)]
+                let mut object_420 = array_418.value().start_object();
+                crate::protocol_serde::shape_string_filter::ser_string_filter(&mut object_420, item_419)?;
+                object_420.finish();
+            }
+        }
+        array_418.finish();
+    }
+    if let Some(var_421) = &input.resource_owner_org_id {
+        let mut array_422 = object.key("ResourceOwnerOrgId").start_array();
+        for item_423 in var_421 {
+            {
+                #[allow(unused_mut)]
+                let mut object_424 = array_422.value().start_object();
+                crate::protocol_serde::shape_string_filter::ser_string_filter(&mut object_424, item_423)?;
+                object_424.finish();
+            }
+        }
+        array_422.finish();
+    }
+    if let Some(var_425) = &input.resource_provider {
+        let mut array_426 = object.key("ResourceProvider").start_array();
+        for item_427 in var_425 {
+            {
+                #[allow(unused_mut)]
+                let mut object_428 = array_426.value().start_object();
+                crate::protocol_serde::shape_string_filter::ser_string_filter(&mut object_428, item_427)?;
+                object_428.finish();
+            }
+        }
+        array_426.finish();
+    }
     Ok(())
 }
 
@@ -1916,6 +1952,25 @@ where
                                 builder = builder.set_resource_application_arn(
                                     crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
                                 );
+                            }
+                            "ResourceOwnerAccountId" => {
+                                builder = builder.set_resource_owner_account_id(
+                                    crate::protocol_serde::shape_string_filter_list::de_string_filter_list(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "ResourceOwnerOrgId" => {
+                                builder = builder.set_resource_owner_org_id(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "ResourceProvider" => {
+                                builder = builder.set_resource_provider(crate::protocol_serde::shape_string_filter_list::de_string_filter_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }

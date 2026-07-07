@@ -35,6 +35,41 @@ where
                                     .transpose()?,
                             );
                         }
+                        "cloudProvider" => {
+                            builder = builder.set_cloud_provider(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::Provider::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "cloudPartition" => {
+                            builder = builder.set_cloud_partition(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "cloudRegion" => {
+                            builder = builder.set_cloud_region(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "cloudOrgId" => {
+                            builder = builder.set_cloud_org_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "cloudAccountId" => {
+                            builder = builder.set_cloud_account_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "severityCounts" => {
                             builder = builder.set_severity_counts(crate::protocol_serde::shape_severity_counts::de_severity_counts(
                                 tokens,

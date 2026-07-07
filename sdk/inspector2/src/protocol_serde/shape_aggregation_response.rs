@@ -146,6 +146,40 @@ where
                                 )
                             })?,
                         )),
+                        "vmInstanceAggregation" => Some(crate::types::AggregationResponse::VmInstanceAggregation(
+                            crate::protocol_serde::shape_vm_instance_aggregation_response::de_vm_instance_aggregation_response(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'vmInstanceAggregation' cannot be null")
+                            })?,
+                        )),
+                        "containerImageAggregation" => Some(crate::types::AggregationResponse::ContainerImageAggregation(
+                            crate::protocol_serde::shape_container_image_aggregation_response::de_container_image_aggregation_response(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'containerImageAggregation' cannot be null",
+                                )
+                            })?,
+                        )),
+                        "serverlessFunctionAggregation" => Some(crate::types::AggregationResponse::ServerlessFunctionAggregation(
+                            crate::protocol_serde::shape_serverless_function_aggregation_response::de_serverless_function_aggregation_response(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'serverlessFunctionAggregation' cannot be null",
+                                )
+                            })?,
+                        )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(crate::types::AggregationResponse::Unknown)

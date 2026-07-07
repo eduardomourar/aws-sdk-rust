@@ -201,6 +201,13 @@ pub(crate) fn de_create_connector_v2(
                             .transpose()?,
                     );
                 }
+                "EnablementStatus" => {
+                    builder = builder.set_enablement_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::EnablementStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

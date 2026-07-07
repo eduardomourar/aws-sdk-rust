@@ -631,6 +631,9 @@ pub fn ser_resource_details(
         crate::protocol_serde::shape_code_repository_details::ser_code_repository_details(&mut object_202, var_201)?;
         object_202.finish();
     }
+    if let Some(var_203) = &input.azure_resource {
+        object.key("AzureResource").document(var_203);
+    }
     Ok(())
 }
 
@@ -1413,6 +1416,9 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "AzureResource" => {
+                            builder = builder.set_azure_resource(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

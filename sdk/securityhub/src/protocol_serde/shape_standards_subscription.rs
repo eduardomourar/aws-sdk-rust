@@ -63,6 +63,13 @@ where
                                 crate::protocol_serde::shape_standards_status_reason::de_standards_status_reason(tokens, _value, depth + 1)?,
                             );
                         }
+                        "Provider" => {
+                            builder = builder.set_provider(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::StandardsProvider::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

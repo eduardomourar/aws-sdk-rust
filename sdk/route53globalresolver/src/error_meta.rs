@@ -1260,6 +1260,31 @@ impl From<crate::operation::list_managed_firewall_domain_lists::ListManagedFirew
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_shared_dns_views::ListSharedDNSViewsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_shared_dns_views::ListSharedDNSViewsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_shared_dns_views::ListSharedDNSViewsError> for Error {
+    fn from(err: crate::operation::list_shared_dns_views::ListSharedDNSViewsError) -> Self {
+        match err {
+            crate::operation::list_shared_dns_views::ListSharedDNSViewsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_shared_dns_views::ListSharedDNSViewsError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_shared_dns_views::ListSharedDNSViewsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_shared_dns_views::ListSharedDNSViewsError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_shared_dns_views::ListSharedDNSViewsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

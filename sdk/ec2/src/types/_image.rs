@@ -63,6 +63,8 @@ pub struct Image {
     /// <p>If <code>false</code>, the AMI is not eligible for Free Tier.</p></li>
     /// </ul>
     pub free_tier_eligible: ::std::option::Option<bool>,
+    /// <p>The name of the public Systems Manager parameter that resolves to this AMI, under the <code>aws/service/</code> namespace.</p>
+    pub public_ssm_parameter_name: ::std::option::Option<::std::string::String>,
     /// <p>The watermarks attached to the AMI.</p>
     pub image_watermarks: ::std::option::Option<::std::vec::Vec<crate::types::ImageWatermark>>,
     /// <p>The ID of the AMI.</p>
@@ -204,6 +206,10 @@ impl Image {
     pub fn free_tier_eligible(&self) -> ::std::option::Option<bool> {
         self.free_tier_eligible
     }
+    /// <p>The name of the public Systems Manager parameter that resolves to this AMI, under the <code>aws/service/</code> namespace.</p>
+    pub fn public_ssm_parameter_name(&self) -> ::std::option::Option<&str> {
+        self.public_ssm_parameter_name.as_deref()
+    }
     /// <p>The watermarks attached to the AMI.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.image_watermarks.is_none()`.
@@ -297,6 +303,7 @@ pub struct ImageBuilder {
     pub(crate) source_image_id: ::std::option::Option<::std::string::String>,
     pub(crate) source_image_region: ::std::option::Option<::std::string::String>,
     pub(crate) free_tier_eligible: ::std::option::Option<bool>,
+    pub(crate) public_ssm_parameter_name: ::std::option::Option<::std::string::String>,
     pub(crate) image_watermarks: ::std::option::Option<::std::vec::Vec<crate::types::ImageWatermark>>,
     pub(crate) image_id: ::std::option::Option<::std::string::String>,
     pub(crate) image_location: ::std::option::Option<::std::string::String>,
@@ -701,6 +708,20 @@ impl ImageBuilder {
     pub fn get_free_tier_eligible(&self) -> &::std::option::Option<bool> {
         &self.free_tier_eligible
     }
+    /// <p>The name of the public Systems Manager parameter that resolves to this AMI, under the <code>aws/service/</code> namespace.</p>
+    pub fn public_ssm_parameter_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.public_ssm_parameter_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the public Systems Manager parameter that resolves to this AMI, under the <code>aws/service/</code> namespace.</p>
+    pub fn set_public_ssm_parameter_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.public_ssm_parameter_name = input;
+        self
+    }
+    /// <p>The name of the public Systems Manager parameter that resolves to this AMI, under the <code>aws/service/</code> namespace.</p>
+    pub fn get_public_ssm_parameter_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.public_ssm_parameter_name
+    }
     /// Appends an item to `image_watermarks`.
     ///
     /// To override the contents of this collection use [`set_image_watermarks`](Self::set_image_watermarks).
@@ -923,6 +944,7 @@ impl ImageBuilder {
             source_image_id: self.source_image_id,
             source_image_region: self.source_image_region,
             free_tier_eligible: self.free_tier_eligible,
+            public_ssm_parameter_name: self.public_ssm_parameter_name,
             image_watermarks: self.image_watermarks,
             image_id: self.image_id,
             image_location: self.image_location,

@@ -91,6 +91,8 @@ pub(crate) mod shape_create_agent_status;
 
 pub(crate) mod shape_create_attached_file;
 
+pub(crate) mod shape_create_auth_code;
+
 pub(crate) mod shape_create_contact;
 
 pub(crate) mod shape_create_contact_flow;
@@ -212,6 +214,8 @@ pub(crate) mod shape_delete_routing_profile;
 pub(crate) mod shape_delete_rule;
 
 pub(crate) mod shape_delete_security_profile;
+
+pub(crate) mod shape_delete_session;
 
 pub(crate) mod shape_delete_task_template;
 
@@ -857,6 +861,8 @@ pub(crate) mod shape_create_agent_status_input;
 
 pub(crate) mod shape_create_attached_file_input;
 
+pub(crate) mod shape_create_auth_code_input;
+
 pub(crate) mod shape_create_contact_flow_input;
 
 pub(crate) mod shape_create_contact_flow_module_alias_input;
@@ -1330,6 +1336,8 @@ pub(crate) mod shape_attribute_list;
 pub(crate) mod shape_attributes;
 
 pub(crate) mod shape_attributes_list;
+
+pub(crate) mod shape_auth_scope;
 
 pub(crate) mod shape_authentication_profile;
 

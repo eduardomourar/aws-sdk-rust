@@ -7,6 +7,8 @@ pub use crate::types::_alias_configuration::AliasConfigurationBuilder;
 
 pub use crate::types::_instance_storage_config::InstanceStorageConfigBuilder;
 
+pub use crate::types::_auth_scope::AuthScopeBuilder;
+
 pub use crate::types::_user_info::UserInfoBuilder;
 
 pub use crate::types::_external_invocation_configuration::ExternalInvocationConfigurationBuilder;

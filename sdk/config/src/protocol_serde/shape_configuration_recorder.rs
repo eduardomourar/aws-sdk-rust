@@ -70,6 +70,20 @@ where
                                     .transpose()?,
                             );
                         }
+                        "connectorArn" => {
+                            builder = builder.set_connector_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "scopeConfiguration" => {
+                            builder = builder.set_scope_configuration(crate::protocol_serde::shape_scope_configuration::de_scope_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {
@@ -117,6 +131,15 @@ pub fn ser_configuration_recorder(
     }
     if let Some(var_9) = &input.service_principal {
         object.key("servicePrincipal").string(var_9.as_str());
+    }
+    if let Some(var_10) = &input.connector_arn {
+        object.key("connectorArn").string(var_10.as_str());
+    }
+    if let Some(var_11) = &input.scope_configuration {
+        #[allow(unused_mut)]
+        let mut object_12 = object.key("scopeConfiguration").start_object();
+        crate::protocol_serde::shape_scope_configuration::ser_scope_configuration(&mut object_12, var_11)?;
+        object_12.finish();
     }
     Ok(())
 }

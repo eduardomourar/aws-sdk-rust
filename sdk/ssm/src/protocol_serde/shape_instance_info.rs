@@ -63,6 +63,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "Name" => {
+                            builder = builder.set_name(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "PlatformType" => {
                             builder = builder.set_platform_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -88,6 +95,41 @@ where
                             builder = builder.set_resource_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::ResourceType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "SourceType" => {
+                            builder = builder.set_source_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::SourceType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "SourceId" => {
+                            builder = builder.set_source_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "SourceLocation" => {
+                            builder = builder.set_source_location(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "AvailabilityZone" => {
+                            builder = builder.set_availability_zone(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "AvailabilityZoneId" => {
+                            builder = builder.set_availability_zone_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
                             );
                         }

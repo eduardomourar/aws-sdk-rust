@@ -13,14 +13,14 @@ pub(crate) struct Handle {
 /// # Using the `Client`
 ///
 /// A client has a function for every operation that can be performed by the service.
-/// For example, the [`DeleteConsoleAuthorizationConfiguration`](crate::operation::delete_console_authorization_configuration) operation has
-/// a [`Client::delete_console_authorization_configuration`], function which returns a builder for that operation.
+/// For example, the [`CreateOAuth2TokenWithIAM`](crate::operation::create_o_auth2_token_with_iam) operation has
+/// a [`Client::create_o_auth2_token_with_iam`], function which returns a builder for that operation.
 /// The fluent builder ultimately has a `send()` function that returns an async future that
 /// returns a result, as illustrated below:
 ///
 /// ```rust,ignore
-/// let result = client.delete_console_authorization_configuration()
-///     .target_id("example")
+/// let result = client.create_o_auth2_token_with_iam()
+///     .grant_type("example")
 ///     .send()
 ///     .await;
 /// ```
@@ -92,6 +92,8 @@ impl Client {
 
 mod create_o_auth2_token;
 
+mod create_o_auth2_token_with_iam;
+
 /// Operation customization and supporting types.
 ///
 /// The underlying HTTP requests made during an operation can be customized
@@ -127,8 +129,12 @@ mod get_console_authorization_configuration;
 
 mod get_resource_policy;
 
+mod introspect_o_auth2_token_with_iam;
+
 mod list_resource_permission_statements;
 
 mod put_console_authorization_configuration;
 
 mod put_resource_permission_statement;
+
+mod revoke_o_auth2_token_with_iam;

@@ -4,6 +4,9 @@ pub use ::aws_types::request_id::RequestId;
 /// Types for the `CreateOAuth2Token` operation.
 pub mod create_o_auth2_token;
 
+/// Types for the `CreateOAuth2TokenWithIAM` operation.
+pub mod create_o_auth2_token_with_iam;
+
 /// Types for the `DeleteConsoleAuthorizationConfiguration` operation.
 pub mod delete_console_authorization_configuration;
 
@@ -16,6 +19,9 @@ pub mod get_console_authorization_configuration;
 /// Types for the `GetResourcePolicy` operation.
 pub mod get_resource_policy;
 
+/// Types for the `IntrospectOAuth2TokenWithIAM` operation.
+pub mod introspect_o_auth2_token_with_iam;
+
 /// Types for the `ListResourcePermissionStatements` operation.
 pub mod list_resource_permission_statements;
 
@@ -24,3 +30,6 @@ pub mod put_console_authorization_configuration;
 
 /// Types for the `PutResourcePermissionStatement` operation.
 pub mod put_resource_permission_statement;
+
+/// Types for the `RevokeOAuth2TokenWithIAM` operation.
+pub mod revoke_o_auth2_token_with_iam;

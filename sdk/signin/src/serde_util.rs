@@ -59,6 +59,21 @@ pub(crate) fn create_o_auth2_token_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn create_o_auth2_token_with_iam_output_output_correct_errors(
+    mut builder: crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder,
+) -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder {
+    if builder.access_token.is_none() {
+        builder.access_token = Some(Default::default())
+    }
+    if builder.token_type.is_none() {
+        builder.token_type = Some(Default::default())
+    }
+    if builder.expires_in.is_none() {
+        builder.expires_in = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn resource_not_found_exception_correct_errors(
     mut builder: crate::types::error::builders::ResourceNotFoundExceptionBuilder,
 ) -> crate::types::error::builders::ResourceNotFoundExceptionBuilder {
@@ -109,6 +124,15 @@ pub(crate) fn get_resource_policy_output_output_correct_errors(
             let builder = crate::types::builders::SigninResourceBasedPolicyBuilder::default();
             Some(builder.build())
         }
+    }
+    builder
+}
+
+pub(crate) fn introspect_o_auth2_token_with_iam_output_output_correct_errors(
+    mut builder: crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder,
+) -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder {
+    if builder.active.is_none() {
+        builder.active = Some(Default::default())
     }
     builder
 }

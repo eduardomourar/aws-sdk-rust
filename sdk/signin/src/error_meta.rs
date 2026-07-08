@@ -93,6 +93,42 @@ impl From<crate::operation::create_o_auth2_token::CreateOAuth2TokenError> for Er
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError> for Error {
+    fn from(err: crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError) -> Self {
+        match err {
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::TooManyRequestsError(inner) => {
+                Error::TooManyRequestsError(inner)
+            }
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -269,6 +305,47 @@ impl From<crate::operation::get_resource_policy::GetResourcePolicyError> for Err
 }
 impl<R>
     From<
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError, R>,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError> for Error {
+    fn from(err: crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError) -> Self {
+        match err {
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::TooManyRequestsError(inner) => {
+                Error::TooManyRequestsError(inner)
+            }
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
         ::aws_smithy_runtime_api::client::result::SdkError<
             crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsError,
             R,
@@ -413,6 +490,42 @@ impl From<crate::operation::put_resource_permission_statement::PutResourcePermis
                 Error::ValidationException(inner)
             }
             crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError> for Error {
+    fn from(err: crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError) -> Self {
+        match err {
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::TooManyRequestsError(inner) => {
+                Error::TooManyRequestsError(inner)
+            }
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

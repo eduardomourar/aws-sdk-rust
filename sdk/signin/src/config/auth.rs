@@ -59,12 +59,35 @@ impl Default for DefaultAuthSchemeResolver {
                 .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
                 .build()
                 .expect("required fields set")],
-            operation_overrides: [(
-                "CreateOAuth2Token",
-                vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
-                    ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
-                )],
-            )]
+            operation_overrides: [
+                (
+                    "CreateOAuth2Token",
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
+                        ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
+                    )],
+                ),
+                (
+                    "CreateOAuth2TokenWithIAM",
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                        .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
+                        .build()
+                        .expect("required fields set")],
+                ),
+                (
+                    "IntrospectOAuth2TokenWithIAM",
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                        .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
+                        .build()
+                        .expect("required fields set")],
+                ),
+                (
+                    "RevokeOAuth2TokenWithIAM",
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                        .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
+                        .build()
+                        .expect("required fields set")],
+                ),
+            ]
             .into(),
         }
     }

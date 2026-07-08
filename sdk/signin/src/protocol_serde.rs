@@ -31,6 +31,8 @@ pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
 
 pub(crate) mod shape_create_o_auth2_token_input;
 
+pub(crate) mod shape_create_o_auth2_token_with_iam;
+
 pub(crate) mod shape_delete_console_authorization_configuration;
 
 pub(crate) mod shape_delete_resource_permission_statement;
@@ -39,11 +41,15 @@ pub(crate) mod shape_get_console_authorization_configuration;
 
 pub(crate) mod shape_get_resource_policy;
 
+pub(crate) mod shape_introspect_o_auth2_token_with_iam;
+
 pub(crate) mod shape_list_resource_permission_statements;
 
 pub(crate) mod shape_put_console_authorization_configuration;
 
 pub(crate) mod shape_put_resource_permission_statement;
+
+pub(crate) mod shape_revoke_o_auth2_token_with_iam;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
@@ -59,6 +65,8 @@ pub(crate) mod shape_conflict_exception;
 
 pub(crate) mod shape_create_o_auth2_token_output;
 
+pub(crate) mod shape_create_o_auth2_token_with_iam_input;
+
 pub(crate) mod shape_delete_console_authorization_configuration_input;
 
 pub(crate) mod shape_delete_resource_permission_statement_input;
@@ -67,6 +75,8 @@ pub(crate) mod shape_get_console_authorization_configuration_input;
 
 pub(crate) mod shape_internal_server_exception;
 
+pub(crate) mod shape_introspect_o_auth2_token_with_iam_input;
+
 pub(crate) mod shape_list_resource_permission_statements_input;
 
 pub(crate) mod shape_put_console_authorization_configuration_input;
@@ -74,6 +84,8 @@ pub(crate) mod shape_put_console_authorization_configuration_input;
 pub(crate) mod shape_put_resource_permission_statement_input;
 
 pub(crate) mod shape_resource_not_found_exception;
+
+pub(crate) mod shape_revoke_o_auth2_token_with_iam_input;
 
 pub(crate) mod shape_service_quota_exceeded_exception;
 

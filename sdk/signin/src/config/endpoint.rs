@@ -344,6 +344,157 @@ mod test {
                 .build()
         );
     }
+
+    /// OAuth endpoint in us-east-1 (aws partition)
+    #[test]
+    fn test_16() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("us-east-1".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://us-east-1.oauth.signin.aws");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://us-east-1.oauth.signin.aws")
+                .auth_scheme(
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4", 2)
+                        .put("signingName", "signin".to_string())
+                        .put("signingRegion", "us-east-1".to_string())
+                )
+                .build()
+        );
+    }
+
+    /// OAuth endpoint in us-west-2 (aws partition)
+    #[test]
+    fn test_17() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("us-west-2".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://us-west-2.oauth.signin.aws");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://us-west-2.oauth.signin.aws")
+                .auth_scheme(
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4", 2)
+                        .put("signingName", "signin".to_string())
+                        .put("signingRegion", "us-west-2".to_string())
+                )
+                .build()
+        );
+    }
+
+    /// OAuth endpoint with FIPS returns an error (no FIPS variant exists)
+    #[test]
+    fn test_18() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("us-east-1".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err("expected error: FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation. [OAuth endpoint with FIPS returns an error (no FIPS variant exists)]");
+        assert_eq!(
+            format!("{}", error),
+            "FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation."
+        )
+    }
+
+    /// OAuth endpoint with FIPS returns an error in us-west-2 (aws partition)
+    #[test]
+    fn test_19() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("us-west-2".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err("expected error: FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation. [OAuth endpoint with FIPS returns an error in us-west-2 (aws partition)]");
+        assert_eq!(
+            format!("{}", error),
+            "FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation."
+        )
+    }
+
+    /// OAuth endpoint with FIPS returns an error in cn-north-1 (non-aws partition, error is partition-agnostic)
+    #[test]
+    fn test_20() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("cn-north-1".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err("expected error: FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation. [OAuth endpoint with FIPS returns an error in cn-north-1 (non-aws partition, error is partition-agnostic)]");
+        assert_eq!(
+            format!("{}", error),
+            "FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation."
+        )
+    }
+
+    /// OAuth endpoint with FIPS returns an error even with a custom SDK endpoint override
+    #[test]
+    fn test_21() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("us-east-1".to_string())
+            .endpoint("https://custom.signin.example.com".to_string())
+            .use_fips(true)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let error = endpoint.expect_err("expected error: FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation. [OAuth endpoint with FIPS returns an error even with a custom SDK endpoint override]");
+        assert_eq!(
+            format!("{}", error),
+            "FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation."
+        )
+    }
+
+    /// OAuth operation with custom SDK endpoint override
+    #[test]
+    fn test_22() {
+        let params = crate::config::endpoint::Params::builder()
+            .is_o_auth_endpoint(true)
+            .region("us-east-1".to_string())
+            .endpoint("https://custom.signin.example.com".to_string())
+            .use_fips(false)
+            .use_dual_stack(false)
+            .build()
+            .expect("invalid params");
+        let resolver = crate::config::endpoint::DefaultResolver::new();
+        let endpoint = resolver.resolve_endpoint(&params);
+        let endpoint = endpoint.expect("Expected valid endpoint: https://custom.signin.example.com");
+        assert_eq!(
+            endpoint,
+            ::aws_smithy_types::endpoint::Endpoint::builder()
+                .url("https://custom.signin.example.com")
+                .build()
+        );
+    }
 }
 
 /// Endpoint resolver trait specific to AWS Sign-In Service
@@ -428,6 +579,7 @@ impl DefaultResolver {
         let endpoint = &params.endpoint;
         let region = &params.region;
         let is_control_plane = &params.is_control_plane;
+        let is_o_auth_endpoint = &params.is_o_auth_endpoint;
 
         let mut current_ref: i32 = 2;
         loop {
@@ -500,7 +652,30 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        4 => {
+                        4 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                            "FIPS endpoints are not supported for OAuth operations. Disable FIPS or use a non-OAuth operation.".to_string(),
+                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        5 => {
+                            let region = params.region.as_deref().unwrap_or_default();
+                            ::std::result::Result::Ok(
+                                ::aws_smithy_types::endpoint::Endpoint::builder()
+                                    .url({
+                                        let mut out = String::new();
+                                        out.push_str("https://");
+                                        #[allow(clippy::needless_borrow)]
+                                        out.push_str(&region.as_ref());
+                                        out.push_str(".oauth.signin.aws");
+                                        out
+                                    })
+                                    .auth_scheme(
+                                        ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4".to_string(), 2)
+                                            .put("signingName", "signin")
+                                            .put("signingRegion", region.as_ref()),
+                                    )
+                                    .build(),
+                            )
+                        }
+                        6 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -515,7 +690,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        5 => {
+                        7 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -530,7 +705,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        6 => {
+                        8 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -545,7 +720,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        7 => {
+                        9 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -560,7 +735,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        8 => {
+                        10 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -575,7 +750,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        9 => {
+                        11 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -590,7 +765,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        10 => {
+                        12 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -605,7 +780,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        11 => {
+                        13 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -620,12 +795,12 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        12 => ::std::result::Result::Ok(
+                        14 => ::std::result::Result::Ok(
                             ::aws_smithy_types::endpoint::Endpoint::builder()
                                 .url("https://signin-fips.amazonaws-us-gov.com".to_string())
                                 .build(),
                         ),
-                        13 => {
+                        15 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -640,7 +815,7 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        14 => {
+                        16 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
@@ -658,17 +833,17 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        15 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                        17 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "Invalid Configuration: FIPS and custom endpoint are not supported".to_string(),
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        16 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                        18 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "Invalid Configuration: Dualstack and custom endpoint are not supported".to_string(),
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        17 => {
+                        19 => {
                             let endpoint = params.endpoint.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned()).build())
                         }
-                        18 => {
+                        20 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
@@ -686,10 +861,10 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        19 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                        21 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "FIPS and DualStack are enabled, but this partition does not support one or both".to_string(),
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        20 => {
+                        22 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
@@ -707,29 +882,8 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        21 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "FIPS is enabled but this partition does not support FIPS".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        22 => {
-                            let region = params.region.as_deref().unwrap_or_default();
-                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
-                            ::std::result::Result::Ok(
-                                ::aws_smithy_types::endpoint::Endpoint::builder()
-                                    .url({
-                                        let mut out = String::new();
-                                        out.push_str("https://signin.");
-                                        #[allow(clippy::needless_borrow)]
-                                        out.push_str(&region.as_ref());
-                                        out.push('.');
-                                        #[allow(clippy::needless_borrow)]
-                                        out.push_str(&partition_result.dual_stack_dns_suffix());
-                                        out
-                                    })
-                                    .build(),
-                            )
-                        }
                         23 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "DualStack is enabled but this partition does not support DualStack".to_string(),
+                            "FIPS is enabled but this partition does not support FIPS".to_string(),
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
                         24 => {
                             let region = params.region.as_deref().unwrap_or_default();
@@ -743,13 +897,34 @@ impl DefaultResolver {
                                         out.push_str(&region.as_ref());
                                         out.push('.');
                                         #[allow(clippy::needless_borrow)]
-                                        out.push_str(&partition_result.dns_suffix());
+                                        out.push_str(&partition_result.dual_stack_dns_suffix());
                                         out
                                     })
                                     .build(),
                             )
                         }
                         25 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                            "DualStack is enabled but this partition does not support DualStack".to_string(),
+                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        26 => {
+                            let region = params.region.as_deref().unwrap_or_default();
+                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+                            ::std::result::Result::Ok(
+                                ::aws_smithy_types::endpoint::Endpoint::builder()
+                                    .url({
+                                        let mut out = String::new();
+                                        out.push_str("https://signin.");
+                                        #[allow(clippy::needless_borrow)]
+                                        out.push_str(&region.as_ref());
+                                        out.push('.');
+                                        #[allow(clippy::needless_borrow)]
+                                        out.push_str(&partition_result.dns_suffix());
+                                        out
+                                    })
+                                    .build(),
+                            )
+                        }
+                        27 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "Invalid Configuration: Missing Region".to_string(),
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
                         _ => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
@@ -784,8 +959,7 @@ impl DefaultResolver {
                             }
                         })(&mut _diagnostic_collector),
                         4 => (use_fips) == (&true),
-                        5 => (use_dual_stack) == (&true),
-                        6 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        5 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
@@ -794,7 +968,12 @@ impl DefaultResolver {
                                 return false;
                             }) == ("aws")
                         })(&mut _diagnostic_collector),
-                        7 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        6 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                            let partition_resolver = &self.partition_resolver;
+                            (crate::endpoint_lib::coalesce::coalesce!(is_o_auth_endpoint.clone(), false)) == (true)
+                        })(&mut _diagnostic_collector),
+                        7 => (use_dual_stack) == (&true),
+                        8 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
@@ -802,15 +981,6 @@ impl DefaultResolver {
                             } else {
                                 return false;
                             }) == ("aws-cn")
-                        })(&mut _diagnostic_collector),
-                        8 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-                            let partition_result = &context.partition_result;
-                            let partition_resolver = &self.partition_resolver;
-                            (if let Some(inner) = partition_result {
-                                inner.supports_dual_stack()
-                            } else {
-                                return false;
-                            }) == (true)
                         })(&mut _diagnostic_collector),
                         9 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
@@ -879,6 +1049,15 @@ impl DefaultResolver {
                                 return false;
                             }) == ("aws-eusc")
                         })(&mut _diagnostic_collector),
+                        17 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                            let partition_result = &context.partition_result;
+                            let partition_resolver = &self.partition_resolver;
+                            (if let Some(inner) = partition_result {
+                                inner.supports_dual_stack()
+                            } else {
+                                return false;
+                            }) == (true)
+                        })(&mut _diagnostic_collector),
                         _ => unreachable!("Invalid condition index"),
                     };
                     current_ref = if is_complement ^ condition_result { node.high_ref } else { node.low_ref };
@@ -905,7 +1084,7 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
 }
-const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 33] = [
+const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 40] = [
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: -1,
         high_ref: 1,
@@ -913,161 +1092,196 @@ const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 33] = [
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 0,
-        high_ref: 4,
+        high_ref: 6,
         low_ref: 3,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 2,
-        high_ref: 30,
-        low_ref: 100000025,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 1,
-        high_ref: 24,
-        low_ref: 5,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 2,
-        high_ref: 30,
-        low_ref: 6,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 3,
-        high_ref: 7,
-        low_ref: 26,
+        high_ref: 36,
+        low_ref: 4,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
-        high_ref: 18,
-        low_ref: 8,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 5,
-        high_ref: 17,
-        low_ref: 9,
+        high_ref: 5,
+        low_ref: 100000027,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 100000004,
+        low_ref: 100000027,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 1,
+        high_ref: 29,
+        low_ref: 7,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 2,
+        high_ref: 36,
+        low_ref: 8,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 3,
+        high_ref: 9,
+        low_ref: 31,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 4,
+        high_ref: 22,
         low_ref: 10,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 7,
-        high_ref: 100000005,
+        condition_index: 5,
+        high_ref: 19,
         low_ref: 11,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 10,
-        high_ref: 100000006,
+        condition_index: 7,
+        high_ref: 21,
         low_ref: 12,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 12,
+        condition_index: 8,
         high_ref: 100000007,
         low_ref: 13,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 13,
+        condition_index: 10,
         high_ref: 100000008,
         low_ref: 14,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 14,
+        condition_index: 12,
         high_ref: 100000009,
         low_ref: 15,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 15,
+        condition_index: 13,
         high_ref: 100000010,
         low_ref: 16,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 16,
+        condition_index: 14,
         high_ref: 100000011,
-        low_ref: 100000014,
+        low_ref: 17,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 8,
+        condition_index: 15,
+        high_ref: 100000012,
+        low_ref: 18,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 16,
+        high_ref: 100000013,
+        low_ref: 100000016,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 6,
+        high_ref: 100000005,
+        low_ref: 20,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 7,
+        high_ref: 21,
+        low_ref: 100000006,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 17,
+        high_ref: 100000024,
+        low_ref: 100000025,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 6,
+        high_ref: 100000004,
+        low_ref: 23,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 7,
+        high_ref: 27,
+        low_ref: 24,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 9,
+        high_ref: 100000014,
+        low_ref: 25,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 10,
+        high_ref: 100000015,
+        low_ref: 26,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 11,
         high_ref: 100000022,
         low_ref: 100000023,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 5,
-        high_ref: 22,
-        low_ref: 19,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 9,
-        high_ref: 100000012,
-        low_ref: 20,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 10,
-        high_ref: 100000013,
-        low_ref: 21,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
+        high_ref: 28,
+        low_ref: 100000021,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 17,
         high_ref: 100000020,
         low_ref: 100000021,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 8,
-        high_ref: 23,
-        low_ref: 100000019,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 11,
-        high_ref: 100000018,
-        low_ref: 100000019,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 2,
-        high_ref: 29,
-        low_ref: 25,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 3,
-        high_ref: 32,
-        low_ref: 26,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 4,
-        high_ref: 27,
-        low_ref: 100000025,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 5,
-        high_ref: 100000025,
-        low_ref: 28,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 9,
-        high_ref: 100000012,
-        low_ref: 100000025,
-    },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 3,
-        high_ref: 32,
+        high_ref: 35,
         low_ref: 30,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 4,
-        high_ref: 100000015,
+        condition_index: 3,
+        high_ref: 39,
         low_ref: 31,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
-        condition_index: 5,
-        high_ref: 100000016,
-        low_ref: 100000017,
+        condition_index: 4,
+        high_ref: 32,
+        low_ref: 100000027,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
-        high_ref: 100000001,
+        high_ref: 100000004,
         low_ref: 33,
     },
     crate::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
+        high_ref: 100000027,
+        low_ref: 34,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 9,
+        high_ref: 100000014,
+        low_ref: 100000027,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 3,
+        high_ref: 39,
+        low_ref: 36,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 4,
+        high_ref: 38,
+        low_ref: 37,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 7,
+        high_ref: 100000018,
+        low_ref: 100000019,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 6,
+        high_ref: 100000004,
+        low_ref: 100000017,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 5,
+        high_ref: 100000001,
+        low_ref: 40,
+    },
+    crate::endpoint_lib::bdd_interpreter::BddNode {
+        condition_index: 8,
         high_ref: 100000002,
         low_ref: 100000003,
     },
@@ -1096,6 +1310,8 @@ pub struct Params {
     pub(crate) region: ::std::option::Option<::std::string::String>,
     /// Indicates if the operation targets the control plane endpoint
     pub(crate) is_control_plane: ::std::option::Option<bool>,
+    /// Indicates if the operation targets the OAuth token endpoint
+    pub(crate) is_o_auth_endpoint: ::std::option::Option<bool>,
 }
 impl Params {
     /// Create a builder for [`Params`]
@@ -1122,6 +1338,10 @@ impl Params {
     pub fn is_control_plane(&self) -> ::std::option::Option<bool> {
         self.is_control_plane
     }
+    /// Indicates if the operation targets the OAuth token endpoint
+    pub fn is_o_auth_endpoint(&self) -> ::std::option::Option<bool> {
+        self.is_o_auth_endpoint
+    }
 }
 
 /// Builder for [`Params`]
@@ -1132,6 +1352,7 @@ pub struct ParamsBuilder {
     endpoint: ::std::option::Option<::std::string::String>,
     region: ::std::option::Option<::std::string::String>,
     is_control_plane: ::std::option::Option<bool>,
+    is_o_auth_endpoint: ::std::option::Option<bool>,
 }
 impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
@@ -1162,6 +1383,7 @@ impl ParamsBuilder {
                 endpoint: self.endpoint,
                 region: self.region,
                 is_control_plane: self.is_control_plane,
+                is_o_auth_endpoint: self.is_o_auth_endpoint,
             },
         )
     }
@@ -1242,6 +1464,21 @@ impl ParamsBuilder {
     /// Indicates if the operation targets the control plane endpoint
     pub fn set_is_control_plane(mut self, param: Option<bool>) -> Self {
         self.is_control_plane = param;
+        self
+    }
+    /// Sets the value for is_o_auth_endpoint
+    ///
+    /// Indicates if the operation targets the OAuth token endpoint
+    pub fn is_o_auth_endpoint(mut self, value: impl Into<bool>) -> Self {
+        self.is_o_auth_endpoint = Some(value.into());
+        self
+    }
+
+    /// Sets the value for is_o_auth_endpoint
+    ///
+    /// Indicates if the operation targets the OAuth token endpoint
+    pub fn set_is_o_auth_endpoint(mut self, param: Option<bool>) -> Self {
+        self.is_o_auth_endpoint = param;
         self
     }
 }

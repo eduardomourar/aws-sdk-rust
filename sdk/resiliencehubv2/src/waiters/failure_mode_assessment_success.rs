@@ -102,6 +102,81 @@ impl FailureModeAssessmentSuccessFluentBuilder {
     pub fn get_service_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_service_arn()
     }
+    ///
+    /// Appends an item to `assessmentStatuses`.
+    ///
+    /// To override the contents of this collection use [`set_assessment_statuses`](Self::set_assessment_statuses).
+    ///
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub fn assessment_statuses(mut self, input: crate::types::AssessmentStatus) -> Self {
+        self.inner = self.inner.assessment_statuses(input);
+        self
+    }
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub fn set_assessment_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssessmentStatus>>) -> Self {
+        self.inner = self.inner.set_assessment_statuses(input);
+        self
+    }
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub fn get_assessment_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssessmentStatus>> {
+        self.inner.get_assessment_statuses()
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn started_after(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.inner = self.inner.started_after(input);
+        self
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn set_started_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.inner = self.inner.set_started_after(input);
+        self
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn get_started_after(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        self.inner.get_started_after()
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn ended_before(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.inner = self.inner.ended_before(input);
+        self
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn set_ended_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.inner = self.inner.set_ended_before(input);
+        self
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn get_ended_before(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        self.inner.get_ended_before()
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn sort_by(mut self, input: crate::types::AssessmentSortField) -> Self {
+        self.inner = self.inner.sort_by(input);
+        self
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::AssessmentSortField>) -> Self {
+        self.inner = self.inner.set_sort_by(input);
+        self
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn get_sort_by(&self) -> &::std::option::Option<crate::types::AssessmentSortField> {
+        self.inner.get_sort_by()
+    }
+    /// <p>The sort order for results.</p>
+    pub fn sort_order(mut self, input: crate::types::SortOrder) -> Self {
+        self.inner = self.inner.sort_order(input);
+        self
+    }
+    /// <p>The sort order for results.</p>
+    pub fn set_sort_order(mut self, input: ::std::option::Option<crate::types::SortOrder>) -> Self {
+        self.inner = self.inner.set_sort_order(input);
+        self
+    }
+    /// <p>The sort order for results.</p>
+    pub fn get_sort_order(&self) -> &::std::option::Option<crate::types::SortOrder> {
+        self.inner.get_sort_order()
+    }
     /// <p>Pagination page size.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.inner = self.inner.max_results(input);

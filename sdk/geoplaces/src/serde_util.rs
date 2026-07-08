@@ -158,6 +158,18 @@ pub(crate) fn category_correct_errors(mut builder: crate::types::builders::Categ
     builder
 }
 
+pub(crate) fn cross_reference_correct_errors(
+    mut builder: crate::types::builders::CrossReferenceBuilder,
+) -> crate::types::builders::CrossReferenceBuilder {
+    if builder.source.is_none() {
+        builder.source = Some(Default::default())
+    }
+    if builder.source_place_id.is_none() {
+        builder.source_place_id = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn food_type_correct_errors(mut builder: crate::types::builders::FoodTypeBuilder) -> crate::types::builders::FoodTypeBuilder {
     if builder.localized_name.is_none() {
         builder.localized_name = Some(Default::default())
@@ -286,6 +298,13 @@ pub(crate) fn intersection_correct_errors(mut builder: crate::types::builders::I
     builder
 }
 
+pub(crate) fn admin_names_correct_errors(mut builder: crate::types::builders::AdminNamesBuilder) -> crate::types::builders::AdminNamesBuilder {
+    if builder.names.is_none() {
+        builder.names = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn parsed_query_secondary_address_component_correct_errors(
     mut builder: crate::types::builders::ParsedQuerySecondaryAddressComponentBuilder,
 ) -> crate::types::builders::ParsedQuerySecondaryAddressComponentBuilder {
@@ -303,6 +322,18 @@ pub(crate) fn parsed_query_secondary_address_component_correct_errors(
     }
     if builder.designator.is_none() {
         builder.designator = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn translation_name_correct_errors(
+    mut builder: crate::types::builders::TranslationNameBuilder,
+) -> crate::types::builders::TranslationNameBuilder {
+    if builder.value.is_none() {
+        builder.value = Some(Default::default())
+    }
+    if builder.r#type.is_none() {
+        builder.r#type = "no value was set".parse::<crate::types::TranslationNameType>().ok()
     }
     builder
 }

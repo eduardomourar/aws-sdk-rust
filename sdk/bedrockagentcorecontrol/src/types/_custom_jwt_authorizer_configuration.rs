@@ -12,6 +12,8 @@ pub struct CustomJwtAuthorizerConfiguration {
     pub allowed_clients: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>An array of scopes that are allowed to access the token.</p>
     pub allowed_scopes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+    pub advertised_scope_mapping: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>An array of objects that define a custom claim validation name, value, and operation</p>
     pub custom_claims: ::std::option::Option<::std::vec::Vec<crate::types::CustomClaimValidationType>>,
     /// <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
@@ -44,6 +46,10 @@ impl CustomJwtAuthorizerConfiguration {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allowed_scopes.is_none()`.
     pub fn allowed_scopes(&self) -> &[::std::string::String] {
         self.allowed_scopes.as_deref().unwrap_or_default()
+    }
+    /// <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+    pub fn advertised_scope_mapping(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        self.advertised_scope_mapping.as_ref()
     }
     /// <p>An array of objects that define a custom claim validation name, value, and operation</p>
     ///
@@ -81,6 +87,7 @@ pub struct CustomJwtAuthorizerConfigurationBuilder {
     pub(crate) allowed_audience: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) allowed_clients: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) allowed_scopes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) advertised_scope_mapping: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) custom_claims: ::std::option::Option<::std::vec::Vec<crate::types::CustomClaimValidationType>>,
     pub(crate) private_endpoint: ::std::option::Option<crate::types::PrivateEndpoint>,
     pub(crate) private_endpoint_overrides: ::std::option::Option<::std::vec::Vec<crate::types::PrivateEndpointOverride>>,
@@ -161,6 +168,33 @@ impl CustomJwtAuthorizerConfigurationBuilder {
     /// <p>An array of scopes that are allowed to access the token.</p>
     pub fn get_allowed_scopes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_scopes
+    }
+    /// Adds a key-value pair to `advertised_scope_mapping`.
+    ///
+    /// To override the contents of this collection use [`set_advertised_scope_mapping`](Self::set_advertised_scope_mapping).
+    ///
+    /// <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+    pub fn advertised_scope_mapping(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
+        let mut hash_map = self.advertised_scope_mapping.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.advertised_scope_mapping = ::std::option::Option::Some(hash_map);
+        self
+    }
+    /// <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+    pub fn set_advertised_scope_mapping(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.advertised_scope_mapping = input;
+        self
+    }
+    /// <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+    pub fn get_advertised_scope_mapping(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.advertised_scope_mapping
     }
     /// Appends an item to `custom_claims`.
     ///
@@ -244,6 +278,7 @@ impl CustomJwtAuthorizerConfigurationBuilder {
             allowed_audience: self.allowed_audience,
             allowed_clients: self.allowed_clients,
             allowed_scopes: self.allowed_scopes,
+            advertised_scope_mapping: self.advertised_scope_mapping,
             custom_claims: self.custom_claims,
             private_endpoint: self.private_endpoint,
             private_endpoint_overrides: self.private_endpoint_overrides,

@@ -45,6 +45,10 @@ pub use crate::types::_assertion_source::AssertionSource;
 
 pub use crate::types::_query_granularity::QueryGranularity;
 
+pub use crate::types::_assessment_sort_field::AssessmentSortField;
+
+pub use crate::types::_sort_order::SortOrder;
+
 pub use crate::types::_finding_severity::FindingSeverity;
 
 pub use crate::types::_failure_category::FailureCategory;
@@ -259,6 +263,8 @@ mod _assessment_cost;
 
 mod _assessment_error_code;
 
+mod _assessment_sort_field;
+
 mod _assessment_status;
 
 mod _assessment_step;
@@ -430,6 +436,8 @@ mod _service_topology_edge_summary;
 mod _service_workflow_updated_metadata;
 
 mod _slo_source;
+
+mod _sort_order;
 
 mod _string_change;
 

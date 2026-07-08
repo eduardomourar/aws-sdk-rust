@@ -811,6 +811,8 @@ pub(crate) mod shape_service_deployment_circuit_breaker;
 
 pub(crate) mod shape_service_event;
 
+pub(crate) mod shape_service_revision_overrides;
+
 pub(crate) mod shape_service_revision_summary;
 
 pub(crate) mod shape_service_revisions_summary_list;
@@ -894,6 +896,8 @@ pub(crate) mod shape_neuron_device_ids;
 pub(crate) mod shape_port_mapping_list;
 
 pub(crate) mod shape_resource_requirements;
+
+pub(crate) mod shape_runtime_platform_override;
 
 pub(crate) mod shape_secret_list;
 

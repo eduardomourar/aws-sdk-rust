@@ -16,7 +16,7 @@ pub struct GeocodeInput {
     pub filter: ::std::option::Option<crate::types::GeocodeFilter>,
     /// <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
     pub additional_features: ::std::option::Option<::std::vec::Vec<crate::types::GeocodeAdditionalFeature>>,
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub language: ::std::option::Option<::std::string::String>,
     /// <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
     pub political_view: ::std::option::Option<::std::string::String>,
@@ -26,6 +26,12 @@ pub struct GeocodeInput {
     pub intended_use: ::std::option::Option<crate::types::GeocodeIntendedUse>,
     /// <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
     pub key: ::std::option::Option<::std::string::String>,
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+    pub postal_code_mode: ::std::option::Option<crate::types::PostalCodeMode>,
+    /// <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+    pub address_translations: ::std::option::Option<::std::vec::Vec<crate::types::AddressTranslationComponent>>,
+    /// <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub address_names_mode: ::std::option::Option<crate::types::GeocodeAddressNamesMode>,
 }
 impl GeocodeInput {
     /// <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
@@ -57,7 +63,7 @@ impl GeocodeInput {
     pub fn additional_features(&self) -> &[crate::types::GeocodeAdditionalFeature] {
         self.additional_features.as_deref().unwrap_or_default()
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn language(&self) -> ::std::option::Option<&str> {
         self.language.as_deref()
     }
@@ -75,6 +81,20 @@ impl GeocodeInput {
     pub fn key(&self) -> ::std::option::Option<&str> {
         self.key.as_deref()
     }
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+    pub fn postal_code_mode(&self) -> ::std::option::Option<&crate::types::PostalCodeMode> {
+        self.postal_code_mode.as_ref()
+    }
+    /// <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.address_translations.is_none()`.
+    pub fn address_translations(&self) -> &[crate::types::AddressTranslationComponent] {
+        self.address_translations.as_deref().unwrap_or_default()
+    }
+    /// <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn address_names_mode(&self) -> ::std::option::Option<&crate::types::GeocodeAddressNamesMode> {
+        self.address_names_mode.as_ref()
+    }
 }
 impl ::std::fmt::Debug for GeocodeInput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -89,6 +109,9 @@ impl ::std::fmt::Debug for GeocodeInput {
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("intended_use", &self.intended_use);
         formatter.field("key", &"*** Sensitive Data Redacted ***");
+        formatter.field("postal_code_mode", &self.postal_code_mode);
+        formatter.field("address_translations", &self.address_translations);
+        formatter.field("address_names_mode", &self.address_names_mode);
         formatter.finish()
     }
 }
@@ -113,6 +136,9 @@ pub struct GeocodeInputBuilder {
     pub(crate) political_view: ::std::option::Option<::std::string::String>,
     pub(crate) intended_use: ::std::option::Option<crate::types::GeocodeIntendedUse>,
     pub(crate) key: ::std::option::Option<::std::string::String>,
+    pub(crate) postal_code_mode: ::std::option::Option<crate::types::PostalCodeMode>,
+    pub(crate) address_translations: ::std::option::Option<::std::vec::Vec<crate::types::AddressTranslationComponent>>,
+    pub(crate) address_names_mode: ::std::option::Option<crate::types::GeocodeAddressNamesMode>,
 }
 impl GeocodeInputBuilder {
     /// <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
@@ -214,17 +240,17 @@ impl GeocodeInputBuilder {
     pub fn get_additional_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GeocodeAdditionalFeature>> {
         &self.additional_features
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn set_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.language = input;
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn get_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.language
     }
@@ -276,6 +302,54 @@ impl GeocodeInputBuilder {
     pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
         &self.key
     }
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+    pub fn postal_code_mode(mut self, input: crate::types::PostalCodeMode) -> Self {
+        self.postal_code_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+    pub fn set_postal_code_mode(mut self, input: ::std::option::Option<crate::types::PostalCodeMode>) -> Self {
+        self.postal_code_mode = input;
+        self
+    }
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+    pub fn get_postal_code_mode(&self) -> &::std::option::Option<crate::types::PostalCodeMode> {
+        &self.postal_code_mode
+    }
+    /// Appends an item to `address_translations`.
+    ///
+    /// To override the contents of this collection use [`set_address_translations`](Self::set_address_translations).
+    ///
+    /// <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+    pub fn address_translations(mut self, input: crate::types::AddressTranslationComponent) -> Self {
+        let mut v = self.address_translations.unwrap_or_default();
+        v.push(input);
+        self.address_translations = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+    pub fn set_address_translations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AddressTranslationComponent>>) -> Self {
+        self.address_translations = input;
+        self
+    }
+    /// <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+    pub fn get_address_translations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AddressTranslationComponent>> {
+        &self.address_translations
+    }
+    /// <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn address_names_mode(mut self, input: crate::types::GeocodeAddressNamesMode) -> Self {
+        self.address_names_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn set_address_names_mode(mut self, input: ::std::option::Option<crate::types::GeocodeAddressNamesMode>) -> Self {
+        self.address_names_mode = input;
+        self
+    }
+    /// <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn get_address_names_mode(&self) -> &::std::option::Option<crate::types::GeocodeAddressNamesMode> {
+        &self.address_names_mode
+    }
     /// Consumes the builder and constructs a [`GeocodeInput`](crate::operation::geocode::GeocodeInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::geocode::GeocodeInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::geocode::GeocodeInput {
@@ -289,6 +363,9 @@ impl GeocodeInputBuilder {
             political_view: self.political_view,
             intended_use: self.intended_use,
             key: self.key,
+            postal_code_mode: self.postal_code_mode,
+            address_translations: self.address_translations,
+            address_names_mode: self.address_names_mode,
         })
     }
 }
@@ -305,6 +382,9 @@ impl ::std::fmt::Debug for GeocodeInputBuilder {
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("intended_use", &self.intended_use);
         formatter.field("key", &"*** Sensitive Data Redacted ***");
+        formatter.field("postal_code_mode", &self.postal_code_mode);
+        formatter.field("address_translations", &self.address_translations);
+        formatter.field("address_names_mode", &self.address_names_mode);
         formatter.finish()
     }
 }

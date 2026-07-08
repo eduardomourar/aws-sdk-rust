@@ -5,17 +5,17 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ThresholdConfiguration {
-    /// <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+    /// <p>Determines how Amazon ECS uses <code>value</code> to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), Amazon ECS multiplies <code>value</code> by the latest service desired count. For <code>COUNT</code>, Amazon ECS uses <code>value</code> directly as the threshold. The default is <code>BOUNDED_PERCENT</code>.</p>
     pub r#type: crate::types::ThresholdType,
-    /// <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+    /// <p>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this value is the failure threshold itself. When <code>type</code> is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is <code>50</code>.</p>
     pub value: i32,
 }
 impl ThresholdConfiguration {
-    /// <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+    /// <p>Determines how Amazon ECS uses <code>value</code> to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), Amazon ECS multiplies <code>value</code> by the latest service desired count. For <code>COUNT</code>, Amazon ECS uses <code>value</code> directly as the threshold. The default is <code>BOUNDED_PERCENT</code>.</p>
     pub fn r#type(&self) -> &crate::types::ThresholdType {
         &self.r#type
     }
-    /// <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+    /// <p>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this value is the failure threshold itself. When <code>type</code> is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is <code>50</code>.</p>
     pub fn value(&self) -> i32 {
         self.value
     }
@@ -35,33 +35,33 @@ pub struct ThresholdConfigurationBuilder {
     pub(crate) value: ::std::option::Option<i32>,
 }
 impl ThresholdConfigurationBuilder {
-    /// <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+    /// <p>Determines how Amazon ECS uses <code>value</code> to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), Amazon ECS multiplies <code>value</code> by the latest service desired count. For <code>COUNT</code>, Amazon ECS uses <code>value</code> directly as the threshold. The default is <code>BOUNDED_PERCENT</code>.</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::ThresholdType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+    /// <p>Determines how Amazon ECS uses <code>value</code> to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), Amazon ECS multiplies <code>value</code> by the latest service desired count. For <code>COUNT</code>, Amazon ECS uses <code>value</code> directly as the threshold. The default is <code>BOUNDED_PERCENT</code>.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::ThresholdType>) -> Self {
         self.r#type = input;
         self
     }
-    /// <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+    /// <p>Determines how Amazon ECS uses <code>value</code> to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), Amazon ECS multiplies <code>value</code> by the latest service desired count. For <code>COUNT</code>, Amazon ECS uses <code>value</code> directly as the threshold. The default is <code>BOUNDED_PERCENT</code>.</p>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::ThresholdType> {
         &self.r#type
     }
-    /// <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+    /// <p>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this value is the failure threshold itself. When <code>type</code> is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is <code>50</code>.</p>
     /// This field is required.
     pub fn value(mut self, input: i32) -> Self {
         self.value = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+    /// <p>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this value is the failure threshold itself. When <code>type</code> is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is <code>50</code>.</p>
     pub fn set_value(mut self, input: ::std::option::Option<i32>) -> Self {
         self.value = input;
         self
     }
-    /// <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+    /// <p>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this value is the failure threshold itself. When <code>type</code> is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is <code>50</code>.</p>
     pub fn get_value(&self) -> &::std::option::Option<i32> {
         &self.value
     }

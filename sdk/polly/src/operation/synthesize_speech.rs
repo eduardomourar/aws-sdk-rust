@@ -113,6 +113,12 @@ static PRESIGNED_MEMBER_LANGUAGE_CODE: ::aws_smithy_schema::Schema = ::aws_smith
     1,
 )
 .with_http_query("LanguageCode");
+static PRESIGNED_MEMBER_LEXICON_NAMES_MEMBER: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Schema::new_member(
+    ::aws_smithy_schema::ShapeId::from_static("com.amazonaws.polly#LexiconNameList$member", "com.amazonaws.polly", "LexiconNameList"),
+    ::aws_smithy_schema::ShapeType::String,
+    "member",
+    0,
+);
 static PRESIGNED_MEMBER_LEXICON_NAMES: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Schema::new_member(
     ::aws_smithy_schema::ShapeId::from_static(
         "com.amazonaws.polly.synthetic.synthetic.aws.presigned#SynthesizeSpeechInput$LexiconNames",
@@ -123,7 +129,8 @@ static PRESIGNED_MEMBER_LEXICON_NAMES: ::aws_smithy_schema::Schema = ::aws_smith
     "LexiconNames",
     2,
 )
-.with_http_query("LexiconNames");
+.with_http_query("LexiconNames")
+.with_list_member(&PRESIGNED_MEMBER_LEXICON_NAMES_MEMBER);
 static PRESIGNED_MEMBER_OUTPUT_FORMAT: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Schema::new_member(
     ::aws_smithy_schema::ShapeId::from_static(
         "com.amazonaws.polly.synthetic.synthetic.aws.presigned#SynthesizeSpeechInput$OutputFormat",
@@ -146,6 +153,16 @@ static PRESIGNED_MEMBER_SAMPLE_RATE: ::aws_smithy_schema::Schema = ::aws_smithy_
     4,
 )
 .with_http_query("SampleRate");
+static PRESIGNED_MEMBER_SPEECH_MARK_TYPES_MEMBER: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Schema::new_member(
+    ::aws_smithy_schema::ShapeId::from_static(
+        "com.amazonaws.polly#SpeechMarkTypeList$member",
+        "com.amazonaws.polly",
+        "SpeechMarkTypeList",
+    ),
+    ::aws_smithy_schema::ShapeType::String,
+    "member",
+    0,
+);
 static PRESIGNED_MEMBER_SPEECH_MARK_TYPES: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Schema::new_member(
     ::aws_smithy_schema::ShapeId::from_static(
         "com.amazonaws.polly.synthetic.synthetic.aws.presigned#SynthesizeSpeechInput$SpeechMarkTypes",
@@ -156,7 +173,8 @@ static PRESIGNED_MEMBER_SPEECH_MARK_TYPES: ::aws_smithy_schema::Schema = ::aws_s
     "SpeechMarkTypes",
     5,
 )
-.with_http_query("SpeechMarkTypes");
+.with_http_query("SpeechMarkTypes")
+.with_list_member(&PRESIGNED_MEMBER_SPEECH_MARK_TYPES_MEMBER);
 static PRESIGNED_MEMBER_TEXT: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Schema::new_member(
     ::aws_smithy_schema::ShapeId::from_static(
         "com.amazonaws.polly.synthetic.synthetic.aws.presigned#SynthesizeSpeechInput$Text",
@@ -205,7 +223,9 @@ static PRESIGNED_SCHEMA: ::aws_smithy_schema::Schema = ::aws_smithy_schema::Sche
         &PRESIGNED_MEMBER_VOICE_ID,
     ],
 )
-.with_http(aws_smithy_schema::traits::HttpTrait::new("GET", "/v1/speech", None));
+.with_http(aws_smithy_schema::traits::HttpTrait::new("GET", "/v1/speech", None))
+.with_no_body_members()
+.with_original_name("SynthesizeSpeechInput");
 impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SynthesizeSpeech {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("SynthesizeSpeech");

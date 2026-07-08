@@ -32,7 +32,7 @@ pub struct Memory {
     pub indexed_keys: ::std::option::Option<::std::vec::Vec<crate::types::IndexedKey>>,
     /// <p>Configuration for streaming memory record data to external resources.</p>
     pub stream_delivery_resources: ::std::option::Option<crate::types::StreamDeliveryResources>,
-    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
     pub managed_by_resource_arn: ::std::option::Option<::std::string::String>,
 }
 impl Memory {
@@ -99,7 +99,7 @@ impl Memory {
     pub fn stream_delivery_resources(&self) -> ::std::option::Option<&crate::types::StreamDeliveryResources> {
         self.stream_delivery_resources.as_ref()
     }
-    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
     pub fn managed_by_resource_arn(&self) -> ::std::option::Option<&str> {
         self.managed_by_resource_arn.as_deref()
     }
@@ -368,17 +368,17 @@ impl MemoryBuilder {
     pub fn get_stream_delivery_resources(&self) -> &::std::option::Option<crate::types::StreamDeliveryResources> {
         &self.stream_delivery_resources
     }
-    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
     pub fn managed_by_resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.managed_by_resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
     pub fn set_managed_by_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.managed_by_resource_arn = input;
         self
     }
-    /// ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
     pub fn get_managed_by_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.managed_by_resource_arn
     }

@@ -56,6 +56,11 @@ pub fn ser_create_replace_root_volume_task_input_input_input(
             ::aws_smithy_types::Number::NegInt((*var_19).into()),
         );
     }
+    #[allow(unused_mut)]
+    let mut scope_20 = writer.prefix("VolumeId");
+    if let Some(var_21) = &input.volume_id {
+        scope_20.string(var_21);
+    }
     writer.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

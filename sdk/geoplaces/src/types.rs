@@ -13,7 +13,11 @@ pub use crate::types::_geocode_filter::GeocodeFilter;
 
 pub use crate::types::_geocode_intended_use::GeocodeIntendedUse;
 
+pub use crate::types::_geocode_address_names_mode::GeocodeAddressNamesMode;
+
 pub use crate::types::_get_place_intended_use::GetPlaceIntendedUse;
+
+pub use crate::types::_get_place_address_names_mode::GetPlaceAddressNamesMode;
 
 pub use crate::types::_place_type::PlaceType;
 
@@ -31,6 +35,8 @@ pub use crate::types::_reverse_geocode_filter::ReverseGeocodeFilter;
 
 pub use crate::types::_reverse_geocode_intended_use::ReverseGeocodeIntendedUse;
 
+pub use crate::types::_reverse_geocode_address_names_mode::ReverseGeocodeAddressNamesMode;
+
 pub use crate::types::_search_nearby_filter::SearchNearbyFilter;
 
 pub use crate::types::_search_nearby_intended_use::SearchNearbyIntendedUse;
@@ -39,9 +45,13 @@ pub use crate::types::_search_text_filter::SearchTextFilter;
 
 pub use crate::types::_search_text_intended_use::SearchTextIntendedUse;
 
+pub use crate::types::_search_text_travel_mode::SearchTextTravelMode;
+
 pub use crate::types::_suggest_filter::SuggestFilter;
 
 pub use crate::types::_suggest_intended_use::SuggestIntendedUse;
+
+pub use crate::types::_suggest_travel_mode::SuggestTravelMode;
 
 pub use crate::types::_filter_circle::FilterCircle;
 
@@ -52,6 +62,8 @@ pub use crate::types::_autocomplete_result_item::AutocompleteResultItem;
 pub use crate::types::_validation_exception_field::ValidationExceptionField;
 
 pub use crate::types::_geocode_additional_feature::GeocodeAdditionalFeature;
+
+pub use crate::types::_address_translation_component::AddressTranslationComponent;
 
 pub use crate::types::_geocode_result_item::GeocodeResultItem;
 
@@ -78,6 +90,10 @@ pub use crate::types::_access_point::AccessPoint;
 pub use crate::types::_access_restriction::AccessRestriction;
 
 pub use crate::types::_address_component_phonemes::AddressComponentPhonemes;
+
+pub use crate::types::_place_attribute::PlaceAttribute;
+
+pub use crate::types::_cross_reference::CrossReference;
 
 pub use crate::types::_reverse_geocode_additional_feature::ReverseGeocodeAdditionalFeature;
 
@@ -107,6 +123,8 @@ pub use crate::types::_match_score_details::MatchScoreDetails;
 
 pub use crate::types::_geocode_parsed_query::GeocodeParsedQuery;
 
+pub use crate::types::_translation_details::TranslationDetails;
+
 pub use crate::types::_street_components::StreetComponents;
 
 pub use crate::types::_secondary_address_component::SecondaryAddressComponent;
@@ -120,6 +138,8 @@ pub use crate::types::_usps_zip::UspsZip;
 pub use crate::types::_usps_zip_plus4::UspsZipPlus4;
 
 pub use crate::types::_contact_details::ContactDetails;
+
+pub use crate::types::_access_point_type::AccessPointType;
 
 pub use crate::types::_phoneme_transcription::PhonemeTranscription;
 
@@ -165,11 +185,21 @@ pub use crate::types::_address_component_match_scores::AddressComponentMatchScor
 
 pub use crate::types::_parsed_query_component::ParsedQueryComponent;
 
+pub use crate::types::_admin_names::AdminNames;
+
 pub use crate::types::_parsed_query_secondary_address_component::ParsedQuerySecondaryAddressComponent;
+
+pub use crate::types::_admin_names_preference::AdminNamesPreference;
 
 pub use crate::types::_secondary_address_component_match_score::SecondaryAddressComponentMatchScore;
 
+pub use crate::types::_translation_name::TranslationName;
+
+pub use crate::types::_translation_name_type::TranslationNameType;
+
 mod _access_point;
+
+mod _access_point_type;
 
 mod _access_restriction;
 
@@ -178,6 +208,12 @@ mod _address;
 mod _address_component_match_scores;
 
 mod _address_component_phonemes;
+
+mod _address_translation_component;
+
+mod _admin_names;
+
+mod _admin_names_preference;
 
 mod _autocomplete_additional_feature;
 
@@ -207,11 +243,15 @@ mod _country;
 
 mod _country_highlights;
 
+mod _cross_reference;
+
 mod _filter_circle;
 
 mod _food_type;
 
 mod _geocode_additional_feature;
+
+mod _geocode_address_names_mode;
 
 mod _geocode_filter;
 
@@ -228,6 +268,8 @@ mod _geocode_query_components;
 mod _geocode_result_item;
 
 mod _get_place_additional_feature;
+
+mod _get_place_address_names_mode;
 
 mod _get_place_intended_use;
 
@@ -248,6 +290,8 @@ mod _parsed_query_secondary_address_component;
 mod _phoneme_details;
 
 mod _phoneme_transcription;
+
+mod _place_attribute;
 
 mod _place_type;
 
@@ -273,6 +317,8 @@ mod _related_place;
 
 mod _reverse_geocode_additional_feature;
 
+mod _reverse_geocode_address_names_mode;
+
 mod _reverse_geocode_filter;
 
 mod _reverse_geocode_filter_place_type;
@@ -296,6 +342,8 @@ mod _search_text_filter;
 mod _search_text_intended_use;
 
 mod _search_text_result_item;
+
+mod _search_text_travel_mode;
 
 mod _secondary_address_component;
 
@@ -325,7 +373,15 @@ mod _suggest_result_item;
 
 mod _suggest_result_item_type;
 
+mod _suggest_travel_mode;
+
 mod _time_zone;
+
+mod _translation_details;
+
+mod _translation_name;
+
+mod _translation_name_type;
 
 mod _type_placement;
 

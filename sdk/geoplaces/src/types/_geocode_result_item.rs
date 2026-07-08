@@ -45,6 +45,10 @@ pub struct GeocodeResultItem {
     /// <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p>
     /// </note>
     pub secondary_addresses: ::std::option::Option<::std::vec::Vec<crate::types::RelatedPlace>>,
+    /// <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+    pub translations: ::std::option::Option<crate::types::TranslationDetails>,
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub estimated_point_address: ::std::option::Option<bool>,
 }
 impl GeocodeResultItem {
     /// <p>The <code>PlaceId</code> of the place result.</p>
@@ -144,6 +148,14 @@ impl GeocodeResultItem {
     pub fn secondary_addresses(&self) -> &[crate::types::RelatedPlace] {
         self.secondary_addresses.as_deref().unwrap_or_default()
     }
+    /// <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+    pub fn translations(&self) -> ::std::option::Option<&crate::types::TranslationDetails> {
+        self.translations.as_ref()
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(&self) -> ::std::option::Option<bool> {
+        self.estimated_point_address
+    }
 }
 impl ::std::fmt::Debug for GeocodeResultItem {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -167,6 +179,8 @@ impl ::std::fmt::Debug for GeocodeResultItem {
         formatter.field("intersections", &self.intersections);
         formatter.field("main_address", &self.main_address);
         formatter.field("secondary_addresses", &self.secondary_addresses);
+        formatter.field("translations", &self.translations);
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -200,6 +214,8 @@ pub struct GeocodeResultItemBuilder {
     pub(crate) intersections: ::std::option::Option<::std::vec::Vec<crate::types::Intersection>>,
     pub(crate) main_address: ::std::option::Option<crate::types::RelatedPlace>,
     pub(crate) secondary_addresses: ::std::option::Option<::std::vec::Vec<crate::types::RelatedPlace>>,
+    pub(crate) translations: ::std::option::Option<crate::types::TranslationDetails>,
+    pub(crate) estimated_point_address: ::std::option::Option<bool>,
 }
 impl GeocodeResultItemBuilder {
     /// <p>The <code>PlaceId</code> of the place result.</p>
@@ -528,6 +544,34 @@ impl GeocodeResultItemBuilder {
     pub fn get_secondary_addresses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RelatedPlace>> {
         &self.secondary_addresses
     }
+    /// <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+    pub fn translations(mut self, input: crate::types::TranslationDetails) -> Self {
+        self.translations = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+    pub fn set_translations(mut self, input: ::std::option::Option<crate::types::TranslationDetails>) -> Self {
+        self.translations = input;
+        self
+    }
+    /// <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+    pub fn get_translations(&self) -> &::std::option::Option<crate::types::TranslationDetails> {
+        &self.translations
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(mut self, input: bool) -> Self {
+        self.estimated_point_address = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn set_estimated_point_address(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.estimated_point_address = input;
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn get_estimated_point_address(&self) -> &::std::option::Option<bool> {
+        &self.estimated_point_address
+    }
     /// Consumes the builder and constructs a [`GeocodeResultItem`](crate::types::GeocodeResultItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`place_id`](crate::types::builders::GeocodeResultItemBuilder::place_id)
@@ -569,6 +613,8 @@ impl GeocodeResultItemBuilder {
             intersections: self.intersections,
             main_address: self.main_address,
             secondary_addresses: self.secondary_addresses,
+            translations: self.translations,
+            estimated_point_address: self.estimated_point_address,
         })
     }
 }
@@ -594,6 +640,8 @@ impl ::std::fmt::Debug for GeocodeResultItemBuilder {
         formatter.field("intersections", &self.intersections);
         formatter.field("main_address", &self.main_address);
         formatter.field("secondary_addresses", &self.secondary_addresses);
+        formatter.field("translations", &self.translations);
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

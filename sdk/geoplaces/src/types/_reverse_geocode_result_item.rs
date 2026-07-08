@@ -35,6 +35,10 @@ pub struct ReverseGeocodeResultItem {
     pub political_view: ::std::option::Option<::std::string::String>,
     /// <p>All Intersections that are near the provided address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     pub intersections: ::std::option::Option<::std::vec::Vec<crate::types::Intersection>>,
+    /// <p>The main address corresponding to a place of type Secondary Address.</p>
+    pub main_address: ::std::option::Option<crate::types::RelatedPlace>,
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub estimated_point_address: ::std::option::Option<bool>,
 }
 impl ReverseGeocodeResultItem {
     /// <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
@@ -114,6 +118,14 @@ impl ReverseGeocodeResultItem {
     pub fn intersections(&self) -> &[crate::types::Intersection] {
         self.intersections.as_deref().unwrap_or_default()
     }
+    /// <p>The main address corresponding to a place of type Secondary Address.</p>
+    pub fn main_address(&self) -> ::std::option::Option<&crate::types::RelatedPlace> {
+        self.main_address.as_ref()
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(&self) -> ::std::option::Option<bool> {
+        self.estimated_point_address
+    }
 }
 impl ::std::fmt::Debug for ReverseGeocodeResultItem {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -133,6 +145,8 @@ impl ::std::fmt::Debug for ReverseGeocodeResultItem {
         formatter.field("time_zone", &self.time_zone);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("intersections", &self.intersections);
+        formatter.field("main_address", &self.main_address);
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -162,6 +176,8 @@ pub struct ReverseGeocodeResultItemBuilder {
     pub(crate) time_zone: ::std::option::Option<crate::types::TimeZone>,
     pub(crate) political_view: ::std::option::Option<::std::string::String>,
     pub(crate) intersections: ::std::option::Option<::std::vec::Vec<crate::types::Intersection>>,
+    pub(crate) main_address: ::std::option::Option<crate::types::RelatedPlace>,
+    pub(crate) estimated_point_address: ::std::option::Option<bool>,
 }
 impl ReverseGeocodeResultItemBuilder {
     /// <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
@@ -422,6 +438,34 @@ impl ReverseGeocodeResultItemBuilder {
     pub fn get_intersections(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Intersection>> {
         &self.intersections
     }
+    /// <p>The main address corresponding to a place of type Secondary Address.</p>
+    pub fn main_address(mut self, input: crate::types::RelatedPlace) -> Self {
+        self.main_address = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The main address corresponding to a place of type Secondary Address.</p>
+    pub fn set_main_address(mut self, input: ::std::option::Option<crate::types::RelatedPlace>) -> Self {
+        self.main_address = input;
+        self
+    }
+    /// <p>The main address corresponding to a place of type Secondary Address.</p>
+    pub fn get_main_address(&self) -> &::std::option::Option<crate::types::RelatedPlace> {
+        &self.main_address
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(mut self, input: bool) -> Self {
+        self.estimated_point_address = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn set_estimated_point_address(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.estimated_point_address = input;
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn get_estimated_point_address(&self) -> &::std::option::Option<bool> {
+        &self.estimated_point_address
+    }
     /// Consumes the builder and constructs a [`ReverseGeocodeResultItem`](crate::types::ReverseGeocodeResultItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`place_id`](crate::types::builders::ReverseGeocodeResultItemBuilder::place_id)
@@ -459,6 +503,8 @@ impl ReverseGeocodeResultItemBuilder {
             time_zone: self.time_zone,
             political_view: self.political_view,
             intersections: self.intersections,
+            main_address: self.main_address,
+            estimated_point_address: self.estimated_point_address,
         })
     }
 }
@@ -480,6 +526,8 @@ impl ::std::fmt::Debug for ReverseGeocodeResultItemBuilder {
         formatter.field("time_zone", &self.time_zone);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("intersections", &self.intersections);
+        formatter.field("main_address", &self.main_address);
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

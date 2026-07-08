@@ -6,7 +6,17 @@
 pub struct PassthroughTargetConfiguration {
     /// <p>The HTTPS endpoint that the gateway forwards requests to for this passthrough target.</p>
     pub endpoint: ::std::string::String,
-    /// The application protocol the passthrough target implements. Required for passthrough targets.
+    /// <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>MCP</code> - The Model Context Protocol.</p></li>
+    /// <li>
+    /// <p><code>A2A</code> - The Agent-to-Agent protocol.</p></li>
+    /// <li>
+    /// <p><code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p></li>
+    /// <li>
+    /// <p><code>CUSTOM</code> - A custom application protocol.</p></li>
+    /// </ul>
     pub protocol_type: crate::types::PassthroughProtocolType,
     /// <p>The API schema configuration that defines the structure of the passthrough target's API.</p>
     pub schema: ::std::option::Option<crate::types::HttpApiSchemaConfiguration>,
@@ -19,7 +29,17 @@ impl PassthroughTargetConfiguration {
         use std::ops::Deref;
         self.endpoint.deref()
     }
-    /// The application protocol the passthrough target implements. Required for passthrough targets.
+    /// <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>MCP</code> - The Model Context Protocol.</p></li>
+    /// <li>
+    /// <p><code>A2A</code> - The Agent-to-Agent protocol.</p></li>
+    /// <li>
+    /// <p><code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p></li>
+    /// <li>
+    /// <p><code>CUSTOM</code> - A custom application protocol.</p></li>
+    /// </ul>
     pub fn protocol_type(&self) -> &crate::types::PassthroughProtocolType {
         &self.protocol_type
     }
@@ -64,18 +84,48 @@ impl PassthroughTargetConfigurationBuilder {
     pub fn get_endpoint(&self) -> &::std::option::Option<::std::string::String> {
         &self.endpoint
     }
-    /// The application protocol the passthrough target implements. Required for passthrough targets.
+    /// <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>MCP</code> - The Model Context Protocol.</p></li>
+    /// <li>
+    /// <p><code>A2A</code> - The Agent-to-Agent protocol.</p></li>
+    /// <li>
+    /// <p><code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p></li>
+    /// <li>
+    /// <p><code>CUSTOM</code> - A custom application protocol.</p></li>
+    /// </ul>
     /// This field is required.
     pub fn protocol_type(mut self, input: crate::types::PassthroughProtocolType) -> Self {
         self.protocol_type = ::std::option::Option::Some(input);
         self
     }
-    /// The application protocol the passthrough target implements. Required for passthrough targets.
+    /// <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>MCP</code> - The Model Context Protocol.</p></li>
+    /// <li>
+    /// <p><code>A2A</code> - The Agent-to-Agent protocol.</p></li>
+    /// <li>
+    /// <p><code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p></li>
+    /// <li>
+    /// <p><code>CUSTOM</code> - A custom application protocol.</p></li>
+    /// </ul>
     pub fn set_protocol_type(mut self, input: ::std::option::Option<crate::types::PassthroughProtocolType>) -> Self {
         self.protocol_type = input;
         self
     }
-    /// The application protocol the passthrough target implements. Required for passthrough targets.
+    /// <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>MCP</code> - The Model Context Protocol.</p></li>
+    /// <li>
+    /// <p><code>A2A</code> - The Agent-to-Agent protocol.</p></li>
+    /// <li>
+    /// <p><code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p></li>
+    /// <li>
+    /// <p><code>CUSTOM</code> - A custom application protocol.</p></li>
+    /// </ul>
     pub fn get_protocol_type(&self) -> &::std::option::Option<crate::types::PassthroughProtocolType> {
         &self.protocol_type
     }

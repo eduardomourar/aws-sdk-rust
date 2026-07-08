@@ -33,41 +33,51 @@ pub fn ser_custom_jwt_authorizer_configuration(
         }
         array_8.finish();
     }
-    if let Some(var_10) = &input.custom_claims {
-        let mut array_11 = object.key("customClaims").start_array();
-        for item_12 in var_10 {
+    if let Some(var_10) = &input.advertised_scope_mapping {
+        #[allow(unused_mut)]
+        let mut object_11 = object.key("advertisedScopeMapping").start_object();
+        for (key_12, value_13) in var_10 {
             {
-                #[allow(unused_mut)]
-                let mut object_13 = array_11.value().start_object();
-                crate::protocol_serde::shape_custom_claim_validation_type::ser_custom_claim_validation_type(&mut object_13, item_12)?;
-                object_13.finish();
+                object_11.key(key_12.as_str()).string(value_13.as_str());
             }
         }
-        array_11.finish();
+        object_11.finish();
     }
-    if let Some(var_14) = &input.private_endpoint {
-        #[allow(unused_mut)]
-        let mut object_15 = object.key("privateEndpoint").start_object();
-        crate::protocol_serde::shape_private_endpoint::ser_private_endpoint(&mut object_15, var_14)?;
-        object_15.finish();
-    }
-    if let Some(var_16) = &input.private_endpoint_overrides {
-        let mut array_17 = object.key("privateEndpointOverrides").start_array();
-        for item_18 in var_16 {
+    if let Some(var_14) = &input.custom_claims {
+        let mut array_15 = object.key("customClaims").start_array();
+        for item_16 in var_14 {
             {
                 #[allow(unused_mut)]
-                let mut object_19 = array_17.value().start_object();
-                crate::protocol_serde::shape_private_endpoint_override::ser_private_endpoint_override(&mut object_19, item_18)?;
-                object_19.finish();
+                let mut object_17 = array_15.value().start_object();
+                crate::protocol_serde::shape_custom_claim_validation_type::ser_custom_claim_validation_type(&mut object_17, item_16)?;
+                object_17.finish();
             }
         }
-        array_17.finish();
+        array_15.finish();
     }
-    if let Some(var_20) = &input.allowed_workload_configuration {
+    if let Some(var_18) = &input.private_endpoint {
         #[allow(unused_mut)]
-        let mut object_21 = object.key("allowedWorkloadConfiguration").start_object();
-        crate::protocol_serde::shape_allowed_workload_configuration::ser_allowed_workload_configuration(&mut object_21, var_20)?;
-        object_21.finish();
+        let mut object_19 = object.key("privateEndpoint").start_object();
+        crate::protocol_serde::shape_private_endpoint::ser_private_endpoint(&mut object_19, var_18)?;
+        object_19.finish();
+    }
+    if let Some(var_20) = &input.private_endpoint_overrides {
+        let mut array_21 = object.key("privateEndpointOverrides").start_array();
+        for item_22 in var_20 {
+            {
+                #[allow(unused_mut)]
+                let mut object_23 = array_21.value().start_object();
+                crate::protocol_serde::shape_private_endpoint_override::ser_private_endpoint_override(&mut object_23, item_22)?;
+                object_23.finish();
+            }
+        }
+        array_21.finish();
+    }
+    if let Some(var_24) = &input.allowed_workload_configuration {
+        #[allow(unused_mut)]
+        let mut object_25 = object.key("allowedWorkloadConfiguration").start_object();
+        crate::protocol_serde::shape_allowed_workload_configuration::ser_allowed_workload_configuration(&mut object_25, var_24)?;
+        object_25.finish();
     }
     Ok(())
 }
@@ -121,6 +131,15 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "advertisedScopeMapping" => {
+                            builder = builder.set_advertised_scope_mapping(
+                                crate::protocol_serde::shape_advertised_scope_mapping_type::de_advertised_scope_mapping_type(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         "customClaims" => {
                             builder = builder.set_custom_claims(

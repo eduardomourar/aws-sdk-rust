@@ -58,6 +58,15 @@ where
                                 )?,
                             );
                         }
+                        "DefaultSessionParameters" => {
+                            builder = builder.set_default_session_parameters(
+                                crate::protocol_serde::shape_default_session_parameters_multicast::de_default_session_parameters_multicast(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

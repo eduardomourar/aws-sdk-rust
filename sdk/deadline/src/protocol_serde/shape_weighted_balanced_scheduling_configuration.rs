@@ -3,25 +3,25 @@ pub fn ser_weighted_balanced_scheduling_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::types::WeightedBalancedSchedulingConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if input.priority_weight != 100.0 {
+    if input.priority_weight != 100.0_f64 {
         object.key("priorityWeight").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::Float((input.priority_weight).into()),
         );
     }
-    if input.error_weight != -10.0 {
+    if input.error_weight != -10.0_f64 {
         object.key("errorWeight").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::Float((input.error_weight).into()),
         );
     }
-    if input.submission_time_weight != 3.0 {
+    if input.submission_time_weight != 3.0_f64 {
         object.key("submissionTimeWeight").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::Float((input.submission_time_weight).into()),
         );
     }
-    if input.rendering_task_weight != -100.0 {
+    if input.rendering_task_weight != -100.0_f64 {
         object.key("renderingTaskWeight").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::Float((input.rendering_task_weight).into()),

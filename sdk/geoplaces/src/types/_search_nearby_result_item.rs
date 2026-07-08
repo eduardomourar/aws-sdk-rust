@@ -41,6 +41,10 @@ pub struct SearchNearbyResultItem {
     pub political_view: ::std::option::Option<::std::string::String>,
     /// <p>How the various components of the result's address are pronounced in various languages.</p>
     pub phonemes: ::std::option::Option<crate::types::PhonemeDetails>,
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub place_attributes: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>,
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub cross_references: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>,
 }
 impl SearchNearbyResultItem {
     /// <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
@@ -134,6 +138,18 @@ impl SearchNearbyResultItem {
     pub fn phonemes(&self) -> ::std::option::Option<&crate::types::PhonemeDetails> {
         self.phonemes.as_ref()
     }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.place_attributes.is_none()`.
+    pub fn place_attributes(&self) -> &[crate::types::PlaceAttribute] {
+        self.place_attributes.as_deref().unwrap_or_default()
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.cross_references.is_none()`.
+    pub fn cross_references(&self) -> &[crate::types::CrossReference] {
+        self.cross_references.as_deref().unwrap_or_default()
+    }
 }
 impl ::std::fmt::Debug for SearchNearbyResultItem {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -156,6 +172,8 @@ impl ::std::fmt::Debug for SearchNearbyResultItem {
         formatter.field("time_zone", &self.time_zone);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("phonemes", &self.phonemes);
+        formatter.field("place_attributes", &"*** Sensitive Data Redacted ***");
+        formatter.field("cross_references", &self.cross_references);
         formatter.finish()
     }
 }
@@ -188,6 +206,8 @@ pub struct SearchNearbyResultItemBuilder {
     pub(crate) time_zone: ::std::option::Option<crate::types::TimeZone>,
     pub(crate) political_view: ::std::option::Option<::std::string::String>,
     pub(crate) phonemes: ::std::option::Option<crate::types::PhonemeDetails>,
+    pub(crate) place_attributes: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>,
+    pub(crate) cross_references: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>,
 }
 impl SearchNearbyResultItemBuilder {
     /// <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
@@ -496,6 +516,46 @@ impl SearchNearbyResultItemBuilder {
     pub fn get_phonemes(&self) -> &::std::option::Option<crate::types::PhonemeDetails> {
         &self.phonemes
     }
+    /// Appends an item to `place_attributes`.
+    ///
+    /// To override the contents of this collection use [`set_place_attributes`](Self::set_place_attributes).
+    ///
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn place_attributes(mut self, input: crate::types::PlaceAttribute) -> Self {
+        let mut v = self.place_attributes.unwrap_or_default();
+        v.push(input);
+        self.place_attributes = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn set_place_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>) -> Self {
+        self.place_attributes = input;
+        self
+    }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn get_place_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>> {
+        &self.place_attributes
+    }
+    /// Appends an item to `cross_references`.
+    ///
+    /// To override the contents of this collection use [`set_cross_references`](Self::set_cross_references).
+    ///
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn cross_references(mut self, input: crate::types::CrossReference) -> Self {
+        let mut v = self.cross_references.unwrap_or_default();
+        v.push(input);
+        self.cross_references = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn set_cross_references(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>) -> Self {
+        self.cross_references = input;
+        self
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn get_cross_references(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CrossReference>> {
+        &self.cross_references
+    }
     /// Consumes the builder and constructs a [`SearchNearbyResultItem`](crate::types::SearchNearbyResultItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`place_id`](crate::types::builders::SearchNearbyResultItemBuilder::place_id)
@@ -536,6 +596,8 @@ impl SearchNearbyResultItemBuilder {
             time_zone: self.time_zone,
             political_view: self.political_view,
             phonemes: self.phonemes,
+            place_attributes: self.place_attributes,
+            cross_references: self.cross_references,
         })
     }
 }
@@ -560,6 +622,8 @@ impl ::std::fmt::Debug for SearchNearbyResultItemBuilder {
         formatter.field("time_zone", &self.time_zone);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("phonemes", &self.phonemes);
+        formatter.field("place_attributes", &"*** Sensitive Data Redacted ***");
+        formatter.field("cross_references", &self.cross_references);
         formatter.finish()
     }
 }

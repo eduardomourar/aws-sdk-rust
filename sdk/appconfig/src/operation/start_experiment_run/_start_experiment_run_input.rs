@@ -15,7 +15,7 @@ pub struct StartExperimentRunInput {
     pub treatment_overrides: ::std::option::Option<crate::types::TreatmentOverrides>,
     /// <p>The tags to assign to the experiment run.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub deployment_parameters: ::std::option::Option<crate::types::DeploymentParameters>,
 }
 impl StartExperimentRunInput {
@@ -43,7 +43,7 @@ impl StartExperimentRunInput {
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn deployment_parameters(&self) -> ::std::option::Option<&crate::types::DeploymentParameters> {
         self.deployment_parameters.as_ref()
     }
@@ -160,17 +160,17 @@ impl StartExperimentRunInputBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn deployment_parameters(mut self, input: crate::types::DeploymentParameters) -> Self {
         self.deployment_parameters = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn set_deployment_parameters(mut self, input: ::std::option::Option<crate::types::DeploymentParameters>) -> Self {
         self.deployment_parameters = input;
         self
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn get_deployment_parameters(&self) -> &::std::option::Option<crate::types::DeploymentParameters> {
         &self.deployment_parameters
     }

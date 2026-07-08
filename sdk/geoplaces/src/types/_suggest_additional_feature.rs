@@ -14,6 +14,7 @@
 /// match suggestadditionalfeature {
 ///     SuggestAdditionalFeature::Access => { /* ... */ },
 ///     SuggestAdditionalFeature::Core => { /* ... */ },
+///     SuggestAdditionalFeature::CrossReferences => { /* ... */ },
 ///     SuggestAdditionalFeature::Phonemes => { /* ... */ },
 ///     SuggestAdditionalFeature::TimeZone => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -49,6 +50,8 @@ pub enum SuggestAdditionalFeature {
     #[allow(missing_docs)] // documentation missing in model
     Core,
     #[allow(missing_docs)] // documentation missing in model
+    CrossReferences,
+    #[allow(missing_docs)] // documentation missing in model
     Phonemes,
     #[allow(missing_docs)] // documentation missing in model
     TimeZone,
@@ -61,6 +64,7 @@ impl ::std::convert::From<&str> for SuggestAdditionalFeature {
         match s {
             "Access" => SuggestAdditionalFeature::Access,
             "Core" => SuggestAdditionalFeature::Core,
+            "CrossReferences" => SuggestAdditionalFeature::CrossReferences,
             "Phonemes" => SuggestAdditionalFeature::Phonemes,
             "TimeZone" => SuggestAdditionalFeature::TimeZone,
             other => SuggestAdditionalFeature::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -80,6 +84,7 @@ impl SuggestAdditionalFeature {
         match self {
             SuggestAdditionalFeature::Access => "Access",
             SuggestAdditionalFeature::Core => "Core",
+            SuggestAdditionalFeature::CrossReferences => "CrossReferences",
             SuggestAdditionalFeature::Phonemes => "Phonemes",
             SuggestAdditionalFeature::TimeZone => "TimeZone",
             SuggestAdditionalFeature::Unknown(value) => value.as_str(),
@@ -87,7 +92,7 @@ impl SuggestAdditionalFeature {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Access", "Core", "Phonemes", "TimeZone"]
+        &["Access", "Core", "CrossReferences", "Phonemes", "TimeZone"]
     }
 }
 impl ::std::convert::AsRef<str> for SuggestAdditionalFeature {
@@ -112,6 +117,7 @@ impl ::std::fmt::Display for SuggestAdditionalFeature {
         match self {
             SuggestAdditionalFeature::Access => write!(f, "Access"),
             SuggestAdditionalFeature::Core => write!(f, "Core"),
+            SuggestAdditionalFeature::CrossReferences => write!(f, "CrossReferences"),
             SuggestAdditionalFeature::Phonemes => write!(f, "Phonemes"),
             SuggestAdditionalFeature::TimeZone => write!(f, "TimeZone"),
             SuggestAdditionalFeature::Unknown(value) => write!(f, "{value}"),

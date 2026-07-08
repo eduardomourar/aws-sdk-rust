@@ -24,6 +24,23 @@ where
                         "Position" => {
                             builder = builder.set_position(crate::protocol_serde::shape_position::de_position(tokens, _value, depth + 1)?);
                         }
+                        "Type" => {
+                            builder = builder.set_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::AccessPointType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "Primary" => {
+                            builder = builder.set_primary(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
+                        "Label" => {
+                            builder = builder.set_label(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

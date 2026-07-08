@@ -149,6 +149,8 @@ pub use crate::types::_dl_class::DlClass;
 
 pub use crate::types::_participating_gateways_multicast::ParticipatingGatewaysMulticast;
 
+pub use crate::types::_default_session_parameters_multicast::DefaultSessionParametersMulticast;
+
 pub use crate::types::_wireless_device_frame_info::WirelessDeviceFrameInfo;
 
 pub use crate::types::_multicast_frame_info::MulticastFrameInfo;
@@ -394,6 +396,8 @@ mod _connection_status_event_configuration;
 mod _connection_status_resource_type_event_configuration;
 
 mod _dak_certificate_metadata;
+
+mod _default_session_parameters_multicast;
 
 mod _destinations;
 

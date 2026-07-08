@@ -147,6 +147,16 @@ pub(crate) fn de_get_place(
                     "Contacts" => {
                         builder = builder.set_contacts(crate::protocol_serde::shape_contacts::de_contacts(tokens, _value, depth + 1)?);
                     }
+                    "CrossReferences" => {
+                        builder = builder.set_cross_references(crate::protocol_serde::shape_cross_reference_list::de_cross_reference_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "EstimatedPointAddress" => {
+                        builder = builder.set_estimated_point_address(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                    }
                     "FoodTypes" => {
                         builder = builder.set_food_types(crate::protocol_serde::shape_food_type_list::de_food_type_list(tokens, _value, depth + 1)?);
                     }
@@ -165,6 +175,13 @@ pub(crate) fn de_get_place(
                     }
                     "Phonemes" => {
                         builder = builder.set_phonemes(crate::protocol_serde::shape_phoneme_details::de_phoneme_details(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "PlaceAttributes" => {
+                        builder = builder.set_place_attributes(crate::protocol_serde::shape_place_attribute_list::de_place_attribute_list(
                             tokens,
                             _value,
                             depth + 1,

@@ -13,9 +13,9 @@ pub struct UpdateExperimentRunInput {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The new exposure percentage. This value can only be increased from the current setting.</p>
     pub exposure_percentage: ::std::option::Option<f32>,
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub treatment_overrides: ::std::option::Option<crate::types::TreatmentOverrides>,
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub deployment_parameters: ::std::option::Option<crate::types::DeploymentParameters>,
 }
 impl UpdateExperimentRunInput {
@@ -39,11 +39,11 @@ impl UpdateExperimentRunInput {
     pub fn exposure_percentage(&self) -> ::std::option::Option<f32> {
         self.exposure_percentage
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn treatment_overrides(&self) -> ::std::option::Option<&crate::types::TreatmentOverrides> {
         self.treatment_overrides.as_ref()
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn deployment_parameters(&self) -> ::std::option::Option<&crate::types::DeploymentParameters> {
         self.deployment_parameters.as_ref()
     }
@@ -141,31 +141,31 @@ impl UpdateExperimentRunInputBuilder {
     pub fn get_exposure_percentage(&self) -> &::std::option::Option<f32> {
         &self.exposure_percentage
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn treatment_overrides(mut self, input: crate::types::TreatmentOverrides) -> Self {
         self.treatment_overrides = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn set_treatment_overrides(mut self, input: ::std::option::Option<crate::types::TreatmentOverrides>) -> Self {
         self.treatment_overrides = input;
         self
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn get_treatment_overrides(&self) -> &::std::option::Option<crate::types::TreatmentOverrides> {
         &self.treatment_overrides
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn deployment_parameters(mut self, input: crate::types::DeploymentParameters) -> Self {
         self.deployment_parameters = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn set_deployment_parameters(mut self, input: ::std::option::Option<crate::types::DeploymentParameters>) -> Self {
         self.deployment_parameters = input;
         self
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn get_deployment_parameters(&self) -> &::std::option::Option<crate::types::DeploymentParameters> {
         &self.deployment_parameters
     }

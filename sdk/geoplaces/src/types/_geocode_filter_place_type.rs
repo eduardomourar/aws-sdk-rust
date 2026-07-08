@@ -12,11 +12,15 @@
 /// ```text
 /// # let geocodefilterplacetype = unimplemented!();
 /// match geocodefilterplacetype {
+///     GeocodeFilterPlaceType::Country => { /* ... */ },
 ///     GeocodeFilterPlaceType::InterpolatedAddress => { /* ... */ },
 ///     GeocodeFilterPlaceType::Intersection => { /* ... */ },
 ///     GeocodeFilterPlaceType::Locality => { /* ... */ },
 ///     GeocodeFilterPlaceType::PointAddress => { /* ... */ },
+///     GeocodeFilterPlaceType::PointOfInterest => { /* ... */ },
 ///     GeocodeFilterPlaceType::PostalCode => { /* ... */ },
+///     GeocodeFilterPlaceType::Region => { /* ... */ },
+///     GeocodeFilterPlaceType::SecondaryAddress => { /* ... */ },
 ///     GeocodeFilterPlaceType::Street => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -45,6 +49,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::hash::Hash)]
 pub enum GeocodeFilterPlaceType {
     #[allow(missing_docs)] // documentation missing in model
+    Country,
+    #[allow(missing_docs)] // documentation missing in model
     InterpolatedAddress,
     #[allow(missing_docs)] // documentation missing in model
     Intersection,
@@ -53,7 +59,13 @@ pub enum GeocodeFilterPlaceType {
     #[allow(missing_docs)] // documentation missing in model
     PointAddress,
     #[allow(missing_docs)] // documentation missing in model
+    PointOfInterest,
+    #[allow(missing_docs)] // documentation missing in model
     PostalCode,
+    #[allow(missing_docs)] // documentation missing in model
+    Region,
+    #[allow(missing_docs)] // documentation missing in model
+    SecondaryAddress,
     #[allow(missing_docs)] // documentation missing in model
     Street,
     /// `Unknown` contains new variants that have been added since this code was generated.
@@ -63,11 +75,15 @@ pub enum GeocodeFilterPlaceType {
 impl ::std::convert::From<&str> for GeocodeFilterPlaceType {
     fn from(s: &str) -> Self {
         match s {
+            "Country" => GeocodeFilterPlaceType::Country,
             "InterpolatedAddress" => GeocodeFilterPlaceType::InterpolatedAddress,
             "Intersection" => GeocodeFilterPlaceType::Intersection,
             "Locality" => GeocodeFilterPlaceType::Locality,
             "PointAddress" => GeocodeFilterPlaceType::PointAddress,
+            "PointOfInterest" => GeocodeFilterPlaceType::PointOfInterest,
             "PostalCode" => GeocodeFilterPlaceType::PostalCode,
+            "Region" => GeocodeFilterPlaceType::Region,
+            "SecondaryAddress" => GeocodeFilterPlaceType::SecondaryAddress,
             "Street" => GeocodeFilterPlaceType::Street,
             other => GeocodeFilterPlaceType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -84,18 +100,33 @@ impl GeocodeFilterPlaceType {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            GeocodeFilterPlaceType::Country => "Country",
             GeocodeFilterPlaceType::InterpolatedAddress => "InterpolatedAddress",
             GeocodeFilterPlaceType::Intersection => "Intersection",
             GeocodeFilterPlaceType::Locality => "Locality",
             GeocodeFilterPlaceType::PointAddress => "PointAddress",
+            GeocodeFilterPlaceType::PointOfInterest => "PointOfInterest",
             GeocodeFilterPlaceType::PostalCode => "PostalCode",
+            GeocodeFilterPlaceType::Region => "Region",
+            GeocodeFilterPlaceType::SecondaryAddress => "SecondaryAddress",
             GeocodeFilterPlaceType::Street => "Street",
             GeocodeFilterPlaceType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["InterpolatedAddress", "Intersection", "Locality", "PointAddress", "PostalCode", "Street"]
+        &[
+            "Country",
+            "InterpolatedAddress",
+            "Intersection",
+            "Locality",
+            "PointAddress",
+            "PointOfInterest",
+            "PostalCode",
+            "Region",
+            "SecondaryAddress",
+            "Street",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for GeocodeFilterPlaceType {
@@ -118,11 +149,15 @@ impl GeocodeFilterPlaceType {
 impl ::std::fmt::Display for GeocodeFilterPlaceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            GeocodeFilterPlaceType::Country => write!(f, "Country"),
             GeocodeFilterPlaceType::InterpolatedAddress => write!(f, "InterpolatedAddress"),
             GeocodeFilterPlaceType::Intersection => write!(f, "Intersection"),
             GeocodeFilterPlaceType::Locality => write!(f, "Locality"),
             GeocodeFilterPlaceType::PointAddress => write!(f, "PointAddress"),
+            GeocodeFilterPlaceType::PointOfInterest => write!(f, "PointOfInterest"),
             GeocodeFilterPlaceType::PostalCode => write!(f, "PostalCode"),
+            GeocodeFilterPlaceType::Region => write!(f, "Region"),
+            GeocodeFilterPlaceType::SecondaryAddress => write!(f, "SecondaryAddress"),
             GeocodeFilterPlaceType::Street => write!(f, "Street"),
             GeocodeFilterPlaceType::Unknown(value) => write!(f, "{value}"),
         }

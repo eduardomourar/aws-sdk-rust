@@ -97,6 +97,8 @@ pub(crate) mod shape_category_list;
 
 pub(crate) mod shape_contacts;
 
+pub(crate) mod shape_cross_reference_list;
+
 pub(crate) mod shape_food_type_list;
 
 pub(crate) mod shape_geocode_filter;
@@ -108,6 +110,8 @@ pub(crate) mod shape_geocode_result_item_list;
 pub(crate) mod shape_opening_hours_list;
 
 pub(crate) mod shape_phoneme_details;
+
+pub(crate) mod shape_place_attribute_list;
 
 pub(crate) mod shape_position;
 
@@ -154,6 +158,8 @@ pub(crate) mod shape_category;
 pub(crate) mod shape_contact_details_list;
 
 pub(crate) mod shape_country;
+
+pub(crate) mod shape_cross_reference;
 
 pub(crate) mod shape_filter_circle;
 
@@ -215,9 +221,13 @@ pub(crate) mod shape_suggest_place_result;
 
 pub(crate) mod shape_suggest_query_result;
 
+pub(crate) mod shape_translation_details;
+
 pub(crate) mod shape_usps_zip;
 
 pub(crate) mod shape_usps_zip_plus4;
+
+pub(crate) mod shape_admin_names_list;
 
 pub(crate) mod shape_autocomplete_address_highlights;
 
@@ -236,6 +246,8 @@ pub(crate) mod shape_parsed_query_component_list;
 pub(crate) mod shape_suggest_address_highlights;
 
 pub(crate) mod shape_address_component_match_scores;
+
+pub(crate) mod shape_admin_names;
 
 pub(crate) mod shape_country_highlights;
 
@@ -257,4 +269,8 @@ pub(crate) mod shape_parsed_query_secondary_address_component;
 
 pub(crate) mod shape_secondary_address_component_match_score_list;
 
+pub(crate) mod shape_translation_name_list;
+
 pub(crate) mod shape_secondary_address_component_match_score;
+
+pub(crate) mod shape_translation_name;

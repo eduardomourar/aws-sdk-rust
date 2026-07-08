@@ -253,6 +253,8 @@ pub use crate::types::_resolved_configuration::ResolvedConfigurationBuilder;
 
 pub use crate::types::_ecs_managed_resources::EcsManagedResourcesBuilder;
 
+pub use crate::types::_service_revision_overrides::ServiceRevisionOverridesBuilder;
+
 pub use crate::types::_linux_parameters::LinuxParametersBuilder;
 
 pub use crate::types::_docker_volume_configuration::DockerVolumeConfigurationBuilder;
@@ -318,6 +320,8 @@ pub use crate::types::_ingress_path_summary::IngressPathSummaryBuilder;
 pub use crate::types::_container_image::ContainerImageBuilder;
 
 pub use crate::types::_managed_auto_scaling::ManagedAutoScalingBuilder;
+
+pub use crate::types::_runtime_platform_override::RuntimePlatformOverrideBuilder;
 
 pub use crate::types::_port_mapping::PortMappingBuilder;
 

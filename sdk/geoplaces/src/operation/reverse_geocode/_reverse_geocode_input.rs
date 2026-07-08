@@ -14,7 +14,7 @@ pub struct ReverseGeocodeInput {
     pub filter: ::std::option::Option<crate::types::ReverseGeocodeFilter>,
     /// <p>A list of optional additional parameters, such as time zone that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value.</p>
     pub additional_features: ::std::option::Option<::std::vec::Vec<crate::types::ReverseGeocodeAdditionalFeature>>,
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
     pub language: ::std::option::Option<::std::string::String>,
     /// <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     pub political_view: ::std::option::Option<::std::string::String>,
@@ -27,6 +27,8 @@ pub struct ReverseGeocodeInput {
     /// <p>The heading in degrees from true north in a navigation context. The heading is measured as the angle clockwise from the North direction.</p>
     /// <p>Example: North is <code>0</code> degrees, East is <code>90</code> degrees, South is <code>180</code> degrees, and West is <code>270</code> degrees.</p>
     pub heading: ::std::option::Option<f64>,
+    /// <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub address_names_mode: ::std::option::Option<crate::types::ReverseGeocodeAddressNamesMode>,
 }
 impl ReverseGeocodeInput {
     /// <p>The position in World Geodetic System (WGS 84) format: \[longitude, latitude\] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
@@ -54,7 +56,7 @@ impl ReverseGeocodeInput {
     pub fn additional_features(&self) -> &[crate::types::ReverseGeocodeAdditionalFeature] {
         self.additional_features.as_deref().unwrap_or_default()
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
     pub fn language(&self) -> ::std::option::Option<&str> {
         self.language.as_deref()
     }
@@ -77,6 +79,10 @@ impl ReverseGeocodeInput {
     pub fn heading(&self) -> ::std::option::Option<f64> {
         self.heading
     }
+    /// <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn address_names_mode(&self) -> ::std::option::Option<&crate::types::ReverseGeocodeAddressNamesMode> {
+        self.address_names_mode.as_ref()
+    }
 }
 impl ::std::fmt::Debug for ReverseGeocodeInput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -91,6 +97,7 @@ impl ::std::fmt::Debug for ReverseGeocodeInput {
         formatter.field("intended_use", &self.intended_use);
         formatter.field("key", &"*** Sensitive Data Redacted ***");
         formatter.field("heading", &"*** Sensitive Data Redacted ***");
+        formatter.field("address_names_mode", &self.address_names_mode);
         formatter.finish()
     }
 }
@@ -115,6 +122,7 @@ pub struct ReverseGeocodeInputBuilder {
     pub(crate) intended_use: ::std::option::Option<crate::types::ReverseGeocodeIntendedUse>,
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) heading: ::std::option::Option<f64>,
+    pub(crate) address_names_mode: ::std::option::Option<crate::types::ReverseGeocodeAddressNamesMode>,
 }
 impl ReverseGeocodeInputBuilder {
     /// Appends an item to `query_position`.
@@ -202,17 +210,17 @@ impl ReverseGeocodeInputBuilder {
     pub fn get_additional_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReverseGeocodeAdditionalFeature>> {
         &self.additional_features
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
     pub fn language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
     pub fn set_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.language = input;
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code></p>
     pub fn get_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.language
     }
@@ -281,6 +289,20 @@ impl ReverseGeocodeInputBuilder {
     pub fn get_heading(&self) -> &::std::option::Option<f64> {
         &self.heading
     }
+    /// <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn address_names_mode(mut self, input: crate::types::ReverseGeocodeAddressNamesMode) -> Self {
+        self.address_names_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn set_address_names_mode(mut self, input: ::std::option::Option<crate::types::ReverseGeocodeAddressNamesMode>) -> Self {
+        self.address_names_mode = input;
+        self
+    }
+    /// <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+    pub fn get_address_names_mode(&self) -> &::std::option::Option<crate::types::ReverseGeocodeAddressNamesMode> {
+        &self.address_names_mode
+    }
     /// Consumes the builder and constructs a [`ReverseGeocodeInput`](crate::operation::reverse_geocode::ReverseGeocodeInput).
     pub fn build(
         self,
@@ -296,6 +318,7 @@ impl ReverseGeocodeInputBuilder {
             intended_use: self.intended_use,
             key: self.key,
             heading: self.heading,
+            address_names_mode: self.address_names_mode,
         })
     }
 }
@@ -312,6 +335,7 @@ impl ::std::fmt::Debug for ReverseGeocodeInputBuilder {
         formatter.field("intended_use", &self.intended_use);
         formatter.field("key", &"*** Sensitive Data Redacted ***");
         formatter.field("heading", &"*** Sensitive Data Redacted ***");
+        formatter.field("address_names_mode", &self.address_names_mode);
         formatter.finish()
     }
 }

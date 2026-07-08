@@ -14,6 +14,8 @@ pub struct LoRaWanMulticastGet {
     pub number_of_devices_in_group: ::std::option::Option<i32>,
     /// <p>Specify the list of gateways to which you want to send the multicast downlink messages. The multicast message will be sent to each gateway in the list, with the transmission interval as the time interval between each message.</p>
     pub participating_gateways: ::std::option::Option<crate::types::ParticipatingGatewaysMulticast>,
+    /// <p>The default session parameters for the multicast group.</p>
+    pub default_session_parameters: ::std::option::Option<crate::types::DefaultSessionParametersMulticast>,
 }
 impl LoRaWanMulticastGet {
     /// <p>Supported RfRegions</p>
@@ -36,6 +38,10 @@ impl LoRaWanMulticastGet {
     pub fn participating_gateways(&self) -> ::std::option::Option<&crate::types::ParticipatingGatewaysMulticast> {
         self.participating_gateways.as_ref()
     }
+    /// <p>The default session parameters for the multicast group.</p>
+    pub fn default_session_parameters(&self) -> ::std::option::Option<&crate::types::DefaultSessionParametersMulticast> {
+        self.default_session_parameters.as_ref()
+    }
 }
 impl LoRaWanMulticastGet {
     /// Creates a new builder-style object to manufacture [`LoRaWanMulticastGet`](crate::types::LoRaWanMulticastGet).
@@ -53,6 +59,7 @@ pub struct LoRaWanMulticastGetBuilder {
     pub(crate) number_of_devices_requested: ::std::option::Option<i32>,
     pub(crate) number_of_devices_in_group: ::std::option::Option<i32>,
     pub(crate) participating_gateways: ::std::option::Option<crate::types::ParticipatingGatewaysMulticast>,
+    pub(crate) default_session_parameters: ::std::option::Option<crate::types::DefaultSessionParametersMulticast>,
 }
 impl LoRaWanMulticastGetBuilder {
     /// <p>Supported RfRegions</p>
@@ -125,6 +132,20 @@ impl LoRaWanMulticastGetBuilder {
     pub fn get_participating_gateways(&self) -> &::std::option::Option<crate::types::ParticipatingGatewaysMulticast> {
         &self.participating_gateways
     }
+    /// <p>The default session parameters for the multicast group.</p>
+    pub fn default_session_parameters(mut self, input: crate::types::DefaultSessionParametersMulticast) -> Self {
+        self.default_session_parameters = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The default session parameters for the multicast group.</p>
+    pub fn set_default_session_parameters(mut self, input: ::std::option::Option<crate::types::DefaultSessionParametersMulticast>) -> Self {
+        self.default_session_parameters = input;
+        self
+    }
+    /// <p>The default session parameters for the multicast group.</p>
+    pub fn get_default_session_parameters(&self) -> &::std::option::Option<crate::types::DefaultSessionParametersMulticast> {
+        &self.default_session_parameters
+    }
     /// Consumes the builder and constructs a [`LoRaWanMulticastGet`](crate::types::LoRaWanMulticastGet).
     pub fn build(self) -> crate::types::LoRaWanMulticastGet {
         crate::types::LoRaWanMulticastGet {
@@ -133,6 +154,7 @@ impl LoRaWanMulticastGetBuilder {
             number_of_devices_requested: self.number_of_devices_requested,
             number_of_devices_in_group: self.number_of_devices_in_group,
             participating_gateways: self.participating_gateways,
+            default_session_parameters: self.default_session_parameters,
         }
     }
 }

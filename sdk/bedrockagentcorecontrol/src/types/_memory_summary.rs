@@ -14,7 +14,7 @@ pub struct MemorySummary {
     pub created_at: ::aws_smithy_types::DateTime,
     /// <p>The timestamp when the memory was last updated.</p>
     pub updated_at: ::aws_smithy_types::DateTime,
-    /// ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
     pub managed_by_resource_arn: ::std::option::Option<::std::string::String>,
 }
 impl MemorySummary {
@@ -38,7 +38,7 @@ impl MemorySummary {
     pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
         &self.updated_at
     }
-    /// ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
     pub fn managed_by_resource_arn(&self) -> ::std::option::Option<&str> {
         self.managed_by_resource_arn.as_deref()
     }
@@ -134,17 +134,17 @@ impl MemorySummaryBuilder {
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.updated_at
     }
-    /// ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
     pub fn managed_by_resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.managed_by_resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
     pub fn set_managed_by_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.managed_by_resource_arn = input;
         self
     }
-    /// ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+    /// <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
     pub fn get_managed_by_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.managed_by_resource_arn
     }

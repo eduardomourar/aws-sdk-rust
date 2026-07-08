@@ -141,17 +141,17 @@ impl UpdateExperimentDefinitionFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_treatments`](Self::set_treatments).
     ///
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub fn treatments(mut self, input: crate::types::TreatmentInput) -> Self {
         self.inner = self.inner.treatments(input);
         self
     }
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub fn set_treatments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TreatmentInput>>) -> Self {
         self.inner = self.inner.set_treatments(input);
         self
     }
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub fn get_treatments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TreatmentInput>> {
         self.inner.get_treatments()
     }

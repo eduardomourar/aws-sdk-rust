@@ -16,11 +16,11 @@ pub struct AutocompleteInput {
     pub bias_position: ::std::option::Option<::std::vec::Vec<f64>>,
     /// <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
     pub filter: ::std::option::Option<crate::types::AutocompleteFilter>,
-    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
     pub postal_code_mode: ::std::option::Option<crate::types::PostalCodeMode>,
     /// <p>A list of optional additional parameters that can be requested for each result.</p>
     pub additional_features: ::std::option::Option<::std::vec::Vec<crate::types::AutocompleteAdditionalFeature>>,
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub language: ::std::option::Option<::std::string::String>,
     /// <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
     /// <p>The following political views are currently supported:</p>
@@ -84,7 +84,7 @@ impl AutocompleteInput {
     pub fn filter(&self) -> ::std::option::Option<&crate::types::AutocompleteFilter> {
         self.filter.as_ref()
     }
-    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
     pub fn postal_code_mode(&self) -> ::std::option::Option<&crate::types::PostalCodeMode> {
         self.postal_code_mode.as_ref()
     }
@@ -94,7 +94,7 @@ impl AutocompleteInput {
     pub fn additional_features(&self) -> &[crate::types::AutocompleteAdditionalFeature] {
         self.additional_features.as_deref().unwrap_or_default()
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn language(&self) -> ::std::option::Option<&str> {
         self.language.as_deref()
     }
@@ -259,17 +259,17 @@ impl AutocompleteInputBuilder {
     pub fn get_filter(&self) -> &::std::option::Option<crate::types::AutocompleteFilter> {
         &self.filter
     }
-    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
     pub fn postal_code_mode(mut self, input: crate::types::PostalCodeMode) -> Self {
         self.postal_code_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
     pub fn set_postal_code_mode(mut self, input: ::std::option::Option<crate::types::PostalCodeMode>) -> Self {
         self.postal_code_mode = input;
         self
     }
-    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
+    /// <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
     pub fn get_postal_code_mode(&self) -> &::std::option::Option<crate::types::PostalCodeMode> {
         &self.postal_code_mode
     }
@@ -293,17 +293,17 @@ impl AutocompleteInputBuilder {
     pub fn get_additional_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AutocompleteAdditionalFeature>> {
         &self.additional_features
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn set_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.language = input;
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn get_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.language
     }

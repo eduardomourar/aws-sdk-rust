@@ -29,7 +29,7 @@ pub struct SearchTextResultItem {
     pub business_chains: ::std::option::Option<::std::vec::Vec<crate::types::BusinessChain>>,
     /// <p>List of potential contact methods for the result/place.</p>
     pub contacts: ::std::option::Option<crate::types::Contacts>,
-    /// <p>List of opening hours objects.</p>
+    /// <p>List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     pub opening_hours: ::std::option::Option<::std::vec::Vec<crate::types::OpeningHours>>,
     /// <p>Position of the access point in World Geodetic System (WGS 84) format: \[longitude, latitude\].</p>
     pub access_points: ::std::option::Option<::std::vec::Vec<crate::types::AccessPoint>>,
@@ -41,6 +41,10 @@ pub struct SearchTextResultItem {
     pub political_view: ::std::option::Option<::std::string::String>,
     /// <p>How the various components of the result's address are pronounced in various languages.</p>
     pub phonemes: ::std::option::Option<crate::types::PhonemeDetails>,
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub place_attributes: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>,
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub cross_references: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>,
 }
 impl SearchTextResultItem {
     /// <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
@@ -104,7 +108,7 @@ impl SearchTextResultItem {
     pub fn contacts(&self) -> ::std::option::Option<&crate::types::Contacts> {
         self.contacts.as_ref()
     }
-    /// <p>List of opening hours objects.</p>
+    /// <p>List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.opening_hours.is_none()`.
     pub fn opening_hours(&self) -> &[crate::types::OpeningHours] {
@@ -134,6 +138,18 @@ impl SearchTextResultItem {
     pub fn phonemes(&self) -> ::std::option::Option<&crate::types::PhonemeDetails> {
         self.phonemes.as_ref()
     }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.place_attributes.is_none()`.
+    pub fn place_attributes(&self) -> &[crate::types::PlaceAttribute] {
+        self.place_attributes.as_deref().unwrap_or_default()
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.cross_references.is_none()`.
+    pub fn cross_references(&self) -> &[crate::types::CrossReference] {
+        self.cross_references.as_deref().unwrap_or_default()
+    }
 }
 impl ::std::fmt::Debug for SearchTextResultItem {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -156,6 +172,8 @@ impl ::std::fmt::Debug for SearchTextResultItem {
         formatter.field("time_zone", &self.time_zone);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("phonemes", &self.phonemes);
+        formatter.field("place_attributes", &"*** Sensitive Data Redacted ***");
+        formatter.field("cross_references", &self.cross_references);
         formatter.finish()
     }
 }
@@ -188,6 +206,8 @@ pub struct SearchTextResultItemBuilder {
     pub(crate) time_zone: ::std::option::Option<crate::types::TimeZone>,
     pub(crate) political_view: ::std::option::Option<::std::string::String>,
     pub(crate) phonemes: ::std::option::Option<crate::types::PhonemeDetails>,
+    pub(crate) place_attributes: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>,
+    pub(crate) cross_references: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>,
 }
 impl SearchTextResultItemBuilder {
     /// <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
@@ -398,19 +418,19 @@ impl SearchTextResultItemBuilder {
     ///
     /// To override the contents of this collection use [`set_opening_hours`](Self::set_opening_hours).
     ///
-    /// <p>List of opening hours objects.</p>
+    /// <p>List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     pub fn opening_hours(mut self, input: crate::types::OpeningHours) -> Self {
         let mut v = self.opening_hours.unwrap_or_default();
         v.push(input);
         self.opening_hours = ::std::option::Option::Some(v);
         self
     }
-    /// <p>List of opening hours objects.</p>
+    /// <p>List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     pub fn set_opening_hours(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OpeningHours>>) -> Self {
         self.opening_hours = input;
         self
     }
-    /// <p>List of opening hours objects.</p>
+    /// <p>List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
     pub fn get_opening_hours(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OpeningHours>> {
         &self.opening_hours
     }
@@ -496,6 +516,46 @@ impl SearchTextResultItemBuilder {
     pub fn get_phonemes(&self) -> &::std::option::Option<crate::types::PhonemeDetails> {
         &self.phonemes
     }
+    /// Appends an item to `place_attributes`.
+    ///
+    /// To override the contents of this collection use [`set_place_attributes`](Self::set_place_attributes).
+    ///
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn place_attributes(mut self, input: crate::types::PlaceAttribute) -> Self {
+        let mut v = self.place_attributes.unwrap_or_default();
+        v.push(input);
+        self.place_attributes = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn set_place_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>) -> Self {
+        self.place_attributes = input;
+        self
+    }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn get_place_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>> {
+        &self.place_attributes
+    }
+    /// Appends an item to `cross_references`.
+    ///
+    /// To override the contents of this collection use [`set_cross_references`](Self::set_cross_references).
+    ///
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn cross_references(mut self, input: crate::types::CrossReference) -> Self {
+        let mut v = self.cross_references.unwrap_or_default();
+        v.push(input);
+        self.cross_references = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn set_cross_references(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>) -> Self {
+        self.cross_references = input;
+        self
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn get_cross_references(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CrossReference>> {
+        &self.cross_references
+    }
     /// Consumes the builder and constructs a [`SearchTextResultItem`](crate::types::SearchTextResultItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`place_id`](crate::types::builders::SearchTextResultItemBuilder::place_id)
@@ -536,6 +596,8 @@ impl SearchTextResultItemBuilder {
             time_zone: self.time_zone,
             political_view: self.political_view,
             phonemes: self.phonemes,
+            place_attributes: self.place_attributes,
+            cross_references: self.cross_references,
         })
     }
 }
@@ -560,6 +622,8 @@ impl ::std::fmt::Debug for SearchTextResultItemBuilder {
         formatter.field("time_zone", &self.time_zone);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("phonemes", &self.phonemes);
+        formatter.field("place_attributes", &"*** Sensitive Data Redacted ***");
+        formatter.field("cross_references", &self.cross_references);
         formatter.finish()
     }
 }

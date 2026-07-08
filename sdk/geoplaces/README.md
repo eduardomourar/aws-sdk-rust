@@ -1,17 +1,20 @@
 # aws-sdk-geoplaces
 
 The Places API enables powerful location search and geocoding capabilities for your applications, offering global coverage with rich, detailed information. Key features include:
-  - Forward and reverse geocoding for addresses and coordinates
-  - Comprehensive place searches with detailed information, including:
+  - Forward and reverse geocoding for addresses and coordinates. See [Geocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Geocode.html) and [ReverseGeocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html).
+  - Comprehensive place searches with detailed information. See [SearchText](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html), [SearchNearby](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchNearby.html), and [GetPlace](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html). Place information you can find include:
     - Business names and addresses
     - Contact information
     - Hours of operation
-    - POI (Points of Interest) categories
+    - Points of Interest (POI) categories
     - Food types for restaurants
     - Chain affiliation for relevant businesses
 
-  - Global data coverage with a wide range of POI categories
-  - Regular data updates to ensure accuracy and relevance
+  - Address and place completion as users type, enhancing input efficiency by completing partial queries with valid addresses. See [Autocomplete](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Autocomplete.html).
+  - Intelligent place and query recommendation based on user's input or context, returning relevant places, points of interest, query terms, or search categories. See [Suggest](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Suggest.html).
+  - Global data coverage with a wide range of POI categories.
+  - Regular data updates to ensure accuracy and relevance.
+  - Bulk address validation for verifying and standardizing large volumes of addresses in a single operation using [Amazon Location Service Jobs](https://docs.aws.amazon.com/location/latest/APIReference/Welcome.html#Welcome_Amazon_Location_Service_Jobs).
 
 ## Getting Started
 
@@ -25,7 +28,7 @@ your project, add the following to your **Cargo.toml** file:
 ```toml
 [dependencies]
 aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
-aws-sdk-geoplaces = "1.57.0"
+aws-sdk-geoplaces = "1.58.0"
 tokio = { version = "1", features = ["full"] }
 ```
 

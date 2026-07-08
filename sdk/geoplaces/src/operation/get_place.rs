@@ -229,6 +229,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPlaceRequ
                         query.push_kv("key", &::aws_smithy_http::query::fmt_string(inner_7));
                     }
                 }
+                if let ::std::option::Option::Some(inner_8) = &_input.address_names_mode {
+                    {
+                        query.push_kv("address-names-mode", &::aws_smithy_http::query::fmt_string(inner_8.as_str()));
+                    }
+                }
                 ::std::result::Result::Ok(())
             }
             #[allow(clippy::unnecessary_wraps)]

@@ -1368,6 +1368,7 @@ impl From<crate::operation::stop_experiment_run::StopExperimentRunError> for Err
     fn from(err: crate::operation::stop_experiment_run::StopExperimentRunError) -> Self {
         match err {
             crate::operation::stop_experiment_run::StopExperimentRunError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::stop_experiment_run::StopExperimentRunError::ConflictException(inner) => Error::ConflictException(inner),
             crate::operation::stop_experiment_run::StopExperimentRunError::InternalServerException(inner) => Error::InternalServerException(inner),
             crate::operation::stop_experiment_run::StopExperimentRunError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)

@@ -6,6 +6,12 @@
 pub struct AccessPoint {
     /// <p>The position in World Geodetic System (WGS 84) format: \[longitude, latitude\].</p>
     pub position: ::std::option::Option<::std::vec::Vec<f64>>,
+    /// <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+    pub r#type: ::std::option::Option<crate::types::AccessPointType>,
+    /// <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+    pub primary: ::std::option::Option<bool>,
+    /// <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+    pub label: ::std::option::Option<::std::string::String>,
 }
 impl AccessPoint {
     /// <p>The position in World Geodetic System (WGS 84) format: \[longitude, latitude\].</p>
@@ -14,11 +20,26 @@ impl AccessPoint {
     pub fn position(&self) -> &[f64] {
         self.position.as_deref().unwrap_or_default()
     }
+    /// <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+    pub fn r#type(&self) -> ::std::option::Option<&crate::types::AccessPointType> {
+        self.r#type.as_ref()
+    }
+    /// <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+    pub fn primary(&self) -> ::std::option::Option<bool> {
+        self.primary
+    }
+    /// <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+    pub fn label(&self) -> ::std::option::Option<&str> {
+        self.label.as_deref()
+    }
 }
 impl ::std::fmt::Debug for AccessPoint {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("AccessPoint");
         formatter.field("position", &"*** Sensitive Data Redacted ***");
+        formatter.field("r#type", &self.r#type);
+        formatter.field("primary", &"*** Sensitive Data Redacted ***");
+        formatter.field("label", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -34,6 +55,9 @@ impl AccessPoint {
 #[non_exhaustive]
 pub struct AccessPointBuilder {
     pub(crate) position: ::std::option::Option<::std::vec::Vec<f64>>,
+    pub(crate) r#type: ::std::option::Option<crate::types::AccessPointType>,
+    pub(crate) primary: ::std::option::Option<bool>,
+    pub(crate) label: ::std::option::Option<::std::string::String>,
 }
 impl AccessPointBuilder {
     /// Appends an item to `position`.
@@ -56,15 +80,65 @@ impl AccessPointBuilder {
     pub fn get_position(&self) -> &::std::option::Option<::std::vec::Vec<f64>> {
         &self.position
     }
+    /// <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+    pub fn r#type(mut self, input: crate::types::AccessPointType) -> Self {
+        self.r#type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::AccessPointType>) -> Self {
+        self.r#type = input;
+        self
+    }
+    /// <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::AccessPointType> {
+        &self.r#type
+    }
+    /// <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+    pub fn primary(mut self, input: bool) -> Self {
+        self.primary = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+    pub fn set_primary(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.primary = input;
+        self
+    }
+    /// <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+    pub fn get_primary(&self) -> &::std::option::Option<bool> {
+        &self.primary
+    }
+    /// <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+    pub fn label(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.label = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.label = input;
+        self
+    }
+    /// <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
+        &self.label
+    }
     /// Consumes the builder and constructs a [`AccessPoint`](crate::types::AccessPoint).
     pub fn build(self) -> crate::types::AccessPoint {
-        crate::types::AccessPoint { position: self.position }
+        crate::types::AccessPoint {
+            position: self.position,
+            r#type: self.r#type,
+            primary: self.primary,
+            label: self.label,
+        }
     }
 }
 impl ::std::fmt::Debug for AccessPointBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("AccessPointBuilder");
         formatter.field("position", &"*** Sensitive Data Redacted ***");
+        formatter.field("r#type", &self.r#type);
+        formatter.field("primary", &"*** Sensitive Data Redacted ***");
+        formatter.field("label", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

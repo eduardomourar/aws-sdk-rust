@@ -16,6 +16,8 @@
 ///     ReverseGeocodeFilterPlaceType::Intersection => { /* ... */ },
 ///     ReverseGeocodeFilterPlaceType::Locality => { /* ... */ },
 ///     ReverseGeocodeFilterPlaceType::PointAddress => { /* ... */ },
+///     ReverseGeocodeFilterPlaceType::PointOfInterest => { /* ... */ },
+///     ReverseGeocodeFilterPlaceType::SecondaryAddress => { /* ... */ },
 ///     ReverseGeocodeFilterPlaceType::Street => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -54,6 +56,10 @@ pub enum ReverseGeocodeFilterPlaceType {
     #[allow(missing_docs)] // documentation missing in model
     PointAddress,
     #[allow(missing_docs)] // documentation missing in model
+    PointOfInterest,
+    #[allow(missing_docs)] // documentation missing in model
+    SecondaryAddress,
+    #[allow(missing_docs)] // documentation missing in model
     Street,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
@@ -66,6 +72,8 @@ impl ::std::convert::From<&str> for ReverseGeocodeFilterPlaceType {
             "Intersection" => ReverseGeocodeFilterPlaceType::Intersection,
             "Locality" => ReverseGeocodeFilterPlaceType::Locality,
             "PointAddress" => ReverseGeocodeFilterPlaceType::PointAddress,
+            "PointOfInterest" => ReverseGeocodeFilterPlaceType::PointOfInterest,
+            "SecondaryAddress" => ReverseGeocodeFilterPlaceType::SecondaryAddress,
             "Street" => ReverseGeocodeFilterPlaceType::Street,
             other => ReverseGeocodeFilterPlaceType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -86,13 +94,23 @@ impl ReverseGeocodeFilterPlaceType {
             ReverseGeocodeFilterPlaceType::Intersection => "Intersection",
             ReverseGeocodeFilterPlaceType::Locality => "Locality",
             ReverseGeocodeFilterPlaceType::PointAddress => "PointAddress",
+            ReverseGeocodeFilterPlaceType::PointOfInterest => "PointOfInterest",
+            ReverseGeocodeFilterPlaceType::SecondaryAddress => "SecondaryAddress",
             ReverseGeocodeFilterPlaceType::Street => "Street",
             ReverseGeocodeFilterPlaceType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["InterpolatedAddress", "Intersection", "Locality", "PointAddress", "Street"]
+        &[
+            "InterpolatedAddress",
+            "Intersection",
+            "Locality",
+            "PointAddress",
+            "PointOfInterest",
+            "SecondaryAddress",
+            "Street",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ReverseGeocodeFilterPlaceType {
@@ -119,6 +137,8 @@ impl ::std::fmt::Display for ReverseGeocodeFilterPlaceType {
             ReverseGeocodeFilterPlaceType::Intersection => write!(f, "Intersection"),
             ReverseGeocodeFilterPlaceType::Locality => write!(f, "Locality"),
             ReverseGeocodeFilterPlaceType::PointAddress => write!(f, "PointAddress"),
+            ReverseGeocodeFilterPlaceType::PointOfInterest => write!(f, "PointOfInterest"),
+            ReverseGeocodeFilterPlaceType::SecondaryAddress => write!(f, "SecondaryAddress"),
             ReverseGeocodeFilterPlaceType::Street => write!(f, "Street"),
             ReverseGeocodeFilterPlaceType::Unknown(value) => write!(f, "{value}"),
         }

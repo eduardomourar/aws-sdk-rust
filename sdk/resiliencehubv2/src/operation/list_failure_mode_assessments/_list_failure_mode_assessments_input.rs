@@ -5,6 +5,16 @@
 pub struct ListFailureModeAssessmentsInput {
     /// <p>ARN identifier.</p>
     pub service_arn: ::std::option::Option<::std::string::String>,
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub assessment_statuses: ::std::option::Option<::std::vec::Vec<crate::types::AssessmentStatus>>,
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub started_after: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub ended_before: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub sort_by: ::std::option::Option<crate::types::AssessmentSortField>,
+    /// <p>The sort order for results.</p>
+    pub sort_order: ::std::option::Option<crate::types::SortOrder>,
     /// <p>Pagination page size.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>Pagination token.</p>
@@ -14,6 +24,28 @@ impl ListFailureModeAssessmentsInput {
     /// <p>ARN identifier.</p>
     pub fn service_arn(&self) -> ::std::option::Option<&str> {
         self.service_arn.as_deref()
+    }
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.assessment_statuses.is_none()`.
+    pub fn assessment_statuses(&self) -> &[crate::types::AssessmentStatus] {
+        self.assessment_statuses.as_deref().unwrap_or_default()
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn started_after(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.started_after.as_ref()
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn ended_before(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.ended_before.as_ref()
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn sort_by(&self) -> ::std::option::Option<&crate::types::AssessmentSortField> {
+        self.sort_by.as_ref()
+    }
+    /// <p>The sort order for results.</p>
+    pub fn sort_order(&self) -> ::std::option::Option<&crate::types::SortOrder> {
+        self.sort_order.as_ref()
     }
     /// <p>Pagination page size.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
@@ -36,6 +68,11 @@ impl ListFailureModeAssessmentsInput {
 #[non_exhaustive]
 pub struct ListFailureModeAssessmentsInputBuilder {
     pub(crate) service_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) assessment_statuses: ::std::option::Option<::std::vec::Vec<crate::types::AssessmentStatus>>,
+    pub(crate) started_after: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) ended_before: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) sort_by: ::std::option::Option<crate::types::AssessmentSortField>,
+    pub(crate) sort_order: ::std::option::Option<crate::types::SortOrder>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -54,6 +91,82 @@ impl ListFailureModeAssessmentsInputBuilder {
     /// <p>ARN identifier.</p>
     pub fn get_service_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.service_arn
+    }
+    /// Appends an item to `assessment_statuses`.
+    ///
+    /// To override the contents of this collection use [`set_assessment_statuses`](Self::set_assessment_statuses).
+    ///
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub fn assessment_statuses(mut self, input: crate::types::AssessmentStatus) -> Self {
+        let mut v = self.assessment_statuses.unwrap_or_default();
+        v.push(input);
+        self.assessment_statuses = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub fn set_assessment_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssessmentStatus>>) -> Self {
+        self.assessment_statuses = input;
+        self
+    }
+    /// <p>Specifies the assessment statuses to include in the results.</p>
+    pub fn get_assessment_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssessmentStatus>> {
+        &self.assessment_statuses
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn started_after(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.started_after = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn set_started_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.started_after = input;
+        self
+    }
+    /// <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+    pub fn get_started_after(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.started_after
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn ended_before(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.ended_before = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn set_ended_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.ended_before = input;
+        self
+    }
+    /// <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+    pub fn get_ended_before(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.ended_before
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn sort_by(mut self, input: crate::types::AssessmentSortField) -> Self {
+        self.sort_by = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::AssessmentSortField>) -> Self {
+        self.sort_by = input;
+        self
+    }
+    /// <p>The field to use for sorting failure mode assessments.</p>
+    pub fn get_sort_by(&self) -> &::std::option::Option<crate::types::AssessmentSortField> {
+        &self.sort_by
+    }
+    /// <p>The sort order for results.</p>
+    pub fn sort_order(mut self, input: crate::types::SortOrder) -> Self {
+        self.sort_order = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The sort order for results.</p>
+    pub fn set_sort_order(mut self, input: ::std::option::Option<crate::types::SortOrder>) -> Self {
+        self.sort_order = input;
+        self
+    }
+    /// <p>The sort order for results.</p>
+    pub fn get_sort_order(&self) -> &::std::option::Option<crate::types::SortOrder> {
+        &self.sort_order
     }
     /// <p>Pagination page size.</p>
     pub fn max_results(mut self, input: i32) -> Self {
@@ -92,6 +205,11 @@ impl ListFailureModeAssessmentsInputBuilder {
     > {
         ::std::result::Result::Ok(crate::operation::list_failure_mode_assessments::ListFailureModeAssessmentsInput {
             service_arn: self.service_arn,
+            assessment_statuses: self.assessment_statuses,
+            started_after: self.started_after,
+            ended_before: self.ended_before,
+            sort_by: self.sort_by,
+            sort_order: self.sort_order,
             max_results: self.max_results,
             next_token: self.next_token,
         })

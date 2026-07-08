@@ -156,6 +156,39 @@ impl ListResourcesFluentBuilder {
     pub fn get_aws_region(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_aws_region()
     }
+    ///
+    /// Appends an item to `resourceTypes`.
+    ///
+    /// To override the contents of this collection use [`set_resource_types`](Self::set_resource_types).
+    ///
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.resource_types(input.into());
+        self
+    }
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_resource_types(input);
+        self
+    }
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_resource_types()
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn billable(mut self, input: bool) -> Self {
+        self.inner = self.inner.billable(input);
+        self
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn set_billable(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.inner = self.inner.set_billable(input);
+        self
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn get_billable(&self) -> &::std::option::Option<bool> {
+        self.inner.get_billable()
+    }
     /// <p>Pagination page size.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.inner = self.inner.max_results(input);

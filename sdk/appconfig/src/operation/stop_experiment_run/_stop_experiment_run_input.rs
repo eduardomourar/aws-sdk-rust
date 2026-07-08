@@ -11,7 +11,7 @@ pub struct StopExperimentRunInput {
     pub run: ::std::option::Option<i32>,
     /// <p>The result of the experiment run, including an executive summary and reasons for or against launching.</p>
     pub result: ::std::option::Option<crate::types::ExperimentRunResult>,
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub deployment_parameters: ::std::option::Option<crate::types::DeploymentParameters>,
 }
 impl StopExperimentRunInput {
@@ -31,7 +31,7 @@ impl StopExperimentRunInput {
     pub fn result(&self) -> ::std::option::Option<&crate::types::ExperimentRunResult> {
         self.result.as_ref()
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn deployment_parameters(&self) -> ::std::option::Option<&crate::types::DeploymentParameters> {
         self.deployment_parameters.as_ref()
     }
@@ -113,17 +113,17 @@ impl StopExperimentRunInputBuilder {
     pub fn get_result(&self) -> &::std::option::Option<crate::types::ExperimentRunResult> {
         &self.result
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn deployment_parameters(mut self, input: crate::types::DeploymentParameters) -> Self {
         self.deployment_parameters = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn set_deployment_parameters(mut self, input: ::std::option::Option<crate::types::DeploymentParameters>) -> Self {
         self.deployment_parameters = input;
         self
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn get_deployment_parameters(&self) -> &::std::option::Option<crate::types::DeploymentParameters> {
         &self.deployment_parameters
     }

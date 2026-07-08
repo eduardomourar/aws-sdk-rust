@@ -4,13 +4,13 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct FlagValue {
-    /// <p>Whether the feature flag is enabled for this treatment.</p>
+    /// <p>Specifies whether the feature flag is enabled for this treatment.</p>
     pub enabled: bool,
     /// <p>The attribute values associated with this flag value.</p>
     pub attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 }
 impl FlagValue {
-    /// <p>Whether the feature flag is enabled for this treatment.</p>
+    /// <p>Specifies whether the feature flag is enabled for this treatment.</p>
     pub fn enabled(&self) -> bool {
         self.enabled
     }
@@ -34,18 +34,18 @@ pub struct FlagValueBuilder {
     pub(crate) attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 }
 impl FlagValueBuilder {
-    /// <p>Whether the feature flag is enabled for this treatment.</p>
+    /// <p>Specifies whether the feature flag is enabled for this treatment.</p>
     /// This field is required.
     pub fn enabled(mut self, input: bool) -> Self {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Whether the feature flag is enabled for this treatment.</p>
+    /// <p>Specifies whether the feature flag is enabled for this treatment.</p>
     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.enabled = input;
         self
     }
-    /// <p>Whether the feature flag is enabled for this treatment.</p>
+    /// <p>Specifies whether the feature flag is enabled for this treatment.</p>
     pub fn get_enabled(&self) -> &::std::option::Option<bool> {
         &self.enabled
     }

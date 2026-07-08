@@ -8,6 +8,14 @@ pub struct ServiceTopologyEdgeSummary {
     pub source_resource_identifier: ::std::string::String,
     /// <p>The identifier of the destination resource.</p>
     pub destination_resource_identifier: ::std::string::String,
+    /// <p>The AWS Region of the source resource.</p>
+    pub source_region: ::std::option::Option<::std::string::String>,
+    /// <p>The AWS Region of the destination resource.</p>
+    pub destination_region: ::std::option::Option<::std::string::String>,
+    /// <p>The AWS account ID of the source resource.</p>
+    pub source_account: ::std::option::Option<::std::string::String>,
+    /// <p>The AWS account ID of the destination resource.</p>
+    pub destination_account: ::std::option::Option<::std::string::String>,
     /// <p>The properties of the topology edge.</p>
     pub properties: ::std::option::Option<::std::vec::Vec<crate::types::EdgePropertySummary>>,
 }
@@ -21,6 +29,22 @@ impl ServiceTopologyEdgeSummary {
     pub fn destination_resource_identifier(&self) -> &str {
         use std::ops::Deref;
         self.destination_resource_identifier.deref()
+    }
+    /// <p>The AWS Region of the source resource.</p>
+    pub fn source_region(&self) -> ::std::option::Option<&str> {
+        self.source_region.as_deref()
+    }
+    /// <p>The AWS Region of the destination resource.</p>
+    pub fn destination_region(&self) -> ::std::option::Option<&str> {
+        self.destination_region.as_deref()
+    }
+    /// <p>The AWS account ID of the source resource.</p>
+    pub fn source_account(&self) -> ::std::option::Option<&str> {
+        self.source_account.as_deref()
+    }
+    /// <p>The AWS account ID of the destination resource.</p>
+    pub fn destination_account(&self) -> ::std::option::Option<&str> {
+        self.destination_account.as_deref()
     }
     /// <p>The properties of the topology edge.</p>
     ///
@@ -42,6 +66,10 @@ impl ServiceTopologyEdgeSummary {
 pub struct ServiceTopologyEdgeSummaryBuilder {
     pub(crate) source_resource_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) destination_resource_identifier: ::std::option::Option<::std::string::String>,
+    pub(crate) source_region: ::std::option::Option<::std::string::String>,
+    pub(crate) destination_region: ::std::option::Option<::std::string::String>,
+    pub(crate) source_account: ::std::option::Option<::std::string::String>,
+    pub(crate) destination_account: ::std::option::Option<::std::string::String>,
     pub(crate) properties: ::std::option::Option<::std::vec::Vec<crate::types::EdgePropertySummary>>,
 }
 impl ServiceTopologyEdgeSummaryBuilder {
@@ -74,6 +102,62 @@ impl ServiceTopologyEdgeSummaryBuilder {
     /// <p>The identifier of the destination resource.</p>
     pub fn get_destination_resource_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.destination_resource_identifier
+    }
+    /// <p>The AWS Region of the source resource.</p>
+    pub fn source_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.source_region = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AWS Region of the source resource.</p>
+    pub fn set_source_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.source_region = input;
+        self
+    }
+    /// <p>The AWS Region of the source resource.</p>
+    pub fn get_source_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.source_region
+    }
+    /// <p>The AWS Region of the destination resource.</p>
+    pub fn destination_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.destination_region = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AWS Region of the destination resource.</p>
+    pub fn set_destination_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.destination_region = input;
+        self
+    }
+    /// <p>The AWS Region of the destination resource.</p>
+    pub fn get_destination_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.destination_region
+    }
+    /// <p>The AWS account ID of the source resource.</p>
+    pub fn source_account(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.source_account = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AWS account ID of the source resource.</p>
+    pub fn set_source_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.source_account = input;
+        self
+    }
+    /// <p>The AWS account ID of the source resource.</p>
+    pub fn get_source_account(&self) -> &::std::option::Option<::std::string::String> {
+        &self.source_account
+    }
+    /// <p>The AWS account ID of the destination resource.</p>
+    pub fn destination_account(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.destination_account = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AWS account ID of the destination resource.</p>
+    pub fn set_destination_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.destination_account = input;
+        self
+    }
+    /// <p>The AWS account ID of the destination resource.</p>
+    pub fn get_destination_account(&self) -> &::std::option::Option<::std::string::String> {
+        &self.destination_account
     }
     /// Appends an item to `properties`.
     ///
@@ -113,6 +197,10 @@ impl ServiceTopologyEdgeSummaryBuilder {
                     "destination_resource_identifier was not specified but it is required when building ServiceTopologyEdgeSummary",
                 )
             })?,
+            source_region: self.source_region,
+            destination_region: self.destination_region,
+            source_account: self.source_account,
+            destination_account: self.destination_account,
             properties: self.properties,
         })
     }

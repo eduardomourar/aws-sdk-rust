@@ -152,6 +152,13 @@ where
                                 crate::protocol_serde::shape_ecs_managed_resources::de_ecs_managed_resources(tokens, _value, depth + 1)?,
                             );
                         }
+                        "overrides" => {
+                            builder = builder.set_overrides(crate::protocol_serde::shape_service_revision_overrides::de_service_revision_overrides(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         "monitoring" => {
                             builder = builder.set_monitoring(crate::protocol_serde::shape_monitoring_configuration::de_monitoring_configuration(
                                 tokens,

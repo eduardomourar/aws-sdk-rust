@@ -15,5 +15,11 @@ pub fn ser_lo_ra_wan_multicast(
         crate::protocol_serde::shape_participating_gateways_multicast::ser_participating_gateways_multicast(&mut object_4, var_3)?;
         object_4.finish();
     }
+    if let Some(var_5) = &input.default_session_parameters {
+        #[allow(unused_mut)]
+        let mut object_6 = object.key("DefaultSessionParameters").start_object();
+        crate::protocol_serde::shape_default_session_parameters_multicast::ser_default_session_parameters_multicast(&mut object_6, var_5)?;
+        object_6.finish();
+    }
     Ok(())
 }

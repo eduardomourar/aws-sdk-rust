@@ -100,6 +100,11 @@ where
                                     crate::protocol_serde::shape_parsed_query_secondary_address_component_list::de_parsed_query_secondary_address_component_list(tokens, _value, depth + 1)?
                                 );
                         }
+                        "OtherComponents" => {
+                            builder = builder.set_other_components(
+                                crate::protocol_serde::shape_parsed_query_component_list::de_parsed_query_component_list(tokens, _value, depth + 1)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

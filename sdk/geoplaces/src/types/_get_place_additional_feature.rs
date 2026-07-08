@@ -14,6 +14,7 @@
 /// match getplaceadditionalfeature {
 ///     GetPlaceAdditionalFeature::Access => { /* ... */ },
 ///     GetPlaceAdditionalFeature::Contact => { /* ... */ },
+///     GetPlaceAdditionalFeature::CrossReferences => { /* ... */ },
 ///     GetPlaceAdditionalFeature::Phonemes => { /* ... */ },
 ///     GetPlaceAdditionalFeature::SecondaryAddresses => { /* ... */ },
 ///     GetPlaceAdditionalFeature::TimeZone => { /* ... */ },
@@ -50,6 +51,8 @@ pub enum GetPlaceAdditionalFeature {
     #[allow(missing_docs)] // documentation missing in model
     Contact,
     #[allow(missing_docs)] // documentation missing in model
+    CrossReferences,
+    #[allow(missing_docs)] // documentation missing in model
     Phonemes,
     #[allow(missing_docs)] // documentation missing in model
     SecondaryAddresses,
@@ -64,6 +67,7 @@ impl ::std::convert::From<&str> for GetPlaceAdditionalFeature {
         match s {
             "Access" => GetPlaceAdditionalFeature::Access,
             "Contact" => GetPlaceAdditionalFeature::Contact,
+            "CrossReferences" => GetPlaceAdditionalFeature::CrossReferences,
             "Phonemes" => GetPlaceAdditionalFeature::Phonemes,
             "SecondaryAddresses" => GetPlaceAdditionalFeature::SecondaryAddresses,
             "TimeZone" => GetPlaceAdditionalFeature::TimeZone,
@@ -84,6 +88,7 @@ impl GetPlaceAdditionalFeature {
         match self {
             GetPlaceAdditionalFeature::Access => "Access",
             GetPlaceAdditionalFeature::Contact => "Contact",
+            GetPlaceAdditionalFeature::CrossReferences => "CrossReferences",
             GetPlaceAdditionalFeature::Phonemes => "Phonemes",
             GetPlaceAdditionalFeature::SecondaryAddresses => "SecondaryAddresses",
             GetPlaceAdditionalFeature::TimeZone => "TimeZone",
@@ -92,7 +97,7 @@ impl GetPlaceAdditionalFeature {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Access", "Contact", "Phonemes", "SecondaryAddresses", "TimeZone"]
+        &["Access", "Contact", "CrossReferences", "Phonemes", "SecondaryAddresses", "TimeZone"]
     }
 }
 impl ::std::convert::AsRef<str> for GetPlaceAdditionalFeature {
@@ -117,6 +122,7 @@ impl ::std::fmt::Display for GetPlaceAdditionalFeature {
         match self {
             GetPlaceAdditionalFeature::Access => write!(f, "Access"),
             GetPlaceAdditionalFeature::Contact => write!(f, "Contact"),
+            GetPlaceAdditionalFeature::CrossReferences => write!(f, "CrossReferences"),
             GetPlaceAdditionalFeature::Phonemes => write!(f, "Phonemes"),
             GetPlaceAdditionalFeature::SecondaryAddresses => write!(f, "SecondaryAddresses"),
             GetPlaceAdditionalFeature::TimeZone => write!(f, "TimeZone"),

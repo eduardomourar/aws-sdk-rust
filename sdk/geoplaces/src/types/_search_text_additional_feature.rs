@@ -14,6 +14,7 @@
 /// match searchtextadditionalfeature {
 ///     SearchTextAdditionalFeature::Access => { /* ... */ },
 ///     SearchTextAdditionalFeature::Contact => { /* ... */ },
+///     SearchTextAdditionalFeature::CrossReferences => { /* ... */ },
 ///     SearchTextAdditionalFeature::Phonemes => { /* ... */ },
 ///     SearchTextAdditionalFeature::TimeZone => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -49,6 +50,8 @@ pub enum SearchTextAdditionalFeature {
     #[allow(missing_docs)] // documentation missing in model
     Contact,
     #[allow(missing_docs)] // documentation missing in model
+    CrossReferences,
+    #[allow(missing_docs)] // documentation missing in model
     Phonemes,
     #[allow(missing_docs)] // documentation missing in model
     TimeZone,
@@ -61,6 +64,7 @@ impl ::std::convert::From<&str> for SearchTextAdditionalFeature {
         match s {
             "Access" => SearchTextAdditionalFeature::Access,
             "Contact" => SearchTextAdditionalFeature::Contact,
+            "CrossReferences" => SearchTextAdditionalFeature::CrossReferences,
             "Phonemes" => SearchTextAdditionalFeature::Phonemes,
             "TimeZone" => SearchTextAdditionalFeature::TimeZone,
             other => SearchTextAdditionalFeature::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -80,6 +84,7 @@ impl SearchTextAdditionalFeature {
         match self {
             SearchTextAdditionalFeature::Access => "Access",
             SearchTextAdditionalFeature::Contact => "Contact",
+            SearchTextAdditionalFeature::CrossReferences => "CrossReferences",
             SearchTextAdditionalFeature::Phonemes => "Phonemes",
             SearchTextAdditionalFeature::TimeZone => "TimeZone",
             SearchTextAdditionalFeature::Unknown(value) => value.as_str(),
@@ -87,7 +92,7 @@ impl SearchTextAdditionalFeature {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Access", "Contact", "Phonemes", "TimeZone"]
+        &["Access", "Contact", "CrossReferences", "Phonemes", "TimeZone"]
     }
 }
 impl ::std::convert::AsRef<str> for SearchTextAdditionalFeature {
@@ -112,6 +117,7 @@ impl ::std::fmt::Display for SearchTextAdditionalFeature {
         match self {
             SearchTextAdditionalFeature::Access => write!(f, "Access"),
             SearchTextAdditionalFeature::Contact => write!(f, "Contact"),
+            SearchTextAdditionalFeature::CrossReferences => write!(f, "CrossReferences"),
             SearchTextAdditionalFeature::Phonemes => write!(f, "Phonemes"),
             SearchTextAdditionalFeature::TimeZone => write!(f, "TimeZone"),
             SearchTextAdditionalFeature::Unknown(value) => write!(f, "{value}"),

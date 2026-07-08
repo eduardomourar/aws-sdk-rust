@@ -397,6 +397,8 @@ pub use crate::types::_resolved_configuration::ResolvedConfiguration;
 
 pub use crate::types::_ecs_managed_resources::EcsManagedResources;
 
+pub use crate::types::_service_revision_overrides::ServiceRevisionOverrides;
+
 pub use crate::types::_linux_parameters::LinuxParameters;
 
 pub use crate::types::_version_consistency::VersionConsistency;
@@ -488,6 +490,8 @@ pub use crate::types::_ingress_path_summary::IngressPathSummary;
 pub use crate::types::_container_image::ContainerImage;
 
 pub use crate::types::_managed_auto_scaling::ManagedAutoScaling;
+
+pub use crate::types::_runtime_platform_override::RuntimePlatformOverride;
 
 pub use crate::types::_port_mapping::PortMapping;
 
@@ -1035,6 +1039,8 @@ mod _rollback;
 
 mod _runtime_platform;
 
+mod _runtime_platform_override;
+
 mod _s3_files_volume_configuration;
 
 mod _scale;
@@ -1100,6 +1106,8 @@ mod _service_registry;
 mod _service_revision;
 
 mod _service_revision_load_balancer;
+
+mod _service_revision_overrides;
 
 mod _service_revision_summary;
 

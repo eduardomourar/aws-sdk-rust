@@ -220,14 +220,26 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListResource
                         query.push_kv("awsRegion", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
-                if let ::std::option::Option::Some(inner_4) = &_input.max_results {
+                if let ::std::option::Option::Some(inner_4) = &_input.resource_types {
                     {
-                        query.push_kv("maxResults", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                        for inner_5 in inner_4 {
+                            query.push_kv("resourceTypes", &::aws_smithy_http::query::fmt_string(inner_5));
+                        }
                     }
                 }
-                if let ::std::option::Option::Some(inner_5) = &_input.next_token {
+                if let ::std::option::Option::Some(inner_6) = &_input.billable {
                     {
-                        query.push_kv("nextToken", &::aws_smithy_http::query::fmt_string(inner_5));
+                        query.push_kv("billable", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
+                    }
+                }
+                if let ::std::option::Option::Some(inner_7) = &_input.max_results {
+                    {
+                        query.push_kv("maxResults", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
+                    }
+                }
+                if let ::std::option::Option::Some(inner_8) = &_input.next_token {
+                    {
+                        query.push_kv("nextToken", &::aws_smithy_http::query::fmt_string(inner_8));
                     }
                 }
                 ::std::result::Result::Ok(())

@@ -103,6 +103,8 @@ pub use crate::types::_tag::TagBuilder;
 
 pub use crate::types::_participating_gateways_multicast::ParticipatingGatewaysMulticastBuilder;
 
+pub use crate::types::_default_session_parameters_multicast::DefaultSessionParametersMulticastBuilder;
+
 pub use crate::types::_otaa_v1_1::OtaaV11Builder;
 
 pub use crate::types::_otaa_v1_0_x::OtaaV10XBuilder;

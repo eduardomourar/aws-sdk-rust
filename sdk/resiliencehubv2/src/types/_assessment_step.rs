@@ -12,9 +12,15 @@
 /// ```text
 /// # let assessmentstep = unimplemented!();
 /// match assessmentstep {
+///     AssessmentStep::DesignAnalysis => { /* ... */ },
+///     AssessmentStep::FailureModeFindingsConsolidation => { /* ... */ },
+///     AssessmentStep::FailureModeFindingsEnrichment => { /* ... */ },
+///     AssessmentStep::InputValidation => { /* ... */ },
+///     AssessmentStep::PolicyValidation => { /* ... */ },
 ///     AssessmentStep::ResilienceAssessment => { /* ... */ },
 ///     AssessmentStep::ServiceFunctionGeneration => { /* ... */ },
 ///     AssessmentStep::TopologyEnhancement => { /* ... */ },
+///     AssessmentStep::TopologyGeneration => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -44,11 +50,23 @@
 )]
 pub enum AssessmentStep {
     #[allow(missing_docs)] // documentation missing in model
+    DesignAnalysis,
+    #[allow(missing_docs)] // documentation missing in model
+    FailureModeFindingsConsolidation,
+    #[allow(missing_docs)] // documentation missing in model
+    FailureModeFindingsEnrichment,
+    #[allow(missing_docs)] // documentation missing in model
+    InputValidation,
+    #[allow(missing_docs)] // documentation missing in model
+    PolicyValidation,
+    #[allow(missing_docs)] // documentation missing in model
     ResilienceAssessment,
     #[allow(missing_docs)] // documentation missing in model
     ServiceFunctionGeneration,
     #[allow(missing_docs)] // documentation missing in model
     TopologyEnhancement,
+    #[allow(missing_docs)] // documentation missing in model
+    TopologyGeneration,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -56,9 +74,15 @@ pub enum AssessmentStep {
 impl ::std::convert::From<&str> for AssessmentStep {
     fn from(s: &str) -> Self {
         match s {
+            "DESIGN_ANALYSIS" => AssessmentStep::DesignAnalysis,
+            "FAILURE_MODE_FINDINGS_CONSOLIDATION" => AssessmentStep::FailureModeFindingsConsolidation,
+            "FAILURE_MODE_FINDINGS_ENRICHMENT" => AssessmentStep::FailureModeFindingsEnrichment,
+            "INPUT_VALIDATION" => AssessmentStep::InputValidation,
+            "POLICY_VALIDATION" => AssessmentStep::PolicyValidation,
             "RESILIENCE_ASSESSMENT" => AssessmentStep::ResilienceAssessment,
             "SERVICE_FUNCTION_GENERATION" => AssessmentStep::ServiceFunctionGeneration,
             "TOPOLOGY_ENHANCEMENT" => AssessmentStep::TopologyEnhancement,
+            "TOPOLOGY_GENERATION" => AssessmentStep::TopologyGeneration,
             other => AssessmentStep::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -74,15 +98,31 @@ impl AssessmentStep {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            AssessmentStep::DesignAnalysis => "DESIGN_ANALYSIS",
+            AssessmentStep::FailureModeFindingsConsolidation => "FAILURE_MODE_FINDINGS_CONSOLIDATION",
+            AssessmentStep::FailureModeFindingsEnrichment => "FAILURE_MODE_FINDINGS_ENRICHMENT",
+            AssessmentStep::InputValidation => "INPUT_VALIDATION",
+            AssessmentStep::PolicyValidation => "POLICY_VALIDATION",
             AssessmentStep::ResilienceAssessment => "RESILIENCE_ASSESSMENT",
             AssessmentStep::ServiceFunctionGeneration => "SERVICE_FUNCTION_GENERATION",
             AssessmentStep::TopologyEnhancement => "TOPOLOGY_ENHANCEMENT",
+            AssessmentStep::TopologyGeneration => "TOPOLOGY_GENERATION",
             AssessmentStep::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["RESILIENCE_ASSESSMENT", "SERVICE_FUNCTION_GENERATION", "TOPOLOGY_ENHANCEMENT"]
+        &[
+            "DESIGN_ANALYSIS",
+            "FAILURE_MODE_FINDINGS_CONSOLIDATION",
+            "FAILURE_MODE_FINDINGS_ENRICHMENT",
+            "INPUT_VALIDATION",
+            "POLICY_VALIDATION",
+            "RESILIENCE_ASSESSMENT",
+            "SERVICE_FUNCTION_GENERATION",
+            "TOPOLOGY_ENHANCEMENT",
+            "TOPOLOGY_GENERATION",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for AssessmentStep {
@@ -105,9 +145,15 @@ impl AssessmentStep {
 impl ::std::fmt::Display for AssessmentStep {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            AssessmentStep::DesignAnalysis => write!(f, "DESIGN_ANALYSIS"),
+            AssessmentStep::FailureModeFindingsConsolidation => write!(f, "FAILURE_MODE_FINDINGS_CONSOLIDATION"),
+            AssessmentStep::FailureModeFindingsEnrichment => write!(f, "FAILURE_MODE_FINDINGS_ENRICHMENT"),
+            AssessmentStep::InputValidation => write!(f, "INPUT_VALIDATION"),
+            AssessmentStep::PolicyValidation => write!(f, "POLICY_VALIDATION"),
             AssessmentStep::ResilienceAssessment => write!(f, "RESILIENCE_ASSESSMENT"),
             AssessmentStep::ServiceFunctionGeneration => write!(f, "SERVICE_FUNCTION_GENERATION"),
             AssessmentStep::TopologyEnhancement => write!(f, "TOPOLOGY_ENHANCEMENT"),
+            AssessmentStep::TopologyGeneration => write!(f, "TOPOLOGY_GENERATION"),
             AssessmentStep::Unknown(value) => write!(f, "{value}"),
         }
     }

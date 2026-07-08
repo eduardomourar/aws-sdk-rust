@@ -164,17 +164,17 @@ impl StopExperimentRunFluentBuilder {
     pub fn get_result(&self) -> &::std::option::Option<crate::types::ExperimentRunResult> {
         self.inner.get_result()
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn deployment_parameters(mut self, input: crate::types::DeploymentParameters) -> Self {
         self.inner = self.inner.deployment_parameters(input);
         self
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn set_deployment_parameters(mut self, input: ::std::option::Option<crate::types::DeploymentParameters>) -> Self {
         self.inner = self.inner.set_deployment_parameters(input);
         self
     }
-    /// <p>Optional deployment parameters for the stop operation.</p>
+    /// <p>The deployment parameters for the stop operation.</p>
     pub fn get_deployment_parameters(&self) -> &::std::option::Option<crate::types::DeploymentParameters> {
         self.inner.get_deployment_parameters()
     }

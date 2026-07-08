@@ -49,6 +49,12 @@ pub struct GetPlaceOutput {
     /// <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p>
     /// </note>
     pub secondary_addresses: ::std::option::Option<::std::vec::Vec<crate::types::RelatedPlace>>,
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub place_attributes: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>,
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub estimated_point_address: ::std::option::Option<bool>,
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub cross_references: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>,
     _request_id: Option<String>,
 }
 impl GetPlaceOutput {
@@ -163,6 +169,22 @@ impl GetPlaceOutput {
     pub fn secondary_addresses(&self) -> &[crate::types::RelatedPlace] {
         self.secondary_addresses.as_deref().unwrap_or_default()
     }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.place_attributes.is_none()`.
+    pub fn place_attributes(&self) -> &[crate::types::PlaceAttribute] {
+        self.place_attributes.as_deref().unwrap_or_default()
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(&self) -> ::std::option::Option<bool> {
+        self.estimated_point_address
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.cross_references.is_none()`.
+    pub fn cross_references(&self) -> &[crate::types::CrossReference] {
+        self.cross_references.as_deref().unwrap_or_default()
+    }
 }
 impl ::std::fmt::Debug for GetPlaceOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -188,6 +210,9 @@ impl ::std::fmt::Debug for GetPlaceOutput {
         formatter.field("phonemes", &self.phonemes);
         formatter.field("main_address", &self.main_address);
         formatter.field("secondary_addresses", &self.secondary_addresses);
+        formatter.field("place_attributes", &"*** Sensitive Data Redacted ***");
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
+        formatter.field("cross_references", &self.cross_references);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -229,6 +254,9 @@ pub struct GetPlaceOutputBuilder {
     pub(crate) phonemes: ::std::option::Option<crate::types::PhonemeDetails>,
     pub(crate) main_address: ::std::option::Option<crate::types::RelatedPlace>,
     pub(crate) secondary_addresses: ::std::option::Option<::std::vec::Vec<crate::types::RelatedPlace>>,
+    pub(crate) place_attributes: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>,
+    pub(crate) estimated_point_address: ::std::option::Option<bool>,
+    pub(crate) cross_references: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>,
     _request_id: Option<String>,
 }
 impl GetPlaceOutputBuilder {
@@ -602,6 +630,60 @@ impl GetPlaceOutputBuilder {
     pub fn get_secondary_addresses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RelatedPlace>> {
         &self.secondary_addresses
     }
+    /// Appends an item to `place_attributes`.
+    ///
+    /// To override the contents of this collection use [`set_place_attributes`](Self::set_place_attributes).
+    ///
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn place_attributes(mut self, input: crate::types::PlaceAttribute) -> Self {
+        let mut v = self.place_attributes.unwrap_or_default();
+        v.push(input);
+        self.place_attributes = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn set_place_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>>) -> Self {
+        self.place_attributes = input;
+        self
+    }
+    /// <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+    pub fn get_place_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlaceAttribute>> {
+        &self.place_attributes
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(mut self, input: bool) -> Self {
+        self.estimated_point_address = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn set_estimated_point_address(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.estimated_point_address = input;
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn get_estimated_point_address(&self) -> &::std::option::Option<bool> {
+        &self.estimated_point_address
+    }
+    /// Appends an item to `cross_references`.
+    ///
+    /// To override the contents of this collection use [`set_cross_references`](Self::set_cross_references).
+    ///
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn cross_references(mut self, input: crate::types::CrossReference) -> Self {
+        let mut v = self.cross_references.unwrap_or_default();
+        v.push(input);
+        self.cross_references = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn set_cross_references(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CrossReference>>) -> Self {
+        self.cross_references = input;
+        self
+    }
+    /// <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+    pub fn get_cross_references(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CrossReference>> {
+        &self.cross_references
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -660,6 +742,9 @@ impl GetPlaceOutputBuilder {
             phonemes: self.phonemes,
             main_address: self.main_address,
             secondary_addresses: self.secondary_addresses,
+            place_attributes: self.place_attributes,
+            estimated_point_address: self.estimated_point_address,
+            cross_references: self.cross_references,
             _request_id: self._request_id,
         })
     }
@@ -688,6 +773,9 @@ impl ::std::fmt::Debug for GetPlaceOutputBuilder {
         formatter.field("phonemes", &self.phonemes);
         formatter.field("main_address", &self.main_address);
         formatter.field("secondary_addresses", &self.secondary_addresses);
+        formatter.field("place_attributes", &"*** Sensitive Data Redacted ***");
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
+        formatter.field("cross_references", &self.cross_references);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

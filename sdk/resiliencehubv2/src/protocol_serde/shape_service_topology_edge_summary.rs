@@ -35,6 +35,34 @@ where
                                     .transpose()?,
                             );
                         }
+                        "sourceRegion" => {
+                            builder = builder.set_source_region(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "destinationRegion" => {
+                            builder = builder.set_destination_region(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "sourceAccount" => {
+                            builder = builder.set_source_account(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "destinationAccount" => {
+                            builder = builder.set_destination_account(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "properties" => {
                             builder = builder.set_properties(crate::protocol_serde::shape_edge_property_list::de_edge_property_list(
                                 tokens,

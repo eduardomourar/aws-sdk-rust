@@ -10,6 +10,8 @@ pub struct Achievability {
     pub multi_az_rto_rpo: ::std::option::Option<crate::types::AchievabilityStatus>,
     /// <p>The achievability status of the multi-Region RTO and RPO targets for the service.</p>
     pub multi_region_rto_rpo: ::std::option::Option<crate::types::AchievabilityStatus>,
+    /// <p>The achievability status of the data recovery time between backups for the service.</p>
+    pub data_recovery_time_between_backups: ::std::option::Option<crate::types::AchievabilityStatus>,
 }
 impl Achievability {
     /// <p>The achievability status of the availability SLO target for the service.</p>
@@ -23,6 +25,10 @@ impl Achievability {
     /// <p>The achievability status of the multi-Region RTO and RPO targets for the service.</p>
     pub fn multi_region_rto_rpo(&self) -> ::std::option::Option<&crate::types::AchievabilityStatus> {
         self.multi_region_rto_rpo.as_ref()
+    }
+    /// <p>The achievability status of the data recovery time between backups for the service.</p>
+    pub fn data_recovery_time_between_backups(&self) -> ::std::option::Option<&crate::types::AchievabilityStatus> {
+        self.data_recovery_time_between_backups.as_ref()
     }
 }
 impl Achievability {
@@ -39,6 +45,7 @@ pub struct AchievabilityBuilder {
     pub(crate) availability_slo: ::std::option::Option<crate::types::AchievabilityStatus>,
     pub(crate) multi_az_rto_rpo: ::std::option::Option<crate::types::AchievabilityStatus>,
     pub(crate) multi_region_rto_rpo: ::std::option::Option<crate::types::AchievabilityStatus>,
+    pub(crate) data_recovery_time_between_backups: ::std::option::Option<crate::types::AchievabilityStatus>,
 }
 impl AchievabilityBuilder {
     /// <p>The achievability status of the availability SLO target for the service.</p>
@@ -83,12 +90,27 @@ impl AchievabilityBuilder {
     pub fn get_multi_region_rto_rpo(&self) -> &::std::option::Option<crate::types::AchievabilityStatus> {
         &self.multi_region_rto_rpo
     }
+    /// <p>The achievability status of the data recovery time between backups for the service.</p>
+    pub fn data_recovery_time_between_backups(mut self, input: crate::types::AchievabilityStatus) -> Self {
+        self.data_recovery_time_between_backups = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The achievability status of the data recovery time between backups for the service.</p>
+    pub fn set_data_recovery_time_between_backups(mut self, input: ::std::option::Option<crate::types::AchievabilityStatus>) -> Self {
+        self.data_recovery_time_between_backups = input;
+        self
+    }
+    /// <p>The achievability status of the data recovery time between backups for the service.</p>
+    pub fn get_data_recovery_time_between_backups(&self) -> &::std::option::Option<crate::types::AchievabilityStatus> {
+        &self.data_recovery_time_between_backups
+    }
     /// Consumes the builder and constructs a [`Achievability`](crate::types::Achievability).
     pub fn build(self) -> crate::types::Achievability {
         crate::types::Achievability {
             availability_slo: self.availability_slo,
             multi_az_rto_rpo: self.multi_az_rto_rpo,
             multi_region_rto_rpo: self.multi_region_rto_rpo,
+            data_recovery_time_between_backups: self.data_recovery_time_between_backups,
         }
     }
 }

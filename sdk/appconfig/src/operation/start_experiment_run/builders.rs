@@ -22,7 +22,9 @@ impl crate::operation::start_experiment_run::builders::StartExperimentRunInputBu
 }
 /// Fluent builder constructing a request to `StartExperimentRun`.
 ///
-/// <p>Starts an experiment run for the specified experiment definition. An experiment run delivers treatments to the target audience and collects metrics. You can start multiple experiment runs from the same experiment definition.</p>
+/// <p>Starts an experiment run for the specified experiment definition. An experiment run delivers treatments to the target audience and collects metrics. You can start multiple experiment runs from the same experiment definition.</p><note>
+/// <p>Billing for this experiment begins when you call this operation and continues until the experiment is stopped. For pricing details, see <a href="https://aws.amazon.com/systems-manager/pricing/">AppConfig pricing</a>.</p>
+/// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartExperimentRunFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
@@ -197,17 +199,17 @@ impl StartExperimentRunFluentBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn deployment_parameters(mut self, input: crate::types::DeploymentParameters) -> Self {
         self.inner = self.inner.deployment_parameters(input);
         self
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn set_deployment_parameters(mut self, input: ::std::option::Option<crate::types::DeploymentParameters>) -> Self {
         self.inner = self.inner.set_deployment_parameters(input);
         self
     }
-    /// <p>Optional deployment parameters including a KMS key for encryption.</p>
+    /// <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
     pub fn get_deployment_parameters(&self) -> &::std::option::Option<crate::types::DeploymentParameters> {
         self.inner.get_deployment_parameters()
     }

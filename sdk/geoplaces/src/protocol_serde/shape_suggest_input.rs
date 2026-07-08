@@ -54,5 +54,8 @@ pub fn ser_suggest_input_input(
     if let Some(var_14) = &input.query_text {
         object.key("QueryText").string(var_14.as_str());
     }
+    if let Some(var_15) = &input.travel_mode {
+        object.key("TravelMode").string(var_15.as_str());
+    }
     Ok(())
 }

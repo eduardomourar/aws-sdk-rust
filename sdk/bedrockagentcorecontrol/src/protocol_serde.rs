@@ -1047,6 +1047,8 @@ pub(crate) mod shape_vpc_config;
 
 pub(crate) mod shape_workload_identity_type;
 
+pub(crate) mod shape_advertised_scope_mapping_type;
+
 pub(crate) mod shape_agent_card_definition;
 
 pub(crate) mod shape_allowed_audience_list;

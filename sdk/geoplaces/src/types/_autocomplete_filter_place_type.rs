@@ -12,8 +12,14 @@
 /// ```text
 /// # let autocompletefilterplacetype = unimplemented!();
 /// match autocompletefilterplacetype {
+///     AutocompleteFilterPlaceType::Country => { /* ... */ },
+///     AutocompleteFilterPlaceType::InterpolatedAddress => { /* ... */ },
+///     AutocompleteFilterPlaceType::Intersection => { /* ... */ },
 ///     AutocompleteFilterPlaceType::Locality => { /* ... */ },
+///     AutocompleteFilterPlaceType::PointAddress => { /* ... */ },
 ///     AutocompleteFilterPlaceType::PostalCode => { /* ... */ },
+///     AutocompleteFilterPlaceType::Region => { /* ... */ },
+///     AutocompleteFilterPlaceType::Street => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -43,9 +49,21 @@
 )]
 pub enum AutocompleteFilterPlaceType {
     #[allow(missing_docs)] // documentation missing in model
+    Country,
+    #[allow(missing_docs)] // documentation missing in model
+    InterpolatedAddress,
+    #[allow(missing_docs)] // documentation missing in model
+    Intersection,
+    #[allow(missing_docs)] // documentation missing in model
     Locality,
     #[allow(missing_docs)] // documentation missing in model
+    PointAddress,
+    #[allow(missing_docs)] // documentation missing in model
     PostalCode,
+    #[allow(missing_docs)] // documentation missing in model
+    Region,
+    #[allow(missing_docs)] // documentation missing in model
+    Street,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -53,8 +71,14 @@ pub enum AutocompleteFilterPlaceType {
 impl ::std::convert::From<&str> for AutocompleteFilterPlaceType {
     fn from(s: &str) -> Self {
         match s {
+            "Country" => AutocompleteFilterPlaceType::Country,
+            "InterpolatedAddress" => AutocompleteFilterPlaceType::InterpolatedAddress,
+            "Intersection" => AutocompleteFilterPlaceType::Intersection,
             "Locality" => AutocompleteFilterPlaceType::Locality,
+            "PointAddress" => AutocompleteFilterPlaceType::PointAddress,
             "PostalCode" => AutocompleteFilterPlaceType::PostalCode,
+            "Region" => AutocompleteFilterPlaceType::Region,
+            "Street" => AutocompleteFilterPlaceType::Street,
             other => AutocompleteFilterPlaceType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -70,14 +94,29 @@ impl AutocompleteFilterPlaceType {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            AutocompleteFilterPlaceType::Country => "Country",
+            AutocompleteFilterPlaceType::InterpolatedAddress => "InterpolatedAddress",
+            AutocompleteFilterPlaceType::Intersection => "Intersection",
             AutocompleteFilterPlaceType::Locality => "Locality",
+            AutocompleteFilterPlaceType::PointAddress => "PointAddress",
             AutocompleteFilterPlaceType::PostalCode => "PostalCode",
+            AutocompleteFilterPlaceType::Region => "Region",
+            AutocompleteFilterPlaceType::Street => "Street",
             AutocompleteFilterPlaceType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Locality", "PostalCode"]
+        &[
+            "Country",
+            "InterpolatedAddress",
+            "Intersection",
+            "Locality",
+            "PointAddress",
+            "PostalCode",
+            "Region",
+            "Street",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for AutocompleteFilterPlaceType {
@@ -100,8 +139,14 @@ impl AutocompleteFilterPlaceType {
 impl ::std::fmt::Display for AutocompleteFilterPlaceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            AutocompleteFilterPlaceType::Country => write!(f, "Country"),
+            AutocompleteFilterPlaceType::InterpolatedAddress => write!(f, "InterpolatedAddress"),
+            AutocompleteFilterPlaceType::Intersection => write!(f, "Intersection"),
             AutocompleteFilterPlaceType::Locality => write!(f, "Locality"),
+            AutocompleteFilterPlaceType::PointAddress => write!(f, "PointAddress"),
             AutocompleteFilterPlaceType::PostalCode => write!(f, "PostalCode"),
+            AutocompleteFilterPlaceType::Region => write!(f, "Region"),
+            AutocompleteFilterPlaceType::Street => write!(f, "Street"),
             AutocompleteFilterPlaceType::Unknown(value) => write!(f, "{value}"),
         }
     }

@@ -8,6 +8,10 @@ pub struct DependencyDiscoveryConfig {
     pub status: crate::types::DependencyDiscoveryStatus,
     /// <p>The timestamp when dependency discovery was last updated.</p>
     pub updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>The count of resources eligible for dependency attribution.</p>
+    pub eligible_resource_count: ::std::option::Option<i32>,
+    /// <p>A status message for dependency discovery, displayed during the initialization state.</p>
+    pub message: ::std::option::Option<::std::string::String>,
 }
 impl DependencyDiscoveryConfig {
     /// <p>The current status of dependency discovery.</p>
@@ -17,6 +21,14 @@ impl DependencyDiscoveryConfig {
     /// <p>The timestamp when dependency discovery was last updated.</p>
     pub fn updated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.updated_at.as_ref()
+    }
+    /// <p>The count of resources eligible for dependency attribution.</p>
+    pub fn eligible_resource_count(&self) -> ::std::option::Option<i32> {
+        self.eligible_resource_count
+    }
+    /// <p>A status message for dependency discovery, displayed during the initialization state.</p>
+    pub fn message(&self) -> ::std::option::Option<&str> {
+        self.message.as_deref()
     }
 }
 impl DependencyDiscoveryConfig {
@@ -32,6 +44,8 @@ impl DependencyDiscoveryConfig {
 pub struct DependencyDiscoveryConfigBuilder {
     pub(crate) status: ::std::option::Option<crate::types::DependencyDiscoveryStatus>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) eligible_resource_count: ::std::option::Option<i32>,
+    pub(crate) message: ::std::option::Option<::std::string::String>,
 }
 impl DependencyDiscoveryConfigBuilder {
     /// <p>The current status of dependency discovery.</p>
@@ -63,6 +77,34 @@ impl DependencyDiscoveryConfigBuilder {
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.updated_at
     }
+    /// <p>The count of resources eligible for dependency attribution.</p>
+    pub fn eligible_resource_count(mut self, input: i32) -> Self {
+        self.eligible_resource_count = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The count of resources eligible for dependency attribution.</p>
+    pub fn set_eligible_resource_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.eligible_resource_count = input;
+        self
+    }
+    /// <p>The count of resources eligible for dependency attribution.</p>
+    pub fn get_eligible_resource_count(&self) -> &::std::option::Option<i32> {
+        &self.eligible_resource_count
+    }
+    /// <p>A status message for dependency discovery, displayed during the initialization state.</p>
+    pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.message = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A status message for dependency discovery, displayed during the initialization state.</p>
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
+    /// <p>A status message for dependency discovery, displayed during the initialization state.</p>
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
     /// Consumes the builder and constructs a [`DependencyDiscoveryConfig`](crate::types::DependencyDiscoveryConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::DependencyDiscoveryConfigBuilder::status)
@@ -75,6 +117,8 @@ impl DependencyDiscoveryConfigBuilder {
                 )
             })?,
             updated_at: self.updated_at,
+            eligible_resource_count: self.eligible_resource_count,
+            message: self.message,
         })
     }
 }

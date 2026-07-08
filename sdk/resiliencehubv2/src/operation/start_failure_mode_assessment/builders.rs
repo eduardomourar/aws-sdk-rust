@@ -22,7 +22,7 @@ impl crate::operation::start_failure_mode_assessment::builders::StartFailureMode
 }
 /// Fluent builder constructing a request to `StartFailureModeAssessment`.
 ///
-/// <p>Start a failure mode assessment.</p>
+/// <p>Starts a failure mode assessment.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartFailureModeAssessmentFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

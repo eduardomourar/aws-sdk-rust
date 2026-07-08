@@ -9,6 +9,10 @@ pub struct ListResourcesInput {
     pub service_function_id: ::std::option::Option<::std::string::String>,
     /// <p>Filter resources by AWS Region.</p>
     pub aws_region: ::std::option::Option<::std::string::String>,
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub resource_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub billable: ::std::option::Option<bool>,
     /// <p>Pagination page size.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>Pagination token.</p>
@@ -26,6 +30,16 @@ impl ListResourcesInput {
     /// <p>Filter resources by AWS Region.</p>
     pub fn aws_region(&self) -> ::std::option::Option<&str> {
         self.aws_region.as_deref()
+    }
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_types.is_none()`.
+    pub fn resource_types(&self) -> &[::std::string::String] {
+        self.resource_types.as_deref().unwrap_or_default()
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn billable(&self) -> ::std::option::Option<bool> {
+        self.billable
     }
     /// <p>Pagination page size.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
@@ -50,6 +64,8 @@ pub struct ListResourcesInputBuilder {
     pub(crate) service_arn: ::std::option::Option<::std::string::String>,
     pub(crate) service_function_id: ::std::option::Option<::std::string::String>,
     pub(crate) aws_region: ::std::option::Option<::std::string::String>,
+    pub(crate) resource_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) billable: ::std::option::Option<bool>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -97,6 +113,40 @@ impl ListResourcesInputBuilder {
     pub fn get_aws_region(&self) -> &::std::option::Option<::std::string::String> {
         &self.aws_region
     }
+    /// Appends an item to `resource_types`.
+    ///
+    /// To override the contents of this collection use [`set_resource_types`](Self::set_resource_types).
+    ///
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.resource_types.unwrap_or_default();
+        v.push(input.into());
+        self.resource_types = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.resource_types = input;
+        self
+    }
+    /// <p>The CloudFormation resource types to include in the response.</p>
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.resource_types
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn billable(mut self, input: bool) -> Self {
+        self.billable = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn set_billable(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.billable = input;
+        self
+    }
+    /// <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+    pub fn get_billable(&self) -> &::std::option::Option<bool> {
+        &self.billable
+    }
     /// <p>Pagination page size.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
@@ -133,6 +183,8 @@ impl ListResourcesInputBuilder {
             service_arn: self.service_arn,
             service_function_id: self.service_function_id,
             aws_region: self.aws_region,
+            resource_types: self.resource_types,
+            billable: self.billable,
             max_results: self.max_results,
             next_token: self.next_token,
         })

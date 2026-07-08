@@ -38,6 +38,8 @@ pub struct GeocodeParsedQueryAddressComponents {
     /// <p>AUS, AUT, BRA, CAN, ESP, FRA, GBR, HKG, IDN, IND, NZL, TUR, TWN, USA</p>
     /// </note>
     pub secondary_address_components: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQuerySecondaryAddressComponent>>,
+    /// <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+    pub other_components: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQueryComponent>>,
 }
 impl GeocodeParsedQueryAddressComponents {
     /// <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
@@ -126,6 +128,12 @@ impl GeocodeParsedQueryAddressComponents {
     pub fn secondary_address_components(&self) -> &[crate::types::ParsedQuerySecondaryAddressComponent] {
         self.secondary_address_components.as_deref().unwrap_or_default()
     }
+    /// <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.other_components.is_none()`.
+    pub fn other_components(&self) -> &[crate::types::ParsedQueryComponent] {
+        self.other_components.as_deref().unwrap_or_default()
+    }
 }
 impl GeocodeParsedQueryAddressComponents {
     /// Creates a new builder-style object to manufacture [`GeocodeParsedQueryAddressComponents`](crate::types::GeocodeParsedQueryAddressComponents).
@@ -151,6 +159,7 @@ pub struct GeocodeParsedQueryAddressComponentsBuilder {
     pub(crate) address_number: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQueryComponent>>,
     pub(crate) building: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQueryComponent>>,
     pub(crate) secondary_address_components: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQuerySecondaryAddressComponent>>,
+    pub(crate) other_components: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQueryComponent>>,
 }
 impl GeocodeParsedQueryAddressComponentsBuilder {
     /// Appends an item to `country`.
@@ -440,6 +449,26 @@ impl GeocodeParsedQueryAddressComponentsBuilder {
     pub fn get_secondary_address_components(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParsedQuerySecondaryAddressComponent>> {
         &self.secondary_address_components
     }
+    /// Appends an item to `other_components`.
+    ///
+    /// To override the contents of this collection use [`set_other_components`](Self::set_other_components).
+    ///
+    /// <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+    pub fn other_components(mut self, input: crate::types::ParsedQueryComponent) -> Self {
+        let mut v = self.other_components.unwrap_or_default();
+        v.push(input);
+        self.other_components = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+    pub fn set_other_components(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParsedQueryComponent>>) -> Self {
+        self.other_components = input;
+        self
+    }
+    /// <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+    pub fn get_other_components(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParsedQueryComponent>> {
+        &self.other_components
+    }
     /// Consumes the builder and constructs a [`GeocodeParsedQueryAddressComponents`](crate::types::GeocodeParsedQueryAddressComponents).
     pub fn build(self) -> crate::types::GeocodeParsedQueryAddressComponents {
         crate::types::GeocodeParsedQueryAddressComponents {
@@ -456,6 +485,7 @@ impl GeocodeParsedQueryAddressComponentsBuilder {
             address_number: self.address_number,
             building: self.building,
             secondary_address_components: self.secondary_address_components,
+            other_components: self.other_components,
         }
     }
 }

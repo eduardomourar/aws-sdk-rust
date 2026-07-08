@@ -533,6 +533,8 @@ pub(crate) mod shape_cdma_obj;
 
 pub(crate) mod shape_dak_certificate_metadata_list;
 
+pub(crate) mod shape_default_session_parameters_multicast;
+
 pub(crate) mod shape_destinations;
 
 pub(crate) mod shape_device_certificate_list;

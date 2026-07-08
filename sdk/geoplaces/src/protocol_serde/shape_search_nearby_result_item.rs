@@ -116,6 +116,20 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "PlaceAttributes" => {
+                            builder = builder.set_place_attributes(crate::protocol_serde::shape_place_attribute_list::de_place_attribute_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "CrossReferences" => {
+                            builder = builder.set_cross_references(crate::protocol_serde::shape_cross_reference_list::de_cross_reference_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

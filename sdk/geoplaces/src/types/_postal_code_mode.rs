@@ -12,6 +12,7 @@
 /// ```text
 /// # let postalcodemode = unimplemented!();
 /// match postalcodemode {
+///     PostalCodeMode::EnumerateSpannedDistricts => { /* ... */ },
 ///     PostalCodeMode::EnumerateSpannedLocalities => { /* ... */ },
 ///     PostalCodeMode::MergeAllSpannedLocalities => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -43,6 +44,8 @@
 )]
 pub enum PostalCodeMode {
     #[allow(missing_docs)] // documentation missing in model
+    EnumerateSpannedDistricts,
+    #[allow(missing_docs)] // documentation missing in model
     EnumerateSpannedLocalities,
     #[allow(missing_docs)] // documentation missing in model
     MergeAllSpannedLocalities,
@@ -53,6 +56,7 @@ pub enum PostalCodeMode {
 impl ::std::convert::From<&str> for PostalCodeMode {
     fn from(s: &str) -> Self {
         match s {
+            "EnumerateSpannedDistricts" => PostalCodeMode::EnumerateSpannedDistricts,
             "EnumerateSpannedLocalities" => PostalCodeMode::EnumerateSpannedLocalities,
             "MergeAllSpannedLocalities" => PostalCodeMode::MergeAllSpannedLocalities,
             other => PostalCodeMode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -70,6 +74,7 @@ impl PostalCodeMode {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            PostalCodeMode::EnumerateSpannedDistricts => "EnumerateSpannedDistricts",
             PostalCodeMode::EnumerateSpannedLocalities => "EnumerateSpannedLocalities",
             PostalCodeMode::MergeAllSpannedLocalities => "MergeAllSpannedLocalities",
             PostalCodeMode::Unknown(value) => value.as_str(),
@@ -77,7 +82,7 @@ impl PostalCodeMode {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["EnumerateSpannedLocalities", "MergeAllSpannedLocalities"]
+        &["EnumerateSpannedDistricts", "EnumerateSpannedLocalities", "MergeAllSpannedLocalities"]
     }
 }
 impl ::std::convert::AsRef<str> for PostalCodeMode {
@@ -100,6 +105,7 @@ impl PostalCodeMode {
 impl ::std::fmt::Display for PostalCodeMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            PostalCodeMode::EnumerateSpannedDistricts => write!(f, "EnumerateSpannedDistricts"),
             PostalCodeMode::EnumerateSpannedLocalities => write!(f, "EnumerateSpannedLocalities"),
             PostalCodeMode::MergeAllSpannedLocalities => write!(f, "MergeAllSpannedLocalities"),
             PostalCodeMode::Unknown(value) => write!(f, "{value}"),

@@ -14,12 +14,14 @@ pub struct AutocompleteResultItem {
     pub address: ::std::option::Option<crate::types::Address>,
     /// <p>The distance in meters between the center of the search area and this result. Useful to evaluate how far away from the original bias position the result is.</p>
     pub distance: i64,
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub language: ::std::option::Option<::std::string::String>,
     /// <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
     pub political_view: ::std::option::Option<::std::string::String>,
     /// <p>Indicates the starting and ending index of the place in the text query that match the found title.</p>
     pub highlights: ::std::option::Option<crate::types::AutocompleteHighlights>,
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub estimated_point_address: ::std::option::Option<bool>,
 }
 impl AutocompleteResultItem {
     /// <p>The PlaceId of the place associated with this result. This can be used to look up additional details about the result via GetPlace.</p>
@@ -44,7 +46,7 @@ impl AutocompleteResultItem {
     pub fn distance(&self) -> i64 {
         self.distance
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn language(&self) -> ::std::option::Option<&str> {
         self.language.as_deref()
     }
@@ -55,6 +57,10 @@ impl AutocompleteResultItem {
     /// <p>Indicates the starting and ending index of the place in the text query that match the found title.</p>
     pub fn highlights(&self) -> ::std::option::Option<&crate::types::AutocompleteHighlights> {
         self.highlights.as_ref()
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(&self) -> ::std::option::Option<bool> {
+        self.estimated_point_address
     }
 }
 impl ::std::fmt::Debug for AutocompleteResultItem {
@@ -68,6 +74,7 @@ impl ::std::fmt::Debug for AutocompleteResultItem {
         formatter.field("language", &self.language);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("highlights", &self.highlights);
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -90,6 +97,7 @@ pub struct AutocompleteResultItemBuilder {
     pub(crate) language: ::std::option::Option<::std::string::String>,
     pub(crate) political_view: ::std::option::Option<::std::string::String>,
     pub(crate) highlights: ::std::option::Option<crate::types::AutocompleteHighlights>,
+    pub(crate) estimated_point_address: ::std::option::Option<bool>,
 }
 impl AutocompleteResultItemBuilder {
     /// <p>The PlaceId of the place associated with this result. This can be used to look up additional details about the result via GetPlace.</p>
@@ -165,17 +173,17 @@ impl AutocompleteResultItemBuilder {
     pub fn get_distance(&self) -> &::std::option::Option<i64> {
         &self.distance
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn set_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.language = input;
         self
     }
-    /// <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+    /// <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
     pub fn get_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.language
     }
@@ -207,6 +215,20 @@ impl AutocompleteResultItemBuilder {
     pub fn get_highlights(&self) -> &::std::option::Option<crate::types::AutocompleteHighlights> {
         &self.highlights
     }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn estimated_point_address(mut self, input: bool) -> Self {
+        self.estimated_point_address = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn set_estimated_point_address(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.estimated_point_address = input;
+        self
+    }
+    /// <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+    pub fn get_estimated_point_address(&self) -> &::std::option::Option<bool> {
+        &self.estimated_point_address
+    }
     /// Consumes the builder and constructs a [`AutocompleteResultItem`](crate::types::AutocompleteResultItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`place_id`](crate::types::builders::AutocompleteResultItemBuilder::place_id)
@@ -237,6 +259,7 @@ impl AutocompleteResultItemBuilder {
             language: self.language,
             political_view: self.political_view,
             highlights: self.highlights,
+            estimated_point_address: self.estimated_point_address,
         })
     }
 }
@@ -251,6 +274,7 @@ impl ::std::fmt::Debug for AutocompleteResultItemBuilder {
         formatter.field("language", &self.language);
         formatter.field("political_view", &"*** Sensitive Data Redacted ***");
         formatter.field("highlights", &self.highlights);
+        formatter.field("estimated_point_address", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

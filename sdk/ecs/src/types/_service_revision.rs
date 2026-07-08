@@ -46,6 +46,8 @@ pub struct ServiceRevision {
     pub resolved_configuration: ::std::option::Option<crate::types::ResolvedConfiguration>,
     /// <p>The resources created and managed by Amazon ECS when you create an Express service for Amazon ECS.</p>
     pub ecs_managed_resources: ::std::option::Option<crate::types::EcsManagedResources>,
+    /// <p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>
+    pub overrides: ::std::option::Option<crate::types::ServiceRevisionOverrides>,
     /// <p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>
     pub monitoring: ::std::option::Option<crate::types::MonitoringConfiguration>,
 }
@@ -143,6 +145,10 @@ impl ServiceRevision {
     pub fn ecs_managed_resources(&self) -> ::std::option::Option<&crate::types::EcsManagedResources> {
         self.ecs_managed_resources.as_ref()
     }
+    /// <p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>
+    pub fn overrides(&self) -> ::std::option::Option<&crate::types::ServiceRevisionOverrides> {
+        self.overrides.as_ref()
+    }
     /// <p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>
     pub fn monitoring(&self) -> ::std::option::Option<&crate::types::MonitoringConfiguration> {
         self.monitoring.as_ref()
@@ -179,6 +185,7 @@ pub struct ServiceRevisionBuilder {
     pub(crate) vpc_lattice_configurations: ::std::option::Option<::std::vec::Vec<crate::types::VpcLatticeConfiguration>>,
     pub(crate) resolved_configuration: ::std::option::Option<crate::types::ResolvedConfiguration>,
     pub(crate) ecs_managed_resources: ::std::option::Option<crate::types::EcsManagedResources>,
+    pub(crate) overrides: ::std::option::Option<crate::types::ServiceRevisionOverrides>,
     pub(crate) monitoring: ::std::option::Option<crate::types::MonitoringConfiguration>,
 }
 impl ServiceRevisionBuilder {
@@ -504,6 +511,20 @@ impl ServiceRevisionBuilder {
     pub fn get_ecs_managed_resources(&self) -> &::std::option::Option<crate::types::EcsManagedResources> {
         &self.ecs_managed_resources
     }
+    /// <p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>
+    pub fn overrides(mut self, input: crate::types::ServiceRevisionOverrides) -> Self {
+        self.overrides = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>
+    pub fn set_overrides(mut self, input: ::std::option::Option<crate::types::ServiceRevisionOverrides>) -> Self {
+        self.overrides = input;
+        self
+    }
+    /// <p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>
+    pub fn get_overrides(&self) -> &::std::option::Option<crate::types::ServiceRevisionOverrides> {
+        &self.overrides
+    }
     /// <p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>
     pub fn monitoring(mut self, input: crate::types::MonitoringConfiguration) -> Self {
         self.monitoring = ::std::option::Option::Some(input);
@@ -541,6 +562,7 @@ impl ServiceRevisionBuilder {
             vpc_lattice_configurations: self.vpc_lattice_configurations,
             resolved_configuration: self.resolved_configuration,
             ecs_managed_resources: self.ecs_managed_resources,
+            overrides: self.overrides,
             monitoring: self.monitoring,
         }
     }

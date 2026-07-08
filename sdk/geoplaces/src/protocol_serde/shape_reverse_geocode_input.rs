@@ -12,49 +12,52 @@ pub fn ser_reverse_geocode_input_input(
         }
         array_2.finish();
     }
-    if let Some(var_4) = &input.filter {
-        #[allow(unused_mut)]
-        let mut object_5 = object.key("Filter").start_object();
-        crate::protocol_serde::shape_reverse_geocode_filter::ser_reverse_geocode_filter(&mut object_5, var_4)?;
-        object_5.finish();
+    if let Some(var_4) = &input.address_names_mode {
+        object.key("AddressNamesMode").string(var_4.as_str());
     }
-    if let Some(var_6) = &input.heading {
+    if let Some(var_5) = &input.filter {
+        #[allow(unused_mut)]
+        let mut object_6 = object.key("Filter").start_object();
+        crate::protocol_serde::shape_reverse_geocode_filter::ser_reverse_geocode_filter(&mut object_6, var_5)?;
+        object_6.finish();
+    }
+    if let Some(var_7) = &input.heading {
         object.key("Heading").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::Float((*var_6).into()),
+            ::aws_smithy_types::Number::Float((*var_7).into()),
         );
     }
-    if let Some(var_7) = &input.intended_use {
-        object.key("IntendedUse").string(var_7.as_str());
+    if let Some(var_8) = &input.intended_use {
+        object.key("IntendedUse").string(var_8.as_str());
     }
-    if let Some(var_8) = &input.language {
-        object.key("Language").string(var_8.as_str());
+    if let Some(var_9) = &input.language {
+        object.key("Language").string(var_9.as_str());
     }
-    if let Some(var_9) = &input.max_results {
+    if let Some(var_10) = &input.max_results {
         object.key("MaxResults").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_9).into()),
+            ::aws_smithy_types::Number::NegInt((*var_10).into()),
         );
     }
-    if let Some(var_10) = &input.political_view {
-        object.key("PoliticalView").string(var_10.as_str());
+    if let Some(var_11) = &input.political_view {
+        object.key("PoliticalView").string(var_11.as_str());
     }
-    if let Some(var_11) = &input.query_position {
-        let mut array_12 = object.key("QueryPosition").start_array();
-        for item_13 in var_11 {
+    if let Some(var_12) = &input.query_position {
+        let mut array_13 = object.key("QueryPosition").start_array();
+        for item_14 in var_12 {
             {
-                array_12.value().number(
+                array_13.value().number(
                     #[allow(clippy::useless_conversion)]
-                    ::aws_smithy_types::Number::Float((*item_13).into()),
+                    ::aws_smithy_types::Number::Float((*item_14).into()),
                 );
             }
         }
-        array_12.finish();
+        array_13.finish();
     }
-    if let Some(var_14) = &input.query_radius {
+    if let Some(var_15) = &input.query_radius {
         object.key("QueryRadius").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_14).into()),
+            ::aws_smithy_types::Number::NegInt((*var_15).into()),
         );
     }
     Ok(())

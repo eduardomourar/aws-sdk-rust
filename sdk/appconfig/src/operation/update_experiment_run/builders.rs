@@ -178,31 +178,31 @@ impl UpdateExperimentRunFluentBuilder {
     pub fn get_exposure_percentage(&self) -> &::std::option::Option<f32> {
         self.inner.get_exposure_percentage()
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn treatment_overrides(mut self, input: crate::types::TreatmentOverrides) -> Self {
         self.inner = self.inner.treatment_overrides(input);
         self
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn set_treatment_overrides(mut self, input: ::std::option::Option<crate::types::TreatmentOverrides>) -> Self {
         self.inner = self.inner.set_treatment_overrides(input);
         self
     }
-    /// <p>Updated treatment assignment overrides.</p>
+    /// <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
     pub fn get_treatment_overrides(&self) -> &::std::option::Option<crate::types::TreatmentOverrides> {
         self.inner.get_treatment_overrides()
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn deployment_parameters(mut self, input: crate::types::DeploymentParameters) -> Self {
         self.inner = self.inner.deployment_parameters(input);
         self
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn set_deployment_parameters(mut self, input: ::std::option::Option<crate::types::DeploymentParameters>) -> Self {
         self.inner = self.inner.set_deployment_parameters(input);
         self
     }
-    /// <p>Updated deployment parameters.</p>
+    /// <p>The updated deployment parameters for the experiment run.</p>
     pub fn get_deployment_parameters(&self) -> &::std::option::Option<crate::types::DeploymentParameters> {
         self.inner.get_deployment_parameters()
     }

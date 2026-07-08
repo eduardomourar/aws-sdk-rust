@@ -53,6 +53,8 @@ pub use crate::types::_access_restriction::AccessRestrictionBuilder;
 
 pub use crate::types::_address_component_phonemes::AddressComponentPhonemesBuilder;
 
+pub use crate::types::_cross_reference::CrossReferenceBuilder;
+
 pub use crate::types::_reverse_geocode_result_item::ReverseGeocodeResultItemBuilder;
 
 pub use crate::types::_search_nearby_result_item::SearchNearbyResultItemBuilder;
@@ -68,6 +70,8 @@ pub use crate::types::_autocomplete_highlights::AutocompleteHighlightsBuilder;
 pub use crate::types::_match_score_details::MatchScoreDetailsBuilder;
 
 pub use crate::types::_geocode_parsed_query::GeocodeParsedQueryBuilder;
+
+pub use crate::types::_translation_details::TranslationDetailsBuilder;
 
 pub use crate::types::_street_components::StreetComponentsBuilder;
 
@@ -111,6 +115,10 @@ pub use crate::types::_address_component_match_scores::AddressComponentMatchScor
 
 pub use crate::types::_parsed_query_component::ParsedQueryComponentBuilder;
 
+pub use crate::types::_admin_names::AdminNamesBuilder;
+
 pub use crate::types::_parsed_query_secondary_address_component::ParsedQuerySecondaryAddressComponentBuilder;
 
 pub use crate::types::_secondary_address_component_match_score::SecondaryAddressComponentMatchScoreBuilder;
+
+pub use crate::types::_translation_name::TranslationNameBuilder;

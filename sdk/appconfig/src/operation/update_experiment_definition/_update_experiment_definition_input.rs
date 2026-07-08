@@ -7,7 +7,7 @@ pub struct UpdateExperimentDefinitionInput {
     pub application_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The experiment definition ID or name.</p>
     pub experiment_definition_identifier: ::std::option::Option<::std::string::String>,
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub treatments: ::std::option::Option<::std::vec::Vec<crate::types::TreatmentInput>>,
     /// <p>An updated control treatment.</p>
     pub control: ::std::option::Option<crate::types::TreatmentInput>,
@@ -29,7 +29,7 @@ impl UpdateExperimentDefinitionInput {
     pub fn experiment_definition_identifier(&self) -> ::std::option::Option<&str> {
         self.experiment_definition_identifier.as_deref()
     }
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.treatments.is_none()`.
     pub fn treatments(&self) -> &[crate::types::TreatmentInput] {
@@ -111,19 +111,19 @@ impl UpdateExperimentDefinitionInputBuilder {
     ///
     /// To override the contents of this collection use [`set_treatments`](Self::set_treatments).
     ///
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub fn treatments(mut self, input: crate::types::TreatmentInput) -> Self {
         let mut v = self.treatments.unwrap_or_default();
         v.push(input);
         self.treatments = ::std::option::Option::Some(v);
         self
     }
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub fn set_treatments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TreatmentInput>>) -> Self {
         self.treatments = input;
         self
     }
-    /// <p>An updated list of treatments.</p>
+    /// <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
     pub fn get_treatments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TreatmentInput>> {
         &self.treatments
     }

@@ -73,6 +73,9 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "EstimatedPointAddress" => {
+                            builder = builder.set_estimated_point_address(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

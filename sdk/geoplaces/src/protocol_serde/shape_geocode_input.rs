@@ -12,47 +12,62 @@ pub fn ser_geocode_input_input(
         }
         array_2.finish();
     }
-    if let Some(var_4) = &input.bias_position {
-        let mut array_5 = object.key("BiasPosition").start_array();
-        for item_6 in var_4 {
+    if let Some(var_4) = &input.address_names_mode {
+        object.key("AddressNamesMode").string(var_4.as_str());
+    }
+    if let Some(var_5) = &input.address_translations {
+        let mut array_6 = object.key("AddressTranslations").start_array();
+        for item_7 in var_5 {
             {
-                array_5.value().number(
+                array_6.value().string(item_7.as_str());
+            }
+        }
+        array_6.finish();
+    }
+    if let Some(var_8) = &input.bias_position {
+        let mut array_9 = object.key("BiasPosition").start_array();
+        for item_10 in var_8 {
+            {
+                array_9.value().number(
                     #[allow(clippy::useless_conversion)]
-                    ::aws_smithy_types::Number::Float((*item_6).into()),
+                    ::aws_smithy_types::Number::Float((*item_10).into()),
                 );
             }
         }
-        array_5.finish();
+        array_9.finish();
     }
-    if let Some(var_7) = &input.filter {
+    if let Some(var_11) = &input.filter {
         #[allow(unused_mut)]
-        let mut object_8 = object.key("Filter").start_object();
-        crate::protocol_serde::shape_geocode_filter::ser_geocode_filter(&mut object_8, var_7)?;
-        object_8.finish();
+        let mut object_12 = object.key("Filter").start_object();
+        crate::protocol_serde::shape_geocode_filter::ser_geocode_filter(&mut object_12, var_11)?;
+        object_12.finish();
     }
-    if let Some(var_9) = &input.intended_use {
-        object.key("IntendedUse").string(var_9.as_str());
+    if let Some(var_13) = &input.intended_use {
+        object.key("IntendedUse").string(var_13.as_str());
     }
-    if let Some(var_10) = &input.language {
-        object.key("Language").string(var_10.as_str());
+    if let Some(var_14) = &input.language {
+        object.key("Language").string(var_14.as_str());
     }
-    if let Some(var_11) = &input.max_results {
+    if let Some(var_15) = &input.max_results {
         object.key("MaxResults").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_11).into()),
+            ::aws_smithy_types::Number::NegInt((*var_15).into()),
         );
     }
-    if let Some(var_12) = &input.political_view {
-        object.key("PoliticalView").string(var_12.as_str());
+    if let Some(var_16) = &input.political_view {
+        object.key("PoliticalView").string(var_16.as_str());
     }
-    if let Some(var_13) = &input.query_components {
+    if let Some(var_17) = &input.postal_code_mode {
+        object.key("PostalCodeMode").string(var_17.as_str());
+    }
+    if let Some(var_18) = &input.query_components {
         #[allow(unused_mut)]
-        let mut object_14 = object.key("QueryComponents").start_object();
-        crate::protocol_serde::shape_geocode_query_components::ser_geocode_query_components(&mut object_14, var_13)?;
-        object_14.finish();
+        let mut object_19 = object.key("QueryComponents").start_object();
+        crate::protocol_serde::shape_geocode_query_components::ser_geocode_query_components(&mut object_19, var_18)?;
+        object_19.finish();
     }
-    if let Some(var_15) = &input.query_text {
-        object.key("QueryText").string(var_15.as_str());
+    if let Some(var_20) = &input.query_text {
+        object.key("QueryText").string(var_20.as_str());
     }
     Ok(())
 }

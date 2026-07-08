@@ -37,13 +37,13 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// <p>Determines how the deployment circuit breaker calculates the task failure threshold from the threshold <code>value</code>.</p>
+/// <p>Determines how the deployment circuit breaker calculates the number of task failures tolerated before it triggers, based on the configured <code>value</code>.</p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum ThresholdType {
-    /// <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, then clamps the result to a minimum of <code>3</code> and a maximum of <code>200</code>. This is the default threshold type.</p>
+    /// <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, then clamping the result to a minimum of <code>3</code> and a maximum of <code>200</code>. This is the default threshold type, with a default <code>value</code> of <code>50</code>.</p>
     BoundedPercent,
     /// <p>Amazon ECS uses the integer provided in <code>value</code> directly as the failure threshold.</p>
     Count,

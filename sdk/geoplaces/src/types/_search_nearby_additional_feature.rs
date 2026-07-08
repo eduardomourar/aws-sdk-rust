@@ -14,6 +14,7 @@
 /// match searchnearbyadditionalfeature {
 ///     SearchNearbyAdditionalFeature::Access => { /* ... */ },
 ///     SearchNearbyAdditionalFeature::Contact => { /* ... */ },
+///     SearchNearbyAdditionalFeature::CrossReferences => { /* ... */ },
 ///     SearchNearbyAdditionalFeature::Phonemes => { /* ... */ },
 ///     SearchNearbyAdditionalFeature::TimeZone => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -49,6 +50,8 @@ pub enum SearchNearbyAdditionalFeature {
     #[allow(missing_docs)] // documentation missing in model
     Contact,
     #[allow(missing_docs)] // documentation missing in model
+    CrossReferences,
+    #[allow(missing_docs)] // documentation missing in model
     Phonemes,
     #[allow(missing_docs)] // documentation missing in model
     TimeZone,
@@ -61,6 +64,7 @@ impl ::std::convert::From<&str> for SearchNearbyAdditionalFeature {
         match s {
             "Access" => SearchNearbyAdditionalFeature::Access,
             "Contact" => SearchNearbyAdditionalFeature::Contact,
+            "CrossReferences" => SearchNearbyAdditionalFeature::CrossReferences,
             "Phonemes" => SearchNearbyAdditionalFeature::Phonemes,
             "TimeZone" => SearchNearbyAdditionalFeature::TimeZone,
             other => SearchNearbyAdditionalFeature::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -80,6 +84,7 @@ impl SearchNearbyAdditionalFeature {
         match self {
             SearchNearbyAdditionalFeature::Access => "Access",
             SearchNearbyAdditionalFeature::Contact => "Contact",
+            SearchNearbyAdditionalFeature::CrossReferences => "CrossReferences",
             SearchNearbyAdditionalFeature::Phonemes => "Phonemes",
             SearchNearbyAdditionalFeature::TimeZone => "TimeZone",
             SearchNearbyAdditionalFeature::Unknown(value) => value.as_str(),
@@ -87,7 +92,7 @@ impl SearchNearbyAdditionalFeature {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Access", "Contact", "Phonemes", "TimeZone"]
+        &["Access", "Contact", "CrossReferences", "Phonemes", "TimeZone"]
     }
 }
 impl ::std::convert::AsRef<str> for SearchNearbyAdditionalFeature {
@@ -112,6 +117,7 @@ impl ::std::fmt::Display for SearchNearbyAdditionalFeature {
         match self {
             SearchNearbyAdditionalFeature::Access => write!(f, "Access"),
             SearchNearbyAdditionalFeature::Contact => write!(f, "Contact"),
+            SearchNearbyAdditionalFeature::CrossReferences => write!(f, "CrossReferences"),
             SearchNearbyAdditionalFeature::Phonemes => write!(f, "Phonemes"),
             SearchNearbyAdditionalFeature::TimeZone => write!(f, "TimeZone"),
             SearchNearbyAdditionalFeature::Unknown(value) => write!(f, "{value}"),

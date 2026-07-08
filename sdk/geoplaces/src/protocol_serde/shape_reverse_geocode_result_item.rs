@@ -99,6 +99,13 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "MainAddress" => {
+                            builder =
+                                builder.set_main_address(crate::protocol_serde::shape_related_place::de_related_place(tokens, _value, depth + 1)?);
+                        }
+                        "EstimatedPointAddress" => {
+                            builder = builder.set_estimated_point_address(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

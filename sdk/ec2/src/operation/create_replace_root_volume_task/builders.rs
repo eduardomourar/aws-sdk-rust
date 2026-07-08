@@ -22,7 +22,7 @@ impl crate::operation::create_replace_root_volume_task::builders::CreateReplaceR
 }
 /// Fluent builder constructing a request to `CreateReplaceRootVolumeTask`.
 ///
-/// <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p>
+/// <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, that is restored from an AMI that has the same key characteristics as that of the instance, or that is replaced by a specified volume.</p>
 /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateReplaceRootVolumeTaskFluentBuilder {
@@ -124,19 +124,19 @@ impl CreateReplaceRootVolumeTaskFluentBuilder {
         self.inner.get_instance_id()
     }
     /// <p>The ID of the snapshot from which to restore the replacement root volume. The specified snapshot must be a snapshot that you previously created from the original root volume.</p>
-    /// <p>If you want to restore the replacement root volume to the initial launch state, or if you want to restore the replacement root volume from an AMI, omit this parameter.</p>
+    /// <p>If you want to restore the replacement root volume to the initial launch state, if you want to restore the replacement root volume from an AMI, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
     pub fn snapshot_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.snapshot_id(input.into());
         self
     }
     /// <p>The ID of the snapshot from which to restore the replacement root volume. The specified snapshot must be a snapshot that you previously created from the original root volume.</p>
-    /// <p>If you want to restore the replacement root volume to the initial launch state, or if you want to restore the replacement root volume from an AMI, omit this parameter.</p>
+    /// <p>If you want to restore the replacement root volume to the initial launch state, if you want to restore the replacement root volume from an AMI, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
     pub fn set_snapshot_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_snapshot_id(input);
         self
     }
     /// <p>The ID of the snapshot from which to restore the replacement root volume. The specified snapshot must be a snapshot that you previously created from the original root volume.</p>
-    /// <p>If you want to restore the replacement root volume to the initial launch state, or if you want to restore the replacement root volume from an AMI, omit this parameter.</p>
+    /// <p>If you want to restore the replacement root volume to the initial launch state, if you want to restore the replacement root volume from an AMI, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
     pub fn get_snapshot_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_snapshot_id()
     }
@@ -188,19 +188,19 @@ impl CreateReplaceRootVolumeTaskFluentBuilder {
         self.inner.get_tag_specifications()
     }
     /// <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p>
-    /// <p>If you want to restore the replacement volume from a specific snapshot, or if you want to restore it to its launch state, omit this parameter.</p>
+    /// <p>If you want to restore the replacement volume from a specific snapshot, if you want to restore it to its launch state, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
     pub fn image_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.image_id(input.into());
         self
     }
     /// <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p>
-    /// <p>If you want to restore the replacement volume from a specific snapshot, or if you want to restore it to its launch state, omit this parameter.</p>
+    /// <p>If you want to restore the replacement volume from a specific snapshot, if you want to restore it to its launch state, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
     pub fn set_image_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_image_id(input);
         self
     }
     /// <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p>
-    /// <p>If you want to restore the replacement volume from a specific snapshot, or if you want to restore it to its launch state, omit this parameter.</p>
+    /// <p>If you want to restore the replacement volume from a specific snapshot, if you want to restore it to its launch state, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
     pub fn get_image_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_image_id()
     }
@@ -264,5 +264,22 @@ impl CreateReplaceRootVolumeTaskFluentBuilder {
     /// <p>Valid range: 100 - 300 MiB/s</p>
     pub fn get_volume_initialization_rate(&self) -> &::std::option::Option<i64> {
         self.inner.get_volume_initialization_rate()
+    }
+    /// <p>The ID of the volume to use as the replacement root volume. The specified volume must be in the same Availability Zone as the instance, must be in the <code>available</code> state, and must not be attached to an instance. If the original root volume is encrypted, the specified volume must also be encrypted.</p>
+    /// <p>If you want to restore the replacement root volume from a specific snapshot, an AMI, or to its launch state, omit this parameter.</p>
+    pub fn volume_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.volume_id(input.into());
+        self
+    }
+    /// <p>The ID of the volume to use as the replacement root volume. The specified volume must be in the same Availability Zone as the instance, must be in the <code>available</code> state, and must not be attached to an instance. If the original root volume is encrypted, the specified volume must also be encrypted.</p>
+    /// <p>If you want to restore the replacement root volume from a specific snapshot, an AMI, or to its launch state, omit this parameter.</p>
+    pub fn set_volume_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_volume_id(input);
+        self
+    }
+    /// <p>The ID of the volume to use as the replacement root volume. The specified volume must be in the same Availability Zone as the instance, must be in the <code>available</code> state, and must not be attached to an instance. If the original root volume is encrypted, the specified volume must also be encrypted.</p>
+    /// <p>If you want to restore the replacement root volume from a specific snapshot, an AMI, or to its launch state, omit this parameter.</p>
+    pub fn get_volume_id(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_volume_id()
     }
 }

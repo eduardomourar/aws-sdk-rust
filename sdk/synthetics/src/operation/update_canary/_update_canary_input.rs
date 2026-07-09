@@ -70,6 +70,8 @@ pub struct UpdateCanaryInput {
     pub add_replica_locations: ::std::option::Option<::std::vec::Vec<crate::types::AddReplicaLocationInput>>,
     /// <p>A list of locations (Amazon Web Services Regions) to remove as replicas for the canary. You must specify at least one location to remove. All replicas can be removed in a single API call and you cannot remove the primary location.</p>
     pub remove_replica_locations: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key. If you omit this parameter, the service retains the existing value. To revert to the AWS-managed key, set this parameter to an empty string.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateCanaryInput {
     /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -183,6 +185,10 @@ impl UpdateCanaryInput {
     pub fn remove_replica_locations(&self) -> &[::std::string::String] {
         self.remove_replica_locations.as_deref().unwrap_or_default()
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key. If you omit this parameter, the service retains the existing value. To revert to the AWS-managed key, set this parameter to an empty string.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
 }
 impl UpdateCanaryInput {
     /// Creates a new builder-style object to manufacture [`UpdateCanaryInput`](crate::operation::update_canary::UpdateCanaryInput).
@@ -213,6 +219,7 @@ pub struct UpdateCanaryInputBuilder {
     pub(crate) browser_configs: ::std::option::Option<::std::vec::Vec<crate::types::BrowserConfig>>,
     pub(crate) add_replica_locations: ::std::option::Option<::std::vec::Vec<crate::types::AddReplicaLocationInput>>,
     pub(crate) remove_replica_locations: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateCanaryInputBuilder {
     /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -585,6 +592,20 @@ impl UpdateCanaryInputBuilder {
     pub fn get_remove_replica_locations(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.remove_replica_locations
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key. If you omit this parameter, the service retains the existing value. To revert to the AWS-managed key, set this parameter to an empty string.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key. If you omit this parameter, the service retains the existing value. To revert to the AWS-managed key, set this parameter to an empty string.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key. If you omit this parameter, the service retains the existing value. To revert to the AWS-managed key, set this parameter to an empty string.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// Consumes the builder and constructs a [`UpdateCanaryInput`](crate::operation::update_canary::UpdateCanaryInput).
     pub fn build(
         self,
@@ -608,6 +629,7 @@ impl UpdateCanaryInputBuilder {
             browser_configs: self.browser_configs,
             add_replica_locations: self.add_replica_locations,
             remove_replica_locations: self.remove_replica_locations,
+            kms_key_arn: self.kms_key_arn,
         })
     }
 }

@@ -309,6 +309,8 @@ mod deactivate_evaluation_form;
 
 mod delete_attached_file;
 
+mod delete_contact_data;
+
 mod delete_contact_evaluation;
 
 mod delete_contact_flow;

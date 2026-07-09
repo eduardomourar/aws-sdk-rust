@@ -169,6 +169,8 @@ pub(crate) mod shape_deactivate_evaluation_form;
 
 pub(crate) mod shape_delete_attached_file;
 
+pub(crate) mod shape_delete_contact_data;
+
 pub(crate) mod shape_delete_contact_evaluation;
 
 pub(crate) mod shape_delete_contact_flow;
@@ -857,6 +859,8 @@ pub(crate) mod shape_contact_flow_not_published_exception;
 
 pub(crate) mod shape_contact_not_found_exception;
 
+pub(crate) mod shape_contact_not_terminated_exception;
+
 pub(crate) mod shape_create_agent_status_input;
 
 pub(crate) mod shape_create_attached_file_input;
@@ -936,6 +940,8 @@ pub(crate) mod shape_create_workspace_input;
 pub(crate) mod shape_create_workspace_page_input;
 
 pub(crate) mod shape_deactivate_evaluation_form_input;
+
+pub(crate) mod shape_delete_contact_data_input;
 
 pub(crate) mod shape_destination_not_allowed_exception;
 

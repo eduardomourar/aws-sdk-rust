@@ -563,6 +563,8 @@ pub use crate::types::_view_content::ViewContent;
 
 pub use crate::types::_workspace_theme_config::WorkspaceThemeConfig;
 
+pub use crate::types::_contact_field::ContactField;
+
 pub use crate::types::_agent_status_type::AgentStatusType;
 
 pub use crate::types::_queue_info::QueueInfo;
@@ -1692,6 +1694,8 @@ mod _contact_evaluation_attribute_filter;
 mod _contact_evaluation_attribute_key;
 
 mod _contact_evaluation_attribute_value;
+
+mod _contact_field;
 
 mod _contact_filter;
 

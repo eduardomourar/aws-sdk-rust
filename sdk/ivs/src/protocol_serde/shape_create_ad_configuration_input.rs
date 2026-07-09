@@ -18,15 +18,21 @@ pub fn ser_create_ad_configuration_input_input(
     if let Some(var_5) = &input.name {
         object.key("name").string(var_5.as_str());
     }
-    if let Some(var_6) = &input.tags {
+    if let Some(var_6) = &input.post_roll_configuration {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("tags").start_object();
-        for (key_8, value_9) in var_6 {
+        let mut object_7 = object.key("postRollConfiguration").start_object();
+        crate::protocol_serde::shape_post_roll_configuration::ser_post_roll_configuration(&mut object_7, var_6)?;
+        object_7.finish();
+    }
+    if let Some(var_8) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_9 = object.key("tags").start_object();
+        for (key_10, value_11) in var_8 {
             {
-                object_7.key(key_8.as_str()).string(value_9.as_str());
+                object_9.key(key_10.as_str()).string(value_11.as_str());
             }
         }
-        object_7.finish();
+        object_9.finish();
     }
     Ok(())
 }

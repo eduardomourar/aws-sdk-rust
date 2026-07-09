@@ -8,6 +8,8 @@ pub struct AddReplicaLocationInput {
     pub location: ::std::string::String,
     /// <p>The VPC configuration to use for the canary replica in this location. If not specified, the replica runs without VPC connectivity.</p>
     pub vpc_config: ::std::option::Option<crate::types::VpcConfigInput>,
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary replica's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl AddReplicaLocationInput {
     /// <p>The Amazon Web Services Region where the canary replica should be created, for example <code>us-east-1</code>.</p>
@@ -18,6 +20,10 @@ impl AddReplicaLocationInput {
     /// <p>The VPC configuration to use for the canary replica in this location. If not specified, the replica runs without VPC connectivity.</p>
     pub fn vpc_config(&self) -> ::std::option::Option<&crate::types::VpcConfigInput> {
         self.vpc_config.as_ref()
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary replica's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
     }
 }
 impl AddReplicaLocationInput {
@@ -33,6 +39,7 @@ impl AddReplicaLocationInput {
 pub struct AddReplicaLocationInputBuilder {
     pub(crate) location: ::std::option::Option<::std::string::String>,
     pub(crate) vpc_config: ::std::option::Option<crate::types::VpcConfigInput>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl AddReplicaLocationInputBuilder {
     /// <p>The Amazon Web Services Region where the canary replica should be created, for example <code>us-east-1</code>.</p>
@@ -64,6 +71,20 @@ impl AddReplicaLocationInputBuilder {
     pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::VpcConfigInput> {
         &self.vpc_config
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary replica's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary replica's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary replica's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// Consumes the builder and constructs a [`AddReplicaLocationInput`](crate::types::AddReplicaLocationInput).
     /// This method will fail if any of the following fields are not set:
     /// - [`location`](crate::types::builders::AddReplicaLocationInputBuilder::location)
@@ -76,6 +97,7 @@ impl AddReplicaLocationInputBuilder {
                 )
             })?,
             vpc_config: self.vpc_config,
+            kms_key_arn: self.kms_key_arn,
         })
     }
 }

@@ -12,6 +12,7 @@
 /// ```text
 /// # let detectorfeatureresult = unimplemented!();
 /// match detectorfeatureresult {
+///     DetectorFeatureResult::AiAnalyst => { /* ... */ },
 ///     DetectorFeatureResult::CloudTrail => { /* ... */ },
 ///     DetectorFeatureResult::DnsLogs => { /* ... */ },
 ///     DetectorFeatureResult::EbsMalwareProtection => { /* ... */ },
@@ -51,6 +52,8 @@
 )]
 pub enum DetectorFeatureResult {
     #[allow(missing_docs)] // documentation missing in model
+    AiAnalyst,
+    #[allow(missing_docs)] // documentation missing in model
     CloudTrail,
     #[allow(missing_docs)] // documentation missing in model
     DnsLogs,
@@ -77,6 +80,7 @@ pub enum DetectorFeatureResult {
 impl ::std::convert::From<&str> for DetectorFeatureResult {
     fn from(s: &str) -> Self {
         match s {
+            "AI_ANALYST" => DetectorFeatureResult::AiAnalyst,
             "CLOUD_TRAIL" => DetectorFeatureResult::CloudTrail,
             "DNS_LOGS" => DetectorFeatureResult::DnsLogs,
             "EBS_MALWARE_PROTECTION" => DetectorFeatureResult::EbsMalwareProtection,
@@ -102,6 +106,7 @@ impl DetectorFeatureResult {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            DetectorFeatureResult::AiAnalyst => "AI_ANALYST",
             DetectorFeatureResult::CloudTrail => "CLOUD_TRAIL",
             DetectorFeatureResult::DnsLogs => "DNS_LOGS",
             DetectorFeatureResult::EbsMalwareProtection => "EBS_MALWARE_PROTECTION",
@@ -118,6 +123,7 @@ impl DetectorFeatureResult {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AI_ANALYST",
             "CLOUD_TRAIL",
             "DNS_LOGS",
             "EBS_MALWARE_PROTECTION",
@@ -151,6 +157,7 @@ impl DetectorFeatureResult {
 impl ::std::fmt::Display for DetectorFeatureResult {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            DetectorFeatureResult::AiAnalyst => write!(f, "AI_ANALYST"),
             DetectorFeatureResult::CloudTrail => write!(f, "CLOUD_TRAIL"),
             DetectorFeatureResult::DnsLogs => write!(f, "DNS_LOGS"),
             DetectorFeatureResult::EbsMalwareProtection => write!(f, "EBS_MALWARE_PROTECTION"),

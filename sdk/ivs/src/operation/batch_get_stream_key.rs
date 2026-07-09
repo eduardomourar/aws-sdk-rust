@@ -260,11 +260,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for BatchGetStrea
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum BatchGetStreamKeyError {
-    /// <p></p>
+    /// <p>User does not have sufficient access to perform this action.</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
-    /// <p></p>
+    /// <p>The service is temporarily unavailable.</p>
     ServiceUnavailable(crate::types::error::ServiceUnavailable),
-    /// <p></p>
+    /// <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \

@@ -19,5 +19,10 @@ pub fn ser_fleet_launch_template_specification_request(
     if let Some(var_6) = &input.version {
         scope_5.string(var_6);
     }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("LaunchTemplateSpecificationUserData");
+    if let Some(var_8) = &input.launch_template_specification_user_data {
+        scope_7.string(var_8);
+    }
     Ok(())
 }

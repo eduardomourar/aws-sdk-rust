@@ -1705,6 +1705,10 @@ pub use crate::types::_analysis_load_balancer_target::AnalysisLoadBalancerTarget
 
 pub use crate::types::_capacity_allocation_metadata_entry::CapacityAllocationMetadataEntryBuilder;
 
+pub use crate::types::_fleet_iam_instance_profile_specification_request::FleetIamInstanceProfileSpecificationRequestBuilder;
+
+pub use crate::types::_fleet_instance_metadata_options_request::FleetInstanceMetadataOptionsRequestBuilder;
+
 pub use crate::types::_placement_response::PlacementResponseBuilder;
 
 pub use crate::types::_instance_ipv6_address_request::InstanceIpv6AddressRequestBuilder;

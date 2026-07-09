@@ -7,6 +7,8 @@ pub struct CreateAdConfigurationInput {
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate and Sign IVS Playback Tokens</a>.</p>
     pub media_tailor_playback_configurations: ::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>>,
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub post_roll_configuration: ::std::option::Option<crate::types::PostRollConfiguration>,
     /// <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
@@ -20,6 +22,10 @@ impl CreateAdConfigurationInput {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.media_tailor_playback_configurations.is_none()`.
     pub fn media_tailor_playback_configurations(&self) -> &[crate::types::MediaTailorPlaybackConfiguration] {
         self.media_tailor_playback_configurations.as_deref().unwrap_or_default()
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn post_roll_configuration(&self) -> ::std::option::Option<&crate::types::PostRollConfiguration> {
+        self.post_roll_configuration.as_ref()
     }
     /// <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
@@ -39,6 +45,7 @@ impl CreateAdConfigurationInput {
 pub struct CreateAdConfigurationInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) media_tailor_playback_configurations: ::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>>,
+    pub(crate) post_roll_configuration: ::std::option::Option<crate::types::PostRollConfiguration>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateAdConfigurationInputBuilder {
@@ -81,6 +88,20 @@ impl CreateAdConfigurationInputBuilder {
     ) -> &::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>> {
         &self.media_tailor_playback_configurations
     }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn post_roll_configuration(mut self, input: crate::types::PostRollConfiguration) -> Self {
+        self.post_roll_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn set_post_roll_configuration(mut self, input: ::std::option::Option<crate::types::PostRollConfiguration>) -> Self {
+        self.post_roll_configuration = input;
+        self
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn get_post_roll_configuration(&self) -> &::std::option::Option<crate::types::PostRollConfiguration> {
+        &self.post_roll_configuration
+    }
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
@@ -109,6 +130,7 @@ impl CreateAdConfigurationInputBuilder {
         ::std::result::Result::Ok(crate::operation::create_ad_configuration::CreateAdConfigurationInput {
             name: self.name,
             media_tailor_playback_configurations: self.media_tailor_playback_configurations,
+            post_roll_configuration: self.post_roll_configuration,
             tags: self.tags,
         })
     }

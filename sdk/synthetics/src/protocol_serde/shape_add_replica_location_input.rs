@@ -12,5 +12,8 @@ pub fn ser_add_replica_location_input(
         crate::protocol_serde::shape_vpc_config_input::ser_vpc_config_input(&mut object_2, var_1)?;
         object_2.finish();
     }
+    if let Some(var_3) = &input.kms_key_arn {
+        object.key("KmsKeyArn").string(var_3.as_str());
+    }
     Ok(())
 }

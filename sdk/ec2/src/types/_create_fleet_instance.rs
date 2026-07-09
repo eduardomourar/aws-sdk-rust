@@ -14,6 +14,15 @@ pub struct CreateFleetInstance {
     pub instance_type: ::std::option::Option<crate::types::InstanceType>,
     /// <p>The value is <code>windows</code> for Windows instances in an EC2 Fleet. Otherwise, the value is blank.</p>
     pub platform: ::std::option::Option<crate::types::PlatformValues>,
+    /// <p>The ID of the Availability Zone in which the instance was launched. For example, <code>use2-az1</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub availability_zone_id: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the Availability Zone in which the instance was launched. For example, <code>us-east-2a</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub availability_zone: ::std::option::Option<::std::string::String>,
+    /// <p>The ID of the subnet in which the instance was launched.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub subnet_id: ::std::option::Option<::std::string::String>,
 }
 impl CreateFleetInstance {
     /// <p>The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.</p>
@@ -38,6 +47,21 @@ impl CreateFleetInstance {
     pub fn platform(&self) -> ::std::option::Option<&crate::types::PlatformValues> {
         self.platform.as_ref()
     }
+    /// <p>The ID of the Availability Zone in which the instance was launched. For example, <code>use2-az1</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn availability_zone_id(&self) -> ::std::option::Option<&str> {
+        self.availability_zone_id.as_deref()
+    }
+    /// <p>The name of the Availability Zone in which the instance was launched. For example, <code>us-east-2a</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn availability_zone(&self) -> ::std::option::Option<&str> {
+        self.availability_zone.as_deref()
+    }
+    /// <p>The ID of the subnet in which the instance was launched.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn subnet_id(&self) -> ::std::option::Option<&str> {
+        self.subnet_id.as_deref()
+    }
 }
 impl CreateFleetInstance {
     /// Creates a new builder-style object to manufacture [`CreateFleetInstance`](crate::types::CreateFleetInstance).
@@ -55,6 +79,9 @@ pub struct CreateFleetInstanceBuilder {
     pub(crate) instance_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) instance_type: ::std::option::Option<crate::types::InstanceType>,
     pub(crate) platform: ::std::option::Option<crate::types::PlatformValues>,
+    pub(crate) availability_zone_id: ::std::option::Option<::std::string::String>,
+    pub(crate) availability_zone: ::std::option::Option<::std::string::String>,
+    pub(crate) subnet_id: ::std::option::Option<::std::string::String>,
 }
 impl CreateFleetInstanceBuilder {
     /// <p>The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.</p>
@@ -133,6 +160,57 @@ impl CreateFleetInstanceBuilder {
     pub fn get_platform(&self) -> &::std::option::Option<crate::types::PlatformValues> {
         &self.platform
     }
+    /// <p>The ID of the Availability Zone in which the instance was launched. For example, <code>use2-az1</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn availability_zone_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.availability_zone_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ID of the Availability Zone in which the instance was launched. For example, <code>use2-az1</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn set_availability_zone_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.availability_zone_id = input;
+        self
+    }
+    /// <p>The ID of the Availability Zone in which the instance was launched. For example, <code>use2-az1</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn get_availability_zone_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.availability_zone_id
+    }
+    /// <p>The name of the Availability Zone in which the instance was launched. For example, <code>us-east-2a</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn availability_zone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.availability_zone = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the Availability Zone in which the instance was launched. For example, <code>us-east-2a</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn set_availability_zone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.availability_zone = input;
+        self
+    }
+    /// <p>The name of the Availability Zone in which the instance was launched. For example, <code>us-east-2a</code>.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn get_availability_zone(&self) -> &::std::option::Option<::std::string::String> {
+        &self.availability_zone
+    }
+    /// <p>The ID of the subnet in which the instance was launched.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn subnet_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.subnet_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ID of the subnet in which the instance was launched.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn set_subnet_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.subnet_id = input;
+        self
+    }
+    /// <p>The ID of the subnet in which the instance was launched.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn get_subnet_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.subnet_id
+    }
     /// Consumes the builder and constructs a [`CreateFleetInstance`](crate::types::CreateFleetInstance).
     pub fn build(self) -> crate::types::CreateFleetInstance {
         crate::types::CreateFleetInstance {
@@ -141,6 +219,9 @@ impl CreateFleetInstanceBuilder {
             instance_ids: self.instance_ids,
             instance_type: self.instance_type,
             platform: self.platform,
+            availability_zone_id: self.availability_zone_id,
+            availability_zone: self.availability_zone,
+            subnet_id: self.subnet_id,
         }
     }
 }

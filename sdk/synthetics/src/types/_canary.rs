@@ -57,6 +57,8 @@ pub struct Canary {
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
     pub artifact_config: ::std::option::Option<crate::types::ArtifactConfigOutput>,
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>Returns the dry run configurations for a canary.</p>
     pub dry_run_config: ::std::option::Option<crate::types::DryRunConfigOutput>,
 }
@@ -164,6 +166,10 @@ impl Canary {
     pub fn artifact_config(&self) -> ::std::option::Option<&crate::types::ArtifactConfigOutput> {
         self.artifact_config.as_ref()
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
     /// <p>Returns the dry run configurations for a canary.</p>
     pub fn dry_run_config(&self) -> ::std::option::Option<&crate::types::DryRunConfigOutput> {
         self.dry_run_config.as_ref()
@@ -202,6 +208,7 @@ pub struct CanaryBuilder {
     pub(crate) multi_location_config: ::std::option::Option<crate::types::MultiLocationConfig>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) artifact_config: ::std::option::Option<crate::types::ArtifactConfigOutput>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) dry_run_config: ::std::option::Option<crate::types::DryRunConfigOutput>,
 }
 impl CanaryBuilder {
@@ -564,6 +571,20 @@ impl CanaryBuilder {
     pub fn get_artifact_config(&self) -> &::std::option::Option<crate::types::ArtifactConfigOutput> {
         &self.artifact_config
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// <p>Returns the dry run configurations for a canary.</p>
     pub fn dry_run_config(mut self, input: crate::types::DryRunConfigOutput) -> Self {
         self.dry_run_config = ::std::option::Option::Some(input);
@@ -603,6 +624,7 @@ impl CanaryBuilder {
             multi_location_config: self.multi_location_config,
             tags: self.tags,
             artifact_config: self.artifact_config,
+            kms_key_arn: self.kms_key_arn,
             dry_run_config: self.dry_run_config,
         }
     }

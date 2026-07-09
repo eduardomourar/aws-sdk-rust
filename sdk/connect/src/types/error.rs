@@ -39,6 +39,8 @@ pub use crate::types::error::_resource_in_use_exception::ResourceInUseException;
 
 pub use crate::types::error::_too_many_requests_exception::TooManyRequestsException;
 
+pub use crate::types::error::_contact_not_terminated_exception::ContactNotTerminatedException;
+
 pub use crate::types::error::_contact_flow_not_published_exception::ContactFlowNotPublishedException;
 
 pub use crate::types::error::_user_not_found_exception::UserNotFoundException;
@@ -64,6 +66,8 @@ mod _conflict_exception;
 mod _contact_flow_not_published_exception;
 
 mod _contact_not_found_exception;
+
+mod _contact_not_terminated_exception;
 
 mod _destination_not_allowed_exception;
 

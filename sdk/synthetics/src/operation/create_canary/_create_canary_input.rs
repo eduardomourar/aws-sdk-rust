@@ -62,6 +62,8 @@ pub struct CreateCanaryInput {
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
     pub artifact_config: ::std::option::Option<crate::types::ArtifactConfigInput>,
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl CreateCanaryInput {
     /// <p>The name for this canary. Be sure to give it a descriptive name that distinguishes it from other canaries in your account.</p>
@@ -161,6 +163,10 @@ impl CreateCanaryInput {
     pub fn artifact_config(&self) -> ::std::option::Option<&crate::types::ArtifactConfigInput> {
         self.artifact_config.as_ref()
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn kms_key_arn(&self) -> ::std::option::Option<&str> {
+        self.kms_key_arn.as_deref()
+    }
 }
 impl CreateCanaryInput {
     /// Creates a new builder-style object to manufacture [`CreateCanaryInput`](crate::operation::create_canary::CreateCanaryInput).
@@ -189,6 +195,7 @@ pub struct CreateCanaryInputBuilder {
     pub(crate) add_replica_locations: ::std::option::Option<::std::vec::Vec<crate::types::AddReplicaLocationInput>>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) artifact_config: ::std::option::Option<crate::types::ArtifactConfigInput>,
+    pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl CreateCanaryInputBuilder {
     /// <p>The name for this canary. Be sure to give it a descriptive name that distinguishes it from other canaries in your account.</p>
@@ -526,6 +533,20 @@ impl CreateCanaryInputBuilder {
     pub fn get_artifact_config(&self) -> &::std::option::Option<crate::types::ArtifactConfigInput> {
         &self.artifact_config
     }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables at rest. If you don't specify a value, the service uses an AWS-managed key.</p>
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// Consumes the builder and constructs a [`CreateCanaryInput`](crate::operation::create_canary::CreateCanaryInput).
     pub fn build(
         self,
@@ -547,6 +568,7 @@ impl CreateCanaryInputBuilder {
             add_replica_locations: self.add_replica_locations,
             tags: self.tags,
             artifact_config: self.artifact_config,
+            kms_key_arn: self.kms_key_arn,
         })
     }
 }

@@ -13,6 +13,8 @@ pub enum Error {
     ContactFlowNotPublishedException(crate::types::error::ContactFlowNotPublishedException),
     /// <p>The contact with the specified ID does not exist.</p>
     ContactNotFoundException(crate::types::error::ContactNotFoundException),
+    /// <p>The contact has not been disconnected and is not in a terminated state. PII can be deleted only from a contact that has been disconnected. This error is returned with an HTTP 409 status code.</p>
+    ContactNotTerminatedException(crate::types::error::ContactNotTerminatedException),
     /// <p>Outbound calls to the destination number are not allowed.</p>
     DestinationNotAllowedException(crate::types::error::DestinationNotAllowedException),
     /// <p>A resource with the specified name already exists.</p>
@@ -76,6 +78,7 @@ impl ::std::fmt::Display for Error {
             Error::ConflictException(inner) => inner.fmt(f),
             Error::ContactFlowNotPublishedException(inner) => inner.fmt(f),
             Error::ContactNotFoundException(inner) => inner.fmt(f),
+            Error::ContactNotTerminatedException(inner) => inner.fmt(f),
             Error::DestinationNotAllowedException(inner) => inner.fmt(f),
             Error::DuplicateResourceException(inner) => inner.fmt(f),
             Error::IdempotencyException(inner) => inner.fmt(f),
@@ -125,6 +128,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::ConflictException(inner) => inner.meta(),
             Self::ContactFlowNotPublishedException(inner) => inner.meta(),
             Self::ContactNotFoundException(inner) => inner.meta(),
+            Self::ContactNotTerminatedException(inner) => inner.meta(),
             Self::DestinationNotAllowedException(inner) => inner.meta(),
             Self::DuplicateResourceException(inner) => inner.meta(),
             Self::IdempotencyException(inner) => inner.meta(),
@@ -3056,6 +3060,39 @@ impl From<crate::operation::delete_attached_file::DeleteAttachedFileError> for E
             }
             crate::operation::delete_attached_file::DeleteAttachedFileError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::delete_attached_file::DeleteAttachedFileError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_contact_data::DeleteContactDataError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_contact_data::DeleteContactDataError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_contact_data::DeleteContactDataError> for Error {
+    fn from(err: crate::operation::delete_contact_data::DeleteContactDataError) -> Self {
+        match err {
+            crate::operation::delete_contact_data::DeleteContactDataError::ContactNotTerminatedException(inner) => {
+                Error::ContactNotTerminatedException(inner)
+            }
+            crate::operation::delete_contact_data::DeleteContactDataError::InternalServiceException(inner) => Error::InternalServiceException(inner),
+            crate::operation::delete_contact_data::DeleteContactDataError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::delete_contact_data::DeleteContactDataError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::delete_contact_data::DeleteContactDataError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_contact_data::DeleteContactDataError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_contact_data::DeleteContactDataError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -14199,6 +14236,7 @@ impl ::std::error::Error for Error {
             Error::ConflictException(inner) => inner.source(),
             Error::ContactFlowNotPublishedException(inner) => inner.source(),
             Error::ContactNotFoundException(inner) => inner.source(),
+            Error::ContactNotTerminatedException(inner) => inner.source(),
             Error::DestinationNotAllowedException(inner) => inner.source(),
             Error::DuplicateResourceException(inner) => inner.source(),
             Error::IdempotencyException(inner) => inner.source(),
@@ -14234,6 +14272,7 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::ConflictException(e) => e.request_id(),
             Self::ContactFlowNotPublishedException(e) => e.request_id(),
             Self::ContactNotFoundException(e) => e.request_id(),
+            Self::ContactNotTerminatedException(e) => e.request_id(),
             Self::DestinationNotAllowedException(e) => e.request_id(),
             Self::DuplicateResourceException(e) => e.request_id(),
             Self::IdempotencyException(e) => e.request_id(),

@@ -4613,6 +4613,10 @@ pub(crate) mod shape_fleet_capacity_reservation;
 
 pub(crate) mod shape_fleet_data;
 
+pub(crate) mod shape_fleet_iam_instance_profile_specification_request;
+
+pub(crate) mod shape_fleet_instance_metadata_options_request;
+
 pub(crate) mod shape_fleet_spot_capacity_rebalance_request;
 
 pub(crate) mod shape_flow_log;

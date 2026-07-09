@@ -258,19 +258,19 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for InsertAdBreak
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum InsertAdBreakError {
-    /// <p></p>
+    /// <p>User does not have sufficient access to perform this action.</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
-    /// <p></p>
+    /// <p>The stream is offline for the given channel ARN.</p>
     ChannelNotBroadcasting(crate::types::error::ChannelNotBroadcasting),
-    /// <p></p>
+    /// <p>Updating or deleting a resource can cause an inconsistent state.</p>
     ConflictException(crate::types::error::ConflictException),
-    /// <p></p>
+    /// <p>Unexpected error during processing of request.</p>
     InternalServerException(crate::types::error::InternalServerException),
-    /// <p></p>
+    /// <p>Request references a resource which does not exist.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    /// <p></p>
+    /// <p>Request was denied due to request throttling.</p>
     ThrottlingException(crate::types::error::ThrottlingException),
-    /// <p></p>
+    /// <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \

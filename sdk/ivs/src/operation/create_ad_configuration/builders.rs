@@ -146,6 +146,20 @@ impl CreateAdConfigurationFluentBuilder {
     ) -> &::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>> {
         self.inner.get_media_tailor_playback_configurations()
     }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn post_roll_configuration(mut self, input: crate::types::PostRollConfiguration) -> Self {
+        self.inner = self.inner.post_roll_configuration(input);
+        self
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn set_post_roll_configuration(mut self, input: ::std::option::Option<crate::types::PostRollConfiguration>) -> Self {
+        self.inner = self.inner.set_post_roll_configuration(input);
+        self
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+    pub fn get_post_roll_configuration(&self) -> &::std::option::Option<crate::types::PostRollConfiguration> {
+        self.inner.get_post_roll_configuration()
+    }
     ///
     /// Adds a key-value pair to `tags`.
     ///

@@ -46,32 +46,49 @@ pub fn ser_fleet_launch_template_overrides_request(
         crate::protocol_serde::shape_placement::ser_placement(scope_13, var_14)?;
     }
     #[allow(unused_mut)]
-    let mut scope_15 = writer.prefix("BlockDeviceMapping");
-    if let Some(var_16) = &input.block_device_mappings {
-        if !var_16.is_empty() {
-            let mut list_18 = scope_15.start_list(true, Some("BlockDeviceMapping"));
-            for item_17 in var_16 {
+    let mut scope_15 = writer.prefix("KeyName");
+    if let Some(var_16) = &input.key_name {
+        scope_15.string(var_16);
+    }
+    #[allow(unused_mut)]
+    let mut scope_17 = writer.prefix("BlockDeviceMapping");
+    if let Some(var_18) = &input.block_device_mappings {
+        if !var_18.is_empty() {
+            let mut list_20 = scope_17.start_list(true, Some("BlockDeviceMapping"));
+            for item_19 in var_18 {
                 #[allow(unused_mut)]
-                let mut entry_19 = list_18.entry();
-                crate::protocol_serde::shape_fleet_block_device_mapping_request::ser_fleet_block_device_mapping_request(entry_19, item_17)?;
+                let mut entry_21 = list_20.entry();
+                crate::protocol_serde::shape_fleet_block_device_mapping_request::ser_fleet_block_device_mapping_request(entry_21, item_19)?;
             }
-            list_18.finish();
+            list_20.finish();
         }
     }
     #[allow(unused_mut)]
-    let mut scope_20 = writer.prefix("InstanceRequirements");
-    if let Some(var_21) = &input.instance_requirements {
-        crate::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(scope_20, var_21)?;
+    let mut scope_22 = writer.prefix("IamInstanceProfile");
+    if let Some(var_23) = &input.iam_instance_profile {
+        crate::protocol_serde::shape_fleet_iam_instance_profile_specification_request::ser_fleet_iam_instance_profile_specification_request(
+            scope_22, var_23,
+        )?;
     }
     #[allow(unused_mut)]
-    let mut scope_22 = writer.prefix("ImageId");
-    if let Some(var_23) = &input.image_id {
-        scope_22.string(var_23);
+    let mut scope_24 = writer.prefix("MetadataOptions");
+    if let Some(var_25) = &input.metadata_options {
+        crate::protocol_serde::shape_fleet_instance_metadata_options_request::ser_fleet_instance_metadata_options_request(scope_24, var_25)?;
     }
     #[allow(unused_mut)]
-    let mut scope_24 = writer.prefix("AvailabilityZoneId");
-    if let Some(var_25) = &input.availability_zone_id {
-        scope_24.string(var_25);
+    let mut scope_26 = writer.prefix("InstanceRequirements");
+    if let Some(var_27) = &input.instance_requirements {
+        crate::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(scope_26, var_27)?;
+    }
+    #[allow(unused_mut)]
+    let mut scope_28 = writer.prefix("ImageId");
+    if let Some(var_29) = &input.image_id {
+        scope_28.string(var_29);
+    }
+    #[allow(unused_mut)]
+    let mut scope_30 = writer.prefix("AvailabilityZoneId");
+    if let Some(var_31) = &input.availability_zone_id {
+        scope_30.string(var_31);
     }
     Ok(())
 }

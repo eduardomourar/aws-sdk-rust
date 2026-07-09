@@ -164,6 +164,13 @@ where
                                     crate::protocol_serde::shape_artifact_config_output::de_artifact_config_output(tokens, _value, depth + 1)?,
                                 );
                             }
+                            "KmsKeyArn" => {
+                                builder = builder.set_kms_key_arn(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
                             "DryRunConfig" => {
                                 builder = builder.set_dry_run_config(crate::protocol_serde::shape_dry_run_config_output::de_dry_run_config_output(
                                     tokens,

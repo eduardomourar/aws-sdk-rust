@@ -12,6 +12,7 @@
 /// ```text
 /// # let detectorfeature = unimplemented!();
 /// match detectorfeature {
+///     DetectorFeature::AiAnalyst => { /* ... */ },
 ///     DetectorFeature::EbsMalwareProtection => { /* ... */ },
 ///     DetectorFeature::EksAuditLogs => { /* ... */ },
 ///     DetectorFeature::EksRuntimeMonitoring => { /* ... */ },
@@ -48,6 +49,8 @@
 )]
 pub enum DetectorFeature {
     #[allow(missing_docs)] // documentation missing in model
+    AiAnalyst,
+    #[allow(missing_docs)] // documentation missing in model
     EbsMalwareProtection,
     #[allow(missing_docs)] // documentation missing in model
     EksAuditLogs,
@@ -68,6 +71,7 @@ pub enum DetectorFeature {
 impl ::std::convert::From<&str> for DetectorFeature {
     fn from(s: &str) -> Self {
         match s {
+            "AI_ANALYST" => DetectorFeature::AiAnalyst,
             "EBS_MALWARE_PROTECTION" => DetectorFeature::EbsMalwareProtection,
             "EKS_AUDIT_LOGS" => DetectorFeature::EksAuditLogs,
             "EKS_RUNTIME_MONITORING" => DetectorFeature::EksRuntimeMonitoring,
@@ -90,6 +94,7 @@ impl DetectorFeature {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            DetectorFeature::AiAnalyst => "AI_ANALYST",
             DetectorFeature::EbsMalwareProtection => "EBS_MALWARE_PROTECTION",
             DetectorFeature::EksAuditLogs => "EKS_AUDIT_LOGS",
             DetectorFeature::EksRuntimeMonitoring => "EKS_RUNTIME_MONITORING",
@@ -103,6 +108,7 @@ impl DetectorFeature {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AI_ANALYST",
             "EBS_MALWARE_PROTECTION",
             "EKS_AUDIT_LOGS",
             "EKS_RUNTIME_MONITORING",
@@ -133,6 +139,7 @@ impl DetectorFeature {
 impl ::std::fmt::Display for DetectorFeature {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            DetectorFeature::AiAnalyst => write!(f, "AI_ANALYST"),
             DetectorFeature::EbsMalwareProtection => write!(f, "EBS_MALWARE_PROTECTION"),
             DetectorFeature::EksAuditLogs => write!(f, "EKS_AUDIT_LOGS"),
             DetectorFeature::EksRuntimeMonitoring => write!(f, "EKS_RUNTIME_MONITORING"),

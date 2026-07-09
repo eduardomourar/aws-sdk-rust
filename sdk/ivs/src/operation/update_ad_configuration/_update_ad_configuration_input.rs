@@ -9,6 +9,8 @@ pub struct UpdateAdConfigurationInput {
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate and Sign IVS Playback Tokens</a>.</p>
     pub media_tailor_playback_configurations: ::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>>,
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+    pub post_roll_configuration: ::std::option::Option<crate::types::PostRollConfiguration>,
 }
 impl UpdateAdConfigurationInput {
     /// <p>ARN of the ad configuration to be updated.</p>
@@ -25,6 +27,10 @@ impl UpdateAdConfigurationInput {
     pub fn media_tailor_playback_configurations(&self) -> &[crate::types::MediaTailorPlaybackConfiguration] {
         self.media_tailor_playback_configurations.as_deref().unwrap_or_default()
     }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+    pub fn post_roll_configuration(&self) -> ::std::option::Option<&crate::types::PostRollConfiguration> {
+        self.post_roll_configuration.as_ref()
+    }
 }
 impl UpdateAdConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateAdConfigurationInput`](crate::operation::update_ad_configuration::UpdateAdConfigurationInput).
@@ -40,6 +46,7 @@ pub struct UpdateAdConfigurationInputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) media_tailor_playback_configurations: ::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>>,
+    pub(crate) post_roll_configuration: ::std::option::Option<crate::types::PostRollConfiguration>,
 }
 impl UpdateAdConfigurationInputBuilder {
     /// <p>ARN of the ad configuration to be updated.</p>
@@ -96,6 +103,20 @@ impl UpdateAdConfigurationInputBuilder {
     ) -> &::std::option::Option<::std::vec::Vec<crate::types::MediaTailorPlaybackConfiguration>> {
         &self.media_tailor_playback_configurations
     }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+    pub fn post_roll_configuration(mut self, input: crate::types::PostRollConfiguration) -> Self {
+        self.post_roll_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+    pub fn set_post_roll_configuration(mut self, input: ::std::option::Option<crate::types::PostRollConfiguration>) -> Self {
+        self.post_roll_configuration = input;
+        self
+    }
+    /// <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+    pub fn get_post_roll_configuration(&self) -> &::std::option::Option<crate::types::PostRollConfiguration> {
+        &self.post_roll_configuration
+    }
     /// Consumes the builder and constructs a [`UpdateAdConfigurationInput`](crate::operation::update_ad_configuration::UpdateAdConfigurationInput).
     pub fn build(
         self,
@@ -105,6 +126,7 @@ impl UpdateAdConfigurationInputBuilder {
             arn: self.arn,
             name: self.name,
             media_tailor_playback_configurations: self.media_tailor_playback_configurations,
+            post_roll_configuration: self.post_roll_configuration,
         })
     }
 }

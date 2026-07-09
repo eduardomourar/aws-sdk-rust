@@ -3,7 +3,7 @@
 /// <p>The Amazon EC2 launch template that can be used by an EC2 Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>
 /// <p>For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct FleetLaunchTemplateSpecificationRequest {
     /// <p>The ID of the launch template.</p>
     /// <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
@@ -15,6 +15,9 @@ pub struct FleetLaunchTemplateSpecificationRequest {
     /// <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p>
     /// <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>
     pub version: ::std::option::Option<::std::string::String>,
+    /// <p>The base64-encoded user data for instances launched by the fleet. User data is limited to 16 KB, in raw form, before it is base64-encoded.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub launch_template_specification_user_data: ::std::option::Option<::std::string::String>,
 }
 impl FleetLaunchTemplateSpecificationRequest {
     /// <p>The ID of the launch template.</p>
@@ -33,6 +36,21 @@ impl FleetLaunchTemplateSpecificationRequest {
     pub fn version(&self) -> ::std::option::Option<&str> {
         self.version.as_deref()
     }
+    /// <p>The base64-encoded user data for instances launched by the fleet. User data is limited to 16 KB, in raw form, before it is base64-encoded.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn launch_template_specification_user_data(&self) -> ::std::option::Option<&str> {
+        self.launch_template_specification_user_data.as_deref()
+    }
+}
+impl ::std::fmt::Debug for FleetLaunchTemplateSpecificationRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FleetLaunchTemplateSpecificationRequest");
+        formatter.field("launch_template_id", &self.launch_template_id);
+        formatter.field("launch_template_name", &self.launch_template_name);
+        formatter.field("version", &self.version);
+        formatter.field("launch_template_specification_user_data", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
 }
 impl FleetLaunchTemplateSpecificationRequest {
     /// Creates a new builder-style object to manufacture [`FleetLaunchTemplateSpecificationRequest`](crate::types::FleetLaunchTemplateSpecificationRequest).
@@ -42,12 +60,13 @@ impl FleetLaunchTemplateSpecificationRequest {
 }
 
 /// A builder for [`FleetLaunchTemplateSpecificationRequest`](crate::types::FleetLaunchTemplateSpecificationRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct FleetLaunchTemplateSpecificationRequestBuilder {
     pub(crate) launch_template_id: ::std::option::Option<::std::string::String>,
     pub(crate) launch_template_name: ::std::option::Option<::std::string::String>,
     pub(crate) version: ::std::option::Option<::std::string::String>,
+    pub(crate) launch_template_specification_user_data: ::std::option::Option<::std::string::String>,
 }
 impl FleetLaunchTemplateSpecificationRequestBuilder {
     /// <p>The ID of the launch template.</p>
@@ -104,12 +123,40 @@ impl FleetLaunchTemplateSpecificationRequestBuilder {
     pub fn get_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.version
     }
+    /// <p>The base64-encoded user data for instances launched by the fleet. User data is limited to 16 KB, in raw form, before it is base64-encoded.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn launch_template_specification_user_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.launch_template_specification_user_data = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The base64-encoded user data for instances launched by the fleet. User data is limited to 16 KB, in raw form, before it is base64-encoded.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn set_launch_template_specification_user_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.launch_template_specification_user_data = input;
+        self
+    }
+    /// <p>The base64-encoded user data for instances launched by the fleet. User data is limited to 16 KB, in raw form, before it is base64-encoded.</p>
+    /// <p>Supported only for fleets of type <code>instant</code>.</p>
+    pub fn get_launch_template_specification_user_data(&self) -> &::std::option::Option<::std::string::String> {
+        &self.launch_template_specification_user_data
+    }
     /// Consumes the builder and constructs a [`FleetLaunchTemplateSpecificationRequest`](crate::types::FleetLaunchTemplateSpecificationRequest).
     pub fn build(self) -> crate::types::FleetLaunchTemplateSpecificationRequest {
         crate::types::FleetLaunchTemplateSpecificationRequest {
             launch_template_id: self.launch_template_id,
             launch_template_name: self.launch_template_name,
             version: self.version,
+            launch_template_specification_user_data: self.launch_template_specification_user_data,
         }
+    }
+}
+impl ::std::fmt::Debug for FleetLaunchTemplateSpecificationRequestBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FleetLaunchTemplateSpecificationRequestBuilder");
+        formatter.field("launch_template_id", &self.launch_template_id);
+        formatter.field("launch_template_name", &self.launch_template_name);
+        formatter.field("version", &self.version);
+        formatter.field("launch_template_specification_user_data", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

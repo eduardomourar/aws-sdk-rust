@@ -39,6 +39,8 @@ pub use crate::types::error::_resource_in_use_exception::ResourceInUseExceptionB
 
 pub use crate::types::error::_too_many_requests_exception::TooManyRequestsExceptionBuilder;
 
+pub use crate::types::error::_contact_not_terminated_exception::ContactNotTerminatedExceptionBuilder;
+
 pub use crate::types::error::_contact_flow_not_published_exception::ContactFlowNotPublishedExceptionBuilder;
 
 pub use crate::types::error::_user_not_found_exception::UserNotFoundExceptionBuilder;

@@ -21,5 +21,11 @@ pub fn ser_update_ad_configuration_input_input(
     if let Some(var_6) = &input.name {
         object.key("name").string(var_6.as_str());
     }
+    if let Some(var_7) = &input.post_roll_configuration {
+        #[allow(unused_mut)]
+        let mut object_8 = object.key("postRollConfiguration").start_object();
+        crate::protocol_serde::shape_post_roll_configuration::ser_post_roll_configuration(&mut object_8, var_7)?;
+        object_8.finish();
+    }
     Ok(())
 }

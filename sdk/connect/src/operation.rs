@@ -220,6 +220,9 @@ pub mod deactivate_evaluation_form;
 /// Types for the `DeleteAttachedFile` operation.
 pub mod delete_attached_file;
 
+/// Types for the `DeleteContactData` operation.
+pub mod delete_contact_data;
+
 /// Types for the `DeleteContactEvaluation` operation.
 pub mod delete_contact_evaluation;
 

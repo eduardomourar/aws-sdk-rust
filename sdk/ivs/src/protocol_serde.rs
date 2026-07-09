@@ -249,6 +249,8 @@ pub(crate) mod shape_playback_restriction_policy;
 
 pub(crate) mod shape_playback_restriction_policy_list;
 
+pub(crate) mod shape_post_roll_configuration;
+
 pub(crate) mod shape_recording_configuration;
 
 pub(crate) mod shape_recording_configuration_list;

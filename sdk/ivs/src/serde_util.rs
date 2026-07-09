@@ -200,6 +200,18 @@ pub(crate) fn playback_restriction_policy_summary_correct_errors(
     builder
 }
 
+pub(crate) fn post_roll_configuration_correct_errors(
+    mut builder: crate::types::builders::PostRollConfigurationBuilder,
+) -> crate::types::builders::PostRollConfigurationBuilder {
+    if builder.duration_seconds.is_none() {
+        builder.duration_seconds = Some(Default::default())
+    }
+    if builder.enabled.is_none() {
+        builder.enabled = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn recording_configuration_summary_correct_errors(
     mut builder: crate::types::builders::RecordingConfigurationSummaryBuilder,
 ) -> crate::types::builders::RecordingConfigurationSummaryBuilder {

@@ -41,6 +41,11 @@ where
                                     crate::protocol_serde::shape_media_tailor_playback_configurations_list::de_media_tailor_playback_configurations_list(tokens, _value, depth + 1)?
                                 );
                             }
+                            "postRollConfiguration" => {
+                                builder = builder.set_post_roll_configuration(
+                                    crate::protocol_serde::shape_post_roll_configuration::de_post_roll_configuration(tokens, _value, depth + 1)?,
+                                );
+                            }
                             "tags" => {
                                 builder = builder.set_tags(crate::protocol_serde::shape_tags::de_tags(tokens, _value, depth + 1)?);
                             }

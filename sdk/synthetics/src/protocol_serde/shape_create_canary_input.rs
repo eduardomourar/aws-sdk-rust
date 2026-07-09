@@ -51,57 +51,60 @@ pub fn ser_create_canary_input_input(
             ::aws_smithy_types::Number::NegInt((*var_15).into()),
         );
     }
-    if let Some(var_16) = &input.name {
-        object.key("Name").string(var_16.as_str());
+    if let Some(var_16) = &input.kms_key_arn {
+        object.key("KmsKeyArn").string(var_16.as_str());
     }
-    if let Some(var_17) = &input.provisioned_resource_cleanup {
-        object.key("ProvisionedResourceCleanup").string(var_17.as_str());
+    if let Some(var_17) = &input.name {
+        object.key("Name").string(var_17.as_str());
     }
-    if let Some(var_18) = &input.resources_to_replicate_tags {
-        let mut array_19 = object.key("ResourcesToReplicateTags").start_array();
-        for item_20 in var_18 {
+    if let Some(var_18) = &input.provisioned_resource_cleanup {
+        object.key("ProvisionedResourceCleanup").string(var_18.as_str());
+    }
+    if let Some(var_19) = &input.resources_to_replicate_tags {
+        let mut array_20 = object.key("ResourcesToReplicateTags").start_array();
+        for item_21 in var_19 {
             {
-                array_19.value().string(item_20.as_str());
+                array_20.value().string(item_21.as_str());
             }
         }
-        array_19.finish();
+        array_20.finish();
     }
-    if let Some(var_21) = &input.run_config {
+    if let Some(var_22) = &input.run_config {
         #[allow(unused_mut)]
-        let mut object_22 = object.key("RunConfig").start_object();
-        crate::protocol_serde::shape_canary_run_config_input::ser_canary_run_config_input(&mut object_22, var_21)?;
-        object_22.finish();
+        let mut object_23 = object.key("RunConfig").start_object();
+        crate::protocol_serde::shape_canary_run_config_input::ser_canary_run_config_input(&mut object_23, var_22)?;
+        object_23.finish();
     }
-    if let Some(var_23) = &input.runtime_version {
-        object.key("RuntimeVersion").string(var_23.as_str());
+    if let Some(var_24) = &input.runtime_version {
+        object.key("RuntimeVersion").string(var_24.as_str());
     }
-    if let Some(var_24) = &input.schedule {
+    if let Some(var_25) = &input.schedule {
         #[allow(unused_mut)]
-        let mut object_25 = object.key("Schedule").start_object();
-        crate::protocol_serde::shape_canary_schedule_input::ser_canary_schedule_input(&mut object_25, var_24)?;
-        object_25.finish();
+        let mut object_26 = object.key("Schedule").start_object();
+        crate::protocol_serde::shape_canary_schedule_input::ser_canary_schedule_input(&mut object_26, var_25)?;
+        object_26.finish();
     }
-    if let Some(var_26) = &input.success_retention_period_in_days {
+    if let Some(var_27) = &input.success_retention_period_in_days {
         object.key("SuccessRetentionPeriodInDays").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_26).into()),
+            ::aws_smithy_types::Number::NegInt((*var_27).into()),
         );
     }
-    if let Some(var_27) = &input.tags {
+    if let Some(var_28) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_28 = object.key("Tags").start_object();
-        for (key_29, value_30) in var_27 {
+        let mut object_29 = object.key("Tags").start_object();
+        for (key_30, value_31) in var_28 {
             {
-                object_28.key(key_29.as_str()).string(value_30.as_str());
+                object_29.key(key_30.as_str()).string(value_31.as_str());
             }
         }
-        object_28.finish();
+        object_29.finish();
     }
-    if let Some(var_31) = &input.vpc_config {
+    if let Some(var_32) = &input.vpc_config {
         #[allow(unused_mut)]
-        let mut object_32 = object.key("VpcConfig").start_object();
-        crate::protocol_serde::shape_vpc_config_input::ser_vpc_config_input(&mut object_32, var_31)?;
-        object_32.finish();
+        let mut object_33 = object.key("VpcConfig").start_object();
+        crate::protocol_serde::shape_vpc_config_input::ser_vpc_config_input(&mut object_33, var_32)?;
+        object_33.finish();
     }
     Ok(())
 }

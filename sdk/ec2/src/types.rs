@@ -2585,6 +2585,10 @@ pub use crate::types::_listing_state::ListingState;
 
 pub use crate::types::_capacity_allocation_metadata_entry::CapacityAllocationMetadataEntry;
 
+pub use crate::types::_fleet_iam_instance_profile_specification_request::FleetIamInstanceProfileSpecificationRequest;
+
+pub use crate::types::_fleet_instance_metadata_options_request::FleetInstanceMetadataOptionsRequest;
+
 pub use crate::types::_placement_response::PlacementResponse;
 
 pub use crate::types::_ipam_prefix_list_resolver_rule_condition_operation::IpamPrefixListResolverRuleConditionOperation;
@@ -2690,6 +2694,10 @@ pub use crate::types::_scheduled_instances_private_ip_address_config::ScheduledI
 pub use crate::types::_additional_detail::AdditionalDetail;
 
 pub use crate::types::_fleet_block_device_mapping_request::FleetBlockDeviceMappingRequest;
+
+pub use crate::types::_fleet_http_tokens_state::FleetHttpTokensState;
+
+pub use crate::types::_fleet_instance_metadata_endpoint_state::FleetInstanceMetadataEndpointState;
 
 pub use crate::types::_block_device_mapping_response::BlockDeviceMappingResponse;
 
@@ -3529,7 +3537,15 @@ mod _fleet_event_type;
 
 mod _fleet_excess_capacity_termination_policy;
 
+mod _fleet_http_tokens_state;
+
+mod _fleet_iam_instance_profile_specification_request;
+
 mod _fleet_instance_match_criteria;
+
+mod _fleet_instance_metadata_endpoint_state;
+
+mod _fleet_instance_metadata_options_request;
 
 mod _fleet_launch_template_config;
 

@@ -73,6 +73,45 @@ pub fn de_create_fleet_instance(
                 builder = builder.set_platform(var_5);
             }
             ,
+            s if s.matches("availabilityZoneId") /* AvailabilityZoneId com.amazonaws.ec2#CreateFleetInstance$AvailabilityZoneId */ =>  {
+                let var_6 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_availability_zone_id(var_6);
+            }
+            ,
+            s if s.matches("availabilityZone") /* AvailabilityZone com.amazonaws.ec2#CreateFleetInstance$AvailabilityZone */ =>  {
+                let var_7 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_availability_zone(var_7);
+            }
+            ,
+            s if s.matches("subnetId") /* SubnetId com.amazonaws.ec2#CreateFleetInstance$SubnetId */ =>  {
+                let var_8 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subnet_id(var_8);
+            }
+            ,
             _ => {}
         }
     }

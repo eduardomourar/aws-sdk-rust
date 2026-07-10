@@ -4,33 +4,42 @@ pub fn ser_describe_anomaly_detectors_input_input(
     #[allow(unused)] input: &crate::operation::describe_anomaly_detectors::DescribeAnomalyDetectorsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     encoder.begin_map();
-    if let Some(var_1) = &input.next_token {
-        encoder.str("NextToken").str(var_1.as_str());
-    }
-    if let Some(var_2) = &input.max_results {
-        encoder.str("MaxResults").integer(*var_2);
-    }
-    if let Some(var_3) = &input.namespace {
-        encoder.str("Namespace").str(var_3.as_str());
-    }
-    if let Some(var_4) = &input.metric_name {
-        encoder.str("MetricName").str(var_4.as_str());
-    }
-    if let Some(var_5) = &input.dimensions {
-        encoder.str("Dimensions");
-        encoder.array((*var_5).len());
-        for item_6 in var_5 {
+    if let Some(var_1) = &input.anomaly_detector_ids {
+        encoder.str("AnomalyDetectorIds");
+        encoder.array((*var_1).len());
+        for item_2 in var_1 {
             {
-                crate::protocol_serde::shape_dimension::ser_dimension(encoder, item_6)?;
+                encoder.str(item_2.as_str());
             }
         }
     }
-    if let Some(var_7) = &input.anomaly_detector_types {
-        encoder.str("AnomalyDetectorTypes");
+    if let Some(var_3) = &input.next_token {
+        encoder.str("NextToken").str(var_3.as_str());
+    }
+    if let Some(var_4) = &input.max_results {
+        encoder.str("MaxResults").integer(*var_4);
+    }
+    if let Some(var_5) = &input.namespace {
+        encoder.str("Namespace").str(var_5.as_str());
+    }
+    if let Some(var_6) = &input.metric_name {
+        encoder.str("MetricName").str(var_6.as_str());
+    }
+    if let Some(var_7) = &input.dimensions {
+        encoder.str("Dimensions");
         encoder.array((*var_7).len());
         for item_8 in var_7 {
             {
-                encoder.str(item_8.as_str());
+                crate::protocol_serde::shape_dimension::ser_dimension(encoder, item_8)?;
+            }
+        }
+    }
+    if let Some(var_9) = &input.anomaly_detector_types {
+        encoder.str("AnomalyDetectorTypes");
+        encoder.array((*var_9).len());
+        for item_10 in var_9 {
+            {
+                encoder.str(item_10.as_str());
             }
         }
     }

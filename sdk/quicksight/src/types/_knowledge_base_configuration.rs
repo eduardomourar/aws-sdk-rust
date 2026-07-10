@@ -6,24 +6,17 @@
 pub struct KnowledgeBaseConfiguration {
     /// <p>The template configuration for the knowledge base.</p>
     pub template_configuration: ::std::option::Option<crate::types::KbTemplateConfiguration>,
-    /// <p>Indicates whether event notifications are enabled for the knowledge base.</p>
-    pub event_enabled: ::std::option::Option<bool>,
 }
 impl KnowledgeBaseConfiguration {
     /// <p>The template configuration for the knowledge base.</p>
     pub fn template_configuration(&self) -> ::std::option::Option<&crate::types::KbTemplateConfiguration> {
         self.template_configuration.as_ref()
     }
-    /// <p>Indicates whether event notifications are enabled for the knowledge base.</p>
-    pub fn event_enabled(&self) -> ::std::option::Option<bool> {
-        self.event_enabled
-    }
 }
 impl ::std::fmt::Debug for KnowledgeBaseConfiguration {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("KnowledgeBaseConfiguration");
         formatter.field("template_configuration", &"*** Sensitive Data Redacted ***");
-        formatter.field("event_enabled", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -39,7 +32,6 @@ impl KnowledgeBaseConfiguration {
 #[non_exhaustive]
 pub struct KnowledgeBaseConfigurationBuilder {
     pub(crate) template_configuration: ::std::option::Option<crate::types::KbTemplateConfiguration>,
-    pub(crate) event_enabled: ::std::option::Option<bool>,
 }
 impl KnowledgeBaseConfigurationBuilder {
     /// <p>The template configuration for the knowledge base.</p>
@@ -56,25 +48,10 @@ impl KnowledgeBaseConfigurationBuilder {
     pub fn get_template_configuration(&self) -> &::std::option::Option<crate::types::KbTemplateConfiguration> {
         &self.template_configuration
     }
-    /// <p>Indicates whether event notifications are enabled for the knowledge base.</p>
-    pub fn event_enabled(mut self, input: bool) -> Self {
-        self.event_enabled = ::std::option::Option::Some(input);
-        self
-    }
-    /// <p>Indicates whether event notifications are enabled for the knowledge base.</p>
-    pub fn set_event_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.event_enabled = input;
-        self
-    }
-    /// <p>Indicates whether event notifications are enabled for the knowledge base.</p>
-    pub fn get_event_enabled(&self) -> &::std::option::Option<bool> {
-        &self.event_enabled
-    }
     /// Consumes the builder and constructs a [`KnowledgeBaseConfiguration`](crate::types::KnowledgeBaseConfiguration).
     pub fn build(self) -> crate::types::KnowledgeBaseConfiguration {
         crate::types::KnowledgeBaseConfiguration {
             template_configuration: self.template_configuration,
-            event_enabled: self.event_enabled,
         }
     }
 }
@@ -82,7 +59,6 @@ impl ::std::fmt::Debug for KnowledgeBaseConfigurationBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("KnowledgeBaseConfigurationBuilder");
         formatter.field("template_configuration", &"*** Sensitive Data Redacted ***");
-        formatter.field("event_enabled", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

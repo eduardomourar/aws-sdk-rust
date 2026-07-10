@@ -30,6 +30,18 @@ pub struct DataSource {
     pub error_info: ::std::option::Option<crate::types::DataSourceErrorInfo>,
     /// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
     pub secret_arn: ::std::option::Option<::std::string::String>,
+    /// <p>The credential verification status of the data source. Valid values include:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CONNECTED</code> – Credential validation succeeded.</p></li>
+    /// <li>
+    /// <p><code>AUTH_FAILED</code> – Credential validation failed.</p></li>
+    /// <li>
+    /// <p><code>NOT_VERIFIED</code> – Credential validation has not been performed.</p></li>
+    /// </ul>
+    pub credential_status: ::std::option::Option<crate::types::CredentialStatus>,
+    /// <p>The time that the credentials were last verified.</p>
+    pub last_credential_verified_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl DataSource {
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -86,6 +98,22 @@ impl DataSource {
     pub fn secret_arn(&self) -> ::std::option::Option<&str> {
         self.secret_arn.as_deref()
     }
+    /// <p>The credential verification status of the data source. Valid values include:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CONNECTED</code> – Credential validation succeeded.</p></li>
+    /// <li>
+    /// <p><code>AUTH_FAILED</code> – Credential validation failed.</p></li>
+    /// <li>
+    /// <p><code>NOT_VERIFIED</code> – Credential validation has not been performed.</p></li>
+    /// </ul>
+    pub fn credential_status(&self) -> ::std::option::Option<&crate::types::CredentialStatus> {
+        self.credential_status.as_ref()
+    }
+    /// <p>The time that the credentials were last verified.</p>
+    pub fn last_credential_verified_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.last_credential_verified_at.as_ref()
+    }
 }
 impl DataSource {
     /// Creates a new builder-style object to manufacture [`DataSource`](crate::types::DataSource).
@@ -111,6 +139,8 @@ pub struct DataSourceBuilder {
     pub(crate) ssl_properties: ::std::option::Option<crate::types::SslProperties>,
     pub(crate) error_info: ::std::option::Option<crate::types::DataSourceErrorInfo>,
     pub(crate) secret_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) credential_status: ::std::option::Option<crate::types::CredentialStatus>,
+    pub(crate) last_credential_verified_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl DataSourceBuilder {
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -301,6 +331,58 @@ impl DataSourceBuilder {
     pub fn get_secret_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.secret_arn
     }
+    /// <p>The credential verification status of the data source. Valid values include:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CONNECTED</code> – Credential validation succeeded.</p></li>
+    /// <li>
+    /// <p><code>AUTH_FAILED</code> – Credential validation failed.</p></li>
+    /// <li>
+    /// <p><code>NOT_VERIFIED</code> – Credential validation has not been performed.</p></li>
+    /// </ul>
+    pub fn credential_status(mut self, input: crate::types::CredentialStatus) -> Self {
+        self.credential_status = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The credential verification status of the data source. Valid values include:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CONNECTED</code> – Credential validation succeeded.</p></li>
+    /// <li>
+    /// <p><code>AUTH_FAILED</code> – Credential validation failed.</p></li>
+    /// <li>
+    /// <p><code>NOT_VERIFIED</code> – Credential validation has not been performed.</p></li>
+    /// </ul>
+    pub fn set_credential_status(mut self, input: ::std::option::Option<crate::types::CredentialStatus>) -> Self {
+        self.credential_status = input;
+        self
+    }
+    /// <p>The credential verification status of the data source. Valid values include:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CONNECTED</code> – Credential validation succeeded.</p></li>
+    /// <li>
+    /// <p><code>AUTH_FAILED</code> – Credential validation failed.</p></li>
+    /// <li>
+    /// <p><code>NOT_VERIFIED</code> – Credential validation has not been performed.</p></li>
+    /// </ul>
+    pub fn get_credential_status(&self) -> &::std::option::Option<crate::types::CredentialStatus> {
+        &self.credential_status
+    }
+    /// <p>The time that the credentials were last verified.</p>
+    pub fn last_credential_verified_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.last_credential_verified_at = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The time that the credentials were last verified.</p>
+    pub fn set_last_credential_verified_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_credential_verified_at = input;
+        self
+    }
+    /// <p>The time that the credentials were last verified.</p>
+    pub fn get_last_credential_verified_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_credential_verified_at
+    }
     /// Consumes the builder and constructs a [`DataSource`](crate::types::DataSource).
     pub fn build(self) -> crate::types::DataSource {
         crate::types::DataSource {
@@ -317,6 +399,8 @@ impl DataSourceBuilder {
             ssl_properties: self.ssl_properties,
             error_info: self.error_info,
             secret_arn: self.secret_arn,
+            credential_status: self.credential_status,
+            last_credential_verified_at: self.last_credential_verified_at,
         }
     }
 }

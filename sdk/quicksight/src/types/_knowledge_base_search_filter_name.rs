@@ -12,6 +12,7 @@
 /// ```text
 /// # let knowledgebasesearchfiltername = unimplemented!();
 /// match knowledgebasesearchfiltername {
+///     KnowledgeBaseSearchFilterName::DatasourceArn => { /* ... */ },
 ///     KnowledgeBaseSearchFilterName::DirectQuicksightOwner => { /* ... */ },
 ///     KnowledgeBaseSearchFilterName::DirectQuicksightSoleOwner => { /* ... */ },
 ///     KnowledgeBaseSearchFilterName::DirectQuicksightViewerOrOwner => { /* ... */ },
@@ -41,12 +42,48 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-#[allow(missing_docs)] // documentation missing in model
+/// <p>The name of a field that you can use to filter knowledge base search results. Valid values include:</p>
+/// <ul>
+/// <li>
+/// <p>
+/// <code>DATASOURCE_ARN</code> – The Amazon Resource Name (ARN) of the associated data source.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>DIRECT_QUICKSIGHT_OWNER</code> – An Amazon QuickSight user or group with direct owner permissions.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code> – An Amazon QuickSight user or group that is the sole direct owner.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code> – An Amazon QuickSight user or group with direct viewer or owner permissions.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>KNOWLEDGE_BASE_ID</code> – The unique identifier of the knowledge base.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>KNOWLEDGE_BASE_NAME</code> – The display name of the knowledge base.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>KNOWLEDGE_BASE_SIZE_BYTES</code> – The size of the knowledge base in bytes.</p>
+/// </li>
+/// <li>
+/// <p>
+/// <code>PRIMARY_OWNER</code> – The Amazon Resource Name (ARN) of the primary owner of the knowledge base.</p>
+/// </li>
+/// </ul>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum KnowledgeBaseSearchFilterName {
+    #[allow(missing_docs)] // documentation missing in model
+    DatasourceArn,
     #[allow(missing_docs)] // documentation missing in model
     DirectQuicksightOwner,
     #[allow(missing_docs)] // documentation missing in model
@@ -68,6 +105,7 @@ pub enum KnowledgeBaseSearchFilterName {
 impl ::std::convert::From<&str> for KnowledgeBaseSearchFilterName {
     fn from(s: &str) -> Self {
         match s {
+            "DATASOURCE_ARN" => KnowledgeBaseSearchFilterName::DatasourceArn,
             "DIRECT_QUICKSIGHT_OWNER" => KnowledgeBaseSearchFilterName::DirectQuicksightOwner,
             "DIRECT_QUICKSIGHT_SOLE_OWNER" => KnowledgeBaseSearchFilterName::DirectQuicksightSoleOwner,
             "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" => KnowledgeBaseSearchFilterName::DirectQuicksightViewerOrOwner,
@@ -90,6 +128,7 @@ impl KnowledgeBaseSearchFilterName {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            KnowledgeBaseSearchFilterName::DatasourceArn => "DATASOURCE_ARN",
             KnowledgeBaseSearchFilterName::DirectQuicksightOwner => "DIRECT_QUICKSIGHT_OWNER",
             KnowledgeBaseSearchFilterName::DirectQuicksightSoleOwner => "DIRECT_QUICKSIGHT_SOLE_OWNER",
             KnowledgeBaseSearchFilterName::DirectQuicksightViewerOrOwner => "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
@@ -103,6 +142,7 @@ impl KnowledgeBaseSearchFilterName {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "DATASOURCE_ARN",
             "DIRECT_QUICKSIGHT_OWNER",
             "DIRECT_QUICKSIGHT_SOLE_OWNER",
             "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
@@ -133,6 +173,7 @@ impl KnowledgeBaseSearchFilterName {
 impl ::std::fmt::Display for KnowledgeBaseSearchFilterName {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            KnowledgeBaseSearchFilterName::DatasourceArn => write!(f, "DATASOURCE_ARN"),
             KnowledgeBaseSearchFilterName::DirectQuicksightOwner => write!(f, "DIRECT_QUICKSIGHT_OWNER"),
             KnowledgeBaseSearchFilterName::DirectQuicksightSoleOwner => write!(f, "DIRECT_QUICKSIGHT_SOLE_OWNER"),
             KnowledgeBaseSearchFilterName::DirectQuicksightViewerOrOwner => write!(f, "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"),

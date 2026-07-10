@@ -65,6 +65,8 @@ pub(crate) mod shape_create_iam_policy_assignment;
 
 pub(crate) mod shape_create_ingestion;
 
+pub(crate) mod shape_create_knowledge_base;
+
 pub(crate) mod shape_create_namespace;
 
 pub(crate) mod shape_create_o_auth_client_application;
@@ -507,6 +509,8 @@ pub(crate) mod shape_update_ip_restriction;
 
 pub(crate) mod shape_update_key_registration;
 
+pub(crate) mod shape_update_knowledge_base;
+
 pub(crate) mod shape_update_knowledge_base_permissions;
 
 pub(crate) mod shape_update_o_auth_client_application;
@@ -606,6 +610,8 @@ pub(crate) mod shape_create_group_input;
 pub(crate) mod shape_create_iam_policy_assignment_input;
 
 pub(crate) mod shape_create_ingestion_input;
+
+pub(crate) mod shape_create_knowledge_base_input;
 
 pub(crate) mod shape_create_namespace_input;
 
@@ -781,6 +787,8 @@ pub(crate) mod shape_update_ip_restriction_input;
 
 pub(crate) mod shape_update_key_registration_input;
 
+pub(crate) mod shape_update_knowledge_base_input;
+
 pub(crate) mod shape_update_knowledge_base_permissions_input;
 
 pub(crate) mod shape_update_o_auth_client_application_input;
@@ -830,6 +838,8 @@ pub(crate) mod shape_update_user_custom_permission_input;
 pub(crate) mod shape_update_user_input;
 
 pub(crate) mod shape_update_vpc_connection_input;
+
+pub(crate) mod shape_access_control_configuration;
 
 pub(crate) mod shape_account_customization;
 
@@ -1025,6 +1035,8 @@ pub(crate) mod shape_key_registration;
 
 pub(crate) mod shape_knowledge_base;
 
+pub(crate) mod shape_knowledge_base_configuration;
+
 pub(crate) mod shape_knowledge_base_search_filter;
 
 pub(crate) mod shape_knowledge_base_sort_by;
@@ -1036,6 +1048,8 @@ pub(crate) mod shape_link_entity_arn_list;
 pub(crate) mod shape_link_sharing_configuration;
 
 pub(crate) mod shape_logical_table;
+
+pub(crate) mod shape_media_extraction_configuration;
 
 pub(crate) mod shape_namespace_info_v2;
 
@@ -1365,6 +1379,8 @@ pub(crate) mod shape_asset_options;
 
 pub(crate) mod shape_athena_parameters;
 
+pub(crate) mod shape_audio_extraction_configuration;
+
 pub(crate) mod shape_aurora_parameters;
 
 pub(crate) mod shape_aurora_postgre_sql_parameters;
@@ -1503,15 +1519,21 @@ pub(crate) mod shape_filter_group_list;
 
 pub(crate) mod shape_flow_summary;
 
+pub(crate) mod shape_fmkb_parameters;
+
 pub(crate) mod shape_folder_summary;
 
 pub(crate) mod shape_generated_answer_result;
 
 pub(crate) mod shape_geo_spatial_column_group;
 
+pub(crate) mod shape_google_drive_parameters;
+
 pub(crate) mod shape_iam_policy_assignment_summary;
 
 pub(crate) mod shape_identity_name_list;
+
+pub(crate) mod shape_image_extraction_configuration;
 
 pub(crate) mod shape_impala_parameters;
 
@@ -1523,9 +1545,9 @@ pub(crate) mod shape_invalid_topic_reviewed_answer;
 
 pub(crate) mod shape_jira_parameters;
 
-pub(crate) mod shape_key_pair_credentials;
+pub(crate) mod shape_kb_template_configuration;
 
-pub(crate) mod shape_knowledge_base_configuration;
+pub(crate) mod shape_key_pair_credentials;
 
 pub(crate) mod shape_knowledge_base_ingestion_summary;
 
@@ -1541,8 +1563,6 @@ pub(crate) mod shape_logo_configuration;
 
 pub(crate) mod shape_maria_db_parameters;
 
-pub(crate) mod shape_media_extraction_configuration;
-
 pub(crate) mod shape_member_id_arn_pair;
 
 pub(crate) mod shape_my_sql_parameters;
@@ -1554,6 +1574,8 @@ pub(crate) mod shape_network_interface_list;
 pub(crate) mod shape_o_auth_client_application_summary;
 
 pub(crate) mod shape_o_auth_client_credentials;
+
+pub(crate) mod shape_one_drive_parameters;
 
 pub(crate) mod shape_oracle_parameters;
 
@@ -1626,6 +1648,8 @@ pub(crate) mod shape_security_group_id_list;
 pub(crate) mod shape_semantic_table;
 
 pub(crate) mod shape_service_now_parameters;
+
+pub(crate) mod shape_share_point_parameters;
 
 pub(crate) mod shape_sheet_controls_option;
 
@@ -1743,6 +1767,8 @@ pub(crate) mod shape_user_index_capacity;
 
 pub(crate) mod shape_user_name_or_email_filter;
 
+pub(crate) mod shape_video_extraction_configuration;
+
 pub(crate) mod shape_visual_axis_sort_option;
 
 pub(crate) mod shape_visual_menu_option;
@@ -1772,8 +1798,6 @@ pub(crate) mod shape_asset_bundle_import_job_data_source_credentials;
 pub(crate) mod shape_asset_bundle_resource_link_sharing_configuration;
 
 pub(crate) mod shape_asset_bundle_resource_permissions;
-
-pub(crate) mod shape_audio_extraction_configuration;
 
 pub(crate) mod shape_authorization_code_grant_metadata;
 
@@ -1861,8 +1885,6 @@ pub(crate) mod shape_iam_connection_metadata;
 
 pub(crate) mod shape_identity_center_configuration;
 
-pub(crate) mod shape_image_extraction_configuration;
-
 pub(crate) mod shape_image_static_file;
 
 pub(crate) mod shape_import_table_operation;
@@ -1880,8 +1902,6 @@ pub(crate) mod shape_integer_parameter_list;
 pub(crate) mod shape_join_instruction;
 
 pub(crate) mod shape_join_operation;
-
-pub(crate) mod shape_kb_template_configuration;
 
 pub(crate) mod shape_layout;
 
@@ -2010,8 +2030,6 @@ pub(crate) mod shape_unpivot_operation;
 pub(crate) mod shape_untag_column_operation;
 
 pub(crate) mod shape_upload_settings;
-
-pub(crate) mod shape_video_extraction_configuration;
 
 pub(crate) mod shape_visual;
 
@@ -2210,6 +2228,8 @@ pub(crate) mod shape_layout_configuration;
 pub(crate) mod shape_layout_list;
 
 pub(crate) mod shape_line_chart_visual;
+
+pub(crate) mod shape_linked_data_source_ids;
 
 pub(crate) mod shape_lookback_window;
 

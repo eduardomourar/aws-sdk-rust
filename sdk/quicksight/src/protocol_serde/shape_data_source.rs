@@ -104,6 +104,19 @@ where
                                     .transpose()?,
                             );
                         }
+                        "CredentialStatus" => {
+                            builder = builder.set_credential_status(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CredentialStatus::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "LastCredentialVerifiedAt" => {
+                            builder = builder.set_last_credential_verified_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                                tokens.next(),
+                                ::aws_smithy_types::date_time::Format::EpochSeconds,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

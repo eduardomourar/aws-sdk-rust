@@ -3,7 +3,15 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PutAnomalyDetectorOutput {
+    /// <p>The unique identifier of the anomaly detector that you created or updated.</p>
+    pub anomaly_detector_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
+}
+impl PutAnomalyDetectorOutput {
+    /// <p>The unique identifier of the anomaly detector that you created or updated.</p>
+    pub fn anomaly_detector_id(&self) -> ::std::option::Option<&str> {
+        self.anomaly_detector_id.as_deref()
+    }
 }
 impl ::aws_types::request_id::RequestId for PutAnomalyDetectorOutput {
     fn request_id(&self) -> Option<&str> {
@@ -21,9 +29,24 @@ impl PutAnomalyDetectorOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAnomalyDetectorOutputBuilder {
+    pub(crate) anomaly_detector_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl PutAnomalyDetectorOutputBuilder {
+    /// <p>The unique identifier of the anomaly detector that you created or updated.</p>
+    pub fn anomaly_detector_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.anomaly_detector_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The unique identifier of the anomaly detector that you created or updated.</p>
+    pub fn set_anomaly_detector_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.anomaly_detector_id = input;
+        self
+    }
+    /// <p>The unique identifier of the anomaly detector that you created or updated.</p>
+    pub fn get_anomaly_detector_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.anomaly_detector_id
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -36,6 +59,7 @@ impl PutAnomalyDetectorOutputBuilder {
     /// Consumes the builder and constructs a [`PutAnomalyDetectorOutput`](crate::operation::put_anomaly_detector::PutAnomalyDetectorOutput).
     pub fn build(self) -> crate::operation::put_anomaly_detector::PutAnomalyDetectorOutput {
         crate::operation::put_anomaly_detector::PutAnomalyDetectorOutput {
+            anomaly_detector_id: self.anomaly_detector_id,
             _request_id: self._request_id,
         }
     }

@@ -15,14 +15,6 @@ pub struct InvokeWithResponseStreamInput {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub log_type: ::std::option::Option<crate::types::LogType>,
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
@@ -34,6 +26,14 @@ pub struct InvokeWithResponseStreamInput {
     pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
     pub tenant_id: ::std::option::Option<::std::string::String>,
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
 }
 impl InvokeWithResponseStreamInput {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -49,16 +49,6 @@ impl InvokeWithResponseStreamInput {
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn function_name(&self) -> ::std::option::Option<&str> {
         self.function_name.as_deref()
-    }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn invocation_type(&self) -> ::std::option::Option<&crate::types::ResponseStreamingInvocationType> {
-        self.invocation_type.as_ref()
     }
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub fn log_type(&self) -> ::std::option::Option<&crate::types::LogType> {
@@ -81,17 +71,27 @@ impl InvokeWithResponseStreamInput {
     pub fn tenant_id(&self) -> ::std::option::Option<&str> {
         self.tenant_id.as_deref()
     }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn invocation_type(&self) -> ::std::option::Option<&crate::types::ResponseStreamingInvocationType> {
+        self.invocation_type.as_ref()
+    }
 }
 impl ::std::fmt::Debug for InvokeWithResponseStreamInput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("InvokeWithResponseStreamInput");
         formatter.field("function_name", &self.function_name);
-        formatter.field("invocation_type", &self.invocation_type);
         formatter.field("log_type", &self.log_type);
         formatter.field("client_context", &self.client_context);
         formatter.field("qualifier", &self.qualifier);
         formatter.field("payload", &"*** Sensitive Data Redacted ***");
         formatter.field("tenant_id", &self.tenant_id);
+        formatter.field("invocation_type", &self.invocation_type);
         formatter.finish()
     }
 }
@@ -107,12 +107,12 @@ impl InvokeWithResponseStreamInput {
 #[non_exhaustive]
 pub struct InvokeWithResponseStreamInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
-    pub(crate) invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
     pub(crate) log_type: ::std::option::Option<crate::types::LogType>,
     pub(crate) client_context: ::std::option::Option<::std::string::String>,
     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
     pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
+    pub(crate) invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
 }
 impl InvokeWithResponseStreamInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -159,38 +159,6 @@ impl InvokeWithResponseStreamInputBuilder {
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
-    }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn invocation_type(mut self, input: crate::types::ResponseStreamingInvocationType) -> Self {
-        self.invocation_type = ::std::option::Option::Some(input);
-        self
-    }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
-        self.invocation_type = input;
-        self
-    }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
-        &self.invocation_type
     }
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub fn log_type(mut self, input: crate::types::LogType) -> Self {
@@ -265,6 +233,38 @@ impl InvokeWithResponseStreamInputBuilder {
     pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.tenant_id
     }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn invocation_type(mut self, input: crate::types::ResponseStreamingInvocationType) -> Self {
+        self.invocation_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
+        self.invocation_type = input;
+        self
+    }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
+        &self.invocation_type
+    }
     /// Consumes the builder and constructs a [`InvokeWithResponseStreamInput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput).
     pub fn build(
         self,
@@ -274,12 +274,12 @@ impl InvokeWithResponseStreamInputBuilder {
     > {
         ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput {
             function_name: self.function_name,
-            invocation_type: self.invocation_type,
             log_type: self.log_type,
             client_context: self.client_context,
             qualifier: self.qualifier,
             payload: self.payload,
             tenant_id: self.tenant_id,
+            invocation_type: self.invocation_type,
         })
     }
 }
@@ -287,12 +287,12 @@ impl ::std::fmt::Debug for InvokeWithResponseStreamInputBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("InvokeWithResponseStreamInputBuilder");
         formatter.field("function_name", &self.function_name);
-        formatter.field("invocation_type", &self.invocation_type);
         formatter.field("log_type", &self.log_type);
         formatter.field("client_context", &self.client_context);
         formatter.field("qualifier", &self.qualifier);
         formatter.field("payload", &"*** Sensitive Data Redacted ***");
         formatter.field("tenant_id", &self.tenant_id);
+        formatter.field("invocation_type", &self.invocation_type);
         formatter.finish()
     }
 }

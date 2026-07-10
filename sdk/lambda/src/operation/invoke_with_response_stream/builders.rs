@@ -183,38 +183,6 @@ impl InvokeWithResponseStreamFluentBuilder {
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_function_name()
     }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn invocation_type(mut self, input: crate::types::ResponseStreamingInvocationType) -> Self {
-        self.inner = self.inner.invocation_type(input);
-        self
-    }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
-        self.inner = self.inner.set_invocation_type(input);
-        self
-    }
-    /// <p>Use one of the following options:</p>
-    /// <ul>
-    /// <li>
-    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
-    /// <li>
-    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
-    /// </ul>
-    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
-        self.inner.get_invocation_type()
-    }
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub fn log_type(mut self, input: crate::types::LogType) -> Self {
         self.inner = self.inner.log_type(input);
@@ -287,5 +255,37 @@ impl InvokeWithResponseStreamFluentBuilder {
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
     pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_tenant_id()
+    }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn invocation_type(mut self, input: crate::types::ResponseStreamingInvocationType) -> Self {
+        self.inner = self.inner.invocation_type(input);
+        self
+    }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
+        self.inner = self.inner.set_invocation_type(input);
+        self
+    }
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
+    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
+        self.inner.get_invocation_type()
     }
 }

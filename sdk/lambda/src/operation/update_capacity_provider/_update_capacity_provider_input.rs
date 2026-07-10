@@ -9,6 +9,8 @@ pub struct UpdateCapacityProviderInput {
     pub capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
     /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
+    /// <p>The updated telemetry configuration for the capacity provider.</p>
+    pub telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl UpdateCapacityProviderInput {
     /// <p>The name of the capacity provider to update.</p>
@@ -22,6 +24,10 @@ impl UpdateCapacityProviderInput {
     /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn propagate_tags(&self) -> ::std::option::Option<&crate::types::PropagateTags> {
         self.propagate_tags.as_ref()
+    }
+    /// <p>The updated telemetry configuration for the capacity provider.</p>
+    pub fn telemetry_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
+        self.telemetry_config.as_ref()
     }
 }
 impl UpdateCapacityProviderInput {
@@ -38,6 +44,7 @@ pub struct UpdateCapacityProviderInputBuilder {
     pub(crate) capacity_provider_name: ::std::option::Option<::std::string::String>,
     pub(crate) capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
     pub(crate) propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
+    pub(crate) telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl UpdateCapacityProviderInputBuilder {
     /// <p>The name of the capacity provider to update.</p>
@@ -83,6 +90,20 @@ impl UpdateCapacityProviderInputBuilder {
     pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
         &self.propagate_tags
     }
+    /// <p>The updated telemetry configuration for the capacity provider.</p>
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
+        self.telemetry_config = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The updated telemetry configuration for the capacity provider.</p>
+    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
+        self.telemetry_config = input;
+        self
+    }
+    /// <p>The updated telemetry configuration for the capacity provider.</p>
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+        &self.telemetry_config
+    }
     /// Consumes the builder and constructs a [`UpdateCapacityProviderInput`](crate::operation::update_capacity_provider::UpdateCapacityProviderInput).
     pub fn build(
         self,
@@ -94,6 +115,7 @@ impl UpdateCapacityProviderInputBuilder {
             capacity_provider_name: self.capacity_provider_name,
             capacity_provider_scaling_config: self.capacity_provider_scaling_config,
             propagate_tags: self.propagate_tags,
+            telemetry_config: self.telemetry_config,
         })
     }
 }

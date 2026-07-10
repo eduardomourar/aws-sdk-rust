@@ -19,6 +19,8 @@ pub struct CreateCapacityProviderInput {
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
     pub propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl CreateCapacityProviderInput {
     /// <p>The name of the capacity provider.</p>
@@ -53,6 +55,10 @@ impl CreateCapacityProviderInput {
     pub fn propagate_tags(&self) -> ::std::option::Option<&crate::types::PropagateTags> {
         self.propagate_tags.as_ref()
     }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn telemetry_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
+        self.telemetry_config.as_ref()
+    }
 }
 impl CreateCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`CreateCapacityProviderInput`](crate::operation::create_capacity_provider::CreateCapacityProviderInput).
@@ -73,6 +79,7 @@ pub struct CreateCapacityProviderInputBuilder {
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
+    pub(crate) telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl CreateCapacityProviderInputBuilder {
     /// <p>The name of the capacity provider.</p>
@@ -196,6 +203,20 @@ impl CreateCapacityProviderInputBuilder {
     pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
         &self.propagate_tags
     }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
+        self.telemetry_config = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
+        self.telemetry_config = input;
+        self
+    }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+        &self.telemetry_config
+    }
     /// Consumes the builder and constructs a [`CreateCapacityProviderInput`](crate::operation::create_capacity_provider::CreateCapacityProviderInput).
     pub fn build(
         self,
@@ -212,6 +233,7 @@ impl CreateCapacityProviderInputBuilder {
             kms_key_arn: self.kms_key_arn,
             tags: self.tags,
             propagate_tags: self.propagate_tags,
+            telemetry_config: self.telemetry_config,
         })
     }
 }

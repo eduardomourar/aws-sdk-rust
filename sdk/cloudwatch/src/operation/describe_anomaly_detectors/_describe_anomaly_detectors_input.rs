@@ -3,6 +3,8 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeAnomalyDetectorsInput {
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub anomaly_detector_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of results to return in one operation. The maximum value that you can specify is 100.</p>
@@ -18,6 +20,12 @@ pub struct DescribeAnomalyDetectorsInput {
     pub anomaly_detector_types: ::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetectorType>>,
 }
 impl DescribeAnomalyDetectorsInput {
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.anomaly_detector_ids.is_none()`.
+    pub fn anomaly_detector_ids(&self) -> &[::std::string::String] {
+        self.anomaly_detector_ids.as_deref().unwrap_or_default()
+    }
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
@@ -59,6 +67,7 @@ impl DescribeAnomalyDetectorsInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAnomalyDetectorsInputBuilder {
+    pub(crate) anomaly_detector_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
@@ -67,6 +76,26 @@ pub struct DescribeAnomalyDetectorsInputBuilder {
     pub(crate) anomaly_detector_types: ::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetectorType>>,
 }
 impl DescribeAnomalyDetectorsInputBuilder {
+    /// Appends an item to `anomaly_detector_ids`.
+    ///
+    /// To override the contents of this collection use [`set_anomaly_detector_ids`](Self::set_anomaly_detector_ids).
+    ///
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub fn anomaly_detector_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.anomaly_detector_ids.unwrap_or_default();
+        v.push(input.into());
+        self.anomaly_detector_ids = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub fn set_anomaly_detector_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.anomaly_detector_ids = input;
+        self
+    }
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub fn get_anomaly_detector_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.anomaly_detector_ids
+    }
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
@@ -174,6 +203,7 @@ impl DescribeAnomalyDetectorsInputBuilder {
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(crate::operation::describe_anomaly_detectors::DescribeAnomalyDetectorsInput {
+            anomaly_detector_ids: self.anomaly_detector_ids,
             next_token: self.next_token,
             max_results: self.max_results,
             namespace: self.namespace,

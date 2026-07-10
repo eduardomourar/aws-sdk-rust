@@ -50,6 +50,21 @@ pub(crate) fn create_flow_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn create_knowledge_base_output_output_correct_errors(
+    mut builder: crate::operation::create_knowledge_base::builders::CreateKnowledgeBaseOutputBuilder,
+) -> crate::operation::create_knowledge_base::builders::CreateKnowledgeBaseOutputBuilder {
+    if builder.knowledge_base_arn.is_none() {
+        builder.knowledge_base_arn = Some(Default::default())
+    }
+    if builder.knowledge_base_id.is_none() {
+        builder.knowledge_base_id = Some(Default::default())
+    }
+    if builder.creation_status.is_none() {
+        builder.creation_status = "no value was set".parse::<crate::types::DataSetStatus>().ok()
+    }
+    builder
+}
+
 pub(crate) fn create_space_output_output_correct_errors(
     mut builder: crate::operation::create_space::builders::CreateSpaceOutputBuilder,
 ) -> crate::operation::create_space::builders::CreateSpaceOutputBuilder {
@@ -421,6 +436,18 @@ pub(crate) fn update_flow_permissions_output_output_correct_errors(
     }
     if builder.flow_id.is_none() {
         builder.flow_id = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn update_knowledge_base_output_output_correct_errors(
+    mut builder: crate::operation::update_knowledge_base::builders::UpdateKnowledgeBaseOutputBuilder,
+) -> crate::operation::update_knowledge_base::builders::UpdateKnowledgeBaseOutputBuilder {
+    if builder.knowledge_base_arn.is_none() {
+        builder.knowledge_base_arn = Some(Default::default())
+    }
+    if builder.knowledge_base_id.is_none() {
+        builder.knowledge_base_id = Some(Default::default())
     }
     builder
 }
@@ -1550,6 +1577,15 @@ pub(crate) fn filter_group_correct_errors(mut builder: crate::types::builders::F
     builder
 }
 
+pub(crate) fn fmkb_parameters_correct_errors(
+    mut builder: crate::types::builders::FmkbParametersBuilder,
+) -> crate::types::builders::FmkbParametersBuilder {
+    if builder.knowledge_base_arn.is_none() {
+        builder.knowledge_base_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn image_extraction_configuration_correct_errors(
     mut builder: crate::types::builders::ImageExtractionConfigurationBuilder,
 ) -> crate::types::builders::ImageExtractionConfigurationBuilder {
@@ -1759,6 +1795,15 @@ pub(crate) fn service_now_parameters_correct_errors(
 ) -> crate::types::builders::ServiceNowParametersBuilder {
     if builder.site_base_url.is_none() {
         builder.site_base_url = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn share_point_parameters_correct_errors(
+    mut builder: crate::types::builders::SharePointParametersBuilder,
+) -> crate::types::builders::SharePointParametersBuilder {
+    if builder.share_point_domain.is_none() {
+        builder.share_point_domain = Some(Default::default())
     }
     builder
 }

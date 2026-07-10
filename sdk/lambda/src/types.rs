@@ -29,6 +29,8 @@ pub use crate::types::_capacity_provider_scaling_config::CapacityProviderScaling
 
 pub use crate::types::_propagate_tags::PropagateTags;
 
+pub use crate::types::_capacity_provider_telemetry_config::CapacityProviderTelemetryConfig;
+
 pub use crate::types::_capacity_provider::CapacityProvider;
 
 pub use crate::types::_allowed_publishers::AllowedPublishers;
@@ -166,6 +168,8 @@ pub use crate::types::_function_event_invoke_config::FunctionEventInvokeConfig;
 pub use crate::types::_capacity_provider_scaling_mode::CapacityProviderScalingMode;
 
 pub use crate::types::_propagate_tags_mode::PropagateTagsMode;
+
+pub use crate::types::_capacity_provider_logging_config::CapacityProviderLoggingConfig;
 
 pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItem;
 
@@ -367,6 +371,8 @@ mod _capacity_provider;
 
 mod _capacity_provider_config;
 
+mod _capacity_provider_logging_config;
+
 mod _capacity_provider_permissions_config;
 
 mod _capacity_provider_predefined_metric_type;
@@ -376,6 +382,8 @@ mod _capacity_provider_scaling_config;
 mod _capacity_provider_scaling_mode;
 
 mod _capacity_provider_state;
+
+mod _capacity_provider_telemetry_config;
 
 mod _capacity_provider_vpc_config;
 

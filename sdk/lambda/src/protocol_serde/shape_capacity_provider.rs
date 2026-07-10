@@ -88,6 +88,15 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "TelemetryConfig" => {
+                            builder = builder.set_telemetry_config(
+                                crate::protocol_serde::shape_capacity_provider_telemetry_config::de_capacity_provider_telemetry_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

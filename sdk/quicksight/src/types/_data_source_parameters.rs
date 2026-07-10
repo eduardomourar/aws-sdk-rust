@@ -26,6 +26,10 @@ pub enum DataSourceParameters {
     DatabricksParameters(crate::types::DatabricksParameters),
     /// <p>The parameters for Exasol.</p>
     ExasolParameters(crate::types::ExasolParameters),
+    /// <p>The parameters for a fully managed knowledge base data source.</p>
+    FmkbParameters(crate::types::FmkbParameters),
+    /// <p>The parameters for a Google Drive data source.</p>
+    GoogleDriveParameters(crate::types::GoogleDriveParameters),
     /// <p>The parameters for Impala.</p>
     ImpalaParameters(crate::types::ImpalaParameters),
     /// <p>The parameters for Jira.</p>
@@ -34,6 +38,8 @@ pub enum DataSourceParameters {
     MariaDbParameters(crate::types::MariaDbParameters),
     /// <p>The parameters for MySQL.</p>
     MySqlParameters(crate::types::MySqlParameters),
+    /// <p>The parameters for an OneDrive data source.</p>
+    OneDriveParameters(crate::types::OneDriveParameters),
     /// <p>The parameters for Oracle.</p>
     OracleParameters(crate::types::OracleParameters),
     /// <p>The parameters for PostgreSQL.</p>
@@ -54,6 +60,8 @@ pub enum DataSourceParameters {
     S3TablesParameters(crate::types::S3TablesParameters),
     /// <p>The parameters for ServiceNow.</p>
     ServiceNowParameters(crate::types::ServiceNowParameters),
+    /// <p>The parameters for a SharePoint data source.</p>
+    SharePointParameters(crate::types::SharePointParameters),
     /// <p>The parameters for Snowflake.</p>
     SnowflakeParameters(crate::types::SnowflakeParameters),
     /// <p>The parameters for Spark.</p>
@@ -224,6 +232,32 @@ impl DataSourceParameters {
     pub fn is_exasol_parameters(&self) -> bool {
         self.as_exasol_parameters().is_ok()
     }
+    /// Tries to convert the enum instance into [`FmkbParameters`](crate::types::DataSourceParameters::FmkbParameters), extracting the inner [`FmkbParameters`](crate::types::FmkbParameters).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_fmkb_parameters(&self) -> ::std::result::Result<&crate::types::FmkbParameters, &Self> {
+        if let DataSourceParameters::FmkbParameters(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`FmkbParameters`](crate::types::DataSourceParameters::FmkbParameters).
+    pub fn is_fmkb_parameters(&self) -> bool {
+        self.as_fmkb_parameters().is_ok()
+    }
+    /// Tries to convert the enum instance into [`GoogleDriveParameters`](crate::types::DataSourceParameters::GoogleDriveParameters), extracting the inner [`GoogleDriveParameters`](crate::types::GoogleDriveParameters).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_google_drive_parameters(&self) -> ::std::result::Result<&crate::types::GoogleDriveParameters, &Self> {
+        if let DataSourceParameters::GoogleDriveParameters(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`GoogleDriveParameters`](crate::types::DataSourceParameters::GoogleDriveParameters).
+    pub fn is_google_drive_parameters(&self) -> bool {
+        self.as_google_drive_parameters().is_ok()
+    }
     /// Tries to convert the enum instance into [`ImpalaParameters`](crate::types::DataSourceParameters::ImpalaParameters), extracting the inner [`ImpalaParameters`](crate::types::ImpalaParameters).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_impala_parameters(&self) -> ::std::result::Result<&crate::types::ImpalaParameters, &Self> {
@@ -275,6 +309,19 @@ impl DataSourceParameters {
     /// Returns true if this is a [`MySqlParameters`](crate::types::DataSourceParameters::MySqlParameters).
     pub fn is_my_sql_parameters(&self) -> bool {
         self.as_my_sql_parameters().is_ok()
+    }
+    /// Tries to convert the enum instance into [`OneDriveParameters`](crate::types::DataSourceParameters::OneDriveParameters), extracting the inner [`OneDriveParameters`](crate::types::OneDriveParameters).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_one_drive_parameters(&self) -> ::std::result::Result<&crate::types::OneDriveParameters, &Self> {
+        if let DataSourceParameters::OneDriveParameters(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`OneDriveParameters`](crate::types::DataSourceParameters::OneDriveParameters).
+    pub fn is_one_drive_parameters(&self) -> bool {
+        self.as_one_drive_parameters().is_ok()
     }
     /// Tries to convert the enum instance into [`OracleParameters`](crate::types::DataSourceParameters::OracleParameters), extracting the inner [`OracleParameters`](crate::types::OracleParameters).
     /// Returns `Err(&Self)` if it can't be converted.
@@ -405,6 +452,19 @@ impl DataSourceParameters {
     /// Returns true if this is a [`ServiceNowParameters`](crate::types::DataSourceParameters::ServiceNowParameters).
     pub fn is_service_now_parameters(&self) -> bool {
         self.as_service_now_parameters().is_ok()
+    }
+    /// Tries to convert the enum instance into [`SharePointParameters`](crate::types::DataSourceParameters::SharePointParameters), extracting the inner [`SharePointParameters`](crate::types::SharePointParameters).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_share_point_parameters(&self) -> ::std::result::Result<&crate::types::SharePointParameters, &Self> {
+        if let DataSourceParameters::SharePointParameters(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`SharePointParameters`](crate::types::DataSourceParameters::SharePointParameters).
+    pub fn is_share_point_parameters(&self) -> bool {
+        self.as_share_point_parameters().is_ok()
     }
     /// Tries to convert the enum instance into [`SnowflakeParameters`](crate::types::DataSourceParameters::SnowflakeParameters), extracting the inner [`SnowflakeParameters`](crate::types::SnowflakeParameters).
     /// Returns `Err(&Self)` if it can't be converted.

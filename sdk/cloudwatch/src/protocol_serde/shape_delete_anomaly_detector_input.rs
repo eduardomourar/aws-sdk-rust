@@ -4,31 +4,34 @@ pub fn ser_delete_anomaly_detector_input_input(
     #[allow(unused)] input: &crate::operation::delete_anomaly_detector::DeleteAnomalyDetectorInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     encoder.begin_map();
-    if let Some(var_1) = &input.namespace {
-        encoder.str("Namespace").str(var_1.as_str());
+    if let Some(var_1) = &input.anomaly_detector_id {
+        encoder.str("AnomalyDetectorId").str(var_1.as_str());
     }
-    if let Some(var_2) = &input.metric_name {
-        encoder.str("MetricName").str(var_2.as_str());
+    if let Some(var_2) = &input.namespace {
+        encoder.str("Namespace").str(var_2.as_str());
     }
-    if let Some(var_3) = &input.dimensions {
+    if let Some(var_3) = &input.metric_name {
+        encoder.str("MetricName").str(var_3.as_str());
+    }
+    if let Some(var_4) = &input.dimensions {
         encoder.str("Dimensions");
-        encoder.array((*var_3).len());
-        for item_4 in var_3 {
+        encoder.array((*var_4).len());
+        for item_5 in var_4 {
             {
-                crate::protocol_serde::shape_dimension::ser_dimension(encoder, item_4)?;
+                crate::protocol_serde::shape_dimension::ser_dimension(encoder, item_5)?;
             }
         }
     }
-    if let Some(var_5) = &input.stat {
-        encoder.str("Stat").str(var_5.as_str());
+    if let Some(var_6) = &input.stat {
+        encoder.str("Stat").str(var_6.as_str());
     }
-    if let Some(var_6) = &input.single_metric_anomaly_detector {
+    if let Some(var_7) = &input.single_metric_anomaly_detector {
         encoder.str("SingleMetricAnomalyDetector");
-        crate::protocol_serde::shape_single_metric_anomaly_detector::ser_single_metric_anomaly_detector(encoder, var_6)?;
+        crate::protocol_serde::shape_single_metric_anomaly_detector::ser_single_metric_anomaly_detector(encoder, var_7)?;
     }
-    if let Some(var_7) = &input.metric_math_anomaly_detector {
+    if let Some(var_8) = &input.metric_math_anomaly_detector {
         encoder.str("MetricMathAnomalyDetector");
-        crate::protocol_serde::shape_metric_math_anomaly_detector::ser_metric_math_anomaly_detector(encoder, var_7)?;
+        crate::protocol_serde::shape_metric_math_anomaly_detector::ser_metric_math_anomaly_detector(encoder, var_8)?;
     }
     encoder.end();
     Ok(())

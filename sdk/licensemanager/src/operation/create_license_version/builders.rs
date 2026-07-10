@@ -286,4 +286,18 @@ impl CreateLicenseVersionFluentBuilder {
     pub fn get_source_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_source_version()
     }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn reset_usage(mut self, input: bool) -> Self {
+        self.inner = self.inner.reset_usage(input);
+        self
+    }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn set_reset_usage(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.inner = self.inner.set_reset_usage(input);
+        self
+    }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn get_reset_usage(&self) -> &::std::option::Option<bool> {
+        self.inner.get_reset_usage()
+    }
 }

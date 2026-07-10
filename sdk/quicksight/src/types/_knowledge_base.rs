@@ -18,6 +18,8 @@ pub struct KnowledgeBase {
     pub knowledge_base_configuration: ::std::option::Option<crate::types::KnowledgeBaseConfiguration>,
     /// <p>The media extraction configuration for the knowledge base.</p>
     pub media_extraction_configuration: ::std::option::Option<crate::types::MediaExtractionConfiguration>,
+    /// <p>The access control configuration for the knowledge base.</p>
+    pub access_control_configuration: ::std::option::Option<crate::types::AccessControlConfiguration>,
     /// <p>The type of the knowledge base.</p>
     pub r#type: ::std::option::Option<::std::string::String>,
     /// <p>The date and time that the knowledge base was created.</p>
@@ -26,7 +28,7 @@ pub struct KnowledgeBase {
     pub updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The description of the knowledge base.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// <p>Indicates whether email notifications are enabled for ingestion failures.</p>
+    /// <p>Specifies whether email notifications are enabled for ingestion failures.</p>
     pub is_email_notification_opted_for_ingestion_failures: ::std::option::Option<bool>,
     /// <p>A summary of the first completed ingestion for the knowledge base.</p>
     pub first_completed_ingestion_summary: ::std::option::Option<crate::types::KnowledgeBaseIngestionSummary>,
@@ -76,6 +78,10 @@ impl KnowledgeBase {
     pub fn media_extraction_configuration(&self) -> ::std::option::Option<&crate::types::MediaExtractionConfiguration> {
         self.media_extraction_configuration.as_ref()
     }
+    /// <p>The access control configuration for the knowledge base.</p>
+    pub fn access_control_configuration(&self) -> ::std::option::Option<&crate::types::AccessControlConfiguration> {
+        self.access_control_configuration.as_ref()
+    }
     /// <p>The type of the knowledge base.</p>
     pub fn r#type(&self) -> ::std::option::Option<&str> {
         self.r#type.as_deref()
@@ -92,7 +98,7 @@ impl KnowledgeBase {
     pub fn description(&self) -> ::std::option::Option<&str> {
         self.description.as_deref()
     }
-    /// <p>Indicates whether email notifications are enabled for ingestion failures.</p>
+    /// <p>Specifies whether email notifications are enabled for ingestion failures.</p>
     pub fn is_email_notification_opted_for_ingestion_failures(&self) -> ::std::option::Option<bool> {
         self.is_email_notification_opted_for_ingestion_failures
     }
@@ -135,6 +141,7 @@ impl ::std::fmt::Debug for KnowledgeBase {
         formatter.field("data_source_arn", &self.data_source_arn);
         formatter.field("knowledge_base_configuration", &"*** Sensitive Data Redacted ***");
         formatter.field("media_extraction_configuration", &self.media_extraction_configuration);
+        formatter.field("access_control_configuration", &self.access_control_configuration);
         formatter.field("r#type", &self.r#type);
         formatter.field("created_at", &self.created_at);
         formatter.field("updated_at", &self.updated_at);
@@ -171,6 +178,7 @@ pub struct KnowledgeBaseBuilder {
     pub(crate) data_source_arn: ::std::option::Option<::std::string::String>,
     pub(crate) knowledge_base_configuration: ::std::option::Option<crate::types::KnowledgeBaseConfiguration>,
     pub(crate) media_extraction_configuration: ::std::option::Option<crate::types::MediaExtractionConfiguration>,
+    pub(crate) access_control_configuration: ::std::option::Option<crate::types::AccessControlConfiguration>,
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -289,6 +297,20 @@ impl KnowledgeBaseBuilder {
     pub fn get_media_extraction_configuration(&self) -> &::std::option::Option<crate::types::MediaExtractionConfiguration> {
         &self.media_extraction_configuration
     }
+    /// <p>The access control configuration for the knowledge base.</p>
+    pub fn access_control_configuration(mut self, input: crate::types::AccessControlConfiguration) -> Self {
+        self.access_control_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The access control configuration for the knowledge base.</p>
+    pub fn set_access_control_configuration(mut self, input: ::std::option::Option<crate::types::AccessControlConfiguration>) -> Self {
+        self.access_control_configuration = input;
+        self
+    }
+    /// <p>The access control configuration for the knowledge base.</p>
+    pub fn get_access_control_configuration(&self) -> &::std::option::Option<crate::types::AccessControlConfiguration> {
+        &self.access_control_configuration
+    }
     /// <p>The type of the knowledge base.</p>
     pub fn r#type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.r#type = ::std::option::Option::Some(input.into());
@@ -345,17 +367,17 @@ impl KnowledgeBaseBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// <p>Indicates whether email notifications are enabled for ingestion failures.</p>
+    /// <p>Specifies whether email notifications are enabled for ingestion failures.</p>
     pub fn is_email_notification_opted_for_ingestion_failures(mut self, input: bool) -> Self {
         self.is_email_notification_opted_for_ingestion_failures = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates whether email notifications are enabled for ingestion failures.</p>
+    /// <p>Specifies whether email notifications are enabled for ingestion failures.</p>
     pub fn set_is_email_notification_opted_for_ingestion_failures(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_email_notification_opted_for_ingestion_failures = input;
         self
     }
-    /// <p>Indicates whether email notifications are enabled for ingestion failures.</p>
+    /// <p>Specifies whether email notifications are enabled for ingestion failures.</p>
     pub fn get_is_email_notification_opted_for_ingestion_failures(&self) -> &::std::option::Option<bool> {
         &self.is_email_notification_opted_for_ingestion_failures
     }
@@ -498,6 +520,7 @@ impl KnowledgeBaseBuilder {
             })?,
             knowledge_base_configuration: self.knowledge_base_configuration,
             media_extraction_configuration: self.media_extraction_configuration,
+            access_control_configuration: self.access_control_configuration,
             r#type: self.r#type,
             created_at: self.created_at,
             updated_at: self.updated_at,
@@ -523,6 +546,7 @@ impl ::std::fmt::Debug for KnowledgeBaseBuilder {
         formatter.field("data_source_arn", &self.data_source_arn);
         formatter.field("knowledge_base_configuration", &"*** Sensitive Data Redacted ***");
         formatter.field("media_extraction_configuration", &self.media_extraction_configuration);
+        formatter.field("access_control_configuration", &self.access_control_configuration);
         formatter.field("r#type", &self.r#type);
         formatter.field("created_at", &self.created_at);
         formatter.field("updated_at", &self.updated_at);

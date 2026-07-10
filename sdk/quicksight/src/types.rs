@@ -87,6 +87,14 @@ pub use crate::types::_ingestion_type::IngestionType;
 
 pub use crate::types::_ingestion_status::IngestionStatus;
 
+pub use crate::types::_knowledge_base_configuration::KnowledgeBaseConfiguration;
+
+pub use crate::types::_media_extraction_configuration::MediaExtractionConfiguration;
+
+pub use crate::types::_access_control_configuration::AccessControlConfiguration;
+
+pub use crate::types::_data_set_status::DataSetStatus;
+
 pub use crate::types::_identity_store::IdentityStore;
 
 pub use crate::types::_namespace_status::NamespaceStatus;
@@ -411,6 +419,14 @@ pub use crate::types::_confluence_parameters::ConfluenceParameters;
 
 pub use crate::types::_q_business_parameters::QBusinessParameters;
 
+pub use crate::types::_share_point_parameters::SharePointParameters;
+
+pub use crate::types::_google_drive_parameters::GoogleDriveParameters;
+
+pub use crate::types::_one_drive_parameters::OneDriveParameters;
+
+pub use crate::types::_fmkb_parameters::FmkbParameters;
+
 pub use crate::types::_credential_pair::CredentialPair;
 
 pub use crate::types::_key_pair_credentials::KeyPairCredentials;
@@ -420,6 +436,14 @@ pub use crate::types::_web_proxy_credentials::WebProxyCredentials;
 pub use crate::types::_o_auth_client_credentials::OAuthClientCredentials;
 
 pub use crate::types::_permission::Permission;
+
+pub use crate::types::_kb_template_configuration::KbTemplateConfiguration;
+
+pub use crate::types::_image_extraction_configuration::ImageExtractionConfiguration;
+
+pub use crate::types::_audio_extraction_configuration::AudioExtractionConfiguration;
+
+pub use crate::types::_video_extraction_configuration::VideoExtractionConfiguration;
 
 pub use crate::types::_refresh_frequency::RefreshFrequency;
 
@@ -473,6 +497,8 @@ pub use crate::types::_refresh_failure_configuration::RefreshFailureConfiguratio
 
 pub use crate::types::_data_source_error_info::DataSourceErrorInfo;
 
+pub use crate::types::_credential_status::CredentialStatus;
+
 pub use crate::types::_error_info::ErrorInfo;
 
 pub use crate::types::_row_info::RowInfo;
@@ -486,12 +512,6 @@ pub use crate::types::_ingestion_request_type::IngestionRequestType;
 pub use crate::types::_registered_customer_managed_key::RegisteredCustomerManagedKey;
 
 pub use crate::types::_q_data_key_type::QDataKeyType;
-
-pub use crate::types::_data_set_status::DataSetStatus;
-
-pub use crate::types::_knowledge_base_configuration::KnowledgeBaseConfiguration;
-
-pub use crate::types::_media_extraction_configuration::MediaExtractionConfiguration;
 
 pub use crate::types::_knowledge_base_ingestion_summary::KnowledgeBaseIngestionSummary;
 
@@ -755,6 +775,16 @@ pub use crate::types::_starburst_product_type::StarburstProductType;
 
 pub use crate::types::_web_crawler_auth_type::WebCrawlerAuthType;
 
+pub use crate::types::_auth_type::AuthType;
+
+pub use crate::types::_image_extraction_status::ImageExtractionStatus;
+
+pub use crate::types::_audio_extraction_status::AudioExtractionStatus;
+
+pub use crate::types::_video_extraction_status::VideoExtractionStatus;
+
+pub use crate::types::_video_extraction_type::VideoExtractionType;
+
 pub use crate::types::_refresh_interval::RefreshInterval;
 
 pub use crate::types::_schedule_refresh_on_entity::ScheduleRefreshOnEntity;
@@ -864,14 +894,6 @@ pub use crate::types::_data_source_error_info_type::DataSourceErrorInfoType;
 pub use crate::types::_step_alias_mapping::StepAliasMapping;
 
 pub use crate::types::_ingestion_error_type::IngestionErrorType;
-
-pub use crate::types::_kb_template_configuration::KbTemplateConfiguration;
-
-pub use crate::types::_image_extraction_configuration::ImageExtractionConfiguration;
-
-pub use crate::types::_audio_extraction_configuration::AudioExtractionConfiguration;
-
-pub use crate::types::_video_extraction_configuration::VideoExtractionConfiguration;
 
 pub use crate::types::_kb_ingestion_status::KbIngestionStatus;
 
@@ -1110,14 +1132,6 @@ pub use crate::types::_column_data_sub_type::ColumnDataSubType;
 pub use crate::types::_lookback_window::LookbackWindow;
 
 pub use crate::types::_refresh_failure_alert_status::RefreshFailureAlertStatus;
-
-pub use crate::types::_image_extraction_status::ImageExtractionStatus;
-
-pub use crate::types::_audio_extraction_status::AudioExtractionStatus;
-
-pub use crate::types::_video_extraction_status::VideoExtractionStatus;
-
-pub use crate::types::_video_extraction_type::VideoExtractionType;
 
 pub use crate::types::_theme_error::ThemeError;
 
@@ -2803,6 +2817,8 @@ pub use crate::types::_geospatial_null_symbol_style::GeospatialNullSymbolStyle;
 
 pub use crate::types::_geospatial_categorical_data_color::GeospatialCategoricalDataColor;
 
+mod _access_control_configuration;
+
 mod _account_customization;
 
 mod _account_info;
@@ -3070,6 +3086,8 @@ mod _aurora_parameters;
 mod _aurora_postgre_sql_parameters;
 
 mod _auth_config;
+
+mod _auth_type;
 
 mod _authentication_metadata;
 
@@ -3398,6 +3416,8 @@ mod _create_columns_operation;
 mod _create_topic_reviewed_answer;
 
 mod _credential_pair;
+
+mod _credential_status;
 
 mod _cross_dataset_types;
 
@@ -3877,6 +3897,8 @@ mod _flow_publish_state;
 
 mod _flow_summary;
 
+mod _fmkb_parameters;
+
 mod _folder;
 
 mod _folder_filter_attribute;
@@ -4064,6 +4086,8 @@ mod _geospatial_static_file_source;
 mod _geospatial_window_options;
 
 mod _global_table_border_options;
+
+mod _google_drive_parameters;
 
 mod _gradient_color;
 
@@ -4484,6 +4508,8 @@ mod _o_auth_client_authentication_type;
 mod _o_auth_client_credentials;
 
 mod _o_auth_parameters;
+
+mod _one_drive_parameters;
 
 mod _oracle_parameters;
 
@@ -4942,6 +4968,8 @@ mod _session_tag;
 mod _set_parameter_value_configuration;
 
 mod _shape_conditional_format;
+
+mod _share_point_parameters;
 
 mod _shared_column_semantic_metadata;
 

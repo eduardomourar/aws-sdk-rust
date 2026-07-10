@@ -3,6 +3,8 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteAnomalyDetectorInput {
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub anomaly_detector_id: ::std::option::Option<::std::string::String>,
     /// <p>The namespace associated with the anomaly detection model to delete.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.")]
     pub namespace: ::std::option::Option<::std::string::String>,
@@ -49,6 +51,10 @@ pub struct DeleteAnomalyDetectorInput {
     pub metric_math_anomaly_detector: ::std::option::Option<crate::types::MetricMathAnomalyDetector>,
 }
 impl DeleteAnomalyDetectorInput {
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn anomaly_detector_id(&self) -> ::std::option::Option<&str> {
+        self.anomaly_detector_id.as_deref()
+    }
     /// <p>The namespace associated with the anomaly detection model to delete.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.")]
     pub fn namespace(&self) -> ::std::option::Option<&str> {
@@ -119,6 +125,7 @@ impl DeleteAnomalyDetectorInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteAnomalyDetectorInputBuilder {
+    pub(crate) anomaly_detector_id: ::std::option::Option<::std::string::String>,
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) metric_name: ::std::option::Option<::std::string::String>,
     pub(crate) dimensions: ::std::option::Option<::std::vec::Vec<crate::types::Dimension>>,
@@ -127,6 +134,20 @@ pub struct DeleteAnomalyDetectorInputBuilder {
     pub(crate) metric_math_anomaly_detector: ::std::option::Option<crate::types::MetricMathAnomalyDetector>,
 }
 impl DeleteAnomalyDetectorInputBuilder {
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn anomaly_detector_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.anomaly_detector_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn set_anomaly_detector_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.anomaly_detector_id = input;
+        self
+    }
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn get_anomaly_detector_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.anomaly_detector_id
+    }
     /// <p>The namespace associated with the anomaly detection model to delete.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.")]
     pub fn namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -319,6 +340,7 @@ impl DeleteAnomalyDetectorInputBuilder {
     ) -> ::std::result::Result<crate::operation::delete_anomaly_detector::DeleteAnomalyDetectorInput, ::aws_smithy_types::error::operation::BuildError>
     {
         ::std::result::Result::Ok(crate::operation::delete_anomaly_detector::DeleteAnomalyDetectorInput {
+            anomaly_detector_id: self.anomaly_detector_id,
             namespace: self.namespace,
             metric_name: self.metric_name,
             dimensions: self.dimensions,

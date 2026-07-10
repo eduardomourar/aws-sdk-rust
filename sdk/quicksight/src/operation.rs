@@ -64,6 +64,9 @@ pub mod create_iam_policy_assignment;
 /// Types for the `CreateIngestion` operation.
 pub mod create_ingestion;
 
+/// Types for the `CreateKnowledgeBase` operation.
+pub mod create_knowledge_base;
+
 /// Types for the `CreateNamespace` operation.
 pub mod create_namespace;
 
@@ -726,6 +729,9 @@ pub mod update_ip_restriction;
 
 /// Types for the `UpdateKeyRegistration` operation.
 pub mod update_key_registration;
+
+/// Types for the `UpdateKnowledgeBase` operation.
+pub mod update_knowledge_base;
 
 /// Types for the `UpdateKnowledgeBasePermissions` operation.
 pub mod update_knowledge_base_permissions;

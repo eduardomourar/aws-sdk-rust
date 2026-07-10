@@ -120,6 +120,8 @@ pub fn de_put_anomaly_detector_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_anomaly_detector::builders::PutAnomalyDetectorOutputBuilder::default();
+        output = crate::protocol_serde::shape_put_anomaly_detector::de_put_anomaly_detector(_response_body, output)
+            .map_err(crate::operation::put_anomaly_detector::PutAnomalyDetectorError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -134,4 +136,62 @@ pub fn ser_put_anomaly_detector_input(
         crate::protocol_serde::shape_put_anomaly_detector_input::ser_put_anomaly_detector_input_input(encoder, input)?;
     }
     Ok(::aws_smithy_types::body::SdkBody::from(encoder.into_writer()))
+}
+
+pub(crate) fn de_put_anomaly_detector(
+    value: &[u8],
+    mut builder: crate::operation::put_anomaly_detector::builders::PutAnomalyDetectorOutputBuilder,
+) -> ::std::result::Result<
+    crate::operation::put_anomaly_detector::builders::PutAnomalyDetectorOutputBuilder,
+    ::aws_smithy_cbor::decode::DeserializeError,
+> {
+    #[allow(clippy::match_single_binding, unused_variables)]
+    fn pair(
+        mut builder: crate::operation::put_anomaly_detector::builders::PutAnomalyDetectorOutputBuilder,
+        decoder: &mut ::aws_smithy_cbor::Decoder,
+        depth: u32,
+    ) -> ::std::result::Result<
+        crate::operation::put_anomaly_detector::builders::PutAnomalyDetectorOutputBuilder,
+        ::aws_smithy_cbor::decode::DeserializeError,
+    > {
+        builder = match decoder.str()?.as_ref() {
+            "AnomalyDetectorId" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
+                Ok(builder.set_anomaly_detector_id(Some(decoder.string()?)))
+            })?,
+            _ => {
+                decoder.skip()?;
+                builder
+            }
+        };
+        Ok(builder)
+    }
+
+    let decoder = &mut ::aws_smithy_cbor::Decoder::new(value);
+    #[allow(unused_variables)]
+    let depth = 0u32;
+
+    match decoder.map()? {
+        None => loop {
+            match decoder.datatype()? {
+                ::aws_smithy_cbor::data::Type::Break => {
+                    decoder.skip()?;
+                    break;
+                }
+                _ => {
+                    builder = pair(builder, decoder, depth)?;
+                }
+            };
+        },
+        Some(n) => {
+            for _ in 0..n {
+                builder = pair(builder, decoder, depth)?;
+            }
+        }
+    };
+
+    if decoder.position() != value.len() {
+        return Err(::aws_smithy_cbor::decode::DeserializeError::expected_end_of_stream(decoder.position()));
+    }
+
+    Ok(builder)
 }

@@ -55,7 +55,7 @@ pub struct ClusterInstanceGroupSpecification {
     /// <li>
     /// <p><code>CustomAmiId</code>: Use your custom AMI</p></li>
     /// <li>
-    /// <p><code>default</code>: Use the default latest system image</p></li>
+    /// <p><code>default</code>: Use the default latest system image. For clusters with continuous scaling node provisioning mode, new instance groups inherit the AMI from the earliest existing instance group</p></li>
     /// </ul>
     /// <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p>
     /// <ul>
@@ -163,7 +163,7 @@ impl ClusterInstanceGroupSpecification {
     /// <li>
     /// <p><code>CustomAmiId</code>: Use your custom AMI</p></li>
     /// <li>
-    /// <p><code>default</code>: Use the default latest system image</p></li>
+    /// <p><code>default</code>: Use the default latest system image. For clusters with continuous scaling node provisioning mode, new instance groups inherit the AMI from the earliest existing instance group</p></li>
     /// </ul>
     /// <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p>
     /// <ul>
@@ -494,7 +494,7 @@ impl ClusterInstanceGroupSpecificationBuilder {
     /// <li>
     /// <p><code>CustomAmiId</code>: Use your custom AMI</p></li>
     /// <li>
-    /// <p><code>default</code>: Use the default latest system image</p></li>
+    /// <p><code>default</code>: Use the default latest system image. For clusters with continuous scaling node provisioning mode, new instance groups inherit the AMI from the earliest existing instance group</p></li>
     /// </ul>
     /// <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p>
     /// <ul>
@@ -517,7 +517,7 @@ impl ClusterInstanceGroupSpecificationBuilder {
     /// <li>
     /// <p><code>CustomAmiId</code>: Use your custom AMI</p></li>
     /// <li>
-    /// <p><code>default</code>: Use the default latest system image</p></li>
+    /// <p><code>default</code>: Use the default latest system image. For clusters with continuous scaling node provisioning mode, new instance groups inherit the AMI from the earliest existing instance group</p></li>
     /// </ul>
     /// <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p>
     /// <ul>
@@ -540,7 +540,7 @@ impl ClusterInstanceGroupSpecificationBuilder {
     /// <li>
     /// <p><code>CustomAmiId</code>: Use your custom AMI</p></li>
     /// <li>
-    /// <p><code>default</code>: Use the default latest system image</p></li>
+    /// <p><code>default</code>: Use the default latest system image. For clusters with continuous scaling node provisioning mode, new instance groups inherit the AMI from the earliest existing instance group</p></li>
     /// </ul>
     /// <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p>
     /// <ul>

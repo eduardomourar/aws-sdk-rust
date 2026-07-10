@@ -22,6 +22,8 @@ pub struct CapacityProvider {
     pub last_modified: ::std::option::Option<::std::string::String>,
     /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
+    /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+    pub telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl CapacityProvider {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
@@ -61,6 +63,10 @@ impl CapacityProvider {
     pub fn propagate_tags(&self) -> ::std::option::Option<&crate::types::PropagateTags> {
         self.propagate_tags.as_ref()
     }
+    /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+    pub fn telemetry_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
+        self.telemetry_config.as_ref()
+    }
 }
 impl CapacityProvider {
     /// Creates a new builder-style object to manufacture [`CapacityProvider`](crate::types::CapacityProvider).
@@ -82,6 +88,7 @@ pub struct CapacityProviderBuilder {
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::std::string::String>,
     pub(crate) propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
+    pub(crate) telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl CapacityProviderBuilder {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
@@ -214,6 +221,20 @@ impl CapacityProviderBuilder {
     pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
         &self.propagate_tags
     }
+    /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
+        self.telemetry_config = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
+        self.telemetry_config = input;
+        self
+    }
+    /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+        &self.telemetry_config
+    }
     /// Consumes the builder and constructs a [`CapacityProvider`](crate::types::CapacityProvider).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_arn`](crate::types::builders::CapacityProviderBuilder::capacity_provider_arn)
@@ -239,6 +260,7 @@ impl CapacityProviderBuilder {
             kms_key_arn: self.kms_key_arn,
             last_modified: self.last_modified,
             propagate_tags: self.propagate_tags,
+            telemetry_config: self.telemetry_config,
         })
     }
 }

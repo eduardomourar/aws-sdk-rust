@@ -23,6 +23,8 @@ pub use crate::types::_capacity_provider_scaling_config::CapacityProviderScaling
 
 pub use crate::types::_propagate_tags::PropagateTagsBuilder;
 
+pub use crate::types::_capacity_provider_telemetry_config::CapacityProviderTelemetryConfigBuilder;
+
 pub use crate::types::_capacity_provider::CapacityProviderBuilder;
 
 pub use crate::types::_allowed_publishers::AllowedPublishersBuilder;
@@ -116,6 +118,8 @@ pub use crate::types::_on_failure::OnFailureBuilder;
 pub use crate::types::_execution::ExecutionBuilder;
 
 pub use crate::types::_function_event_invoke_config::FunctionEventInvokeConfigBuilder;
+
+pub use crate::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
 
 pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
 

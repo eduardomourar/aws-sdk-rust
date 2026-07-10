@@ -43,11 +43,17 @@ pub fn ser_create_capacity_provider_input_input(
         }
         object_12.finish();
     }
-    if let Some(var_15) = &input.vpc_config {
+    if let Some(var_15) = &input.telemetry_config {
         #[allow(unused_mut)]
-        let mut object_16 = object.key("VpcConfig").start_object();
-        crate::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_16, var_15)?;
+        let mut object_16 = object.key("TelemetryConfig").start_object();
+        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
         object_16.finish();
+    }
+    if let Some(var_17) = &input.vpc_config {
+        #[allow(unused_mut)]
+        let mut object_18 = object.key("VpcConfig").start_object();
+        crate::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
+        object_18.finish();
     }
     Ok(())
 }

@@ -51,6 +51,12 @@ pub use crate::types::_group::GroupBuilder;
 
 pub use crate::types::_group_member::GroupMemberBuilder;
 
+pub use crate::types::_knowledge_base_configuration::KnowledgeBaseConfigurationBuilder;
+
+pub use crate::types::_media_extraction_configuration::MediaExtractionConfigurationBuilder;
+
+pub use crate::types::_access_control_configuration::AccessControlConfigurationBuilder;
+
 pub use crate::types::_refresh_schedule::RefreshScheduleBuilder;
 
 pub use crate::types::_template_source_entity::TemplateSourceEntityBuilder;
@@ -295,6 +301,14 @@ pub use crate::types::_confluence_parameters::ConfluenceParametersBuilder;
 
 pub use crate::types::_q_business_parameters::QBusinessParametersBuilder;
 
+pub use crate::types::_share_point_parameters::SharePointParametersBuilder;
+
+pub use crate::types::_google_drive_parameters::GoogleDriveParametersBuilder;
+
+pub use crate::types::_one_drive_parameters::OneDriveParametersBuilder;
+
+pub use crate::types::_fmkb_parameters::FmkbParametersBuilder;
+
 pub use crate::types::_credential_pair::CredentialPairBuilder;
 
 pub use crate::types::_key_pair_credentials::KeyPairCredentialsBuilder;
@@ -304,6 +318,14 @@ pub use crate::types::_web_proxy_credentials::WebProxyCredentialsBuilder;
 pub use crate::types::_o_auth_client_credentials::OAuthClientCredentialsBuilder;
 
 pub use crate::types::_permission::PermissionBuilder;
+
+pub use crate::types::_kb_template_configuration::KbTemplateConfigurationBuilder;
+
+pub use crate::types::_image_extraction_configuration::ImageExtractionConfigurationBuilder;
+
+pub use crate::types::_audio_extraction_configuration::AudioExtractionConfigurationBuilder;
+
+pub use crate::types::_video_extraction_configuration::VideoExtractionConfigurationBuilder;
 
 pub use crate::types::_refresh_frequency::RefreshFrequencyBuilder;
 
@@ -360,10 +382,6 @@ pub use crate::types::_row_info::RowInfoBuilder;
 pub use crate::types::_queue_info::QueueInfoBuilder;
 
 pub use crate::types::_registered_customer_managed_key::RegisteredCustomerManagedKeyBuilder;
-
-pub use crate::types::_knowledge_base_configuration::KnowledgeBaseConfigurationBuilder;
-
-pub use crate::types::_media_extraction_configuration::MediaExtractionConfigurationBuilder;
 
 pub use crate::types::_knowledge_base_ingestion_summary::KnowledgeBaseIngestionSummaryBuilder;
 
@@ -692,14 +710,6 @@ pub use crate::types::_incremental_refresh::IncrementalRefreshBuilder;
 pub use crate::types::_refresh_failure_email_alert::RefreshFailureEmailAlertBuilder;
 
 pub use crate::types::_step_alias_mapping::StepAliasMappingBuilder;
-
-pub use crate::types::_kb_template_configuration::KbTemplateConfigurationBuilder;
-
-pub use crate::types::_image_extraction_configuration::ImageExtractionConfigurationBuilder;
-
-pub use crate::types::_audio_extraction_configuration::AudioExtractionConfigurationBuilder;
-
-pub use crate::types::_video_extraction_configuration::VideoExtractionConfigurationBuilder;
 
 pub use crate::types::_space_quick_sight_resource::SpaceQuickSightResourceBuilder;
 

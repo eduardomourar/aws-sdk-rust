@@ -5,6 +5,10 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AnomalyDetector {
+    /// <p>The unique identifier of the anomaly detector.</p><note>
+    /// <p>The identifier does not restrict access to a specific anomaly detector in an IAM policy. Permissions for anomaly detector operations apply to all anomaly detectors in the account.</p>
+    /// </note>
+    pub anomaly_detector_id: ::std::option::Option<::std::string::String>,
     /// <p>The namespace of the metric associated with the anomaly detection model.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.Namespace property.")]
     pub namespace: ::std::option::Option<::std::string::String>,
@@ -29,6 +33,12 @@ pub struct AnomalyDetector {
     pub metric_math_anomaly_detector: ::std::option::Option<crate::types::MetricMathAnomalyDetector>,
 }
 impl AnomalyDetector {
+    /// <p>The unique identifier of the anomaly detector.</p><note>
+    /// <p>The identifier does not restrict access to a specific anomaly detector in an IAM policy. Permissions for anomaly detector operations apply to all anomaly detectors in the account.</p>
+    /// </note>
+    pub fn anomaly_detector_id(&self) -> ::std::option::Option<&str> {
+        self.anomaly_detector_id.as_deref()
+    }
     /// <p>The namespace of the metric associated with the anomaly detection model.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.Namespace property.")]
     pub fn namespace(&self) -> ::std::option::Option<&str> {
@@ -83,6 +93,7 @@ impl AnomalyDetector {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnomalyDetectorBuilder {
+    pub(crate) anomaly_detector_id: ::std::option::Option<::std::string::String>,
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) metric_name: ::std::option::Option<::std::string::String>,
     pub(crate) dimensions: ::std::option::Option<::std::vec::Vec<crate::types::Dimension>>,
@@ -94,6 +105,26 @@ pub struct AnomalyDetectorBuilder {
     pub(crate) metric_math_anomaly_detector: ::std::option::Option<crate::types::MetricMathAnomalyDetector>,
 }
 impl AnomalyDetectorBuilder {
+    /// <p>The unique identifier of the anomaly detector.</p><note>
+    /// <p>The identifier does not restrict access to a specific anomaly detector in an IAM policy. Permissions for anomaly detector operations apply to all anomaly detectors in the account.</p>
+    /// </note>
+    pub fn anomaly_detector_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.anomaly_detector_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The unique identifier of the anomaly detector.</p><note>
+    /// <p>The identifier does not restrict access to a specific anomaly detector in an IAM policy. Permissions for anomaly detector operations apply to all anomaly detectors in the account.</p>
+    /// </note>
+    pub fn set_anomaly_detector_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.anomaly_detector_id = input;
+        self
+    }
+    /// <p>The unique identifier of the anomaly detector.</p><note>
+    /// <p>The identifier does not restrict access to a specific anomaly detector in an IAM policy. Permissions for anomaly detector operations apply to all anomaly detectors in the account.</p>
+    /// </note>
+    pub fn get_anomaly_detector_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.anomaly_detector_id
+    }
     /// <p>The namespace of the metric associated with the anomaly detection model.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.Namespace property.")]
     pub fn namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -241,6 +272,7 @@ impl AnomalyDetectorBuilder {
     /// Consumes the builder and constructs a [`AnomalyDetector`](crate::types::AnomalyDetector).
     pub fn build(self) -> crate::types::AnomalyDetector {
         crate::types::AnomalyDetector {
+            anomaly_detector_id: self.anomaly_detector_id,
             namespace: self.namespace,
             metric_name: self.metric_name,
             dimensions: self.dimensions,

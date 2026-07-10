@@ -27,6 +27,8 @@ pub struct CreateLicenseVersionInput {
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>Current version of the license.</p>
     pub source_version: ::std::option::Option<::std::string::String>,
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub reset_usage: ::std::option::Option<bool>,
 }
 impl CreateLicenseVersionInput {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
@@ -81,6 +83,10 @@ impl CreateLicenseVersionInput {
     pub fn source_version(&self) -> ::std::option::Option<&str> {
         self.source_version.as_deref()
     }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn reset_usage(&self) -> ::std::option::Option<bool> {
+        self.reset_usage
+    }
 }
 impl CreateLicenseVersionInput {
     /// Creates a new builder-style object to manufacture [`CreateLicenseVersionInput`](crate::operation::create_license_version::CreateLicenseVersionInput).
@@ -105,6 +111,7 @@ pub struct CreateLicenseVersionInputBuilder {
     pub(crate) status: ::std::option::Option<crate::types::LicenseStatus>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
     pub(crate) source_version: ::std::option::Option<::std::string::String>,
+    pub(crate) reset_usage: ::std::option::Option<bool>,
 }
 impl CreateLicenseVersionInputBuilder {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
@@ -296,6 +303,20 @@ impl CreateLicenseVersionInputBuilder {
     pub fn get_source_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.source_version
     }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn reset_usage(mut self, input: bool) -> Self {
+        self.reset_usage = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn set_reset_usage(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.reset_usage = input;
+        self
+    }
+    /// <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+    pub fn get_reset_usage(&self) -> &::std::option::Option<bool> {
+        &self.reset_usage
+    }
     /// Consumes the builder and constructs a [`CreateLicenseVersionInput`](crate::operation::create_license_version::CreateLicenseVersionInput).
     pub fn build(
         self,
@@ -314,6 +335,7 @@ impl CreateLicenseVersionInputBuilder {
             status: self.status,
             client_token: self.client_token,
             source_version: self.source_version,
+            reset_usage: self.reset_usage,
         })
     }
 }

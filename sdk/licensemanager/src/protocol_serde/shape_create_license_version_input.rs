@@ -66,5 +66,8 @@ pub fn ser_create_license_version_input_input(
     if let Some(var_21) = &input.source_version {
         object.key("SourceVersion").string(var_21.as_str());
     }
+    if let Some(var_22) = &input.reset_usage {
+        object.key("ResetUsage").boolean(*var_22);
+    }
     Ok(())
 }

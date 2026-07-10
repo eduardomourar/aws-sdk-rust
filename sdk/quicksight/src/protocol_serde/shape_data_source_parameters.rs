@@ -202,6 +202,30 @@ pub fn ser_data_source_parameters(
             crate::protocol_serde::shape_q_business_parameters::ser_q_business_parameters(&mut object_33, inner)?;
             object_33.finish();
         }
+        crate::types::DataSourceParameters::SharePointParameters(inner) => {
+            #[allow(unused_mut)]
+            let mut object_34 = object_5.key("SharePointParameters").start_object();
+            crate::protocol_serde::shape_share_point_parameters::ser_share_point_parameters(&mut object_34, inner)?;
+            object_34.finish();
+        }
+        crate::types::DataSourceParameters::GoogleDriveParameters(inner) => {
+            #[allow(unused_mut)]
+            let mut object_35 = object_5.key("GoogleDriveParameters").start_object();
+            crate::protocol_serde::shape_google_drive_parameters::ser_google_drive_parameters(&mut object_35, inner)?;
+            object_35.finish();
+        }
+        crate::types::DataSourceParameters::OneDriveParameters(inner) => {
+            #[allow(unused_mut)]
+            let mut object_36 = object_5.key("OneDriveParameters").start_object();
+            crate::protocol_serde::shape_one_drive_parameters::ser_one_drive_parameters(&mut object_36, inner)?;
+            object_36.finish();
+        }
+        crate::types::DataSourceParameters::FmkbParameters(inner) => {
+            #[allow(unused_mut)]
+            let mut object_37 = object_5.key("FMKBParameters").start_object();
+            crate::protocol_serde::shape_fmkb_parameters::ser_fmkb_parameters(&mut object_37, inner)?;
+            object_37.finish();
+        }
         crate::types::DataSourceParameters::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "DataSourceParameters",
@@ -434,6 +458,30 @@ where
                             crate::protocol_serde::shape_q_business_parameters::de_q_business_parameters(tokens, _value, depth + 1)?.ok_or_else(
                                 || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'QBusinessParameters' cannot be null"),
                             )?,
+                        )),
+                        "SharePointParameters" => Some(crate::types::DataSourceParameters::SharePointParameters(
+                            crate::protocol_serde::shape_share_point_parameters::de_share_point_parameters(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'SharePointParameters' cannot be null"),
+                            )?,
+                        )),
+                        "GoogleDriveParameters" => Some(crate::types::DataSourceParameters::GoogleDriveParameters(
+                            crate::protocol_serde::shape_google_drive_parameters::de_google_drive_parameters(tokens, _value, depth + 1)?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'GoogleDriveParameters' cannot be null",
+                                    )
+                                },
+                            )?,
+                        )),
+                        "OneDriveParameters" => Some(crate::types::DataSourceParameters::OneDriveParameters(
+                            crate::protocol_serde::shape_one_drive_parameters::de_one_drive_parameters(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'OneDriveParameters' cannot be null"),
+                            )?,
+                        )),
+                        "FMKBParameters" => Some(crate::types::DataSourceParameters::FmkbParameters(
+                            crate::protocol_serde::shape_fmkb_parameters::de_fmkb_parameters(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'FMKBParameters' cannot be null")
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

@@ -14,8 +14,10 @@
 /// match ecrpulldaterescanduration {
 ///     EcrPullDateRescanDuration::Days14 => { /* ... */ },
 ///     EcrPullDateRescanDuration::Days180 => { /* ... */ },
+///     EcrPullDateRescanDuration::Days3 => { /* ... */ },
 ///     EcrPullDateRescanDuration::Days30 => { /* ... */ },
 ///     EcrPullDateRescanDuration::Days60 => { /* ... */ },
+///     EcrPullDateRescanDuration::Days7 => { /* ... */ },
 ///     EcrPullDateRescanDuration::Days90 => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -50,9 +52,13 @@ pub enum EcrPullDateRescanDuration {
     #[allow(missing_docs)] // documentation missing in model
     Days180,
     #[allow(missing_docs)] // documentation missing in model
+    Days3,
+    #[allow(missing_docs)] // documentation missing in model
     Days30,
     #[allow(missing_docs)] // documentation missing in model
     Days60,
+    #[allow(missing_docs)] // documentation missing in model
+    Days7,
     #[allow(missing_docs)] // documentation missing in model
     Days90,
     /// `Unknown` contains new variants that have been added since this code was generated.
@@ -64,8 +70,10 @@ impl ::std::convert::From<&str> for EcrPullDateRescanDuration {
         match s {
             "DAYS_14" => EcrPullDateRescanDuration::Days14,
             "DAYS_180" => EcrPullDateRescanDuration::Days180,
+            "DAYS_3" => EcrPullDateRescanDuration::Days3,
             "DAYS_30" => EcrPullDateRescanDuration::Days30,
             "DAYS_60" => EcrPullDateRescanDuration::Days60,
+            "DAYS_7" => EcrPullDateRescanDuration::Days7,
             "DAYS_90" => EcrPullDateRescanDuration::Days90,
             other => EcrPullDateRescanDuration::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -84,15 +92,17 @@ impl EcrPullDateRescanDuration {
         match self {
             EcrPullDateRescanDuration::Days14 => "DAYS_14",
             EcrPullDateRescanDuration::Days180 => "DAYS_180",
+            EcrPullDateRescanDuration::Days3 => "DAYS_3",
             EcrPullDateRescanDuration::Days30 => "DAYS_30",
             EcrPullDateRescanDuration::Days60 => "DAYS_60",
+            EcrPullDateRescanDuration::Days7 => "DAYS_7",
             EcrPullDateRescanDuration::Days90 => "DAYS_90",
             EcrPullDateRescanDuration::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["DAYS_14", "DAYS_180", "DAYS_30", "DAYS_60", "DAYS_90"]
+        &["DAYS_14", "DAYS_180", "DAYS_3", "DAYS_30", "DAYS_60", "DAYS_7", "DAYS_90"]
     }
 }
 impl ::std::convert::AsRef<str> for EcrPullDateRescanDuration {
@@ -117,8 +127,10 @@ impl ::std::fmt::Display for EcrPullDateRescanDuration {
         match self {
             EcrPullDateRescanDuration::Days14 => write!(f, "DAYS_14"),
             EcrPullDateRescanDuration::Days180 => write!(f, "DAYS_180"),
+            EcrPullDateRescanDuration::Days3 => write!(f, "DAYS_3"),
             EcrPullDateRescanDuration::Days30 => write!(f, "DAYS_30"),
             EcrPullDateRescanDuration::Days60 => write!(f, "DAYS_60"),
+            EcrPullDateRescanDuration::Days7 => write!(f, "DAYS_7"),
             EcrPullDateRescanDuration::Days90 => write!(f, "DAYS_90"),
             EcrPullDateRescanDuration::Unknown(value) => write!(f, "{value}"),
         }

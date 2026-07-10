@@ -108,6 +108,20 @@ impl DeleteAnomalyDetectorFluentBuilder {
         self.config_override = config_override;
         self
     }
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn anomaly_detector_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.anomaly_detector_id(input.into());
+        self
+    }
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn set_anomaly_detector_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_anomaly_detector_id(input);
+        self
+    }
+    /// <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
+    pub fn get_anomaly_detector_id(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_anomaly_detector_id()
+    }
     /// <p>The namespace associated with the anomaly detection model to delete.</p>
     #[deprecated(note = "Use SingleMetricAnomalyDetector.")]
     pub fn namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

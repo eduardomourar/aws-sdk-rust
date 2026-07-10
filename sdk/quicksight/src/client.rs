@@ -178,6 +178,8 @@ mod create_iam_policy_assignment;
 
 mod create_ingestion;
 
+mod create_knowledge_base;
+
 mod create_namespace;
 
 mod create_o_auth_client_application;
@@ -646,6 +648,8 @@ mod update_identity_propagation_config;
 mod update_ip_restriction;
 
 mod update_key_registration;
+
+mod update_knowledge_base;
 
 mod update_knowledge_base_permissions;
 

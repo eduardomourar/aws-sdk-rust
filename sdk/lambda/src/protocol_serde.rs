@@ -415,6 +415,8 @@ pub(crate) mod shape_capacity_provider_permissions_config;
 
 pub(crate) mod shape_capacity_provider_scaling_config;
 
+pub(crate) mod shape_capacity_provider_telemetry_config;
+
 pub(crate) mod shape_capacity_provider_vpc_config;
 
 pub(crate) mod shape_capacity_providers_list;
@@ -562,6 +564,8 @@ pub(crate) mod shape_allow_methods_list;
 pub(crate) mod shape_allow_origins_list;
 
 pub(crate) mod shape_callback_options;
+
+pub(crate) mod shape_capacity_provider_logging_config;
 
 pub(crate) mod shape_chained_invoke_options;
 

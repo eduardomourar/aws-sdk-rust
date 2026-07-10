@@ -225,4 +225,18 @@ impl CreateCapacityProviderFluentBuilder {
     pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
         self.inner.get_propagate_tags()
     }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
+        self.inner = self.inner.telemetry_config(input);
+        self
+    }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
+        self.inner = self.inner.set_telemetry_config(input);
+        self
+    }
+    /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+        self.inner.get_telemetry_config()
+    }
 }

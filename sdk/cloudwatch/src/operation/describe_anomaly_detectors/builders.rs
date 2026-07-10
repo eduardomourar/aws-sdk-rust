@@ -114,6 +114,25 @@ impl DescribeAnomalyDetectorsFluentBuilder {
     pub fn into_paginator(self) -> crate::operation::describe_anomaly_detectors::paginator::DescribeAnomalyDetectorsPaginator {
         crate::operation::describe_anomaly_detectors::paginator::DescribeAnomalyDetectorsPaginator::new(self.handle, self.inner)
     }
+    ///
+    /// Appends an item to `AnomalyDetectorIds`.
+    ///
+    /// To override the contents of this collection use [`set_anomaly_detector_ids`](Self::set_anomaly_detector_ids).
+    ///
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub fn anomaly_detector_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.anomaly_detector_ids(input.into());
+        self
+    }
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub fn set_anomaly_detector_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_anomaly_detector_ids(input);
+        self
+    }
+    /// <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
+    pub fn get_anomaly_detector_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_anomaly_detector_ids()
+    }
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.next_token(input.into());

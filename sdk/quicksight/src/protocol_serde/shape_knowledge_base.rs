@@ -74,6 +74,15 @@ where
                                 )?,
                             );
                         }
+                        "AccessControlConfiguration" => {
+                            builder = builder.set_access_control_configuration(
+                                crate::protocol_serde::shape_access_control_configuration::de_access_control_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         "Type" => {
                             builder = builder.set_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

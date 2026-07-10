@@ -15,5 +15,11 @@ pub fn ser_update_capacity_provider_input_input(
         crate::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_4, var_3)?;
         object_4.finish();
     }
+    if let Some(var_5) = &input.telemetry_config {
+        #[allow(unused_mut)]
+        let mut object_6 = object.key("TelemetryConfig").start_object();
+        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_6, var_5)?;
+        object_6.finish();
+    }
     Ok(())
 }

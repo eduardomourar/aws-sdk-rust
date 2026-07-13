@@ -18,6 +18,7 @@
 ///     FleetStatus::Deleting => { /* ... */ },
 ///     FleetStatus::Downloading => { /* ... */ },
 ///     FleetStatus::Error => { /* ... */ },
+///     FleetStatus::Expired => { /* ... */ },
 ///     FleetStatus::New => { /* ... */ },
 ///     FleetStatus::NotFound => { /* ... */ },
 ///     FleetStatus::Terminated => { /* ... */ },
@@ -63,6 +64,8 @@ pub enum FleetStatus {
     #[allow(missing_docs)] // documentation missing in model
     Error,
     #[allow(missing_docs)] // documentation missing in model
+    Expired,
+    #[allow(missing_docs)] // documentation missing in model
     New,
     #[allow(missing_docs)] // documentation missing in model
     NotFound,
@@ -83,6 +86,7 @@ impl ::std::convert::From<&str> for FleetStatus {
             "DELETING" => FleetStatus::Deleting,
             "DOWNLOADING" => FleetStatus::Downloading,
             "ERROR" => FleetStatus::Error,
+            "EXPIRED" => FleetStatus::Expired,
             "NEW" => FleetStatus::New,
             "NOT_FOUND" => FleetStatus::NotFound,
             "TERMINATED" => FleetStatus::Terminated,
@@ -108,6 +112,7 @@ impl FleetStatus {
             FleetStatus::Deleting => "DELETING",
             FleetStatus::Downloading => "DOWNLOADING",
             FleetStatus::Error => "ERROR",
+            FleetStatus::Expired => "EXPIRED",
             FleetStatus::New => "NEW",
             FleetStatus::NotFound => "NOT_FOUND",
             FleetStatus::Terminated => "TERMINATED",
@@ -124,6 +129,7 @@ impl FleetStatus {
             "DELETING",
             "DOWNLOADING",
             "ERROR",
+            "EXPIRED",
             "NEW",
             "NOT_FOUND",
             "TERMINATED",
@@ -157,6 +163,7 @@ impl ::std::fmt::Display for FleetStatus {
             FleetStatus::Deleting => write!(f, "DELETING"),
             FleetStatus::Downloading => write!(f, "DOWNLOADING"),
             FleetStatus::Error => write!(f, "ERROR"),
+            FleetStatus::Expired => write!(f, "EXPIRED"),
             FleetStatus::New => write!(f, "NEW"),
             FleetStatus::NotFound => write!(f, "NOT_FOUND"),
             FleetStatus::Terminated => write!(f, "TERMINATED"),

@@ -64,6 +64,8 @@ pub struct ContainerFleet {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub status: ::std::option::Option<crate::types::ContainerFleetStatus>,
     /// <p>Information about the most recent deployment for the container fleet.</p>
@@ -185,6 +187,8 @@ impl ContainerFleet {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn status(&self) -> ::std::option::Option<&crate::types::ContainerFleetStatus> {
         self.status.as_ref()
@@ -561,6 +565,8 @@ impl ContainerFleetBuilder {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn status(mut self, input: crate::types::ContainerFleetStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
@@ -580,6 +586,8 @@ impl ContainerFleetBuilder {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ContainerFleetStatus>) -> Self {
         self.status = input;
@@ -599,6 +607,8 @@ impl ContainerFleetBuilder {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ContainerFleetStatus> {
         &self.status

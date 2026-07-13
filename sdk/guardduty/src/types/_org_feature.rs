@@ -12,6 +12,7 @@
 /// ```text
 /// # let orgfeature = unimplemented!();
 /// match orgfeature {
+///     OrgFeature::AiProtection => { /* ... */ },
 ///     OrgFeature::EbsMalwareProtection => { /* ... */ },
 ///     OrgFeature::EksAuditLogs => { /* ... */ },
 ///     OrgFeature::EksRuntimeMonitoring => { /* ... */ },
@@ -48,6 +49,8 @@
 )]
 pub enum OrgFeature {
     #[allow(missing_docs)] // documentation missing in model
+    AiProtection,
+    #[allow(missing_docs)] // documentation missing in model
     EbsMalwareProtection,
     #[allow(missing_docs)] // documentation missing in model
     EksAuditLogs,
@@ -68,6 +71,7 @@ pub enum OrgFeature {
 impl ::std::convert::From<&str> for OrgFeature {
     fn from(s: &str) -> Self {
         match s {
+            "AI_PROTECTION" => OrgFeature::AiProtection,
             "EBS_MALWARE_PROTECTION" => OrgFeature::EbsMalwareProtection,
             "EKS_AUDIT_LOGS" => OrgFeature::EksAuditLogs,
             "EKS_RUNTIME_MONITORING" => OrgFeature::EksRuntimeMonitoring,
@@ -90,6 +94,7 @@ impl OrgFeature {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            OrgFeature::AiProtection => "AI_PROTECTION",
             OrgFeature::EbsMalwareProtection => "EBS_MALWARE_PROTECTION",
             OrgFeature::EksAuditLogs => "EKS_AUDIT_LOGS",
             OrgFeature::EksRuntimeMonitoring => "EKS_RUNTIME_MONITORING",
@@ -103,6 +108,7 @@ impl OrgFeature {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AI_PROTECTION",
             "EBS_MALWARE_PROTECTION",
             "EKS_AUDIT_LOGS",
             "EKS_RUNTIME_MONITORING",
@@ -133,6 +139,7 @@ impl OrgFeature {
 impl ::std::fmt::Display for OrgFeature {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            OrgFeature::AiProtection => write!(f, "AI_PROTECTION"),
             OrgFeature::EbsMalwareProtection => write!(f, "EBS_MALWARE_PROTECTION"),
             OrgFeature::EksAuditLogs => write!(f, "EKS_AUDIT_LOGS"),
             OrgFeature::EksRuntimeMonitoring => write!(f, "EKS_RUNTIME_MONITORING"),

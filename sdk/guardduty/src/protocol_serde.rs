@@ -653,6 +653,8 @@ pub(crate) mod shape_access_key_details;
 
 pub(crate) mod shape_action;
 
+pub(crate) mod shape_bedrock_guardrail_details;
+
 pub(crate) mod shape_container;
 
 pub(crate) mod shape_coverage_ec2_instance_details;
@@ -711,6 +713,8 @@ pub(crate) mod shape_matches;
 
 pub(crate) mod shape_member_features_configuration_result;
 
+pub(crate) mod shape_model_details;
+
 pub(crate) mod shape_neq;
 
 pub(crate) mod shape_not_equals;
@@ -753,7 +757,11 @@ pub(crate) mod shape_anomaly;
 
 pub(crate) mod shape_aws_api_call_action;
 
+pub(crate) mod shape_bedrock_guardrails;
+
 pub(crate) mod shape_container_instance_details;
+
+pub(crate) mod shape_content_policy_filters;
 
 pub(crate) mod shape_dns_request_action;
 
@@ -780,6 +788,8 @@ pub(crate) mod shape_kubernetes_workload_details;
 pub(crate) mod shape_malware_protection_findings_scan_configuration;
 
 pub(crate) mod shape_member_additional_configuration_results;
+
+pub(crate) mod shape_model_detail;
 
 pub(crate) mod shape_network_connection_action;
 
@@ -831,7 +841,11 @@ pub(crate) mod shape_anomaly_profiles;
 
 pub(crate) mod shape_anomaly_unusual;
 
+pub(crate) mod shape_bedrock_guardrail;
+
 pub(crate) mod shape_containers;
+
+pub(crate) mod shape_content_policy_filter;
 
 pub(crate) mod shape_default_server_side_encryption;
 
@@ -1054,5 +1068,7 @@ pub(crate) mod shape_public_access_configuration;
 pub(crate) mod shape_s3_object_uids;
 
 pub(crate) mod shape_scan_file_path;
+
+pub(crate) mod shape_observation_numbers;
 
 pub(crate) mod shape_observation_texts;

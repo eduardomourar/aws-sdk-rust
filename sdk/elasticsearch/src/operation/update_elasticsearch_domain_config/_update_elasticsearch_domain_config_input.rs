@@ -41,6 +41,10 @@ pub struct UpdateElasticsearchDomainConfigInput {
     /// </important>
     /// <p>Maximum suspension duration: 3 days.</p>
     pub automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseRequestOptions>,
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub use_case: ::std::option::Option<crate::types::DomainUseCase>,
+    /// <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+    pub engine_mode: ::std::option::Option<crate::types::DomainEngineMode>,
 }
 impl UpdateElasticsearchDomainConfigInput {
     /// <p>The name of the Elasticsearch domain that you are updating.</p>
@@ -116,6 +120,14 @@ impl UpdateElasticsearchDomainConfigInput {
     pub fn automated_snapshot_pause_options(&self) -> ::std::option::Option<&crate::types::AutomatedSnapshotPauseRequestOptions> {
         self.automated_snapshot_pause_options.as_ref()
     }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn use_case(&self) -> ::std::option::Option<&crate::types::DomainUseCase> {
+        self.use_case.as_ref()
+    }
+    /// <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+    pub fn engine_mode(&self) -> ::std::option::Option<&crate::types::DomainEngineMode> {
+        self.engine_mode.as_ref()
+    }
 }
 impl UpdateElasticsearchDomainConfigInput {
     /// Creates a new builder-style object to manufacture [`UpdateElasticsearchDomainConfigInput`](crate::operation::update_elasticsearch_domain_config::UpdateElasticsearchDomainConfigInput).
@@ -145,6 +157,8 @@ pub struct UpdateElasticsearchDomainConfigInputBuilder {
     pub(crate) dry_run: ::std::option::Option<bool>,
     pub(crate) deployment_strategy_options: ::std::option::Option<crate::types::DeploymentStrategyOptions>,
     pub(crate) automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseRequestOptions>,
+    pub(crate) use_case: ::std::option::Option<crate::types::DomainUseCase>,
+    pub(crate) engine_mode: ::std::option::Option<crate::types::DomainEngineMode>,
 }
 impl UpdateElasticsearchDomainConfigInputBuilder {
     /// <p>The name of the Elasticsearch domain that you are updating.</p>
@@ -419,6 +433,34 @@ impl UpdateElasticsearchDomainConfigInputBuilder {
     pub fn get_automated_snapshot_pause_options(&self) -> &::std::option::Option<crate::types::AutomatedSnapshotPauseRequestOptions> {
         &self.automated_snapshot_pause_options
     }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn use_case(mut self, input: crate::types::DomainUseCase) -> Self {
+        self.use_case = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn set_use_case(mut self, input: ::std::option::Option<crate::types::DomainUseCase>) -> Self {
+        self.use_case = input;
+        self
+    }
+    /// <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+    pub fn get_use_case(&self) -> &::std::option::Option<crate::types::DomainUseCase> {
+        &self.use_case
+    }
+    /// <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+    pub fn engine_mode(mut self, input: crate::types::DomainEngineMode) -> Self {
+        self.engine_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+    pub fn set_engine_mode(mut self, input: ::std::option::Option<crate::types::DomainEngineMode>) -> Self {
+        self.engine_mode = input;
+        self
+    }
+    /// <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+    pub fn get_engine_mode(&self) -> &::std::option::Option<crate::types::DomainEngineMode> {
+        &self.engine_mode
+    }
     /// Consumes the builder and constructs a [`UpdateElasticsearchDomainConfigInput`](crate::operation::update_elasticsearch_domain_config::UpdateElasticsearchDomainConfigInput).
     pub fn build(
         self,
@@ -445,6 +487,8 @@ impl UpdateElasticsearchDomainConfigInputBuilder {
                 dry_run: self.dry_run,
                 deployment_strategy_options: self.deployment_strategy_options,
                 automated_snapshot_pause_options: self.automated_snapshot_pause_options,
+                use_case: self.use_case,
+                engine_mode: self.engine_mode,
             },
         )
     }

@@ -36,6 +36,10 @@ pub struct Resource {
     pub ec2_image_details: ::std::option::Option<crate::types::Ec2ImageDetails>,
     /// <p>Contains details about the backup recovery point that was scanned.</p>
     pub recovery_point_details: ::std::option::Option<crate::types::RecoveryPointDetails>,
+    /// <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+    pub bedrock_guardrail_details: ::std::option::Option<crate::types::BedrockGuardrailDetails>,
+    /// <p>Contains information about the AI models involved in a finding.</p>
+    pub model_details: ::std::option::Option<::std::vec::Vec<crate::types::ModelDetail>>,
 }
 impl Resource {
     /// <p>The IAM access key details (user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.</p>
@@ -104,6 +108,16 @@ impl Resource {
     pub fn recovery_point_details(&self) -> ::std::option::Option<&crate::types::RecoveryPointDetails> {
         self.recovery_point_details.as_ref()
     }
+    /// <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+    pub fn bedrock_guardrail_details(&self) -> ::std::option::Option<&crate::types::BedrockGuardrailDetails> {
+        self.bedrock_guardrail_details.as_ref()
+    }
+    /// <p>Contains information about the AI models involved in a finding.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.model_details.is_none()`.
+    pub fn model_details(&self) -> &[crate::types::ModelDetail] {
+        self.model_details.as_deref().unwrap_or_default()
+    }
 }
 impl Resource {
     /// Creates a new builder-style object to manufacture [`Resource`](crate::types::Resource).
@@ -132,6 +146,8 @@ pub struct ResourceBuilder {
     pub(crate) ebs_snapshot_details: ::std::option::Option<crate::types::EbsSnapshotDetails>,
     pub(crate) ec2_image_details: ::std::option::Option<crate::types::Ec2ImageDetails>,
     pub(crate) recovery_point_details: ::std::option::Option<crate::types::RecoveryPointDetails>,
+    pub(crate) bedrock_guardrail_details: ::std::option::Option<crate::types::BedrockGuardrailDetails>,
+    pub(crate) model_details: ::std::option::Option<::std::vec::Vec<crate::types::ModelDetail>>,
 }
 impl ResourceBuilder {
     /// <p>The IAM access key details (user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.</p>
@@ -364,6 +380,40 @@ impl ResourceBuilder {
     pub fn get_recovery_point_details(&self) -> &::std::option::Option<crate::types::RecoveryPointDetails> {
         &self.recovery_point_details
     }
+    /// <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+    pub fn bedrock_guardrail_details(mut self, input: crate::types::BedrockGuardrailDetails) -> Self {
+        self.bedrock_guardrail_details = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+    pub fn set_bedrock_guardrail_details(mut self, input: ::std::option::Option<crate::types::BedrockGuardrailDetails>) -> Self {
+        self.bedrock_guardrail_details = input;
+        self
+    }
+    /// <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+    pub fn get_bedrock_guardrail_details(&self) -> &::std::option::Option<crate::types::BedrockGuardrailDetails> {
+        &self.bedrock_guardrail_details
+    }
+    /// Appends an item to `model_details`.
+    ///
+    /// To override the contents of this collection use [`set_model_details`](Self::set_model_details).
+    ///
+    /// <p>Contains information about the AI models involved in a finding.</p>
+    pub fn model_details(mut self, input: crate::types::ModelDetail) -> Self {
+        let mut v = self.model_details.unwrap_or_default();
+        v.push(input);
+        self.model_details = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Contains information about the AI models involved in a finding.</p>
+    pub fn set_model_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ModelDetail>>) -> Self {
+        self.model_details = input;
+        self
+    }
+    /// <p>Contains information about the AI models involved in a finding.</p>
+    pub fn get_model_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ModelDetail>> {
+        &self.model_details
+    }
     /// Consumes the builder and constructs a [`Resource`](crate::types::Resource).
     pub fn build(self) -> crate::types::Resource {
         crate::types::Resource {
@@ -383,6 +433,8 @@ impl ResourceBuilder {
             ebs_snapshot_details: self.ebs_snapshot_details,
             ec2_image_details: self.ec2_image_details,
             recovery_point_details: self.recovery_point_details,
+            bedrock_guardrail_details: self.bedrock_guardrail_details,
+            model_details: self.model_details,
         }
     }
 }

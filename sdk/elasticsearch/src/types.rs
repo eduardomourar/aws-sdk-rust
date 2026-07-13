@@ -31,6 +31,10 @@ pub use crate::types::_deployment_strategy_options::DeploymentStrategyOptions;
 
 pub use crate::types::_automated_snapshot_pause_request_options::AutomatedSnapshotPauseRequestOptions;
 
+pub use crate::types::_domain_use_case::DomainUseCase;
+
+pub use crate::types::_domain_engine_mode::DomainEngineMode;
+
 pub use crate::types::_elasticsearch_domain_status::ElasticsearchDomainStatus;
 
 pub use crate::types::_domain_information::DomainInformation;
@@ -158,6 +162,10 @@ pub use crate::types::_auto_tune_options_status::AutoTuneOptionsStatus;
 pub use crate::types::_deployment_strategy_options_status::DeploymentStrategyOptionsStatus;
 
 pub use crate::types::_automated_snapshot_pause_options_status::AutomatedSnapshotPauseOptionsStatus;
+
+pub use crate::types::_use_case_status::UseCaseStatus;
+
+pub use crate::types::_engine_mode_status::EngineModeStatus;
 
 pub use crate::types::_limits::Limits;
 
@@ -315,6 +323,8 @@ mod _domain_endpoint_options;
 
 mod _domain_endpoint_options_status;
 
+mod _domain_engine_mode;
+
 mod _domain_info;
 
 mod _domain_information;
@@ -324,6 +334,8 @@ mod _domain_package_details;
 mod _domain_package_status;
 
 mod _domain_processing_status_type;
+
+mod _domain_use_case;
 
 mod _dry_run_results;
 
@@ -346,6 +358,8 @@ mod _elasticsearch_version_status;
 mod _encryption_at_rest_options;
 
 mod _encryption_at_rest_options_status;
+
+mod _engine_mode_status;
 
 mod _engine_type;
 
@@ -458,6 +472,8 @@ mod _upgrade_status;
 mod _upgrade_step;
 
 mod _upgrade_step_item;
+
+mod _use_case_status;
 
 mod _volume_type;
 

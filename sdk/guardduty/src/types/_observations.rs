@@ -6,6 +6,8 @@
 pub struct Observations {
     /// <p>The text that was unusual.</p>
     pub text: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The numeric values that were unusual.</p>
+    pub number: ::std::option::Option<::std::vec::Vec<i64>>,
 }
 impl Observations {
     /// <p>The text that was unusual.</p>
@@ -13,6 +15,12 @@ impl Observations {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.text.is_none()`.
     pub fn text(&self) -> &[::std::string::String] {
         self.text.as_deref().unwrap_or_default()
+    }
+    /// <p>The numeric values that were unusual.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.number.is_none()`.
+    pub fn number(&self) -> &[i64] {
+        self.number.as_deref().unwrap_or_default()
     }
 }
 impl Observations {
@@ -27,6 +35,7 @@ impl Observations {
 #[non_exhaustive]
 pub struct ObservationsBuilder {
     pub(crate) text: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) number: ::std::option::Option<::std::vec::Vec<i64>>,
 }
 impl ObservationsBuilder {
     /// Appends an item to `text`.
@@ -49,8 +58,31 @@ impl ObservationsBuilder {
     pub fn get_text(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.text
     }
+    /// Appends an item to `number`.
+    ///
+    /// To override the contents of this collection use [`set_number`](Self::set_number).
+    ///
+    /// <p>The numeric values that were unusual.</p>
+    pub fn number(mut self, input: i64) -> Self {
+        let mut v = self.number.unwrap_or_default();
+        v.push(input);
+        self.number = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The numeric values that were unusual.</p>
+    pub fn set_number(mut self, input: ::std::option::Option<::std::vec::Vec<i64>>) -> Self {
+        self.number = input;
+        self
+    }
+    /// <p>The numeric values that were unusual.</p>
+    pub fn get_number(&self) -> &::std::option::Option<::std::vec::Vec<i64>> {
+        &self.number
+    }
     /// Consumes the builder and constructs a [`Observations`](crate::types::Observations).
     pub fn build(self) -> crate::types::Observations {
-        crate::types::Observations { text: self.text }
+        crate::types::Observations {
+            text: self.text,
+            number: self.number,
+        }
     }
 }

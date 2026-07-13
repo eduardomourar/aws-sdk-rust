@@ -12,6 +12,7 @@
 /// ```text
 /// # let usagefeature = unimplemented!();
 /// match usagefeature {
+///     UsageFeature::AiProtection => { /* ... */ },
 ///     UsageFeature::CloudTrail => { /* ... */ },
 ///     UsageFeature::DnsLogs => { /* ... */ },
 ///     UsageFeature::EbsMalwareProtection => { /* ... */ },
@@ -54,6 +55,8 @@
 )]
 pub enum UsageFeature {
     #[allow(missing_docs)] // documentation missing in model
+    AiProtection,
+    #[allow(missing_docs)] // documentation missing in model
     CloudTrail,
     #[allow(missing_docs)] // documentation missing in model
     DnsLogs,
@@ -86,6 +89,7 @@ pub enum UsageFeature {
 impl ::std::convert::From<&str> for UsageFeature {
     fn from(s: &str) -> Self {
         match s {
+            "AI_PROTECTION" => UsageFeature::AiProtection,
             "CLOUD_TRAIL" => UsageFeature::CloudTrail,
             "DNS_LOGS" => UsageFeature::DnsLogs,
             "EBS_MALWARE_PROTECTION" => UsageFeature::EbsMalwareProtection,
@@ -114,6 +118,7 @@ impl UsageFeature {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            UsageFeature::AiProtection => "AI_PROTECTION",
             UsageFeature::CloudTrail => "CLOUD_TRAIL",
             UsageFeature::DnsLogs => "DNS_LOGS",
             UsageFeature::EbsMalwareProtection => "EBS_MALWARE_PROTECTION",
@@ -133,6 +138,7 @@ impl UsageFeature {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AI_PROTECTION",
             "CLOUD_TRAIL",
             "DNS_LOGS",
             "EBS_MALWARE_PROTECTION",
@@ -169,6 +175,7 @@ impl UsageFeature {
 impl ::std::fmt::Display for UsageFeature {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            UsageFeature::AiProtection => write!(f, "AI_PROTECTION"),
             UsageFeature::CloudTrail => write!(f, "CLOUD_TRAIL"),
             UsageFeature::DnsLogs => write!(f, "DNS_LOGS"),
             UsageFeature::EbsMalwareProtection => write!(f, "EBS_MALWARE_PROTECTION"),

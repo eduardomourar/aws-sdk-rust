@@ -12,6 +12,8 @@
 /// ```text
 /// # let profilesubtype = unimplemented!();
 /// match profilesubtype {
+///     ProfileSubtype::Average => { /* ... */ },
+///     ProfileSubtype::Count => { /* ... */ },
 ///     ProfileSubtype::Frequent => { /* ... */ },
 ///     ProfileSubtype::Infrequent => { /* ... */ },
 ///     ProfileSubtype::Rare => { /* ... */ },
@@ -45,6 +47,10 @@
 )]
 pub enum ProfileSubtype {
     #[allow(missing_docs)] // documentation missing in model
+    Average,
+    #[allow(missing_docs)] // documentation missing in model
+    Count,
+    #[allow(missing_docs)] // documentation missing in model
     Frequent,
     #[allow(missing_docs)] // documentation missing in model
     Infrequent,
@@ -59,6 +65,8 @@ pub enum ProfileSubtype {
 impl ::std::convert::From<&str> for ProfileSubtype {
     fn from(s: &str) -> Self {
         match s {
+            "AVERAGE" => ProfileSubtype::Average,
+            "COUNT" => ProfileSubtype::Count,
             "FREQUENT" => ProfileSubtype::Frequent,
             "INFREQUENT" => ProfileSubtype::Infrequent,
             "RARE" => ProfileSubtype::Rare,
@@ -78,6 +86,8 @@ impl ProfileSubtype {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            ProfileSubtype::Average => "AVERAGE",
+            ProfileSubtype::Count => "COUNT",
             ProfileSubtype::Frequent => "FREQUENT",
             ProfileSubtype::Infrequent => "INFREQUENT",
             ProfileSubtype::Rare => "RARE",
@@ -87,7 +97,7 @@ impl ProfileSubtype {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["FREQUENT", "INFREQUENT", "RARE", "UNSEEN"]
+        &["AVERAGE", "COUNT", "FREQUENT", "INFREQUENT", "RARE", "UNSEEN"]
     }
 }
 impl ::std::convert::AsRef<str> for ProfileSubtype {
@@ -110,6 +120,8 @@ impl ProfileSubtype {
 impl ::std::fmt::Display for ProfileSubtype {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            ProfileSubtype::Average => write!(f, "AVERAGE"),
+            ProfileSubtype::Count => write!(f, "COUNT"),
             ProfileSubtype::Frequent => write!(f, "FREQUENT"),
             ProfileSubtype::Infrequent => write!(f, "INFREQUENT"),
             ProfileSubtype::Rare => write!(f, "RARE"),

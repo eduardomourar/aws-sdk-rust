@@ -9,6 +9,9 @@ pub struct RestoreFromRecoveryPointInput {
     pub namespace_name: ::std::option::Option<::std::string::String>,
     /// <p>The name of the workgroup used to restore data.</p>
     pub workgroup_name: ::std::option::Option<::std::string::String>,
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub maintain_integration: ::std::option::Option<bool>,
 }
 impl RestoreFromRecoveryPointInput {
     /// <p>The unique identifier of the recovery point to restore from.</p>
@@ -22,6 +25,11 @@ impl RestoreFromRecoveryPointInput {
     /// <p>The name of the workgroup used to restore data.</p>
     pub fn workgroup_name(&self) -> ::std::option::Option<&str> {
         self.workgroup_name.as_deref()
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn maintain_integration(&self) -> ::std::option::Option<bool> {
+        self.maintain_integration
     }
 }
 impl RestoreFromRecoveryPointInput {
@@ -38,6 +46,7 @@ pub struct RestoreFromRecoveryPointInputBuilder {
     pub(crate) recovery_point_id: ::std::option::Option<::std::string::String>,
     pub(crate) namespace_name: ::std::option::Option<::std::string::String>,
     pub(crate) workgroup_name: ::std::option::Option<::std::string::String>,
+    pub(crate) maintain_integration: ::std::option::Option<bool>,
 }
 impl RestoreFromRecoveryPointInputBuilder {
     /// <p>The unique identifier of the recovery point to restore from.</p>
@@ -85,6 +94,23 @@ impl RestoreFromRecoveryPointInputBuilder {
     pub fn get_workgroup_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.workgroup_name
     }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn maintain_integration(mut self, input: bool) -> Self {
+        self.maintain_integration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn set_maintain_integration(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.maintain_integration = input;
+        self
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn get_maintain_integration(&self) -> &::std::option::Option<bool> {
+        &self.maintain_integration
+    }
     /// Consumes the builder and constructs a [`RestoreFromRecoveryPointInput`](crate::operation::restore_from_recovery_point::RestoreFromRecoveryPointInput).
     pub fn build(
         self,
@@ -96,6 +122,7 @@ impl RestoreFromRecoveryPointInputBuilder {
             recovery_point_id: self.recovery_point_id,
             namespace_name: self.namespace_name,
             workgroup_name: self.workgroup_name,
+            maintain_integration: self.maintain_integration,
         })
     }
 }

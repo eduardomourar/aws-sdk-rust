@@ -107,6 +107,21 @@ pub fn de_register_compute_http_error(
             }
             tmp
         }),
+        "UnsupportedRegionException" => crate::operation::register_compute::RegisterComputeError::UnsupportedRegionException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::UnsupportedRegionExceptionBuilder::default();
+                output = crate::protocol_serde::shape_unsupported_region_exception::de_unsupported_region_exception_cbor_err(_response_body, output)
+                    .map_err(crate::operation::register_compute::RegisterComputeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::register_compute::RegisterComputeError::generic(generic),
     })
 }

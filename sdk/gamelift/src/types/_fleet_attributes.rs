@@ -42,6 +42,8 @@ pub struct FleetAttributes {
     /// <li>
     /// <p>ERROR -- An error occurred when downloading, validating, building, or activating the fleet.</p></li>
     /// <li>
+    /// <p>EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
+    /// <li>
     /// <p>DELETING -- Hosts are responding to a delete fleet request.</p></li>
     /// <li>
     /// <p>TERMINATED -- The fleet no longer exists.</p></li>
@@ -144,6 +146,8 @@ impl FleetAttributes {
     /// <p>ACTIVE -- The fleet is now ready to host game sessions.</p></li>
     /// <li>
     /// <p>ERROR -- An error occurred when downloading, validating, building, or activating the fleet.</p></li>
+    /// <li>
+    /// <p>EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// <li>
     /// <p>DELETING -- Hosts are responding to a delete fleet request.</p></li>
     /// <li>
@@ -418,6 +422,8 @@ impl FleetAttributesBuilder {
     /// <li>
     /// <p>ERROR -- An error occurred when downloading, validating, building, or activating the fleet.</p></li>
     /// <li>
+    /// <p>EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
+    /// <li>
     /// <p>DELETING -- Hosts are responding to a delete fleet request.</p></li>
     /// <li>
     /// <p>TERMINATED -- The fleet no longer exists.</p></li>
@@ -439,6 +445,8 @@ impl FleetAttributesBuilder {
     /// <li>
     /// <p>ERROR -- An error occurred when downloading, validating, building, or activating the fleet.</p></li>
     /// <li>
+    /// <p>EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
+    /// <li>
     /// <p>DELETING -- Hosts are responding to a delete fleet request.</p></li>
     /// <li>
     /// <p>TERMINATED -- The fleet no longer exists.</p></li>
@@ -459,6 +467,8 @@ impl FleetAttributesBuilder {
     /// <p>ACTIVE -- The fleet is now ready to host game sessions.</p></li>
     /// <li>
     /// <p>ERROR -- An error occurred when downloading, validating, building, or activating the fleet.</p></li>
+    /// <li>
+    /// <p>EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// <li>
     /// <p>DELETING -- Hosts are responding to a delete fleet request.</p></li>
     /// <li>

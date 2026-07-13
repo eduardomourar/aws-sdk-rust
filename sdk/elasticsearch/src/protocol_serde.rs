@@ -355,6 +355,8 @@ pub(crate) mod shape_encryption_at_rest_options_status;
 
 pub(crate) mod shape_endpoints_map;
 
+pub(crate) mod shape_engine_mode_status;
+
 pub(crate) mod shape_error_details;
 
 pub(crate) mod shape_inbound_cross_cluster_search_connection_status;
@@ -384,6 +386,8 @@ pub(crate) mod shape_snapshot_options_status;
 pub(crate) mod shape_string_list;
 
 pub(crate) mod shape_upgrade_history;
+
+pub(crate) mod shape_use_case_status;
 
 pub(crate) mod shape_vpc_derived_info;
 

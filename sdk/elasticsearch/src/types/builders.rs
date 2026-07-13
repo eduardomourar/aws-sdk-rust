@@ -117,6 +117,10 @@ pub use crate::types::_deployment_strategy_options_status::DeploymentStrategyOpt
 
 pub use crate::types::_automated_snapshot_pause_options_status::AutomatedSnapshotPauseOptionsStatusBuilder;
 
+pub use crate::types::_use_case_status::UseCaseStatusBuilder;
+
+pub use crate::types::_engine_mode_status::EngineModeStatusBuilder;
+
 pub use crate::types::_limits::LimitsBuilder;
 
 pub use crate::types::_filter::FilterBuilder;

@@ -150,4 +150,21 @@ impl RestoreFromRecoveryPointFluentBuilder {
     pub fn get_workgroup_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_workgroup_name()
     }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn maintain_integration(mut self, input: bool) -> Self {
+        self.inner = self.inner.maintain_integration(input);
+        self
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn set_maintain_integration(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.inner = self.inner.set_maintain_integration(input);
+        self
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn get_maintain_integration(&self) -> &::std::option::Option<bool> {
+        self.inner.get_maintain_integration()
+    }
 }

@@ -18,6 +18,9 @@ pub struct RestoreFromSnapshotInput {
     pub manage_admin_password: ::std::option::Option<bool>,
     /// <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
     pub admin_password_secret_kms_key_id: ::std::option::Option<::std::string::String>,
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub maintain_integration: ::std::option::Option<bool>,
 }
 impl RestoreFromSnapshotInput {
     /// <p>The name of the namespace to restore the snapshot to.</p>
@@ -49,6 +52,11 @@ impl RestoreFromSnapshotInput {
     pub fn admin_password_secret_kms_key_id(&self) -> ::std::option::Option<&str> {
         self.admin_password_secret_kms_key_id.as_deref()
     }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn maintain_integration(&self) -> ::std::option::Option<bool> {
+        self.maintain_integration
+    }
 }
 impl RestoreFromSnapshotInput {
     /// Creates a new builder-style object to manufacture [`RestoreFromSnapshotInput`](crate::operation::restore_from_snapshot::RestoreFromSnapshotInput).
@@ -68,6 +76,7 @@ pub struct RestoreFromSnapshotInputBuilder {
     pub(crate) owner_account: ::std::option::Option<::std::string::String>,
     pub(crate) manage_admin_password: ::std::option::Option<bool>,
     pub(crate) admin_password_secret_kms_key_id: ::std::option::Option<::std::string::String>,
+    pub(crate) maintain_integration: ::std::option::Option<bool>,
 }
 impl RestoreFromSnapshotInputBuilder {
     /// <p>The name of the namespace to restore the snapshot to.</p>
@@ -173,6 +182,23 @@ impl RestoreFromSnapshotInputBuilder {
     pub fn get_admin_password_secret_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.admin_password_secret_kms_key_id
     }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn maintain_integration(mut self, input: bool) -> Self {
+        self.maintain_integration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn set_maintain_integration(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.maintain_integration = input;
+        self
+    }
+    /// <p>If <code>true</code>, maintain existing data sharing, zero-ETL and S3 event integrations when restoring. Otherwise, integrations will not be maintained after the restore operation. Integrations are only maintained when restored to the same serverless namespace.</p>
+    /// <p>Default: true</p>
+    pub fn get_maintain_integration(&self) -> &::std::option::Option<bool> {
+        &self.maintain_integration
+    }
     /// Consumes the builder and constructs a [`RestoreFromSnapshotInput`](crate::operation::restore_from_snapshot::RestoreFromSnapshotInput).
     pub fn build(
         self,
@@ -186,6 +212,7 @@ impl RestoreFromSnapshotInputBuilder {
             owner_account: self.owner_account,
             manage_admin_password: self.manage_admin_password,
             admin_password_secret_kms_key_id: self.admin_password_secret_kms_key_id,
+            maintain_integration: self.maintain_integration,
         })
     }
 }

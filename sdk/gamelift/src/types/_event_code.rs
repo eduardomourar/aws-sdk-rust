@@ -23,6 +23,7 @@
 ///     EventCode::FleetCreationRunningInstaller => { /* ... */ },
 ///     EventCode::FleetCreationValidatingRuntimeConfig => { /* ... */ },
 ///     EventCode::FleetDeleted => { /* ... */ },
+///     EventCode::FleetExpired => { /* ... */ },
 ///     EventCode::FleetInitializationFailed => { /* ... */ },
 ///     EventCode::FleetNewGameSessionProtectionPolicyUpdated => { /* ... */ },
 ///     EventCode::FleetScalingEvent => { /* ... */ },
@@ -118,6 +119,8 @@ pub enum EventCode {
     FleetCreationValidatingRuntimeConfig,
     #[allow(missing_docs)] // documentation missing in model
     FleetDeleted,
+    #[allow(missing_docs)] // documentation missing in model
+    FleetExpired,
     #[allow(missing_docs)] // documentation missing in model
     FleetInitializationFailed,
     #[allow(missing_docs)] // documentation missing in model
@@ -226,6 +229,7 @@ impl ::std::convert::From<&str> for EventCode {
             "FLEET_CREATION_RUNNING_INSTALLER" => EventCode::FleetCreationRunningInstaller,
             "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG" => EventCode::FleetCreationValidatingRuntimeConfig,
             "FLEET_DELETED" => EventCode::FleetDeleted,
+            "FLEET_EXPIRED" => EventCode::FleetExpired,
             "FLEET_INITIALIZATION_FAILED" => EventCode::FleetInitializationFailed,
             "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED" => EventCode::FleetNewGameSessionProtectionPolicyUpdated,
             "FLEET_SCALING_EVENT" => EventCode::FleetScalingEvent,
@@ -297,6 +301,7 @@ impl EventCode {
             EventCode::FleetCreationRunningInstaller => "FLEET_CREATION_RUNNING_INSTALLER",
             EventCode::FleetCreationValidatingRuntimeConfig => "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
             EventCode::FleetDeleted => "FLEET_DELETED",
+            EventCode::FleetExpired => "FLEET_EXPIRED",
             EventCode::FleetInitializationFailed => "FLEET_INITIALIZATION_FAILED",
             EventCode::FleetNewGameSessionProtectionPolicyUpdated => "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
             EventCode::FleetScalingEvent => "FLEET_SCALING_EVENT",
@@ -359,6 +364,7 @@ impl EventCode {
             "FLEET_CREATION_RUNNING_INSTALLER",
             "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
             "FLEET_DELETED",
+            "FLEET_EXPIRED",
             "FLEET_INITIALIZATION_FAILED",
             "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
             "FLEET_SCALING_EVENT",
@@ -438,6 +444,7 @@ impl ::std::fmt::Display for EventCode {
             EventCode::FleetCreationRunningInstaller => write!(f, "FLEET_CREATION_RUNNING_INSTALLER"),
             EventCode::FleetCreationValidatingRuntimeConfig => write!(f, "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG"),
             EventCode::FleetDeleted => write!(f, "FLEET_DELETED"),
+            EventCode::FleetExpired => write!(f, "FLEET_EXPIRED"),
             EventCode::FleetInitializationFailed => write!(f, "FLEET_INITIALIZATION_FAILED"),
             EventCode::FleetNewGameSessionProtectionPolicyUpdated => write!(f, "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED"),
             EventCode::FleetScalingEvent => write!(f, "FLEET_SCALING_EVENT"),

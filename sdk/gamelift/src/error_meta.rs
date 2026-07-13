@@ -512,6 +512,7 @@ impl From<crate::operation::create_location::CreateLocationError> for Error {
             crate::operation::create_location::CreateLocationError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::operation::create_location::CreateLocationError::TaggingFailedException(inner) => Error::TaggingFailedException(inner),
             crate::operation::create_location::CreateLocationError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::create_location::CreateLocationError::UnsupportedRegionException(inner) => Error::UnsupportedRegionException(inner),
             crate::operation::create_location::CreateLocationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -1071,6 +1072,7 @@ impl From<crate::operation::delete_location::DeleteLocationError> for Error {
             crate::operation::delete_location::DeleteLocationError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
             crate::operation::delete_location::DeleteLocationError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::delete_location::DeleteLocationError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::delete_location::DeleteLocationError::UnsupportedRegionException(inner) => Error::UnsupportedRegionException(inner),
             crate::operation::delete_location::DeleteLocationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -1315,6 +1317,9 @@ impl From<crate::operation::deregister_compute::DeregisterComputeError> for Erro
             crate::operation::deregister_compute::DeregisterComputeError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
             crate::operation::deregister_compute::DeregisterComputeError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::deregister_compute::DeregisterComputeError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::deregister_compute::DeregisterComputeError::UnsupportedRegionException(inner) => {
+                Error::UnsupportedRegionException(inner)
+            }
             crate::operation::deregister_compute::DeregisterComputeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -3154,6 +3159,7 @@ impl From<crate::operation::register_compute::RegisterComputeError> for Error {
             crate::operation::register_compute::RegisterComputeError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::operation::register_compute::RegisterComputeError::NotReadyException(inner) => Error::NotReadyException(inner),
             crate::operation::register_compute::RegisterComputeError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::register_compute::RegisterComputeError::UnsupportedRegionException(inner) => Error::UnsupportedRegionException(inner),
             crate::operation::register_compute::RegisterComputeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }

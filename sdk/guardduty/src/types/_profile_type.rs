@@ -13,6 +13,7 @@
 /// # let profiletype = unimplemented!();
 /// match profiletype {
 ///     ProfileType::Frequency => { /* ... */ },
+///     ProfileType::Volume => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -43,6 +44,8 @@
 pub enum ProfileType {
     #[allow(missing_docs)] // documentation missing in model
     Frequency,
+    #[allow(missing_docs)] // documentation missing in model
+    Volume,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -51,6 +54,7 @@ impl ::std::convert::From<&str> for ProfileType {
     fn from(s: &str) -> Self {
         match s {
             "FREQUENCY" => ProfileType::Frequency,
+            "VOLUME" => ProfileType::Volume,
             other => ProfileType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -67,12 +71,13 @@ impl ProfileType {
     pub fn as_str(&self) -> &str {
         match self {
             ProfileType::Frequency => "FREQUENCY",
+            ProfileType::Volume => "VOLUME",
             ProfileType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["FREQUENCY"]
+        &["FREQUENCY", "VOLUME"]
     }
 }
 impl ::std::convert::AsRef<str> for ProfileType {
@@ -96,6 +101,7 @@ impl ::std::fmt::Display for ProfileType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             ProfileType::Frequency => write!(f, "FREQUENCY"),
+            ProfileType::Volume => write!(f, "VOLUME"),
             ProfileType::Unknown(value) => write!(f, "{value}"),
         }
     }

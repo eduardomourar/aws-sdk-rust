@@ -20,6 +20,8 @@ pub struct ContainerFleetLocationAttributes {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub status: ::std::option::Option<crate::types::ContainerFleetLocationStatus>,
     /// <p>The current status of player gateway in this location for this container fleet. Note, even if a container fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service locations</a>.</p>
@@ -51,6 +53,8 @@ impl ContainerFleetLocationAttributes {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn status(&self) -> ::std::option::Option<&crate::types::ContainerFleetLocationStatus> {
         self.status.as_ref()
@@ -111,6 +115,8 @@ impl ContainerFleetLocationAttributesBuilder {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn status(mut self, input: crate::types::ContainerFleetLocationStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
@@ -130,6 +136,8 @@ impl ContainerFleetLocationAttributesBuilder {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ContainerFleetLocationStatus>) -> Self {
         self.status = input;
@@ -149,6 +157,8 @@ impl ContainerFleetLocationAttributesBuilder {
     /// <p><code>ACTIVE</code> -- The container fleet has been deployed and is ready to host game sessions.</p></li>
     /// <li>
     /// <p><code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in progress.</p></li>
+    /// <li>
+    /// <p><code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero instances and cannot host new game sessions.</p></li>
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ContainerFleetLocationStatus> {
         &self.status

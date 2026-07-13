@@ -24,5 +24,8 @@ pub fn ser_restore_from_snapshot_input_input(
     if let Some(var_7) = &input.admin_password_secret_kms_key_id {
         object.key("adminPasswordSecretKmsKeyId").string(var_7.as_str());
     }
+    if let Some(var_8) = &input.maintain_integration {
+        object.key("maintainIntegration").boolean(*var_8);
+    }
     Ok(())
 }

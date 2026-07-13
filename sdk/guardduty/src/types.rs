@@ -367,6 +367,8 @@ pub use crate::types::_ec2_image_details::Ec2ImageDetails;
 
 pub use crate::types::_recovery_point_details::RecoveryPointDetails;
 
+pub use crate::types::_bedrock_guardrail_details::BedrockGuardrailDetails;
+
 pub use crate::types::_action::Action;
 
 pub use crate::types::_evidence::Evidence;
@@ -430,6 +432,12 @@ pub use crate::types::_ecs_task_details::EcsTaskDetails;
 pub use crate::types::_security_context::SecurityContext;
 
 pub use crate::types::_vpc_config::VpcConfig;
+
+pub use crate::types::_guardrail_action::GuardrailAction;
+
+pub use crate::types::_guardrail_source::GuardrailSource;
+
+pub use crate::types::_model_detail::ModelDetail;
 
 pub use crate::types::_aws_api_call_action::AwsApiCallAction;
 
@@ -495,6 +503,10 @@ pub use crate::types::_impersonated_user::ImpersonatedUser;
 
 pub use crate::types::_volume_mount::VolumeMount;
 
+pub use crate::types::_bedrock_guardrail::BedrockGuardrail;
+
+pub use crate::types::_content_policy_filter::ContentPolicyFilter;
+
 pub use crate::types::_domain_details::DomainDetails;
 
 pub use crate::types::_remote_ip_details::RemoteIpDetails;
@@ -534,6 +546,12 @@ pub use crate::types::_s3_object_detail::S3ObjectDetail;
 pub use crate::types::_volume::Volume;
 
 pub use crate::types::_security_group::SecurityGroup;
+
+pub use crate::types::_content_policy_filter_type::ContentPolicyFilterType;
+
+pub use crate::types::_confidence_level::ConfidenceLevel;
+
+pub use crate::types::_content_policy_filter_action::ContentPolicyFilterAction;
 
 pub use crate::types::_city::City;
 
@@ -709,6 +727,10 @@ mod _autoscaling_auto_scaling_group;
 
 mod _aws_api_call_action;
 
+mod _bedrock_guardrail;
+
+mod _bedrock_guardrail_details;
+
 mod _block_public_access;
 
 mod _bucket_level_permissions;
@@ -731,11 +753,19 @@ mod _condition;
 
 mod _confidence;
 
+mod _confidence_level;
+
 mod _container;
 
 mod _container_finding_resource;
 
 mod _container_instance_details;
+
+mod _content_policy_filter;
+
+mod _content_policy_filter_action;
+
+mod _content_policy_filter_type;
 
 mod _continuous_scan_details;
 
@@ -905,6 +935,10 @@ mod _get_malware_scan_result_details;
 
 mod _group_by_type;
 
+mod _guardrail_action;
+
+mod _guardrail_source;
+
 mod _highest_severity_threat_details;
 
 mod _host_path;
@@ -1036,6 +1070,8 @@ mod _member_features_configuration;
 mod _member_features_configuration_result;
 
 mod _mfa_status;
+
+mod _model_detail;
 
 mod _network_connection;
 

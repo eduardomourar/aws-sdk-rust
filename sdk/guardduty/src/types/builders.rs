@@ -261,6 +261,8 @@ pub use crate::types::_ec2_image_details::Ec2ImageDetailsBuilder;
 
 pub use crate::types::_recovery_point_details::RecoveryPointDetailsBuilder;
 
+pub use crate::types::_bedrock_guardrail_details::BedrockGuardrailDetailsBuilder;
+
 pub use crate::types::_action::ActionBuilder;
 
 pub use crate::types::_evidence::EvidenceBuilder;
@@ -316,6 +318,8 @@ pub use crate::types::_ecs_task_details::EcsTaskDetailsBuilder;
 pub use crate::types::_security_context::SecurityContextBuilder;
 
 pub use crate::types::_vpc_config::VpcConfigBuilder;
+
+pub use crate::types::_model_detail::ModelDetailBuilder;
 
 pub use crate::types::_aws_api_call_action::AwsApiCallActionBuilder;
 
@@ -376,6 +380,10 @@ pub use crate::types::_tag::TagBuilder;
 pub use crate::types::_impersonated_user::ImpersonatedUserBuilder;
 
 pub use crate::types::_volume_mount::VolumeMountBuilder;
+
+pub use crate::types::_bedrock_guardrail::BedrockGuardrailBuilder;
+
+pub use crate::types::_content_policy_filter::ContentPolicyFilterBuilder;
 
 pub use crate::types::_domain_details::DomainDetailsBuilder;
 

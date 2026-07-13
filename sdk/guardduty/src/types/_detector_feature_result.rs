@@ -13,6 +13,7 @@
 /// # let detectorfeatureresult = unimplemented!();
 /// match detectorfeatureresult {
 ///     DetectorFeatureResult::AiAnalyst => { /* ... */ },
+///     DetectorFeatureResult::AiProtection => { /* ... */ },
 ///     DetectorFeatureResult::CloudTrail => { /* ... */ },
 ///     DetectorFeatureResult::DnsLogs => { /* ... */ },
 ///     DetectorFeatureResult::EbsMalwareProtection => { /* ... */ },
@@ -54,6 +55,8 @@ pub enum DetectorFeatureResult {
     #[allow(missing_docs)] // documentation missing in model
     AiAnalyst,
     #[allow(missing_docs)] // documentation missing in model
+    AiProtection,
+    #[allow(missing_docs)] // documentation missing in model
     CloudTrail,
     #[allow(missing_docs)] // documentation missing in model
     DnsLogs,
@@ -81,6 +84,7 @@ impl ::std::convert::From<&str> for DetectorFeatureResult {
     fn from(s: &str) -> Self {
         match s {
             "AI_ANALYST" => DetectorFeatureResult::AiAnalyst,
+            "AI_PROTECTION" => DetectorFeatureResult::AiProtection,
             "CLOUD_TRAIL" => DetectorFeatureResult::CloudTrail,
             "DNS_LOGS" => DetectorFeatureResult::DnsLogs,
             "EBS_MALWARE_PROTECTION" => DetectorFeatureResult::EbsMalwareProtection,
@@ -107,6 +111,7 @@ impl DetectorFeatureResult {
     pub fn as_str(&self) -> &str {
         match self {
             DetectorFeatureResult::AiAnalyst => "AI_ANALYST",
+            DetectorFeatureResult::AiProtection => "AI_PROTECTION",
             DetectorFeatureResult::CloudTrail => "CLOUD_TRAIL",
             DetectorFeatureResult::DnsLogs => "DNS_LOGS",
             DetectorFeatureResult::EbsMalwareProtection => "EBS_MALWARE_PROTECTION",
@@ -124,6 +129,7 @@ impl DetectorFeatureResult {
     pub const fn values() -> &'static [&'static str] {
         &[
             "AI_ANALYST",
+            "AI_PROTECTION",
             "CLOUD_TRAIL",
             "DNS_LOGS",
             "EBS_MALWARE_PROTECTION",
@@ -158,6 +164,7 @@ impl ::std::fmt::Display for DetectorFeatureResult {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             DetectorFeatureResult::AiAnalyst => write!(f, "AI_ANALYST"),
+            DetectorFeatureResult::AiProtection => write!(f, "AI_PROTECTION"),
             DetectorFeatureResult::CloudTrail => write!(f, "CLOUD_TRAIL"),
             DetectorFeatureResult::DnsLogs => write!(f, "DNS_LOGS"),
             DetectorFeatureResult::EbsMalwareProtection => write!(f, "EBS_MALWARE_PROTECTION"),

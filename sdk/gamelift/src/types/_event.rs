@@ -2,7 +2,7 @@
 
 /// <p>Log entry describing an event that involves Amazon GameLift Servers resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct Event {
     /// <p>A unique identifier for a fleet event.</p>
     pub event_id: ::std::option::Option<::std::string::String>,
@@ -99,6 +99,8 @@ pub struct Event {
     /// <p>FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED -- A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.</p></li>
     /// <li>
     /// <p>FLEET_DELETED -- A request to delete a fleet was initiated.</p></li>
+    /// <li>
+    /// <p>FLEET_EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and can no longer host game sessions.</p></li>
     /// <li>
     /// <p>GENERIC_EVENT -- An unspecified event has occurred.</p></li>
     /// </ul>
@@ -213,6 +215,8 @@ impl Event {
     /// <li>
     /// <p>FLEET_DELETED -- A request to delete a fleet was initiated.</p></li>
     /// <li>
+    /// <p>FLEET_EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and can no longer host game sessions.</p></li>
+    /// <li>
     /// <p>GENERIC_EVENT -- An unspecified event has occurred.</p></li>
     /// </ul>
     pub fn event_code(&self) -> ::std::option::Option<&crate::types::EventCode> {
@@ -235,6 +239,19 @@ impl Event {
         self.count
     }
 }
+impl ::std::fmt::Debug for Event {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("Event");
+        formatter.field("event_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("resource_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("event_code", &"*** Sensitive Data Redacted ***");
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.field("event_time", &"*** Sensitive Data Redacted ***");
+        formatter.field("pre_signed_log_url", &"*** Sensitive Data Redacted ***");
+        formatter.field("count", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl Event {
     /// Creates a new builder-style object to manufacture [`Event`](crate::types::Event).
     pub fn builder() -> crate::types::builders::EventBuilder {
@@ -243,7 +260,7 @@ impl Event {
 }
 
 /// A builder for [`Event`](crate::types::Event).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct EventBuilder {
     pub(crate) event_id: ::std::option::Option<::std::string::String>,
@@ -375,6 +392,8 @@ impl EventBuilder {
     /// <li>
     /// <p>FLEET_DELETED -- A request to delete a fleet was initiated.</p></li>
     /// <li>
+    /// <p>FLEET_EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and can no longer host game sessions.</p></li>
+    /// <li>
     /// <p>GENERIC_EVENT -- An unspecified event has occurred.</p></li>
     /// </ul>
     pub fn event_code(mut self, input: crate::types::EventCode) -> Self {
@@ -472,6 +491,8 @@ impl EventBuilder {
     /// <p>FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED -- A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.</p></li>
     /// <li>
     /// <p>FLEET_DELETED -- A request to delete a fleet was initiated.</p></li>
+    /// <li>
+    /// <p>FLEET_EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and can no longer host game sessions.</p></li>
     /// <li>
     /// <p>GENERIC_EVENT -- An unspecified event has occurred.</p></li>
     /// </ul>
@@ -571,6 +592,8 @@ impl EventBuilder {
     /// <li>
     /// <p>FLEET_DELETED -- A request to delete a fleet was initiated.</p></li>
     /// <li>
+    /// <p>FLEET_EXPIRED -- The fleet has been expired. The fleet is scaled down to zero instances and can no longer host game sessions.</p></li>
+    /// <li>
     /// <p>GENERIC_EVENT -- An unspecified event has occurred.</p></li>
     /// </ul>
     pub fn get_event_code(&self) -> &::std::option::Option<crate::types::EventCode> {
@@ -643,5 +666,18 @@ impl EventBuilder {
             pre_signed_log_url: self.pre_signed_log_url,
             count: self.count,
         }
+    }
+}
+impl ::std::fmt::Debug for EventBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EventBuilder");
+        formatter.field("event_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("resource_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("event_code", &"*** Sensitive Data Redacted ***");
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.field("event_time", &"*** Sensitive Data Redacted ***");
+        formatter.field("pre_signed_log_url", &"*** Sensitive Data Redacted ***");
+        formatter.field("count", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

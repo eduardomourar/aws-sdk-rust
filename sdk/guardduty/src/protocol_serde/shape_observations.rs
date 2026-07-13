@@ -28,6 +28,13 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "number" => {
+                            builder = builder.set_number(crate::protocol_serde::shape_observation_numbers::de_observation_numbers(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

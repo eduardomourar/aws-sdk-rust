@@ -12,6 +12,7 @@
 /// ```text
 /// # let freetrialfeatureresult = unimplemented!();
 /// match freetrialfeatureresult {
+///     FreeTrialFeatureResult::AiProtection => { /* ... */ },
 ///     FreeTrialFeatureResult::CloudTrail => { /* ... */ },
 ///     FreeTrialFeatureResult::DnsLogs => { /* ... */ },
 ///     FreeTrialFeatureResult::EbsMalwareProtection => { /* ... */ },
@@ -52,6 +53,8 @@
 )]
 pub enum FreeTrialFeatureResult {
     #[allow(missing_docs)] // documentation missing in model
+    AiProtection,
+    #[allow(missing_docs)] // documentation missing in model
     CloudTrail,
     #[allow(missing_docs)] // documentation missing in model
     DnsLogs,
@@ -80,6 +83,7 @@ pub enum FreeTrialFeatureResult {
 impl ::std::convert::From<&str> for FreeTrialFeatureResult {
     fn from(s: &str) -> Self {
         match s {
+            "AI_PROTECTION" => FreeTrialFeatureResult::AiProtection,
             "CLOUD_TRAIL" => FreeTrialFeatureResult::CloudTrail,
             "DNS_LOGS" => FreeTrialFeatureResult::DnsLogs,
             "EBS_MALWARE_PROTECTION" => FreeTrialFeatureResult::EbsMalwareProtection,
@@ -106,6 +110,7 @@ impl FreeTrialFeatureResult {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            FreeTrialFeatureResult::AiProtection => "AI_PROTECTION",
             FreeTrialFeatureResult::CloudTrail => "CLOUD_TRAIL",
             FreeTrialFeatureResult::DnsLogs => "DNS_LOGS",
             FreeTrialFeatureResult::EbsMalwareProtection => "EBS_MALWARE_PROTECTION",
@@ -123,6 +128,7 @@ impl FreeTrialFeatureResult {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AI_PROTECTION",
             "CLOUD_TRAIL",
             "DNS_LOGS",
             "EBS_MALWARE_PROTECTION",
@@ -157,6 +163,7 @@ impl FreeTrialFeatureResult {
 impl ::std::fmt::Display for FreeTrialFeatureResult {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            FreeTrialFeatureResult::AiProtection => write!(f, "AI_PROTECTION"),
             FreeTrialFeatureResult::CloudTrail => write!(f, "CLOUD_TRAIL"),
             FreeTrialFeatureResult::DnsLogs => write!(f, "DNS_LOGS"),
             FreeTrialFeatureResult::EbsMalwareProtection => write!(f, "EBS_MALWARE_PROTECTION"),

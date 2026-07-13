@@ -8,6 +8,8 @@ pub struct RecoveryPointDetails {
     pub recovery_point_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the backup vault containing the recovery point.</p>
     pub backup_vault_name: ::std::option::Option<::std::string::String>,
+    /// <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+    pub continuous_scan_details: ::std::option::Option<crate::types::ScanConfigurationContinuousScanDetails>,
 }
 impl RecoveryPointDetails {
     /// <p>The Amazon Resource Name (ARN) of the recovery point.</p>
@@ -17,6 +19,10 @@ impl RecoveryPointDetails {
     /// <p>The name of the backup vault containing the recovery point.</p>
     pub fn backup_vault_name(&self) -> ::std::option::Option<&str> {
         self.backup_vault_name.as_deref()
+    }
+    /// <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+    pub fn continuous_scan_details(&self) -> ::std::option::Option<&crate::types::ScanConfigurationContinuousScanDetails> {
+        self.continuous_scan_details.as_ref()
     }
 }
 impl RecoveryPointDetails {
@@ -32,6 +38,7 @@ impl RecoveryPointDetails {
 pub struct RecoveryPointDetailsBuilder {
     pub(crate) recovery_point_arn: ::std::option::Option<::std::string::String>,
     pub(crate) backup_vault_name: ::std::option::Option<::std::string::String>,
+    pub(crate) continuous_scan_details: ::std::option::Option<crate::types::ScanConfigurationContinuousScanDetails>,
 }
 impl RecoveryPointDetailsBuilder {
     /// <p>The Amazon Resource Name (ARN) of the recovery point.</p>
@@ -62,11 +69,26 @@ impl RecoveryPointDetailsBuilder {
     pub fn get_backup_vault_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.backup_vault_name
     }
+    /// <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+    pub fn continuous_scan_details(mut self, input: crate::types::ScanConfigurationContinuousScanDetails) -> Self {
+        self.continuous_scan_details = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+    pub fn set_continuous_scan_details(mut self, input: ::std::option::Option<crate::types::ScanConfigurationContinuousScanDetails>) -> Self {
+        self.continuous_scan_details = input;
+        self
+    }
+    /// <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+    pub fn get_continuous_scan_details(&self) -> &::std::option::Option<crate::types::ScanConfigurationContinuousScanDetails> {
+        &self.continuous_scan_details
+    }
     /// Consumes the builder and constructs a [`RecoveryPointDetails`](crate::types::RecoveryPointDetails).
     pub fn build(self) -> crate::types::RecoveryPointDetails {
         crate::types::RecoveryPointDetails {
             recovery_point_arn: self.recovery_point_arn,
             backup_vault_name: self.backup_vault_name,
+            continuous_scan_details: self.continuous_scan_details,
         }
     }
 }

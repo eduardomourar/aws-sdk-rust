@@ -12,5 +12,8 @@ pub fn ser_restore_from_recovery_point_input_input(
     if let Some(var_3) = &input.workgroup_name {
         object.key("workgroupName").string(var_3.as_str());
     }
+    if let Some(var_4) = &input.maintain_integration {
+        object.key("maintainIntegration").boolean(*var_4);
+    }
     Ok(())
 }

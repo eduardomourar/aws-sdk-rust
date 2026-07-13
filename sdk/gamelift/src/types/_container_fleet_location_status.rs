@@ -17,6 +17,7 @@
 ///     ContainerFleetLocationStatus::Created => { /* ... */ },
 ///     ContainerFleetLocationStatus::Creating => { /* ... */ },
 ///     ContainerFleetLocationStatus::Deleting => { /* ... */ },
+///     ContainerFleetLocationStatus::Expired => { /* ... */ },
 ///     ContainerFleetLocationStatus::Pending => { /* ... */ },
 ///     ContainerFleetLocationStatus::Updating => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -58,6 +59,8 @@ pub enum ContainerFleetLocationStatus {
     #[allow(missing_docs)] // documentation missing in model
     Deleting,
     #[allow(missing_docs)] // documentation missing in model
+    Expired,
+    #[allow(missing_docs)] // documentation missing in model
     Pending,
     #[allow(missing_docs)] // documentation missing in model
     Updating,
@@ -73,6 +76,7 @@ impl ::std::convert::From<&str> for ContainerFleetLocationStatus {
             "CREATED" => ContainerFleetLocationStatus::Created,
             "CREATING" => ContainerFleetLocationStatus::Creating,
             "DELETING" => ContainerFleetLocationStatus::Deleting,
+            "EXPIRED" => ContainerFleetLocationStatus::Expired,
             "PENDING" => ContainerFleetLocationStatus::Pending,
             "UPDATING" => ContainerFleetLocationStatus::Updating,
             other => ContainerFleetLocationStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -95,6 +99,7 @@ impl ContainerFleetLocationStatus {
             ContainerFleetLocationStatus::Created => "CREATED",
             ContainerFleetLocationStatus::Creating => "CREATING",
             ContainerFleetLocationStatus::Deleting => "DELETING",
+            ContainerFleetLocationStatus::Expired => "EXPIRED",
             ContainerFleetLocationStatus::Pending => "PENDING",
             ContainerFleetLocationStatus::Updating => "UPDATING",
             ContainerFleetLocationStatus::Unknown(value) => value.as_str(),
@@ -102,7 +107,16 @@ impl ContainerFleetLocationStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ACTIVATING", "ACTIVE", "CREATED", "CREATING", "DELETING", "PENDING", "UPDATING"]
+        &[
+            "ACTIVATING",
+            "ACTIVE",
+            "CREATED",
+            "CREATING",
+            "DELETING",
+            "EXPIRED",
+            "PENDING",
+            "UPDATING",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ContainerFleetLocationStatus {
@@ -130,6 +144,7 @@ impl ::std::fmt::Display for ContainerFleetLocationStatus {
             ContainerFleetLocationStatus::Created => write!(f, "CREATED"),
             ContainerFleetLocationStatus::Creating => write!(f, "CREATING"),
             ContainerFleetLocationStatus::Deleting => write!(f, "DELETING"),
+            ContainerFleetLocationStatus::Expired => write!(f, "EXPIRED"),
             ContainerFleetLocationStatus::Pending => write!(f, "PENDING"),
             ContainerFleetLocationStatus::Updating => write!(f, "UPDATING"),
             ContainerFleetLocationStatus::Unknown(value) => write!(f, "{value}"),

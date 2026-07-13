@@ -17,6 +17,7 @@
 ///     ContainerFleetStatus::Created => { /* ... */ },
 ///     ContainerFleetStatus::Creating => { /* ... */ },
 ///     ContainerFleetStatus::Deleting => { /* ... */ },
+///     ContainerFleetStatus::Expired => { /* ... */ },
 ///     ContainerFleetStatus::Pending => { /* ... */ },
 ///     ContainerFleetStatus::Updating => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -58,6 +59,8 @@ pub enum ContainerFleetStatus {
     #[allow(missing_docs)] // documentation missing in model
     Deleting,
     #[allow(missing_docs)] // documentation missing in model
+    Expired,
+    #[allow(missing_docs)] // documentation missing in model
     Pending,
     #[allow(missing_docs)] // documentation missing in model
     Updating,
@@ -73,6 +76,7 @@ impl ::std::convert::From<&str> for ContainerFleetStatus {
             "CREATED" => ContainerFleetStatus::Created,
             "CREATING" => ContainerFleetStatus::Creating,
             "DELETING" => ContainerFleetStatus::Deleting,
+            "EXPIRED" => ContainerFleetStatus::Expired,
             "PENDING" => ContainerFleetStatus::Pending,
             "UPDATING" => ContainerFleetStatus::Updating,
             other => ContainerFleetStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -95,6 +99,7 @@ impl ContainerFleetStatus {
             ContainerFleetStatus::Created => "CREATED",
             ContainerFleetStatus::Creating => "CREATING",
             ContainerFleetStatus::Deleting => "DELETING",
+            ContainerFleetStatus::Expired => "EXPIRED",
             ContainerFleetStatus::Pending => "PENDING",
             ContainerFleetStatus::Updating => "UPDATING",
             ContainerFleetStatus::Unknown(value) => value.as_str(),
@@ -102,7 +107,16 @@ impl ContainerFleetStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ACTIVATING", "ACTIVE", "CREATED", "CREATING", "DELETING", "PENDING", "UPDATING"]
+        &[
+            "ACTIVATING",
+            "ACTIVE",
+            "CREATED",
+            "CREATING",
+            "DELETING",
+            "EXPIRED",
+            "PENDING",
+            "UPDATING",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ContainerFleetStatus {
@@ -130,6 +144,7 @@ impl ::std::fmt::Display for ContainerFleetStatus {
             ContainerFleetStatus::Created => write!(f, "CREATED"),
             ContainerFleetStatus::Creating => write!(f, "CREATING"),
             ContainerFleetStatus::Deleting => write!(f, "DELETING"),
+            ContainerFleetStatus::Expired => write!(f, "EXPIRED"),
             ContainerFleetStatus::Pending => write!(f, "PENDING"),
             ContainerFleetStatus::Updating => write!(f, "UPDATING"),
             ContainerFleetStatus::Unknown(value) => write!(f, "{value}"),

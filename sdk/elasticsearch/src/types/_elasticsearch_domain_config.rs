@@ -40,6 +40,10 @@ pub struct ElasticsearchDomainConfig {
     pub deployment_strategy_options: ::std::option::Option<crate::types::DeploymentStrategyOptionsStatus>,
     /// <p>Specifies <code>AutomatedSnapshotPauseOptions</code> for the domain.</p>
     pub automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseOptionsStatus>,
+    /// <p>The use case configured for the domain.</p>
+    pub use_case: ::std::option::Option<crate::types::UseCaseStatus>,
+    /// <p>The engine mode configured for the domain.</p>
+    pub engine_mode: ::std::option::Option<crate::types::EngineModeStatus>,
 }
 impl ElasticsearchDomainConfig {
     /// <p>String of format X.Y to specify version for the Elasticsearch domain.</p>
@@ -116,6 +120,14 @@ impl ElasticsearchDomainConfig {
     pub fn automated_snapshot_pause_options(&self) -> ::std::option::Option<&crate::types::AutomatedSnapshotPauseOptionsStatus> {
         self.automated_snapshot_pause_options.as_ref()
     }
+    /// <p>The use case configured for the domain.</p>
+    pub fn use_case(&self) -> ::std::option::Option<&crate::types::UseCaseStatus> {
+        self.use_case.as_ref()
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn engine_mode(&self) -> ::std::option::Option<&crate::types::EngineModeStatus> {
+        self.engine_mode.as_ref()
+    }
 }
 impl ElasticsearchDomainConfig {
     /// Creates a new builder-style object to manufacture [`ElasticsearchDomainConfig`](crate::types::ElasticsearchDomainConfig).
@@ -146,6 +158,8 @@ pub struct ElasticsearchDomainConfigBuilder {
     pub(crate) modifying_properties: ::std::option::Option<::std::vec::Vec<crate::types::ModifyingProperties>>,
     pub(crate) deployment_strategy_options: ::std::option::Option<crate::types::DeploymentStrategyOptionsStatus>,
     pub(crate) automated_snapshot_pause_options: ::std::option::Option<crate::types::AutomatedSnapshotPauseOptionsStatus>,
+    pub(crate) use_case: ::std::option::Option<crate::types::UseCaseStatus>,
+    pub(crate) engine_mode: ::std::option::Option<crate::types::EngineModeStatus>,
 }
 impl ElasticsearchDomainConfigBuilder {
     /// <p>String of format X.Y to specify version for the Elasticsearch domain.</p>
@@ -406,6 +420,34 @@ impl ElasticsearchDomainConfigBuilder {
     pub fn get_automated_snapshot_pause_options(&self) -> &::std::option::Option<crate::types::AutomatedSnapshotPauseOptionsStatus> {
         &self.automated_snapshot_pause_options
     }
+    /// <p>The use case configured for the domain.</p>
+    pub fn use_case(mut self, input: crate::types::UseCaseStatus) -> Self {
+        self.use_case = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The use case configured for the domain.</p>
+    pub fn set_use_case(mut self, input: ::std::option::Option<crate::types::UseCaseStatus>) -> Self {
+        self.use_case = input;
+        self
+    }
+    /// <p>The use case configured for the domain.</p>
+    pub fn get_use_case(&self) -> &::std::option::Option<crate::types::UseCaseStatus> {
+        &self.use_case
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn engine_mode(mut self, input: crate::types::EngineModeStatus) -> Self {
+        self.engine_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn set_engine_mode(mut self, input: ::std::option::Option<crate::types::EngineModeStatus>) -> Self {
+        self.engine_mode = input;
+        self
+    }
+    /// <p>The engine mode configured for the domain.</p>
+    pub fn get_engine_mode(&self) -> &::std::option::Option<crate::types::EngineModeStatus> {
+        &self.engine_mode
+    }
     /// Consumes the builder and constructs a [`ElasticsearchDomainConfig`](crate::types::ElasticsearchDomainConfig).
     pub fn build(self) -> crate::types::ElasticsearchDomainConfig {
         crate::types::ElasticsearchDomainConfig {
@@ -427,6 +469,8 @@ impl ElasticsearchDomainConfigBuilder {
             modifying_properties: self.modifying_properties,
             deployment_strategy_options: self.deployment_strategy_options,
             automated_snapshot_pause_options: self.automated_snapshot_pause_options,
+            use_case: self.use_case,
+            engine_mode: self.engine_mode,
         }
     }
 }

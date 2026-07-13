@@ -123,6 +123,15 @@ where
                                 crate::protocol_serde::shape_recovery_point_details::de_recovery_point_details(tokens, _value, depth + 1)?,
                             );
                         }
+                        "bedrockGuardrailDetails" => {
+                            builder = builder.set_bedrock_guardrail_details(
+                                crate::protocol_serde::shape_bedrock_guardrail_details::de_bedrock_guardrail_details(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "modelDetails" => {
+                            builder =
+                                builder.set_model_details(crate::protocol_serde::shape_model_details::de_model_details(tokens, _value, depth + 1)?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

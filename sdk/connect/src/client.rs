@@ -713,6 +713,8 @@ mod search_resource_tags;
 
 mod search_routing_profiles;
 
+mod search_rules;
+
 mod search_security_profiles;
 
 mod search_test_cases;

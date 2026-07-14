@@ -22,7 +22,7 @@ pub struct UpdateHoursOfOperationOverrideInput {
     /// <p>Configuration for a recurring event.</p>
     pub recurrence_config: ::std::option::Option<crate::types::RecurrenceConfig>,
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub override_type: ::std::option::Option<crate::types::OverrideType>,
 }
 impl UpdateHoursOfOperationOverrideInput {
@@ -65,7 +65,7 @@ impl UpdateHoursOfOperationOverrideInput {
         self.recurrence_config.as_ref()
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn override_type(&self) -> ::std::option::Option<&crate::types::OverrideType> {
         self.override_type.as_ref()
     }
@@ -229,19 +229,19 @@ impl UpdateHoursOfOperationOverrideInputBuilder {
         &self.recurrence_config
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn override_type(mut self, input: crate::types::OverrideType) -> Self {
         self.override_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn set_override_type(mut self, input: ::std::option::Option<crate::types::OverrideType>) -> Self {
         self.override_type = input;
         self
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn get_override_type(&self) -> &::std::option::Option<crate::types::OverrideType> {
         &self.override_type
     }

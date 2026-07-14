@@ -24,18 +24,24 @@ pub fn ser_create_managed_endpoint_input_input(
     if let Some(var_7) = &input.release_label {
         object.key("releaseLabel").string(var_7.as_str());
     }
-    if let Some(var_8) = &input.tags {
+    if let Some(var_8) = &input.session_idle_timeout_in_minutes {
+        object.key("sessionIdleTimeoutInMinutes").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_8).into()),
+        );
+    }
+    if let Some(var_9) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_9 = object.key("tags").start_object();
-        for (key_10, value_11) in var_8 {
+        let mut object_10 = object.key("tags").start_object();
+        for (key_11, value_12) in var_9 {
             {
-                object_9.key(key_10.as_str()).string(value_11.as_str());
+                object_10.key(key_11.as_str()).string(value_12.as_str());
             }
         }
-        object_9.finish();
+        object_10.finish();
     }
-    if let Some(var_12) = &input.r#type {
-        object.key("type").string(var_12.as_str());
+    if let Some(var_13) = &input.r#type {
+        object.key("type").string(var_13.as_str());
     }
     Ok(())
 }

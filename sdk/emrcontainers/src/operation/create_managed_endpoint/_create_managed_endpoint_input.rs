@@ -22,6 +22,8 @@ pub struct CreateManagedEndpointInput {
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>The tags of the managed endpoint.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    /// <p>The idle timeout in minutes for the managed endpoint session.</p>
+    pub session_idle_timeout_in_minutes: ::std::option::Option<i32>,
 }
 impl CreateManagedEndpointInput {
     /// <p>The name of the managed endpoint.</p>
@@ -61,6 +63,10 @@ impl CreateManagedEndpointInput {
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
+    /// <p>The idle timeout in minutes for the managed endpoint session.</p>
+    pub fn session_idle_timeout_in_minutes(&self) -> ::std::option::Option<i32> {
+        self.session_idle_timeout_in_minutes
+    }
 }
 impl CreateManagedEndpointInput {
     /// Creates a new builder-style object to manufacture [`CreateManagedEndpointInput`](crate::operation::create_managed_endpoint::CreateManagedEndpointInput).
@@ -82,6 +88,7 @@ pub struct CreateManagedEndpointInputBuilder {
     pub(crate) configuration_overrides: ::std::option::Option<crate::types::ConfigurationOverrides>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) session_idle_timeout_in_minutes: ::std::option::Option<i32>,
 }
 impl CreateManagedEndpointInputBuilder {
     /// <p>The name of the managed endpoint.</p>
@@ -225,6 +232,20 @@ impl CreateManagedEndpointInputBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
+    /// <p>The idle timeout in minutes for the managed endpoint session.</p>
+    pub fn session_idle_timeout_in_minutes(mut self, input: i32) -> Self {
+        self.session_idle_timeout_in_minutes = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The idle timeout in minutes for the managed endpoint session.</p>
+    pub fn set_session_idle_timeout_in_minutes(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.session_idle_timeout_in_minutes = input;
+        self
+    }
+    /// <p>The idle timeout in minutes for the managed endpoint session.</p>
+    pub fn get_session_idle_timeout_in_minutes(&self) -> &::std::option::Option<i32> {
+        &self.session_idle_timeout_in_minutes
+    }
     /// Consumes the builder and constructs a [`CreateManagedEndpointInput`](crate::operation::create_managed_endpoint::CreateManagedEndpointInput).
     pub fn build(
         self,
@@ -240,6 +261,7 @@ impl CreateManagedEndpointInputBuilder {
             configuration_overrides: self.configuration_overrides,
             client_token: self.client_token,
             tags: self.tags,
+            session_idle_timeout_in_minutes: self.session_idle_timeout_in_minutes,
         })
     }
 }

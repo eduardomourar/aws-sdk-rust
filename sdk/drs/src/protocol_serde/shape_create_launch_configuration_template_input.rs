@@ -27,18 +27,21 @@ pub fn ser_create_launch_configuration_template_input_input(
     if let Some(var_8) = &input.post_launch_enabled {
         object.key("postLaunchEnabled").boolean(*var_8);
     }
-    if let Some(var_9) = &input.tags {
+    if let Some(var_9) = &input.recovery_mode {
+        object.key("recoveryMode").string(var_9.as_str());
+    }
+    if let Some(var_10) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_10 = object.key("tags").start_object();
-        for (key_11, value_12) in var_9 {
+        let mut object_11 = object.key("tags").start_object();
+        for (key_12, value_13) in var_10 {
             {
-                object_10.key(key_11.as_str()).string(value_12.as_str());
+                object_11.key(key_12.as_str()).string(value_13.as_str());
             }
         }
-        object_10.finish();
+        object_11.finish();
     }
-    if let Some(var_13) = &input.target_instance_type_right_sizing_method {
-        object.key("targetInstanceTypeRightSizingMethod").string(var_13.as_str());
+    if let Some(var_14) = &input.target_instance_type_right_sizing_method {
+        object.key("targetInstanceTypeRightSizingMethod").string(var_14.as_str());
     }
     Ok(())
 }

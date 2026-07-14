@@ -21,6 +21,14 @@
 ///     ResourcesNumberField::SeverityOther => { /* ... */ },
 ///     ResourcesNumberField::SeverityUnknown => { /* ... */ },
 ///     ResourcesNumberField::TotalFindings => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiAgentFrameworkResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiAgentResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiAgentToolsAndIdentityResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiDevelopmentResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiExternalEndpointResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiModelResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedAiModelServingResourceCount => { /* ... */ },
+///     ResourcesNumberField::SelfHostedTotalAiResourceCount => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -67,6 +75,22 @@ pub enum ResourcesNumberField {
     SeverityUnknown,
     #[allow(missing_docs)] // documentation missing in model
     TotalFindings,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiAgentFrameworkResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiAgentResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiAgentToolsAndIdentityResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiDevelopmentResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiExternalEndpointResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiModelResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedAiModelServingResourceCount,
+    #[allow(missing_docs)] // documentation missing in model
+    SelfHostedTotalAiResourceCount,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -83,6 +107,16 @@ impl ::std::convert::From<&str> for ResourcesNumberField {
             "FindingsSummary.Severities.Other" => ResourcesNumberField::SeverityOther,
             "FindingsSummary.Severities.Unknown" => ResourcesNumberField::SeverityUnknown,
             "FindingsSummary.TotalFindings" => ResourcesNumberField::TotalFindings,
+            "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" => ResourcesNumberField::SelfHostedAiAgentFrameworkResourceCount,
+            "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" => ResourcesNumberField::SelfHostedAiAgentResourceCount,
+            "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" => {
+                ResourcesNumberField::SelfHostedAiAgentToolsAndIdentityResourceCount
+            }
+            "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" => ResourcesNumberField::SelfHostedAiDevelopmentResourceCount,
+            "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" => ResourcesNumberField::SelfHostedAiExternalEndpointResourceCount,
+            "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" => ResourcesNumberField::SelfHostedAiModelResourceCount,
+            "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" => ResourcesNumberField::SelfHostedAiModelServingResourceCount,
+            "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount" => ResourcesNumberField::SelfHostedTotalAiResourceCount,
             other => ResourcesNumberField::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -107,6 +141,16 @@ impl ResourcesNumberField {
             ResourcesNumberField::SeverityOther => "FindingsSummary.Severities.Other",
             ResourcesNumberField::SeverityUnknown => "FindingsSummary.Severities.Unknown",
             ResourcesNumberField::TotalFindings => "FindingsSummary.TotalFindings",
+            ResourcesNumberField::SelfHostedAiAgentFrameworkResourceCount => "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount",
+            ResourcesNumberField::SelfHostedAiAgentResourceCount => "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount",
+            ResourcesNumberField::SelfHostedAiAgentToolsAndIdentityResourceCount => {
+                "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount"
+            }
+            ResourcesNumberField::SelfHostedAiDevelopmentResourceCount => "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount",
+            ResourcesNumberField::SelfHostedAiExternalEndpointResourceCount => "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount",
+            ResourcesNumberField::SelfHostedAiModelResourceCount => "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount",
+            ResourcesNumberField::SelfHostedAiModelServingResourceCount => "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount",
+            ResourcesNumberField::SelfHostedTotalAiResourceCount => "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
             ResourcesNumberField::Unknown(value) => value.as_str(),
         }
     }
@@ -122,6 +166,14 @@ impl ResourcesNumberField {
             "FindingsSummary.Severities.Other",
             "FindingsSummary.Severities.Unknown",
             "FindingsSummary.TotalFindings",
+            "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount",
+            "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
         ]
     }
 }
@@ -154,6 +206,20 @@ impl ::std::fmt::Display for ResourcesNumberField {
             ResourcesNumberField::SeverityOther => write!(f, "FindingsSummary.Severities.Other"),
             ResourcesNumberField::SeverityUnknown => write!(f, "FindingsSummary.Severities.Unknown"),
             ResourcesNumberField::TotalFindings => write!(f, "FindingsSummary.TotalFindings"),
+            ResourcesNumberField::SelfHostedAiAgentFrameworkResourceCount => {
+                write!(f, "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount")
+            }
+            ResourcesNumberField::SelfHostedAiAgentResourceCount => write!(f, "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount"),
+            ResourcesNumberField::SelfHostedAiAgentToolsAndIdentityResourceCount => {
+                write!(f, "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount")
+            }
+            ResourcesNumberField::SelfHostedAiDevelopmentResourceCount => write!(f, "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount"),
+            ResourcesNumberField::SelfHostedAiExternalEndpointResourceCount => {
+                write!(f, "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount")
+            }
+            ResourcesNumberField::SelfHostedAiModelResourceCount => write!(f, "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount"),
+            ResourcesNumberField::SelfHostedAiModelServingResourceCount => write!(f, "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount"),
+            ResourcesNumberField::SelfHostedTotalAiResourceCount => write!(f, "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount"),
             ResourcesNumberField::Unknown(value) => write!(f, "{value}"),
         }
     }

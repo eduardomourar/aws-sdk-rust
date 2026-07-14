@@ -21,6 +21,8 @@ pub struct UpdateLaunchConfigurationInput {
     pub post_launch_enabled: ::std::option::Option<bool>,
     /// <p>Launch into existing instance properties.</p>
     pub launch_into_instance_properties: ::std::option::Option<crate::types::LaunchIntoInstanceProperties>,
+    /// <p>Recovery mode.</p>
+    pub recovery_mode: ::std::option::Option<crate::types::RecoveryMode>,
 }
 impl UpdateLaunchConfigurationInput {
     /// <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
@@ -59,6 +61,10 @@ impl UpdateLaunchConfigurationInput {
     pub fn launch_into_instance_properties(&self) -> ::std::option::Option<&crate::types::LaunchIntoInstanceProperties> {
         self.launch_into_instance_properties.as_ref()
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(&self) -> ::std::option::Option<&crate::types::RecoveryMode> {
+        self.recovery_mode.as_ref()
+    }
 }
 impl UpdateLaunchConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateLaunchConfigurationInput`](crate::operation::update_launch_configuration::UpdateLaunchConfigurationInput).
@@ -80,6 +86,7 @@ pub struct UpdateLaunchConfigurationInputBuilder {
     pub(crate) licensing: ::std::option::Option<crate::types::Licensing>,
     pub(crate) post_launch_enabled: ::std::option::Option<bool>,
     pub(crate) launch_into_instance_properties: ::std::option::Option<crate::types::LaunchIntoInstanceProperties>,
+    pub(crate) recovery_mode: ::std::option::Option<crate::types::RecoveryMode>,
 }
 impl UpdateLaunchConfigurationInputBuilder {
     /// <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
@@ -212,6 +219,20 @@ impl UpdateLaunchConfigurationInputBuilder {
     pub fn get_launch_into_instance_properties(&self) -> &::std::option::Option<crate::types::LaunchIntoInstanceProperties> {
         &self.launch_into_instance_properties
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(mut self, input: crate::types::RecoveryMode) -> Self {
+        self.recovery_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn set_recovery_mode(mut self, input: ::std::option::Option<crate::types::RecoveryMode>) -> Self {
+        self.recovery_mode = input;
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn get_recovery_mode(&self) -> &::std::option::Option<crate::types::RecoveryMode> {
+        &self.recovery_mode
+    }
     /// Consumes the builder and constructs a [`UpdateLaunchConfigurationInput`](crate::operation::update_launch_configuration::UpdateLaunchConfigurationInput).
     pub fn build(
         self,
@@ -229,6 +250,7 @@ impl UpdateLaunchConfigurationInputBuilder {
             licensing: self.licensing,
             post_launch_enabled: self.post_launch_enabled,
             launch_into_instance_properties: self.launch_into_instance_properties,
+            recovery_mode: self.recovery_mode,
         })
     }
 }

@@ -189,13 +189,13 @@ impl CreateHoursOfOperationFluentBuilder {
     /// To override the contents of this collection use [`set_parent_hours_of_operation_configs`](Self::set_parent_hours_of_operation_configs).
     ///
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub fn parent_hours_of_operation_configs(mut self, input: crate::types::ParentHoursOfOperationConfig) -> Self {
         self.inner = self.inner.parent_hours_of_operation_configs(input);
         self
     }
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub fn set_parent_hours_of_operation_configs(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ParentHoursOfOperationConfig>>,
@@ -204,7 +204,7 @@ impl CreateHoursOfOperationFluentBuilder {
         self
     }
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub fn get_parent_hours_of_operation_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParentHoursOfOperationConfig>> {
         self.inner.get_parent_hours_of_operation_configs()
     }

@@ -14,6 +14,8 @@ pub struct RuleSummary {
     pub event_source_name: crate::types::EventSourceName,
     /// <p>The publish status of the rule.</p>
     pub publish_status: crate::types::RulePublishStatus,
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub rule_capability_tiers: ::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>>,
     /// <p>A list of ActionTypes associated with a rule.</p>
     pub action_summaries: ::std::vec::Vec<crate::types::ActionSummary>,
     /// <p>The timestamp for when the rule was created.</p>
@@ -45,6 +47,12 @@ impl RuleSummary {
     pub fn publish_status(&self) -> &crate::types::RulePublishStatus {
         &self.publish_status
     }
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.rule_capability_tiers.is_none()`.
+    pub fn rule_capability_tiers(&self) -> &[crate::types::RuleCapabilityTier] {
+        self.rule_capability_tiers.as_deref().unwrap_or_default()
+    }
     /// <p>A list of ActionTypes associated with a rule.</p>
     pub fn action_summaries(&self) -> &[crate::types::ActionSummary] {
         use std::ops::Deref;
@@ -75,6 +83,7 @@ pub struct RuleSummaryBuilder {
     pub(crate) rule_arn: ::std::option::Option<::std::string::String>,
     pub(crate) event_source_name: ::std::option::Option<crate::types::EventSourceName>,
     pub(crate) publish_status: ::std::option::Option<crate::types::RulePublishStatus>,
+    pub(crate) rule_capability_tiers: ::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>>,
     pub(crate) action_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ActionSummary>>,
     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) last_updated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -154,6 +163,26 @@ impl RuleSummaryBuilder {
     /// <p>The publish status of the rule.</p>
     pub fn get_publish_status(&self) -> &::std::option::Option<crate::types::RulePublishStatus> {
         &self.publish_status
+    }
+    /// Appends an item to `rule_capability_tiers`.
+    ///
+    /// To override the contents of this collection use [`set_rule_capability_tiers`](Self::set_rule_capability_tiers).
+    ///
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub fn rule_capability_tiers(mut self, input: crate::types::RuleCapabilityTier) -> Self {
+        let mut v = self.rule_capability_tiers.unwrap_or_default();
+        v.push(input);
+        self.rule_capability_tiers = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub fn set_rule_capability_tiers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>>) -> Self {
+        self.rule_capability_tiers = input;
+        self
+    }
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub fn get_rule_capability_tiers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>> {
+        &self.rule_capability_tiers
     }
     /// Appends an item to `action_summaries`.
     ///
@@ -247,6 +276,7 @@ impl RuleSummaryBuilder {
                     "publish_status was not specified but it is required when building RuleSummary",
                 )
             })?,
+            rule_capability_tiers: self.rule_capability_tiers,
             action_summaries: self.action_summaries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "action_summaries",

@@ -21,6 +21,8 @@ pub struct UpdateLaunchConfigurationTemplateInput {
     pub post_launch_enabled: ::std::option::Option<bool>,
     /// <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
     pub launch_into_source_instance: ::std::option::Option<bool>,
+    /// <p>Recovery mode.</p>
+    pub recovery_mode: ::std::option::Option<crate::types::RecoveryMode>,
 }
 impl UpdateLaunchConfigurationTemplateInput {
     /// <p>Launch Configuration Template ID.</p>
@@ -59,6 +61,10 @@ impl UpdateLaunchConfigurationTemplateInput {
     pub fn launch_into_source_instance(&self) -> ::std::option::Option<bool> {
         self.launch_into_source_instance
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(&self) -> ::std::option::Option<&crate::types::RecoveryMode> {
+        self.recovery_mode.as_ref()
+    }
 }
 impl UpdateLaunchConfigurationTemplateInput {
     /// Creates a new builder-style object to manufacture [`UpdateLaunchConfigurationTemplateInput`](crate::operation::update_launch_configuration_template::UpdateLaunchConfigurationTemplateInput).
@@ -80,6 +86,7 @@ pub struct UpdateLaunchConfigurationTemplateInputBuilder {
     pub(crate) export_bucket_arn: ::std::option::Option<::std::string::String>,
     pub(crate) post_launch_enabled: ::std::option::Option<bool>,
     pub(crate) launch_into_source_instance: ::std::option::Option<bool>,
+    pub(crate) recovery_mode: ::std::option::Option<crate::types::RecoveryMode>,
 }
 impl UpdateLaunchConfigurationTemplateInputBuilder {
     /// <p>Launch Configuration Template ID.</p>
@@ -212,6 +219,20 @@ impl UpdateLaunchConfigurationTemplateInputBuilder {
     pub fn get_launch_into_source_instance(&self) -> &::std::option::Option<bool> {
         &self.launch_into_source_instance
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(mut self, input: crate::types::RecoveryMode) -> Self {
+        self.recovery_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn set_recovery_mode(mut self, input: ::std::option::Option<crate::types::RecoveryMode>) -> Self {
+        self.recovery_mode = input;
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn get_recovery_mode(&self) -> &::std::option::Option<crate::types::RecoveryMode> {
+        &self.recovery_mode
+    }
     /// Consumes the builder and constructs a [`UpdateLaunchConfigurationTemplateInput`](crate::operation::update_launch_configuration_template::UpdateLaunchConfigurationTemplateInput).
     pub fn build(
         self,
@@ -230,6 +251,7 @@ impl UpdateLaunchConfigurationTemplateInputBuilder {
                 export_bucket_arn: self.export_bucket_arn,
                 post_launch_enabled: self.post_launch_enabled,
                 launch_into_source_instance: self.launch_into_source_instance,
+                recovery_mode: self.recovery_mode,
             },
         )
     }

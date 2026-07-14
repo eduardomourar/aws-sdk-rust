@@ -47,6 +47,11 @@ where
                                 crate::protocol_serde::shape_rule_trigger_event_source::de_rule_trigger_event_source(tokens, _value, depth + 1)?,
                             );
                         }
+                        "RuleCapabilityTiers" => {
+                            builder = builder.set_rule_capability_tiers(
+                                crate::protocol_serde::shape_rule_capability_tiers::de_rule_capability_tiers(tokens, _value, depth + 1)?,
+                            );
+                        }
                         "Function" => {
                             builder = builder.set_function(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

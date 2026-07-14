@@ -60,5 +60,11 @@ pub fn ser_update_broker_input_input(
         }
         array_18.finish();
     }
+    if let Some(var_20) = &input.storage_size {
+        object.key("storageSize").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_20).into()),
+        );
+    }
     Ok(())
 }

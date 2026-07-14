@@ -371,6 +371,20 @@ impl CreateBrokerFluentBuilder {
     pub fn get_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_security_groups()
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(mut self, input: i32) -> Self {
+        self.inner = self.inner.storage_size(input);
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn set_storage_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.inner = self.inner.set_storage_size(input);
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn get_storage_size(&self) -> &::std::option::Option<i32> {
+        self.inner.get_storage_size()
+    }
     /// <p>The broker's storage type.</p>
     pub fn storage_type(mut self, input: crate::types::BrokerStorageType) -> Self {
         self.inner = self.inner.storage_type(input);

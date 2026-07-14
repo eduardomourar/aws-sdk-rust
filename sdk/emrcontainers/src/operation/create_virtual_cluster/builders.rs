@@ -183,4 +183,18 @@ impl CreateVirtualClusterFluentBuilder {
     pub fn get_security_configuration_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_security_configuration_id()
     }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn session_enabled(mut self, input: bool) -> Self {
+        self.inner = self.inner.session_enabled(input);
+        self
+    }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn set_session_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.inner = self.inner.set_session_enabled(input);
+        self
+    }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn get_session_enabled(&self) -> &::std::option::Option<bool> {
+        self.inner.get_session_enabled()
+    }
 }

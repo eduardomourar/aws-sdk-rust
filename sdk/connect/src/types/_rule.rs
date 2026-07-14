@@ -12,6 +12,8 @@ pub struct Rule {
     pub rule_arn: ::std::string::String,
     /// <p>The event source to trigger the rule.</p>
     pub trigger_event_source: ::std::option::Option<crate::types::RuleTriggerEventSource>,
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub rule_capability_tiers: ::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>>,
     /// <p>The conditions of the rule.</p>
     pub function: ::std::string::String,
     /// <p>A list of actions to be run when the rule is triggered.</p>
@@ -46,6 +48,12 @@ impl Rule {
     /// <p>The event source to trigger the rule.</p>
     pub fn trigger_event_source(&self) -> ::std::option::Option<&crate::types::RuleTriggerEventSource> {
         self.trigger_event_source.as_ref()
+    }
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.rule_capability_tiers.is_none()`.
+    pub fn rule_capability_tiers(&self) -> &[crate::types::RuleCapabilityTier] {
+        self.rule_capability_tiers.as_deref().unwrap_or_default()
     }
     /// <p>The conditions of the rule.</p>
     pub fn function(&self) -> &str {
@@ -94,6 +102,7 @@ pub struct RuleBuilder {
     pub(crate) rule_id: ::std::option::Option<::std::string::String>,
     pub(crate) rule_arn: ::std::option::Option<::std::string::String>,
     pub(crate) trigger_event_source: ::std::option::Option<crate::types::RuleTriggerEventSource>,
+    pub(crate) rule_capability_tiers: ::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>>,
     pub(crate) function: ::std::option::Option<::std::string::String>,
     pub(crate) actions: ::std::option::Option<::std::vec::Vec<crate::types::RuleAction>>,
     pub(crate) publish_status: ::std::option::Option<crate::types::RulePublishStatus>,
@@ -162,6 +171,26 @@ impl RuleBuilder {
     /// <p>The event source to trigger the rule.</p>
     pub fn get_trigger_event_source(&self) -> &::std::option::Option<crate::types::RuleTriggerEventSource> {
         &self.trigger_event_source
+    }
+    /// Appends an item to `rule_capability_tiers`.
+    ///
+    /// To override the contents of this collection use [`set_rule_capability_tiers`](Self::set_rule_capability_tiers).
+    ///
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub fn rule_capability_tiers(mut self, input: crate::types::RuleCapabilityTier) -> Self {
+        let mut v = self.rule_capability_tiers.unwrap_or_default();
+        v.push(input);
+        self.rule_capability_tiers = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub fn set_rule_capability_tiers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>>) -> Self {
+        self.rule_capability_tiers = input;
+        self
+    }
+    /// <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example, <code>GenerativeAI</code>).</p>
+    pub fn get_rule_capability_tiers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RuleCapabilityTier>> {
+        &self.rule_capability_tiers
     }
     /// <p>The conditions of the rule.</p>
     /// This field is required.
@@ -310,6 +339,7 @@ impl RuleBuilder {
                 )
             })?,
             trigger_event_source: self.trigger_event_source,
+            rule_capability_tiers: self.rule_capability_tiers,
             function: self.function.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "function",

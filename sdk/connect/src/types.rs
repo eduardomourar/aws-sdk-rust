@@ -313,6 +313,10 @@ pub use crate::types::_routing_profile_search_filter::RoutingProfileSearchFilter
 
 pub use crate::types::_routing_profile_search_criteria::RoutingProfileSearchCriteria;
 
+pub use crate::types::_rules_search_criteria::RulesSearchCriteria;
+
+pub use crate::types::_rules_search_filter::RulesSearchFilter;
+
 pub use crate::types::_security_profile_search_criteria::SecurityProfileSearchCriteria;
 
 pub use crate::types::_security_profiles_search_filter::SecurityProfilesSearchFilter;
@@ -841,6 +845,10 @@ pub use crate::types::_tag_search_condition::TagSearchCondition;
 
 pub use crate::types::_tag_set::TagSet;
 
+pub use crate::types::_rule_attribute_filter::RuleAttributeFilter;
+
+pub use crate::types::_rule_search_summary::RuleSearchSummary;
+
 pub use crate::types::_security_profile_search_summary::SecurityProfileSearchSummary;
 
 pub use crate::types::_control_plane_user_attribute_filter::ControlPlaneUserAttributeFilter;
@@ -1031,6 +1039,8 @@ pub use crate::types::_replication_status_summary::ReplicationStatusSummary;
 
 pub use crate::types::_phone_number_workflow_status::PhoneNumberWorkflowStatus;
 
+pub use crate::types::_rule_capability_tier::RuleCapabilityTier;
+
 pub use crate::types::_contact_metric_name::ContactMetricName;
 
 pub use crate::types::_contact_metric_value::ContactMetricValue;
@@ -1132,6 +1142,8 @@ pub use crate::types::_contact_search_summary_queue_info::ContactSearchSummaryQu
 pub use crate::types::_contact_search_summary_agent_info::ContactSearchSummaryAgentInfo;
 
 pub use crate::types::_date_comparison_type::DateComparisonType;
+
+pub use crate::types::_rule_attribute_and_condition::RuleAttributeAndCondition;
 
 pub use crate::types::_attribute_and_condition::AttributeAndCondition;
 
@@ -2639,13 +2651,25 @@ mod _rule;
 
 mod _rule_action;
 
+mod _rule_attribute_and_condition;
+
+mod _rule_attribute_filter;
+
+mod _rule_capability_tier;
+
 mod _rule_publish_status;
+
+mod _rule_search_summary;
 
 mod _rule_summary;
 
 mod _rule_trigger_event_source;
 
 mod _rules_configuration;
+
+mod _rules_search_criteria;
+
+mod _rules_search_filter;
 
 mod _s3_config;
 

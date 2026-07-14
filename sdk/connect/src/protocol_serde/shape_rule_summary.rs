@@ -56,6 +56,11 @@ where
                                     .transpose()?,
                             );
                         }
+                        "RuleCapabilityTiers" => {
+                            builder = builder.set_rule_capability_tiers(
+                                crate::protocol_serde::shape_rule_capability_tiers::de_rule_capability_tiers(tokens, _value, depth + 1)?,
+                            );
+                        }
                         "ActionSummaries" => {
                             builder = builder.set_action_summaries(crate::protocol_serde::shape_action_summaries::de_action_summaries(
                                 tokens,

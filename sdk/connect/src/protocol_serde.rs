@@ -573,6 +573,8 @@ pub(crate) mod shape_search_resource_tags;
 
 pub(crate) mod shape_search_routing_profiles;
 
+pub(crate) mod shape_search_rules;
+
 pub(crate) mod shape_search_security_profiles;
 
 pub(crate) mod shape_search_test_cases;
@@ -1080,6 +1082,8 @@ pub(crate) mod shape_search_quick_connects_input;
 pub(crate) mod shape_search_resource_tags_input;
 
 pub(crate) mod shape_search_routing_profiles_input;
+
+pub(crate) mod shape_search_rules_input;
 
 pub(crate) mod shape_search_security_profiles_input;
 
@@ -1763,9 +1767,15 @@ pub(crate) mod shape_rule;
 
 pub(crate) mod shape_rule_action;
 
+pub(crate) mod shape_rule_search_summary_list;
+
 pub(crate) mod shape_rule_summary_list;
 
 pub(crate) mod shape_rule_trigger_event_source;
+
+pub(crate) mod shape_rules_search_criteria;
+
+pub(crate) mod shape_rules_search_filter;
 
 pub(crate) mod shape_search_contacts_time_range;
 
@@ -2283,6 +2293,12 @@ pub(crate) mod shape_routing_profile_summary;
 
 pub(crate) mod shape_rule_actions;
 
+pub(crate) mod shape_rule_attribute_filter;
+
+pub(crate) mod shape_rule_capability_tiers;
+
+pub(crate) mod shape_rule_search_summary;
+
 pub(crate) mod shape_rule_summary;
 
 pub(crate) mod shape_rules_configuration;
@@ -2560,6 +2576,8 @@ pub(crate) mod shape_replication_status_summary;
 pub(crate) mod shape_routing_criteria_input_step_expiry;
 
 pub(crate) mod shape_routing_profile_reference;
+
+pub(crate) mod shape_rule_attribute_and_condition;
 
 pub(crate) mod shape_search_contacts_additional_time_range_criteria;
 

@@ -6,7 +6,7 @@ pub struct GetEffectiveHoursOfOperationsOutput {
     /// <p>Information about the effective hours of operations.</p>
     pub effective_hours_of_operation_list: ::std::option::Option<::std::vec::Vec<crate::types::EffectiveHoursOfOperations>>,
     /// <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub effective_override_hours_list: ::std::option::Option<::std::vec::Vec<crate::types::EffectiveOverrideHours>>,
     /// <p>The time zone for the hours of operation.</p>
     pub time_zone: ::std::option::Option<::std::string::String>,
@@ -20,7 +20,7 @@ impl GetEffectiveHoursOfOperationsOutput {
         self.effective_hours_of_operation_list.as_deref().unwrap_or_default()
     }
     /// <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.effective_override_hours_list.is_none()`.
     pub fn effective_override_hours_list(&self) -> &[crate::types::EffectiveOverrideHours] {
@@ -81,7 +81,7 @@ impl GetEffectiveHoursOfOperationsOutputBuilder {
     /// To override the contents of this collection use [`set_effective_override_hours_list`](Self::set_effective_override_hours_list).
     ///
     /// <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn effective_override_hours_list(mut self, input: crate::types::EffectiveOverrideHours) -> Self {
         let mut v = self.effective_override_hours_list.unwrap_or_default();
         v.push(input);
@@ -89,13 +89,13 @@ impl GetEffectiveHoursOfOperationsOutputBuilder {
         self
     }
     /// <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn set_effective_override_hours_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EffectiveOverrideHours>>) -> Self {
         self.effective_override_hours_list = input;
         self
     }
     /// <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn get_effective_override_hours_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EffectiveOverrideHours>> {
         &self.effective_override_hours_list
     }

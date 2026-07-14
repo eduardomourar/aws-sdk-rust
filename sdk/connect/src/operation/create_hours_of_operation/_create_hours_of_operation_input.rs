@@ -14,7 +14,7 @@ pub struct CreateHoursOfOperationInput {
     /// <p>Configuration information for the hours of operation: day, start time, and end time.</p>
     pub config: ::std::option::Option<::std::vec::Vec<crate::types::HoursOfOperationConfig>>,
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub parent_hours_of_operation_configs: ::std::option::Option<::std::vec::Vec<crate::types::ParentHoursOfOperationConfig>>,
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -43,7 +43,7 @@ impl CreateHoursOfOperationInput {
         self.config.as_deref().unwrap_or_default()
     }
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parent_hours_of_operation_configs.is_none()`.
     pub fn parent_hours_of_operation_configs(&self) -> &[crate::types::ParentHoursOfOperationConfig] {
@@ -158,7 +158,7 @@ impl CreateHoursOfOperationInputBuilder {
     /// To override the contents of this collection use [`set_parent_hours_of_operation_configs`](Self::set_parent_hours_of_operation_configs).
     ///
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub fn parent_hours_of_operation_configs(mut self, input: crate::types::ParentHoursOfOperationConfig) -> Self {
         let mut v = self.parent_hours_of_operation_configs.unwrap_or_default();
         v.push(input);
@@ -166,7 +166,7 @@ impl CreateHoursOfOperationInputBuilder {
         self
     }
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub fn set_parent_hours_of_operation_configs(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ParentHoursOfOperationConfig>>,
@@ -175,7 +175,7 @@ impl CreateHoursOfOperationInputBuilder {
         self
     }
     /// <p>Configuration for parent hours of operations. Eg: ResourceArn.</p>
-    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
     pub fn get_parent_hours_of_operation_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParentHoursOfOperationConfig>> {
         &self.parent_hours_of_operation_configs
     }

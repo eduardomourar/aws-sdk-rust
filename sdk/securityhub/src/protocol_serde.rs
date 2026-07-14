@@ -873,6 +873,8 @@ pub(crate) mod shape_resource_details;
 
 pub(crate) mod shape_resource_findings_summary_list;
 
+pub(crate) mod shape_resource_info;
+
 pub(crate) mod shape_resource_list;
 
 pub(crate) mod shape_resource_owner;
@@ -934,6 +936,8 @@ pub(crate) mod shape_action_remote_port_details;
 pub(crate) mod shape_actor;
 
 pub(crate) mod shape_adjustment;
+
+pub(crate) mod shape_ai_details;
 
 pub(crate) mod shape_associated_standards_list;
 

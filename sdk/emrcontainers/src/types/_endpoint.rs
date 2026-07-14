@@ -29,6 +29,8 @@ pub struct Endpoint {
     pub configuration_overrides: ::std::option::Option<crate::types::ConfigurationOverrides>,
     /// <p>The server URL of the endpoint.</p>
     pub server_url: ::std::option::Option<::std::string::String>,
+    /// <p>The auth proxy URL of the endpoint.</p>
+    pub auth_proxy_url: ::std::option::Option<::std::string::String>,
     /// <p>The date and time when the endpoint was created.</p>
     pub created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The security group configuration of the endpoint.</p>
@@ -92,6 +94,10 @@ impl Endpoint {
     pub fn server_url(&self) -> ::std::option::Option<&str> {
         self.server_url.as_deref()
     }
+    /// <p>The auth proxy URL of the endpoint.</p>
+    pub fn auth_proxy_url(&self) -> ::std::option::Option<&str> {
+        self.auth_proxy_url.as_deref()
+    }
     /// <p>The date and time when the endpoint was created.</p>
     pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.created_at.as_ref()
@@ -142,6 +148,7 @@ pub struct EndpointBuilder {
     pub(crate) certificate_authority: ::std::option::Option<crate::types::Certificate>,
     pub(crate) configuration_overrides: ::std::option::Option<crate::types::ConfigurationOverrides>,
     pub(crate) server_url: ::std::option::Option<::std::string::String>,
+    pub(crate) auth_proxy_url: ::std::option::Option<::std::string::String>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) security_group: ::std::option::Option<::std::string::String>,
     pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -321,6 +328,20 @@ impl EndpointBuilder {
     pub fn get_server_url(&self) -> &::std::option::Option<::std::string::String> {
         &self.server_url
     }
+    /// <p>The auth proxy URL of the endpoint.</p>
+    pub fn auth_proxy_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.auth_proxy_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The auth proxy URL of the endpoint.</p>
+    pub fn set_auth_proxy_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.auth_proxy_url = input;
+        self
+    }
+    /// <p>The auth proxy URL of the endpoint.</p>
+    pub fn get_auth_proxy_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.auth_proxy_url
+    }
     /// <p>The date and time when the endpoint was created.</p>
     pub fn created_at(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.created_at = ::std::option::Option::Some(input);
@@ -432,6 +453,7 @@ impl EndpointBuilder {
             certificate_authority: self.certificate_authority,
             configuration_overrides: self.configuration_overrides,
             server_url: self.server_url,
+            auth_proxy_url: self.auth_proxy_url,
             created_at: self.created_at,
             security_group: self.security_group,
             subnet_ids: self.subnet_ids,

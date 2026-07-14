@@ -23,7 +23,7 @@ impl crate::operation::list_child_hours_of_operations::builders::ListChildHoursO
 /// Fluent builder constructing a request to `ListChildHoursOfOperations`.
 ///
 /// <p>Provides information about the child hours of operations for the specified parent hours of operation.</p>
-/// <p>For more information about child hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
+/// <p>For more information about child hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListChildHoursOfOperationsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

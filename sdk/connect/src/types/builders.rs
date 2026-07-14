@@ -211,6 +211,10 @@ pub use crate::types::_routing_profile_search_filter::RoutingProfileSearchFilter
 
 pub use crate::types::_routing_profile_search_criteria::RoutingProfileSearchCriteriaBuilder;
 
+pub use crate::types::_rules_search_criteria::RulesSearchCriteriaBuilder;
+
+pub use crate::types::_rules_search_filter::RulesSearchFilterBuilder;
+
 pub use crate::types::_security_profile_search_criteria::SecurityProfileSearchCriteriaBuilder;
 
 pub use crate::types::_security_profiles_search_filter::SecurityProfilesSearchFilterBuilder;
@@ -653,6 +657,10 @@ pub use crate::types::_tag_search_condition::TagSearchConditionBuilder;
 
 pub use crate::types::_tag_set::TagSetBuilder;
 
+pub use crate::types::_rule_attribute_filter::RuleAttributeFilterBuilder;
+
+pub use crate::types::_rule_search_summary::RuleSearchSummaryBuilder;
+
 pub use crate::types::_security_profile_search_summary::SecurityProfileSearchSummaryBuilder;
 
 pub use crate::types::_control_plane_user_attribute_filter::ControlPlaneUserAttributeFilterBuilder;
@@ -860,6 +868,8 @@ pub use crate::types::_transcript::TranscriptBuilder;
 pub use crate::types::_contact_search_summary_queue_info::ContactSearchSummaryQueueInfoBuilder;
 
 pub use crate::types::_contact_search_summary_agent_info::ContactSearchSummaryAgentInfoBuilder;
+
+pub use crate::types::_rule_attribute_and_condition::RuleAttributeAndConditionBuilder;
 
 pub use crate::types::_attribute_and_condition::AttributeAndConditionBuilder;
 

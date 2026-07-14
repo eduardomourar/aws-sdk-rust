@@ -33,6 +33,8 @@ pub struct UpdateBrokerOutput {
     pub pending_data_replication_metadata: ::std::option::Option<crate::types::DataReplicationMetadataOutput>,
     /// <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
     pub pending_data_replication_mode: ::std::option::Option<crate::types::DataReplicationMode>,
+    /// <p>The broker's storage size in GB.</p>
+    pub storage_size: ::std::option::Option<i32>,
     _request_id: Option<String>,
 }
 impl UpdateBrokerOutput {
@@ -100,6 +102,10 @@ impl UpdateBrokerOutput {
     pub fn pending_data_replication_mode(&self) -> ::std::option::Option<&crate::types::DataReplicationMode> {
         self.pending_data_replication_mode.as_ref()
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(&self) -> ::std::option::Option<i32> {
+        self.storage_size
+    }
 }
 impl ::aws_types::request_id::RequestId for UpdateBrokerOutput {
     fn request_id(&self) -> Option<&str> {
@@ -132,6 +138,7 @@ pub struct UpdateBrokerOutputBuilder {
     pub(crate) data_replication_mode: ::std::option::Option<crate::types::DataReplicationMode>,
     pub(crate) pending_data_replication_metadata: ::std::option::Option<crate::types::DataReplicationMetadataOutput>,
     pub(crate) pending_data_replication_mode: ::std::option::Option<crate::types::DataReplicationMode>,
+    pub(crate) storage_size: ::std::option::Option<i32>,
     _request_id: Option<String>,
 }
 impl UpdateBrokerOutputBuilder {
@@ -357,6 +364,20 @@ impl UpdateBrokerOutputBuilder {
     pub fn get_pending_data_replication_mode(&self) -> &::std::option::Option<crate::types::DataReplicationMode> {
         &self.pending_data_replication_mode
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(mut self, input: i32) -> Self {
+        self.storage_size = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn set_storage_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.storage_size = input;
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn get_storage_size(&self) -> &::std::option::Option<i32> {
+        &self.storage_size
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -384,6 +405,7 @@ impl UpdateBrokerOutputBuilder {
             data_replication_mode: self.data_replication_mode,
             pending_data_replication_metadata: self.pending_data_replication_metadata,
             pending_data_replication_mode: self.pending_data_replication_mode,
+            storage_size: self.storage_size,
             _request_id: self._request_id,
         }
     }

@@ -22,7 +22,7 @@ impl crate::operation::create_connector::builders::CreateConnectorInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateConnector`.
 ///
-/// <p>Creates a cloud service provider management (CSPM) connector in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.</p>
+/// <p>Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateConnectorFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

@@ -145,6 +145,24 @@ where
                         "ResourceConfig" => {
                             builder = builder.set_resource_config(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
+                        "ResourceSubCategory" => {
+                            builder = builder.set_resource_sub_category(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ResourceSubCategory::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "DiscoveryType" => {
+                            builder = builder.set_discovery_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::DiscoveryType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "ResourceInfo" => {
+                            builder =
+                                builder.set_resource_info(crate::protocol_serde::shape_resource_info::de_resource_info(tokens, _value, depth + 1)?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

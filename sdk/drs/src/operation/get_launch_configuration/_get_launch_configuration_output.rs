@@ -23,6 +23,8 @@ pub struct GetLaunchConfigurationOutput {
     pub post_launch_enabled: ::std::option::Option<bool>,
     /// <p>Launch into existing instance properties.</p>
     pub launch_into_instance_properties: ::std::option::Option<crate::types::LaunchIntoInstanceProperties>,
+    /// <p>Recovery mode.</p>
+    pub recovery_mode: ::std::option::Option<crate::types::RecoveryMode>,
     _request_id: Option<String>,
 }
 impl GetLaunchConfigurationOutput {
@@ -66,6 +68,10 @@ impl GetLaunchConfigurationOutput {
     pub fn launch_into_instance_properties(&self) -> ::std::option::Option<&crate::types::LaunchIntoInstanceProperties> {
         self.launch_into_instance_properties.as_ref()
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(&self) -> ::std::option::Option<&crate::types::RecoveryMode> {
+        self.recovery_mode.as_ref()
+    }
 }
 impl ::aws_types::request_id::RequestId for GetLaunchConfigurationOutput {
     fn request_id(&self) -> Option<&str> {
@@ -93,6 +99,7 @@ pub struct GetLaunchConfigurationOutputBuilder {
     pub(crate) licensing: ::std::option::Option<crate::types::Licensing>,
     pub(crate) post_launch_enabled: ::std::option::Option<bool>,
     pub(crate) launch_into_instance_properties: ::std::option::Option<crate::types::LaunchIntoInstanceProperties>,
+    pub(crate) recovery_mode: ::std::option::Option<crate::types::RecoveryMode>,
     _request_id: Option<String>,
 }
 impl GetLaunchConfigurationOutputBuilder {
@@ -239,6 +246,20 @@ impl GetLaunchConfigurationOutputBuilder {
     pub fn get_launch_into_instance_properties(&self) -> &::std::option::Option<crate::types::LaunchIntoInstanceProperties> {
         &self.launch_into_instance_properties
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(mut self, input: crate::types::RecoveryMode) -> Self {
+        self.recovery_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn set_recovery_mode(mut self, input: ::std::option::Option<crate::types::RecoveryMode>) -> Self {
+        self.recovery_mode = input;
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn get_recovery_mode(&self) -> &::std::option::Option<crate::types::RecoveryMode> {
+        &self.recovery_mode
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -261,6 +282,7 @@ impl GetLaunchConfigurationOutputBuilder {
             licensing: self.licensing,
             post_launch_enabled: self.post_launch_enabled,
             launch_into_instance_properties: self.launch_into_instance_properties,
+            recovery_mode: self.recovery_mode,
             _request_id: self._request_id,
         }
     }

@@ -527,6 +527,15 @@ pub(crate) fn search_contacts_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn search_rules_output_output_correct_errors(
+    mut builder: crate::operation::search_rules::builders::SearchRulesOutputBuilder,
+) -> crate::operation::search_rules::builders::SearchRulesOutputBuilder {
+    if builder.rules.is_none() {
+        builder.rules = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn start_contact_evaluation_output_output_correct_errors(
     mut builder: crate::operation::start_contact_evaluation::builders::StartContactEvaluationOutputBuilder,
 ) -> crate::operation::start_contact_evaluation::builders::StartContactEvaluationOutputBuilder {
@@ -1547,6 +1556,42 @@ pub(crate) fn routing_profile_queue_config_summary_correct_errors(
     }
     if builder.channel.is_none() {
         builder.channel = "no value was set".parse::<crate::types::Channel>().ok()
+    }
+    builder
+}
+
+pub(crate) fn rule_search_summary_correct_errors(
+    mut builder: crate::types::builders::RuleSearchSummaryBuilder,
+) -> crate::types::builders::RuleSearchSummaryBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.rule_id.is_none() {
+        builder.rule_id = Some(Default::default())
+    }
+    if builder.rule_arn.is_none() {
+        builder.rule_arn = Some(Default::default())
+    }
+    if builder.trigger_event_source.is_none() {
+        builder.trigger_event_source = {
+            let builder = crate::types::builders::RuleTriggerEventSourceBuilder::default();
+            crate::serde_util::rule_trigger_event_source_correct_errors(builder).build().ok()
+        }
+    }
+    if builder.action_summaries.is_none() {
+        builder.action_summaries = Some(Default::default())
+    }
+    if builder.publish_status.is_none() {
+        builder.publish_status = "no value was set".parse::<crate::types::RulePublishStatus>().ok()
+    }
+    if builder.created_time.is_none() {
+        builder.created_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.last_updated_time.is_none() {
+        builder.last_updated_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.last_updated_by.is_none() {
+        builder.last_updated_by = Some(Default::default())
     }
     builder
 }

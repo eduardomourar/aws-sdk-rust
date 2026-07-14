@@ -75,39 +75,45 @@ pub fn ser_create_broker_input_input(
         }
         array_23.finish();
     }
-    if let Some(var_25) = &input.storage_type {
-        object.key("storageType").string(var_25.as_str());
+    if let Some(var_25) = &input.storage_size {
+        object.key("storageSize").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_25).into()),
+        );
     }
-    if let Some(var_26) = &input.subnet_ids {
-        let mut array_27 = object.key("subnetIds").start_array();
-        for item_28 in var_26 {
+    if let Some(var_26) = &input.storage_type {
+        object.key("storageType").string(var_26.as_str());
+    }
+    if let Some(var_27) = &input.subnet_ids {
+        let mut array_28 = object.key("subnetIds").start_array();
+        for item_29 in var_27 {
             {
-                array_27.value().string(item_28.as_str());
+                array_28.value().string(item_29.as_str());
             }
         }
-        array_27.finish();
+        array_28.finish();
     }
-    if let Some(var_29) = &input.tags {
+    if let Some(var_30) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_30 = object.key("tags").start_object();
-        for (key_31, value_32) in var_29 {
+        let mut object_31 = object.key("tags").start_object();
+        for (key_32, value_33) in var_30 {
             {
-                object_30.key(key_31.as_str()).string(value_32.as_str());
+                object_31.key(key_32.as_str()).string(value_33.as_str());
             }
         }
-        object_30.finish();
+        object_31.finish();
     }
-    if let Some(var_33) = &input.users {
-        let mut array_34 = object.key("users").start_array();
-        for item_35 in var_33 {
+    if let Some(var_34) = &input.users {
+        let mut array_35 = object.key("users").start_array();
+        for item_36 in var_34 {
             {
                 #[allow(unused_mut)]
-                let mut object_36 = array_34.value().start_object();
-                crate::protocol_serde::shape_user::ser_user(&mut object_36, item_35)?;
-                object_36.finish();
+                let mut object_37 = array_35.value().start_object();
+                crate::protocol_serde::shape_user::ser_user(&mut object_37, item_36)?;
+                object_37.finish();
             }
         }
-        array_34.finish();
+        array_35.finish();
     }
     Ok(())
 }

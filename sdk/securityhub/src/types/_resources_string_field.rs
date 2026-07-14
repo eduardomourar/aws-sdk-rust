@@ -14,6 +14,7 @@
 /// match resourcesstringfield {
 ///     ResourcesStringField::AccountId => { /* ... */ },
 ///     ResourcesStringField::AccountName => { /* ... */ },
+///     ResourcesStringField::DiscoveryType => { /* ... */ },
 ///     ResourcesStringField::FindingType => { /* ... */ },
 ///     ResourcesStringField::ProductName => { /* ... */ },
 ///     ResourcesStringField::Region => { /* ... */ },
@@ -21,11 +22,15 @@
 ///     ResourcesStringField::ResourceCloudPartition => { /* ... */ },
 ///     ResourcesStringField::ResourceGuid => { /* ... */ },
 ///     ResourcesStringField::ResourceId => { /* ... */ },
+///     ResourcesStringField::CanonicalId => { /* ... */ },
+///     ResourcesStringField::HostResourceGuid => { /* ... */ },
+///     ResourcesStringField::HostResourceType => { /* ... */ },
 ///     ResourcesStringField::ResourceName => { /* ... */ },
 ///     ResourcesStringField::ResourceOwnerAccountId => { /* ... */ },
 ///     ResourcesStringField::ResourceOwnerOrgId => { /* ... */ },
 ///     ResourcesStringField::ResourceProvider => { /* ... */ },
 ///     ResourcesStringField::ResourceRegion => { /* ... */ },
+///     ResourcesStringField::ResourceSubCategory => { /* ... */ },
 ///     ResourcesStringField::ResourceType => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -60,6 +65,8 @@ pub enum ResourcesStringField {
     #[allow(missing_docs)] // documentation missing in model
     AccountName,
     #[allow(missing_docs)] // documentation missing in model
+    DiscoveryType,
+    #[allow(missing_docs)] // documentation missing in model
     FindingType,
     #[allow(missing_docs)] // documentation missing in model
     ProductName,
@@ -74,6 +81,12 @@ pub enum ResourcesStringField {
     #[allow(missing_docs)] // documentation missing in model
     ResourceId,
     #[allow(missing_docs)] // documentation missing in model
+    CanonicalId,
+    #[allow(missing_docs)] // documentation missing in model
+    HostResourceGuid,
+    #[allow(missing_docs)] // documentation missing in model
+    HostResourceType,
+    #[allow(missing_docs)] // documentation missing in model
     ResourceName,
     #[allow(missing_docs)] // documentation missing in model
     ResourceOwnerAccountId,
@@ -83,6 +96,8 @@ pub enum ResourcesStringField {
     ResourceProvider,
     #[allow(missing_docs)] // documentation missing in model
     ResourceRegion,
+    #[allow(missing_docs)] // documentation missing in model
+    ResourceSubCategory,
     #[allow(missing_docs)] // documentation missing in model
     ResourceType,
     /// `Unknown` contains new variants that have been added since this code was generated.
@@ -94,6 +109,7 @@ impl ::std::convert::From<&str> for ResourcesStringField {
         match s {
             "AccountId" => ResourcesStringField::AccountId,
             "AccountName" => ResourcesStringField::AccountName,
+            "DiscoveryType" => ResourcesStringField::DiscoveryType,
             "FindingsSummary.FindingType" => ResourcesStringField::FindingType,
             "FindingsSummary.ProductName" => ResourcesStringField::ProductName,
             "Region" => ResourcesStringField::Region,
@@ -101,11 +117,15 @@ impl ::std::convert::From<&str> for ResourcesStringField {
             "ResourceCloudPartition" => ResourcesStringField::ResourceCloudPartition,
             "ResourceGuid" => ResourcesStringField::ResourceGuid,
             "ResourceId" => ResourcesStringField::ResourceId,
+            "ResourceInfo.AIDetails.CanonicalId" => ResourcesStringField::CanonicalId,
+            "ResourceInfo.AIDetails.HostResourceGuid" => ResourcesStringField::HostResourceGuid,
+            "ResourceInfo.AIDetails.HostResourceType" => ResourcesStringField::HostResourceType,
             "ResourceName" => ResourcesStringField::ResourceName,
             "ResourceOwnerAccountId" => ResourcesStringField::ResourceOwnerAccountId,
             "ResourceOwnerOrgId" => ResourcesStringField::ResourceOwnerOrgId,
             "ResourceProvider" => ResourcesStringField::ResourceProvider,
             "ResourceRegion" => ResourcesStringField::ResourceRegion,
+            "ResourceSubCategory" => ResourcesStringField::ResourceSubCategory,
             "ResourceType" => ResourcesStringField::ResourceType,
             other => ResourcesStringField::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -124,6 +144,7 @@ impl ResourcesStringField {
         match self {
             ResourcesStringField::AccountId => "AccountId",
             ResourcesStringField::AccountName => "AccountName",
+            ResourcesStringField::DiscoveryType => "DiscoveryType",
             ResourcesStringField::FindingType => "FindingsSummary.FindingType",
             ResourcesStringField::ProductName => "FindingsSummary.ProductName",
             ResourcesStringField::Region => "Region",
@@ -131,11 +152,15 @@ impl ResourcesStringField {
             ResourcesStringField::ResourceCloudPartition => "ResourceCloudPartition",
             ResourcesStringField::ResourceGuid => "ResourceGuid",
             ResourcesStringField::ResourceId => "ResourceId",
+            ResourcesStringField::CanonicalId => "ResourceInfo.AIDetails.CanonicalId",
+            ResourcesStringField::HostResourceGuid => "ResourceInfo.AIDetails.HostResourceGuid",
+            ResourcesStringField::HostResourceType => "ResourceInfo.AIDetails.HostResourceType",
             ResourcesStringField::ResourceName => "ResourceName",
             ResourcesStringField::ResourceOwnerAccountId => "ResourceOwnerAccountId",
             ResourcesStringField::ResourceOwnerOrgId => "ResourceOwnerOrgId",
             ResourcesStringField::ResourceProvider => "ResourceProvider",
             ResourcesStringField::ResourceRegion => "ResourceRegion",
+            ResourcesStringField::ResourceSubCategory => "ResourceSubCategory",
             ResourcesStringField::ResourceType => "ResourceType",
             ResourcesStringField::Unknown(value) => value.as_str(),
         }
@@ -145,6 +170,7 @@ impl ResourcesStringField {
         &[
             "AccountId",
             "AccountName",
+            "DiscoveryType",
             "FindingsSummary.FindingType",
             "FindingsSummary.ProductName",
             "Region",
@@ -152,11 +178,15 @@ impl ResourcesStringField {
             "ResourceCloudPartition",
             "ResourceGuid",
             "ResourceId",
+            "ResourceInfo.AIDetails.CanonicalId",
+            "ResourceInfo.AIDetails.HostResourceGuid",
+            "ResourceInfo.AIDetails.HostResourceType",
             "ResourceName",
             "ResourceOwnerAccountId",
             "ResourceOwnerOrgId",
             "ResourceProvider",
             "ResourceRegion",
+            "ResourceSubCategory",
             "ResourceType",
         ]
     }
@@ -183,6 +213,7 @@ impl ::std::fmt::Display for ResourcesStringField {
         match self {
             ResourcesStringField::AccountId => write!(f, "AccountId"),
             ResourcesStringField::AccountName => write!(f, "AccountName"),
+            ResourcesStringField::DiscoveryType => write!(f, "DiscoveryType"),
             ResourcesStringField::FindingType => write!(f, "FindingsSummary.FindingType"),
             ResourcesStringField::ProductName => write!(f, "FindingsSummary.ProductName"),
             ResourcesStringField::Region => write!(f, "Region"),
@@ -190,11 +221,15 @@ impl ::std::fmt::Display for ResourcesStringField {
             ResourcesStringField::ResourceCloudPartition => write!(f, "ResourceCloudPartition"),
             ResourcesStringField::ResourceGuid => write!(f, "ResourceGuid"),
             ResourcesStringField::ResourceId => write!(f, "ResourceId"),
+            ResourcesStringField::CanonicalId => write!(f, "ResourceInfo.AIDetails.CanonicalId"),
+            ResourcesStringField::HostResourceGuid => write!(f, "ResourceInfo.AIDetails.HostResourceGuid"),
+            ResourcesStringField::HostResourceType => write!(f, "ResourceInfo.AIDetails.HostResourceType"),
             ResourcesStringField::ResourceName => write!(f, "ResourceName"),
             ResourcesStringField::ResourceOwnerAccountId => write!(f, "ResourceOwnerAccountId"),
             ResourcesStringField::ResourceOwnerOrgId => write!(f, "ResourceOwnerOrgId"),
             ResourcesStringField::ResourceProvider => write!(f, "ResourceProvider"),
             ResourcesStringField::ResourceRegion => write!(f, "ResourceRegion"),
+            ResourcesStringField::ResourceSubCategory => write!(f, "ResourceSubCategory"),
             ResourcesStringField::ResourceType => write!(f, "ResourceType"),
             ResourcesStringField::Unknown(value) => write!(f, "{value}"),
         }

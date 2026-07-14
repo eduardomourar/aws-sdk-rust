@@ -155,6 +155,9 @@ pub(crate) fn de_get_managed_endpoint_session_credentials(
                 "credentials" => {
                     builder = builder.set_credentials(crate::protocol_serde::shape_credentials::de_credentials(tokens, _value, depth + 1)?);
                 }
+                "endpointCredentials" => {
+                    builder = builder.set_endpoint_credentials(crate::protocol_serde::shape_credentials::de_credentials(tokens, _value, depth + 1)?);
+                }
                 "expiresAt" => {
                     builder = builder.set_expires_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),

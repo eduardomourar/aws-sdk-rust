@@ -237,4 +237,18 @@ impl UpdateLaunchConfigurationTemplateFluentBuilder {
     pub fn get_launch_into_source_instance(&self) -> &::std::option::Option<bool> {
         self.inner.get_launch_into_source_instance()
     }
+    /// <p>Recovery mode.</p>
+    pub fn recovery_mode(mut self, input: crate::types::RecoveryMode) -> Self {
+        self.inner = self.inner.recovery_mode(input);
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn set_recovery_mode(mut self, input: ::std::option::Option<crate::types::RecoveryMode>) -> Self {
+        self.inner = self.inner.set_recovery_mode(input);
+        self
+    }
+    /// <p>Recovery mode.</p>
+    pub fn get_recovery_mode(&self) -> &::std::option::Option<crate::types::RecoveryMode> {
+        self.inner.get_recovery_mode()
+    }
 }

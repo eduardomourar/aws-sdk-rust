@@ -17,6 +17,8 @@ pub use crate::types::_target_instance_type_right_sizing_method::TargetInstanceT
 
 pub use crate::types::_licensing::Licensing;
 
+pub use crate::types::_recovery_mode::RecoveryMode;
+
 pub use crate::types::_launch_configuration_template::LaunchConfigurationTemplate;
 
 pub use crate::types::_describe_recovery_instances_request_filters::DescribeRecoveryInstancesRequestFilters;
@@ -346,6 +348,8 @@ mod _recovery_instance_failback;
 mod _recovery_instance_properties;
 
 mod _recovery_life_cycle;
+
+mod _recovery_mode;
 
 mod _recovery_result;
 

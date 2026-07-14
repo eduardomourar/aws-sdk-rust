@@ -22,7 +22,7 @@ impl crate::operation::associate_hours_of_operations::builders::AssociateHoursOf
 }
 /// Fluent builder constructing a request to `AssociateHoursOfOperations`.
 ///
-/// <p>Associates a set of hours of operations with another hours of operation. Refer to Administrator Guide <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html"> here </a> for more information on inheriting overrides from parent hours of operation(s).</p>
+/// <p>Associates a set of hours of operations with another hours of operation. For more information about inheriting overrides from parent hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Hours of operation overrides</a> in the Administrator Guide.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AssociateHoursOfOperationsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

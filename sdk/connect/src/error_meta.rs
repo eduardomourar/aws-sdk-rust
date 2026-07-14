@@ -10263,6 +10263,33 @@ impl From<crate::operation::search_routing_profiles::SearchRoutingProfilesError>
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_rules::SearchRulesError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_rules::SearchRulesError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::search_rules::SearchRulesError> for Error {
+    fn from(err: crate::operation::search_rules::SearchRulesError) -> Self {
+        match err {
+            crate::operation::search_rules::SearchRulesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::search_rules::SearchRulesError::InternalServiceException(inner) => Error::InternalServiceException(inner),
+            crate::operation::search_rules::SearchRulesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::search_rules::SearchRulesError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::search_rules::SearchRulesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::search_rules::SearchRulesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::search_rules::SearchRulesError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_security_profiles::SearchSecurityProfilesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

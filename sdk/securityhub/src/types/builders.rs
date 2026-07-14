@@ -237,6 +237,8 @@ pub use crate::types::_resources_trends_values::ResourcesTrendsValuesBuilder;
 
 pub use crate::types::_resources_composite_filter::ResourcesCompositeFilterBuilder;
 
+pub use crate::types::_resource_info::ResourceInfoBuilder;
+
 pub use crate::types::_parameter_definition::ParameterDefinitionBuilder;
 
 pub use crate::types::_cspm_provider_summary::CspmProviderSummaryBuilder;
@@ -284,6 +286,8 @@ pub use crate::types::_resources_count::ResourcesCountBuilder;
 pub use crate::types::_resource_findings_summary::ResourceFindingsSummaryBuilder;
 
 pub use crate::types::_resource_tag::ResourceTagBuilder;
+
+pub use crate::types::_ai_details::AiDetailsBuilder;
 
 pub use crate::types::_automation_rules_action_type_object_v2::AutomationRulesActionTypeObjectV2Builder;
 

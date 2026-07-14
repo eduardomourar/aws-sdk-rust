@@ -218,6 +218,13 @@ pub(crate) fn de_update_launch_configuration(
                 "postLaunchEnabled" => {
                     builder = builder.set_post_launch_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
+                "recoveryMode" => {
+                    builder = builder.set_recovery_mode(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::RecoveryMode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "sourceServerID" => {
                     builder = builder.set_source_server_id(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

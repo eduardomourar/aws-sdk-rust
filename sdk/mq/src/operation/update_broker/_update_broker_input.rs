@@ -30,6 +30,8 @@ pub struct UpdateBrokerInput {
     pub resource_share_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
     pub security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The broker's storage size in GB.</p>
+    pub storage_size: ::std::option::Option<i32>,
     /// <p>Defines whether this broker is a part of a data replication pair.</p>
     pub data_replication_mode: ::std::option::Option<crate::types::DataReplicationMode>,
 }
@@ -86,6 +88,10 @@ impl UpdateBrokerInput {
     pub fn security_groups(&self) -> &[::std::string::String] {
         self.security_groups.as_deref().unwrap_or_default()
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(&self) -> ::std::option::Option<i32> {
+        self.storage_size
+    }
     /// <p>Defines whether this broker is a part of a data replication pair.</p>
     pub fn data_replication_mode(&self) -> ::std::option::Option<&crate::types::DataReplicationMode> {
         self.data_replication_mode.as_ref()
@@ -113,6 +119,7 @@ pub struct UpdateBrokerInputBuilder {
     pub(crate) maintenance_window_start_time: ::std::option::Option<crate::types::WeeklyStartTime>,
     pub(crate) resource_share_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) storage_size: ::std::option::Option<i32>,
     pub(crate) data_replication_mode: ::std::option::Option<crate::types::DataReplicationMode>,
 }
 impl UpdateBrokerInputBuilder {
@@ -295,6 +302,20 @@ impl UpdateBrokerInputBuilder {
     pub fn get_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.security_groups
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(mut self, input: i32) -> Self {
+        self.storage_size = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn set_storage_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.storage_size = input;
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn get_storage_size(&self) -> &::std::option::Option<i32> {
+        &self.storage_size
+    }
     /// <p>Defines whether this broker is a part of a data replication pair.</p>
     pub fn data_replication_mode(mut self, input: crate::types::DataReplicationMode) -> Self {
         self.data_replication_mode = ::std::option::Option::Some(input);
@@ -325,6 +346,7 @@ impl UpdateBrokerInputBuilder {
             maintenance_window_start_time: self.maintenance_window_start_time,
             resource_share_arns: self.resource_share_arns,
             security_groups: self.security_groups,
+            storage_size: self.storage_size,
             data_replication_mode: self.data_replication_mode,
         })
     }

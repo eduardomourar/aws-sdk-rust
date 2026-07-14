@@ -779,6 +779,16 @@ pub(crate) fn reflens_search_routing_profiles_output_output_next_token(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn reflens_search_rules_output_output_next_token(
+    input: &crate::operation::search_rules::SearchRulesOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn reflens_search_security_profiles_output_output_next_token(
     input: &crate::operation::search_security_profiles::SearchSecurityProfilesOutput,
 ) -> ::std::option::Option<&::std::string::String> {
@@ -1360,6 +1370,13 @@ pub(crate) fn lens_search_routing_profiles_output_output_routing_profiles(
     input: crate::operation::search_routing_profiles::SearchRoutingProfilesOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::RoutingProfile>> {
     let input = input.routing_profiles?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_search_rules_output_output_rules(
+    input: crate::operation::search_rules::SearchRulesOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::RuleSearchSummary>> {
+    let input = input.rules;
     ::std::option::Option::Some(input)
 }
 

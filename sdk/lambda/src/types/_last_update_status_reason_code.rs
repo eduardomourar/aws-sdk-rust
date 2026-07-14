@@ -13,6 +13,7 @@
 /// # let lastupdatestatusreasoncode = unimplemented!();
 /// match lastupdatestatusreasoncode {
 ///     LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => { /* ... */ },
+///     LastUpdateStatusReasonCode::DependencyError => { /* ... */ },
 ///     LastUpdateStatusReasonCode::DisabledKmsKey => { /* ... */ },
 ///     LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => { /* ... */ },
 ///     LastUpdateStatusReasonCode::Ec2RequestLimitExceeded => { /* ... */ },
@@ -77,6 +78,8 @@
 pub enum LastUpdateStatusReasonCode {
     #[allow(missing_docs)] // documentation missing in model
     CapacityProviderScalingLimitExceeded,
+    #[allow(missing_docs)] // documentation missing in model
+    DependencyError,
     #[allow(missing_docs)] // documentation missing in model
     DisabledKmsKey,
     #[allow(missing_docs)] // documentation missing in model
@@ -153,6 +156,7 @@ impl ::std::convert::From<&str> for LastUpdateStatusReasonCode {
     fn from(s: &str) -> Self {
         match s {
             "CapacityProviderScalingLimitExceeded" => LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded,
+            "DependencyError" => LastUpdateStatusReasonCode::DependencyError,
             "DisabledKMSKey" => LastUpdateStatusReasonCode::DisabledKmsKey,
             "DisallowedByVpcEncryptionControl" => LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl,
             "EC2RequestLimitExceeded" => LastUpdateStatusReasonCode::Ec2RequestLimitExceeded,
@@ -203,6 +207,7 @@ impl LastUpdateStatusReasonCode {
     pub fn as_str(&self) -> &str {
         match self {
             LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => "CapacityProviderScalingLimitExceeded",
+            LastUpdateStatusReasonCode::DependencyError => "DependencyError",
             LastUpdateStatusReasonCode::DisabledKmsKey => "DisabledKMSKey",
             LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => "DisallowedByVpcEncryptionControl",
             LastUpdateStatusReasonCode::Ec2RequestLimitExceeded => "EC2RequestLimitExceeded",
@@ -244,6 +249,7 @@ impl LastUpdateStatusReasonCode {
     pub const fn values() -> &'static [&'static str] {
         &[
             "CapacityProviderScalingLimitExceeded",
+            "DependencyError",
             "DisabledKMSKey",
             "DisallowedByVpcEncryptionControl",
             "EC2RequestLimitExceeded",
@@ -302,6 +308,7 @@ impl ::std::fmt::Display for LastUpdateStatusReasonCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => write!(f, "CapacityProviderScalingLimitExceeded"),
+            LastUpdateStatusReasonCode::DependencyError => write!(f, "DependencyError"),
             LastUpdateStatusReasonCode::DisabledKmsKey => write!(f, "DisabledKMSKey"),
             LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => write!(f, "DisallowedByVpcEncryptionControl"),
             LastUpdateStatusReasonCode::Ec2RequestLimitExceeded => write!(f, "EC2RequestLimitExceeded"),

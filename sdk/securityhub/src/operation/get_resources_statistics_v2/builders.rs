@@ -24,6 +24,7 @@ impl crate::operation::get_resources_statistics_v2::builders::GetResourcesStatis
 ///
 /// <p>Retrieves statistical information about Amazon Web Services resources and their associated security findings.</p>
 /// <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you aggregate resources from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
+/// <p>If you set <code>GroupByField</code> to <code>ResourceSubCategory</code>, <code>ResourceInfo.AIDetails.HostResourceType</code>, or <code>ResourceInfo.AIDetails.CanonicalId</code>, you must include a <code>ResourceCategory</code> string filter with comparison set to <code>EQUALS</code> and value <code>AI/ML</code> in the corresponding <code>ResourceGroupByRule</code>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetResourcesStatisticsV2FluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

@@ -1495,6 +1495,8 @@ pub(crate) mod shape_validation_finding_scope;
 
 pub(crate) mod shape_accounts;
 
+pub(crate) mod shape_automation_targets;
+
 pub(crate) mod shape_azure_subscription;
 
 pub(crate) mod shape_azure_subscription_list;

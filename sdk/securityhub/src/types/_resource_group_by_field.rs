@@ -14,15 +14,19 @@
 /// match resourcegroupbyfield {
 ///     ResourceGroupByField::AccountId => { /* ... */ },
 ///     ResourceGroupByField::AccountName => { /* ... */ },
+///     ResourceGroupByField::DiscoveryType => { /* ... */ },
 ///     ResourceGroupByField::FindingType => { /* ... */ },
 ///     ResourceGroupByField::Region => { /* ... */ },
 ///     ResourceGroupByField::ResourceCategory => { /* ... */ },
 ///     ResourceGroupByField::ResourceCloudPartition => { /* ... */ },
+///     ResourceGroupByField::CanonicalId => { /* ... */ },
+///     ResourceGroupByField::HostResourceType => { /* ... */ },
 ///     ResourceGroupByField::ResourceName => { /* ... */ },
 ///     ResourceGroupByField::ResourceOwnerAccountId => { /* ... */ },
 ///     ResourceGroupByField::ResourceOwnerOrgId => { /* ... */ },
 ///     ResourceGroupByField::ResourceProvider => { /* ... */ },
 ///     ResourceGroupByField::ResourceRegion => { /* ... */ },
+///     ResourceGroupByField::ResourceSubCategory => { /* ... */ },
 ///     ResourceGroupByField::ResourceType => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -57,6 +61,8 @@ pub enum ResourceGroupByField {
     #[allow(missing_docs)] // documentation missing in model
     AccountName,
     #[allow(missing_docs)] // documentation missing in model
+    DiscoveryType,
+    #[allow(missing_docs)] // documentation missing in model
     FindingType,
     #[allow(missing_docs)] // documentation missing in model
     Region,
@@ -64,6 +70,10 @@ pub enum ResourceGroupByField {
     ResourceCategory,
     #[allow(missing_docs)] // documentation missing in model
     ResourceCloudPartition,
+    #[allow(missing_docs)] // documentation missing in model
+    CanonicalId,
+    #[allow(missing_docs)] // documentation missing in model
+    HostResourceType,
     #[allow(missing_docs)] // documentation missing in model
     ResourceName,
     #[allow(missing_docs)] // documentation missing in model
@@ -75,6 +85,8 @@ pub enum ResourceGroupByField {
     #[allow(missing_docs)] // documentation missing in model
     ResourceRegion,
     #[allow(missing_docs)] // documentation missing in model
+    ResourceSubCategory,
+    #[allow(missing_docs)] // documentation missing in model
     ResourceType,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
@@ -85,15 +97,19 @@ impl ::std::convert::From<&str> for ResourceGroupByField {
         match s {
             "AccountId" => ResourceGroupByField::AccountId,
             "AccountName" => ResourceGroupByField::AccountName,
+            "DiscoveryType" => ResourceGroupByField::DiscoveryType,
             "FindingsSummary.FindingType" => ResourceGroupByField::FindingType,
             "Region" => ResourceGroupByField::Region,
             "ResourceCategory" => ResourceGroupByField::ResourceCategory,
             "ResourceCloudPartition" => ResourceGroupByField::ResourceCloudPartition,
+            "ResourceInfo.AIDetails.CanonicalId" => ResourceGroupByField::CanonicalId,
+            "ResourceInfo.AIDetails.HostResourceType" => ResourceGroupByField::HostResourceType,
             "ResourceName" => ResourceGroupByField::ResourceName,
             "ResourceOwnerAccountId" => ResourceGroupByField::ResourceOwnerAccountId,
             "ResourceOwnerOrgId" => ResourceGroupByField::ResourceOwnerOrgId,
             "ResourceProvider" => ResourceGroupByField::ResourceProvider,
             "ResourceRegion" => ResourceGroupByField::ResourceRegion,
+            "ResourceSubCategory" => ResourceGroupByField::ResourceSubCategory,
             "ResourceType" => ResourceGroupByField::ResourceType,
             other => ResourceGroupByField::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -112,15 +128,19 @@ impl ResourceGroupByField {
         match self {
             ResourceGroupByField::AccountId => "AccountId",
             ResourceGroupByField::AccountName => "AccountName",
+            ResourceGroupByField::DiscoveryType => "DiscoveryType",
             ResourceGroupByField::FindingType => "FindingsSummary.FindingType",
             ResourceGroupByField::Region => "Region",
             ResourceGroupByField::ResourceCategory => "ResourceCategory",
             ResourceGroupByField::ResourceCloudPartition => "ResourceCloudPartition",
+            ResourceGroupByField::CanonicalId => "ResourceInfo.AIDetails.CanonicalId",
+            ResourceGroupByField::HostResourceType => "ResourceInfo.AIDetails.HostResourceType",
             ResourceGroupByField::ResourceName => "ResourceName",
             ResourceGroupByField::ResourceOwnerAccountId => "ResourceOwnerAccountId",
             ResourceGroupByField::ResourceOwnerOrgId => "ResourceOwnerOrgId",
             ResourceGroupByField::ResourceProvider => "ResourceProvider",
             ResourceGroupByField::ResourceRegion => "ResourceRegion",
+            ResourceGroupByField::ResourceSubCategory => "ResourceSubCategory",
             ResourceGroupByField::ResourceType => "ResourceType",
             ResourceGroupByField::Unknown(value) => value.as_str(),
         }
@@ -130,15 +150,19 @@ impl ResourceGroupByField {
         &[
             "AccountId",
             "AccountName",
+            "DiscoveryType",
             "FindingsSummary.FindingType",
             "Region",
             "ResourceCategory",
             "ResourceCloudPartition",
+            "ResourceInfo.AIDetails.CanonicalId",
+            "ResourceInfo.AIDetails.HostResourceType",
             "ResourceName",
             "ResourceOwnerAccountId",
             "ResourceOwnerOrgId",
             "ResourceProvider",
             "ResourceRegion",
+            "ResourceSubCategory",
             "ResourceType",
         ]
     }
@@ -165,15 +189,19 @@ impl ::std::fmt::Display for ResourceGroupByField {
         match self {
             ResourceGroupByField::AccountId => write!(f, "AccountId"),
             ResourceGroupByField::AccountName => write!(f, "AccountName"),
+            ResourceGroupByField::DiscoveryType => write!(f, "DiscoveryType"),
             ResourceGroupByField::FindingType => write!(f, "FindingsSummary.FindingType"),
             ResourceGroupByField::Region => write!(f, "Region"),
             ResourceGroupByField::ResourceCategory => write!(f, "ResourceCategory"),
             ResourceGroupByField::ResourceCloudPartition => write!(f, "ResourceCloudPartition"),
+            ResourceGroupByField::CanonicalId => write!(f, "ResourceInfo.AIDetails.CanonicalId"),
+            ResourceGroupByField::HostResourceType => write!(f, "ResourceInfo.AIDetails.HostResourceType"),
             ResourceGroupByField::ResourceName => write!(f, "ResourceName"),
             ResourceGroupByField::ResourceOwnerAccountId => write!(f, "ResourceOwnerAccountId"),
             ResourceGroupByField::ResourceOwnerOrgId => write!(f, "ResourceOwnerOrgId"),
             ResourceGroupByField::ResourceProvider => write!(f, "ResourceProvider"),
             ResourceGroupByField::ResourceRegion => write!(f, "ResourceRegion"),
+            ResourceGroupByField::ResourceSubCategory => write!(f, "ResourceSubCategory"),
             ResourceGroupByField::ResourceType => write!(f, "ResourceType"),
             ResourceGroupByField::Unknown(value) => write!(f, "{value}"),
         }

@@ -49,10 +49,14 @@ pub struct DescribeBrokerOutput {
     pub pending_ldap_server_metadata: ::std::option::Option<crate::types::LdapServerMetadataOutput>,
     /// <p>The list of pending security groups to authorize connections to brokers.</p>
     pub pending_security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The pending storage size in GB, to be applied on the next broker restart.</p>
+    pub pending_storage_size: ::std::option::Option<i32>,
     /// <p>Enables connections from applications outside of the VPC that hosts the broker's subnets.</p>
     pub publicly_accessible: ::std::option::Option<bool>,
     /// <p>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</p>
     pub security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The broker's storage size in GB.</p>
+    pub storage_size: ::std::option::Option<i32>,
     /// <p>The broker's storage type.</p>
     pub storage_type: ::std::option::Option<crate::types::BrokerStorageType>,
     /// <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.</p>
@@ -170,6 +174,10 @@ impl DescribeBrokerOutput {
     pub fn pending_security_groups(&self) -> &[::std::string::String] {
         self.pending_security_groups.as_deref().unwrap_or_default()
     }
+    /// <p>The pending storage size in GB, to be applied on the next broker restart.</p>
+    pub fn pending_storage_size(&self) -> ::std::option::Option<i32> {
+        self.pending_storage_size
+    }
     /// <p>Enables connections from applications outside of the VPC that hosts the broker's subnets.</p>
     pub fn publicly_accessible(&self) -> ::std::option::Option<bool> {
         self.publicly_accessible
@@ -179,6 +187,10 @@ impl DescribeBrokerOutput {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.security_groups.is_none()`.
     pub fn security_groups(&self) -> &[::std::string::String] {
         self.security_groups.as_deref().unwrap_or_default()
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(&self) -> ::std::option::Option<i32> {
+        self.storage_size
     }
     /// <p>The broker's storage type.</p>
     pub fn storage_type(&self) -> ::std::option::Option<&crate::types::BrokerStorageType> {
@@ -256,8 +268,10 @@ pub struct DescribeBrokerOutputBuilder {
     pub(crate) pending_host_instance_type: ::std::option::Option<::std::string::String>,
     pub(crate) pending_ldap_server_metadata: ::std::option::Option<crate::types::LdapServerMetadataOutput>,
     pub(crate) pending_security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) pending_storage_size: ::std::option::Option<i32>,
     pub(crate) publicly_accessible: ::std::option::Option<bool>,
     pub(crate) security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) storage_size: ::std::option::Option<i32>,
     pub(crate) storage_type: ::std::option::Option<crate::types::BrokerStorageType>,
     pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -609,6 +623,20 @@ impl DescribeBrokerOutputBuilder {
     pub fn get_pending_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.pending_security_groups
     }
+    /// <p>The pending storage size in GB, to be applied on the next broker restart.</p>
+    pub fn pending_storage_size(mut self, input: i32) -> Self {
+        self.pending_storage_size = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The pending storage size in GB, to be applied on the next broker restart.</p>
+    pub fn set_pending_storage_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.pending_storage_size = input;
+        self
+    }
+    /// <p>The pending storage size in GB, to be applied on the next broker restart.</p>
+    pub fn get_pending_storage_size(&self) -> &::std::option::Option<i32> {
+        &self.pending_storage_size
+    }
     /// <p>Enables connections from applications outside of the VPC that hosts the broker's subnets.</p>
     pub fn publicly_accessible(mut self, input: bool) -> Self {
         self.publicly_accessible = ::std::option::Option::Some(input);
@@ -642,6 +670,20 @@ impl DescribeBrokerOutputBuilder {
     /// <p>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</p>
     pub fn get_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.security_groups
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(mut self, input: i32) -> Self {
+        self.storage_size = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn set_storage_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.storage_size = input;
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn get_storage_size(&self) -> &::std::option::Option<i32> {
+        &self.storage_size
     }
     /// <p>The broker's storage type.</p>
     pub fn storage_type(mut self, input: crate::types::BrokerStorageType) -> Self {
@@ -808,8 +850,10 @@ impl DescribeBrokerOutputBuilder {
             pending_host_instance_type: self.pending_host_instance_type,
             pending_ldap_server_metadata: self.pending_ldap_server_metadata,
             pending_security_groups: self.pending_security_groups,
+            pending_storage_size: self.pending_storage_size,
             publicly_accessible: self.publicly_accessible,
             security_groups: self.security_groups,
+            storage_size: self.storage_size,
             storage_type: self.storage_type,
             subnet_ids: self.subnet_ids,
             tags: self.tags,

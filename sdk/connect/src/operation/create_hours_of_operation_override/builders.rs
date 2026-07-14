@@ -226,19 +226,19 @@ impl CreateHoursOfOperationOverrideFluentBuilder {
         self.inner.get_recurrence_config()
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn override_type(mut self, input: crate::types::OverrideType) -> Self {
         self.inner = self.inner.override_type(input);
         self
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn set_override_type(mut self, input: ::std::option::Option<crate::types::OverrideType>) -> Self {
         self.inner = self.inner.set_override_type(input);
         self
     }
     /// <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+    /// <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
     pub fn get_override_type(&self) -> &::std::option::Option<crate::types::OverrideType> {
         self.inner.get_override_type()
     }

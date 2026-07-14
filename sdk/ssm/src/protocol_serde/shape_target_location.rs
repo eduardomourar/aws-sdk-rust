@@ -137,7 +137,11 @@ where
                             )?);
                         }
                         "Targets" => {
-                            builder = builder.set_targets(crate::protocol_serde::shape_targets::de_targets(tokens, _value, depth + 1)?);
+                            builder = builder.set_targets(crate::protocol_serde::shape_automation_targets::de_automation_targets(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "TargetsMaxConcurrency" => {
                             builder = builder.set_targets_max_concurrency(

@@ -40,6 +40,12 @@ pub struct ResourceResult {
     pub resource_tags: ::std::option::Option<::std::vec::Vec<crate::types::ResourceTag>>,
     /// <p>The configuration details of a resource.</p>
     pub resource_config: ::std::option::Option<::aws_smithy_types::Document>,
+    /// <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+    pub resource_sub_category: ::std::option::Option<crate::types::ResourceSubCategory>,
+    /// <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+    pub discovery_type: ::std::option::Option<crate::types::DiscoveryType>,
+    /// <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+    pub resource_info: ::std::option::Option<crate::types::ResourceInfo>,
 }
 impl ResourceResult {
     /// <p>The global identifier used to identify a resource.</p>
@@ -118,6 +124,18 @@ impl ResourceResult {
     pub fn resource_config(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.resource_config.as_ref()
     }
+    /// <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+    pub fn resource_sub_category(&self) -> ::std::option::Option<&crate::types::ResourceSubCategory> {
+        self.resource_sub_category.as_ref()
+    }
+    /// <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+    pub fn discovery_type(&self) -> ::std::option::Option<&crate::types::DiscoveryType> {
+        self.discovery_type.as_ref()
+    }
+    /// <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+    pub fn resource_info(&self) -> ::std::option::Option<&crate::types::ResourceInfo> {
+        self.resource_info.as_ref()
+    }
 }
 impl ResourceResult {
     /// Creates a new builder-style object to manufacture [`ResourceResult`](crate::types::ResourceResult).
@@ -148,6 +166,9 @@ pub struct ResourceResultBuilder {
     pub(crate) findings_summary: ::std::option::Option<::std::vec::Vec<crate::types::ResourceFindingsSummary>>,
     pub(crate) resource_tags: ::std::option::Option<::std::vec::Vec<crate::types::ResourceTag>>,
     pub(crate) resource_config: ::std::option::Option<::aws_smithy_types::Document>,
+    pub(crate) resource_sub_category: ::std::option::Option<crate::types::ResourceSubCategory>,
+    pub(crate) discovery_type: ::std::option::Option<crate::types::DiscoveryType>,
+    pub(crate) resource_info: ::std::option::Option<crate::types::ResourceInfo>,
 }
 impl ResourceResultBuilder {
     /// <p>The global identifier used to identify a resource.</p>
@@ -420,6 +441,48 @@ impl ResourceResultBuilder {
     pub fn get_resource_config(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.resource_config
     }
+    /// <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+    pub fn resource_sub_category(mut self, input: crate::types::ResourceSubCategory) -> Self {
+        self.resource_sub_category = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+    pub fn set_resource_sub_category(mut self, input: ::std::option::Option<crate::types::ResourceSubCategory>) -> Self {
+        self.resource_sub_category = input;
+        self
+    }
+    /// <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+    pub fn get_resource_sub_category(&self) -> &::std::option::Option<crate::types::ResourceSubCategory> {
+        &self.resource_sub_category
+    }
+    /// <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+    pub fn discovery_type(mut self, input: crate::types::DiscoveryType) -> Self {
+        self.discovery_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+    pub fn set_discovery_type(mut self, input: ::std::option::Option<crate::types::DiscoveryType>) -> Self {
+        self.discovery_type = input;
+        self
+    }
+    /// <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+    pub fn get_discovery_type(&self) -> &::std::option::Option<crate::types::DiscoveryType> {
+        &self.discovery_type
+    }
+    /// <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+    pub fn resource_info(mut self, input: crate::types::ResourceInfo) -> Self {
+        self.resource_info = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+    pub fn set_resource_info(mut self, input: ::std::option::Option<crate::types::ResourceInfo>) -> Self {
+        self.resource_info = input;
+        self
+    }
+    /// <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+    pub fn get_resource_info(&self) -> &::std::option::Option<crate::types::ResourceInfo> {
+        &self.resource_info
+    }
     /// Consumes the builder and constructs a [`ResourceResult`](crate::types::ResourceResult).
     pub fn build(self) -> crate::types::ResourceResult {
         crate::types::ResourceResult {
@@ -441,6 +504,9 @@ impl ResourceResultBuilder {
             findings_summary: self.findings_summary,
             resource_tags: self.resource_tags,
             resource_config: self.resource_config,
+            resource_sub_category: self.resource_sub_category,
+            discovery_type: self.discovery_type,
+            resource_info: self.resource_info,
         }
     }
 }

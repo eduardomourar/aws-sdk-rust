@@ -40,6 +40,8 @@ pub struct CreateBrokerInput {
     pub publicly_accessible: ::std::option::Option<bool>,
     /// <p>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</p>
     pub security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The broker's storage size in GB.</p>
+    pub storage_size: ::std::option::Option<i32>,
     /// <p>The broker's storage type.</p>
     pub storage_type: ::std::option::Option<crate::types::BrokerStorageType>,
     /// <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.</p><important>
@@ -124,6 +126,10 @@ impl CreateBrokerInput {
     pub fn security_groups(&self) -> &[::std::string::String] {
         self.security_groups.as_deref().unwrap_or_default()
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(&self) -> ::std::option::Option<i32> {
+        self.storage_size
+    }
     /// <p>The broker's storage type.</p>
     pub fn storage_type(&self) -> ::std::option::Option<&crate::types::BrokerStorageType> {
         self.storage_type.as_ref()
@@ -181,6 +187,7 @@ pub struct CreateBrokerInputBuilder {
     pub(crate) maintenance_window_start_time: ::std::option::Option<crate::types::WeeklyStartTime>,
     pub(crate) publicly_accessible: ::std::option::Option<bool>,
     pub(crate) security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) storage_size: ::std::option::Option<i32>,
     pub(crate) storage_type: ::std::option::Option<crate::types::BrokerStorageType>,
     pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -428,6 +435,20 @@ impl CreateBrokerInputBuilder {
     pub fn get_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.security_groups
     }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn storage_size(mut self, input: i32) -> Self {
+        self.storage_size = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn set_storage_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.storage_size = input;
+        self
+    }
+    /// <p>The broker's storage size in GB.</p>
+    pub fn get_storage_size(&self) -> &::std::option::Option<i32> {
+        &self.storage_size
+    }
     /// <p>The broker's storage type.</p>
     pub fn storage_type(mut self, input: crate::types::BrokerStorageType) -> Self {
         self.storage_type = ::std::option::Option::Some(input);
@@ -556,6 +577,7 @@ impl CreateBrokerInputBuilder {
             maintenance_window_start_time: self.maintenance_window_start_time,
             publicly_accessible: self.publicly_accessible,
             security_groups: self.security_groups,
+            storage_size: self.storage_size,
             storage_type: self.storage_type,
             subnet_ids: self.subnet_ids,
             tags: self.tags,

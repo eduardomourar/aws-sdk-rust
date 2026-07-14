@@ -22,7 +22,7 @@ impl crate::operation::disassociate_hours_of_operations::builders::DisassociateH
 }
 /// Fluent builder constructing a request to `DisassociateHoursOfOperations`.
 ///
-/// <p>Disassociates a set of hours of operations with another hours of operation. Refer to Administrator Guide <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html"> here </a> for more information on inheriting overrides from parent hours of operation(s).</p>
+/// <p>Disassociates a set of hours of operations with another hours of operation. For more information about inheriting overrides from parent hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Hours of operation overrides</a> in the Administrator Guide.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DisassociateHoursOfOperationsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

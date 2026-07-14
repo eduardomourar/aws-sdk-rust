@@ -14,6 +14,7 @@
 /// match statereasoncode {
 ///     StateReasonCode::CapacityProviderScalingLimitExceeded => { /* ... */ },
 ///     StateReasonCode::Creating => { /* ... */ },
+///     StateReasonCode::DependencyError => { /* ... */ },
 ///     StateReasonCode::DisabledKmsKey => { /* ... */ },
 ///     StateReasonCode::DisallowedByVpcEncryptionControl => { /* ... */ },
 ///     StateReasonCode::DrainingDurableExecutions => { /* ... */ },
@@ -83,6 +84,8 @@ pub enum StateReasonCode {
     CapacityProviderScalingLimitExceeded,
     #[allow(missing_docs)] // documentation missing in model
     Creating,
+    #[allow(missing_docs)] // documentation missing in model
+    DependencyError,
     #[allow(missing_docs)] // documentation missing in model
     DisabledKmsKey,
     #[allow(missing_docs)] // documentation missing in model
@@ -166,6 +169,7 @@ impl ::std::convert::From<&str> for StateReasonCode {
         match s {
             "CapacityProviderScalingLimitExceeded" => StateReasonCode::CapacityProviderScalingLimitExceeded,
             "Creating" => StateReasonCode::Creating,
+            "DependencyError" => StateReasonCode::DependencyError,
             "DisabledKMSKey" => StateReasonCode::DisabledKmsKey,
             "DisallowedByVpcEncryptionControl" => StateReasonCode::DisallowedByVpcEncryptionControl,
             "DrainingDurableExecutions" => StateReasonCode::DrainingDurableExecutions,
@@ -220,6 +224,7 @@ impl StateReasonCode {
         match self {
             StateReasonCode::CapacityProviderScalingLimitExceeded => "CapacityProviderScalingLimitExceeded",
             StateReasonCode::Creating => "Creating",
+            StateReasonCode::DependencyError => "DependencyError",
             StateReasonCode::DisabledKmsKey => "DisabledKMSKey",
             StateReasonCode::DisallowedByVpcEncryptionControl => "DisallowedByVpcEncryptionControl",
             StateReasonCode::DrainingDurableExecutions => "DrainingDurableExecutions",
@@ -265,6 +270,7 @@ impl StateReasonCode {
         &[
             "CapacityProviderScalingLimitExceeded",
             "Creating",
+            "DependencyError",
             "DisabledKMSKey",
             "DisallowedByVpcEncryptionControl",
             "DrainingDurableExecutions",
@@ -327,6 +333,7 @@ impl ::std::fmt::Display for StateReasonCode {
         match self {
             StateReasonCode::CapacityProviderScalingLimitExceeded => write!(f, "CapacityProviderScalingLimitExceeded"),
             StateReasonCode::Creating => write!(f, "Creating"),
+            StateReasonCode::DependencyError => write!(f, "DependencyError"),
             StateReasonCode::DisabledKmsKey => write!(f, "DisabledKMSKey"),
             StateReasonCode::DisallowedByVpcEncryptionControl => write!(f, "DisallowedByVpcEncryptionControl"),
             StateReasonCode::DrainingDurableExecutions => write!(f, "DrainingDurableExecutions"),

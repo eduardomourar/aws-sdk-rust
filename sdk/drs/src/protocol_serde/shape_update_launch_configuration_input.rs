@@ -30,11 +30,14 @@ pub fn ser_update_launch_configuration_input_input(
     if let Some(var_9) = &input.post_launch_enabled {
         object.key("postLaunchEnabled").boolean(*var_9);
     }
-    if let Some(var_10) = &input.source_server_id {
-        object.key("sourceServerID").string(var_10.as_str());
+    if let Some(var_10) = &input.recovery_mode {
+        object.key("recoveryMode").string(var_10.as_str());
     }
-    if let Some(var_11) = &input.target_instance_type_right_sizing_method {
-        object.key("targetInstanceTypeRightSizingMethod").string(var_11.as_str());
+    if let Some(var_11) = &input.source_server_id {
+        object.key("sourceServerID").string(var_11.as_str());
+    }
+    if let Some(var_12) = &input.target_instance_type_right_sizing_method {
+        object.key("targetInstanceTypeRightSizingMethod").string(var_12.as_str());
     }
     Ok(())
 }

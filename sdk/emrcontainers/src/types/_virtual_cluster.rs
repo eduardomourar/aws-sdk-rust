@@ -20,6 +20,8 @@ pub struct VirtualCluster {
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The ID of the security configuration.</p>
     pub security_configuration_id: ::std::option::Option<::std::string::String>,
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub session_enabled: ::std::option::Option<bool>,
 }
 impl VirtualCluster {
     /// <p>The ID of the virtual cluster.</p>
@@ -54,6 +56,10 @@ impl VirtualCluster {
     pub fn security_configuration_id(&self) -> ::std::option::Option<&str> {
         self.security_configuration_id.as_deref()
     }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn session_enabled(&self) -> ::std::option::Option<bool> {
+        self.session_enabled
+    }
 }
 impl VirtualCluster {
     /// Creates a new builder-style object to manufacture [`VirtualCluster`](crate::types::VirtualCluster).
@@ -74,6 +80,7 @@ pub struct VirtualClusterBuilder {
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) security_configuration_id: ::std::option::Option<::std::string::String>,
+    pub(crate) session_enabled: ::std::option::Option<bool>,
 }
 impl VirtualClusterBuilder {
     /// <p>The ID of the virtual cluster.</p>
@@ -194,6 +201,20 @@ impl VirtualClusterBuilder {
     pub fn get_security_configuration_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.security_configuration_id
     }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn session_enabled(mut self, input: bool) -> Self {
+        self.session_enabled = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn set_session_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.session_enabled = input;
+        self
+    }
+    /// <p>Indicates whether the virtual cluster has session support enabled.</p>
+    pub fn get_session_enabled(&self) -> &::std::option::Option<bool> {
+        &self.session_enabled
+    }
     /// Consumes the builder and constructs a [`VirtualCluster`](crate::types::VirtualCluster).
     pub fn build(self) -> crate::types::VirtualCluster {
         crate::types::VirtualCluster {
@@ -205,6 +226,7 @@ impl VirtualClusterBuilder {
             created_at: self.created_at,
             tags: self.tags,
             security_configuration_id: self.security_configuration_id,
+            session_enabled: self.session_enabled,
         }
     }
 }

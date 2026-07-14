@@ -349,6 +349,12 @@ pub use crate::types::_resources_composite_filter::ResourcesCompositeFilter;
 
 pub use crate::types::_resource_category::ResourceCategory;
 
+pub use crate::types::_resource_sub_category::ResourceSubCategory;
+
+pub use crate::types::_discovery_type::DiscoveryType;
+
+pub use crate::types::_resource_info::ResourceInfo;
+
 pub use crate::types::_security_control_property::SecurityControlProperty;
 
 pub use crate::types::_parameter_definition::ParameterDefinition;
@@ -424,6 +430,8 @@ pub use crate::types::_resources_count::ResourcesCount;
 pub use crate::types::_resource_findings_summary::ResourceFindingsSummary;
 
 pub use crate::types::_resource_tag::ResourceTag;
+
+pub use crate::types::_ai_details::AiDetails;
 
 pub use crate::types::_configuration_options::ConfigurationOptions;
 
@@ -1725,6 +1733,8 @@ mod _admin_status;
 
 mod _aggregator_v2;
 
+mod _ai_details;
+
 mod _allowed_operators;
 
 mod _associated_standard;
@@ -2873,6 +2883,8 @@ mod _date_range_unit;
 
 mod _detection;
 
+mod _discovery_type;
+
 mod _dns_request_action;
 
 mod _double_configuration_options;
@@ -3131,6 +3143,8 @@ mod _resource_group_by_field;
 
 mod _resource_group_by_rule;
 
+mod _resource_info;
+
 mod _resource_owner;
 
 mod _resource_owner_account;
@@ -3142,6 +3156,8 @@ mod _resource_result;
 mod _resource_scopes;
 
 mod _resource_severity_breakdown;
+
+mod _resource_sub_category;
 
 mod _resource_tag;
 

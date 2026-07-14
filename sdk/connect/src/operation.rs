@@ -826,6 +826,9 @@ pub mod search_resource_tags;
 /// Types for the `SearchRoutingProfiles` operation.
 pub mod search_routing_profiles;
 
+/// Types for the `SearchRules` operation.
+pub mod search_rules;
+
 /// Types for the `SearchSecurityProfiles` operation.
 pub mod search_security_profiles;
 

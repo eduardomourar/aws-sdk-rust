@@ -4,7 +4,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AzureProviderConfiguration {
-    /// <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+    /// <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
     pub aws_config_connector_arn: ::std::option::Option<::std::string::String>,
     /// <p>The scope configuration that defines which Azure resources are monitored.</p>
     pub scope_configuration: ::std::option::Option<crate::types::AzureScopeConfiguration>,
@@ -12,7 +12,7 @@ pub struct AzureProviderConfiguration {
     pub azure_regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl AzureProviderConfiguration {
-    /// <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+    /// <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
     pub fn aws_config_connector_arn(&self) -> ::std::option::Option<&str> {
         self.aws_config_connector_arn.as_deref()
     }
@@ -43,18 +43,18 @@ pub struct AzureProviderConfigurationBuilder {
     pub(crate) azure_regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl AzureProviderConfigurationBuilder {
-    /// <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+    /// <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
     /// This field is required.
     pub fn aws_config_connector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.aws_config_connector_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+    /// <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
     pub fn set_aws_config_connector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.aws_config_connector_arn = input;
         self
     }
-    /// <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+    /// <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
     pub fn get_aws_config_connector_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.aws_config_connector_arn
     }

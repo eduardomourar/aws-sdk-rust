@@ -2748,6 +2748,10 @@ source_hash = 'b6c3b99c18db8f401d89900e3b0d6632fe9c999c3cab9697b54e0c341ad16572'
 category = 'AwsRuntime'
 version = '0.0.0'
 source_hash = '9ee143e688b866da58a59c8315db6f6cf7ffdbadcbcac2b39c961b39db06df03'
+
+[release]
+tag = 'release-2026-07-15'
+
 [release.crates]
 aws-sdk-bedrockagentcorecontrol = '1.63.0'
 aws-sdk-elasticloadbalancingv2 = '1.118.0'

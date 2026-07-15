@@ -23,15 +23,29 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+pub(crate) mod shape_create_data_transformation_profile;
+
 pub(crate) mod shape_create_fhir_datastore;
 
+pub(crate) mod shape_delete_data_transformation_profile;
+
 pub(crate) mod shape_delete_fhir_datastore;
+
+pub(crate) mod shape_describe_data_transformation_job;
 
 pub(crate) mod shape_describe_fhir_datastore;
 
 pub(crate) mod shape_describe_fhir_export_job;
 
 pub(crate) mod shape_describe_fhir_import_job;
+
+pub(crate) mod shape_get_data_transformation_profile;
+
+pub(crate) mod shape_list_data_transformation_jobs;
+
+pub(crate) mod shape_list_data_transformation_profile_versions;
+
+pub(crate) mod shape_list_data_transformation_profiles;
 
 pub(crate) mod shape_list_fhir_datastores;
 
@@ -41,6 +55,10 @@ pub(crate) mod shape_list_fhir_import_jobs;
 
 pub(crate) mod shape_list_tags_for_resource;
 
+pub(crate) mod shape_publish_data_transformation_profile;
+
+pub(crate) mod shape_start_data_transformation_job;
+
 pub(crate) mod shape_start_fhir_export_job;
 
 pub(crate) mod shape_start_fhir_import_job;
@@ -49,7 +67,11 @@ pub(crate) mod shape_tag_resource;
 
 pub(crate) mod shape_untag_resource;
 
+pub(crate) mod shape_update_data_transformation_profile;
+
 pub(crate) mod shape_update_fhir_datastore;
+
+pub(crate) mod shape_update_profile_with_agent;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
@@ -61,11 +83,21 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
 
 pub(crate) mod shape_access_denied_exception;
 
+pub(crate) mod shape_agent_message_out_of_context_exception;
+
 pub(crate) mod shape_conflict_exception;
+
+pub(crate) mod shape_conversation_not_found_exception;
+
+pub(crate) mod shape_create_data_transformation_profile_input;
 
 pub(crate) mod shape_create_fhir_datastore_input;
 
+pub(crate) mod shape_delete_data_transformation_profile_input;
+
 pub(crate) mod shape_delete_fhir_datastore_input;
+
+pub(crate) mod shape_describe_data_transformation_job_input;
 
 pub(crate) mod shape_describe_fhir_datastore_input;
 
@@ -73,7 +105,17 @@ pub(crate) mod shape_describe_fhir_export_job_input;
 
 pub(crate) mod shape_describe_fhir_import_job_input;
 
+pub(crate) mod shape_failed_dependency_exception;
+
+pub(crate) mod shape_get_data_transformation_profile_input;
+
 pub(crate) mod shape_internal_server_exception;
+
+pub(crate) mod shape_list_data_transformation_jobs_input;
+
+pub(crate) mod shape_list_data_transformation_profile_versions_input;
+
+pub(crate) mod shape_list_data_transformation_profiles_input;
 
 pub(crate) mod shape_list_fhir_datastores_input;
 
@@ -83,7 +125,15 @@ pub(crate) mod shape_list_fhir_import_jobs_input;
 
 pub(crate) mod shape_list_tags_for_resource_input;
 
+pub(crate) mod shape_not_implemented_operation_exception;
+
+pub(crate) mod shape_publish_data_transformation_profile_input;
+
 pub(crate) mod shape_resource_not_found_exception;
+
+pub(crate) mod shape_service_quota_exceeded_exception;
+
+pub(crate) mod shape_start_data_transformation_job_input;
 
 pub(crate) mod shape_start_fhir_export_job_input;
 
@@ -93,13 +143,31 @@ pub(crate) mod shape_tag_resource_input;
 
 pub(crate) mod shape_throttling_exception;
 
+pub(crate) mod shape_unauthorized_exception;
+
+pub(crate) mod shape_unsupported_mime_type_exception;
+
 pub(crate) mod shape_untag_resource_input;
+
+pub(crate) mod shape_update_data_transformation_profile_input;
 
 pub(crate) mod shape_update_fhir_datastore_input;
 
+pub(crate) mod shape_update_profile_with_agent_input;
+
 pub(crate) mod shape_validation_exception;
 
+pub(crate) mod shape_agent_input_message;
+
+pub(crate) mod shape_agent_output_message;
+
 pub(crate) mod shape_analytics_configuration;
+
+pub(crate) mod shape_create_data_transformation_profile_source;
+
+pub(crate) mod shape_data_transformation_profile_summary_list;
+
+pub(crate) mod shape_data_transformation_profile_version_summary_list;
 
 pub(crate) mod shape_datastore_filter;
 
@@ -127,18 +195,48 @@ pub(crate) mod shape_preload_data_config;
 
 pub(crate) mod shape_profile_configuration;
 
+pub(crate) mod shape_profile_mapping;
+
 pub(crate) mod shape_sse_configuration;
 
 pub(crate) mod shape_tag;
 
 pub(crate) mod shape_tag_list;
 
+pub(crate) mod shape_transformation_input_data_config;
+
+pub(crate) mod shape_transformation_job_properties;
+
+pub(crate) mod shape_transformation_job_summary_list;
+
+pub(crate) mod shape_transformation_output_data_config;
+
+pub(crate) mod shape_data_transformation_chat_options_list;
+
+pub(crate) mod shape_data_transformation_profile_summary;
+
+pub(crate) mod shape_data_transformation_profile_version_summary;
+
+pub(crate) mod shape_data_transformation_s3_configuration;
+
 pub(crate) mod shape_error_cause;
+
+pub(crate) mod shape_existing_versioned_profile_source;
 
 pub(crate) mod shape_job_progress_report;
 
 pub(crate) mod shape_kms_encryption_config;
 
+pub(crate) mod shape_profile_mapping_source;
+
 pub(crate) mod shape_s3_configuration;
+
+pub(crate) mod shape_sample_data_source;
+
+pub(crate) mod shape_starter_profile_source;
+
+pub(crate) mod shape_transformation_job_progress_report;
+
+pub(crate) mod shape_transformation_job_summary;
 
 pub(crate) mod shape_default_profiles;

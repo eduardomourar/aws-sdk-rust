@@ -11,6 +11,8 @@ pub use crate::types::_nlp_configuration::NlpConfigurationBuilder;
 
 pub use crate::types::_profile_configuration::ProfileConfigurationBuilder;
 
+pub use crate::types::_transformation_job_properties::TransformationJobPropertiesBuilder;
+
 pub use crate::types::_datastore_properties::DatastorePropertiesBuilder;
 
 pub use crate::types::_export_job_properties::ExportJobPropertiesBuilder;
@@ -19,12 +21,38 @@ pub use crate::types::_import_job_properties::ImportJobPropertiesBuilder;
 
 pub use crate::types::_datastore_filter::DatastoreFilterBuilder;
 
+pub use crate::types::_transformation_input_data_config::TransformationInputDataConfigBuilder;
+
+pub use crate::types::_transformation_output_data_config::TransformationOutputDataConfigBuilder;
+
+pub use crate::types::_agent_input_message::AgentInputMessageBuilder;
+
+pub use crate::types::_agent_output_message::AgentOutputMessageBuilder;
+
+pub use crate::types::_starter_profile_source::StarterProfileSourceBuilder;
+
+pub use crate::types::_existing_versioned_profile_source::ExistingVersionedProfileSourceBuilder;
+
+pub use crate::types::_profile_mapping_source::ProfileMappingSourceBuilder;
+
+pub use crate::types::_sample_data_source::SampleDataSourceBuilder;
+
 pub use crate::types::_kms_encryption_config::KmsEncryptionConfigBuilder;
 
 pub use crate::types::_tag::TagBuilder;
 
+pub use crate::types::_transformation_job_progress_report::TransformationJobProgressReportBuilder;
+
 pub use crate::types::_error_cause::ErrorCauseBuilder;
 
 pub use crate::types::_job_progress_report::JobProgressReportBuilder;
+
+pub use crate::types::_transformation_job_summary::TransformationJobSummaryBuilder;
+
+pub use crate::types::_data_transformation_profile_summary::DataTransformationProfileSummaryBuilder;
+
+pub use crate::types::_data_transformation_profile_version_summary::DataTransformationProfileVersionSummaryBuilder;
+
+pub use crate::types::_data_transformation_s3_configuration::DataTransformationS3ConfigurationBuilder;
 
 pub use crate::types::_s3_configuration::S3ConfigurationBuilder;

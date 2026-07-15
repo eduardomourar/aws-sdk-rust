@@ -35,6 +35,21 @@ pub fn de_start_fhir_import_job_http_error(
             }
             tmp
         }),
+        "FailedDependencyException" => crate::operation::start_fhir_import_job::StartFHIRImportJobError::FailedDependencyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::FailedDependencyExceptionBuilder::default();
+                output = crate::protocol_serde::shape_failed_dependency_exception::de_failed_dependency_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::start_fhir_import_job::StartFHIRImportJobError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerException" => crate::operation::start_fhir_import_job::StartFHIRImportJobError::InternalServerException({
             #[allow(unused_mut)]
             let mut tmp = {

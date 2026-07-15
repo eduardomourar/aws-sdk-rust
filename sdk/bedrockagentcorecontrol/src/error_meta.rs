@@ -5135,6 +5135,7 @@ impl From<crate::operation::update_policy::UpdatePolicyError> for Error {
             crate::operation::update_policy::UpdatePolicyError::ConflictException(inner) => Error::ConflictException(inner),
             crate::operation::update_policy::UpdatePolicyError::InternalServerException(inner) => Error::InternalServerException(inner),
             crate::operation::update_policy::UpdatePolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_policy::UpdatePolicyError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
             crate::operation::update_policy::UpdatePolicyError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::update_policy::UpdatePolicyError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::update_policy::UpdatePolicyError::Unhandled(inner) => Error::Unhandled(inner),

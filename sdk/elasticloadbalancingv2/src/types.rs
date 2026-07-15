@@ -139,6 +139,8 @@ pub use crate::types::_target_group_stickiness_config::TargetGroupStickinessConf
 
 pub use crate::types::_load_balancer_state_enum::LoadBalancerStateEnum;
 
+pub use crate::types::_source_ip_address_type_enum::SourceIpAddressTypeEnum;
+
 pub use crate::types::_capacity_reservation_state_enum::CapacityReservationStateEnum;
 
 pub use crate::types::_cipher::Cipher;
@@ -282,6 +284,8 @@ mod _rule_condition;
 mod _rule_priority_pair;
 
 mod _rule_transform;
+
+mod _source_ip_address_type_enum;
 
 mod _source_ip_condition_config;
 

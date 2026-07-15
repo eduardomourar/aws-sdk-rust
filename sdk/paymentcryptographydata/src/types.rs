@@ -79,6 +79,8 @@ pub use crate::types::_session_key_amex::SessionKeyAmex;
 
 pub use crate::types::_session_key_visa::SessionKeyVisa;
 
+pub use crate::types::_session_key_union_pay::SessionKeyUnionPay;
+
 pub use crate::types::_amex_card_security_code_version1::AmexCardSecurityCodeVersion1;
 
 pub use crate::types::_amex_card_security_code_version2::AmexCardSecurityCodeVersion2;
@@ -322,6 +324,8 @@ mod _session_key_emv2000;
 mod _session_key_emv_common;
 
 mod _session_key_mastercard;
+
+mod _session_key_union_pay;
 
 mod _session_key_visa;
 

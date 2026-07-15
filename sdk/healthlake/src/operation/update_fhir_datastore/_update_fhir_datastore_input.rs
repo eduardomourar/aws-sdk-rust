@@ -7,10 +7,10 @@ pub struct UpdateFhirDatastoreInput {
     pub datastore_id: ::std::option::Option<::std::string::String>,
     /// <p>The data store name.</p>
     pub datastore_name: ::std::option::Option<::std::string::String>,
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub nlp_configuration: ::std::option::Option<crate::types::NlpConfiguration>,
     /// <p>The analytics configuration for the data store.</p>
     pub analytics_configuration: ::std::option::Option<crate::types::AnalyticsConfiguration>,
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub nlp_configuration: ::std::option::Option<crate::types::NlpConfiguration>,
     /// <p>The profile configuration for the data store.</p>
     pub profile_configuration: ::std::option::Option<crate::types::ProfileConfiguration>,
     /// <p>The identity provider configuration for the data store.</p>
@@ -25,13 +25,13 @@ impl UpdateFhirDatastoreInput {
     pub fn datastore_name(&self) -> ::std::option::Option<&str> {
         self.datastore_name.as_deref()
     }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn nlp_configuration(&self) -> ::std::option::Option<&crate::types::NlpConfiguration> {
-        self.nlp_configuration.as_ref()
-    }
     /// <p>The analytics configuration for the data store.</p>
     pub fn analytics_configuration(&self) -> ::std::option::Option<&crate::types::AnalyticsConfiguration> {
         self.analytics_configuration.as_ref()
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn nlp_configuration(&self) -> ::std::option::Option<&crate::types::NlpConfiguration> {
+        self.nlp_configuration.as_ref()
     }
     /// <p>The profile configuration for the data store.</p>
     pub fn profile_configuration(&self) -> ::std::option::Option<&crate::types::ProfileConfiguration> {
@@ -55,8 +55,8 @@ impl UpdateFhirDatastoreInput {
 pub struct UpdateFhirDatastoreInputBuilder {
     pub(crate) datastore_id: ::std::option::Option<::std::string::String>,
     pub(crate) datastore_name: ::std::option::Option<::std::string::String>,
-    pub(crate) nlp_configuration: ::std::option::Option<crate::types::NlpConfiguration>,
     pub(crate) analytics_configuration: ::std::option::Option<crate::types::AnalyticsConfiguration>,
+    pub(crate) nlp_configuration: ::std::option::Option<crate::types::NlpConfiguration>,
     pub(crate) profile_configuration: ::std::option::Option<crate::types::ProfileConfiguration>,
     pub(crate) identity_provider_configuration: ::std::option::Option<crate::types::IdentityProviderConfiguration>,
 }
@@ -90,20 +90,6 @@ impl UpdateFhirDatastoreInputBuilder {
     pub fn get_datastore_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.datastore_name
     }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn nlp_configuration(mut self, input: crate::types::NlpConfiguration) -> Self {
-        self.nlp_configuration = ::std::option::Option::Some(input);
-        self
-    }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn set_nlp_configuration(mut self, input: ::std::option::Option<crate::types::NlpConfiguration>) -> Self {
-        self.nlp_configuration = input;
-        self
-    }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn get_nlp_configuration(&self) -> &::std::option::Option<crate::types::NlpConfiguration> {
-        &self.nlp_configuration
-    }
     /// <p>The analytics configuration for the data store.</p>
     pub fn analytics_configuration(mut self, input: crate::types::AnalyticsConfiguration) -> Self {
         self.analytics_configuration = ::std::option::Option::Some(input);
@@ -117,6 +103,20 @@ impl UpdateFhirDatastoreInputBuilder {
     /// <p>The analytics configuration for the data store.</p>
     pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
         &self.analytics_configuration
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn nlp_configuration(mut self, input: crate::types::NlpConfiguration) -> Self {
+        self.nlp_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn set_nlp_configuration(mut self, input: ::std::option::Option<crate::types::NlpConfiguration>) -> Self {
+        self.nlp_configuration = input;
+        self
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn get_nlp_configuration(&self) -> &::std::option::Option<crate::types::NlpConfiguration> {
+        &self.nlp_configuration
     }
     /// <p>The profile configuration for the data store.</p>
     pub fn profile_configuration(mut self, input: crate::types::ProfileConfiguration) -> Self {
@@ -154,8 +154,8 @@ impl UpdateFhirDatastoreInputBuilder {
         ::std::result::Result::Ok(crate::operation::update_fhir_datastore::UpdateFhirDatastoreInput {
             datastore_id: self.datastore_id,
             datastore_name: self.datastore_name,
-            nlp_configuration: self.nlp_configuration,
             analytics_configuration: self.analytics_configuration,
+            nlp_configuration: self.nlp_configuration,
             profile_configuration: self.profile_configuration,
             identity_provider_configuration: self.identity_provider_configuration,
         })

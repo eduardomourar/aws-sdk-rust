@@ -59,14 +59,14 @@ pub(crate) struct Handle {
 /// # Using the `Client`
 ///
 /// A client has a function for every operation that can be performed by the service.
-/// For example, the [`CreateFHIRDatastore`](crate::operation::create_fhir_datastore) operation has
-/// a [`Client::create_fhir_datastore`], function which returns a builder for that operation.
+/// For example, the [`CreateDataTransformationProfile`](crate::operation::create_data_transformation_profile) operation has
+/// a [`Client::create_data_transformation_profile`], function which returns a builder for that operation.
 /// The fluent builder ultimately has a `send()` function that returns an async future that
 /// returns a result, as illustrated below:
 ///
 /// ```rust,ignore
-/// let result = client.create_fhir_datastore()
-///     .datastore_name("example")
+/// let result = client.create_data_transformation_profile()
+///     .source_format("example")
 ///     .send()
 ///     .await;
 /// ```
@@ -140,6 +140,10 @@ impl Client {
 /// Import this trait to get `wait_until` methods on the client.
 ///
 pub trait Waiters {
+    /// Wait for `data_transformation_job_completed`
+    fn wait_until_data_transformation_job_completed(
+        &self,
+    ) -> crate::waiters::data_transformation_job_completed::DataTransformationJobCompletedFluentBuilder;
     /// Wait for `fhir_datastore_active`
     fn wait_until_fhir_datastore_active(&self) -> crate::waiters::fhir_datastore_active::FhirDatastoreActiveFluentBuilder;
     /// Wait for `fhir_datastore_deleted`
@@ -150,6 +154,11 @@ pub trait Waiters {
     fn wait_until_fhir_import_job_completed(&self) -> crate::waiters::fhir_import_job_completed::FhirImportJobCompletedFluentBuilder;
 }
 impl Waiters for Client {
+    fn wait_until_data_transformation_job_completed(
+        &self,
+    ) -> crate::waiters::data_transformation_job_completed::DataTransformationJobCompletedFluentBuilder {
+        crate::waiters::data_transformation_job_completed::DataTransformationJobCompletedFluentBuilder::new(self.handle.clone())
+    }
     fn wait_until_fhir_datastore_active(&self) -> crate::waiters::fhir_datastore_active::FhirDatastoreActiveFluentBuilder {
         crate::waiters::fhir_datastore_active::FhirDatastoreActiveFluentBuilder::new(self.handle.clone())
     }
@@ -180,6 +189,8 @@ impl Client {
     }
 }
 
+mod create_data_transformation_profile;
+
 mod create_fhir_datastore;
 
 /// Operation customization and supporting types.
@@ -193,7 +204,7 @@ mod create_fhir_datastore;
 /// # let client: aws_sdk_healthlake::Client = unimplemented!();
 /// use ::http_1x::header::{HeaderName, HeaderValue};
 ///
-/// let result = client.create_fhir_datastore()
+/// let result = client.create_data_transformation_profile()
 ///     .customize()
 ///     .mutate_request(|req| {
 ///         // Add `x-example-header` with value
@@ -209,13 +220,25 @@ mod create_fhir_datastore;
 /// ```
 pub mod customize;
 
+mod delete_data_transformation_profile;
+
 mod delete_fhir_datastore;
+
+mod describe_data_transformation_job;
 
 mod describe_fhir_datastore;
 
 mod describe_fhir_export_job;
 
 mod describe_fhir_import_job;
+
+mod get_data_transformation_profile;
+
+mod list_data_transformation_jobs;
+
+mod list_data_transformation_profile_versions;
+
+mod list_data_transformation_profiles;
 
 mod list_fhir_datastores;
 
@@ -225,6 +248,10 @@ mod list_fhir_import_jobs;
 
 mod list_tags_for_resource;
 
+mod publish_data_transformation_profile;
+
+mod start_data_transformation_job;
+
 mod start_fhir_export_job;
 
 mod start_fhir_import_job;
@@ -233,4 +260,8 @@ mod tag_resource;
 
 mod untag_resource;
 
+mod update_data_transformation_profile;
+
 mod update_fhir_datastore;
+
+mod update_profile_with_agent;

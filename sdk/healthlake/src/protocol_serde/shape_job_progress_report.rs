@@ -68,9 +68,70 @@ where
                                     .transpose()?,
                             );
                         }
+                        "TotalNumberOfScannedNonFhirFiles" => {
+                            builder = builder.set_total_number_of_scanned_non_fhir_files(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "TotalSizeOfScannedNonFhirFilesInMB" => {
+                            builder = builder.set_total_size_of_scanned_non_fhir_files_in_mb(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
+                            );
+                        }
+                        "TotalNumberOfImportedNonFhirFiles" => {
+                            builder = builder.set_total_number_of_imported_non_fhir_files(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "TotalNumberOfNonFhirResourcesScanned" => {
+                            builder = builder.set_total_number_of_non_fhir_resources_scanned(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "TotalNumberOfNonFhirResourcesImported" => {
+                            builder = builder.set_total_number_of_non_fhir_resources_imported(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "TotalNumberOfNonFhirResourcesWithCustomerError" => {
+                            builder = builder.set_total_number_of_non_fhir_resources_with_customer_error(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "TotalNumberOfNonFhirFilesReadWithCustomerError" => {
+                            builder = builder.set_total_number_of_non_fhir_files_read_with_customer_error(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
                         "Throughput" => {
                             builder = builder.set_throughput(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
+                            );
+                        }
+                        "TotalFilesConverted" => {
+                            builder = builder.set_total_files_converted(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "TotalResourcesGenerated" => {
+                            builder = builder.set_total_resources_generated(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -33,6 +33,9 @@ pub fn ser_harness_gemini_model_config(
             ::aws_smithy_types::Number::NegInt((*var_4).into()),
         );
     }
+    if let Some(var_5) = &input.additional_params {
+        object.key("additionalParams").document(var_5);
+    }
     Ok(())
 }
 
@@ -94,6 +97,9 @@ where
                                     .map(i32::try_from)
                                     .transpose()?,
                             );
+                        }
+                        "additionalParams" => {
+                            builder = builder.set_additional_params(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

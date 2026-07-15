@@ -34,6 +34,12 @@ pub fn ser_session_key_derivation(
             crate::protocol_serde::shape_session_key_visa::ser_session_key_visa(&mut object_5, inner)?;
             object_5.finish();
         }
+        crate::types::SessionKeyDerivation::UnionPay(inner) => {
+            #[allow(unused_mut)]
+            let mut object_6 = object_4.key("UnionPay").start_object();
+            crate::protocol_serde::shape_session_key_union_pay::ser_session_key_union_pay(&mut object_6, inner)?;
+            object_6.finish();
+        }
         crate::types::SessionKeyDerivation::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "SessionKeyDerivation",

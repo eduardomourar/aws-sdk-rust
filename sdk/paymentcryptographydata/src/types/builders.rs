@@ -35,6 +35,8 @@ pub use crate::types::_session_key_amex::SessionKeyAmexBuilder;
 
 pub use crate::types::_session_key_visa::SessionKeyVisaBuilder;
 
+pub use crate::types::_session_key_union_pay::SessionKeyUnionPayBuilder;
+
 pub use crate::types::_amex_card_security_code_version1::AmexCardSecurityCodeVersion1Builder;
 
 pub use crate::types::_amex_card_security_code_version2::AmexCardSecurityCodeVersion2Builder;

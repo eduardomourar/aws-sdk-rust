@@ -9,6 +9,15 @@ pub struct SourceIpConditionConfig {
     /// <p>If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions">HTTP header condition</a>.</p>
     /// <p>The total number of values must be less than, or equal to five.</p>
     pub values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    /// <p>The IP address type for Network Load Balancers.</p>
+    /// <p>The valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ipv4</code> – IPv4 addresses only.</p></li>
+    /// <li>
+    /// <p><code>ipv6</code> – IPv6 addresses only.</p></li>
+    /// </ul>
+    pub ip_address_type: ::std::option::Option<crate::types::SourceIpAddressTypeEnum>,
 }
 impl SourceIpConditionConfig {
     /// <p>The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.</p>
@@ -18,6 +27,17 @@ impl SourceIpConditionConfig {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.values.is_none()`.
     pub fn values(&self) -> &[::std::string::String] {
         self.values.as_deref().unwrap_or_default()
+    }
+    /// <p>The IP address type for Network Load Balancers.</p>
+    /// <p>The valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ipv4</code> – IPv4 addresses only.</p></li>
+    /// <li>
+    /// <p><code>ipv6</code> – IPv6 addresses only.</p></li>
+    /// </ul>
+    pub fn ip_address_type(&self) -> ::std::option::Option<&crate::types::SourceIpAddressTypeEnum> {
+        self.ip_address_type.as_ref()
     }
 }
 impl SourceIpConditionConfig {
@@ -32,6 +52,7 @@ impl SourceIpConditionConfig {
 #[non_exhaustive]
 pub struct SourceIpConditionConfigBuilder {
     pub(crate) values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) ip_address_type: ::std::option::Option<crate::types::SourceIpAddressTypeEnum>,
 }
 impl SourceIpConditionConfigBuilder {
     /// Appends an item to `values`.
@@ -60,8 +81,46 @@ impl SourceIpConditionConfigBuilder {
     pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.values
     }
+    /// <p>The IP address type for Network Load Balancers.</p>
+    /// <p>The valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ipv4</code> – IPv4 addresses only.</p></li>
+    /// <li>
+    /// <p><code>ipv6</code> – IPv6 addresses only.</p></li>
+    /// </ul>
+    pub fn ip_address_type(mut self, input: crate::types::SourceIpAddressTypeEnum) -> Self {
+        self.ip_address_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The IP address type for Network Load Balancers.</p>
+    /// <p>The valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ipv4</code> – IPv4 addresses only.</p></li>
+    /// <li>
+    /// <p><code>ipv6</code> – IPv6 addresses only.</p></li>
+    /// </ul>
+    pub fn set_ip_address_type(mut self, input: ::std::option::Option<crate::types::SourceIpAddressTypeEnum>) -> Self {
+        self.ip_address_type = input;
+        self
+    }
+    /// <p>The IP address type for Network Load Balancers.</p>
+    /// <p>The valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ipv4</code> – IPv4 addresses only.</p></li>
+    /// <li>
+    /// <p><code>ipv6</code> – IPv6 addresses only.</p></li>
+    /// </ul>
+    pub fn get_ip_address_type(&self) -> &::std::option::Option<crate::types::SourceIpAddressTypeEnum> {
+        &self.ip_address_type
+    }
     /// Consumes the builder and constructs a [`SourceIpConditionConfig`](crate::types::SourceIpConditionConfig).
     pub fn build(self) -> crate::types::SourceIpConditionConfig {
-        crate::types::SourceIpConditionConfig { values: self.values }
+        crate::types::SourceIpConditionConfig {
+            values: self.values,
+            ip_address_type: self.ip_address_type,
+        }
     }
 }

@@ -211,6 +211,8 @@ pub(crate) mod shape_session_key_emv_common;
 
 pub(crate) mod shape_session_key_mastercard;
 
+pub(crate) mod shape_session_key_union_pay;
+
 pub(crate) mod shape_session_key_visa;
 
 pub(crate) mod shape_symmetric_encryption_attributes;

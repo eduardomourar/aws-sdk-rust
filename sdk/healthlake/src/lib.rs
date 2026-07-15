@@ -35,7 +35,7 @@
 //! ```toml
 //! [dependencies]
 //! aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
-//! aws-sdk-healthlake = "1.108.0"
+//! aws-sdk-healthlake = "1.109.0"
 //! tokio = { version = "1", features = ["full"] }
 //! ```
 //!
@@ -152,14 +152,14 @@ pub use config::Config;
 /// # Using the `Client`
 ///
 /// A client has a function for every operation that can be performed by the service.
-/// For example, the [`CreateFHIRDatastore`](crate::operation::create_fhir_datastore) operation has
-/// a [`Client::create_fhir_datastore`], function which returns a builder for that operation.
+/// For example, the [`CreateDataTransformationProfile`](crate::operation::create_data_transformation_profile) operation has
+/// a [`Client::create_data_transformation_profile`], function which returns a builder for that operation.
 /// The fluent builder ultimately has a `send()` function that returns an async future that
 /// returns a result, as illustrated below:
 ///
 /// ```rust,ignore
-/// let result = client.create_fhir_datastore()
-///     .datastore_name("example")
+/// let result = client.create_data_transformation_profile()
+///     .source_format("example")
 ///     .send()
 ///     .await;
 /// ```

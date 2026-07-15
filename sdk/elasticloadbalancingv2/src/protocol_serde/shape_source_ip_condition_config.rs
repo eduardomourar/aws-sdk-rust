@@ -15,6 +15,11 @@ pub fn ser_source_ip_condition_config(
         }
         list_4.finish();
     }
+    #[allow(unused_mut)]
+    let mut scope_6 = writer.prefix("IpAddressType");
+    if let Some(var_7) = &input.ip_address_type {
+        scope_6.string(var_7.as_str());
+    }
     Ok(())
 }
 
@@ -31,13 +36,27 @@ pub fn de_source_ip_condition_config(
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("Values") /* Values com.amazonaws.elasticloadbalancingv2#SourceIpConditionConfig$Values */ =>  {
-                let var_6 =
+                let var_8 =
                     Some(
                         crate::protocol_serde::shape_list_of_string::de_list_of_string(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_values(var_6);
+                builder = builder.set_values(var_8);
+            }
+            ,
+            s if s.matches("IpAddressType") /* IpAddressType com.amazonaws.elasticloadbalancingv2#SourceIpConditionConfig$IpAddressType */ =>  {
+                let var_9 =
+                    Some(
+                        Result::<crate::types::SourceIpAddressTypeEnum, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::SourceIpAddressTypeEnum::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_ip_address_type(var_9);
             }
             ,
             _ => {}

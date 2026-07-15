@@ -30,5 +30,14 @@ pub fn ser_start_fhir_import_job_input_input(
     if let Some(var_9) = &input.validation_level {
         object.key("ValidationLevel").string(var_9.as_str());
     }
+    if let Some(var_10) = &input.profile_id {
+        object.key("ProfileId").string(var_10.as_str());
+    }
+    if let Some(var_11) = &input.input_format {
+        object.key("InputFormat").string(var_11.as_str());
+    }
+    if let Some(var_12) = &input.drift_detection_enabled {
+        object.key("DriftDetectionEnabled").boolean(*var_12);
+    }
     Ok(())
 }

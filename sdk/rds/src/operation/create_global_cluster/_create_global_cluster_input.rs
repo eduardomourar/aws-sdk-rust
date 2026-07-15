@@ -33,7 +33,7 @@ pub struct CreateGlobalClusterInput {
     /// <p>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this case, Amazon Aurora uses the engine version of the source DB cluster.</p></li>
     /// </ul>
     pub engine_version: ::std::option::Option<::std::string::String>,
-    /// <p>The life cycle type for this global database cluster.</p><note>
+    /// <p>The lifecycle type for this global database cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.</p>
     /// </note>
     /// <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>
@@ -99,7 +99,7 @@ impl CreateGlobalClusterInput {
     pub fn engine_version(&self) -> ::std::option::Option<&str> {
         self.engine_version.as_deref()
     }
-    /// <p>The life cycle type for this global database cluster.</p><note>
+    /// <p>The lifecycle type for this global database cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.</p>
     /// </note>
     /// <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>
@@ -283,7 +283,7 @@ impl CreateGlobalClusterInputBuilder {
     pub fn get_engine_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.engine_version
     }
-    /// <p>The life cycle type for this global database cluster.</p><note>
+    /// <p>The lifecycle type for this global database cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.</p>
     /// </note>
     /// <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>
@@ -294,7 +294,7 @@ impl CreateGlobalClusterInputBuilder {
         self.engine_lifecycle_support = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The life cycle type for this global database cluster.</p><note>
+    /// <p>The lifecycle type for this global database cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.</p>
     /// </note>
     /// <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>
@@ -305,7 +305,7 @@ impl CreateGlobalClusterInputBuilder {
         self.engine_lifecycle_support = input;
         self
     }
-    /// <p>The life cycle type for this global database cluster.</p><note>
+    /// <p>The lifecycle type for this global database cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.</p>
     /// </note>
     /// <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>

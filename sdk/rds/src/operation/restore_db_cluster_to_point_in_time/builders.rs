@@ -1157,7 +1157,7 @@ impl RestoreDBClusterToPointInTimeFluentBuilder {
     pub fn get_preferred_backup_window(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_preferred_backup_window()
     }
-    /// <p>The life cycle type for this DB cluster.</p><note>
+    /// <p>The lifecycle type for this DB cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.</p>
     /// </note>
     /// <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
@@ -1174,7 +1174,7 @@ impl RestoreDBClusterToPointInTimeFluentBuilder {
         self.inner = self.inner.engine_lifecycle_support(input.into());
         self
     }
-    /// <p>The life cycle type for this DB cluster.</p><note>
+    /// <p>The lifecycle type for this DB cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.</p>
     /// </note>
     /// <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
@@ -1191,7 +1191,7 @@ impl RestoreDBClusterToPointInTimeFluentBuilder {
         self.inner = self.inner.set_engine_lifecycle_support(input);
         self
     }
-    /// <p>The life cycle type for this DB cluster.</p><note>
+    /// <p>The lifecycle type for this DB cluster.</p><note>
     /// <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.</p>
     /// </note>
     /// <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>

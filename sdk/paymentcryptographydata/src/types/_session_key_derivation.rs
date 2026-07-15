@@ -12,6 +12,8 @@ pub enum SessionKeyDerivation {
     EmvCommon(crate::types::SessionKeyEmvCommon),
     /// <p>Parameters to derive session key for a Mastercard payment card for ARQC verification.</p>
     Mastercard(crate::types::SessionKeyMastercard),
+    /// <p>Parameters to derive session key for a UnionPay payment card for Authorization Request Cryptogram (ARQC) generation and verification.</p>
+    UnionPay(crate::types::SessionKeyUnionPay),
     /// <p>Parameters to derive session key for a Visa payment cardfor ARQC verification.</p>
     Visa(crate::types::SessionKeyVisa),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -76,6 +78,19 @@ impl SessionKeyDerivation {
     /// Returns true if this is a [`Mastercard`](crate::types::SessionKeyDerivation::Mastercard).
     pub fn is_mastercard(&self) -> bool {
         self.as_mastercard().is_ok()
+    }
+    /// Tries to convert the enum instance into [`UnionPay`](crate::types::SessionKeyDerivation::UnionPay), extracting the inner [`SessionKeyUnionPay`](crate::types::SessionKeyUnionPay).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_union_pay(&self) -> ::std::result::Result<&crate::types::SessionKeyUnionPay, &Self> {
+        if let SessionKeyDerivation::UnionPay(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`UnionPay`](crate::types::SessionKeyDerivation::UnionPay).
+    pub fn is_union_pay(&self) -> bool {
+        self.as_union_pay().is_ok()
     }
     /// Tries to convert the enum instance into [`Visa`](crate::types::SessionKeyDerivation::Visa), extracting the inner [`SessionKeyVisa`](crate::types::SessionKeyVisa).
     /// Returns `Err(&Self)` if it can't be converted.

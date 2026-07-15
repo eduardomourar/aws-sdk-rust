@@ -136,20 +136,6 @@ impl UpdateFHIRDatastoreFluentBuilder {
     pub fn get_datastore_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_datastore_name()
     }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn nlp_configuration(mut self, input: crate::types::NlpConfiguration) -> Self {
-        self.inner = self.inner.nlp_configuration(input);
-        self
-    }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn set_nlp_configuration(mut self, input: ::std::option::Option<crate::types::NlpConfiguration>) -> Self {
-        self.inner = self.inner.set_nlp_configuration(input);
-        self
-    }
-    /// <p>The natural language processing (NLP) configuration for the data store.</p>
-    pub fn get_nlp_configuration(&self) -> &::std::option::Option<crate::types::NlpConfiguration> {
-        self.inner.get_nlp_configuration()
-    }
     /// <p>The analytics configuration for the data store.</p>
     pub fn analytics_configuration(mut self, input: crate::types::AnalyticsConfiguration) -> Self {
         self.inner = self.inner.analytics_configuration(input);
@@ -163,6 +149,20 @@ impl UpdateFHIRDatastoreFluentBuilder {
     /// <p>The analytics configuration for the data store.</p>
     pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
         self.inner.get_analytics_configuration()
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn nlp_configuration(mut self, input: crate::types::NlpConfiguration) -> Self {
+        self.inner = self.inner.nlp_configuration(input);
+        self
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn set_nlp_configuration(mut self, input: ::std::option::Option<crate::types::NlpConfiguration>) -> Self {
+        self.inner = self.inner.set_nlp_configuration(input);
+        self
+    }
+    /// <p>The natural language processing (NLP) configuration for the data store.</p>
+    pub fn get_nlp_configuration(&self) -> &::std::option::Option<crate::types::NlpConfiguration> {
+        self.inner.get_nlp_configuration()
     }
     /// <p>The profile configuration for the data store.</p>
     pub fn profile_configuration(mut self, input: crate::types::ProfileConfiguration) -> Self {

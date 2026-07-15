@@ -16,6 +16,7 @@
 ///     SessionKeyDerivationMode::Emv2000 => { /* ... */ },
 ///     SessionKeyDerivationMode::EmvCommonSessionKey => { /* ... */ },
 ///     SessionKeyDerivationMode::MastercardSessionKey => { /* ... */ },
+///     SessionKeyDerivationMode::UnionPay => { /* ... */ },
 ///     SessionKeyDerivationMode::Visa => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -54,6 +55,8 @@ pub enum SessionKeyDerivationMode {
     #[allow(missing_docs)] // documentation missing in model
     MastercardSessionKey,
     #[allow(missing_docs)] // documentation missing in model
+    UnionPay,
+    #[allow(missing_docs)] // documentation missing in model
     Visa,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
@@ -66,6 +69,7 @@ impl ::std::convert::From<&str> for SessionKeyDerivationMode {
             "EMV2000" => SessionKeyDerivationMode::Emv2000,
             "EMV_COMMON_SESSION_KEY" => SessionKeyDerivationMode::EmvCommonSessionKey,
             "MASTERCARD_SESSION_KEY" => SessionKeyDerivationMode::MastercardSessionKey,
+            "UNION_PAY" => SessionKeyDerivationMode::UnionPay,
             "VISA" => SessionKeyDerivationMode::Visa,
             other => SessionKeyDerivationMode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -86,13 +90,14 @@ impl SessionKeyDerivationMode {
             SessionKeyDerivationMode::Emv2000 => "EMV2000",
             SessionKeyDerivationMode::EmvCommonSessionKey => "EMV_COMMON_SESSION_KEY",
             SessionKeyDerivationMode::MastercardSessionKey => "MASTERCARD_SESSION_KEY",
+            SessionKeyDerivationMode::UnionPay => "UNION_PAY",
             SessionKeyDerivationMode::Visa => "VISA",
             SessionKeyDerivationMode::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["AMEX", "EMV2000", "EMV_COMMON_SESSION_KEY", "MASTERCARD_SESSION_KEY", "VISA"]
+        &["AMEX", "EMV2000", "EMV_COMMON_SESSION_KEY", "MASTERCARD_SESSION_KEY", "UNION_PAY", "VISA"]
     }
 }
 impl ::std::convert::AsRef<str> for SessionKeyDerivationMode {
@@ -119,6 +124,7 @@ impl ::std::fmt::Display for SessionKeyDerivationMode {
             SessionKeyDerivationMode::Emv2000 => write!(f, "EMV2000"),
             SessionKeyDerivationMode::EmvCommonSessionKey => write!(f, "EMV_COMMON_SESSION_KEY"),
             SessionKeyDerivationMode::MastercardSessionKey => write!(f, "MASTERCARD_SESSION_KEY"),
+            SessionKeyDerivationMode::UnionPay => write!(f, "UNION_PAY"),
             SessionKeyDerivationMode::Visa => write!(f, "VISA"),
             SessionKeyDerivationMode::Unknown(value) => write!(f, "{value}"),
         }

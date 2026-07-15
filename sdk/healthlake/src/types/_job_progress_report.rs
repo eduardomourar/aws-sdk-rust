@@ -18,8 +18,26 @@ pub struct JobProgressReport {
     pub total_number_of_resources_with_customer_error: ::std::option::Option<i64>,
     /// <p>The number of files that failed to be read from the S3 input bucket due to customer error.</p>
     pub total_number_of_files_read_with_customer_error: ::std::option::Option<i64>,
+    /// The number of non-FHIR files scanned from the S3 input bucket.
+    pub total_number_of_scanned_non_fhir_files: ::std::option::Option<i64>,
+    /// The size (in MB) of non-FHIR files scanned from the S3 input bucket.
+    pub total_size_of_scanned_non_fhir_files_in_mb: ::std::option::Option<f64>,
+    /// The number of non-FHIR files imported.
+    pub total_number_of_imported_non_fhir_files: ::std::option::Option<i64>,
+    /// The number of non-FHIR resources scanned from the S3 input bucket.
+    pub total_number_of_non_fhir_resources_scanned: ::std::option::Option<i64>,
+    /// The number of non-FHIR resources imported.
+    pub total_number_of_non_fhir_resources_imported: ::std::option::Option<i64>,
+    /// The number of non-FHIR resources that failed due to customer error.
+    pub total_number_of_non_fhir_resources_with_customer_error: ::std::option::Option<i64>,
+    /// The number of non-FHIR files that failed to be read from the S3 input bucket due to customer error.
+    pub total_number_of_non_fhir_files_read_with_customer_error: ::std::option::Option<i64>,
     /// <p>The transaction rate the import job is processed at.</p>
     pub throughput: ::std::option::Option<f64>,
+    /// Number of CCDA files successfully transformed during the import's transformation phase. Populated only for import jobs that use the two-Step-Function (transformation + ingestion) flow; null for legacy single-SF imports and for pure FHIR imports that skip transformation.
+    pub total_files_converted: ::std::option::Option<i64>,
+    /// Number of FHIR resources produced by the transformation phase. Populated only for import jobs that use the two-Step-Function flow; null for legacy single-SF imports and for pure FHIR imports.
+    pub total_resources_generated: ::std::option::Option<i64>,
 }
 impl JobProgressReport {
     /// <p>The number of files scanned from the S3 input bucket.</p>
@@ -50,9 +68,45 @@ impl JobProgressReport {
     pub fn total_number_of_files_read_with_customer_error(&self) -> ::std::option::Option<i64> {
         self.total_number_of_files_read_with_customer_error
     }
+    /// The number of non-FHIR files scanned from the S3 input bucket.
+    pub fn total_number_of_scanned_non_fhir_files(&self) -> ::std::option::Option<i64> {
+        self.total_number_of_scanned_non_fhir_files
+    }
+    /// The size (in MB) of non-FHIR files scanned from the S3 input bucket.
+    pub fn total_size_of_scanned_non_fhir_files_in_mb(&self) -> ::std::option::Option<f64> {
+        self.total_size_of_scanned_non_fhir_files_in_mb
+    }
+    /// The number of non-FHIR files imported.
+    pub fn total_number_of_imported_non_fhir_files(&self) -> ::std::option::Option<i64> {
+        self.total_number_of_imported_non_fhir_files
+    }
+    /// The number of non-FHIR resources scanned from the S3 input bucket.
+    pub fn total_number_of_non_fhir_resources_scanned(&self) -> ::std::option::Option<i64> {
+        self.total_number_of_non_fhir_resources_scanned
+    }
+    /// The number of non-FHIR resources imported.
+    pub fn total_number_of_non_fhir_resources_imported(&self) -> ::std::option::Option<i64> {
+        self.total_number_of_non_fhir_resources_imported
+    }
+    /// The number of non-FHIR resources that failed due to customer error.
+    pub fn total_number_of_non_fhir_resources_with_customer_error(&self) -> ::std::option::Option<i64> {
+        self.total_number_of_non_fhir_resources_with_customer_error
+    }
+    /// The number of non-FHIR files that failed to be read from the S3 input bucket due to customer error.
+    pub fn total_number_of_non_fhir_files_read_with_customer_error(&self) -> ::std::option::Option<i64> {
+        self.total_number_of_non_fhir_files_read_with_customer_error
+    }
     /// <p>The transaction rate the import job is processed at.</p>
     pub fn throughput(&self) -> ::std::option::Option<f64> {
         self.throughput
+    }
+    /// Number of CCDA files successfully transformed during the import's transformation phase. Populated only for import jobs that use the two-Step-Function (transformation + ingestion) flow; null for legacy single-SF imports and for pure FHIR imports that skip transformation.
+    pub fn total_files_converted(&self) -> ::std::option::Option<i64> {
+        self.total_files_converted
+    }
+    /// Number of FHIR resources produced by the transformation phase. Populated only for import jobs that use the two-Step-Function flow; null for legacy single-SF imports and for pure FHIR imports.
+    pub fn total_resources_generated(&self) -> ::std::option::Option<i64> {
+        self.total_resources_generated
     }
 }
 impl JobProgressReport {
@@ -73,7 +127,16 @@ pub struct JobProgressReportBuilder {
     pub(crate) total_number_of_resources_imported: ::std::option::Option<i64>,
     pub(crate) total_number_of_resources_with_customer_error: ::std::option::Option<i64>,
     pub(crate) total_number_of_files_read_with_customer_error: ::std::option::Option<i64>,
+    pub(crate) total_number_of_scanned_non_fhir_files: ::std::option::Option<i64>,
+    pub(crate) total_size_of_scanned_non_fhir_files_in_mb: ::std::option::Option<f64>,
+    pub(crate) total_number_of_imported_non_fhir_files: ::std::option::Option<i64>,
+    pub(crate) total_number_of_non_fhir_resources_scanned: ::std::option::Option<i64>,
+    pub(crate) total_number_of_non_fhir_resources_imported: ::std::option::Option<i64>,
+    pub(crate) total_number_of_non_fhir_resources_with_customer_error: ::std::option::Option<i64>,
+    pub(crate) total_number_of_non_fhir_files_read_with_customer_error: ::std::option::Option<i64>,
     pub(crate) throughput: ::std::option::Option<f64>,
+    pub(crate) total_files_converted: ::std::option::Option<i64>,
+    pub(crate) total_resources_generated: ::std::option::Option<i64>,
 }
 impl JobProgressReportBuilder {
     /// <p>The number of files scanned from the S3 input bucket.</p>
@@ -174,6 +237,104 @@ impl JobProgressReportBuilder {
     pub fn get_total_number_of_files_read_with_customer_error(&self) -> &::std::option::Option<i64> {
         &self.total_number_of_files_read_with_customer_error
     }
+    /// The number of non-FHIR files scanned from the S3 input bucket.
+    pub fn total_number_of_scanned_non_fhir_files(mut self, input: i64) -> Self {
+        self.total_number_of_scanned_non_fhir_files = ::std::option::Option::Some(input);
+        self
+    }
+    /// The number of non-FHIR files scanned from the S3 input bucket.
+    pub fn set_total_number_of_scanned_non_fhir_files(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_number_of_scanned_non_fhir_files = input;
+        self
+    }
+    /// The number of non-FHIR files scanned from the S3 input bucket.
+    pub fn get_total_number_of_scanned_non_fhir_files(&self) -> &::std::option::Option<i64> {
+        &self.total_number_of_scanned_non_fhir_files
+    }
+    /// The size (in MB) of non-FHIR files scanned from the S3 input bucket.
+    pub fn total_size_of_scanned_non_fhir_files_in_mb(mut self, input: f64) -> Self {
+        self.total_size_of_scanned_non_fhir_files_in_mb = ::std::option::Option::Some(input);
+        self
+    }
+    /// The size (in MB) of non-FHIR files scanned from the S3 input bucket.
+    pub fn set_total_size_of_scanned_non_fhir_files_in_mb(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.total_size_of_scanned_non_fhir_files_in_mb = input;
+        self
+    }
+    /// The size (in MB) of non-FHIR files scanned from the S3 input bucket.
+    pub fn get_total_size_of_scanned_non_fhir_files_in_mb(&self) -> &::std::option::Option<f64> {
+        &self.total_size_of_scanned_non_fhir_files_in_mb
+    }
+    /// The number of non-FHIR files imported.
+    pub fn total_number_of_imported_non_fhir_files(mut self, input: i64) -> Self {
+        self.total_number_of_imported_non_fhir_files = ::std::option::Option::Some(input);
+        self
+    }
+    /// The number of non-FHIR files imported.
+    pub fn set_total_number_of_imported_non_fhir_files(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_number_of_imported_non_fhir_files = input;
+        self
+    }
+    /// The number of non-FHIR files imported.
+    pub fn get_total_number_of_imported_non_fhir_files(&self) -> &::std::option::Option<i64> {
+        &self.total_number_of_imported_non_fhir_files
+    }
+    /// The number of non-FHIR resources scanned from the S3 input bucket.
+    pub fn total_number_of_non_fhir_resources_scanned(mut self, input: i64) -> Self {
+        self.total_number_of_non_fhir_resources_scanned = ::std::option::Option::Some(input);
+        self
+    }
+    /// The number of non-FHIR resources scanned from the S3 input bucket.
+    pub fn set_total_number_of_non_fhir_resources_scanned(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_number_of_non_fhir_resources_scanned = input;
+        self
+    }
+    /// The number of non-FHIR resources scanned from the S3 input bucket.
+    pub fn get_total_number_of_non_fhir_resources_scanned(&self) -> &::std::option::Option<i64> {
+        &self.total_number_of_non_fhir_resources_scanned
+    }
+    /// The number of non-FHIR resources imported.
+    pub fn total_number_of_non_fhir_resources_imported(mut self, input: i64) -> Self {
+        self.total_number_of_non_fhir_resources_imported = ::std::option::Option::Some(input);
+        self
+    }
+    /// The number of non-FHIR resources imported.
+    pub fn set_total_number_of_non_fhir_resources_imported(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_number_of_non_fhir_resources_imported = input;
+        self
+    }
+    /// The number of non-FHIR resources imported.
+    pub fn get_total_number_of_non_fhir_resources_imported(&self) -> &::std::option::Option<i64> {
+        &self.total_number_of_non_fhir_resources_imported
+    }
+    /// The number of non-FHIR resources that failed due to customer error.
+    pub fn total_number_of_non_fhir_resources_with_customer_error(mut self, input: i64) -> Self {
+        self.total_number_of_non_fhir_resources_with_customer_error = ::std::option::Option::Some(input);
+        self
+    }
+    /// The number of non-FHIR resources that failed due to customer error.
+    pub fn set_total_number_of_non_fhir_resources_with_customer_error(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_number_of_non_fhir_resources_with_customer_error = input;
+        self
+    }
+    /// The number of non-FHIR resources that failed due to customer error.
+    pub fn get_total_number_of_non_fhir_resources_with_customer_error(&self) -> &::std::option::Option<i64> {
+        &self.total_number_of_non_fhir_resources_with_customer_error
+    }
+    /// The number of non-FHIR files that failed to be read from the S3 input bucket due to customer error.
+    pub fn total_number_of_non_fhir_files_read_with_customer_error(mut self, input: i64) -> Self {
+        self.total_number_of_non_fhir_files_read_with_customer_error = ::std::option::Option::Some(input);
+        self
+    }
+    /// The number of non-FHIR files that failed to be read from the S3 input bucket due to customer error.
+    pub fn set_total_number_of_non_fhir_files_read_with_customer_error(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_number_of_non_fhir_files_read_with_customer_error = input;
+        self
+    }
+    /// The number of non-FHIR files that failed to be read from the S3 input bucket due to customer error.
+    pub fn get_total_number_of_non_fhir_files_read_with_customer_error(&self) -> &::std::option::Option<i64> {
+        &self.total_number_of_non_fhir_files_read_with_customer_error
+    }
     /// <p>The transaction rate the import job is processed at.</p>
     pub fn throughput(mut self, input: f64) -> Self {
         self.throughput = ::std::option::Option::Some(input);
@@ -188,6 +349,34 @@ impl JobProgressReportBuilder {
     pub fn get_throughput(&self) -> &::std::option::Option<f64> {
         &self.throughput
     }
+    /// Number of CCDA files successfully transformed during the import's transformation phase. Populated only for import jobs that use the two-Step-Function (transformation + ingestion) flow; null for legacy single-SF imports and for pure FHIR imports that skip transformation.
+    pub fn total_files_converted(mut self, input: i64) -> Self {
+        self.total_files_converted = ::std::option::Option::Some(input);
+        self
+    }
+    /// Number of CCDA files successfully transformed during the import's transformation phase. Populated only for import jobs that use the two-Step-Function (transformation + ingestion) flow; null for legacy single-SF imports and for pure FHIR imports that skip transformation.
+    pub fn set_total_files_converted(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_files_converted = input;
+        self
+    }
+    /// Number of CCDA files successfully transformed during the import's transformation phase. Populated only for import jobs that use the two-Step-Function (transformation + ingestion) flow; null for legacy single-SF imports and for pure FHIR imports that skip transformation.
+    pub fn get_total_files_converted(&self) -> &::std::option::Option<i64> {
+        &self.total_files_converted
+    }
+    /// Number of FHIR resources produced by the transformation phase. Populated only for import jobs that use the two-Step-Function flow; null for legacy single-SF imports and for pure FHIR imports.
+    pub fn total_resources_generated(mut self, input: i64) -> Self {
+        self.total_resources_generated = ::std::option::Option::Some(input);
+        self
+    }
+    /// Number of FHIR resources produced by the transformation phase. Populated only for import jobs that use the two-Step-Function flow; null for legacy single-SF imports and for pure FHIR imports.
+    pub fn set_total_resources_generated(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.total_resources_generated = input;
+        self
+    }
+    /// Number of FHIR resources produced by the transformation phase. Populated only for import jobs that use the two-Step-Function flow; null for legacy single-SF imports and for pure FHIR imports.
+    pub fn get_total_resources_generated(&self) -> &::std::option::Option<i64> {
+        &self.total_resources_generated
+    }
     /// Consumes the builder and constructs a [`JobProgressReport`](crate::types::JobProgressReport).
     pub fn build(self) -> crate::types::JobProgressReport {
         crate::types::JobProgressReport {
@@ -198,7 +387,16 @@ impl JobProgressReportBuilder {
             total_number_of_resources_imported: self.total_number_of_resources_imported,
             total_number_of_resources_with_customer_error: self.total_number_of_resources_with_customer_error,
             total_number_of_files_read_with_customer_error: self.total_number_of_files_read_with_customer_error,
+            total_number_of_scanned_non_fhir_files: self.total_number_of_scanned_non_fhir_files,
+            total_size_of_scanned_non_fhir_files_in_mb: self.total_size_of_scanned_non_fhir_files_in_mb,
+            total_number_of_imported_non_fhir_files: self.total_number_of_imported_non_fhir_files,
+            total_number_of_non_fhir_resources_scanned: self.total_number_of_non_fhir_resources_scanned,
+            total_number_of_non_fhir_resources_imported: self.total_number_of_non_fhir_resources_imported,
+            total_number_of_non_fhir_resources_with_customer_error: self.total_number_of_non_fhir_resources_with_customer_error,
+            total_number_of_non_fhir_files_read_with_customer_error: self.total_number_of_non_fhir_files_read_with_customer_error,
             throughput: self.throughput,
+            total_files_converted: self.total_files_converted,
+            total_resources_generated: self.total_resources_generated,
         }
     }
 }

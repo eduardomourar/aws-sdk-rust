@@ -17,6 +17,12 @@ pub struct StartFhirImportJobInput {
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>The validation level of the import job.</p>
     pub validation_level: ::std::option::Option<crate::types::ValidationLevel>,
+    /// A bounded-length string value.
+    pub profile_id: ::std::option::Option<::std::string::String>,
+    /// A bounded-length string value.
+    pub input_format: ::std::option::Option<::std::string::String>,
+    /// A boolean value.
+    pub drift_detection_enabled: ::std::option::Option<bool>,
 }
 impl StartFhirImportJobInput {
     /// <p>The import job name.</p>
@@ -47,6 +53,18 @@ impl StartFhirImportJobInput {
     pub fn validation_level(&self) -> ::std::option::Option<&crate::types::ValidationLevel> {
         self.validation_level.as_ref()
     }
+    /// A bounded-length string value.
+    pub fn profile_id(&self) -> ::std::option::Option<&str> {
+        self.profile_id.as_deref()
+    }
+    /// A bounded-length string value.
+    pub fn input_format(&self) -> ::std::option::Option<&str> {
+        self.input_format.as_deref()
+    }
+    /// A boolean value.
+    pub fn drift_detection_enabled(&self) -> ::std::option::Option<bool> {
+        self.drift_detection_enabled
+    }
 }
 impl StartFhirImportJobInput {
     /// Creates a new builder-style object to manufacture [`StartFhirImportJobInput`](crate::operation::start_fhir_import_job::StartFhirImportJobInput).
@@ -66,6 +84,9 @@ pub struct StartFhirImportJobInputBuilder {
     pub(crate) data_access_role_arn: ::std::option::Option<::std::string::String>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
     pub(crate) validation_level: ::std::option::Option<crate::types::ValidationLevel>,
+    pub(crate) profile_id: ::std::option::Option<::std::string::String>,
+    pub(crate) input_format: ::std::option::Option<::std::string::String>,
+    pub(crate) drift_detection_enabled: ::std::option::Option<bool>,
 }
 impl StartFhirImportJobInputBuilder {
     /// <p>The import job name.</p>
@@ -170,6 +191,48 @@ impl StartFhirImportJobInputBuilder {
     pub fn get_validation_level(&self) -> &::std::option::Option<crate::types::ValidationLevel> {
         &self.validation_level
     }
+    /// A bounded-length string value.
+    pub fn profile_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.profile_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// A bounded-length string value.
+    pub fn set_profile_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.profile_id = input;
+        self
+    }
+    /// A bounded-length string value.
+    pub fn get_profile_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.profile_id
+    }
+    /// A bounded-length string value.
+    pub fn input_format(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input_format = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// A bounded-length string value.
+    pub fn set_input_format(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.input_format = input;
+        self
+    }
+    /// A bounded-length string value.
+    pub fn get_input_format(&self) -> &::std::option::Option<::std::string::String> {
+        &self.input_format
+    }
+    /// A boolean value.
+    pub fn drift_detection_enabled(mut self, input: bool) -> Self {
+        self.drift_detection_enabled = ::std::option::Option::Some(input);
+        self
+    }
+    /// A boolean value.
+    pub fn set_drift_detection_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.drift_detection_enabled = input;
+        self
+    }
+    /// A boolean value.
+    pub fn get_drift_detection_enabled(&self) -> &::std::option::Option<bool> {
+        &self.drift_detection_enabled
+    }
     /// Consumes the builder and constructs a [`StartFhirImportJobInput`](crate::operation::start_fhir_import_job::StartFhirImportJobInput).
     pub fn build(
         self,
@@ -183,6 +246,9 @@ impl StartFhirImportJobInputBuilder {
             data_access_role_arn: self.data_access_role_arn,
             client_token: self.client_token,
             validation_level: self.validation_level,
+            profile_id: self.profile_id,
+            input_format: self.input_format,
+            drift_detection_enabled: self.drift_detection_enabled,
         })
     }
 }

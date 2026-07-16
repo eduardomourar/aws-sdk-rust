@@ -9,6 +9,8 @@ pub struct UpdateVoiceConnectorGroupInput {
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>The <code>VoiceConnectorItems</code> to associate with the Voice Connector group.</p>
     pub voice_connector_items: ::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>>,
+    #[allow(missing_docs)] // documentation missing in model
+    pub call_distribution_type: ::std::option::Option<crate::types::CallDistributionType>,
 }
 impl UpdateVoiceConnectorGroupInput {
     /// <p>The Voice Connector ID.</p>
@@ -25,6 +27,10 @@ impl UpdateVoiceConnectorGroupInput {
     pub fn voice_connector_items(&self) -> &[crate::types::VoiceConnectorItem] {
         self.voice_connector_items.as_deref().unwrap_or_default()
     }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(&self) -> ::std::option::Option<&crate::types::CallDistributionType> {
+        self.call_distribution_type.as_ref()
+    }
 }
 impl UpdateVoiceConnectorGroupInput {
     /// Creates a new builder-style object to manufacture [`UpdateVoiceConnectorGroupInput`](crate::operation::update_voice_connector_group::UpdateVoiceConnectorGroupInput).
@@ -40,6 +46,7 @@ pub struct UpdateVoiceConnectorGroupInputBuilder {
     pub(crate) voice_connector_group_id: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) voice_connector_items: ::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>>,
+    pub(crate) call_distribution_type: ::std::option::Option<crate::types::CallDistributionType>,
 }
 impl UpdateVoiceConnectorGroupInputBuilder {
     /// <p>The Voice Connector ID.</p>
@@ -92,6 +99,20 @@ impl UpdateVoiceConnectorGroupInputBuilder {
     pub fn get_voice_connector_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>> {
         &self.voice_connector_items
     }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(mut self, input: crate::types::CallDistributionType) -> Self {
+        self.call_distribution_type = ::std::option::Option::Some(input);
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_call_distribution_type(mut self, input: ::std::option::Option<crate::types::CallDistributionType>) -> Self {
+        self.call_distribution_type = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_call_distribution_type(&self) -> &::std::option::Option<crate::types::CallDistributionType> {
+        &self.call_distribution_type
+    }
     /// Consumes the builder and constructs a [`UpdateVoiceConnectorGroupInput`](crate::operation::update_voice_connector_group::UpdateVoiceConnectorGroupInput).
     pub fn build(
         self,
@@ -103,6 +124,7 @@ impl UpdateVoiceConnectorGroupInputBuilder {
             voice_connector_group_id: self.voice_connector_group_id,
             name: self.name,
             voice_connector_items: self.voice_connector_items,
+            call_distribution_type: self.call_distribution_type,
         })
     }
 }

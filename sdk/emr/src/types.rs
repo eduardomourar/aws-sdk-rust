@@ -117,8 +117,6 @@ pub use crate::types::_compute_limits::ComputeLimits;
 
 pub use crate::types::_scaling_strategy::ScalingStrategy;
 
-pub use crate::types::_certificate_authority::CertificateAuthority;
-
 pub use crate::types::_command::Command;
 
 pub use crate::types::_cluster_state::ClusterState;
@@ -362,8 +360,6 @@ mod _bootstrap_action_detail;
 mod _cancel_steps_info;
 
 mod _cancel_steps_request_status;
-
-mod _certificate_authority;
 
 mod _cloud_watch_alarm_definition;
 

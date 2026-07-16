@@ -3,17 +3,17 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetEstimatedCarbonEmissionsDimensionValuesInput {
-    /// <p>The date range for fetching the dimension values.</p>
+    /// <p>The date range for fetching the dimension values. The range must include the start date of a month for that month's dimensions to be included in the response.</p>
     pub time_period: ::std::option::Option<crate::types::TimePeriod>,
     /// <p>The dimensions available for grouping estimated carbon emissions.</p>
     pub dimensions: ::std::option::Option<::std::vec::Vec<crate::types::Dimension>>,
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
 impl GetEstimatedCarbonEmissionsDimensionValuesInput {
-    /// <p>The date range for fetching the dimension values.</p>
+    /// <p>The date range for fetching the dimension values. The range must include the start date of a month for that month's dimensions to be included in the response.</p>
     pub fn time_period(&self) -> ::std::option::Option<&crate::types::TimePeriod> {
         self.time_period.as_ref()
     }
@@ -23,7 +23,7 @@ impl GetEstimatedCarbonEmissionsDimensionValuesInput {
     pub fn dimensions(&self) -> &[crate::types::Dimension] {
         self.dimensions.as_deref().unwrap_or_default()
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
@@ -50,18 +50,18 @@ pub struct GetEstimatedCarbonEmissionsDimensionValuesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
 impl GetEstimatedCarbonEmissionsDimensionValuesInputBuilder {
-    /// <p>The date range for fetching the dimension values.</p>
+    /// <p>The date range for fetching the dimension values. The range must include the start date of a month for that month's dimensions to be included in the response.</p>
     /// This field is required.
     pub fn time_period(mut self, input: crate::types::TimePeriod) -> Self {
         self.time_period = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The date range for fetching the dimension values.</p>
+    /// <p>The date range for fetching the dimension values. The range must include the start date of a month for that month's dimensions to be included in the response.</p>
     pub fn set_time_period(mut self, input: ::std::option::Option<crate::types::TimePeriod>) -> Self {
         self.time_period = input;
         self
     }
-    /// <p>The date range for fetching the dimension values.</p>
+    /// <p>The date range for fetching the dimension values. The range must include the start date of a month for that month's dimensions to be included in the response.</p>
     pub fn get_time_period(&self) -> &::std::option::Option<crate::types::TimePeriod> {
         &self.time_period
     }
@@ -85,17 +85,17 @@ impl GetEstimatedCarbonEmissionsDimensionValuesInputBuilder {
     pub fn get_dimensions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Dimension>> {
         &self.dimensions
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_results = input;
         self
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }

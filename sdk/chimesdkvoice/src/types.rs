@@ -29,6 +29,8 @@ pub use crate::types::_network_type::NetworkType;
 
 pub use crate::types::_voice_connector::VoiceConnector;
 
+pub use crate::types::_call_distribution_type::CallDistributionType;
+
 pub use crate::types::_voice_connector_group::VoiceConnectorGroup;
 
 pub use crate::types::_voice_profile::VoiceProfile;
@@ -148,6 +150,8 @@ mod _address;
 mod _alexa_skill_status;
 
 mod _call_details;
+
+mod _call_distribution_type;
 
 mod _call_leg_type;
 

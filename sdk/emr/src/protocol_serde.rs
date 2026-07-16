@@ -407,8 +407,6 @@ pub(crate) mod shape_auto_scaling_policy_status;
 
 pub(crate) mod shape_cancel_steps_info;
 
-pub(crate) mod shape_certificate_authority;
-
 pub(crate) mod shape_cloud_watch_log_configuration;
 
 pub(crate) mod shape_cluster_status;

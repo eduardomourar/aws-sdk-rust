@@ -22,7 +22,13 @@ impl crate::operation::put_voice_connector_proxy::builders::PutVoiceConnectorPro
 }
 /// Fluent builder constructing a request to `PutVoiceConnectorProxy`.
 ///
-/// <p>Puts the specified proxy configuration to the specified Amazon Chime SDK Voice Connector.</p>
+/// <p>Puts the specified proxy configuration to the specified Amazon Chime SDK Voice Connector.</p><important>
+/// <p>End of support notice: On April 7, 2026, AWS will end support for Amazon Chime SDK proxy sessions.</p>
+/// </important>
+#[deprecated(
+    note = "End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorProxy.html",
+    since = "2026-04-07"
+)]
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutVoiceConnectorProxyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

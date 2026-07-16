@@ -81,8 +81,6 @@ pub use crate::types::_username_password::UsernamePasswordBuilder;
 
 pub use crate::types::_compute_limits::ComputeLimitsBuilder;
 
-pub use crate::types::_certificate_authority::CertificateAuthorityBuilder;
-
 pub use crate::types::_command::CommandBuilder;
 
 pub use crate::types::_cluster_summary::ClusterSummaryBuilder;

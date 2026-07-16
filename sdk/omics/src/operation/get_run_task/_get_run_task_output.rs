@@ -35,6 +35,8 @@ pub struct GetRunTaskOutput {
     pub failure_reason: ::std::option::Option<::std::string::String>,
     /// <p>Details about the container image that this task uses.</p>
     pub image_details: ::std::option::Option<crate::types::ImageDetails>,
+    /// <p>The universally unique identifier (UUID) for the workflow task.</p>
+    pub uuid: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetRunTaskOutput {
@@ -102,6 +104,10 @@ impl GetRunTaskOutput {
     pub fn image_details(&self) -> ::std::option::Option<&crate::types::ImageDetails> {
         self.image_details.as_ref()
     }
+    /// <p>The universally unique identifier (UUID) for the workflow task.</p>
+    pub fn uuid(&self) -> ::std::option::Option<&str> {
+        self.uuid.as_deref()
+    }
 }
 impl ::aws_types::request_id::RequestId for GetRunTaskOutput {
     fn request_id(&self) -> Option<&str> {
@@ -135,6 +141,7 @@ pub struct GetRunTaskOutputBuilder {
     pub(crate) instance_type: ::std::option::Option<::std::string::String>,
     pub(crate) failure_reason: ::std::option::Option<::std::string::String>,
     pub(crate) image_details: ::std::option::Option<crate::types::ImageDetails>,
+    pub(crate) uuid: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetRunTaskOutputBuilder {
@@ -362,6 +369,20 @@ impl GetRunTaskOutputBuilder {
     pub fn get_image_details(&self) -> &::std::option::Option<crate::types::ImageDetails> {
         &self.image_details
     }
+    /// <p>The universally unique identifier (UUID) for the workflow task.</p>
+    pub fn uuid(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.uuid = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The universally unique identifier (UUID) for the workflow task.</p>
+    pub fn set_uuid(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.uuid = input;
+        self
+    }
+    /// <p>The universally unique identifier (UUID) for the workflow task.</p>
+    pub fn get_uuid(&self) -> &::std::option::Option<::std::string::String> {
+        &self.uuid
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -390,6 +411,7 @@ impl GetRunTaskOutputBuilder {
             instance_type: self.instance_type,
             failure_reason: self.failure_reason,
             image_details: self.image_details,
+            uuid: self.uuid,
             _request_id: self._request_id,
         }
     }

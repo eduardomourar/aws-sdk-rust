@@ -3,25 +3,26 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetEstimatedCarbonEmissionsInput {
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub time_period: ::std::option::Option<crate::types::TimePeriod>,
     /// <p>The dimensions available for grouping estimated carbon emissions.</p>
     pub group_by: ::std::option::Option<::std::vec::Vec<crate::types::Dimension>>,
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub filter_by: ::std::option::Option<crate::types::FilterExpression>,
     /// <p>The emission types to include in the results. If absent, returns <code>TOTAL_LBM_CARBON_EMISSIONS</code> and <code>TOTAL_MBM_CARBON_EMISSIONS</code> emissions types.</p>
     pub emissions_types: ::std::option::Option<::std::vec::Vec<crate::types::EmissionsType>>,
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub granularity: ::std::option::Option<crate::types::TimeGranularity>,
     /// <p>Configuration for fiscal year calculations when using <code>YEARLY_FISCAL</code> or <code>QUARTERLY_FISCAL</code> granularity.</p>
     pub granularity_configuration: ::std::option::Option<crate::types::GranularityConfiguration>,
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
 impl GetEstimatedCarbonEmissionsInput {
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub fn time_period(&self) -> ::std::option::Option<&crate::types::TimePeriod> {
         self.time_period.as_ref()
     }
@@ -31,7 +32,7 @@ impl GetEstimatedCarbonEmissionsInput {
     pub fn group_by(&self) -> &[crate::types::Dimension] {
         self.group_by.as_deref().unwrap_or_default()
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn filter_by(&self) -> ::std::option::Option<&crate::types::FilterExpression> {
         self.filter_by.as_ref()
     }
@@ -41,7 +42,8 @@ impl GetEstimatedCarbonEmissionsInput {
     pub fn emissions_types(&self) -> &[crate::types::EmissionsType] {
         self.emissions_types.as_deref().unwrap_or_default()
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn granularity(&self) -> ::std::option::Option<&crate::types::TimeGranularity> {
         self.granularity.as_ref()
     }
@@ -49,7 +51,7 @@ impl GetEstimatedCarbonEmissionsInput {
     pub fn granularity_configuration(&self) -> ::std::option::Option<&crate::types::GranularityConfiguration> {
         self.granularity_configuration.as_ref()
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
@@ -79,18 +81,18 @@ pub struct GetEstimatedCarbonEmissionsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
 impl GetEstimatedCarbonEmissionsInputBuilder {
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     /// This field is required.
     pub fn time_period(mut self, input: crate::types::TimePeriod) -> Self {
         self.time_period = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub fn set_time_period(mut self, input: ::std::option::Option<crate::types::TimePeriod>) -> Self {
         self.time_period = input;
         self
     }
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub fn get_time_period(&self) -> &::std::option::Option<crate::types::TimePeriod> {
         &self.time_period
     }
@@ -114,17 +116,17 @@ impl GetEstimatedCarbonEmissionsInputBuilder {
     pub fn get_group_by(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Dimension>> {
         &self.group_by
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn filter_by(mut self, input: crate::types::FilterExpression) -> Self {
         self.filter_by = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn set_filter_by(mut self, input: ::std::option::Option<crate::types::FilterExpression>) -> Self {
         self.filter_by = input;
         self
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn get_filter_by(&self) -> &::std::option::Option<crate::types::FilterExpression> {
         &self.filter_by
     }
@@ -148,17 +150,20 @@ impl GetEstimatedCarbonEmissionsInputBuilder {
     pub fn get_emissions_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EmissionsType>> {
         &self.emissions_types
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn granularity(mut self, input: crate::types::TimeGranularity) -> Self {
         self.granularity = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn set_granularity(mut self, input: ::std::option::Option<crate::types::TimeGranularity>) -> Self {
         self.granularity = input;
         self
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn get_granularity(&self) -> &::std::option::Option<crate::types::TimeGranularity> {
         &self.granularity
     }
@@ -176,17 +181,17 @@ impl GetEstimatedCarbonEmissionsInputBuilder {
     pub fn get_granularity_configuration(&self) -> &::std::option::Option<crate::types::GranularityConfiguration> {
         &self.granularity_configuration
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_results = input;
         self
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }

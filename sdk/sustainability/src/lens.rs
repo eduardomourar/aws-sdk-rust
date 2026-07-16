@@ -19,6 +19,26 @@ pub(crate) fn reflens_get_estimated_carbon_emissions_dimension_values_output_out
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn reflens_get_estimated_water_allocation_output_output_next_token(
+    input: &crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_get_estimated_water_allocation_dimension_values_output_output_next_token(
+    input: &crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn lens_get_estimated_carbon_emissions_output_output_results(
     input: crate::operation::get_estimated_carbon_emissions::GetEstimatedCarbonEmissionsOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::EstimatedCarbonEmissions>> {
@@ -30,5 +50,19 @@ pub(crate) fn lens_get_estimated_carbon_emissions_dimension_values_output_output
     input: crate::operation::get_estimated_carbon_emissions_dimension_values::GetEstimatedCarbonEmissionsDimensionValuesOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::DimensionEntry>> {
     let input = input.results?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_get_estimated_water_allocation_output_output_results(
+    input: crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::EstimatedWaterAllocation>> {
+    let input = input.results;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_get_estimated_water_allocation_dimension_values_output_output_results(
+    input: crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::DimensionEntry>> {
+    let input = input.results;
     ::std::option::Option::Some(input)
 }

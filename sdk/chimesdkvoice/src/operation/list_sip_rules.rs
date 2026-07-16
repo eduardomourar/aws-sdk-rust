@@ -284,6 +284,8 @@ pub enum ListSipRulesError {
     BadRequestException(crate::types::error::BadRequestException),
     /// <p>The client is permanently forbidden from making the request.</p>
     ForbiddenException(crate::types::error::ForbiddenException),
+    /// <p>The requested resource couldn't be found.</p>
+    NotFoundException(crate::types::error::NotFoundException),
     /// <p>The service encountered an unexpected error.</p>
     ServiceFailureException(crate::types::error::ServiceFailureException),
     /// <p>The service is currently unavailable.</p>
@@ -327,6 +329,7 @@ impl ListSipRulesError {
         match self {
             Self::BadRequestException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ForbiddenException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ServiceFailureException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ThrottledClientException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -341,6 +344,10 @@ impl ListSipRulesError {
     /// Returns `true` if the error kind is `ListSipRulesError::ForbiddenException`.
     pub fn is_forbidden_exception(&self) -> bool {
         matches!(self, Self::ForbiddenException(_))
+    }
+    /// Returns `true` if the error kind is `ListSipRulesError::NotFoundException`.
+    pub fn is_not_found_exception(&self) -> bool {
+        matches!(self, Self::NotFoundException(_))
     }
     /// Returns `true` if the error kind is `ListSipRulesError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
@@ -364,6 +371,7 @@ impl ::std::error::Error for ListSipRulesError {
         match self {
             Self::BadRequestException(_inner) => ::std::option::Option::Some(_inner),
             Self::ForbiddenException(_inner) => ::std::option::Option::Some(_inner),
+            Self::NotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceFailureException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceUnavailableException(_inner) => ::std::option::Option::Some(_inner),
             Self::ThrottledClientException(_inner) => ::std::option::Option::Some(_inner),
@@ -377,6 +385,7 @@ impl ::std::fmt::Display for ListSipRulesError {
         match self {
             Self::BadRequestException(_inner) => _inner.fmt(f),
             Self::ForbiddenException(_inner) => _inner.fmt(f),
+            Self::NotFoundException(_inner) => _inner.fmt(f),
             Self::ServiceFailureException(_inner) => _inner.fmt(f),
             Self::ServiceUnavailableException(_inner) => _inner.fmt(f),
             Self::ThrottledClientException(_inner) => _inner.fmt(f),
@@ -404,6 +413,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListSipRulesE
         match self {
             Self::BadRequestException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ForbiddenException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::NotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ServiceFailureException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ServiceUnavailableException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ThrottledClientException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

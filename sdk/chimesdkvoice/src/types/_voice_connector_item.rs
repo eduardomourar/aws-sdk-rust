@@ -51,7 +51,6 @@ impl VoiceConnectorItemBuilder {
         &self.voice_connector_id
     }
     /// <p>The priority setting of a Voice Connector item. Calls are routed to hosts in priority order, with 1 as the highest priority. When hosts have equal priority, the system distributes calls among them based on their relative weight.</p>
-    /// This field is required.
     pub fn priority(mut self, input: i32) -> Self {
         self.priority = ::std::option::Option::Some(input);
         self
@@ -68,7 +67,6 @@ impl VoiceConnectorItemBuilder {
     /// Consumes the builder and constructs a [`VoiceConnectorItem`](crate::types::VoiceConnectorItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`voice_connector_id`](crate::types::builders::VoiceConnectorItemBuilder::voice_connector_id)
-    /// - [`priority`](crate::types::builders::VoiceConnectorItemBuilder::priority)
     pub fn build(self) -> ::std::result::Result<crate::types::VoiceConnectorItem, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VoiceConnectorItem {
             voice_connector_id: self.voice_connector_id.ok_or_else(|| {
@@ -77,12 +75,7 @@ impl VoiceConnectorItemBuilder {
                     "voice_connector_id was not specified but it is required when building VoiceConnectorItem",
                 )
             })?,
-            priority: self.priority.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "priority",
-                    "priority was not specified but it is required when building VoiceConnectorItem",
-                )
-            })?,
+            priority: self.priority.unwrap_or(1),
         })
     }
 }

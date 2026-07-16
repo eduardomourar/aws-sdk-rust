@@ -132,6 +132,82 @@ impl From<crate::operation::get_estimated_carbon_emissions_dimension_values::Get
         }
     }
 }
+impl<R>
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError> for Error {
+    fn from(err: crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError) -> Self {
+        match err {
+            crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_estimated_water_allocation::GetEstimatedWaterAllocationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError> for Error {
+    fn from(err: crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError) -> Self {
+        match err {
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::get_estimated_water_allocation_dimension_values::GetEstimatedWaterAllocationDimensionValuesError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {

@@ -27,6 +27,10 @@ pub(crate) mod shape_get_estimated_carbon_emissions;
 
 pub(crate) mod shape_get_estimated_carbon_emissions_dimension_values;
 
+pub(crate) mod shape_get_estimated_water_allocation;
+
+pub(crate) mod shape_get_estimated_water_allocation_dimension_values;
+
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
         b"{}"
@@ -41,6 +45,10 @@ pub(crate) mod shape_get_estimated_carbon_emissions_dimension_values_input;
 
 pub(crate) mod shape_get_estimated_carbon_emissions_input;
 
+pub(crate) mod shape_get_estimated_water_allocation_dimension_values_input;
+
+pub(crate) mod shape_get_estimated_water_allocation_input;
+
 pub(crate) mod shape_internal_server_exception;
 
 pub(crate) mod shape_throttling_exception;
@@ -50,6 +58,8 @@ pub(crate) mod shape_validation_exception;
 pub(crate) mod shape_dimension_entry_list;
 
 pub(crate) mod shape_estimated_carbon_emissions_list;
+
+pub(crate) mod shape_estimated_water_allocation_list;
 
 pub(crate) mod shape_filter_expression;
 
@@ -61,8 +71,14 @@ pub(crate) mod shape_dimension_entry;
 
 pub(crate) mod shape_estimated_carbon_emissions;
 
+pub(crate) mod shape_estimated_water_allocation;
+
 pub(crate) mod shape_dimensions_map;
 
 pub(crate) mod shape_emissions_map;
 
+pub(crate) mod shape_water_allocation_map;
+
 pub(crate) mod shape_emissions;
+
+pub(crate) mod shape_water_allocation;

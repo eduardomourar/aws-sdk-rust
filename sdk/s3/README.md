@@ -1,5 +1,17 @@
 # aws-sdk-s3
 
+Welcome to the _Amazon S3 API Reference_. This guide explains the Amazon Simple Storage Service (Amazon S3) application programming interface (API).
+
+Welcome to the _Amazon S3 API Reference_. This guide explains the Amazon Simple Storage Service (Amazon S3) application programming interface (API).
+
+You can use any toolkit that supports HTTP to use the REST API. You can even use a browser to fetch objects, as long as they are anonymously readable.
+
+The REST API uses the standard HTTP headers and status codes, so that standard browsers and toolkits work as expected. In some areas, we have added functionality to HTTP (for example, we added headers to support access control). In these cases, we have done our best to add the new functionality in a way that matched the style of standard HTTP usage.
+
+The current version of the Amazon S3 API is 2006-03-01.
+
+Amazon S3 supports the REST API.
+
 ## Getting Started
 
 > Examples are available for many services and operations, check out the
@@ -12,7 +24,7 @@ your project, add the following to your **Cargo.toml** file:
 ```toml
 [dependencies]
 aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
-aws-sdk-s3 = "1.138.0"
+aws-sdk-s3 = "1.138.1"
 tokio = { version = "1", features = ["full"] }
 ```
 

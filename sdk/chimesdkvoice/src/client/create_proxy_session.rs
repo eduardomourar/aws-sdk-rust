@@ -14,6 +14,10 @@ impl super::Client {
     /// - On success, responds with [`CreateProxySessionOutput`](crate::operation::create_proxy_session::CreateProxySessionOutput) with field(s):
     ///   - [`proxy_session(Option<ProxySession>)`](crate::operation::create_proxy_session::CreateProxySessionOutput::proxy_session): <p>The proxy session details.</p>
     /// - On failure, responds with [`SdkError<CreateProxySessionError>`](crate::operation::create_proxy_session::CreateProxySessionError)
+    #[deprecated(
+        note = "End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateProxySession.html",
+        since = "2026-04-07"
+    )]
     pub fn create_proxy_session(&self) -> crate::operation::create_proxy_session::builders::CreateProxySessionFluentBuilder {
         crate::operation::create_proxy_session::builders::CreateProxySessionFluentBuilder::new(self.handle.clone())
     }

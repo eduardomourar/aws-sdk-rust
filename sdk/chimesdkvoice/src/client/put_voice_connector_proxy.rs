@@ -11,6 +11,10 @@ impl super::Client {
     /// - On success, responds with [`PutVoiceConnectorProxyOutput`](crate::operation::put_voice_connector_proxy::PutVoiceConnectorProxyOutput) with field(s):
     ///   - [`proxy(Option<Proxy>)`](crate::operation::put_voice_connector_proxy::PutVoiceConnectorProxyOutput::proxy): <p>The proxy configuration details.</p>
     /// - On failure, responds with [`SdkError<PutVoiceConnectorProxyError>`](crate::operation::put_voice_connector_proxy::PutVoiceConnectorProxyError)
+    #[deprecated(
+        note = "End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorProxy.html",
+        since = "2026-04-07"
+    )]
     pub fn put_voice_connector_proxy(&self) -> crate::operation::put_voice_connector_proxy::builders::PutVoiceConnectorProxyFluentBuilder {
         crate::operation::put_voice_connector_proxy::builders::PutVoiceConnectorProxyFluentBuilder::new(self.handle.clone())
     }

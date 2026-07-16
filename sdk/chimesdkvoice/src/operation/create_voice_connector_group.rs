@@ -275,6 +275,8 @@ pub enum CreateVoiceConnectorGroupError {
     BadRequestException(crate::types::error::BadRequestException),
     /// <p>The client is permanently forbidden from making the request.</p>
     ForbiddenException(crate::types::error::ForbiddenException),
+    /// <p>The requested resource couldn't be found.</p>
+    NotFoundException(crate::types::error::NotFoundException),
     /// <p>The request exceeds the resource limit.</p>
     ResourceLimitExceededException(crate::types::error::ResourceLimitExceededException),
     /// <p>The service encountered an unexpected error.</p>
@@ -321,6 +323,7 @@ impl CreateVoiceConnectorGroupError {
             Self::AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::BadRequestException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ForbiddenException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceLimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ServiceFailureException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -340,6 +343,10 @@ impl CreateVoiceConnectorGroupError {
     /// Returns `true` if the error kind is `CreateVoiceConnectorGroupError::ForbiddenException`.
     pub fn is_forbidden_exception(&self) -> bool {
         matches!(self, Self::ForbiddenException(_))
+    }
+    /// Returns `true` if the error kind is `CreateVoiceConnectorGroupError::NotFoundException`.
+    pub fn is_not_found_exception(&self) -> bool {
+        matches!(self, Self::NotFoundException(_))
     }
     /// Returns `true` if the error kind is `CreateVoiceConnectorGroupError::ResourceLimitExceededException`.
     pub fn is_resource_limit_exceeded_exception(&self) -> bool {
@@ -368,6 +375,7 @@ impl ::std::error::Error for CreateVoiceConnectorGroupError {
             Self::AccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
             Self::BadRequestException(_inner) => ::std::option::Option::Some(_inner),
             Self::ForbiddenException(_inner) => ::std::option::Option::Some(_inner),
+            Self::NotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceLimitExceededException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceFailureException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceUnavailableException(_inner) => ::std::option::Option::Some(_inner),
@@ -383,6 +391,7 @@ impl ::std::fmt::Display for CreateVoiceConnectorGroupError {
             Self::AccessDeniedException(_inner) => _inner.fmt(f),
             Self::BadRequestException(_inner) => _inner.fmt(f),
             Self::ForbiddenException(_inner) => _inner.fmt(f),
+            Self::NotFoundException(_inner) => _inner.fmt(f),
             Self::ResourceLimitExceededException(_inner) => _inner.fmt(f),
             Self::ServiceFailureException(_inner) => _inner.fmt(f),
             Self::ServiceUnavailableException(_inner) => _inner.fmt(f),
@@ -412,6 +421,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateVoiceCo
             Self::AccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::BadRequestException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ForbiddenException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::NotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceLimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ServiceFailureException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ServiceUnavailableException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

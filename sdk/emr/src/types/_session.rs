@@ -38,8 +38,6 @@ pub struct Session {
     pub monitoring_configuration: ::std::option::Option<crate::types::SessionMonitoringConfiguration>,
     /// <p>The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR automatically terminates it.</p>
     pub session_idle_timeout_in_minutes: ::std::option::Option<i64>,
-    /// <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
-    pub certificate_authority: ::std::option::Option<crate::types::CertificateAuthority>,
     /// <p>The Spark Connect server URL for the session. Use this URL with the <code>Credentials</code> returned by <code>GetSessionEndpoint</code> to connect directly to the session over VPC peering.</p>
     pub server_url: ::std::option::Option<::std::string::String>,
     /// <p>The tags associated with the session.</p>
@@ -116,10 +114,6 @@ impl Session {
     pub fn session_idle_timeout_in_minutes(&self) -> ::std::option::Option<i64> {
         self.session_idle_timeout_in_minutes
     }
-    /// <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
-    pub fn certificate_authority(&self) -> ::std::option::Option<&crate::types::CertificateAuthority> {
-        self.certificate_authority.as_ref()
-    }
     /// <p>The Spark Connect server URL for the session. Use this URL with the <code>Credentials</code> returned by <code>GetSessionEndpoint</code> to connect directly to the session over VPC peering.</p>
     pub fn server_url(&self) -> ::std::option::Option<&str> {
         self.server_url.as_deref()
@@ -159,7 +153,6 @@ pub struct SessionBuilder {
     pub(crate) engine_configurations: ::std::option::Option<::std::vec::Vec<crate::types::Configuration>>,
     pub(crate) monitoring_configuration: ::std::option::Option<crate::types::SessionMonitoringConfiguration>,
     pub(crate) session_idle_timeout_in_minutes: ::std::option::Option<i64>,
-    pub(crate) certificate_authority: ::std::option::Option<crate::types::CertificateAuthority>,
     pub(crate) server_url: ::std::option::Option<::std::string::String>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 }
@@ -412,20 +405,6 @@ impl SessionBuilder {
     pub fn get_session_idle_timeout_in_minutes(&self) -> &::std::option::Option<i64> {
         &self.session_idle_timeout_in_minutes
     }
-    /// <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
-    pub fn certificate_authority(mut self, input: crate::types::CertificateAuthority) -> Self {
-        self.certificate_authority = ::std::option::Option::Some(input);
-        self
-    }
-    /// <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
-    pub fn set_certificate_authority(mut self, input: ::std::option::Option<crate::types::CertificateAuthority>) -> Self {
-        self.certificate_authority = input;
-        self
-    }
-    /// <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
-    pub fn get_certificate_authority(&self) -> &::std::option::Option<crate::types::CertificateAuthority> {
-        &self.certificate_authority
-    }
     /// <p>The Spark Connect server URL for the session. Use this URL with the <code>Credentials</code> returned by <code>GetSessionEndpoint</code> to connect directly to the session over VPC peering.</p>
     pub fn server_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.server_url = ::std::option::Option::Some(input.into());
@@ -480,7 +459,6 @@ impl SessionBuilder {
             engine_configurations: self.engine_configurations,
             monitoring_configuration: self.monitoring_configuration,
             session_idle_timeout_in_minutes: self.session_idle_timeout_in_minutes,
-            certificate_authority: self.certificate_authority,
             server_url: self.server_url,
             tags: self.tags,
         }

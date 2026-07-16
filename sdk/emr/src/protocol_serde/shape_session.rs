@@ -137,11 +137,6 @@ where
                                     .transpose()?,
                             );
                         }
-                        "CertificateAuthority" => {
-                            builder = builder.set_certificate_authority(
-                                crate::protocol_serde::shape_certificate_authority::de_certificate_authority(tokens, _value, depth + 1)?,
-                            );
-                        }
                         "ServerUrl" => {
                             builder = builder.set_server_url(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

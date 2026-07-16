@@ -6,3 +6,9 @@ pub mod get_estimated_carbon_emissions;
 
 /// Types for the `GetEstimatedCarbonEmissionsDimensionValues` operation.
 pub mod get_estimated_carbon_emissions_dimension_values;
+
+/// Types for the `GetEstimatedWaterAllocation` operation.
+pub mod get_estimated_water_allocation;
+
+/// Types for the `GetEstimatedWaterAllocationDimensionValues` operation.
+pub mod get_estimated_water_allocation_dimension_values;

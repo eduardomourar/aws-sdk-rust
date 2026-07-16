@@ -27,6 +27,7 @@ pub struct UpdateGlobalSettingsInputBuilder {
 }
 impl UpdateGlobalSettingsInputBuilder {
     /// <p>The Voice Connector settings.</p>
+    /// This field is required.
     pub fn voice_connector(mut self, input: crate::types::VoiceConnectorSettings) -> Self {
         self.voice_connector = ::std::option::Option::Some(input);
         self

@@ -47,6 +47,21 @@ pub fn de_list_sip_rules_http_error(
             }
             tmp
         }),
+        "NotFoundException" => crate::operation::list_sip_rules::ListSipRulesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::list_sip_rules::ListSipRulesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceFailureException" => crate::operation::list_sip_rules::ListSipRulesError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {

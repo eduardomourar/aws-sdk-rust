@@ -6,6 +6,10 @@ impl super::Client {
     ///   - [`voice_connector_id(impl Into<String>)`](crate::operation::delete_voice_connector_proxy::builders::DeleteVoiceConnectorProxyFluentBuilder::voice_connector_id) / [`set_voice_connector_id(Option<String>)`](crate::operation::delete_voice_connector_proxy::builders::DeleteVoiceConnectorProxyFluentBuilder::set_voice_connector_id):<br>required: **true**<br><p>The Voice Connector ID.</p><br>
     /// - On success, responds with [`DeleteVoiceConnectorProxyOutput`](crate::operation::delete_voice_connector_proxy::DeleteVoiceConnectorProxyOutput)
     /// - On failure, responds with [`SdkError<DeleteVoiceConnectorProxyError>`](crate::operation::delete_voice_connector_proxy::DeleteVoiceConnectorProxyError)
+    #[deprecated(
+        note = "End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorProxy.html",
+        since = "2026-04-07"
+    )]
     pub fn delete_voice_connector_proxy(&self) -> crate::operation::delete_voice_connector_proxy::builders::DeleteVoiceConnectorProxyFluentBuilder {
         crate::operation::delete_voice_connector_proxy::builders::DeleteVoiceConnectorProxyFluentBuilder::new(self.handle.clone())
     }

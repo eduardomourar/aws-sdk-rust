@@ -3,20 +3,23 @@ pub fn ser_create_voice_connector_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::operation::create_voice_connector_group::CreateVoiceConnectorGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.name {
-        object.key("Name").string(var_1.as_str());
+    if let Some(var_1) = &input.call_distribution_type {
+        object.key("CallDistributionType").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.voice_connector_items {
-        let mut array_3 = object.key("VoiceConnectorItems").start_array();
-        for item_4 in var_2 {
+    if let Some(var_2) = &input.name {
+        object.key("Name").string(var_2.as_str());
+    }
+    if let Some(var_3) = &input.voice_connector_items {
+        let mut array_4 = object.key("VoiceConnectorItems").start_array();
+        for item_5 in var_3 {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                crate::protocol_serde::shape_voice_connector_item::ser_voice_connector_item(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_6 = array_4.value().start_object();
+                crate::protocol_serde::shape_voice_connector_item::ser_voice_connector_item(&mut object_6, item_5)?;
+                object_6.finish();
             }
         }
-        array_3.finish();
+        array_4.finish();
     }
     Ok(())
 }

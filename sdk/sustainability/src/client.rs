@@ -166,3 +166,7 @@ pub mod customize;
 mod get_estimated_carbon_emissions;
 
 mod get_estimated_carbon_emissions_dimension_values;
+
+mod get_estimated_water_allocation;
+
+mod get_estimated_water_allocation_dimension_values;

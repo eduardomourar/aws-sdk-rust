@@ -37,7 +37,7 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// <p>Specifies the dimensions available for grouping and filtering emissions data.</p>
+/// <p>Specifies the dimensions available for grouping and filtering environmental impact data.</p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
@@ -47,7 +47,7 @@ pub enum Dimension {
     Region,
     /// <p>The cloud computing product and solution offered by Amazon Web Services.</p>
     Service,
-    /// <p>The account ID whose Amazon Web Services usage resulted in the estimated carbon emissions.</p>
+    /// <p>The account ID whose Amazon Web Services usage is associated with the estimated environmental impact data.</p>
     UsageAccountId,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]

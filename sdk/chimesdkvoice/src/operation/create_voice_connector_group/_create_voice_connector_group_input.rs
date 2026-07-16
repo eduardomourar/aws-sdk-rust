@@ -7,6 +7,8 @@ pub struct CreateVoiceConnectorGroupInput {
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>Lists the Voice Connectors that inbound calls are routed to.</p>
     pub voice_connector_items: ::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>>,
+    #[allow(missing_docs)] // documentation missing in model
+    pub call_distribution_type: ::std::option::Option<crate::types::CallDistributionType>,
 }
 impl CreateVoiceConnectorGroupInput {
     /// <p>The name of the Voice Connector group.</p>
@@ -18,6 +20,10 @@ impl CreateVoiceConnectorGroupInput {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.voice_connector_items.is_none()`.
     pub fn voice_connector_items(&self) -> &[crate::types::VoiceConnectorItem] {
         self.voice_connector_items.as_deref().unwrap_or_default()
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(&self) -> ::std::option::Option<&crate::types::CallDistributionType> {
+        self.call_distribution_type.as_ref()
     }
 }
 impl CreateVoiceConnectorGroupInput {
@@ -33,6 +39,7 @@ impl CreateVoiceConnectorGroupInput {
 pub struct CreateVoiceConnectorGroupInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) voice_connector_items: ::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>>,
+    pub(crate) call_distribution_type: ::std::option::Option<crate::types::CallDistributionType>,
 }
 impl CreateVoiceConnectorGroupInputBuilder {
     /// <p>The name of the Voice Connector group.</p>
@@ -70,6 +77,20 @@ impl CreateVoiceConnectorGroupInputBuilder {
     pub fn get_voice_connector_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>> {
         &self.voice_connector_items
     }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(mut self, input: crate::types::CallDistributionType) -> Self {
+        self.call_distribution_type = ::std::option::Option::Some(input);
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_call_distribution_type(mut self, input: ::std::option::Option<crate::types::CallDistributionType>) -> Self {
+        self.call_distribution_type = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_call_distribution_type(&self) -> &::std::option::Option<crate::types::CallDistributionType> {
+        &self.call_distribution_type
+    }
     /// Consumes the builder and constructs a [`CreateVoiceConnectorGroupInput`](crate::operation::create_voice_connector_group::CreateVoiceConnectorGroupInput).
     pub fn build(
         self,
@@ -80,6 +101,7 @@ impl CreateVoiceConnectorGroupInputBuilder {
         ::std::result::Result::Ok(crate::operation::create_voice_connector_group::CreateVoiceConnectorGroupInput {
             name: self.name,
             voice_connector_items: self.voice_connector_items,
+            call_distribution_type: self.call_distribution_type,
         })
     }
 }

@@ -16,6 +16,8 @@ pub struct VoiceConnectorGroup {
     pub updated_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The ARN of the Voice Connector group.</p>
     pub voice_connector_group_arn: ::std::option::Option<::std::string::String>,
+    #[allow(missing_docs)] // documentation missing in model
+    pub call_distribution_type: ::std::option::Option<crate::types::CallDistributionType>,
 }
 impl VoiceConnectorGroup {
     /// <p>The ID of a Voice Connector group.</p>
@@ -44,6 +46,10 @@ impl VoiceConnectorGroup {
     pub fn voice_connector_group_arn(&self) -> ::std::option::Option<&str> {
         self.voice_connector_group_arn.as_deref()
     }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(&self) -> ::std::option::Option<&crate::types::CallDistributionType> {
+        self.call_distribution_type.as_ref()
+    }
 }
 impl VoiceConnectorGroup {
     /// Creates a new builder-style object to manufacture [`VoiceConnectorGroup`](crate::types::VoiceConnectorGroup).
@@ -62,6 +68,7 @@ pub struct VoiceConnectorGroupBuilder {
     pub(crate) created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) updated_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) voice_connector_group_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) call_distribution_type: ::std::option::Option<crate::types::CallDistributionType>,
 }
 impl VoiceConnectorGroupBuilder {
     /// <p>The ID of a Voice Connector group.</p>
@@ -154,6 +161,20 @@ impl VoiceConnectorGroupBuilder {
     pub fn get_voice_connector_group_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.voice_connector_group_arn
     }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(mut self, input: crate::types::CallDistributionType) -> Self {
+        self.call_distribution_type = ::std::option::Option::Some(input);
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_call_distribution_type(mut self, input: ::std::option::Option<crate::types::CallDistributionType>) -> Self {
+        self.call_distribution_type = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_call_distribution_type(&self) -> &::std::option::Option<crate::types::CallDistributionType> {
+        &self.call_distribution_type
+    }
     /// Consumes the builder and constructs a [`VoiceConnectorGroup`](crate::types::VoiceConnectorGroup).
     pub fn build(self) -> crate::types::VoiceConnectorGroup {
         crate::types::VoiceConnectorGroup {
@@ -163,6 +184,7 @@ impl VoiceConnectorGroupBuilder {
             created_timestamp: self.created_timestamp,
             updated_timestamp: self.updated_timestamp,
             voice_connector_group_arn: self.voice_connector_group_arn,
+            call_distribution_type: self.call_distribution_type,
         }
     }
 }

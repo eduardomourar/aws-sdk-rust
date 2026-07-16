@@ -44,6 +44,24 @@ pub(crate) fn get_estimated_carbon_emissions_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn get_estimated_water_allocation_output_output_correct_errors(
+    mut builder: crate::operation::get_estimated_water_allocation::builders::GetEstimatedWaterAllocationOutputBuilder,
+) -> crate::operation::get_estimated_water_allocation::builders::GetEstimatedWaterAllocationOutputBuilder {
+    if builder.results.is_none() {
+        builder.results = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn get_estimated_water_allocation_dimension_values_output_output_correct_errors(
+    mut builder: crate::operation::get_estimated_water_allocation_dimension_values::builders::GetEstimatedWaterAllocationDimensionValuesOutputBuilder,
+) -> crate::operation::get_estimated_water_allocation_dimension_values::builders::GetEstimatedWaterAllocationDimensionValuesOutputBuilder {
+    if builder.results.is_none() {
+        builder.results = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn dimension_entry_correct_errors(
     mut builder: crate::types::builders::DimensionEntryBuilder,
 ) -> crate::types::builders::DimensionEntryBuilder {
@@ -77,6 +95,27 @@ pub(crate) fn estimated_carbon_emissions_correct_errors(
     builder
 }
 
+pub(crate) fn estimated_water_allocation_correct_errors(
+    mut builder: crate::types::builders::EstimatedWaterAllocationBuilder,
+) -> crate::types::builders::EstimatedWaterAllocationBuilder {
+    if builder.time_period.is_none() {
+        builder.time_period = {
+            let builder = crate::types::builders::TimePeriodBuilder::default();
+            crate::serde_util::time_period_correct_errors(builder).build().ok()
+        }
+    }
+    if builder.dimensions_values.is_none() {
+        builder.dimensions_values = Some(Default::default())
+    }
+    if builder.model_version.is_none() {
+        builder.model_version = Some(Default::default())
+    }
+    if builder.allocation_values.is_none() {
+        builder.allocation_values = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn time_period_correct_errors(mut builder: crate::types::builders::TimePeriodBuilder) -> crate::types::builders::TimePeriodBuilder {
     if builder.start.is_none() {
         builder.start = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
@@ -93,6 +132,18 @@ pub(crate) fn emissions_correct_errors(mut builder: crate::types::builders::Emis
     }
     if builder.unit.is_none() {
         builder.unit = "no value was set".parse::<crate::types::EmissionsUnit>().ok()
+    }
+    builder
+}
+
+pub(crate) fn water_allocation_correct_errors(
+    mut builder: crate::types::builders::WaterAllocationBuilder,
+) -> crate::types::builders::WaterAllocationBuilder {
+    if builder.value.is_none() {
+        builder.value = Some(Default::default())
+    }
+    if builder.unit.is_none() {
+        builder.unit = "no value was set".parse::<crate::types::WaterAllocationUnit>().ok()
     }
     builder
 }

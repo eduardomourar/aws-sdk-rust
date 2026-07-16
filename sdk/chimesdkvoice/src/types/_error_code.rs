@@ -27,6 +27,7 @@
 ///     ErrorCode::Throttling => { /* ... */ },
 ///     ErrorCode::Unauthorized => { /* ... */ },
 ///     ErrorCode::Unprocessable => { /* ... */ },
+///     ErrorCode::Validation => { /* ... */ },
 ///     ErrorCode::VoiceConnectorGroupAssociationsExist => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -87,6 +88,8 @@ pub enum ErrorCode {
     #[allow(missing_docs)] // documentation missing in model
     Unprocessable,
     #[allow(missing_docs)] // documentation missing in model
+    Validation,
+    #[allow(missing_docs)] // documentation missing in model
     VoiceConnectorGroupAssociationsExist,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
@@ -110,6 +113,7 @@ impl ::std::convert::From<&str> for ErrorCode {
             "Throttling" => ErrorCode::Throttling,
             "Unauthorized" => ErrorCode::Unauthorized,
             "Unprocessable" => ErrorCode::Unprocessable,
+            "Validation" => ErrorCode::Validation,
             "VoiceConnectorGroupAssociationsExist" => ErrorCode::VoiceConnectorGroupAssociationsExist,
             other => ErrorCode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -141,6 +145,7 @@ impl ErrorCode {
             ErrorCode::Throttling => "Throttling",
             ErrorCode::Unauthorized => "Unauthorized",
             ErrorCode::Unprocessable => "Unprocessable",
+            ErrorCode::Validation => "Validation",
             ErrorCode::VoiceConnectorGroupAssociationsExist => "VoiceConnectorGroupAssociationsExist",
             ErrorCode::Unknown(value) => value.as_str(),
         }
@@ -163,6 +168,7 @@ impl ErrorCode {
             "Throttling",
             "Unauthorized",
             "Unprocessable",
+            "Validation",
             "VoiceConnectorGroupAssociationsExist",
         ]
     }
@@ -202,6 +208,7 @@ impl ::std::fmt::Display for ErrorCode {
             ErrorCode::Throttling => write!(f, "Throttling"),
             ErrorCode::Unauthorized => write!(f, "Unauthorized"),
             ErrorCode::Unprocessable => write!(f, "Unprocessable"),
+            ErrorCode::Validation => write!(f, "Validation"),
             ErrorCode::VoiceConnectorGroupAssociationsExist => write!(f, "VoiceConnectorGroupAssociationsExist"),
             ErrorCode::Unknown(value) => write!(f, "{value}"),
         }

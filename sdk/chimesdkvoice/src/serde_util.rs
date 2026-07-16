@@ -72,8 +72,5 @@ pub(crate) fn voice_connector_item_correct_errors(
     if builder.voice_connector_id.is_none() {
         builder.voice_connector_id = Some(Default::default())
     }
-    if builder.priority.is_none() {
-        builder.priority = Some(Default::default())
-    }
     builder
 }

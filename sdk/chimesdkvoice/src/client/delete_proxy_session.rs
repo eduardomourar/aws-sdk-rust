@@ -7,6 +7,10 @@ impl super::Client {
     ///   - [`proxy_session_id(impl Into<String>)`](crate::operation::delete_proxy_session::builders::DeleteProxySessionFluentBuilder::proxy_session_id) / [`set_proxy_session_id(Option<String>)`](crate::operation::delete_proxy_session::builders::DeleteProxySessionFluentBuilder::set_proxy_session_id):<br>required: **true**<br><p>The proxy session ID.</p><br>
     /// - On success, responds with [`DeleteProxySessionOutput`](crate::operation::delete_proxy_session::DeleteProxySessionOutput)
     /// - On failure, responds with [`SdkError<DeleteProxySessionError>`](crate::operation::delete_proxy_session::DeleteProxySessionError)
+    #[deprecated(
+        note = "End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteProxySession.html",
+        since = "2026-04-07"
+    )]
     pub fn delete_proxy_session(&self) -> crate::operation::delete_proxy_session::builders::DeleteProxySessionFluentBuilder {
         crate::operation::delete_proxy_session::builders::DeleteProxySessionFluentBuilder::new(self.handle.clone())
     }

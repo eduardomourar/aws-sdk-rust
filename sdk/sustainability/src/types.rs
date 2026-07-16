@@ -15,9 +15,17 @@ pub use crate::types::_estimated_carbon_emissions::EstimatedCarbonEmissions;
 
 pub use crate::types::_dimension_entry::DimensionEntry;
 
+pub use crate::types::_water_allocation_type::WaterAllocationType;
+
+pub use crate::types::_estimated_water_allocation::EstimatedWaterAllocation;
+
 pub use crate::types::_emissions::Emissions;
 
+pub use crate::types::_water_allocation::WaterAllocation;
+
 pub use crate::types::_emissions_unit::EmissionsUnit;
+
+pub use crate::types::_water_allocation_unit::WaterAllocationUnit;
 
 mod _dimension;
 
@@ -31,6 +39,8 @@ mod _emissions_unit;
 
 mod _estimated_carbon_emissions;
 
+mod _estimated_water_allocation;
+
 mod _filter_expression;
 
 mod _granularity_configuration;
@@ -38,6 +48,12 @@ mod _granularity_configuration;
 mod _time_granularity;
 
 mod _time_period;
+
+mod _water_allocation;
+
+mod _water_allocation_type;
+
+mod _water_allocation_unit;
 
 /// Builders
 pub mod builders;

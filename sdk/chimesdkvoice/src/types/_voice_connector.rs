@@ -22,7 +22,7 @@ pub struct VoiceConnector {
     pub voice_connector_arn: ::std::option::Option<::std::string::String>,
     /// <p>The connectors for use with Connect Customer.</p>
     pub integration_type: ::std::option::Option<crate::types::VoiceConnectorIntegrationType>,
-    /// <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+    /// <p>The type of network for the Voice Connector.</p>
     pub network_type: ::std::option::Option<crate::types::NetworkType>,
 }
 impl VoiceConnector {
@@ -62,7 +62,7 @@ impl VoiceConnector {
     pub fn integration_type(&self) -> ::std::option::Option<&crate::types::VoiceConnectorIntegrationType> {
         self.integration_type.as_ref()
     }
-    /// <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+    /// <p>The type of network for the Voice Connector.</p>
     pub fn network_type(&self) -> ::std::option::Option<&crate::types::NetworkType> {
         self.network_type.as_ref()
     }
@@ -216,17 +216,17 @@ impl VoiceConnectorBuilder {
     pub fn get_integration_type(&self) -> &::std::option::Option<crate::types::VoiceConnectorIntegrationType> {
         &self.integration_type
     }
-    /// <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+    /// <p>The type of network for the Voice Connector.</p>
     pub fn network_type(mut self, input: crate::types::NetworkType) -> Self {
         self.network_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+    /// <p>The type of network for the Voice Connector.</p>
     pub fn set_network_type(mut self, input: ::std::option::Option<crate::types::NetworkType>) -> Self {
         self.network_type = input;
         self
     }
-    /// <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+    /// <p>The type of network for the Voice Connector.</p>
     pub fn get_network_type(&self) -> &::std::option::Option<crate::types::NetworkType> {
         &self.network_type
     }

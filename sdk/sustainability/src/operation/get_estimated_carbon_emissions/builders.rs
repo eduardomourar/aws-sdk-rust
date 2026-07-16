@@ -114,17 +114,17 @@ impl GetEstimatedCarbonEmissionsFluentBuilder {
     pub fn into_paginator(self) -> crate::operation::get_estimated_carbon_emissions::paginator::GetEstimatedCarbonEmissionsPaginator {
         crate::operation::get_estimated_carbon_emissions::paginator::GetEstimatedCarbonEmissionsPaginator::new(self.handle, self.inner)
     }
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub fn time_period(mut self, input: crate::types::TimePeriod) -> Self {
         self.inner = self.inner.time_period(input);
         self
     }
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub fn set_time_period(mut self, input: ::std::option::Option<crate::types::TimePeriod>) -> Self {
         self.inner = self.inner.set_time_period(input);
         self
     }
-    /// <p>The date range for fetching estimated carbon emissions.</p>
+    /// <p>The date range for fetching estimated carbon emissions. The range must include the start date of a month for that month's data to be included in the response.</p>
     pub fn get_time_period(&self) -> &::std::option::Option<crate::types::TimePeriod> {
         self.inner.get_time_period()
     }
@@ -147,17 +147,17 @@ impl GetEstimatedCarbonEmissionsFluentBuilder {
     pub fn get_group_by(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Dimension>> {
         self.inner.get_group_by()
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn filter_by(mut self, input: crate::types::FilterExpression) -> Self {
         self.inner = self.inner.filter_by(input);
         self
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn set_filter_by(mut self, input: ::std::option::Option<crate::types::FilterExpression>) -> Self {
         self.inner = self.inner.set_filter_by(input);
         self
     }
-    /// <p>The criteria for filtering estimated carbon emissions.</p>
+    /// <p>The criteria for filtering estimated carbon emissions. To determine which dimensions are available to be filtered by, you can first call <code>GetEstimatedCarbonEmissionsDimensionValues</code></p>
     pub fn get_filter_by(&self) -> &::std::option::Option<crate::types::FilterExpression> {
         self.inner.get_filter_by()
     }
@@ -180,17 +180,20 @@ impl GetEstimatedCarbonEmissionsFluentBuilder {
     pub fn get_emissions_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EmissionsType>> {
         self.inner.get_emissions_types()
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn granularity(mut self, input: crate::types::TimeGranularity) -> Self {
         self.inner = self.inner.granularity(input);
         self
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn set_granularity(mut self, input: ::std::option::Option<crate::types::TimeGranularity>) -> Self {
         self.inner = self.inner.set_granularity(input);
         self
     }
-    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity.</p>
+    /// <p>The time granularity for the results. If absent, uses <code>MONTHLY</code> time granularity. The smallest supported granularity for carbon emissions is <code>MONTHLY</code>.</p>
+    /// <p>If requesting partial time periods, data will be returned based on the smallest supported granularity. For example, requesting <code>2025-04-01T00:00:00Z</code> to <code>2026-04-01T00:00:00Z</code> with <code>YEARLY_CALENDAR</code> granularity will return the last 9 months for 2025 and the first 3 months of 2026.</p>
     pub fn get_granularity(&self) -> &::std::option::Option<crate::types::TimeGranularity> {
         self.inner.get_granularity()
     }
@@ -208,17 +211,17 @@ impl GetEstimatedCarbonEmissionsFluentBuilder {
     pub fn get_granularity_configuration(&self) -> &::std::option::Option<crate::types::GranularityConfiguration> {
         self.inner.get_granularity_configuration()
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.inner = self.inner.max_results(input);
         self
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_max_results(input);
         self
     }
-    /// <p>The maximum number of results to return in a single call. Default is 40.</p>
+    /// <p>The maximum number of results to return in a single call. Default is 1000.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_results()
     }

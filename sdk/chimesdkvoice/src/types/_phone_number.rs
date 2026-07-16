@@ -8,6 +8,8 @@ pub struct PhoneNumber {
     pub phone_number_id: ::std::option::Option<::std::string::String>,
     /// <p>The phone number, in E.164 format.</p>
     pub e164_phone_number: ::std::option::Option<::std::string::String>,
+    #[allow(missing_docs)] // documentation missing in model
+    pub phone_number_arn: ::std::option::Option<::std::string::String>,
     /// <p>The phone number's country. Format: ISO 3166-1 alpha-2.</p>
     pub country: ::std::option::Option<::std::string::String>,
     /// <p>The phone number's type.</p>
@@ -43,6 +45,10 @@ impl PhoneNumber {
     /// <p>The phone number, in E.164 format.</p>
     pub fn e164_phone_number(&self) -> ::std::option::Option<&str> {
         self.e164_phone_number.as_deref()
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn phone_number_arn(&self) -> ::std::option::Option<&str> {
+        self.phone_number_arn.as_deref()
     }
     /// <p>The phone number's country. Format: ISO 3166-1 alpha-2.</p>
     pub fn country(&self) -> ::std::option::Option<&str> {
@@ -104,6 +110,7 @@ impl ::std::fmt::Debug for PhoneNumber {
         let mut formatter = f.debug_struct("PhoneNumber");
         formatter.field("phone_number_id", &"*** Sensitive Data Redacted ***");
         formatter.field("e164_phone_number", &"*** Sensitive Data Redacted ***");
+        formatter.field("phone_number_arn", &self.phone_number_arn);
         formatter.field("country", &self.country);
         formatter.field("r#type", &self.r#type);
         formatter.field("product_type", &self.product_type);
@@ -133,6 +140,7 @@ impl PhoneNumber {
 pub struct PhoneNumberBuilder {
     pub(crate) phone_number_id: ::std::option::Option<::std::string::String>,
     pub(crate) e164_phone_number: ::std::option::Option<::std::string::String>,
+    pub(crate) phone_number_arn: ::std::option::Option<::std::string::String>,
     pub(crate) country: ::std::option::Option<::std::string::String>,
     pub(crate) r#type: ::std::option::Option<crate::types::PhoneNumberType>,
     pub(crate) product_type: ::std::option::Option<crate::types::PhoneNumberProductType>,
@@ -175,6 +183,20 @@ impl PhoneNumberBuilder {
     /// <p>The phone number, in E.164 format.</p>
     pub fn get_e164_phone_number(&self) -> &::std::option::Option<::std::string::String> {
         &self.e164_phone_number
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn phone_number_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.phone_number_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_phone_number_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.phone_number_arn = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_phone_number_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.phone_number_arn
     }
     /// <p>The phone number's country. Format: ISO 3166-1 alpha-2.</p>
     pub fn country(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -369,6 +391,7 @@ impl PhoneNumberBuilder {
         crate::types::PhoneNumber {
             phone_number_id: self.phone_number_id,
             e164_phone_number: self.e164_phone_number,
+            phone_number_arn: self.phone_number_arn,
             country: self.country,
             r#type: self.r#type,
             product_type: self.product_type,
@@ -390,6 +413,7 @@ impl ::std::fmt::Debug for PhoneNumberBuilder {
         let mut formatter = f.debug_struct("PhoneNumberBuilder");
         formatter.field("phone_number_id", &"*** Sensitive Data Redacted ***");
         formatter.field("e164_phone_number", &"*** Sensitive Data Redacted ***");
+        formatter.field("phone_number_arn", &self.phone_number_arn);
         formatter.field("country", &self.country);
         formatter.field("r#type", &self.r#type);
         formatter.field("product_type", &self.product_type);

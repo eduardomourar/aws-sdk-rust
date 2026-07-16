@@ -9,4 +9,8 @@ pub use crate::types::_estimated_carbon_emissions::EstimatedCarbonEmissionsBuild
 
 pub use crate::types::_dimension_entry::DimensionEntryBuilder;
 
+pub use crate::types::_estimated_water_allocation::EstimatedWaterAllocationBuilder;
+
 pub use crate::types::_emissions::EmissionsBuilder;
+
+pub use crate::types::_water_allocation::WaterAllocationBuilder;

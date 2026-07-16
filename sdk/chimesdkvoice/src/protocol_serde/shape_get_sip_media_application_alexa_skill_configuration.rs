@@ -58,6 +58,22 @@ pub fn de_get_sip_media_application_alexa_skill_configuration_http_error(
                                                         }
             tmp
         }),
+        "GoneException" => crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::GoneException({
+            #[allow(unused_mut)]
+            let mut tmp =
+                 {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::GoneExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_gone_exception::de_gone_exception_json_err(_response_body, output).map_err(crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                }
+            ;
+            if tmp.message.is_none() {
+                                                            tmp.message = _error_message;
+                                                        }
+            tmp
+        }),
         "NotFoundException" => crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp =

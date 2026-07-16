@@ -142,4 +142,18 @@ impl CreateVoiceConnectorGroupFluentBuilder {
     pub fn get_voice_connector_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VoiceConnectorItem>> {
         self.inner.get_voice_connector_items()
     }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn call_distribution_type(mut self, input: crate::types::CallDistributionType) -> Self {
+        self.inner = self.inner.call_distribution_type(input);
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_call_distribution_type(mut self, input: ::std::option::Option<crate::types::CallDistributionType>) -> Self {
+        self.inner = self.inner.set_call_distribution_type(input);
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_call_distribution_type(&self) -> &::std::option::Option<crate::types::CallDistributionType> {
+        self.inner.get_call_distribution_type()
+    }
 }

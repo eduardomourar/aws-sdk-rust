@@ -36,6 +36,13 @@ where
                                         .transpose()?,
                                 );
                             }
+                            "PhoneNumberArn" => {
+                                builder = builder.set_phone_number_arn(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
                             "Country" => {
                                 builder = builder.set_country(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

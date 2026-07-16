@@ -531,6 +531,9 @@ impl From<crate::operation::create_voice_connector_group::CreateVoiceConnectorGr
             crate::operation::create_voice_connector_group::CreateVoiceConnectorGroupError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
             }
+            crate::operation::create_voice_connector_group::CreateVoiceConnectorGroupError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
             crate::operation::create_voice_connector_group::CreateVoiceConnectorGroupError::ResourceLimitExceededException(inner) => {
                 Error::ResourceLimitExceededException(inner)
             }
@@ -1577,6 +1580,7 @@ impl From<crate::operation::get_sip_media_application_alexa_skill_configuration:
         match err {
             crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::BadRequestException(inner) => Error::BadRequestException(inner),
             crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::ForbiddenException(inner) => Error::ForbiddenException(inner),
+            crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::GoneException(inner) => Error::GoneException(inner),
             crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::get_sip_media_application_alexa_skill_configuration::GetSipMediaApplicationAlexaSkillConfigurationError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
@@ -2467,6 +2471,7 @@ impl From<crate::operation::list_sip_rules::ListSipRulesError> for Error {
         match err {
             crate::operation::list_sip_rules::ListSipRulesError::BadRequestException(inner) => Error::BadRequestException(inner),
             crate::operation::list_sip_rules::ListSipRulesError::ForbiddenException(inner) => Error::ForbiddenException(inner),
+            crate::operation::list_sip_rules::ListSipRulesError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::list_sip_rules::ListSipRulesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::list_sip_rules::ListSipRulesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_sip_rules::ListSipRulesError::ThrottledClientException(inner) => Error::ThrottledClientException(inner),
@@ -2782,6 +2787,7 @@ impl From<crate::operation::put_sip_media_application_alexa_skill_configuration:
         match err {
             crate::operation::put_sip_media_application_alexa_skill_configuration::PutSipMediaApplicationAlexaSkillConfigurationError::BadRequestException(inner) => Error::BadRequestException(inner),
             crate::operation::put_sip_media_application_alexa_skill_configuration::PutSipMediaApplicationAlexaSkillConfigurationError::ForbiddenException(inner) => Error::ForbiddenException(inner),
+            crate::operation::put_sip_media_application_alexa_skill_configuration::PutSipMediaApplicationAlexaSkillConfigurationError::GoneException(inner) => Error::GoneException(inner),
             crate::operation::put_sip_media_application_alexa_skill_configuration::PutSipMediaApplicationAlexaSkillConfigurationError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::put_sip_media_application_alexa_skill_configuration::PutSipMediaApplicationAlexaSkillConfigurationError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::put_sip_media_application_alexa_skill_configuration::PutSipMediaApplicationAlexaSkillConfigurationError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
@@ -2988,6 +2994,9 @@ where
 impl From<crate::operation::put_voice_connector_origination::PutVoiceConnectorOriginationError> for Error {
     fn from(err: crate::operation::put_voice_connector_origination::PutVoiceConnectorOriginationError) -> Self {
         match err {
+            crate::operation::put_voice_connector_origination::PutVoiceConnectorOriginationError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
             crate::operation::put_voice_connector_origination::PutVoiceConnectorOriginationError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
             }

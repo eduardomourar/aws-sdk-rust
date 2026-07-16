@@ -40,8 +40,6 @@ impl crate::operation::update_object_encryption::builders::UpdateObjectEncryptio
 /// <p>To use the <code>UpdateObjectEncryption</code> operation, you must have the following permissions:</p>
 /// <ul>
 /// <li>
-/// <p><code>s3:PutObject</code></p></li>
-/// <li>
 /// <p><code>s3:UpdateObjectEncryption</code></p></li>
 /// <li>
 /// <p><code>kms:Encrypt</code></p></li>

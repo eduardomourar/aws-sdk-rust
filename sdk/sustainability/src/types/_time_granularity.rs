@@ -39,21 +39,21 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-/// <p>Specifies the time period over which emissions data is aggregated.</p>
+/// <p>Specifies the time period over which environmental impact data is aggregated.</p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum TimeGranularity {
-    /// <p>Emissions aggregated by calendar month.</p>
+    /// <p>Environmental impact data aggregated by calendar month.</p>
     Monthly,
-    /// <p>Emissions aggregated over calendar quarter periods (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec).</p>
+    /// <p>Environmental impact data aggregated over calendar quarter periods (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec).</p>
     QuarterlyCalendar,
-    /// <p>Emissions aggregated over fiscal quarter periods based on the fiscal year start month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
+    /// <p>Environmental impact data aggregated over fiscal quarter periods based on the fiscal year start month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
     QuarterlyFiscal,
-    /// <p>Emissions aggregated over calendar year periods (January-December).</p>
+    /// <p>Environmental impact data aggregated over calendar year periods (January-December).</p>
     YearlyCalendar,
-    /// <p>Emissions aggregated over fiscal year periods starting from the month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
+    /// <p>Environmental impact data aggregated over fiscal year periods starting from the month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
     YearlyFiscal,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]

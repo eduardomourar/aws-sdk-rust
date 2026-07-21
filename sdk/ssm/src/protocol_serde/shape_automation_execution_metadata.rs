@@ -117,6 +117,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "WarningMessage" => {
+                            builder = builder.set_warning_message(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "TargetParameterName" => {
                             builder = builder.set_target_parameter_name(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

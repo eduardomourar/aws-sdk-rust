@@ -19,6 +19,8 @@ pub use crate::types::_hsm_client_certificate::HsmClientCertificateBuilder;
 
 pub use crate::types::_hsm_configuration::HsmConfigurationBuilder;
 
+pub use crate::types::_qev2_idc_application::Qev2IdcApplicationBuilder;
+
 pub use crate::types::_redshift_idc_application::RedshiftIdcApplicationBuilder;
 
 pub use crate::types::_scheduled_action_type::ScheduledActionTypeBuilder;

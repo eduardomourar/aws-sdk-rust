@@ -6,11 +6,17 @@
 pub struct SecurityConfigurationData {
     /// <p>Authorization-related configuration input for the security configuration.</p>
     pub authorization_configuration: ::std::option::Option<crate::types::AuthorizationConfiguration>,
+    /// <p>Authentication-related configuration input for the security configuration.</p>
+    pub authentication_configuration: ::std::option::Option<crate::types::AuthenticationConfiguration>,
 }
 impl SecurityConfigurationData {
     /// <p>Authorization-related configuration input for the security configuration.</p>
     pub fn authorization_configuration(&self) -> ::std::option::Option<&crate::types::AuthorizationConfiguration> {
         self.authorization_configuration.as_ref()
+    }
+    /// <p>Authentication-related configuration input for the security configuration.</p>
+    pub fn authentication_configuration(&self) -> ::std::option::Option<&crate::types::AuthenticationConfiguration> {
+        self.authentication_configuration.as_ref()
     }
 }
 impl SecurityConfigurationData {
@@ -25,6 +31,7 @@ impl SecurityConfigurationData {
 #[non_exhaustive]
 pub struct SecurityConfigurationDataBuilder {
     pub(crate) authorization_configuration: ::std::option::Option<crate::types::AuthorizationConfiguration>,
+    pub(crate) authentication_configuration: ::std::option::Option<crate::types::AuthenticationConfiguration>,
 }
 impl SecurityConfigurationDataBuilder {
     /// <p>Authorization-related configuration input for the security configuration.</p>
@@ -41,10 +48,25 @@ impl SecurityConfigurationDataBuilder {
     pub fn get_authorization_configuration(&self) -> &::std::option::Option<crate::types::AuthorizationConfiguration> {
         &self.authorization_configuration
     }
+    /// <p>Authentication-related configuration input for the security configuration.</p>
+    pub fn authentication_configuration(mut self, input: crate::types::AuthenticationConfiguration) -> Self {
+        self.authentication_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Authentication-related configuration input for the security configuration.</p>
+    pub fn set_authentication_configuration(mut self, input: ::std::option::Option<crate::types::AuthenticationConfiguration>) -> Self {
+        self.authentication_configuration = input;
+        self
+    }
+    /// <p>Authentication-related configuration input for the security configuration.</p>
+    pub fn get_authentication_configuration(&self) -> &::std::option::Option<crate::types::AuthenticationConfiguration> {
+        &self.authentication_configuration
+    }
     /// Consumes the builder and constructs a [`SecurityConfigurationData`](crate::types::SecurityConfigurationData).
     pub fn build(self) -> crate::types::SecurityConfigurationData {
         crate::types::SecurityConfigurationData {
             authorization_configuration: self.authorization_configuration,
+            authentication_configuration: self.authentication_configuration,
         }
     }
 }

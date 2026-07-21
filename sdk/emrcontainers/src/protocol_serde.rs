@@ -37,6 +37,8 @@ pub(crate) mod shape_delete_job_template;
 
 pub(crate) mod shape_delete_managed_endpoint;
 
+pub(crate) mod shape_delete_security_configuration;
+
 pub(crate) mod shape_delete_virtual_cluster;
 
 pub(crate) mod shape_describe_job_run;
@@ -137,6 +139,8 @@ pub(crate) mod shape_virtual_cluster;
 
 pub(crate) mod shape_virtual_clusters;
 
+pub(crate) mod shape_authentication_configuration;
+
 pub(crate) mod shape_authorization_configuration;
 
 pub(crate) mod shape_certificate;
@@ -168,6 +172,10 @@ pub(crate) mod shape_container_log_rotation_configuration;
 pub(crate) mod shape_eks_info;
 
 pub(crate) mod shape_encryption_configuration;
+
+pub(crate) mod shape_iam_configuration;
+
+pub(crate) mod shape_identity_center_configuration;
 
 pub(crate) mod shape_lake_formation_configuration;
 

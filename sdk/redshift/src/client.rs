@@ -226,6 +226,8 @@ mod create_hsm_configuration;
 
 mod create_integration;
 
+mod create_qev2_idc_application;
+
 mod create_redshift_idc_application;
 
 mod create_scheduled_action;
@@ -292,6 +294,8 @@ mod delete_hsm_configuration;
 mod delete_integration;
 
 mod delete_partner;
+
+mod delete_qev2_idc_application;
 
 mod delete_redshift_idc_application;
 
@@ -366,6 +370,8 @@ mod describe_node_configuration_options;
 mod describe_orderable_cluster_options;
 
 mod describe_partners;
+
+mod describe_qev2_idc_applications;
 
 mod describe_redshift_idc_applications;
 
@@ -446,6 +452,8 @@ mod modify_event_subscription;
 mod modify_integration;
 
 mod modify_lakehouse_configuration;
+
+mod modify_qev2_idc_application;
 
 mod modify_redshift_idc_application;
 

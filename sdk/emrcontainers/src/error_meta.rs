@@ -250,6 +250,36 @@ impl From<crate::operation::delete_managed_endpoint::DeleteManagedEndpointError>
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_security_configuration::DeleteSecurityConfigurationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_security_configuration::DeleteSecurityConfigurationError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_security_configuration::DeleteSecurityConfigurationError> for Error {
+    fn from(err: crate::operation::delete_security_configuration::DeleteSecurityConfigurationError) -> Self {
+        match err {
+            crate::operation::delete_security_configuration::DeleteSecurityConfigurationError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::delete_security_configuration::DeleteSecurityConfigurationError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::delete_security_configuration::DeleteSecurityConfigurationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_virtual_cluster::DeleteVirtualClusterError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

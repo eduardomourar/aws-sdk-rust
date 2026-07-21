@@ -167,6 +167,8 @@ pub use crate::types::error::_integration_source_not_found_fault::IntegrationSou
 
 pub use crate::types::error::_integration_target_not_found_fault::IntegrationTargetNotFoundFaultBuilder;
 
+pub use crate::types::error::_qev2_idc_application_already_exists_fault::Qev2IdcApplicationAlreadyExistsFaultBuilder;
+
 pub use crate::types::error::_redshift_idc_application_already_exists_fault::RedshiftIdcApplicationAlreadyExistsFaultBuilder;
 
 pub use crate::types::error::_redshift_idc_application_quota_exceeded_fault::RedshiftIdcApplicationQuotaExceededFaultBuilder;
@@ -220,6 +222,8 @@ pub use crate::types::error::_invalid_hsm_configuration_state_fault::InvalidHsmC
 pub use crate::types::error::_integration_conflict_state_fault::IntegrationConflictStateFaultBuilder;
 
 pub use crate::types::error::_integration_not_found_fault::IntegrationNotFoundFaultBuilder;
+
+pub use crate::types::error::_qev2_idc_application_not_exists_fault::Qev2IdcApplicationNotExistsFaultBuilder;
 
 pub use crate::types::error::_scheduled_action_not_found_fault::ScheduledActionNotFoundFaultBuilder;
 

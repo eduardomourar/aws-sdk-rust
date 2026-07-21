@@ -22,6 +22,9 @@ pub mod delete_job_template;
 /// Types for the `DeleteManagedEndpoint` operation.
 pub mod delete_managed_endpoint;
 
+/// Types for the `DeleteSecurityConfiguration` operation.
+pub mod delete_security_configuration;
+
 /// Types for the `DeleteVirtualCluster` operation.
 pub mod delete_virtual_cluster;
 

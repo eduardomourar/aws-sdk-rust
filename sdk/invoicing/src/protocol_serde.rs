@@ -49,6 +49,8 @@ pub(crate) mod shape_list_tags_for_resource;
 
 pub(crate) mod shape_put_procurement_portal_preference;
 
+pub(crate) mod shape_send_procurement_portal_validation;
+
 pub(crate) mod shape_tag_resource;
 
 pub(crate) mod shape_untag_resource;
@@ -56,6 +58,8 @@ pub(crate) mod shape_untag_resource;
 pub(crate) mod shape_update_invoice_unit;
 
 pub(crate) mod shape_update_procurement_portal_preference_status;
+
+pub(crate) mod shape_verify_procurement_portal_validation;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
@@ -99,6 +103,8 @@ pub(crate) mod shape_put_procurement_portal_preference_input;
 
 pub(crate) mod shape_resource_not_found_exception;
 
+pub(crate) mod shape_send_procurement_portal_validation_input;
+
 pub(crate) mod shape_service_quota_exceeded_exception;
 
 pub(crate) mod shape_tag_resource_input;
@@ -112,6 +118,8 @@ pub(crate) mod shape_update_invoice_unit_input;
 pub(crate) mod shape_update_procurement_portal_preference_status_input;
 
 pub(crate) mod shape_validation_exception;
+
+pub(crate) mod shape_verify_procurement_portal_validation_input;
 
 pub(crate) mod shape_contact;
 

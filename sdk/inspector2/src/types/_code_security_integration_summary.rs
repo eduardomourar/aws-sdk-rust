@@ -18,8 +18,6 @@ pub struct CodeSecurityIntegrationSummary {
     pub created_on: ::aws_smithy_types::DateTime,
     /// <p>The timestamp when the code security integration was last updated.</p>
     pub last_update_on: ::aws_smithy_types::DateTime,
-    /// <p>The tags associated with the code security integration.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CodeSecurityIntegrationSummary {
     /// <p>The Amazon Resource Name (ARN) of the code security integration.</p>
@@ -53,10 +51,6 @@ impl CodeSecurityIntegrationSummary {
     pub fn last_update_on(&self) -> &::aws_smithy_types::DateTime {
         &self.last_update_on
     }
-    /// <p>The tags associated with the code security integration.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-        self.tags.as_ref()
-    }
 }
 impl CodeSecurityIntegrationSummary {
     /// Creates a new builder-style object to manufacture [`CodeSecurityIntegrationSummary`](crate::types::CodeSecurityIntegrationSummary).
@@ -76,7 +70,6 @@ pub struct CodeSecurityIntegrationSummaryBuilder {
     pub(crate) status_reason: ::std::option::Option<::std::string::String>,
     pub(crate) created_on: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) last_update_on: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CodeSecurityIntegrationSummaryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the code security integration.</p>
@@ -184,26 +177,6 @@ impl CodeSecurityIntegrationSummaryBuilder {
     pub fn get_last_update_on(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_on
     }
-    /// Adds a key-value pair to `tags`.
-    ///
-    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
-    ///
-    /// <p>The tags associated with the code security integration.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
-    }
-    /// <p>The tags associated with the code security integration.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
-    }
-    /// <p>The tags associated with the code security integration.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-        &self.tags
-    }
     /// Consumes the builder and constructs a [`CodeSecurityIntegrationSummary`](crate::types::CodeSecurityIntegrationSummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`integration_arn`](crate::types::builders::CodeSecurityIntegrationSummaryBuilder::integration_arn)
@@ -257,7 +230,6 @@ impl CodeSecurityIntegrationSummaryBuilder {
                     "last_update_on was not specified but it is required when building CodeSecurityIntegrationSummary",
                 )
             })?,
-            tags: self.tags,
         })
     }
 }

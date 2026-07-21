@@ -20,8 +20,6 @@ pub struct CodeSecurityScanConfigurationSummary {
     pub rule_set_categories: ::std::vec::Vec<crate::types::RuleSetCategory>,
     /// <p>The scope settings that define which repositories will be scanned. If the <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies to all existing and future projects imported into Amazon Inspector.</p>
     pub scope_settings: ::std::option::Option<crate::types::ScopeSettings>,
-    /// <p>The tags associated with the scan configuration.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CodeSecurityScanConfigurationSummary {
     /// <p>The Amazon Resource Name (ARN) of the scan configuration.</p>
@@ -62,10 +60,6 @@ impl CodeSecurityScanConfigurationSummary {
     pub fn scope_settings(&self) -> ::std::option::Option<&crate::types::ScopeSettings> {
         self.scope_settings.as_ref()
     }
-    /// <p>The tags associated with the scan configuration.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-        self.tags.as_ref()
-    }
 }
 impl CodeSecurityScanConfigurationSummary {
     /// Creates a new builder-style object to manufacture [`CodeSecurityScanConfigurationSummary`](crate::types::CodeSecurityScanConfigurationSummary).
@@ -86,7 +80,6 @@ pub struct CodeSecurityScanConfigurationSummaryBuilder {
     pub(crate) continuous_integration_scan_supported_events: ::std::option::Option<::std::vec::Vec<crate::types::ContinuousIntegrationScanEvent>>,
     pub(crate) rule_set_categories: ::std::option::Option<::std::vec::Vec<crate::types::RuleSetCategory>>,
     pub(crate) scope_settings: ::std::option::Option<crate::types::ScopeSettings>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CodeSecurityScanConfigurationSummaryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the scan configuration.</p>
@@ -221,26 +214,6 @@ impl CodeSecurityScanConfigurationSummaryBuilder {
     pub fn get_scope_settings(&self) -> &::std::option::Option<crate::types::ScopeSettings> {
         &self.scope_settings
     }
-    /// Adds a key-value pair to `tags`.
-    ///
-    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
-    ///
-    /// <p>The tags associated with the scan configuration.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
-    }
-    /// <p>The tags associated with the scan configuration.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
-    }
-    /// <p>The tags associated with the scan configuration.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-        &self.tags
-    }
     /// Consumes the builder and constructs a [`CodeSecurityScanConfigurationSummary`](crate::types::CodeSecurityScanConfigurationSummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`scan_configuration_arn`](crate::types::builders::CodeSecurityScanConfigurationSummaryBuilder::scan_configuration_arn)
@@ -279,7 +252,6 @@ impl CodeSecurityScanConfigurationSummaryBuilder {
                 )
             })?,
             scope_settings: self.scope_settings,
-            tags: self.tags,
         })
     }
 }

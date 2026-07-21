@@ -167,6 +167,8 @@ pub use crate::types::error::_integration_source_not_found_fault::IntegrationSou
 
 pub use crate::types::error::_integration_target_not_found_fault::IntegrationTargetNotFoundFault;
 
+pub use crate::types::error::_qev2_idc_application_already_exists_fault::Qev2IdcApplicationAlreadyExistsFault;
+
 pub use crate::types::error::_redshift_idc_application_already_exists_fault::RedshiftIdcApplicationAlreadyExistsFault;
 
 pub use crate::types::error::_redshift_idc_application_quota_exceeded_fault::RedshiftIdcApplicationQuotaExceededFault;
@@ -220,6 +222,8 @@ pub use crate::types::error::_invalid_hsm_configuration_state_fault::InvalidHsmC
 pub use crate::types::error::_integration_conflict_state_fault::IntegrationConflictStateFault;
 
 pub use crate::types::error::_integration_not_found_fault::IntegrationNotFoundFault;
+
+pub use crate::types::error::_qev2_idc_application_not_exists_fault::Qev2IdcApplicationNotExistsFault;
 
 pub use crate::types::error::_scheduled_action_not_found_fault::ScheduledActionNotFoundFault;
 
@@ -476,6 +480,10 @@ mod _number_of_nodes_per_cluster_limit_exceeded_fault;
 mod _number_of_nodes_quota_exceeded_fault;
 
 mod _partner_not_found_fault;
+
+mod _qev2_idc_application_already_exists_fault;
+
+mod _qev2_idc_application_not_exists_fault;
 
 mod _redshift_idc_application_already_exists_fault;
 

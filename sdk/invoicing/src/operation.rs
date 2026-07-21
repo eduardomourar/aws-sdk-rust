@@ -40,6 +40,9 @@ pub mod list_tags_for_resource;
 /// Types for the `PutProcurementPortalPreference` operation.
 pub mod put_procurement_portal_preference;
 
+/// Types for the `SendProcurementPortalValidation` operation.
+pub mod send_procurement_portal_validation;
+
 /// Types for the `TagResource` operation.
 pub mod tag_resource;
 
@@ -51,3 +54,6 @@ pub mod update_invoice_unit;
 
 /// Types for the `UpdateProcurementPortalPreferenceStatus` operation.
 pub mod update_procurement_portal_preference_status;
+
+/// Types for the `VerifyProcurementPortalValidation` operation.
+pub mod verify_procurement_portal_validation;

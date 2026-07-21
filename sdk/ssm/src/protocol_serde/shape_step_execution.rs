@@ -110,6 +110,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "WarningMessage" => {
+                            builder = builder.set_warning_message(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "FailureDetails" => {
                             builder = builder.set_failure_details(crate::protocol_serde::shape_failure_details::de_failure_details(
                                 tokens,

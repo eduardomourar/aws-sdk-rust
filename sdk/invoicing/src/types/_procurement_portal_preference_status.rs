@@ -18,6 +18,7 @@
 ///     ProcurementPortalPreferenceStatus::TestFailed => { /* ... */ },
 ///     ProcurementPortalPreferenceStatus::TestInitializationFailed => { /* ... */ },
 ///     ProcurementPortalPreferenceStatus::TestInitialized => { /* ... */ },
+///     ProcurementPortalPreferenceStatus::Validated => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -58,6 +59,8 @@ pub enum ProcurementPortalPreferenceStatus {
     TestInitializationFailed,
     #[allow(missing_docs)] // documentation missing in model
     TestInitialized,
+    #[allow(missing_docs)] // documentation missing in model
+    Validated,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -71,6 +74,7 @@ impl ::std::convert::From<&str> for ProcurementPortalPreferenceStatus {
             "TEST_FAILED" => ProcurementPortalPreferenceStatus::TestFailed,
             "TEST_INITIALIZATION_FAILED" => ProcurementPortalPreferenceStatus::TestInitializationFailed,
             "TEST_INITIALIZED" => ProcurementPortalPreferenceStatus::TestInitialized,
+            "VALIDATED" => ProcurementPortalPreferenceStatus::Validated,
             other => ProcurementPortalPreferenceStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -92,6 +96,7 @@ impl ProcurementPortalPreferenceStatus {
             ProcurementPortalPreferenceStatus::TestFailed => "TEST_FAILED",
             ProcurementPortalPreferenceStatus::TestInitializationFailed => "TEST_INITIALIZATION_FAILED",
             ProcurementPortalPreferenceStatus::TestInitialized => "TEST_INITIALIZED",
+            ProcurementPortalPreferenceStatus::Validated => "VALIDATED",
             ProcurementPortalPreferenceStatus::Unknown(value) => value.as_str(),
         }
     }
@@ -104,6 +109,7 @@ impl ProcurementPortalPreferenceStatus {
             "TEST_FAILED",
             "TEST_INITIALIZATION_FAILED",
             "TEST_INITIALIZED",
+            "VALIDATED",
         ]
     }
 }
@@ -133,6 +139,7 @@ impl ::std::fmt::Display for ProcurementPortalPreferenceStatus {
             ProcurementPortalPreferenceStatus::TestFailed => write!(f, "TEST_FAILED"),
             ProcurementPortalPreferenceStatus::TestInitializationFailed => write!(f, "TEST_INITIALIZATION_FAILED"),
             ProcurementPortalPreferenceStatus::TestInitialized => write!(f, "TEST_INITIALIZED"),
+            ProcurementPortalPreferenceStatus::Validated => write!(f, "VALIDATED"),
             ProcurementPortalPreferenceStatus::Unknown(value) => write!(f, "{value}"),
         }
     }

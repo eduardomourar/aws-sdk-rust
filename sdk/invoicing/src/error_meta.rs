@@ -553,6 +553,53 @@ impl From<crate::operation::put_procurement_portal_preference::PutProcurementPor
         }
     }
 }
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError> for Error {
+    fn from(err: crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError) -> Self {
+        match err {
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::send_procurement_portal_validation::SendProcurementPortalValidationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -670,6 +717,55 @@ impl From<crate::operation::update_procurement_portal_preference_status::UpdateP
             crate::operation::update_procurement_portal_preference_status::UpdateProcurementPortalPreferenceStatusError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::update_procurement_portal_preference_status::UpdateProcurementPortalPreferenceStatusError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::update_procurement_portal_preference_status::UpdateProcurementPortalPreferenceStatusError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError> for Error {
+    fn from(err: crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError) -> Self {
+        match err {
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::verify_procurement_portal_validation::VerifyProcurementPortalValidationError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }

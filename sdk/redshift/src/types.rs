@@ -27,6 +27,8 @@ pub use crate::types::_hsm_configuration::HsmConfiguration;
 
 pub use crate::types::_zero_etl_integration_status::ZeroEtlIntegrationStatus;
 
+pub use crate::types::_qev2_idc_application::Qev2IdcApplication;
+
 pub use crate::types::_application_type::ApplicationType;
 
 pub use crate::types::_redshift_idc_application::RedshiftIdcApplication;
@@ -428,6 +430,8 @@ mod _pause_cluster_message;
 mod _pending_modified_values;
 
 mod _provisioned_identifier;
+
+mod _qev2_idc_application;
 
 mod _read_write_access;
 

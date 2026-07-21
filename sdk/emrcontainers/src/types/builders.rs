@@ -27,6 +27,8 @@ pub use crate::types::_monitoring_configuration::MonitoringConfigurationBuilder;
 
 pub use crate::types::_authorization_configuration::AuthorizationConfigurationBuilder;
 
+pub use crate::types::_authentication_configuration::AuthenticationConfigurationBuilder;
+
 pub use crate::types::_retry_policy_execution::RetryPolicyExecutionBuilder;
 
 pub use crate::types::_certificate::CertificateBuilder;
@@ -54,6 +56,10 @@ pub use crate::types::_eks_info::EksInfoBuilder;
 pub use crate::types::_lake_formation_configuration::LakeFormationConfigurationBuilder;
 
 pub use crate::types::_encryption_configuration::EncryptionConfigurationBuilder;
+
+pub use crate::types::_identity_center_configuration::IdentityCenterConfigurationBuilder;
+
+pub use crate::types::_iam_configuration::IamConfigurationBuilder;
 
 pub use crate::types::_parametric_cloud_watch_monitoring_configuration::ParametricCloudWatchMonitoringConfigurationBuilder;
 

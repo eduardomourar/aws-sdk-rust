@@ -110,6 +110,10 @@ pub struct InfluxDBv3CoreParameters {
     /// <p>Sets the default duration for hard deletion of data.</p>
     /// <p>Default: 90d</p>
     pub hard_delete_default_duration: ::std::option::Option<crate::types::Duration>,
+    /// <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+    pub plugin_repository_url: ::std::option::Option<::std::string::String>,
+    /// <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+    pub plugin_repository_secret_arn: ::std::option::Option<::std::string::String>,
 }
 impl InfluxDBv3CoreParameters {
     /// <p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p>
@@ -296,6 +300,14 @@ impl InfluxDBv3CoreParameters {
     pub fn hard_delete_default_duration(&self) -> ::std::option::Option<&crate::types::Duration> {
         self.hard_delete_default_duration.as_ref()
     }
+    /// <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+    pub fn plugin_repository_url(&self) -> ::std::option::Option<&str> {
+        self.plugin_repository_url.as_deref()
+    }
+    /// <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+    pub fn plugin_repository_secret_arn(&self) -> ::std::option::Option<&str> {
+        self.plugin_repository_secret_arn.as_deref()
+    }
 }
 impl InfluxDBv3CoreParameters {
     /// Creates a new builder-style object to manufacture [`InfluxDBv3CoreParameters`](crate::types::InfluxDBv3CoreParameters).
@@ -347,6 +359,8 @@ pub struct InfluxDBv3CoreParametersBuilder {
     pub(crate) retention_check_interval: ::std::option::Option<crate::types::Duration>,
     pub(crate) delete_grace_period: ::std::option::Option<crate::types::Duration>,
     pub(crate) hard_delete_default_duration: ::std::option::Option<crate::types::Duration>,
+    pub(crate) plugin_repository_url: ::std::option::Option<::std::string::String>,
+    pub(crate) plugin_repository_secret_arn: ::std::option::Option<::std::string::String>,
 }
 impl InfluxDBv3CoreParametersBuilder {
     /// <p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p>
@@ -979,6 +993,34 @@ impl InfluxDBv3CoreParametersBuilder {
     pub fn get_hard_delete_default_duration(&self) -> &::std::option::Option<crate::types::Duration> {
         &self.hard_delete_default_duration
     }
+    /// <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+    pub fn plugin_repository_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.plugin_repository_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+    pub fn set_plugin_repository_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.plugin_repository_url = input;
+        self
+    }
+    /// <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+    pub fn get_plugin_repository_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.plugin_repository_url
+    }
+    /// <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+    pub fn plugin_repository_secret_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.plugin_repository_secret_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+    pub fn set_plugin_repository_secret_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.plugin_repository_secret_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+    pub fn get_plugin_repository_secret_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.plugin_repository_secret_arn
+    }
     /// Consumes the builder and constructs a [`InfluxDBv3CoreParameters`](crate::types::InfluxDBv3CoreParameters).
     pub fn build(self) -> crate::types::InfluxDBv3CoreParameters {
         crate::types::InfluxDBv3CoreParameters {
@@ -1021,6 +1063,8 @@ impl InfluxDBv3CoreParametersBuilder {
             retention_check_interval: self.retention_check_interval,
             delete_grace_period: self.delete_grace_period,
             hard_delete_default_duration: self.hard_delete_default_duration,
+            plugin_repository_url: self.plugin_repository_url,
+            plugin_repository_secret_arn: self.plugin_repository_secret_arn,
         }
     }
 }

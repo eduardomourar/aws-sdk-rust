@@ -9,6 +9,12 @@ pub fn ser_security_configuration_data(
         crate::protocol_serde::shape_authorization_configuration::ser_authorization_configuration(&mut object_2, var_1)?;
         object_2.finish();
     }
+    if let Some(var_3) = &input.authentication_configuration {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("authenticationConfiguration").start_object();
+        crate::protocol_serde::shape_authentication_configuration::ser_authentication_configuration(&mut object_4, var_3)?;
+        object_4.finish();
+    }
     Ok(())
 }
 
@@ -37,6 +43,15 @@ where
                         "authorizationConfiguration" => {
                             builder = builder.set_authorization_configuration(
                                 crate::protocol_serde::shape_authorization_configuration::de_authorization_configuration(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "authenticationConfiguration" => {
+                            builder = builder.set_authentication_configuration(
+                                crate::protocol_serde::shape_authentication_configuration::de_authentication_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -18,6 +18,8 @@ pub struct ResolutionTechniques {
     pub rule_based_properties: ::std::option::Option<crate::types::RuleBasedProperties>,
     /// <p>An object containing the <code>rules</code> for a matching workflow.</p>
     pub rule_condition_properties: ::std::option::Option<crate::types::RuleConditionProperties>,
+    /// <p>Specifies whether real-time matching is enabled for the rule-based matching workflow. When you enable real-time matching, you can use the <code>GenerateMatchId</code> operation with the workflow.</p>
+    pub enable_real_time_matching: ::std::option::Option<bool>,
     /// <p>The properties of the provider service.</p>
     pub provider_properties: ::std::option::Option<crate::types::ProviderProperties>,
 }
@@ -42,6 +44,10 @@ impl ResolutionTechniques {
     pub fn rule_condition_properties(&self) -> ::std::option::Option<&crate::types::RuleConditionProperties> {
         self.rule_condition_properties.as_ref()
     }
+    /// <p>Specifies whether real-time matching is enabled for the rule-based matching workflow. When you enable real-time matching, you can use the <code>GenerateMatchId</code> operation with the workflow.</p>
+    pub fn enable_real_time_matching(&self) -> ::std::option::Option<bool> {
+        self.enable_real_time_matching
+    }
     /// <p>The properties of the provider service.</p>
     pub fn provider_properties(&self) -> ::std::option::Option<&crate::types::ProviderProperties> {
         self.provider_properties.as_ref()
@@ -61,6 +67,7 @@ pub struct ResolutionTechniquesBuilder {
     pub(crate) resolution_type: ::std::option::Option<crate::types::ResolutionType>,
     pub(crate) rule_based_properties: ::std::option::Option<crate::types::RuleBasedProperties>,
     pub(crate) rule_condition_properties: ::std::option::Option<crate::types::RuleConditionProperties>,
+    pub(crate) enable_real_time_matching: ::std::option::Option<bool>,
     pub(crate) provider_properties: ::std::option::Option<crate::types::ProviderProperties>,
 }
 impl ResolutionTechniquesBuilder {
@@ -131,6 +138,20 @@ impl ResolutionTechniquesBuilder {
     pub fn get_rule_condition_properties(&self) -> &::std::option::Option<crate::types::RuleConditionProperties> {
         &self.rule_condition_properties
     }
+    /// <p>Specifies whether real-time matching is enabled for the rule-based matching workflow. When you enable real-time matching, you can use the <code>GenerateMatchId</code> operation with the workflow.</p>
+    pub fn enable_real_time_matching(mut self, input: bool) -> Self {
+        self.enable_real_time_matching = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether real-time matching is enabled for the rule-based matching workflow. When you enable real-time matching, you can use the <code>GenerateMatchId</code> operation with the workflow.</p>
+    pub fn set_enable_real_time_matching(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.enable_real_time_matching = input;
+        self
+    }
+    /// <p>Specifies whether real-time matching is enabled for the rule-based matching workflow. When you enable real-time matching, you can use the <code>GenerateMatchId</code> operation with the workflow.</p>
+    pub fn get_enable_real_time_matching(&self) -> &::std::option::Option<bool> {
+        &self.enable_real_time_matching
+    }
     /// <p>The properties of the provider service.</p>
     pub fn provider_properties(mut self, input: crate::types::ProviderProperties) -> Self {
         self.provider_properties = ::std::option::Option::Some(input);
@@ -158,6 +179,7 @@ impl ResolutionTechniquesBuilder {
             })?,
             rule_based_properties: self.rule_based_properties,
             rule_condition_properties: self.rule_condition_properties,
+            enable_real_time_matching: self.enable_real_time_matching,
             provider_properties: self.provider_properties,
         })
     }

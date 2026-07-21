@@ -38,6 +38,10 @@ where
                                 crate::protocol_serde::shape_rule_condition_properties::de_rule_condition_properties(tokens, _value, depth + 1)?,
                             );
                         }
+                        "enableRealTimeMatching" => {
+                            builder =
+                                builder.set_enable_real_time_matching(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
                         "providerProperties" => {
                             builder = builder.set_provider_properties(crate::protocol_serde::shape_provider_properties::de_provider_properties(
                                 tokens,
@@ -83,11 +87,14 @@ pub fn ser_resolution_techniques(
         crate::protocol_serde::shape_rule_condition_properties::ser_rule_condition_properties(&mut object_4, var_3)?;
         object_4.finish();
     }
-    if let Some(var_5) = &input.provider_properties {
+    if let Some(var_5) = &input.enable_real_time_matching {
+        object.key("enableRealTimeMatching").boolean(*var_5);
+    }
+    if let Some(var_6) = &input.provider_properties {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("providerProperties").start_object();
-        crate::protocol_serde::shape_provider_properties::ser_provider_properties(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_7 = object.key("providerProperties").start_object();
+        crate::protocol_serde::shape_provider_properties::ser_provider_properties(&mut object_7, var_6)?;
+        object_7.finish();
     }
     Ok(())
 }

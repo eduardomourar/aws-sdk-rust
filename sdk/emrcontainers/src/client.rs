@@ -177,6 +177,8 @@ mod delete_job_template;
 
 mod delete_managed_endpoint;
 
+mod delete_security_configuration;
+
 mod delete_virtual_cluster;
 
 mod describe_job_run;

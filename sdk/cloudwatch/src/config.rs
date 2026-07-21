@@ -116,6 +116,20 @@ impl Config {
     pub fn app_name(&self) -> ::std::option::Option<&::aws_types::app_name::AppName> {
         self.config.load::<::aws_types::app_name::AppName>()
     }
+    /// Returns the framework metadata that has been configured, if any.
+    ///
+    /// This _optional_ metadata identifies software frameworks or third-party libraries
+    /// being used with the client, rendered into the user agent as `lib/{name}/{version}`.
+    /// Entries are returned in first-seen (insertion) order, matching the order they are
+    /// rendered into the user agent.
+    pub fn framework_metadata(&self) -> ::std::vec::Vec<&::aws_types::sdk_ua_metadata::FrameworkMetadata> {
+        // `StoreAppend` loads entries newest-first; reverse to first-seen order so
+        // this getter agrees with both the user agent and `SdkConfig::framework_metadata`.
+        let mut entries: ::std::vec::Vec<&::aws_types::sdk_ua_metadata::FrameworkMetadata> =
+            self.config.load::<::aws_types::sdk_ua_metadata::FrameworkMetadata>().collect();
+        entries.reverse();
+        entries
+    }
     /// Returns the `disable request compression` setting, if it was provided.
     pub fn disable_request_compression(&self) -> ::std::option::Option<bool> {
         self.config
@@ -198,6 +212,9 @@ impl Builder {
         builder.set_timeout_config(config_bag.load::<::aws_smithy_types::timeout::TimeoutConfig>().cloned());
         builder.set_retry_partition(config_bag.load::<::aws_smithy_runtime::client::retries::RetryPartition>().cloned());
         builder.set_app_name(config_bag.load::<::aws_types::app_name::AppName>().cloned());
+        for framework_metadata in config_bag.load::<::aws_types::sdk_ua_metadata::FrameworkMetadata>() {
+            builder.push_framework_metadata(framework_metadata.clone());
+        }
         builder.set_disable_request_compression(
             config_bag
                 .load::<crate::client_request_compression::DisableRequestCompression>()
@@ -1070,6 +1087,32 @@ impl Builder {
         self.config.store_or_unset(app_name);
         self
     }
+    /// Appends framework metadata to the user agent.
+    ///
+    /// This _optional_ metadata identifies a software framework or third-party library
+    /// that is being used with the client. It is rendered into the user agent string
+    /// (as `lib/{name}/{version}`) so that libraries built on top of the AWS SDK can
+    /// self-identify in the requests they make. Multiple entries may be added; each call
+    /// appends another entry rather than replacing previous ones.
+    ///
+    /// Entries are de-duplicated on `(name, version)`, rendered in first-seen order, and
+    /// the total number of unique entries included in the user agent is capped (currently
+    /// at 10); additional entries beyond the cap are dropped with a warning.
+    pub fn framework_metadata(mut self, framework_metadata: ::aws_types::sdk_ua_metadata::FrameworkMetadata) -> Self {
+        self.push_framework_metadata(framework_metadata);
+        self
+    }
+    /// Appends framework metadata to the user agent.
+    ///
+    /// This _optional_ metadata identifies a software framework or third-party library
+    /// that is being used with the client. It is rendered into the user agent string
+    /// (as `lib/{name}/{version}`) so that libraries built on top of the AWS SDK can
+    /// self-identify in the requests they make. Multiple entries may be added; each call
+    /// appends another entry rather than replacing previous ones.
+    pub fn push_framework_metadata(&mut self, framework_metadata: ::aws_types::sdk_ua_metadata::FrameworkMetadata) -> &mut Self {
+        self.config.store_append(framework_metadata);
+        self
+    }
     /// Sets the `disable request compression` used when making requests.
     pub fn disable_request_compression(mut self, disable_request_compression: impl ::std::convert::Into<::std::option::Option<bool>>) -> Self {
         self.set_disable_request_compression(disable_request_compression.into());
@@ -1526,6 +1569,9 @@ impl From<&::aws_types::sdk_config::SdkConfig> for Builder {
         builder = builder.disable_request_compression(input.disable_request_compression());
         builder = builder.request_min_compression_size_bytes(input.request_min_compression_size_bytes());
         builder.set_app_name(input.app_name().cloned());
+        for framework_metadata in input.framework_metadata() {
+            builder.push_framework_metadata(framework_metadata.clone());
+        }
 
         builder
     }
@@ -1538,6 +1584,7 @@ impl From<&::aws_types::sdk_config::SdkConfig> for Config {
 }
 
 pub use ::aws_types::app_name::AppName;
+pub use ::aws_types::sdk_ua_metadata::FrameworkMetadata;
 
 #[allow(dead_code)]
 fn service_config_key<'a>(service_id: &'a str, env: &'a str, profile: &'a str) -> aws_types::service_config::ServiceConfigKey<'a> {

@@ -33,6 +33,8 @@ pub use crate::types::_container_info::ContainerInfo;
 
 pub use crate::types::_authorization_configuration::AuthorizationConfiguration;
 
+pub use crate::types::_authentication_configuration::AuthenticationConfiguration;
+
 pub use crate::types::_job_run_state::JobRunState;
 
 pub use crate::types::_failure_reason::FailureReason;
@@ -71,6 +73,10 @@ pub use crate::types::_lake_formation_configuration::LakeFormationConfiguration;
 
 pub use crate::types::_encryption_configuration::EncryptionConfiguration;
 
+pub use crate::types::_identity_center_configuration::IdentityCenterConfiguration;
+
+pub use crate::types::_iam_configuration::IamConfiguration;
+
 pub use crate::types::_parametric_cloud_watch_monitoring_configuration::ParametricCloudWatchMonitoringConfiguration;
 
 pub use crate::types::_parametric_s3_monitoring_configuration::ParametricS3MonitoringConfiguration;
@@ -88,6 +94,8 @@ pub use crate::types::_tls_certificate_configuration::TlsCertificateConfiguratio
 pub use crate::types::_certificate_provider_type::CertificateProviderType;
 
 mod _allow_aws_to_retain_logs;
+
+mod _authentication_configuration;
 
 mod _authorization_configuration;
 
@@ -120,6 +128,10 @@ mod _endpoint;
 mod _endpoint_state;
 
 mod _failure_reason;
+
+mod _iam_configuration;
+
+mod _identity_center_configuration;
 
 mod _in_transit_encryption_configuration;
 

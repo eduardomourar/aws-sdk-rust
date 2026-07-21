@@ -30,6 +30,8 @@ pub struct StepExecution {
     pub response: ::std::option::Option<::std::string::String>,
     /// <p>If a step failed, this message explains why the execution failed.</p>
     pub failure_message: ::std::option::Option<::std::string::String>,
+    /// <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+    pub warning_message: ::std::option::Option<::std::string::String>,
     /// <p>Information about the Automation failure.</p>
     pub failure_details: ::std::option::Option<crate::types::FailureDetails>,
     /// <p>The unique ID of a step execution.</p>
@@ -105,6 +107,10 @@ impl StepExecution {
     /// <p>If a step failed, this message explains why the execution failed.</p>
     pub fn failure_message(&self) -> ::std::option::Option<&str> {
         self.failure_message.as_deref()
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+    pub fn warning_message(&self) -> ::std::option::Option<&str> {
+        self.warning_message.as_deref()
     }
     /// <p>Information about the Automation failure.</p>
     pub fn failure_details(&self) -> ::std::option::Option<&crate::types::FailureDetails> {
@@ -183,6 +189,7 @@ pub struct StepExecutionBuilder {
     pub(crate) outputs: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
     pub(crate) response: ::std::option::Option<::std::string::String>,
     pub(crate) failure_message: ::std::option::Option<::std::string::String>,
+    pub(crate) warning_message: ::std::option::Option<::std::string::String>,
     pub(crate) failure_details: ::std::option::Option<crate::types::FailureDetails>,
     pub(crate) step_execution_id: ::std::option::Option<::std::string::String>,
     pub(crate) overridden_parameters:
@@ -394,6 +401,20 @@ impl StepExecutionBuilder {
     pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.failure_message
     }
+    /// <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+    pub fn warning_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.warning_message = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+    pub fn set_warning_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.warning_message = input;
+        self
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+    pub fn get_warning_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.warning_message
+    }
     /// <p>Information about the Automation failure.</p>
     pub fn failure_details(mut self, input: crate::types::FailureDetails) -> Self {
         self.failure_details = ::std::option::Option::Some(input);
@@ -593,6 +614,7 @@ impl StepExecutionBuilder {
             outputs: self.outputs,
             response: self.response,
             failure_message: self.failure_message,
+            warning_message: self.warning_message,
             failure_details: self.failure_details,
             step_execution_id: self.step_execution_id,
             overridden_parameters: self.overridden_parameters,

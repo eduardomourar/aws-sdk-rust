@@ -26,6 +26,8 @@ pub struct AutomationExecution {
     pub outputs: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
     /// <p>A message describing why an execution has failed, if the status is set to Failed.</p>
     pub failure_message: ::std::option::Option<::std::string::String>,
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub warning_message: ::std::option::Option<::std::string::String>,
     /// <p>The automation execution mode.</p>
     pub mode: ::std::option::Option<crate::types::ExecutionMode>,
     /// <p>The AutomationExecutionId of the parent automation.</p>
@@ -124,6 +126,10 @@ impl AutomationExecution {
     /// <p>A message describing why an execution has failed, if the status is set to Failed.</p>
     pub fn failure_message(&self) -> ::std::option::Option<&str> {
         self.failure_message.as_deref()
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn warning_message(&self) -> ::std::option::Option<&str> {
+        self.warning_message.as_deref()
     }
     /// <p>The automation execution mode.</p>
     pub fn mode(&self) -> ::std::option::Option<&crate::types::ExecutionMode> {
@@ -256,6 +262,7 @@ pub struct AutomationExecutionBuilder {
     pub(crate) parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
     pub(crate) outputs: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
     pub(crate) failure_message: ::std::option::Option<::std::string::String>,
+    pub(crate) warning_message: ::std::option::Option<::std::string::String>,
     pub(crate) mode: ::std::option::Option<crate::types::ExecutionMode>,
     pub(crate) parent_automation_execution_id: ::std::option::Option<::std::string::String>,
     pub(crate) executed_by: ::std::option::Option<::std::string::String>,
@@ -462,6 +469,20 @@ impl AutomationExecutionBuilder {
     /// <p>A message describing why an execution has failed, if the status is set to Failed.</p>
     pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.failure_message
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn warning_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.warning_message = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn set_warning_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.warning_message = input;
+        self
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn get_warning_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.warning_message
     }
     /// <p>The automation execution mode.</p>
     pub fn mode(mut self, input: crate::types::ExecutionMode) -> Self {
@@ -865,6 +886,7 @@ impl AutomationExecutionBuilder {
             parameters: self.parameters,
             outputs: self.outputs,
             failure_message: self.failure_message,
+            warning_message: self.warning_message,
             mode: self.mode,
             parent_automation_execution_id: self.parent_automation_execution_id,
             executed_by: self.executed_by,

@@ -13,8 +13,8 @@ impl super::Client {
     ///   - [`status_reason(String)`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationOutput::status_reason): <p>The reason for the current status of the code security integration.</p>
     ///   - [`created_on(DateTime)`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationOutput::created_on): <p>The timestamp when the code security integration was created.</p>
     ///   - [`last_update_on(DateTime)`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationOutput::last_update_on): <p>The timestamp when the code security integration was last updated.</p>
-    ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationOutput::tags): <p>The tags associated with the code security integration.</p>
     ///   - [`authorization_url(Option<String>)`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationOutput::authorization_url): <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
+    ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationOutput::tags): <p>The tags associated with the code security integration.</p>
     /// - On failure, responds with [`SdkError<GetCodeSecurityIntegrationError>`](crate::operation::get_code_security_integration::GetCodeSecurityIntegrationError)
     pub fn get_code_security_integration(
         &self,

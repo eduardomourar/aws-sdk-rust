@@ -56,9 +56,27 @@ pub(crate) fn put_procurement_portal_preference_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn send_procurement_portal_validation_output_output_correct_errors(
+    mut builder: crate::operation::send_procurement_portal_validation::builders::SendProcurementPortalValidationOutputBuilder,
+) -> crate::operation::send_procurement_portal_validation::builders::SendProcurementPortalValidationOutputBuilder {
+    if builder.procurement_portal_preference_arn.is_none() {
+        builder.procurement_portal_preference_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn update_procurement_portal_preference_status_output_output_correct_errors(
     mut builder: crate::operation::update_procurement_portal_preference_status::builders::UpdateProcurementPortalPreferenceStatusOutputBuilder,
 ) -> crate::operation::update_procurement_portal_preference_status::builders::UpdateProcurementPortalPreferenceStatusOutputBuilder {
+    if builder.procurement_portal_preference_arn.is_none() {
+        builder.procurement_portal_preference_arn = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn verify_procurement_portal_validation_output_output_correct_errors(
+    mut builder: crate::operation::verify_procurement_portal_validation::builders::VerifyProcurementPortalValidationOutputBuilder,
+) -> crate::operation::verify_procurement_portal_validation::builders::VerifyProcurementPortalValidationOutputBuilder {
     if builder.procurement_portal_preference_arn.is_none() {
         builder.procurement_portal_preference_arn = Some(Default::default())
     }

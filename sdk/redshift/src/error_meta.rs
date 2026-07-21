@@ -196,6 +196,10 @@ pub enum Error {
     NumberOfNodesQuotaExceededFault(crate::types::error::NumberOfNodesQuotaExceededFault),
     /// <p>The name of the partner was not found.</p>
     PartnerNotFoundFault(crate::types::error::PartnerNotFoundFault),
+    /// <p>The Amazon Redshift Query Editor (QEV2) IAM Identity Center application already exists. Use a different application name or describe existing applications to find the ARN.</p>
+    Qev2IdcApplicationAlreadyExistsFault(crate::types::error::Qev2IdcApplicationAlreadyExistsFault),
+    /// <p>The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.</p>
+    Qev2IdcApplicationNotExistsFault(crate::types::error::Qev2IdcApplicationNotExistsFault),
     /// <p>The application you attempted to add already exists.</p>
     RedshiftIdcApplicationAlreadyExistsFault(crate::types::error::RedshiftIdcApplicationAlreadyExistsFault),
     /// <p>The application you attempted to find doesn't exist.</p>
@@ -398,6 +402,8 @@ impl ::std::fmt::Display for Error {
             Error::NumberOfNodesPerClusterLimitExceededFault(inner) => inner.fmt(f),
             Error::NumberOfNodesQuotaExceededFault(inner) => inner.fmt(f),
             Error::PartnerNotFoundFault(inner) => inner.fmt(f),
+            Error::Qev2IdcApplicationAlreadyExistsFault(inner) => inner.fmt(f),
+            Error::Qev2IdcApplicationNotExistsFault(inner) => inner.fmt(f),
             Error::RedshiftIdcApplicationAlreadyExistsFault(inner) => inner.fmt(f),
             Error::RedshiftIdcApplicationNotExistsFault(inner) => inner.fmt(f),
             Error::RedshiftIdcApplicationQuotaExceededFault(inner) => inner.fmt(f),
@@ -562,6 +568,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::NumberOfNodesPerClusterLimitExceededFault(inner) => inner.meta(),
             Self::NumberOfNodesQuotaExceededFault(inner) => inner.meta(),
             Self::PartnerNotFoundFault(inner) => inner.meta(),
+            Self::Qev2IdcApplicationAlreadyExistsFault(inner) => inner.meta(),
+            Self::Qev2IdcApplicationNotExistsFault(inner) => inner.meta(),
             Self::RedshiftIdcApplicationAlreadyExistsFault(inner) => inner.meta(),
             Self::RedshiftIdcApplicationNotExistsFault(inner) => inner.meta(),
             Self::RedshiftIdcApplicationQuotaExceededFault(inner) => inner.meta(),
@@ -1495,6 +1503,42 @@ impl From<crate::operation::create_integration::CreateIntegrationError> for Erro
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError> for Error {
+    fn from(err: crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError) -> Self {
+        match err {
+            crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError::DependentServiceAccessDeniedFault(inner) => {
+                Error::DependentServiceAccessDeniedFault(inner)
+            }
+            crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError::DependentServiceUnavailableFault(inner) => {
+                Error::DependentServiceUnavailableFault(inner)
+            }
+            crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError::Qev2IdcApplicationAlreadyExistsFault(inner) => {
+                Error::Qev2IdcApplicationAlreadyExistsFault(inner)
+            }
+            crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError::UnsupportedOperationFault(inner) => {
+                Error::UnsupportedOperationFault(inner)
+            }
+            crate::operation::create_qev2_idc_application::CreateQev2IdcApplicationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R>
     From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_redshift_idc_application::CreateRedshiftIdcApplicationError, R>>
     for Error
@@ -2142,6 +2186,42 @@ impl From<crate::operation::delete_partner::DeletePartnerError> for Error {
             }
             crate::operation::delete_partner::DeletePartnerError::UnsupportedOperationFault(inner) => Error::UnsupportedOperationFault(inner),
             crate::operation::delete_partner::DeletePartnerError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError> for Error {
+    fn from(err: crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError) -> Self {
+        match err {
+            crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError::DependentServiceAccessDeniedFault(inner) => {
+                Error::DependentServiceAccessDeniedFault(inner)
+            }
+            crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError::DependentServiceUnavailableFault(inner) => {
+                Error::DependentServiceUnavailableFault(inner)
+            }
+            crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError::Qev2IdcApplicationNotExistsFault(inner) => {
+                Error::Qev2IdcApplicationNotExistsFault(inner)
+            }
+            crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError::UnsupportedOperationFault(inner) => {
+                Error::UnsupportedOperationFault(inner)
+            }
+            crate::operation::delete_qev2_idc_application::DeleteQev2IdcApplicationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3259,6 +3339,46 @@ impl From<crate::operation::describe_partners::DescribePartnersError> for Error 
             }
             crate::operation::describe_partners::DescribePartnersError::UnsupportedOperationFault(inner) => Error::UnsupportedOperationFault(inner),
             crate::operation::describe_partners::DescribePartnersError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError> for Error {
+    fn from(err: crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError) -> Self {
+        match err {
+            crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError::DependentServiceAccessDeniedFault(inner) => {
+                Error::DependentServiceAccessDeniedFault(inner)
+            }
+            crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError::DependentServiceUnavailableFault(inner) => {
+                Error::DependentServiceUnavailableFault(inner)
+            }
+            crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError::Qev2IdcApplicationNotExistsFault(inner) => {
+                Error::Qev2IdcApplicationNotExistsFault(inner)
+            }
+            crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError::UnsupportedOperationFault(inner) => {
+                Error::UnsupportedOperationFault(inner)
+            }
+            crate::operation::describe_qev2_idc_applications::DescribeQev2IdcApplicationsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4633,6 +4753,42 @@ impl From<crate::operation::modify_lakehouse_configuration::ModifyLakehouseConfi
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError> for Error {
+    fn from(err: crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError) -> Self {
+        match err {
+            crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError::DependentServiceAccessDeniedFault(inner) => {
+                Error::DependentServiceAccessDeniedFault(inner)
+            }
+            crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError::DependentServiceUnavailableFault(inner) => {
+                Error::DependentServiceUnavailableFault(inner)
+            }
+            crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError::Qev2IdcApplicationNotExistsFault(inner) => {
+                Error::Qev2IdcApplicationNotExistsFault(inner)
+            }
+            crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError::UnsupportedOperationFault(inner) => {
+                Error::UnsupportedOperationFault(inner)
+            }
+            crate::operation::modify_qev2_idc_application::ModifyQev2IdcApplicationError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R>
     From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_redshift_idc_application::ModifyRedshiftIdcApplicationError, R>>
     for Error
@@ -5542,6 +5698,8 @@ impl ::std::error::Error for Error {
             Error::NumberOfNodesPerClusterLimitExceededFault(inner) => inner.source(),
             Error::NumberOfNodesQuotaExceededFault(inner) => inner.source(),
             Error::PartnerNotFoundFault(inner) => inner.source(),
+            Error::Qev2IdcApplicationAlreadyExistsFault(inner) => inner.source(),
+            Error::Qev2IdcApplicationNotExistsFault(inner) => inner.source(),
             Error::RedshiftIdcApplicationAlreadyExistsFault(inner) => inner.source(),
             Error::RedshiftIdcApplicationNotExistsFault(inner) => inner.source(),
             Error::RedshiftIdcApplicationQuotaExceededFault(inner) => inner.source(),
@@ -5692,6 +5850,8 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::NumberOfNodesPerClusterLimitExceededFault(e) => e.request_id(),
             Self::NumberOfNodesQuotaExceededFault(e) => e.request_id(),
             Self::PartnerNotFoundFault(e) => e.request_id(),
+            Self::Qev2IdcApplicationAlreadyExistsFault(e) => e.request_id(),
+            Self::Qev2IdcApplicationNotExistsFault(e) => e.request_id(),
             Self::RedshiftIdcApplicationAlreadyExistsFault(e) => e.request_id(),
             Self::RedshiftIdcApplicationNotExistsFault(e) => e.request_id(),
             Self::RedshiftIdcApplicationQuotaExceededFault(e) => e.request_id(),

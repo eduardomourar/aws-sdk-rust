@@ -30,8 +30,10 @@ pub struct AutomationExecutionMetadata {
     pub current_step_name: ::std::option::Option<::std::string::String>,
     /// <p>The action of the step that is currently running.</p>
     pub current_action: ::std::option::Option<::std::string::String>,
-    /// <p>The list of execution outputs as defined in the Automation runbook.</p>
+    /// <p>A message that describes a failure that occurred during the automation execution.</p>
     pub failure_message: ::std::option::Option<::std::string::String>,
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub warning_message: ::std::option::Option<::std::string::String>,
     /// <p>The list of execution outputs as defined in the Automation runbook.</p>
     pub target_parameter_name: ::std::option::Option<::std::string::String>,
     /// <p>The targets defined by the user when starting the automation.</p>
@@ -123,9 +125,13 @@ impl AutomationExecutionMetadata {
     pub fn current_action(&self) -> ::std::option::Option<&str> {
         self.current_action.as_deref()
     }
-    /// <p>The list of execution outputs as defined in the Automation runbook.</p>
+    /// <p>A message that describes a failure that occurred during the automation execution.</p>
     pub fn failure_message(&self) -> ::std::option::Option<&str> {
         self.failure_message.as_deref()
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn warning_message(&self) -> ::std::option::Option<&str> {
+        self.warning_message.as_deref()
     }
     /// <p>The list of execution outputs as defined in the Automation runbook.</p>
     pub fn target_parameter_name(&self) -> ::std::option::Option<&str> {
@@ -231,6 +237,7 @@ pub struct AutomationExecutionMetadataBuilder {
     pub(crate) current_step_name: ::std::option::Option<::std::string::String>,
     pub(crate) current_action: ::std::option::Option<::std::string::String>,
     pub(crate) failure_message: ::std::option::Option<::std::string::String>,
+    pub(crate) warning_message: ::std::option::Option<::std::string::String>,
     pub(crate) target_parameter_name: ::std::option::Option<::std::string::String>,
     pub(crate) targets: ::std::option::Option<::std::vec::Vec<crate::types::Target>>,
     pub(crate) target_maps:
@@ -442,19 +449,33 @@ impl AutomationExecutionMetadataBuilder {
     pub fn get_current_action(&self) -> &::std::option::Option<::std::string::String> {
         &self.current_action
     }
-    /// <p>The list of execution outputs as defined in the Automation runbook.</p>
+    /// <p>A message that describes a failure that occurred during the automation execution.</p>
     pub fn failure_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.failure_message = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The list of execution outputs as defined in the Automation runbook.</p>
+    /// <p>A message that describes a failure that occurred during the automation execution.</p>
     pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.failure_message = input;
         self
     }
-    /// <p>The list of execution outputs as defined in the Automation runbook.</p>
+    /// <p>A message that describes a failure that occurred during the automation execution.</p>
     pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.failure_message
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn warning_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.warning_message = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn set_warning_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.warning_message = input;
+        self
+    }
+    /// <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+    pub fn get_warning_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.warning_message
     }
     /// <p>The list of execution outputs as defined in the Automation runbook.</p>
     pub fn target_parameter_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -746,6 +767,7 @@ impl AutomationExecutionMetadataBuilder {
             current_step_name: self.current_step_name,
             current_action: self.current_action,
             failure_message: self.failure_message,
+            warning_message: self.warning_message,
             target_parameter_name: self.target_parameter_name,
             targets: self.targets,
             target_maps: self.target_maps,

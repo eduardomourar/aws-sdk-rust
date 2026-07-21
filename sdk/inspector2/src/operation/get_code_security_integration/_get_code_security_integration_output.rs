@@ -17,10 +17,10 @@ pub struct GetCodeSecurityIntegrationOutput {
     pub created_on: ::aws_smithy_types::DateTime,
     /// <p>The timestamp when the code security integration was last updated.</p>
     pub last_update_on: ::aws_smithy_types::DateTime,
-    /// <p>The tags associated with the code security integration.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
     pub authorization_url: ::std::option::Option<::std::string::String>,
+    /// <p>The tags associated with the code security integration.</p>
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetCodeSecurityIntegrationOutput {
@@ -55,13 +55,13 @@ impl GetCodeSecurityIntegrationOutput {
     pub fn last_update_on(&self) -> &::aws_smithy_types::DateTime {
         &self.last_update_on
     }
-    /// <p>The tags associated with the code security integration.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-        self.tags.as_ref()
-    }
     /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
     pub fn authorization_url(&self) -> ::std::option::Option<&str> {
         self.authorization_url.as_deref()
+    }
+    /// <p>The tags associated with the code security integration.</p>
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        self.tags.as_ref()
     }
 }
 impl ::std::fmt::Debug for GetCodeSecurityIntegrationOutput {
@@ -74,8 +74,8 @@ impl ::std::fmt::Debug for GetCodeSecurityIntegrationOutput {
         formatter.field("status_reason", &self.status_reason);
         formatter.field("created_on", &self.created_on);
         formatter.field("last_update_on", &self.last_update_on);
-        formatter.field("tags", &self.tags);
         formatter.field("authorization_url", &"*** Sensitive Data Redacted ***");
+        formatter.field("tags", &self.tags);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -103,8 +103,8 @@ pub struct GetCodeSecurityIntegrationOutputBuilder {
     pub(crate) status_reason: ::std::option::Option<::std::string::String>,
     pub(crate) created_on: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) last_update_on: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) authorization_url: ::std::option::Option<::std::string::String>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetCodeSecurityIntegrationOutputBuilder {
@@ -213,6 +213,20 @@ impl GetCodeSecurityIntegrationOutputBuilder {
     pub fn get_last_update_on(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_on
     }
+    /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
+    pub fn authorization_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.authorization_url = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
+    pub fn set_authorization_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.authorization_url = input;
+        self
+    }
+    /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
+    pub fn get_authorization_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.authorization_url
+    }
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
@@ -232,20 +246,6 @@ impl GetCodeSecurityIntegrationOutputBuilder {
     /// <p>The tags associated with the code security integration.</p>
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
-    }
-    /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
-    pub fn authorization_url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.authorization_url = ::std::option::Option::Some(input.into());
-        self
-    }
-    /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
-    pub fn set_authorization_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.authorization_url = input;
-        self
-    }
-    /// <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
-    pub fn get_authorization_url(&self) -> &::std::option::Option<::std::string::String> {
-        &self.authorization_url
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
@@ -314,8 +314,8 @@ impl GetCodeSecurityIntegrationOutputBuilder {
                     "last_update_on was not specified but it is required when building GetCodeSecurityIntegrationOutput",
                 )
             })?,
-            tags: self.tags,
             authorization_url: self.authorization_url,
+            tags: self.tags,
             _request_id: self._request_id,
         })
     }
@@ -330,8 +330,8 @@ impl ::std::fmt::Debug for GetCodeSecurityIntegrationOutputBuilder {
         formatter.field("status_reason", &self.status_reason);
         formatter.field("created_on", &self.created_on);
         formatter.field("last_update_on", &self.last_update_on);
-        formatter.field("tags", &self.tags);
         formatter.field("authorization_url", &"*** Sensitive Data Redacted ***");
+        formatter.field("tags", &self.tags);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

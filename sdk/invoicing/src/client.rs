@@ -189,6 +189,8 @@ mod list_tags_for_resource;
 
 mod put_procurement_portal_preference;
 
+mod send_procurement_portal_validation;
+
 mod tag_resource;
 
 mod untag_resource;
@@ -196,3 +198,5 @@ mod untag_resource;
 mod update_invoice_unit;
 
 mod update_procurement_portal_preference_status;
+
+mod verify_procurement_portal_validation;

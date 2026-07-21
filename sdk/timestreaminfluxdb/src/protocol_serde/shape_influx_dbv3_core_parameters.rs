@@ -259,6 +259,20 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "pluginRepositoryUrl" => {
+                            builder = builder.set_plugin_repository_url(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "pluginRepositorySecretArn" => {
+                            builder = builder.set_plugin_repository_secret_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {
@@ -489,6 +503,12 @@ pub fn ser_influx_dbv3_core_parameters(
         let mut object_53 = object.key("hardDeleteDefaultDuration").start_object();
         crate::protocol_serde::shape_duration::ser_duration(&mut object_53, var_52)?;
         object_53.finish();
+    }
+    if let Some(var_54) = &input.plugin_repository_url {
+        object.key("pluginRepositoryUrl").string(var_54.as_str());
+    }
+    if let Some(var_55) = &input.plugin_repository_secret_arn {
+        object.key("pluginRepositorySecretArn").string(var_55.as_str());
     }
     Ok(())
 }

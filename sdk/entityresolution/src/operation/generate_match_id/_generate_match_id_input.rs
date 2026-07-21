@@ -11,7 +11,9 @@ pub struct GenerateMatchIdInput {
     /// <p>If not specified, defaults to <code>CONSISTENT</code>.</p>
     /// <p><code>CONSISTENT</code>: Performs immediate lookup and matching against all existing records, with results saved synchronously. Provides highest accuracy but slower response time.</p>
     /// <p><code>EVENTUAL</code> (shown as <i>Background</i> in the console): Performs initial match ID lookup or generation immediately, with record updates processed asynchronously in the background. Offers faster initial response time, with complete matching results available later in S3.</p>
-    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p>
+    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p><note>
+    /// <p>Advanced matching workflows don't support the <code>processingType</code> field.</p>
+    /// </note>
     pub processing_type: ::std::option::Option<crate::types::ProcessingType>,
 }
 impl GenerateMatchIdInput {
@@ -29,7 +31,9 @@ impl GenerateMatchIdInput {
     /// <p>If not specified, defaults to <code>CONSISTENT</code>.</p>
     /// <p><code>CONSISTENT</code>: Performs immediate lookup and matching against all existing records, with results saved synchronously. Provides highest accuracy but slower response time.</p>
     /// <p><code>EVENTUAL</code> (shown as <i>Background</i> in the console): Performs initial match ID lookup or generation immediately, with record updates processed asynchronously in the background. Offers faster initial response time, with complete matching results available later in S3.</p>
-    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p>
+    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p><note>
+    /// <p>Advanced matching workflows don't support the <code>processingType</code> field.</p>
+    /// </note>
     pub fn processing_type(&self) -> ::std::option::Option<&crate::types::ProcessingType> {
         self.processing_type.as_ref()
     }
@@ -89,7 +93,9 @@ impl GenerateMatchIdInputBuilder {
     /// <p>If not specified, defaults to <code>CONSISTENT</code>.</p>
     /// <p><code>CONSISTENT</code>: Performs immediate lookup and matching against all existing records, with results saved synchronously. Provides highest accuracy but slower response time.</p>
     /// <p><code>EVENTUAL</code> (shown as <i>Background</i> in the console): Performs initial match ID lookup or generation immediately, with record updates processed asynchronously in the background. Offers faster initial response time, with complete matching results available later in S3.</p>
-    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p>
+    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p><note>
+    /// <p>Advanced matching workflows don't support the <code>processingType</code> field.</p>
+    /// </note>
     pub fn processing_type(mut self, input: crate::types::ProcessingType) -> Self {
         self.processing_type = ::std::option::Option::Some(input);
         self
@@ -98,7 +104,9 @@ impl GenerateMatchIdInputBuilder {
     /// <p>If not specified, defaults to <code>CONSISTENT</code>.</p>
     /// <p><code>CONSISTENT</code>: Performs immediate lookup and matching against all existing records, with results saved synchronously. Provides highest accuracy but slower response time.</p>
     /// <p><code>EVENTUAL</code> (shown as <i>Background</i> in the console): Performs initial match ID lookup or generation immediately, with record updates processed asynchronously in the background. Offers faster initial response time, with complete matching results available later in S3.</p>
-    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p>
+    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p><note>
+    /// <p>Advanced matching workflows don't support the <code>processingType</code> field.</p>
+    /// </note>
     pub fn set_processing_type(mut self, input: ::std::option::Option<crate::types::ProcessingType>) -> Self {
         self.processing_type = input;
         self
@@ -107,7 +115,9 @@ impl GenerateMatchIdInputBuilder {
     /// <p>If not specified, defaults to <code>CONSISTENT</code>.</p>
     /// <p><code>CONSISTENT</code>: Performs immediate lookup and matching against all existing records, with results saved synchronously. Provides highest accuracy but slower response time.</p>
     /// <p><code>EVENTUAL</code> (shown as <i>Background</i> in the console): Performs initial match ID lookup or generation immediately, with record updates processed asynchronously in the background. Offers faster initial response time, with complete matching results available later in S3.</p>
-    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p>
+    /// <p><code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique.</p><note>
+    /// <p>Advanced matching workflows don't support the <code>processingType</code> field.</p>
+    /// </note>
     pub fn get_processing_type(&self) -> &::std::option::Option<crate::types::ProcessingType> {
         &self.processing_type
     }

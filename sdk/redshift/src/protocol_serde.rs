@@ -115,6 +115,10 @@ pub(crate) mod shape_create_integration;
 
 pub(crate) mod shape_create_integration_input;
 
+pub(crate) mod shape_create_qev2_idc_application;
+
+pub(crate) mod shape_create_qev2_idc_application_input;
+
 pub(crate) mod shape_create_redshift_idc_application;
 
 pub(crate) mod shape_create_redshift_idc_application_input;
@@ -194,6 +198,10 @@ pub(crate) mod shape_delete_integration_input;
 pub(crate) mod shape_delete_partner;
 
 pub(crate) mod shape_delete_partner_input;
+
+pub(crate) mod shape_delete_qev2_idc_application;
+
+pub(crate) mod shape_delete_qev2_idc_application_input;
 
 pub(crate) mod shape_delete_redshift_idc_application;
 
@@ -342,6 +350,10 @@ pub(crate) mod shape_describe_orderable_cluster_options_input;
 pub(crate) mod shape_describe_partners;
 
 pub(crate) mod shape_describe_partners_input;
+
+pub(crate) mod shape_describe_qev2_idc_applications;
+
+pub(crate) mod shape_describe_qev2_idc_applications_input;
 
 pub(crate) mod shape_describe_redshift_idc_applications;
 
@@ -502,6 +514,10 @@ pub(crate) mod shape_modify_integration_input;
 pub(crate) mod shape_modify_lakehouse_configuration;
 
 pub(crate) mod shape_modify_lakehouse_configuration_input;
+
+pub(crate) mod shape_modify_qev2_idc_application;
+
+pub(crate) mod shape_modify_qev2_idc_application_input;
 
 pub(crate) mod shape_modify_redshift_idc_application;
 
@@ -791,6 +807,10 @@ pub(crate) mod shape_parameter;
 
 pub(crate) mod shape_partner_not_found_fault;
 
+pub(crate) mod shape_qev2_idc_application_already_exists_fault;
+
+pub(crate) mod shape_qev2_idc_application_not_exists_fault;
+
 pub(crate) mod shape_redshift_idc_application_already_exists_fault;
 
 pub(crate) mod shape_redshift_idc_application_not_exists_fault;
@@ -984,6 +1004,10 @@ pub(crate) mod shape_partner_integration_info_list;
 pub(crate) mod shape_pause_cluster_message;
 
 pub(crate) mod shape_provisioned_identifier;
+
+pub(crate) mod shape_qev2_idc_application;
+
+pub(crate) mod shape_qev2_idc_application_list;
 
 pub(crate) mod shape_recommendation_list;
 

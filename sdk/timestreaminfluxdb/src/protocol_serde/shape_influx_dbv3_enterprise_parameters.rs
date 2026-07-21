@@ -259,6 +259,20 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "pluginRepositoryUrl" => {
+                            builder = builder.set_plugin_repository_url(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "pluginRepositorySecretArn" => {
+                            builder = builder.set_plugin_repository_secret_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "ingestQueryInstances" => {
                             builder = builder.set_ingest_query_instances(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -562,6 +576,12 @@ pub fn ser_influx_dbv3_enterprise_parameters(
         crate::protocol_serde::shape_duration::ser_duration(&mut object_53, var_52)?;
         object_53.finish();
     }
+    if let Some(var_54) = &input.plugin_repository_url {
+        object.key("pluginRepositoryUrl").string(var_54.as_str());
+    }
+    if let Some(var_55) = &input.plugin_repository_secret_arn {
+        object.key("pluginRepositorySecretArn").string(var_55.as_str());
+    }
     {
         object.key("ingestQueryInstances").number(
             #[allow(clippy::useless_conversion)]
@@ -577,56 +597,56 @@ pub fn ser_influx_dbv3_enterprise_parameters(
     {
         object.key("dedicatedCompactor").boolean(input.dedicated_compactor);
     }
-    if let Some(var_54) = &input.compaction_row_limit {
+    if let Some(var_56) = &input.compaction_row_limit {
         object.key("compactionRowLimit").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_54).into()),
+            ::aws_smithy_types::Number::NegInt((*var_56).into()),
         );
     }
-    if let Some(var_55) = &input.compaction_max_num_files_per_plan {
+    if let Some(var_57) = &input.compaction_max_num_files_per_plan {
         object.key("compactionMaxNumFilesPerPlan").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_55).into()),
+            ::aws_smithy_types::Number::NegInt((*var_57).into()),
         );
     }
-    if let Some(var_56) = &input.compaction_gen2_duration {
+    if let Some(var_58) = &input.compaction_gen2_duration {
         #[allow(unused_mut)]
-        let mut object_57 = object.key("compactionGen2Duration").start_object();
-        crate::protocol_serde::shape_duration::ser_duration(&mut object_57, var_56)?;
-        object_57.finish();
+        let mut object_59 = object.key("compactionGen2Duration").start_object();
+        crate::protocol_serde::shape_duration::ser_duration(&mut object_59, var_58)?;
+        object_59.finish();
     }
-    if let Some(var_58) = &input.compaction_multipliers {
-        object.key("compactionMultipliers").string(var_58.as_str());
+    if let Some(var_60) = &input.compaction_multipliers {
+        object.key("compactionMultipliers").string(var_60.as_str());
     }
-    if let Some(var_59) = &input.compaction_cleanup_wait {
+    if let Some(var_61) = &input.compaction_cleanup_wait {
         #[allow(unused_mut)]
-        let mut object_60 = object.key("compactionCleanupWait").start_object();
-        crate::protocol_serde::shape_duration::ser_duration(&mut object_60, var_59)?;
-        object_60.finish();
-    }
-    if let Some(var_61) = &input.compaction_check_interval {
-        #[allow(unused_mut)]
-        let mut object_62 = object.key("compactionCheckInterval").start_object();
+        let mut object_62 = object.key("compactionCleanupWait").start_object();
         crate::protocol_serde::shape_duration::ser_duration(&mut object_62, var_61)?;
         object_62.finish();
     }
-    if let Some(var_63) = &input.last_value_cache_disable_from_history {
-        object.key("lastValueCacheDisableFromHistory").boolean(*var_63);
-    }
-    if let Some(var_64) = &input.distinct_value_cache_disable_from_history {
-        object.key("distinctValueCacheDisableFromHistory").boolean(*var_64);
-    }
-    if let Some(var_65) = &input.replication_interval {
+    if let Some(var_63) = &input.compaction_check_interval {
         #[allow(unused_mut)]
-        let mut object_66 = object.key("replicationInterval").start_object();
-        crate::protocol_serde::shape_duration::ser_duration(&mut object_66, var_65)?;
-        object_66.finish();
+        let mut object_64 = object.key("compactionCheckInterval").start_object();
+        crate::protocol_serde::shape_duration::ser_duration(&mut object_64, var_63)?;
+        object_64.finish();
     }
-    if let Some(var_67) = &input.catalog_sync_interval {
+    if let Some(var_65) = &input.last_value_cache_disable_from_history {
+        object.key("lastValueCacheDisableFromHistory").boolean(*var_65);
+    }
+    if let Some(var_66) = &input.distinct_value_cache_disable_from_history {
+        object.key("distinctValueCacheDisableFromHistory").boolean(*var_66);
+    }
+    if let Some(var_67) = &input.replication_interval {
         #[allow(unused_mut)]
-        let mut object_68 = object.key("catalogSyncInterval").start_object();
+        let mut object_68 = object.key("replicationInterval").start_object();
         crate::protocol_serde::shape_duration::ser_duration(&mut object_68, var_67)?;
         object_68.finish();
+    }
+    if let Some(var_69) = &input.catalog_sync_interval {
+        #[allow(unused_mut)]
+        let mut object_70 = object.key("catalogSyncInterval").start_object();
+        crate::protocol_serde::shape_duration::ser_duration(&mut object_70, var_69)?;
+        object_70.finish();
     }
     Ok(())
 }

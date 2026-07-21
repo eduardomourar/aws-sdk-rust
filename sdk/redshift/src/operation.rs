@@ -70,6 +70,9 @@ pub mod create_hsm_configuration;
 /// Types for the `CreateIntegration` operation.
 pub mod create_integration;
 
+/// Types for the `CreateQev2IdcApplication` operation.
+pub mod create_qev2_idc_application;
+
 /// Types for the `CreateRedshiftIdcApplication` operation.
 pub mod create_redshift_idc_application;
 
@@ -129,6 +132,9 @@ pub mod delete_integration;
 
 /// Types for the `DeletePartner` operation.
 pub mod delete_partner;
+
+/// Types for the `DeleteQev2IdcApplication` operation.
+pub mod delete_qev2_idc_application;
 
 /// Types for the `DeleteRedshiftIdcApplication` operation.
 pub mod delete_redshift_idc_application;
@@ -240,6 +246,9 @@ pub mod describe_orderable_cluster_options;
 
 /// Types for the `DescribePartners` operation.
 pub mod describe_partners;
+
+/// Types for the `DescribeQev2IdcApplications` operation.
+pub mod describe_qev2_idc_applications;
 
 /// Types for the `DescribeRedshiftIdcApplications` operation.
 pub mod describe_redshift_idc_applications;
@@ -360,6 +369,9 @@ pub mod modify_integration;
 
 /// Types for the `ModifyLakehouseConfiguration` operation.
 pub mod modify_lakehouse_configuration;
+
+/// Types for the `ModifyQev2IdcApplication` operation.
+pub mod modify_qev2_idc_application;
 
 /// Types for the `ModifyRedshiftIdcApplication` operation.
 pub mod modify_redshift_idc_application;

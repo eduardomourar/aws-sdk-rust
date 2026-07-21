@@ -93,6 +93,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "WarningMessage" => {
+                            builder = builder.set_warning_message(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "Mode" => {
                             builder = builder.set_mode(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

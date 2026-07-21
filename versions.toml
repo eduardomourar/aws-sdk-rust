@@ -2753,6 +2753,10 @@ source_hash = 'fb5c6cbbe7603ae124d7659e652cbf629bf172ac3cbba9ae459047880bc100b5'
 category = 'AwsRuntime'
 version = '0.0.0'
 source_hash = 'c14be07721c1c4d61033a0bd382528a194c3e45d9dee647cfb39d773274d819c'
+
+[release]
+tag = 'release-2026-07-21'
+
 [release.crates]
 aws-config = '1.10.0'
 aws-runtime = '1.9.0'

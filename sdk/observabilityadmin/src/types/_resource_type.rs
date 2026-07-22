@@ -12,6 +12,7 @@
 /// ```text
 /// # let resourcetype = unimplemented!();
 /// match resourcetype {
+///     ResourceType::AwsBedrockKnowledgebase => { /* ... */ },
 ///     ResourceType::AwsBedrockAgentcoreBrowser => { /* ... */ },
 ///     ResourceType::AwsBedrockAgentcoreCodeInterpreter => { /* ... */ },
 ///     ResourceType::AwsBedrockAgentcoreGateway => { /* ... */ },
@@ -61,6 +62,8 @@
 )]
 pub enum ResourceType {
     #[allow(missing_docs)] // documentation missing in model
+    AwsBedrockKnowledgebase,
+    #[allow(missing_docs)] // documentation missing in model
     AwsBedrockAgentcoreBrowser,
     #[allow(missing_docs)] // documentation missing in model
     AwsBedrockAgentcoreCodeInterpreter,
@@ -107,6 +110,7 @@ pub enum ResourceType {
 impl ::std::convert::From<&str> for ResourceType {
     fn from(s: &str) -> Self {
         match s {
+            "AWS::Bedrock::KnowledgeBase" => ResourceType::AwsBedrockKnowledgebase,
             "AWS::BedrockAgentCore::Browser" => ResourceType::AwsBedrockAgentcoreBrowser,
             "AWS::BedrockAgentCore::CodeInterpreter" => ResourceType::AwsBedrockAgentcoreCodeInterpreter,
             "AWS::BedrockAgentCore::Gateway" => ResourceType::AwsBedrockAgentcoreGateway,
@@ -142,6 +146,7 @@ impl ResourceType {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            ResourceType::AwsBedrockKnowledgebase => "AWS::Bedrock::KnowledgeBase",
             ResourceType::AwsBedrockAgentcoreBrowser => "AWS::BedrockAgentCore::Browser",
             ResourceType::AwsBedrockAgentcoreCodeInterpreter => "AWS::BedrockAgentCore::CodeInterpreter",
             ResourceType::AwsBedrockAgentcoreGateway => "AWS::BedrockAgentCore::Gateway",
@@ -168,6 +173,7 @@ impl ResourceType {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AWS::Bedrock::KnowledgeBase",
             "AWS::BedrockAgentCore::Browser",
             "AWS::BedrockAgentCore::CodeInterpreter",
             "AWS::BedrockAgentCore::Gateway",
@@ -211,6 +217,7 @@ impl ResourceType {
 impl ::std::fmt::Display for ResourceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            ResourceType::AwsBedrockKnowledgebase => write!(f, "AWS::Bedrock::KnowledgeBase"),
             ResourceType::AwsBedrockAgentcoreBrowser => write!(f, "AWS::BedrockAgentCore::Browser"),
             ResourceType::AwsBedrockAgentcoreCodeInterpreter => write!(f, "AWS::BedrockAgentCore::CodeInterpreter"),
             ResourceType::AwsBedrockAgentcoreGateway => write!(f, "AWS::BedrockAgentCore::Gateway"),

@@ -13,6 +13,9 @@
 /// # let logtype = unimplemented!();
 /// match logtype {
 ///     LogType::Access => { /* ... */ },
+///     LogType::AlbAccess => { /* ... */ },
+///     LogType::AlbConnection => { /* ... */ },
+///     LogType::AlbHealthCheck => { /* ... */ },
 ///     LogType::Application => { /* ... */ },
 ///     LogType::Connection => { /* ... */ },
 ///     LogType::S3ServerAccess => { /* ... */ },
@@ -49,6 +52,12 @@ pub enum LogType {
     #[allow(missing_docs)] // documentation missing in model
     Access,
     #[allow(missing_docs)] // documentation missing in model
+    AlbAccess,
+    #[allow(missing_docs)] // documentation missing in model
+    AlbConnection,
+    #[allow(missing_docs)] // documentation missing in model
+    AlbHealthCheck,
+    #[allow(missing_docs)] // documentation missing in model
     Application,
     #[allow(missing_docs)] // documentation missing in model
     Connection,
@@ -66,6 +75,9 @@ impl ::std::convert::From<&str> for LogType {
     fn from(s: &str) -> Self {
         match s {
             "ACCESS_LOGS" => LogType::Access,
+            "ALB_ACCESS_LOGS" => LogType::AlbAccess,
+            "ALB_CONNECTION_LOGS" => LogType::AlbConnection,
+            "ALB_HEALTH_CHECK_LOGS" => LogType::AlbHealthCheck,
             "APPLICATION_LOGS" => LogType::Application,
             "CONNECTION_LOGS" => LogType::Connection,
             "S3_SERVER_ACCESS_LOGS" => LogType::S3ServerAccess,
@@ -87,6 +99,9 @@ impl LogType {
     pub fn as_str(&self) -> &str {
         match self {
             LogType::Access => "ACCESS_LOGS",
+            LogType::AlbAccess => "ALB_ACCESS_LOGS",
+            LogType::AlbConnection => "ALB_CONNECTION_LOGS",
+            LogType::AlbHealthCheck => "ALB_HEALTH_CHECK_LOGS",
             LogType::Application => "APPLICATION_LOGS",
             LogType::Connection => "CONNECTION_LOGS",
             LogType::S3ServerAccess => "S3_SERVER_ACCESS_LOGS",
@@ -99,6 +114,9 @@ impl LogType {
     pub const fn values() -> &'static [&'static str] {
         &[
             "ACCESS_LOGS",
+            "ALB_ACCESS_LOGS",
+            "ALB_CONNECTION_LOGS",
+            "ALB_HEALTH_CHECK_LOGS",
             "APPLICATION_LOGS",
             "CONNECTION_LOGS",
             "S3_SERVER_ACCESS_LOGS",
@@ -128,6 +146,9 @@ impl ::std::fmt::Display for LogType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             LogType::Access => write!(f, "ACCESS_LOGS"),
+            LogType::AlbAccess => write!(f, "ALB_ACCESS_LOGS"),
+            LogType::AlbConnection => write!(f, "ALB_CONNECTION_LOGS"),
+            LogType::AlbHealthCheck => write!(f, "ALB_HEALTH_CHECK_LOGS"),
             LogType::Application => write!(f, "APPLICATION_LOGS"),
             LogType::Connection => write!(f, "CONNECTION_LOGS"),
             LogType::S3ServerAccess => write!(f, "S3_SERVER_ACCESS_LOGS"),

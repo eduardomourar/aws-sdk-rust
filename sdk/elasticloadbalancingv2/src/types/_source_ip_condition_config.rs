@@ -2,6 +2,7 @@
 
 /// <p>Information about a source IP condition.</p>
 /// <p>You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.</p>
+/// <p>For Application Load Balancers, use <code>Values</code> to specify CIDR ranges. For Network Load Balancers, use <code>IpAddressType</code> to match on the IP address type of the source traffic.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct SourceIpConditionConfig {

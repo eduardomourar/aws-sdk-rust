@@ -76,7 +76,14 @@ impl StartPlanExecution {
         config_override: ::std::option::Option<crate::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-
+        runtime_plugins = runtime_plugins.with_operation_plugin(crate::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
+            |token_provider, input| {
+                let input: &mut crate::operation::start_plan_execution::StartPlanExecutionInput = input.downcast_mut().expect("correct type");
+                if input.client_token.is_none() {
+                    input.client_token = ::std::option::Option::Some(token_provider.make_idempotency_token());
+                }
+            },
+        ));
         if let ::std::option::Option::Some(config_override) = config_override {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
@@ -277,6 +284,8 @@ pub enum StartPlanExecutionError {
     /// <p>You do not have sufficient access to perform this action.</p>
     /// <p>HTTP Status Code: 403</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
+    /// <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
+    ConflictException(crate::types::error::ConflictException),
     /// <p>The request processing has an invalid argument.</p>
     IllegalArgumentException(crate::types::error::IllegalArgumentException),
     /// <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p>
@@ -319,6 +328,7 @@ impl StartPlanExecutionError {
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ConflictException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::IllegalArgumentException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::IllegalStateException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -328,6 +338,10 @@ impl StartPlanExecutionError {
     /// Returns `true` if the error kind is `StartPlanExecutionError::AccessDeniedException`.
     pub fn is_access_denied_exception(&self) -> bool {
         matches!(self, Self::AccessDeniedException(_))
+    }
+    /// Returns `true` if the error kind is `StartPlanExecutionError::ConflictException`.
+    pub fn is_conflict_exception(&self) -> bool {
+        matches!(self, Self::ConflictException(_))
     }
     /// Returns `true` if the error kind is `StartPlanExecutionError::IllegalArgumentException`.
     pub fn is_illegal_argument_exception(&self) -> bool {
@@ -346,6 +360,7 @@ impl ::std::error::Error for StartPlanExecutionError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::AccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ConflictException(_inner) => ::std::option::Option::Some(_inner),
             Self::IllegalArgumentException(_inner) => ::std::option::Option::Some(_inner),
             Self::IllegalStateException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
@@ -357,6 +372,7 @@ impl ::std::fmt::Display for StartPlanExecutionError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::AccessDeniedException(_inner) => _inner.fmt(f),
+            Self::ConflictException(_inner) => _inner.fmt(f),
             Self::IllegalArgumentException(_inner) => _inner.fmt(f),
             Self::IllegalStateException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
@@ -382,6 +398,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartPlanExec
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::ConflictException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::IllegalArgumentException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::IllegalStateException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

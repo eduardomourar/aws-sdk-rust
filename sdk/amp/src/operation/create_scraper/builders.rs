@@ -22,7 +22,7 @@ impl crate::operation::create_scraper::builders::CreateScraperInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateScraper`.
 ///
-/// <p>The <code>CreateScraper</code> operation creates a scraper to collect metrics. A scraper pulls metrics from Prometheus-compatible sources and sends them to your Amazon Managed Service for Prometheus workspace. You can configure scrapers to collect metrics from Amazon EKS clusters, Amazon MSK clusters, or from VPC-based sources that support DNS-based service discovery. Scrapers are flexible, and can be configured to control what metrics are collected, the frequency of collection, what transformations are applied to the metrics, and more.</p>
+/// <p>Creates a scraper to collect metrics from Prometheus-compatible sources. The scraper sends the collected metrics to Amazon Managed Service for Prometheus workspaces or CloudWatch datasets. You can configure scrapers to collect metrics from Amazon EKS clusters, Amazon MSK clusters, or from VPC-based sources that support DNS-based service discovery. Scrapers are flexible. You can configure a scraper to control which metrics to collect, the frequency of collection, which transformations to apply to the metrics, and more.</p>
 /// <p>An IAM role will be created for you that Amazon Managed Service for Prometheus uses to access the metrics in your source. You must configure this role with a policy that allows it to scrape metrics from your source. For Amazon EKS sources, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
 /// <p>The <code>scrapeConfiguration</code> parameter contains the base-64 encoded YAML configuration for the scraper.</p>
 /// <p>When creating a scraper, the service creates a <code>Network Interface</code> in each <b>Availability Zone</b> that are passed into <code>CreateScraper</code> through subnets. These network interfaces are used to connect to your source within the VPC for scraping metrics.</p><note>
@@ -155,17 +155,17 @@ impl CreateScraperFluentBuilder {
     pub fn get_source(&self) -> &::std::option::Option<crate::types::Source> {
         self.inner.get_source()
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The destination where the scraper sends the collected metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn destination(mut self, input: crate::types::Destination) -> Self {
         self.inner = self.inner.destination(input);
         self
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The destination where the scraper sends the collected metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.inner = self.inner.set_destination(input);
         self
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The destination where the scraper sends the collected metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn get_destination(&self) -> &::std::option::Option<crate::types::Destination> {
         self.inner.get_destination()
     }

@@ -9,7 +9,7 @@ pub struct UpdateClusterInput {
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>Additional options related to the Slurm scheduler.</p>
     pub slurm_configuration: ::std::option::Option<crate::types::UpdateClusterSlurmConfigurationRequest>,
-    /// <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+    /// <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
     pub scheduler: ::std::option::Option<crate::types::UpdateSchedulerRequest>,
 }
 impl UpdateClusterInput {
@@ -25,7 +25,7 @@ impl UpdateClusterInput {
     pub fn slurm_configuration(&self) -> ::std::option::Option<&crate::types::UpdateClusterSlurmConfigurationRequest> {
         self.slurm_configuration.as_ref()
     }
-    /// <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+    /// <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
     pub fn scheduler(&self) -> ::std::option::Option<&crate::types::UpdateSchedulerRequest> {
         self.scheduler.as_ref()
     }
@@ -90,17 +90,17 @@ impl UpdateClusterInputBuilder {
     pub fn get_slurm_configuration(&self) -> &::std::option::Option<crate::types::UpdateClusterSlurmConfigurationRequest> {
         &self.slurm_configuration
     }
-    /// <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+    /// <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
     pub fn scheduler(mut self, input: crate::types::UpdateSchedulerRequest) -> Self {
         self.scheduler = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+    /// <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
     pub fn set_scheduler(mut self, input: ::std::option::Option<crate::types::UpdateSchedulerRequest>) -> Self {
         self.scheduler = input;
         self
     }
-    /// <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+    /// <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
     pub fn get_scheduler(&self) -> &::std::option::Option<crate::types::UpdateSchedulerRequest> {
         &self.scheduler
     }

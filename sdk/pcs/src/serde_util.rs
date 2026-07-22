@@ -207,6 +207,18 @@ pub(crate) fn compute_node_group_correct_errors(
     builder
 }
 
+pub(crate) fn node_lifecycle_actions_correct_errors(
+    mut builder: crate::types::builders::NodeLifecycleActionsBuilder,
+) -> crate::types::builders::NodeLifecycleActionsBuilder {
+    if builder.stages.is_none() {
+        builder.stages = {
+            let builder = crate::types::builders::NodeLifecycleStagesBuilder::default();
+            Some(builder.build())
+        }
+    }
+    builder
+}
+
 pub(crate) fn queue_correct_errors(mut builder: crate::types::builders::QueueBuilder) -> crate::types::builders::QueueBuilder {
     if builder.name.is_none() {
         builder.name = Some(Default::default())
@@ -416,6 +428,21 @@ pub(crate) fn jwt_key_correct_errors(mut builder: crate::types::builders::JwtKey
     builder
 }
 
+pub(crate) fn node_lifecycle_script_correct_errors(
+    mut builder: crate::types::builders::NodeLifecycleScriptBuilder,
+) -> crate::types::builders::NodeLifecycleScriptBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.script_source.is_none() {
+        builder.script_source = {
+            let builder = crate::types::builders::ScriptSourceBuilder::default();
+            crate::serde_util::script_source_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn slurm_custom_setting_correct_errors(
     mut builder: crate::types::builders::SlurmCustomSettingBuilder,
 ) -> crate::types::builders::SlurmCustomSettingBuilder {
@@ -436,6 +463,13 @@ pub(crate) fn slurmdbd_custom_setting_correct_errors(
     }
     if builder.parameter_value.is_none() {
         builder.parameter_value = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn script_source_correct_errors(mut builder: crate::types::builders::ScriptSourceBuilder) -> crate::types::builders::ScriptSourceBuilder {
+    if builder.script_location.is_none() {
+        builder.script_location = Some(Default::default())
     }
     builder
 }

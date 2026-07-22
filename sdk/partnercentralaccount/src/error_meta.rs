@@ -594,6 +594,151 @@ impl From<crate::operation::get_profile_visibility::GetProfileVisibilityError> f
         }
     }
 }
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError> for Error {
+    fn from(err: crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError) -> Self {
+        match err {
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_qualifications_association_details::GetQualificationsAssociationDetailsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError> for Error {
+    fn from(err: crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError) -> Self {
+        match err {
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_qualifications_association_task::GetQualificationsAssociationTaskError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError> for Error {
+    fn from(err: crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError) -> Self {
+        match err {
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_qualifications_disassociation_task::GetQualificationsDisassociationTaskError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_verification::GetVerificationError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -921,6 +1066,110 @@ impl From<crate::operation::start_profile_update_task::StartProfileUpdateTaskErr
             crate::operation::start_profile_update_task::StartProfileUpdateTaskError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::start_profile_update_task::StartProfileUpdateTaskError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::start_profile_update_task::StartProfileUpdateTaskError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError> for Error {
+    fn from(err: crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError) -> Self {
+        match err {
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::ConflictException(inner) => {
+                Error::ConflictException(inner)
+            }
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::start_qualifications_association_task::StartQualificationsAssociationTaskError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
+        }
+    }
+}
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError> for Error {
+    fn from(err: crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError) -> Self {
+        match err {
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::ConflictException(inner) => {
+                Error::ConflictException(inner)
+            }
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::InternalServerException(
+                inner,
+            ) => Error::InternalServerException(inner),
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::start_qualifications_disassociation_task::StartQualificationsDisassociationTaskError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }

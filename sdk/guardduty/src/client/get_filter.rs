@@ -12,6 +12,9 @@ impl super::Client {
     ///   - [`rank(Option<i32>)`](crate::operation::get_filter::GetFilterOutput::rank): <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
     ///   - [`finding_criteria(Option<FindingCriteria>)`](crate::operation::get_filter::GetFilterOutput::finding_criteria): <p>Represents the criteria to be used in the filter for querying findings.</p>
     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::get_filter::GetFilterOutput::tags): <p>The tags of the filter resource.</p>
+    ///   - [`created_at(Option<DateTime>)`](crate::operation::get_filter::GetFilterOutput::created_at): <p>The timestamp when the filter was created. This field is not available for filters that were created before the lifecycle metadata feature was enabled (legacy filters).</p>
+    ///   - [`updated_at(Option<DateTime>)`](crate::operation::get_filter::GetFilterOutput::updated_at): <p>The timestamp when the filter was last updated. For legacy filters, this field is present only after the filter has been updated at least once since the lifecycle metadata feature was enabled.</p>
+    ///   - [`version(Option<i64>)`](crate::operation::get_filter::GetFilterOutput::version): <p>The version of the filter. Every time the filter is updated, the version increments by 1. This field is not available for legacy filters that were created before the lifecycle metadata feature was enabled.</p>
     /// - On failure, responds with [`SdkError<GetFilterError>`](crate::operation::get_filter::GetFilterError)
     pub fn get_filter(&self) -> crate::operation::get_filter::builders::GetFilterFluentBuilder {
         crate::operation::get_filter::builders::GetFilterFluentBuilder::new(self.handle.clone())

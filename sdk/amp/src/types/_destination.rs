@@ -6,6 +6,8 @@
 pub enum Destination {
     /// <p>The Amazon Managed Service for Prometheus workspace to send metrics to.</p>
     AmpConfiguration(crate::types::AmpConfiguration),
+    /// <p>The CloudWatch dataset to send metrics to.</p>
+    CloudWatchConfiguration(crate::types::CloudWatchConfiguration),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -17,7 +19,6 @@ pub enum Destination {
     Unknown,
 }
 impl Destination {
-    #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`AmpConfiguration`](crate::types::Destination::AmpConfiguration), extracting the inner [`AmpConfiguration`](crate::types::AmpConfiguration).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_amp_configuration(&self) -> ::std::result::Result<&crate::types::AmpConfiguration, &Self> {
@@ -30,6 +31,19 @@ impl Destination {
     /// Returns true if this is a [`AmpConfiguration`](crate::types::Destination::AmpConfiguration).
     pub fn is_amp_configuration(&self) -> bool {
         self.as_amp_configuration().is_ok()
+    }
+    /// Tries to convert the enum instance into [`CloudWatchConfiguration`](crate::types::Destination::CloudWatchConfiguration), extracting the inner [`CloudWatchConfiguration`](crate::types::CloudWatchConfiguration).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_cloud_watch_configuration(&self) -> ::std::result::Result<&crate::types::CloudWatchConfiguration, &Self> {
+        if let Destination::CloudWatchConfiguration(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`CloudWatchConfiguration`](crate::types::Destination::CloudWatchConfiguration).
+    pub fn is_cloud_watch_configuration(&self) -> bool {
+        self.as_cloud_watch_configuration().is_ok()
     }
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {

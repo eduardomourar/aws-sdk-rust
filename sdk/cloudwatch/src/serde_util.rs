@@ -251,6 +251,9 @@ pub(crate) fn schedule_configuration_correct_errors(
     if builder.schedule_expression.is_none() {
         builder.schedule_expression = Some(Default::default())
     }
+    if builder.start_time_offset.is_none() {
+        builder.start_time_offset = Some(Default::default())
+    }
     builder
 }
 

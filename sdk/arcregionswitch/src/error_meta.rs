@@ -6,6 +6,8 @@ pub enum Error {
     /// <p>You do not have sufficient access to perform this action.</p>
     /// <p>HTTP Status Code: 403</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
+    /// <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
+    ConflictException(crate::types::error::ConflictException),
     /// <p>The request processing has an invalid argument.</p>
     IllegalArgumentException(crate::types::error::IllegalArgumentException),
     /// <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p>
@@ -30,6 +32,7 @@ impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Error::AccessDeniedException(inner) => inner.fmt(f),
+            Error::ConflictException(inner) => inner.fmt(f),
             Error::IllegalArgumentException(inner) => inner.fmt(f),
             Error::IllegalStateException(inner) => inner.fmt(f),
             Error::InternalServerException(inner) => inner.fmt(f),
@@ -56,6 +59,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
             Self::AccessDeniedException(inner) => inner.meta(),
+            Self::ConflictException(inner) => inner.meta(),
             Self::IllegalArgumentException(inner) => inner.meta(),
             Self::IllegalStateException(inner) => inner.meta(),
             Self::InternalServerException(inner) => inner.meta(),
@@ -484,6 +488,7 @@ impl From<crate::operation::start_plan_execution::StartPlanExecutionError> for E
     fn from(err: crate::operation::start_plan_execution::StartPlanExecutionError) -> Self {
         match err {
             crate::operation::start_plan_execution::StartPlanExecutionError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::start_plan_execution::StartPlanExecutionError::ConflictException(inner) => Error::ConflictException(inner),
             crate::operation::start_plan_execution::StartPlanExecutionError::IllegalArgumentException(inner) => {
                 Error::IllegalArgumentException(inner)
             }
@@ -635,6 +640,7 @@ impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Error::AccessDeniedException(inner) => inner.source(),
+            Error::ConflictException(inner) => inner.source(),
             Error::IllegalArgumentException(inner) => inner.source(),
             Error::IllegalStateException(inner) => inner.source(),
             Error::InternalServerException(inner) => inner.source(),
@@ -647,6 +653,7 @@ impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::AccessDeniedException(e) => e.request_id(),
+            Self::ConflictException(e) => e.request_id(),
             Self::IllegalArgumentException(e) => e.request_id(),
             Self::IllegalStateException(e) => e.request_id(),
             Self::InternalServerException(e) => e.request_id(),

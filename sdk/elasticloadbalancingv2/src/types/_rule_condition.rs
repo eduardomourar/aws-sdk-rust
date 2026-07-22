@@ -2,24 +2,25 @@
 
 /// <p>Information about a condition for a rule.</p>
 /// <p>Each rule can optionally include up to one of each of the following conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>. Each rule can also optionally include one or more of each of the following conditions: <code>http-header</code> and <code>query-string</code>. Note that the value for a condition can't be empty.</p>
+/// <p>For Network Load Balancer listener rules, the only supported condition is <code>source-ip</code>. Use <code>SourceIpConfig</code> with <code>IpAddressType</code> to match on the IP address type of the source traffic (<code>ipv4</code> or <code>ipv6</code>).</p>
 /// <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your Application Load Balancers</a>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RuleCondition {
-    /// <p>The field in the HTTP request. The following are the possible values:</p>
+    /// <p>The name of the field. The possible values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>http-header</code></p></li>
+    /// <p>http-header – \[ALB\] Matches on an HTTP header field.</p></li>
     /// <li>
-    /// <p><code>http-request-method</code></p></li>
+    /// <p>http-request-method – \[ALB\] Matches on the HTTP request method.</p></li>
     /// <li>
-    /// <p><code>host-header</code></p></li>
+    /// <p>host-header – \[ALB\] Matches on the host header.</p></li>
     /// <li>
-    /// <p><code>path-pattern</code></p></li>
+    /// <p>path-pattern – \[ALB\] Matches on the URL path of the request.</p></li>
     /// <li>
-    /// <p><code>query-string</code></p></li>
+    /// <p>query-string – \[ALB\] Matches on a query string parameter.</p></li>
     /// <li>
-    /// <p><code>source-ip</code></p></li>
+    /// <p>source-ip – \[ALB, NLB\] Matches on the source IP address. For ALB, use SourceIpConfig with Values to specify CIDR ranges. For NLB, use SourceIpConfig with IpAddressType to match the IP address type (ipv4 or ipv6).</p></li>
     /// </ul>
     pub field: ::std::option::Option<::std::string::String>,
     /// <p>The condition value. Specify only when <code>Field</code> is <code>host-header</code> or <code>path-pattern</code>. Alternatively, to specify multiple host names or multiple path patterns, use <code>HostHeaderConfig</code> or <code>PathPatternConfig</code>.</p>
@@ -64,20 +65,20 @@ pub struct RuleCondition {
     pub regex_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl RuleCondition {
-    /// <p>The field in the HTTP request. The following are the possible values:</p>
+    /// <p>The name of the field. The possible values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>http-header</code></p></li>
+    /// <p>http-header – \[ALB\] Matches on an HTTP header field.</p></li>
     /// <li>
-    /// <p><code>http-request-method</code></p></li>
+    /// <p>http-request-method – \[ALB\] Matches on the HTTP request method.</p></li>
     /// <li>
-    /// <p><code>host-header</code></p></li>
+    /// <p>host-header – \[ALB\] Matches on the host header.</p></li>
     /// <li>
-    /// <p><code>path-pattern</code></p></li>
+    /// <p>path-pattern – \[ALB\] Matches on the URL path of the request.</p></li>
     /// <li>
-    /// <p><code>query-string</code></p></li>
+    /// <p>query-string – \[ALB\] Matches on a query string parameter.</p></li>
     /// <li>
-    /// <p><code>source-ip</code></p></li>
+    /// <p>source-ip – \[ALB, NLB\] Matches on the source IP address. For ALB, use SourceIpConfig with Values to specify CIDR ranges. For NLB, use SourceIpConfig with IpAddressType to match the IP address type (ipv4 or ipv6).</p></li>
     /// </ul>
     pub fn field(&self) -> ::std::option::Option<&str> {
         self.field.as_deref()
@@ -165,58 +166,58 @@ pub struct RuleConditionBuilder {
     pub(crate) regex_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl RuleConditionBuilder {
-    /// <p>The field in the HTTP request. The following are the possible values:</p>
+    /// <p>The name of the field. The possible values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>http-header</code></p></li>
+    /// <p>http-header – \[ALB\] Matches on an HTTP header field.</p></li>
     /// <li>
-    /// <p><code>http-request-method</code></p></li>
+    /// <p>http-request-method – \[ALB\] Matches on the HTTP request method.</p></li>
     /// <li>
-    /// <p><code>host-header</code></p></li>
+    /// <p>host-header – \[ALB\] Matches on the host header.</p></li>
     /// <li>
-    /// <p><code>path-pattern</code></p></li>
+    /// <p>path-pattern – \[ALB\] Matches on the URL path of the request.</p></li>
     /// <li>
-    /// <p><code>query-string</code></p></li>
+    /// <p>query-string – \[ALB\] Matches on a query string parameter.</p></li>
     /// <li>
-    /// <p><code>source-ip</code></p></li>
+    /// <p>source-ip – \[ALB, NLB\] Matches on the source IP address. For ALB, use SourceIpConfig with Values to specify CIDR ranges. For NLB, use SourceIpConfig with IpAddressType to match the IP address type (ipv4 or ipv6).</p></li>
     /// </ul>
     pub fn field(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.field = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The field in the HTTP request. The following are the possible values:</p>
+    /// <p>The name of the field. The possible values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>http-header</code></p></li>
+    /// <p>http-header – \[ALB\] Matches on an HTTP header field.</p></li>
     /// <li>
-    /// <p><code>http-request-method</code></p></li>
+    /// <p>http-request-method – \[ALB\] Matches on the HTTP request method.</p></li>
     /// <li>
-    /// <p><code>host-header</code></p></li>
+    /// <p>host-header – \[ALB\] Matches on the host header.</p></li>
     /// <li>
-    /// <p><code>path-pattern</code></p></li>
+    /// <p>path-pattern – \[ALB\] Matches on the URL path of the request.</p></li>
     /// <li>
-    /// <p><code>query-string</code></p></li>
+    /// <p>query-string – \[ALB\] Matches on a query string parameter.</p></li>
     /// <li>
-    /// <p><code>source-ip</code></p></li>
+    /// <p>source-ip – \[ALB, NLB\] Matches on the source IP address. For ALB, use SourceIpConfig with Values to specify CIDR ranges. For NLB, use SourceIpConfig with IpAddressType to match the IP address type (ipv4 or ipv6).</p></li>
     /// </ul>
     pub fn set_field(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field = input;
         self
     }
-    /// <p>The field in the HTTP request. The following are the possible values:</p>
+    /// <p>The name of the field. The possible values are:</p>
     /// <ul>
     /// <li>
-    /// <p><code>http-header</code></p></li>
+    /// <p>http-header – \[ALB\] Matches on an HTTP header field.</p></li>
     /// <li>
-    /// <p><code>http-request-method</code></p></li>
+    /// <p>http-request-method – \[ALB\] Matches on the HTTP request method.</p></li>
     /// <li>
-    /// <p><code>host-header</code></p></li>
+    /// <p>host-header – \[ALB\] Matches on the host header.</p></li>
     /// <li>
-    /// <p><code>path-pattern</code></p></li>
+    /// <p>path-pattern – \[ALB\] Matches on the URL path of the request.</p></li>
     /// <li>
-    /// <p><code>query-string</code></p></li>
+    /// <p>query-string – \[ALB\] Matches on a query string parameter.</p></li>
     /// <li>
-    /// <p><code>source-ip</code></p></li>
+    /// <p>source-ip – \[ALB, NLB\] Matches on the source IP address. For ALB, use SourceIpConfig with Values to specify CIDR ranges. For NLB, use SourceIpConfig with IpAddressType to match the IP address type (ipv4 or ipv6).</p></li>
     /// </ul>
     pub fn get_field(&self) -> &::std::option::Option<::std::string::String> {
         &self.field

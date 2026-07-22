@@ -7,6 +7,8 @@ pub use crate::types::_partner_profile::PartnerProfileBuilder;
 
 pub use crate::types::_task_details::TaskDetailsBuilder;
 
+pub use crate::types::_qualifications_association_partner::QualificationsAssociationPartnerBuilder;
+
 pub use crate::types::_business_verification_response::BusinessVerificationResponseBuilder;
 
 pub use crate::types::_registrant_verification_response::RegistrantVerificationResponseBuilder;

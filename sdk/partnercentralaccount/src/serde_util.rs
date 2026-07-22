@@ -446,6 +446,84 @@ pub(crate) fn get_profile_visibility_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn get_qualifications_association_details_output_output_correct_errors(
+    mut builder: crate::operation::get_qualifications_association_details::builders::GetQualificationsAssociationDetailsOutputBuilder,
+) -> crate::operation::get_qualifications_association_details::builders::GetQualificationsAssociationDetailsOutputBuilder {
+    if builder.catalog.is_none() {
+        builder.catalog = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::QualificationsAssociationStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn get_qualifications_association_task_output_output_correct_errors(
+    mut builder: crate::operation::get_qualifications_association_task::builders::GetQualificationsAssociationTaskOutputBuilder,
+) -> crate::operation::get_qualifications_association_task::builders::GetQualificationsAssociationTaskOutputBuilder {
+    if builder.catalog.is_none() {
+        builder.catalog = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.task_id.is_none() {
+        builder.task_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::QualificationsAssociationTaskStatus>().ok()
+    }
+    if builder.primary_partner.is_none() {
+        builder.primary_partner = {
+            let builder = crate::types::builders::QualificationsAssociationPartnerBuilder::default();
+            Some(builder.build())
+        }
+    }
+    if builder.started_at.is_none() {
+        builder.started_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn get_qualifications_disassociation_task_output_output_correct_errors(
+    mut builder: crate::operation::get_qualifications_disassociation_task::builders::GetQualificationsDisassociationTaskOutputBuilder,
+) -> crate::operation::get_qualifications_disassociation_task::builders::GetQualificationsDisassociationTaskOutputBuilder {
+    if builder.catalog.is_none() {
+        builder.catalog = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.task_id.is_none() {
+        builder.task_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::QualificationsDisassociationTaskStatus>().ok()
+    }
+    if builder.associated_partner.is_none() {
+        builder.associated_partner = {
+            let builder = crate::types::builders::QualificationsAssociationPartnerBuilder::default();
+            Some(builder.build())
+        }
+    }
+    if builder.started_at.is_none() {
+        builder.started_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
 pub(crate) fn get_verification_output_output_correct_errors(
     mut builder: crate::operation::get_verification::builders::GetVerificationOutputBuilder,
 ) -> crate::operation::get_verification::builders::GetVerificationOutputBuilder {
@@ -610,6 +688,66 @@ pub(crate) fn start_profile_update_task_output_output_correct_errors(
     }
     if builder.status.is_none() {
         builder.status = "no value was set".parse::<crate::types::ProfileTaskStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn start_qualifications_association_task_output_output_correct_errors(
+    mut builder: crate::operation::start_qualifications_association_task::builders::StartQualificationsAssociationTaskOutputBuilder,
+) -> crate::operation::start_qualifications_association_task::builders::StartQualificationsAssociationTaskOutputBuilder {
+    if builder.catalog.is_none() {
+        builder.catalog = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.task_id.is_none() {
+        builder.task_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::QualificationsAssociationTaskStatus>().ok()
+    }
+    if builder.primary_partner.is_none() {
+        builder.primary_partner = {
+            let builder = crate::types::builders::QualificationsAssociationPartnerBuilder::default();
+            Some(builder.build())
+        }
+    }
+    if builder.started_at.is_none() {
+        builder.started_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn start_qualifications_disassociation_task_output_output_correct_errors(
+    mut builder: crate::operation::start_qualifications_disassociation_task::builders::StartQualificationsDisassociationTaskOutputBuilder,
+) -> crate::operation::start_qualifications_disassociation_task::builders::StartQualificationsDisassociationTaskOutputBuilder {
+    if builder.catalog.is_none() {
+        builder.catalog = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    if builder.task_id.is_none() {
+        builder.task_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::QualificationsDisassociationTaskStatus>().ok()
+    }
+    if builder.associated_partner.is_none() {
+        builder.associated_partner = {
+            let builder = crate::types::builders::QualificationsAssociationPartnerBuilder::default();
+            Some(builder.build())
+        }
+    }
+    if builder.started_at.is_none() {
+        builder.started_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }

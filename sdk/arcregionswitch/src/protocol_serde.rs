@@ -63,6 +63,8 @@ pub(crate) mod shape_approve_plan_execution_step_input;
 
 pub(crate) mod shape_cancel_plan_execution_input;
 
+pub(crate) mod shape_conflict_exception;
+
 pub(crate) mod shape_create_plan_input;
 
 pub(crate) mod shape_delete_plan_input;

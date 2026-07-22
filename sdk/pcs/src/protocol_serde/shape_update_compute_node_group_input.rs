@@ -51,8 +51,14 @@ pub fn ser_update_compute_node_group_input_input(
         crate::protocol_serde::shape_update_compute_node_group_slurm_configuration_request::ser_update_compute_node_group_slurm_configuration_request(&mut object_16, var_15)?;
         object_16.finish();
     }
-    if let Some(var_17) = &input.client_token {
-        object.key("clientToken").string(var_17.as_str());
+    if let Some(var_17) = &input.node_lifecycle_actions {
+        #[allow(unused_mut)]
+        let mut object_18 = object.key("nodeLifecycleActions").start_object();
+        crate::protocol_serde::shape_update_node_lifecycle_actions_request::ser_update_node_lifecycle_actions_request(&mut object_18, var_17)?;
+        object_18.finish();
+    }
+    if let Some(var_19) = &input.client_token {
+        object.key("clientToken").string(var_19.as_str());
     }
     Ok(())
 }

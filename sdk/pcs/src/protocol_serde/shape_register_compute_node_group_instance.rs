@@ -123,6 +123,34 @@ pub(crate) fn de_register_compute_node_group_instance(
                 "endpoints" => {
                     builder = builder.set_endpoints(crate::protocol_serde::shape_endpoints::de_endpoints(tokens, _value, depth + 1)?);
                 }
+                "clusterName" => {
+                    builder = builder.set_cluster_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "computeNodeGroupId" => {
+                    builder = builder.set_compute_node_group_id(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "computeNodeGroupName" => {
+                    builder = builder.set_compute_node_group_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "nodeLifecycleActions" => {
+                    builder = builder.set_node_lifecycle_actions(crate::protocol_serde::shape_node_lifecycle_actions::de_node_lifecycle_actions(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

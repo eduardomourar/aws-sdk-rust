@@ -23,6 +23,7 @@
 ///     ConflictExceptionReason::IncompatibleConnectionState => { /* ... */ },
 ///     ConflictExceptionReason::IncompatiblePartnerProfileTaskState => { /* ... */ },
 ///     ConflictExceptionReason::IncompatibleProfileState => { /* ... */ },
+///     ConflictExceptionReason::IncompatibleQualificationsAssociationTaskState => { /* ... */ },
 ///     ConflictExceptionReason::VerificationAlreadyInProgress => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
@@ -75,6 +76,8 @@ pub enum ConflictExceptionReason {
     #[allow(missing_docs)] // documentation missing in model
     IncompatibleProfileState,
     #[allow(missing_docs)] // documentation missing in model
+    IncompatibleQualificationsAssociationTaskState,
+    #[allow(missing_docs)] // documentation missing in model
     VerificationAlreadyInProgress,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
@@ -94,6 +97,7 @@ impl ::std::convert::From<&str> for ConflictExceptionReason {
             "INCOMPATIBLE_CONNECTION_STATE" => ConflictExceptionReason::IncompatibleConnectionState,
             "INCOMPATIBLE_PARTNER_PROFILE_TASK_STATE" => ConflictExceptionReason::IncompatiblePartnerProfileTaskState,
             "INCOMPATIBLE_PROFILE_STATE" => ConflictExceptionReason::IncompatibleProfileState,
+            "INCOMPATIBLE_QUALIFICATIONS_ASSOCIATION_TASK_STATE" => ConflictExceptionReason::IncompatibleQualificationsAssociationTaskState,
             "VERIFICATION_ALREADY_IN_PROGRESS" => ConflictExceptionReason::VerificationAlreadyInProgress,
             other => ConflictExceptionReason::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
@@ -121,6 +125,7 @@ impl ConflictExceptionReason {
             ConflictExceptionReason::IncompatibleConnectionState => "INCOMPATIBLE_CONNECTION_STATE",
             ConflictExceptionReason::IncompatiblePartnerProfileTaskState => "INCOMPATIBLE_PARTNER_PROFILE_TASK_STATE",
             ConflictExceptionReason::IncompatibleProfileState => "INCOMPATIBLE_PROFILE_STATE",
+            ConflictExceptionReason::IncompatibleQualificationsAssociationTaskState => "INCOMPATIBLE_QUALIFICATIONS_ASSOCIATION_TASK_STATE",
             ConflictExceptionReason::VerificationAlreadyInProgress => "VERIFICATION_ALREADY_IN_PROGRESS",
             ConflictExceptionReason::Unknown(value) => value.as_str(),
         }
@@ -139,6 +144,7 @@ impl ConflictExceptionReason {
             "INCOMPATIBLE_CONNECTION_STATE",
             "INCOMPATIBLE_PARTNER_PROFILE_TASK_STATE",
             "INCOMPATIBLE_PROFILE_STATE",
+            "INCOMPATIBLE_QUALIFICATIONS_ASSOCIATION_TASK_STATE",
             "VERIFICATION_ALREADY_IN_PROGRESS",
         ]
     }
@@ -174,6 +180,9 @@ impl ::std::fmt::Display for ConflictExceptionReason {
             ConflictExceptionReason::IncompatibleConnectionState => write!(f, "INCOMPATIBLE_CONNECTION_STATE"),
             ConflictExceptionReason::IncompatiblePartnerProfileTaskState => write!(f, "INCOMPATIBLE_PARTNER_PROFILE_TASK_STATE"),
             ConflictExceptionReason::IncompatibleProfileState => write!(f, "INCOMPATIBLE_PROFILE_STATE"),
+            ConflictExceptionReason::IncompatibleQualificationsAssociationTaskState => {
+                write!(f, "INCOMPATIBLE_QUALIFICATIONS_ASSOCIATION_TASK_STATE")
+            }
             ConflictExceptionReason::VerificationAlreadyInProgress => write!(f, "VERIFICATION_ALREADY_IN_PROGRESS"),
             ConflictExceptionReason::Unknown(value) => write!(f, "{value}"),
         }

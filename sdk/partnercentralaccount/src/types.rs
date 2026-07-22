@@ -39,6 +39,14 @@ pub use crate::types::_profile_task_status::ProfileTaskStatus;
 
 pub use crate::types::_profile_visibility::ProfileVisibility;
 
+pub use crate::types::_qualifications_association_status::QualificationsAssociationStatus;
+
+pub use crate::types::_qualifications_association_partner::QualificationsAssociationPartner;
+
+pub use crate::types::_qualifications_association_task_status::QualificationsAssociationTaskStatus;
+
+pub use crate::types::_qualifications_disassociation_task_status::QualificationsDisassociationTaskStatus;
+
 pub use crate::types::_business_verification_response::BusinessVerificationResponse;
 
 pub use crate::types::_registrant_verification_response::RegistrantVerificationResponse;
@@ -152,6 +160,14 @@ mod _profile_task_status;
 mod _profile_validation_error_reason;
 
 mod _profile_visibility;
+
+mod _qualifications_association_partner;
+
+mod _qualifications_association_status;
+
+mod _qualifications_association_task_status;
+
+mod _qualifications_disassociation_task_status;
 
 mod _registrant_verification_details;
 

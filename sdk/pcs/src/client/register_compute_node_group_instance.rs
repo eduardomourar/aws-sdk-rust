@@ -9,6 +9,10 @@ impl super::Client {
     ///   - [`node_id(String)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::node_id): <p>The scheduler node ID for this instance.</p>
     ///   - [`shared_secret(String)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::shared_secret): <p>For the Slurm scheduler, this is the shared Munge key the scheduler uses to authenticate compute node group instances.</p>
     ///   - [`endpoints(Vec::<Endpoint>)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::endpoints): <p>The list of endpoints available for interaction with the scheduler.</p>
+    ///   - [`cluster_name(Option<String>)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::cluster_name): <p>The name of the cluster that the compute node registered into.</p>
+    ///   - [`compute_node_group_id(Option<String>)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::compute_node_group_id): <p>The ID of the compute node group that the compute node registered into.</p>
+    ///   - [`compute_node_group_name(Option<String>)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::compute_node_group_name): <p>The name of the compute node group that the compute node registered into.</p>
+    ///   - [`node_lifecycle_actions(Option<NodeLifecycleActions>)`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceOutput::node_lifecycle_actions): <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
     /// - On failure, responds with [`SdkError<RegisterComputeNodeGroupInstanceError>`](crate::operation::register_compute_node_group_instance::RegisterComputeNodeGroupInstanceError)
     pub fn register_compute_node_group_instance(
         &self,

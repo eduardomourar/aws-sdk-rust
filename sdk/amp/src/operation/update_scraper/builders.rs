@@ -157,17 +157,17 @@ impl UpdateScraperFluentBuilder {
     pub fn get_scrape_configuration(&self) -> &::std::option::Option<crate::types::ScrapeConfiguration> {
         self.inner.get_scrape_configuration()
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn destination(mut self, input: crate::types::Destination) -> Self {
         self.inner = self.inner.destination(input);
         self
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.inner = self.inner.set_destination(input);
         self
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn get_destination(&self) -> &::std::option::Option<crate::types::Destination> {
         self.inner.get_destination()
     }

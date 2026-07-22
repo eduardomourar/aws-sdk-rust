@@ -123,6 +123,11 @@ where
                                 )?,
                             );
                         }
+                        "nodeLifecycleActions" => {
+                            builder = builder.set_node_lifecycle_actions(
+                                crate::protocol_serde::shape_node_lifecycle_actions::de_node_lifecycle_actions(tokens, _value, depth + 1)?,
+                            );
+                        }
                         "errorInfo" => {
                             builder = builder.set_error_info(crate::protocol_serde::shape_error_info_list::de_error_info_list(
                                 tokens,

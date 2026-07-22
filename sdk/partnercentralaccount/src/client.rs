@@ -193,6 +193,12 @@ mod get_profile_update_task;
 
 mod get_profile_visibility;
 
+mod get_qualifications_association_details;
+
+mod get_qualifications_association_task;
+
+mod get_qualifications_disassociation_task;
+
 mod get_verification;
 
 mod list_connection_invitations;
@@ -212,6 +218,10 @@ mod reject_connection_invitation;
 mod send_email_verification_code;
 
 mod start_profile_update_task;
+
+mod start_qualifications_association_task;
+
+mod start_qualifications_disassociation_task;
 
 mod start_verification;
 

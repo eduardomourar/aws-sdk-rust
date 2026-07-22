@@ -15,6 +15,8 @@ pub use crate::types::_update_cluster_slurm_configuration_request::UpdateCluster
 
 pub use crate::types::_update_scheduler_request::UpdateSchedulerRequest;
 
+pub use crate::types::_node_lifecycle_actions::NodeLifecycleActions;
+
 pub use crate::types::_purchase_option::PurchaseOption;
 
 pub use crate::types::_custom_launch_template::CustomLaunchTemplate;
@@ -25,9 +27,13 @@ pub use crate::types::_spot_options::SpotOptions;
 
 pub use crate::types::_compute_node_group_slurm_configuration_request::ComputeNodeGroupSlurmConfigurationRequest;
 
+pub use crate::types::_node_lifecycle_actions_request::NodeLifecycleActionsRequest;
+
 pub use crate::types::_compute_node_group::ComputeNodeGroup;
 
 pub use crate::types::_update_compute_node_group_slurm_configuration_request::UpdateComputeNodeGroupSlurmConfigurationRequest;
+
+pub use crate::types::_update_node_lifecycle_actions_request::UpdateNodeLifecycleActionsRequest;
 
 pub use crate::types::_queue_slurm_configuration_request::QueueSlurmConfigurationRequest;
 
@@ -58,6 +64,10 @@ pub use crate::types::_update_accounting_request::UpdateAccountingRequest;
 pub use crate::types::_update_slurm_rest_request::UpdateSlurmRestRequest;
 
 pub use crate::types::_endpoint::Endpoint;
+
+pub use crate::types::_node_lifecycle_stages::NodeLifecycleStages;
+
+pub use crate::types::_script_caching_policy::ScriptCachingPolicy;
 
 pub use crate::types::_cluster_summary::ClusterSummary;
 
@@ -105,6 +115,14 @@ pub use crate::types::_endpoint_type::EndpointType;
 
 pub use crate::types::_jwt_key::JwtKey;
 
+pub use crate::types::_node_lifecycle_script::NodeLifecycleScript;
+
+pub use crate::types::_script_source::ScriptSource;
+
+pub use crate::types::_on_error::OnError;
+
+pub use crate::types::_execution_policy::ExecutionPolicy;
+
 mod _accounting;
 
 mod _accounting_mode;
@@ -143,6 +161,8 @@ mod _endpoint_type;
 
 mod _error_info;
 
+mod _execution_policy;
+
 mod _instance_config;
 
 mod _jwt_auth;
@@ -154,6 +174,16 @@ mod _network_type;
 mod _networking;
 
 mod _networking_request;
+
+mod _node_lifecycle_actions;
+
+mod _node_lifecycle_actions_request;
+
+mod _node_lifecycle_script;
+
+mod _node_lifecycle_stages;
+
+mod _on_error;
 
 mod _purchase_option;
 
@@ -176,6 +206,10 @@ mod _scheduler;
 mod _scheduler_request;
 
 mod _scheduler_type;
+
+mod _script_caching_policy;
+
+mod _script_source;
 
 mod _size;
 
@@ -200,6 +234,8 @@ mod _update_accounting_request;
 mod _update_cluster_slurm_configuration_request;
 
 mod _update_compute_node_group_slurm_configuration_request;
+
+mod _update_node_lifecycle_actions_request;
 
 mod _update_queue_slurm_configuration_request;
 

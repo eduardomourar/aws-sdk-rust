@@ -66,18 +66,24 @@ pub fn ser_create_compute_node_group_input_input(
         )?;
         object_20.finish();
     }
-    if let Some(var_21) = &input.client_token {
-        object.key("clientToken").string(var_21.as_str());
-    }
-    if let Some(var_22) = &input.tags {
+    if let Some(var_21) = &input.node_lifecycle_actions {
         #[allow(unused_mut)]
-        let mut object_23 = object.key("tags").start_object();
-        for (key_24, value_25) in var_22 {
+        let mut object_22 = object.key("nodeLifecycleActions").start_object();
+        crate::protocol_serde::shape_node_lifecycle_actions_request::ser_node_lifecycle_actions_request(&mut object_22, var_21)?;
+        object_22.finish();
+    }
+    if let Some(var_23) = &input.client_token {
+        object.key("clientToken").string(var_23.as_str());
+    }
+    if let Some(var_24) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_25 = object.key("tags").start_object();
+        for (key_26, value_27) in var_24 {
             {
-                object_23.key(key_24.as_str()).string(value_25.as_str());
+                object_25.key(key_26.as_str()).string(value_27.as_str());
             }
         }
-        object_23.finish();
+        object_25.finish();
     }
     Ok(())
 }

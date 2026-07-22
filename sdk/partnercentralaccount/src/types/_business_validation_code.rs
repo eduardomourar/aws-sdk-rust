@@ -17,9 +17,15 @@
 ///     BusinessValidationCode::IncompatibleIdentityVerificationStatus => { /* ... */ },
 ///     BusinessValidationCode::IncompatibleKnowYourBusinessStatus => { /* ... */ },
 ///     BusinessValidationCode::IncompatibleLegalName => { /* ... */ },
+///     BusinessValidationCode::IncompatiblePrimaryPartner => { /* ... */ },
+///     BusinessValidationCode::IncompatibleSubsidiaryConnection => { /* ... */ },
 ///     BusinessValidationCode::IneligibleAccountTier => { /* ... */ },
 ///     BusinessValidationCode::InvalidAccountLinkingStatus => { /* ... */ },
 ///     BusinessValidationCode::InvalidAccountState => { /* ... */ },
+///     BusinessValidationCode::MissingActiveSubsidiaryConnection => { /* ... */ },
+///     BusinessValidationCode::QualificationsAssociationExists => { /* ... */ },
+///     BusinessValidationCode::QualificationsAssociationLimitExceeded => { /* ... */ },
+///     BusinessValidationCode::QualificationsAssociationNotFound => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -59,11 +65,23 @@ pub enum BusinessValidationCode {
     #[allow(missing_docs)] // documentation missing in model
     IncompatibleLegalName,
     #[allow(missing_docs)] // documentation missing in model
+    IncompatiblePrimaryPartner,
+    #[allow(missing_docs)] // documentation missing in model
+    IncompatibleSubsidiaryConnection,
+    #[allow(missing_docs)] // documentation missing in model
     IneligibleAccountTier,
     #[allow(missing_docs)] // documentation missing in model
     InvalidAccountLinkingStatus,
     #[allow(missing_docs)] // documentation missing in model
     InvalidAccountState,
+    #[allow(missing_docs)] // documentation missing in model
+    MissingActiveSubsidiaryConnection,
+    #[allow(missing_docs)] // documentation missing in model
+    QualificationsAssociationExists,
+    #[allow(missing_docs)] // documentation missing in model
+    QualificationsAssociationLimitExceeded,
+    #[allow(missing_docs)] // documentation missing in model
+    QualificationsAssociationNotFound,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -76,9 +94,15 @@ impl ::std::convert::From<&str> for BusinessValidationCode {
             "INCOMPATIBLE_IDENTITY_VERIFICATION_STATUS" => BusinessValidationCode::IncompatibleIdentityVerificationStatus,
             "INCOMPATIBLE_KNOW_YOUR_BUSINESS_STATUS" => BusinessValidationCode::IncompatibleKnowYourBusinessStatus,
             "INCOMPATIBLE_LEGAL_NAME" => BusinessValidationCode::IncompatibleLegalName,
+            "INCOMPATIBLE_PRIMARY_PARTNER" => BusinessValidationCode::IncompatiblePrimaryPartner,
+            "INCOMPATIBLE_SUBSIDIARY_CONNECTION" => BusinessValidationCode::IncompatibleSubsidiaryConnection,
             "INELIGIBLE_ACCOUNT_TIER" => BusinessValidationCode::IneligibleAccountTier,
             "INVALID_ACCOUNT_LINKING_STATUS" => BusinessValidationCode::InvalidAccountLinkingStatus,
             "INVALID_ACCOUNT_STATE" => BusinessValidationCode::InvalidAccountState,
+            "MISSING_ACTIVE_SUBSIDIARY_CONNECTION" => BusinessValidationCode::MissingActiveSubsidiaryConnection,
+            "QUALIFICATIONS_ASSOCIATION_EXISTS" => BusinessValidationCode::QualificationsAssociationExists,
+            "QUALIFICATIONS_ASSOCIATION_LIMIT_EXCEEDED" => BusinessValidationCode::QualificationsAssociationLimitExceeded,
+            "QUALIFICATIONS_ASSOCIATION_NOT_FOUND" => BusinessValidationCode::QualificationsAssociationNotFound,
             other => BusinessValidationCode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -99,9 +123,15 @@ impl BusinessValidationCode {
             BusinessValidationCode::IncompatibleIdentityVerificationStatus => "INCOMPATIBLE_IDENTITY_VERIFICATION_STATUS",
             BusinessValidationCode::IncompatibleKnowYourBusinessStatus => "INCOMPATIBLE_KNOW_YOUR_BUSINESS_STATUS",
             BusinessValidationCode::IncompatibleLegalName => "INCOMPATIBLE_LEGAL_NAME",
+            BusinessValidationCode::IncompatiblePrimaryPartner => "INCOMPATIBLE_PRIMARY_PARTNER",
+            BusinessValidationCode::IncompatibleSubsidiaryConnection => "INCOMPATIBLE_SUBSIDIARY_CONNECTION",
             BusinessValidationCode::IneligibleAccountTier => "INELIGIBLE_ACCOUNT_TIER",
             BusinessValidationCode::InvalidAccountLinkingStatus => "INVALID_ACCOUNT_LINKING_STATUS",
             BusinessValidationCode::InvalidAccountState => "INVALID_ACCOUNT_STATE",
+            BusinessValidationCode::MissingActiveSubsidiaryConnection => "MISSING_ACTIVE_SUBSIDIARY_CONNECTION",
+            BusinessValidationCode::QualificationsAssociationExists => "QUALIFICATIONS_ASSOCIATION_EXISTS",
+            BusinessValidationCode::QualificationsAssociationLimitExceeded => "QUALIFICATIONS_ASSOCIATION_LIMIT_EXCEEDED",
+            BusinessValidationCode::QualificationsAssociationNotFound => "QUALIFICATIONS_ASSOCIATION_NOT_FOUND",
             BusinessValidationCode::Unknown(value) => value.as_str(),
         }
     }
@@ -113,9 +143,15 @@ impl BusinessValidationCode {
             "INCOMPATIBLE_IDENTITY_VERIFICATION_STATUS",
             "INCOMPATIBLE_KNOW_YOUR_BUSINESS_STATUS",
             "INCOMPATIBLE_LEGAL_NAME",
+            "INCOMPATIBLE_PRIMARY_PARTNER",
+            "INCOMPATIBLE_SUBSIDIARY_CONNECTION",
             "INELIGIBLE_ACCOUNT_TIER",
             "INVALID_ACCOUNT_LINKING_STATUS",
             "INVALID_ACCOUNT_STATE",
+            "MISSING_ACTIVE_SUBSIDIARY_CONNECTION",
+            "QUALIFICATIONS_ASSOCIATION_EXISTS",
+            "QUALIFICATIONS_ASSOCIATION_LIMIT_EXCEEDED",
+            "QUALIFICATIONS_ASSOCIATION_NOT_FOUND",
         ]
     }
 }
@@ -144,9 +180,15 @@ impl ::std::fmt::Display for BusinessValidationCode {
             BusinessValidationCode::IncompatibleIdentityVerificationStatus => write!(f, "INCOMPATIBLE_IDENTITY_VERIFICATION_STATUS"),
             BusinessValidationCode::IncompatibleKnowYourBusinessStatus => write!(f, "INCOMPATIBLE_KNOW_YOUR_BUSINESS_STATUS"),
             BusinessValidationCode::IncompatibleLegalName => write!(f, "INCOMPATIBLE_LEGAL_NAME"),
+            BusinessValidationCode::IncompatiblePrimaryPartner => write!(f, "INCOMPATIBLE_PRIMARY_PARTNER"),
+            BusinessValidationCode::IncompatibleSubsidiaryConnection => write!(f, "INCOMPATIBLE_SUBSIDIARY_CONNECTION"),
             BusinessValidationCode::IneligibleAccountTier => write!(f, "INELIGIBLE_ACCOUNT_TIER"),
             BusinessValidationCode::InvalidAccountLinkingStatus => write!(f, "INVALID_ACCOUNT_LINKING_STATUS"),
             BusinessValidationCode::InvalidAccountState => write!(f, "INVALID_ACCOUNT_STATE"),
+            BusinessValidationCode::MissingActiveSubsidiaryConnection => write!(f, "MISSING_ACTIVE_SUBSIDIARY_CONNECTION"),
+            BusinessValidationCode::QualificationsAssociationExists => write!(f, "QUALIFICATIONS_ASSOCIATION_EXISTS"),
+            BusinessValidationCode::QualificationsAssociationLimitExceeded => write!(f, "QUALIFICATIONS_ASSOCIATION_LIMIT_EXCEEDED"),
+            BusinessValidationCode::QualificationsAssociationNotFound => write!(f, "QUALIFICATIONS_ASSOCIATION_NOT_FOUND"),
             BusinessValidationCode::Unknown(value) => write!(f, "{value}"),
         }
     }

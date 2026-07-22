@@ -45,6 +45,8 @@ pub use crate::types::_vpc_configuration::VpcConfigurationBuilder;
 
 pub use crate::types::_amp_configuration::AmpConfigurationBuilder;
 
+pub use crate::types::_cloud_watch_configuration::CloudWatchConfigurationBuilder;
+
 pub use crate::types::_workspace_summary::WorkspaceSummaryBuilder;
 
 pub use crate::types::_cloud_watch_log_destination::CloudWatchLogDestinationBuilder;

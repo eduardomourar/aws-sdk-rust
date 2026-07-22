@@ -94,6 +94,10 @@ pub struct DkimAttributes {
     /// <p><code>AWS_SES_US_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub signing_attributes_origin: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
     /// <p>\[Easy DKIM\] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
@@ -203,6 +207,10 @@ impl DkimAttributes {
     /// <p><code>AWS_SES_US_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn signing_attributes_origin(&self) -> ::std::option::Option<&crate::types::DkimSigningAttributesOrigin> {
         self.signing_attributes_origin.as_ref()
@@ -426,6 +434,10 @@ impl DkimAttributesBuilder {
     /// <p><code>AWS_SES_US_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn signing_attributes_origin(mut self, input: crate::types::DkimSigningAttributesOrigin) -> Self {
         self.signing_attributes_origin = ::std::option::Option::Some(input);
@@ -491,6 +503,10 @@ impl DkimAttributesBuilder {
     /// <p><code>AWS_SES_US_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn set_signing_attributes_origin(mut self, input: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>) -> Self {
         self.signing_attributes_origin = input;
@@ -556,6 +572,10 @@ impl DkimAttributesBuilder {
     /// <p><code>AWS_SES_US_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Indicates that DKIM was configured for the identity by replicating signing attributes from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn get_signing_attributes_origin(&self) -> &::std::option::Option<crate::types::DkimSigningAttributesOrigin> {
         &self.signing_attributes_origin

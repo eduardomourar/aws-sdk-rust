@@ -34,6 +34,20 @@ pub fn de_start_plan_execution_http_error(
             };
             tmp
         }),
+        "ConflictException" => crate::operation::start_plan_execution::StartPlanExecutionError::ConflictException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::ConflictExceptionBuilder::default();
+                output = crate::protocol_serde::shape_conflict_exception::de_conflict_exception_cbor_err(_response_body, output)
+                    .map_err(crate::operation::start_plan_execution::StartPlanExecutionError::unhandled)?;
+                let output = output.meta(generic);
+                crate::serde_util::conflict_exception_correct_errors(output)
+                    .build()
+                    .map_err(crate::operation::start_plan_execution::StartPlanExecutionError::unhandled)?
+            };
+            tmp
+        }),
         "IllegalArgumentException" => crate::operation::start_plan_execution::StartPlanExecutionError::IllegalArgumentException({
             #[allow(unused_mut)]
             let mut tmp = {

@@ -61,6 +61,8 @@ pub use crate::types::_vpc_configuration::VpcConfiguration;
 
 pub use crate::types::_amp_configuration::AmpConfiguration;
 
+pub use crate::types::_cloud_watch_configuration::CloudWatchConfiguration;
+
 pub use crate::types::_scraper_status_code::ScraperStatusCode;
 
 pub use crate::types::_workspace_summary::WorkspaceSummary;
@@ -124,6 +126,8 @@ mod _anomaly_detector_status;
 mod _anomaly_detector_status_code;
 
 mod _anomaly_detector_summary;
+
+mod _cloud_watch_configuration;
 
 mod _cloud_watch_log_destination;
 

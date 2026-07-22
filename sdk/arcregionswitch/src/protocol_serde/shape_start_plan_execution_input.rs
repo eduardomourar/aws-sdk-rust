@@ -25,6 +25,9 @@ pub fn ser_start_plan_execution_input_input(
     if let Some(var_7) = &input.recovery_execution_id {
         encoder.str("recoveryExecutionId").str(var_7.as_str());
     }
+    if let Some(var_8) = &input.client_token {
+        encoder.str("clientToken").str(var_8.as_str());
+    }
     encoder.end();
     Ok(())
 }

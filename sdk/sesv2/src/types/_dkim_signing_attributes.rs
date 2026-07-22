@@ -85,6 +85,10 @@ pub struct DkimSigningAttributes {
     /// <p><code>AWS_SES_US_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Configure DKIM for the identity by replicating from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub domain_signing_attributes_origin: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
 }
@@ -176,6 +180,10 @@ impl DkimSigningAttributes {
     /// <p><code>AWS_SES_US_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Configure DKIM for the identity by replicating from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn domain_signing_attributes_origin(&self) -> ::std::option::Option<&crate::types::DkimSigningAttributesOrigin> {
         self.domain_signing_attributes_origin.as_ref()
@@ -327,6 +335,10 @@ impl DkimSigningAttributesBuilder {
     /// <p><code>AWS_SES_US_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Configure DKIM for the identity by replicating from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn domain_signing_attributes_origin(mut self, input: crate::types::DkimSigningAttributesOrigin) -> Self {
         self.domain_signing_attributes_origin = ::std::option::Option::Some(input);
@@ -406,6 +418,10 @@ impl DkimSigningAttributesBuilder {
     /// <p><code>AWS_SES_US_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Configure DKIM for the identity by replicating from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn set_domain_signing_attributes_origin(mut self, input: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>) -> Self {
         self.domain_signing_attributes_origin = input;
@@ -485,6 +501,10 @@ impl DkimSigningAttributesBuilder {
     /// <p><code>AWS_SES_US_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// <li>
     /// <p><code>AWS_SES_US_WEST_2</code> – Configure DKIM for the identity by replicating from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_EAST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).</p></li>
+    /// <li>
+    /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
     pub fn get_domain_signing_attributes_origin(&self) -> &::std::option::Option<crate::types::DkimSigningAttributesOrigin> {
         &self.domain_signing_attributes_origin

@@ -18,6 +18,8 @@
 ///     ResourceNotFoundExceptionReason::PartnerNotFound => { /* ... */ },
 ///     ResourceNotFoundExceptionReason::PartnerProfileNotFound => { /* ... */ },
 ///     ResourceNotFoundExceptionReason::PartnerProfileTaskNotFound => { /* ... */ },
+///     ResourceNotFoundExceptionReason::QualificationsAssociationTaskNotFound => { /* ... */ },
+///     ResourceNotFoundExceptionReason::QualificationsDisassociationTaskNotFound => { /* ... */ },
 ///     ResourceNotFoundExceptionReason::ReceiverProfileNotFound => { /* ... */ },
 ///     ResourceNotFoundExceptionReason::SenderProfileNotFound => { /* ... */ },
 ///     ResourceNotFoundExceptionReason::VerificationNotFound => { /* ... */ },
@@ -62,6 +64,10 @@ pub enum ResourceNotFoundExceptionReason {
     #[allow(missing_docs)] // documentation missing in model
     PartnerProfileTaskNotFound,
     #[allow(missing_docs)] // documentation missing in model
+    QualificationsAssociationTaskNotFound,
+    #[allow(missing_docs)] // documentation missing in model
+    QualificationsDisassociationTaskNotFound,
+    #[allow(missing_docs)] // documentation missing in model
     ReceiverProfileNotFound,
     #[allow(missing_docs)] // documentation missing in model
     SenderProfileNotFound,
@@ -80,6 +86,8 @@ impl ::std::convert::From<&str> for ResourceNotFoundExceptionReason {
             "PARTNER_NOT_FOUND" => ResourceNotFoundExceptionReason::PartnerNotFound,
             "PARTNER_PROFILE_NOT_FOUND" => ResourceNotFoundExceptionReason::PartnerProfileNotFound,
             "PARTNER_PROFILE_TASK_NOT_FOUND" => ResourceNotFoundExceptionReason::PartnerProfileTaskNotFound,
+            "QUALIFICATIONS_ASSOCIATION_TASK_NOT_FOUND" => ResourceNotFoundExceptionReason::QualificationsAssociationTaskNotFound,
+            "QUALIFICATIONS_DISASSOCIATION_TASK_NOT_FOUND" => ResourceNotFoundExceptionReason::QualificationsDisassociationTaskNotFound,
             "RECEIVER_PROFILE_NOT_FOUND" => ResourceNotFoundExceptionReason::ReceiverProfileNotFound,
             "SENDER_PROFILE_NOT_FOUND" => ResourceNotFoundExceptionReason::SenderProfileNotFound,
             "VERIFICATION_NOT_FOUND" => ResourceNotFoundExceptionReason::VerificationNotFound,
@@ -104,6 +112,8 @@ impl ResourceNotFoundExceptionReason {
             ResourceNotFoundExceptionReason::PartnerNotFound => "PARTNER_NOT_FOUND",
             ResourceNotFoundExceptionReason::PartnerProfileNotFound => "PARTNER_PROFILE_NOT_FOUND",
             ResourceNotFoundExceptionReason::PartnerProfileTaskNotFound => "PARTNER_PROFILE_TASK_NOT_FOUND",
+            ResourceNotFoundExceptionReason::QualificationsAssociationTaskNotFound => "QUALIFICATIONS_ASSOCIATION_TASK_NOT_FOUND",
+            ResourceNotFoundExceptionReason::QualificationsDisassociationTaskNotFound => "QUALIFICATIONS_DISASSOCIATION_TASK_NOT_FOUND",
             ResourceNotFoundExceptionReason::ReceiverProfileNotFound => "RECEIVER_PROFILE_NOT_FOUND",
             ResourceNotFoundExceptionReason::SenderProfileNotFound => "SENDER_PROFILE_NOT_FOUND",
             ResourceNotFoundExceptionReason::VerificationNotFound => "VERIFICATION_NOT_FOUND",
@@ -119,6 +129,8 @@ impl ResourceNotFoundExceptionReason {
             "PARTNER_NOT_FOUND",
             "PARTNER_PROFILE_NOT_FOUND",
             "PARTNER_PROFILE_TASK_NOT_FOUND",
+            "QUALIFICATIONS_ASSOCIATION_TASK_NOT_FOUND",
+            "QUALIFICATIONS_DISASSOCIATION_TASK_NOT_FOUND",
             "RECEIVER_PROFILE_NOT_FOUND",
             "SENDER_PROFILE_NOT_FOUND",
             "VERIFICATION_NOT_FOUND",
@@ -151,6 +163,8 @@ impl ::std::fmt::Display for ResourceNotFoundExceptionReason {
             ResourceNotFoundExceptionReason::PartnerNotFound => write!(f, "PARTNER_NOT_FOUND"),
             ResourceNotFoundExceptionReason::PartnerProfileNotFound => write!(f, "PARTNER_PROFILE_NOT_FOUND"),
             ResourceNotFoundExceptionReason::PartnerProfileTaskNotFound => write!(f, "PARTNER_PROFILE_TASK_NOT_FOUND"),
+            ResourceNotFoundExceptionReason::QualificationsAssociationTaskNotFound => write!(f, "QUALIFICATIONS_ASSOCIATION_TASK_NOT_FOUND"),
+            ResourceNotFoundExceptionReason::QualificationsDisassociationTaskNotFound => write!(f, "QUALIFICATIONS_DISASSOCIATION_TASK_NOT_FOUND"),
             ResourceNotFoundExceptionReason::ReceiverProfileNotFound => write!(f, "RECEIVER_PROFILE_NOT_FOUND"),
             ResourceNotFoundExceptionReason::SenderProfileNotFound => write!(f, "SENDER_PROFILE_NOT_FOUND"),
             ResourceNotFoundExceptionReason::VerificationNotFound => write!(f, "VERIFICATION_NOT_FOUND"),

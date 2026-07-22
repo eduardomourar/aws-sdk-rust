@@ -38,6 +38,8 @@
 ///     DkimSigningAttributesOrigin::AwsSesSaEast1 => { /* ... */ },
 ///     DkimSigningAttributesOrigin::AwsSesUsEast1 => { /* ... */ },
 ///     DkimSigningAttributesOrigin::AwsSesUsEast2 => { /* ... */ },
+///     DkimSigningAttributesOrigin::AwsSesUsGovEast1 => { /* ... */ },
+///     DkimSigningAttributesOrigin::AwsSesUsGovWest1 => { /* ... */ },
 ///     DkimSigningAttributesOrigin::AwsSesUsWest1 => { /* ... */ },
 ///     DkimSigningAttributesOrigin::AwsSesUsWest2 => { /* ... */ },
 ///     DkimSigningAttributesOrigin::External => { /* ... */ },
@@ -122,6 +124,10 @@ pub enum DkimSigningAttributesOrigin {
     #[allow(missing_docs)] // documentation missing in model
     AwsSesUsEast2,
     #[allow(missing_docs)] // documentation missing in model
+    AwsSesUsGovEast1,
+    #[allow(missing_docs)] // documentation missing in model
+    AwsSesUsGovWest1,
+    #[allow(missing_docs)] // documentation missing in model
     AwsSesUsWest1,
     #[allow(missing_docs)] // documentation missing in model
     AwsSesUsWest2,
@@ -160,6 +166,8 @@ impl ::std::convert::From<&str> for DkimSigningAttributesOrigin {
             "AWS_SES_SA_EAST_1" => DkimSigningAttributesOrigin::AwsSesSaEast1,
             "AWS_SES_US_EAST_1" => DkimSigningAttributesOrigin::AwsSesUsEast1,
             "AWS_SES_US_EAST_2" => DkimSigningAttributesOrigin::AwsSesUsEast2,
+            "AWS_SES_US_GOV_EAST_1" => DkimSigningAttributesOrigin::AwsSesUsGovEast1,
+            "AWS_SES_US_GOV_WEST_1" => DkimSigningAttributesOrigin::AwsSesUsGovWest1,
             "AWS_SES_US_WEST_1" => DkimSigningAttributesOrigin::AwsSesUsWest1,
             "AWS_SES_US_WEST_2" => DkimSigningAttributesOrigin::AwsSesUsWest2,
             "EXTERNAL" => DkimSigningAttributesOrigin::External,
@@ -204,6 +212,8 @@ impl DkimSigningAttributesOrigin {
             DkimSigningAttributesOrigin::AwsSesSaEast1 => "AWS_SES_SA_EAST_1",
             DkimSigningAttributesOrigin::AwsSesUsEast1 => "AWS_SES_US_EAST_1",
             DkimSigningAttributesOrigin::AwsSesUsEast2 => "AWS_SES_US_EAST_2",
+            DkimSigningAttributesOrigin::AwsSesUsGovEast1 => "AWS_SES_US_GOV_EAST_1",
+            DkimSigningAttributesOrigin::AwsSesUsGovWest1 => "AWS_SES_US_GOV_WEST_1",
             DkimSigningAttributesOrigin::AwsSesUsWest1 => "AWS_SES_US_WEST_1",
             DkimSigningAttributesOrigin::AwsSesUsWest2 => "AWS_SES_US_WEST_2",
             DkimSigningAttributesOrigin::External => "EXTERNAL",
@@ -239,6 +249,8 @@ impl DkimSigningAttributesOrigin {
             "AWS_SES_SA_EAST_1",
             "AWS_SES_US_EAST_1",
             "AWS_SES_US_EAST_2",
+            "AWS_SES_US_GOV_EAST_1",
+            "AWS_SES_US_GOV_WEST_1",
             "AWS_SES_US_WEST_1",
             "AWS_SES_US_WEST_2",
             "EXTERNAL",
@@ -291,6 +303,8 @@ impl ::std::fmt::Display for DkimSigningAttributesOrigin {
             DkimSigningAttributesOrigin::AwsSesSaEast1 => write!(f, "AWS_SES_SA_EAST_1"),
             DkimSigningAttributesOrigin::AwsSesUsEast1 => write!(f, "AWS_SES_US_EAST_1"),
             DkimSigningAttributesOrigin::AwsSesUsEast2 => write!(f, "AWS_SES_US_EAST_2"),
+            DkimSigningAttributesOrigin::AwsSesUsGovEast1 => write!(f, "AWS_SES_US_GOV_EAST_1"),
+            DkimSigningAttributesOrigin::AwsSesUsGovWest1 => write!(f, "AWS_SES_US_GOV_WEST_1"),
             DkimSigningAttributesOrigin::AwsSesUsWest1 => write!(f, "AWS_SES_US_WEST_1"),
             DkimSigningAttributesOrigin::AwsSesUsWest2 => write!(f, "AWS_SES_US_WEST_2"),
             DkimSigningAttributesOrigin::External => write!(f, "EXTERNAL"),

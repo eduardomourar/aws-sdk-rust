@@ -943,6 +943,15 @@ pub(crate) fn amp_configuration_correct_errors(
     builder
 }
 
+pub(crate) fn cloud_watch_configuration_correct_errors(
+    mut builder: crate::types::builders::CloudWatchConfigurationBuilder,
+) -> crate::types::builders::CloudWatchConfigurationBuilder {
+    if builder.dataset_arn.is_none() {
+        builder.dataset_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn eks_configuration_correct_errors(
     mut builder: crate::types::builders::EksConfigurationBuilder,
 ) -> crate::types::builders::EksConfigurationBuilder {

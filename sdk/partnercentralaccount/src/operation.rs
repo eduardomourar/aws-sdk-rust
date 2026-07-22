@@ -46,6 +46,15 @@ pub mod get_profile_update_task;
 /// Types for the `GetProfileVisibility` operation.
 pub mod get_profile_visibility;
 
+/// Types for the `GetQualificationsAssociationDetails` operation.
+pub mod get_qualifications_association_details;
+
+/// Types for the `GetQualificationsAssociationTask` operation.
+pub mod get_qualifications_association_task;
+
+/// Types for the `GetQualificationsDisassociationTask` operation.
+pub mod get_qualifications_disassociation_task;
+
 /// Types for the `GetVerification` operation.
 pub mod get_verification;
 
@@ -75,6 +84,12 @@ pub mod send_email_verification_code;
 
 /// Types for the `StartProfileUpdateTask` operation.
 pub mod start_profile_update_task;
+
+/// Types for the `StartQualificationsAssociationTask` operation.
+pub mod start_qualifications_association_task;
+
+/// Types for the `StartQualificationsDisassociationTask` operation.
+pub mod start_qualifications_disassociation_task;
 
 /// Types for the `StartVerification` operation.
 pub mod start_verification;

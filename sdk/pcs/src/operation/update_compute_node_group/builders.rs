@@ -253,6 +253,20 @@ impl UpdateComputeNodeGroupFluentBuilder {
     pub fn get_slurm_configuration(&self) -> &::std::option::Option<crate::types::UpdateComputeNodeGroupSlurmConfigurationRequest> {
         self.inner.get_slurm_configuration()
     }
+    /// <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn node_lifecycle_actions(mut self, input: crate::types::UpdateNodeLifecycleActionsRequest) -> Self {
+        self.inner = self.inner.node_lifecycle_actions(input);
+        self
+    }
+    /// <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn set_node_lifecycle_actions(mut self, input: ::std::option::Option<crate::types::UpdateNodeLifecycleActionsRequest>) -> Self {
+        self.inner = self.inner.set_node_lifecycle_actions(input);
+        self
+    }
+    /// <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn get_node_lifecycle_actions(&self) -> &::std::option::Option<crate::types::UpdateNodeLifecycleActionsRequest> {
+        self.inner.get_node_lifecycle_actions()
+    }
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_token(input.into());

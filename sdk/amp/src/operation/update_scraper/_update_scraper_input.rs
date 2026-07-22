@@ -11,7 +11,7 @@ pub struct UpdateScraperInput {
     /// <p>For more information about configuring a scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using an Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
     /// </note>
     pub scrape_configuration: ::std::option::Option<crate::types::ScrapeConfiguration>,
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub destination: ::std::option::Option<crate::types::Destination>,
     /// <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
     pub role_configuration: ::std::option::Option<crate::types::RoleConfiguration>,
@@ -33,7 +33,7 @@ impl UpdateScraperInput {
     pub fn scrape_configuration(&self) -> ::std::option::Option<&crate::types::ScrapeConfiguration> {
         self.scrape_configuration.as_ref()
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn destination(&self) -> ::std::option::Option<&crate::types::Destination> {
         self.destination.as_ref()
     }
@@ -114,17 +114,17 @@ impl UpdateScraperInputBuilder {
     pub fn get_scrape_configuration(&self) -> &::std::option::Option<crate::types::ScrapeConfiguration> {
         &self.scrape_configuration
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn destination(mut self, input: crate::types::Destination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.destination = input;
         self
     }
-    /// <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+    /// <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn get_destination(&self) -> &::std::option::Option<crate::types::Destination> {
         &self.destination
     }

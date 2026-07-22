@@ -9,6 +9,14 @@ pub struct RegisterComputeNodeGroupInstanceOutput {
     pub shared_secret: ::std::string::String,
     /// <p>The list of endpoints available for interaction with the scheduler.</p>
     pub endpoints: ::std::vec::Vec<crate::types::Endpoint>,
+    /// <p>The name of the cluster that the compute node registered into.</p>
+    pub cluster_name: ::std::option::Option<::std::string::String>,
+    /// <p>The ID of the compute node group that the compute node registered into.</p>
+    pub compute_node_group_id: ::std::option::Option<::std::string::String>,
+    /// <p>The name of the compute node group that the compute node registered into.</p>
+    pub compute_node_group_name: ::std::option::Option<::std::string::String>,
+    /// <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub node_lifecycle_actions: ::std::option::Option<crate::types::NodeLifecycleActions>,
     _request_id: Option<String>,
 }
 impl RegisterComputeNodeGroupInstanceOutput {
@@ -27,6 +35,22 @@ impl RegisterComputeNodeGroupInstanceOutput {
         use std::ops::Deref;
         self.endpoints.deref()
     }
+    /// <p>The name of the cluster that the compute node registered into.</p>
+    pub fn cluster_name(&self) -> ::std::option::Option<&str> {
+        self.cluster_name.as_deref()
+    }
+    /// <p>The ID of the compute node group that the compute node registered into.</p>
+    pub fn compute_node_group_id(&self) -> ::std::option::Option<&str> {
+        self.compute_node_group_id.as_deref()
+    }
+    /// <p>The name of the compute node group that the compute node registered into.</p>
+    pub fn compute_node_group_name(&self) -> ::std::option::Option<&str> {
+        self.compute_node_group_name.as_deref()
+    }
+    /// <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn node_lifecycle_actions(&self) -> ::std::option::Option<&crate::types::NodeLifecycleActions> {
+        self.node_lifecycle_actions.as_ref()
+    }
 }
 impl ::std::fmt::Debug for RegisterComputeNodeGroupInstanceOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -34,6 +58,10 @@ impl ::std::fmt::Debug for RegisterComputeNodeGroupInstanceOutput {
         formatter.field("node_id", &self.node_id);
         formatter.field("shared_secret", &"*** Sensitive Data Redacted ***");
         formatter.field("endpoints", &self.endpoints);
+        formatter.field("cluster_name", &self.cluster_name);
+        formatter.field("compute_node_group_id", &self.compute_node_group_id);
+        formatter.field("compute_node_group_name", &self.compute_node_group_name);
+        formatter.field("node_lifecycle_actions", &self.node_lifecycle_actions);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -57,6 +85,10 @@ pub struct RegisterComputeNodeGroupInstanceOutputBuilder {
     pub(crate) node_id: ::std::option::Option<::std::string::String>,
     pub(crate) shared_secret: ::std::option::Option<::std::string::String>,
     pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
+    pub(crate) cluster_name: ::std::option::Option<::std::string::String>,
+    pub(crate) compute_node_group_id: ::std::option::Option<::std::string::String>,
+    pub(crate) compute_node_group_name: ::std::option::Option<::std::string::String>,
+    pub(crate) node_lifecycle_actions: ::std::option::Option<crate::types::NodeLifecycleActions>,
     _request_id: Option<String>,
 }
 impl RegisterComputeNodeGroupInstanceOutputBuilder {
@@ -110,6 +142,62 @@ impl RegisterComputeNodeGroupInstanceOutputBuilder {
     pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Endpoint>> {
         &self.endpoints
     }
+    /// <p>The name of the cluster that the compute node registered into.</p>
+    pub fn cluster_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.cluster_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the cluster that the compute node registered into.</p>
+    pub fn set_cluster_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.cluster_name = input;
+        self
+    }
+    /// <p>The name of the cluster that the compute node registered into.</p>
+    pub fn get_cluster_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.cluster_name
+    }
+    /// <p>The ID of the compute node group that the compute node registered into.</p>
+    pub fn compute_node_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.compute_node_group_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ID of the compute node group that the compute node registered into.</p>
+    pub fn set_compute_node_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.compute_node_group_id = input;
+        self
+    }
+    /// <p>The ID of the compute node group that the compute node registered into.</p>
+    pub fn get_compute_node_group_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.compute_node_group_id
+    }
+    /// <p>The name of the compute node group that the compute node registered into.</p>
+    pub fn compute_node_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.compute_node_group_name = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The name of the compute node group that the compute node registered into.</p>
+    pub fn set_compute_node_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.compute_node_group_name = input;
+        self
+    }
+    /// <p>The name of the compute node group that the compute node registered into.</p>
+    pub fn get_compute_node_group_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.compute_node_group_name
+    }
+    /// <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn node_lifecycle_actions(mut self, input: crate::types::NodeLifecycleActions) -> Self {
+        self.node_lifecycle_actions = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn set_node_lifecycle_actions(mut self, input: ::std::option::Option<crate::types::NodeLifecycleActions>) -> Self {
+        self.node_lifecycle_actions = input;
+        self
+    }
+    /// <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+    pub fn get_node_lifecycle_actions(&self) -> &::std::option::Option<crate::types::NodeLifecycleActions> {
+        &self.node_lifecycle_actions
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -150,6 +238,10 @@ impl RegisterComputeNodeGroupInstanceOutputBuilder {
                         "endpoints was not specified but it is required when building RegisterComputeNodeGroupInstanceOutput",
                     )
                 })?,
+                cluster_name: self.cluster_name,
+                compute_node_group_id: self.compute_node_group_id,
+                compute_node_group_name: self.compute_node_group_name,
+                node_lifecycle_actions: self.node_lifecycle_actions,
                 _request_id: self._request_id,
             },
         )
@@ -161,6 +253,10 @@ impl ::std::fmt::Debug for RegisterComputeNodeGroupInstanceOutputBuilder {
         formatter.field("node_id", &self.node_id);
         formatter.field("shared_secret", &"*** Sensitive Data Redacted ***");
         formatter.field("endpoints", &self.endpoints);
+        formatter.field("cluster_name", &self.cluster_name);
+        formatter.field("compute_node_group_id", &self.compute_node_group_id);
+        formatter.field("compute_node_group_name", &self.compute_node_group_name);
+        formatter.field("node_lifecycle_actions", &self.node_lifecycle_actions);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

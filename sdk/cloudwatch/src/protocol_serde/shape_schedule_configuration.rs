@@ -36,9 +36,7 @@ pub(crate) fn de_schedule_configuration(
         builder =
             match decoder.str()?.as_ref() {
                 "ScheduleExpression" => builder.set_schedule_expression(Some(decoder.string()?)),
-                "StartTimeOffset" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
-                    Ok(builder.set_start_time_offset(Some(decoder.long()?)))
-                })?,
+                "StartTimeOffset" => builder.set_start_time_offset(Some(decoder.long()?)),
                 "EndTimeOffset" => ::aws_smithy_cbor::decode::set_optional(builder, decoder, |builder, decoder| {
                     Ok(builder.set_end_time_offset(Some(decoder.long()?)))
                 })?,

@@ -17,6 +17,8 @@ pub struct StartPlanExecutionInput {
     pub latest_version: ::std::option::Option<::std::string::String>,
     /// <p>The execution identifier of the recovery execution that ran in the opposite region post-recovery is ran in. Required when starting a post-recovery execution.</p>
     pub recovery_execution_id: ::std::option::Option<::std::string::String>,
+    /// <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+    pub client_token: ::std::option::Option<::std::string::String>,
 }
 impl StartPlanExecutionInput {
     /// <p>The Amazon Resource Name (ARN) of the plan to execute.</p>
@@ -47,6 +49,10 @@ impl StartPlanExecutionInput {
     pub fn recovery_execution_id(&self) -> ::std::option::Option<&str> {
         self.recovery_execution_id.as_deref()
     }
+    /// <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+    pub fn client_token(&self) -> ::std::option::Option<&str> {
+        self.client_token.as_deref()
+    }
 }
 impl StartPlanExecutionInput {
     /// Creates a new builder-style object to manufacture [`StartPlanExecutionInput`](crate::operation::start_plan_execution::StartPlanExecutionInput).
@@ -66,6 +72,7 @@ pub struct StartPlanExecutionInputBuilder {
     pub(crate) comment: ::std::option::Option<::std::string::String>,
     pub(crate) latest_version: ::std::option::Option<::std::string::String>,
     pub(crate) recovery_execution_id: ::std::option::Option<::std::string::String>,
+    pub(crate) client_token: ::std::option::Option<::std::string::String>,
 }
 impl StartPlanExecutionInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the plan to execute.</p>
@@ -169,6 +176,20 @@ impl StartPlanExecutionInputBuilder {
     pub fn get_recovery_execution_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.recovery_execution_id
     }
+    /// <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+    pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.client_token = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+    pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.client_token = input;
+        self
+    }
+    /// <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+    pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.client_token
+    }
     /// Consumes the builder and constructs a [`StartPlanExecutionInput`](crate::operation::start_plan_execution::StartPlanExecutionInput).
     pub fn build(
         self,
@@ -182,6 +203,7 @@ impl StartPlanExecutionInputBuilder {
             comment: self.comment,
             latest_version: self.latest_version,
             recovery_execution_id: self.recovery_execution_id,
+            client_token: self.client_token,
         })
     }
 }

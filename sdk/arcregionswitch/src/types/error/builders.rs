@@ -7,4 +7,6 @@ pub use crate::types::error::_illegal_argument_exception::IllegalArgumentExcepti
 
 pub use crate::types::error::_internal_server_exception::InternalServerExceptionBuilder;
 
+pub use crate::types::error::_conflict_exception::ConflictExceptionBuilder;
+
 pub use crate::types::error::_illegal_state_exception::IllegalStateExceptionBuilder;

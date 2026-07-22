@@ -143,6 +143,10 @@ pub(crate) mod shape_instance_config;
 
 pub(crate) mod shape_networking_request;
 
+pub(crate) mod shape_node_lifecycle_actions;
+
+pub(crate) mod shape_node_lifecycle_actions_request;
+
 pub(crate) mod shape_queue;
 
 pub(crate) mod shape_queue_list;
@@ -160,6 +164,8 @@ pub(crate) mod shape_spot_options;
 pub(crate) mod shape_update_cluster_slurm_configuration_request;
 
 pub(crate) mod shape_update_compute_node_group_slurm_configuration_request;
+
+pub(crate) mod shape_update_node_lifecycle_actions_request;
 
 pub(crate) mod shape_update_queue_slurm_configuration_request;
 
@@ -188,6 +194,8 @@ pub(crate) mod shape_error_info_list;
 pub(crate) mod shape_instance_list;
 
 pub(crate) mod shape_networking;
+
+pub(crate) mod shape_node_lifecycle_stages;
 
 pub(crate) mod shape_queue_slurm_configuration;
 
@@ -219,6 +227,10 @@ pub(crate) mod shape_error_info;
 
 pub(crate) mod shape_jwt_auth;
 
+pub(crate) mod shape_node_lifecycle_script;
+
+pub(crate) mod shape_node_lifecycle_script_list;
+
 pub(crate) mod shape_security_group_id_list;
 
 pub(crate) mod shape_slurm_auth_key;
@@ -230,3 +242,7 @@ pub(crate) mod shape_slurm_rest;
 pub(crate) mod shape_slurmdbd_custom_settings;
 
 pub(crate) mod shape_jwt_key;
+
+pub(crate) mod shape_script_source;
+
+pub(crate) mod shape_node_lifecycle_script_arguments;

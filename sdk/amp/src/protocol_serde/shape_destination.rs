@@ -10,6 +10,12 @@ pub fn ser_destination(
             crate::protocol_serde::shape_amp_configuration::ser_amp_configuration(&mut object_1, inner)?;
             object_1.finish();
         }
+        crate::types::Destination::CloudWatchConfiguration(inner) => {
+            #[allow(unused_mut)]
+            let mut object_2 = object_4.key("cloudWatchConfiguration").start_object();
+            crate::protocol_serde::shape_cloud_watch_configuration::ser_cloud_watch_configuration(&mut object_2, inner)?;
+            object_2.finish();
+        }
         crate::types::Destination::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("Destination")),
     }
     Ok(())
@@ -56,6 +62,14 @@ where
                             crate::protocol_serde::shape_amp_configuration::de_amp_configuration(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'ampConfiguration' cannot be null")
                             })?,
+                        )),
+                        "cloudWatchConfiguration" => Some(crate::types::Destination::CloudWatchConfiguration(
+                            crate::protocol_serde::shape_cloud_watch_configuration::de_cloud_watch_configuration(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'cloudWatchConfiguration' cannot be null",
+                                    )
+                                })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

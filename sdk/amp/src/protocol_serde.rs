@@ -241,6 +241,8 @@ pub(crate) mod shape_amp_configuration;
 
 pub(crate) mod shape_anomaly_detector_summary;
 
+pub(crate) mod shape_cloud_watch_configuration;
+
 pub(crate) mod shape_cloud_watch_log_destination;
 
 pub(crate) mod shape_component_config;

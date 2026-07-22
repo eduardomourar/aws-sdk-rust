@@ -27,7 +27,7 @@ pub struct ScraperDescription {
     pub scrape_configuration: ::std::option::Option<crate::types::ScrapeConfiguration>,
     /// <p>The Amazon EKS cluster from which the scraper collects metrics.</p>
     pub source: ::std::option::Option<crate::types::Source>,
-    /// <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+    /// <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub destination: ::std::option::Option<crate::types::Destination>,
     /// <p>This structure displays information about the IAM roles used for cross-account scraping configuration.</p>
     pub role_configuration: ::std::option::Option<crate::types::RoleConfiguration>,
@@ -81,7 +81,7 @@ impl ScraperDescription {
     pub fn source(&self) -> ::std::option::Option<&crate::types::Source> {
         self.source.as_ref()
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+    /// <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn destination(&self) -> ::std::option::Option<&crate::types::Destination> {
         self.destination.as_ref()
     }
@@ -287,18 +287,18 @@ impl ScraperDescriptionBuilder {
     pub fn get_source(&self) -> &::std::option::Option<crate::types::Source> {
         &self.source
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+    /// <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     /// This field is required.
     pub fn destination(mut self, input: crate::types::Destination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+    /// <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.destination = input;
         self
     }
-    /// <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+    /// <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
     pub fn get_destination(&self) -> &::std::option::Option<crate::types::Destination> {
         &self.destination
     }

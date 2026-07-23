@@ -227,6 +227,9 @@ pub(crate) fn de_create_notebook(
                 "error" => {
                     builder = builder.set_error(crate::protocol_serde::shape_notebook_error::de_notebook_error(tokens, _value, depth + 1)?);
                 }
+                "gitMetadata" => {
+                    builder = builder.set_git_metadata(crate::protocol_serde::shape_git_metadata::de_git_metadata(tokens, _value, depth + 1)?);
+                }
                 "id" => {
                     builder = builder.set_id(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

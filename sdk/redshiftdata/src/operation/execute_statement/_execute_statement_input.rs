@@ -29,6 +29,8 @@ pub struct ExecuteStatementInput {
     pub session_keep_alive_seconds: ::std::option::Option<i32>,
     /// <p>The session identifier of the query.</p>
     pub session_id: ::std::option::Option<::std::string::String>,
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub wait_time_seconds: ::std::option::Option<i32>,
 }
 impl ExecuteStatementInput {
     /// <p>The SQL statement text to run.</p>
@@ -85,6 +87,10 @@ impl ExecuteStatementInput {
     pub fn session_id(&self) -> ::std::option::Option<&str> {
         self.session_id.as_deref()
     }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn wait_time_seconds(&self) -> ::std::option::Option<i32> {
+        self.wait_time_seconds
+    }
 }
 impl ExecuteStatementInput {
     /// Creates a new builder-style object to manufacture [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
@@ -110,6 +116,7 @@ pub struct ExecuteStatementInputBuilder {
     pub(crate) result_format: ::std::option::Option<crate::types::ResultFormatString>,
     pub(crate) session_keep_alive_seconds: ::std::option::Option<i32>,
     pub(crate) session_id: ::std::option::Option<::std::string::String>,
+    pub(crate) wait_time_seconds: ::std::option::Option<i32>,
 }
 impl ExecuteStatementInputBuilder {
     /// <p>The SQL statement text to run.</p>
@@ -301,6 +308,20 @@ impl ExecuteStatementInputBuilder {
     pub fn get_session_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.session_id
     }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn wait_time_seconds(mut self, input: i32) -> Self {
+        self.wait_time_seconds = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn set_wait_time_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.wait_time_seconds = input;
+        self
+    }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn get_wait_time_seconds(&self) -> &::std::option::Option<i32> {
+        &self.wait_time_seconds
+    }
     /// Consumes the builder and constructs a [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
     pub fn build(
         self,
@@ -319,6 +340,7 @@ impl ExecuteStatementInputBuilder {
             result_format: self.result_format,
             session_keep_alive_seconds: self.session_keep_alive_seconds,
             session_id: self.session_id,
+            wait_time_seconds: self.wait_time_seconds,
         })
     }
 }

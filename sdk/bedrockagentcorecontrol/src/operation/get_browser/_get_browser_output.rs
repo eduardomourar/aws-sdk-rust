@@ -23,6 +23,8 @@ pub struct GetBrowserOutput {
     pub enterprise_policies: ::std::option::Option<::std::vec::Vec<crate::types::BrowserEnterprisePolicy>>,
     /// <p>The list of certificates configured for the browser.</p>
     pub certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    /// <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+    pub filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     /// <p>The current status of the browser.</p>
     pub status: crate::types::BrowserStatus,
     /// <p>The reason for failure if the browser is in a failed state.</p>
@@ -81,6 +83,12 @@ impl GetBrowserOutput {
     pub fn certificates(&self) -> &[crate::types::Certificate] {
         self.certificates.as_deref().unwrap_or_default()
     }
+    /// <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filesystem_configurations.is_none()`.
+    pub fn filesystem_configurations(&self) -> &[crate::types::ToolsFileSystemConfiguration] {
+        self.filesystem_configurations.as_deref().unwrap_or_default()
+    }
     /// <p>The current status of the browser.</p>
     pub fn status(&self) -> &crate::types::BrowserStatus {
         &self.status
@@ -111,6 +119,7 @@ impl ::std::fmt::Debug for GetBrowserOutput {
         formatter.field("browser_signing", &self.browser_signing);
         formatter.field("enterprise_policies", &self.enterprise_policies);
         formatter.field("certificates", &self.certificates);
+        formatter.field("filesystem_configurations", &self.filesystem_configurations);
         formatter.field("status", &self.status);
         formatter.field("failure_reason", &self.failure_reason);
         formatter.field("created_at", &self.created_at);
@@ -145,6 +154,7 @@ pub struct GetBrowserOutputBuilder {
     pub(crate) browser_signing: ::std::option::Option<crate::types::BrowserSigningConfigOutput>,
     pub(crate) enterprise_policies: ::std::option::Option<::std::vec::Vec<crate::types::BrowserEnterprisePolicy>>,
     pub(crate) certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    pub(crate) filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     pub(crate) status: ::std::option::Option<crate::types::BrowserStatus>,
     pub(crate) failure_reason: ::std::option::Option<::std::string::String>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -308,6 +318,29 @@ impl GetBrowserOutputBuilder {
     pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Certificate>> {
         &self.certificates
     }
+    /// Appends an item to `filesystem_configurations`.
+    ///
+    /// To override the contents of this collection use [`set_filesystem_configurations`](Self::set_filesystem_configurations).
+    ///
+    /// <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+    pub fn filesystem_configurations(mut self, input: crate::types::ToolsFileSystemConfiguration) -> Self {
+        let mut v = self.filesystem_configurations.unwrap_or_default();
+        v.push(input);
+        self.filesystem_configurations = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+    pub fn set_filesystem_configurations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
+    ) -> Self {
+        self.filesystem_configurations = input;
+        self
+    }
+    /// <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+    pub fn get_filesystem_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>> {
+        &self.filesystem_configurations
+    }
     /// <p>The current status of the browser.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::BrowserStatus) -> Self {
@@ -411,6 +444,7 @@ impl GetBrowserOutputBuilder {
             browser_signing: self.browser_signing,
             enterprise_policies: self.enterprise_policies,
             certificates: self.certificates,
+            filesystem_configurations: self.filesystem_configurations,
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "status",
@@ -447,6 +481,7 @@ impl ::std::fmt::Debug for GetBrowserOutputBuilder {
         formatter.field("browser_signing", &self.browser_signing);
         formatter.field("enterprise_policies", &self.enterprise_policies);
         formatter.field("certificates", &self.certificates);
+        formatter.field("filesystem_configurations", &self.filesystem_configurations);
         formatter.field("status", &self.status);
         formatter.field("failure_reason", &self.failure_reason);
         formatter.field("created_at", &self.created_at);

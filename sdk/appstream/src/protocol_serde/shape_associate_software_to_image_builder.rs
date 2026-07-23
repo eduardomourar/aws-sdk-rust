@@ -9,7 +9,7 @@ pub fn de_associate_software_to_image_builder_http_error(
     crate::operation::associate_software_to_image_builder::AssociateSoftwareToImageBuilderError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+    let mut generic_builder = crate::cbor_errors::parse_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::associate_software_to_image_builder::AssociateSoftwareToImageBuilderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
@@ -26,7 +26,7 @@ pub fn de_associate_software_to_image_builder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_cbor_err(
                         _response_body,
                         output,
                     )
@@ -47,7 +47,7 @@ pub fn de_associate_software_to_image_builder_http_error(
                     #[allow(unused_mut)]
                     let mut output = crate::types::error::builders::IncompatibleImageExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_incompatible_image_exception::de_incompatible_image_exception_json_err(_response_body, output)
+                        crate::protocol_serde::shape_incompatible_image_exception::de_incompatible_image_exception_cbor_err(_response_body, output)
                             .map_err(crate::operation::associate_software_to_image_builder::AssociateSoftwareToImageBuilderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -65,7 +65,7 @@ pub fn de_associate_software_to_image_builder_http_error(
                     #[allow(unused_mut)]
                     let mut output = crate::types::error::builders::InvalidParameterCombinationExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_invalid_parameter_combination_exception::de_invalid_parameter_combination_exception_json_err(
+                        crate::protocol_serde::shape_invalid_parameter_combination_exception::de_invalid_parameter_combination_exception_cbor_err(
                             _response_body,
                             output,
                         )
@@ -85,7 +85,7 @@ pub fn de_associate_software_to_image_builder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = crate::types::error::builders::OperationNotPermittedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_operation_not_permitted_exception::de_operation_not_permitted_exception_json_err(
+                    output = crate::protocol_serde::shape_operation_not_permitted_exception::de_operation_not_permitted_exception_cbor_err(
                         _response_body,
                         output,
                     )
@@ -106,7 +106,7 @@ pub fn de_associate_software_to_image_builder_http_error(
                     #[allow(unused_mut)]
                     let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_cbor_err(_response_body, output)
                             .map_err(crate::operation::associate_software_to_image_builder::AssociateSoftwareToImageBuilderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -141,9 +141,10 @@ pub fn de_associate_software_to_image_builder_http_response(
 pub fn ser_associate_software_to_image_builder_input(
     input: &crate::operation::associate_software_to_image_builder::AssociateSoftwareToImageBuilderInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_associate_software_to_image_builder_input::ser_associate_software_to_image_builder_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
+    let mut encoder = ::aws_smithy_cbor::Encoder::new(Vec::new());
+    {
+        let encoder = &mut encoder;
+        crate::protocol_serde::shape_associate_software_to_image_builder_input::ser_associate_software_to_image_builder_input_input(encoder, input)?;
+    }
+    Ok(::aws_smithy_types::body::SdkBody::from(encoder.into_writer()))
 }

@@ -94,6 +94,8 @@ pub struct GetStreamSessionOutput {
     pub export_files_metadata: ::std::option::Option<crate::types::ExportFilesMetadata>,
     /// <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>
     pub role_arn: ::std::option::Option<::std::string::String>,
+    /// <p>The configuration for the stream session's virtual monitor.</p>
+    pub display_configuration: ::std::option::Option<crate::types::DisplayConfiguration>,
     _request_id: Option<String>,
 }
 impl GetStreamSessionOutput {
@@ -236,6 +238,10 @@ impl GetStreamSessionOutput {
     pub fn role_arn(&self) -> ::std::option::Option<&str> {
         self.role_arn.as_deref()
     }
+    /// <p>The configuration for the stream session's virtual monitor.</p>
+    pub fn display_configuration(&self) -> ::std::option::Option<&crate::types::DisplayConfiguration> {
+        self.display_configuration.as_ref()
+    }
 }
 impl ::std::fmt::Debug for GetStreamSessionOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -262,6 +268,7 @@ impl ::std::fmt::Debug for GetStreamSessionOutput {
         formatter.field("application_arn", &self.application_arn);
         formatter.field("export_files_metadata", &self.export_files_metadata);
         formatter.field("role_arn", &"*** Sensitive Data Redacted ***");
+        formatter.field("display_configuration", &self.display_configuration);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -304,6 +311,7 @@ pub struct GetStreamSessionOutputBuilder {
     pub(crate) application_arn: ::std::option::Option<::std::string::String>,
     pub(crate) export_files_metadata: ::std::option::Option<crate::types::ExportFilesMetadata>,
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) display_configuration: ::std::option::Option<crate::types::DisplayConfiguration>,
     _request_id: Option<String>,
 }
 impl GetStreamSessionOutputBuilder {
@@ -777,6 +785,20 @@ impl GetStreamSessionOutputBuilder {
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
     }
+    /// <p>The configuration for the stream session's virtual monitor.</p>
+    pub fn display_configuration(mut self, input: crate::types::DisplayConfiguration) -> Self {
+        self.display_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The configuration for the stream session's virtual monitor.</p>
+    pub fn set_display_configuration(mut self, input: ::std::option::Option<crate::types::DisplayConfiguration>) -> Self {
+        self.display_configuration = input;
+        self
+    }
+    /// <p>The configuration for the stream session's virtual monitor.</p>
+    pub fn get_display_configuration(&self) -> &::std::option::Option<crate::types::DisplayConfiguration> {
+        &self.display_configuration
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -811,6 +833,7 @@ impl GetStreamSessionOutputBuilder {
             application_arn: self.application_arn,
             export_files_metadata: self.export_files_metadata,
             role_arn: self.role_arn,
+            display_configuration: self.display_configuration,
             _request_id: self._request_id,
         }
     }
@@ -840,6 +863,7 @@ impl ::std::fmt::Debug for GetStreamSessionOutputBuilder {
         formatter.field("application_arn", &self.application_arn);
         formatter.field("export_files_metadata", &self.export_files_metadata);
         formatter.field("role_arn", &"*** Sensitive Data Redacted ***");
+        formatter.field("display_configuration", &self.display_configuration);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

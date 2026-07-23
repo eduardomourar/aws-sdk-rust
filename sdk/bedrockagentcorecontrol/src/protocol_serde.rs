@@ -745,6 +745,10 @@ pub(crate) mod shape_target_configuration;
 
 pub(crate) mod shape_target_summaries;
 
+pub(crate) mod shape_tools_file_system_configuration;
+
+pub(crate) mod shape_tools_file_system_configurations;
+
 pub(crate) mod shape_updated_approval_configuration;
 
 pub(crate) mod shape_updated_authorizer_configuration;
@@ -848,6 +852,8 @@ pub(crate) mod shape_dataset_version_summary;
 pub(crate) mod shape_delete_memory_strategy_input;
 
 pub(crate) mod shape_efs_access_point_configuration;
+
+pub(crate) mod shape_efs_configuration;
 
 pub(crate) mod shape_episodic_memory_strategy_input;
 
@@ -1004,6 +1010,8 @@ pub(crate) mod shape_resource_location;
 pub(crate) mod shape_route_to_target_action;
 
 pub(crate) mod shape_s3_files_access_point_configuration;
+
+pub(crate) mod shape_s3_files_configuration;
 
 pub(crate) mod shape_s3_location;
 

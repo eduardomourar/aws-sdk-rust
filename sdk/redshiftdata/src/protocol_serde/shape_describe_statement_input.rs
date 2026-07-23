@@ -6,5 +6,11 @@ pub fn ser_describe_statement_input_input(
     if let Some(var_1) = &input.id {
         object.key("Id").string(var_1.as_str());
     }
+    if let Some(var_2) = &input.wait_time_seconds {
+        object.key("WaitTimeSeconds").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        );
+    }
     Ok(())
 }

@@ -80,11 +80,33 @@ pub(crate) fn get_statement_result_v2_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_sessions_output_output_correct_errors(
+    mut builder: crate::operation::list_sessions::builders::ListSessionsOutputBuilder,
+) -> crate::operation::list_sessions::builders::ListSessionsOutputBuilder {
+    if builder.sessions.is_none() {
+        builder.sessions = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_statements_output_output_correct_errors(
     mut builder: crate::operation::list_statements::builders::ListStatementsOutputBuilder,
 ) -> crate::operation::list_statements::builders::ListStatementsOutputBuilder {
     if builder.statements.is_none() {
         builder.statements = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn session_data_correct_errors(mut builder: crate::types::builders::SessionDataBuilder) -> crate::types::builders::SessionDataBuilder {
+    if builder.session_id.is_none() {
+        builder.session_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::SessionStatusString>().ok()
+    }
+    if builder.created_at.is_none() {
+        builder.created_at = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }

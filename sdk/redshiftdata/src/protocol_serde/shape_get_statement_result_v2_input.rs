@@ -9,5 +9,11 @@ pub fn ser_get_statement_result_v2_input_input(
     if let Some(var_2) = &input.next_token {
         object.key("NextToken").string(var_2.as_str());
     }
+    if let Some(var_3) = &input.wait_time_seconds {
+        object.key("WaitTimeSeconds").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        );
+    }
     Ok(())
 }

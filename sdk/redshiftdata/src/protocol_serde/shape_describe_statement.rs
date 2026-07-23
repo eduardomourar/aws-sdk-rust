@@ -18,6 +18,22 @@ pub fn de_describe_statement_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
+        "ActiveWaitingRequestsExceededException" => {
+            crate::operation::describe_statement::DescribeStatementError::ActiveWaitingRequestsExceededException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ActiveWaitingRequestsExceededExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_active_waiting_requests_exceeded_exception::de_active_waiting_requests_exceeded_exception_json_err(_response_body, output).map_err(crate::operation::describe_statement::DescribeStatementError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InternalServerException" => crate::operation::describe_statement::DescribeStatementError::InternalServerException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -248,6 +264,13 @@ pub(crate) fn de_describe_statement(
                     builder = builder.set_session_id(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "ExecutionMode" => {
+                    builder = builder.set_execution_mode(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::ExecutionMode::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

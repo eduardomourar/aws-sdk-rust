@@ -158,6 +158,16 @@ pub(crate) fn application_summary_correct_errors(
     builder
 }
 
+pub(crate) fn resolution_correct_errors(mut builder: crate::types::builders::ResolutionBuilder) -> crate::types::builders::ResolutionBuilder {
+    if builder.width.is_none() {
+        builder.width = Some(Default::default())
+    }
+    if builder.height.is_none() {
+        builder.height = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn stream_group_summary_correct_errors(
     mut builder: crate::types::builders::StreamGroupSummaryBuilder,
 ) -> crate::types::builders::StreamGroupSummaryBuilder {

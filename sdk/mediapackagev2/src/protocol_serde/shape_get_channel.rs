@@ -199,6 +199,13 @@ pub(crate) fn de_get_channel(
                         crate::protocol_serde::shape_output_header_configuration::de_output_header_configuration(tokens, _value, depth + 1)?,
                     );
                 }
+                "OutputLockingMode" => {
+                    builder = builder.set_output_locking_mode(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::OutputLockingMode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "ResetAt" => {
                     builder = builder.set_reset_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),

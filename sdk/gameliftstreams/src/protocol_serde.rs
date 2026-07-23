@@ -125,6 +125,8 @@ pub(crate) mod shape_arn_list;
 
 pub(crate) mod shape_default_application;
 
+pub(crate) mod shape_display_configuration;
+
 pub(crate) mod shape_environment_variables;
 
 pub(crate) mod shape_export_files_metadata;
@@ -154,6 +156,8 @@ pub(crate) mod shape_application_summary;
 pub(crate) mod shape_location_state;
 
 pub(crate) mod shape_replication_status;
+
+pub(crate) mod shape_resolution;
 
 pub(crate) mod shape_stream_group_summary;
 

@@ -15,14 +15,6 @@ where
         .map_err(::std::convert::Into::into)
 }
 
-pub fn parse_http_error_metadata(
-    _response_status: u16,
-    response_headers: &::aws_smithy_runtime_api::http::Headers,
-    response_body: &[u8],
-) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    crate::json_errors::parse_error_metadata(response_body, response_headers)
-}
-
 pub(crate) mod shape_batch_create_bill_scenario_commitment_modification;
 
 pub(crate) mod shape_batch_create_bill_scenario_usage_modification;
@@ -95,14 +87,6 @@ pub(crate) mod shape_update_preferences;
 
 pub(crate) mod shape_update_workload_estimate;
 
-pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
-    if data.is_empty() {
-        b"{}"
-    } else {
-        data
-    }
-}
-
 pub(crate) mod shape_access_denied_exception;
 
 pub(crate) mod shape_batch_create_bill_scenario_commitment_modification_input;
@@ -142,6 +126,8 @@ pub(crate) mod shape_delete_workload_estimate_input;
 pub(crate) mod shape_get_bill_estimate_input;
 
 pub(crate) mod shape_get_bill_scenario_input;
+
+pub(crate) mod shape_get_preferences_input;
 
 pub(crate) mod shape_get_workload_estimate_input;
 

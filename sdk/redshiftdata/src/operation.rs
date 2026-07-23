@@ -28,6 +28,9 @@ pub mod list_databases;
 /// Types for the `ListSchemas` operation.
 pub mod list_schemas;
 
+/// Types for the `ListSessions` operation.
+pub mod list_sessions;
+
 /// Types for the `ListStatements` operation.
 pub mod list_statements;
 

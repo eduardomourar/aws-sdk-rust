@@ -7,11 +7,15 @@ pub use crate::types::_performance_stats_configuration::PerformanceStatsConfigur
 
 pub use crate::types::_export_files_metadata::ExportFilesMetadataBuilder;
 
+pub use crate::types::_display_configuration::DisplayConfigurationBuilder;
+
 pub use crate::types::_replication_status::ReplicationStatusBuilder;
 
 pub use crate::types::_location_state::LocationStateBuilder;
 
 pub use crate::types::_location_configuration::LocationConfigurationBuilder;
+
+pub use crate::types::_resolution::ResolutionBuilder;
 
 pub use crate::types::_stream_session_summary::StreamSessionSummaryBuilder;
 

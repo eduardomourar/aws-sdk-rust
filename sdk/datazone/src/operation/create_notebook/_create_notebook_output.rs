@@ -41,6 +41,8 @@ pub struct CreateNotebookOutput {
     pub environment_configuration: ::std::option::Option<crate::types::EnvironmentConfig>,
     /// <p>The error details if the notebook creation failed.</p>
     pub error: ::std::option::Option<crate::types::NotebookError>,
+    /// <p>The Git metadata associated with the notebook.</p>
+    pub git_metadata: ::std::option::Option<crate::types::GitMetadata>,
     _request_id: Option<String>,
 }
 impl CreateNotebookOutput {
@@ -125,6 +127,10 @@ impl CreateNotebookOutput {
     pub fn error(&self) -> ::std::option::Option<&crate::types::NotebookError> {
         self.error.as_ref()
     }
+    /// <p>The Git metadata associated with the notebook.</p>
+    pub fn git_metadata(&self) -> ::std::option::Option<&crate::types::GitMetadata> {
+        self.git_metadata.as_ref()
+    }
 }
 impl ::std::fmt::Debug for CreateNotebookOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -148,6 +154,7 @@ impl ::std::fmt::Debug for CreateNotebookOutput {
         formatter.field("parameters", &"*** Sensitive Data Redacted ***");
         formatter.field("environment_configuration", &self.environment_configuration);
         formatter.field("error", &self.error);
+        formatter.field("git_metadata", &self.git_metadata);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -187,6 +194,7 @@ pub struct CreateNotebookOutputBuilder {
     pub(crate) parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) environment_configuration: ::std::option::Option<crate::types::EnvironmentConfig>,
     pub(crate) error: ::std::option::Option<crate::types::NotebookError>,
+    pub(crate) git_metadata: ::std::option::Option<crate::types::GitMetadata>,
     _request_id: Option<String>,
 }
 impl CreateNotebookOutputBuilder {
@@ -479,6 +487,20 @@ impl CreateNotebookOutputBuilder {
     pub fn get_error(&self) -> &::std::option::Option<crate::types::NotebookError> {
         &self.error
     }
+    /// <p>The Git metadata associated with the notebook.</p>
+    pub fn git_metadata(mut self, input: crate::types::GitMetadata) -> Self {
+        self.git_metadata = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The Git metadata associated with the notebook.</p>
+    pub fn set_git_metadata(mut self, input: ::std::option::Option<crate::types::GitMetadata>) -> Self {
+        self.git_metadata = input;
+        self
+    }
+    /// <p>The Git metadata associated with the notebook.</p>
+    pub fn get_git_metadata(&self) -> &::std::option::Option<crate::types::GitMetadata> {
+        &self.git_metadata
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -549,6 +571,7 @@ impl CreateNotebookOutputBuilder {
             parameters: self.parameters,
             environment_configuration: self.environment_configuration,
             error: self.error,
+            git_metadata: self.git_metadata,
             _request_id: self._request_id,
         })
     }
@@ -575,6 +598,7 @@ impl ::std::fmt::Debug for CreateNotebookOutputBuilder {
         formatter.field("parameters", &"*** Sensitive Data Redacted ***");
         formatter.field("environment_configuration", &self.environment_configuration);
         formatter.field("error", &self.error);
+        formatter.field("git_metadata", &self.git_metadata);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

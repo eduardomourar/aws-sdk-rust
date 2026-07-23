@@ -29,6 +29,8 @@ pub struct GetBrowserSessionOutput {
     pub proxy_configuration: ::std::option::Option<crate::types::ProxyConfiguration>,
     /// <p>The list of certificates installed in the browser session.</p>
     pub certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    /// <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+    pub filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     /// <p>The artifact containing the session replay information.</p>
     pub session_replay_artifact: ::std::option::Option<::std::string::String>,
     /// <p>The time at which the browser session was last updated.</p>
@@ -96,6 +98,12 @@ impl GetBrowserSessionOutput {
     pub fn certificates(&self) -> &[crate::types::Certificate] {
         self.certificates.as_deref().unwrap_or_default()
     }
+    /// <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filesystem_configurations.is_none()`.
+    pub fn filesystem_configurations(&self) -> &[crate::types::ToolsFileSystemConfiguration] {
+        self.filesystem_configurations.as_deref().unwrap_or_default()
+    }
     /// <p>The artifact containing the session replay information.</p>
     pub fn session_replay_artifact(&self) -> ::std::option::Option<&str> {
         self.session_replay_artifact.as_deref()
@@ -134,6 +142,7 @@ pub struct GetBrowserSessionOutputBuilder {
     pub(crate) streams: ::std::option::Option<crate::types::BrowserSessionStream>,
     pub(crate) proxy_configuration: ::std::option::Option<crate::types::ProxyConfiguration>,
     pub(crate) certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    pub(crate) filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     pub(crate) session_replay_artifact: ::std::option::Option<::std::string::String>,
     pub(crate) last_updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     _request_id: Option<String>,
@@ -342,6 +351,29 @@ impl GetBrowserSessionOutputBuilder {
     pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Certificate>> {
         &self.certificates
     }
+    /// Appends an item to `filesystem_configurations`.
+    ///
+    /// To override the contents of this collection use [`set_filesystem_configurations`](Self::set_filesystem_configurations).
+    ///
+    /// <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+    pub fn filesystem_configurations(mut self, input: crate::types::ToolsFileSystemConfiguration) -> Self {
+        let mut v = self.filesystem_configurations.unwrap_or_default();
+        v.push(input);
+        self.filesystem_configurations = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+    pub fn set_filesystem_configurations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
+    ) -> Self {
+        self.filesystem_configurations = input;
+        self
+    }
+    /// <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+    pub fn get_filesystem_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>> {
+        &self.filesystem_configurations
+    }
     /// <p>The artifact containing the session replay information.</p>
     pub fn session_replay_artifact(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.session_replay_artifact = ::std::option::Option::Some(input.into());
@@ -416,6 +448,7 @@ impl GetBrowserSessionOutputBuilder {
             streams: self.streams,
             proxy_configuration: self.proxy_configuration,
             certificates: self.certificates,
+            filesystem_configurations: self.filesystem_configurations,
             session_replay_artifact: self.session_replay_artifact,
             last_updated_at: self.last_updated_at,
             _request_id: self._request_id,

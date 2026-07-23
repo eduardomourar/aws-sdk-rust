@@ -23,6 +23,8 @@ pub use crate::types::_performance_stats_configuration::PerformanceStatsConfigur
 
 pub use crate::types::_export_files_metadata::ExportFilesMetadata;
 
+pub use crate::types::_display_configuration::DisplayConfiguration;
+
 pub use crate::types::_export_files_status::ExportFilesStatus;
 
 pub use crate::types::_runtime_environment_type::RuntimeEnvironmentType;
@@ -32,6 +34,8 @@ pub use crate::types::_replication_status::ReplicationStatus;
 pub use crate::types::_location_state::LocationState;
 
 pub use crate::types::_location_configuration::LocationConfiguration;
+
+pub use crate::types::_resolution::Resolution;
 
 pub use crate::types::_stream_session_summary::StreamSessionSummary;
 
@@ -55,6 +59,8 @@ mod _application_summary;
 
 mod _default_application;
 
+mod _display_configuration;
+
 mod _export_files_metadata;
 
 mod _export_files_status;
@@ -70,6 +76,8 @@ mod _protocol;
 mod _replication_status;
 
 mod _replication_status_type;
+
+mod _resolution;
 
 mod _runtime_environment;
 

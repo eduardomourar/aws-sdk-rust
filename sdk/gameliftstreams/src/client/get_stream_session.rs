@@ -28,6 +28,7 @@ impl super::Client {
     ///   - [`application_arn(Option<String>)`](crate::operation::get_stream_session::GetStreamSessionOutput::application_arn): <p>The application streaming in this session.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>.</p>
     ///   - [`export_files_metadata(Option<ExportFilesMetadata>)`](crate::operation::get_stream_session::GetStreamSessionOutput::export_files_metadata): <p>Provides details about the stream session's exported files.</p>
     ///   - [`role_arn(Option<String>)`](crate::operation::get_stream_session::GetStreamSessionOutput::role_arn): <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>
+    ///   - [`display_configuration(Option<DisplayConfiguration>)`](crate::operation::get_stream_session::GetStreamSessionOutput::display_configuration): <p>The configuration for the stream session's virtual monitor.</p>
     /// - On failure, responds with [`SdkError<GetStreamSessionError>`](crate::operation::get_stream_session::GetStreamSessionError)
     pub fn get_stream_session(&self) -> crate::operation::get_stream_session::builders::GetStreamSessionFluentBuilder {
         crate::operation::get_stream_session::builders::GetStreamSessionFluentBuilder::new(self.handle.clone())

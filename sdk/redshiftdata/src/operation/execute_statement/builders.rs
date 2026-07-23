@@ -310,4 +310,18 @@ impl ExecuteStatementFluentBuilder {
     pub fn get_session_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_session_id()
     }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn wait_time_seconds(mut self, input: i32) -> Self {
+        self.inner = self.inner.wait_time_seconds(input);
+        self
+    }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn set_wait_time_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.inner = self.inner.set_wait_time_seconds(input);
+        self
+    }
+    /// <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn get_wait_time_seconds(&self) -> &::std::option::Option<i32> {
+        self.inner.get_wait_time_seconds()
+    }
 }

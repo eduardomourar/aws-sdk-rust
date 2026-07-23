@@ -5,6 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ClusterAutoPatchConfig {
     /// <p>The strategy for applying patches to instances in the group.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p></li>
+    /// <li>
+    /// <p><code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p></li>
+    /// </ul>
     pub patching_strategy: crate::types::ClusterPatchingStrategy,
     /// <p>The schedule for automatic patching, including the next patch date.</p>
     pub patch_schedule: ::std::option::Option<crate::types::ClusterPatchSchedule>,
@@ -13,6 +19,12 @@ pub struct ClusterAutoPatchConfig {
 }
 impl ClusterAutoPatchConfig {
     /// <p>The strategy for applying patches to instances in the group.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p></li>
+    /// <li>
+    /// <p><code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p></li>
+    /// </ul>
     pub fn patching_strategy(&self) -> &crate::types::ClusterPatchingStrategy {
         &self.patching_strategy
     }
@@ -42,17 +54,35 @@ pub struct ClusterAutoPatchConfigBuilder {
 }
 impl ClusterAutoPatchConfigBuilder {
     /// <p>The strategy for applying patches to instances in the group.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p></li>
+    /// <li>
+    /// <p><code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p></li>
+    /// </ul>
     /// This field is required.
     pub fn patching_strategy(mut self, input: crate::types::ClusterPatchingStrategy) -> Self {
         self.patching_strategy = ::std::option::Option::Some(input);
         self
     }
     /// <p>The strategy for applying patches to instances in the group.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p></li>
+    /// <li>
+    /// <p><code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p></li>
+    /// </ul>
     pub fn set_patching_strategy(mut self, input: ::std::option::Option<crate::types::ClusterPatchingStrategy>) -> Self {
         self.patching_strategy = input;
         self
     }
     /// <p>The strategy for applying patches to instances in the group.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p></li>
+    /// <li>
+    /// <p><code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p></li>
+    /// </ul>
     pub fn get_patching_strategy(&self) -> &::std::option::Option<crate::types::ClusterPatchingStrategy> {
         &self.patching_strategy
     }

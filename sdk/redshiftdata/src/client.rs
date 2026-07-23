@@ -181,6 +181,8 @@ mod list_databases;
 
 mod list_schemas;
 
+mod list_sessions;
+
 mod list_statements;
 
 mod list_tables;

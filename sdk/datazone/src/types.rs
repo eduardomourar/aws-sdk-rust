@@ -53,6 +53,8 @@ pub use crate::types::_environment_config::EnvironmentConfig;
 
 pub use crate::types::_notebook_error::NotebookError;
 
+pub use crate::types::_git_metadata::GitMetadata;
+
 pub use crate::types::_file_format::FileFormat;
 
 pub use crate::types::_notebook_export_status::NotebookExportStatus;
@@ -1212,6 +1214,8 @@ mod _form_output;
 mod _form_type_data;
 
 mod _form_type_status;
+
+mod _git_metadata;
 
 mod _glossary_item;
 

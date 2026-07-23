@@ -293,6 +293,10 @@ pub use crate::types::_s3_files_access_point_configuration::S3FilesAccessPointCo
 
 pub use crate::types::_efs_access_point_configuration::EfsAccessPointConfigurationBuilder;
 
+pub use crate::types::_s3_files_configuration::S3FilesConfigurationBuilder;
+
+pub use crate::types::_efs_configuration::EfsConfigurationBuilder;
+
 pub use crate::types::_lambda_evaluator_config::LambdaEvaluatorConfigBuilder;
 
 pub use crate::types::_session_configuration::SessionConfigurationBuilder;

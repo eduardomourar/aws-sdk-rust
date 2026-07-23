@@ -141,10 +141,13 @@ pub enum AiRecommendationInstanceType {
     #[allow(missing_docs)] // documentation missing in model
     MlG7E8Xlarge,
     #[allow(missing_docs)] // documentation missing in model
+    #[deprecated]
     MlP316Xlarge,
     #[allow(missing_docs)] // documentation missing in model
+    #[deprecated]
     MlP32Xlarge,
     #[allow(missing_docs)] // documentation missing in model
+    #[deprecated]
     MlP38Xlarge,
     #[allow(missing_docs)] // documentation missing in model
     MlP4D24Xlarge,

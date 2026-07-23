@@ -24,24 +24,36 @@ pub fn ser_create_code_interpreter_input_input(
     if let Some(var_7) = &input.execution_role_arn {
         object.key("executionRoleArn").string(var_7.as_str());
     }
-    if let Some(var_8) = &input.name {
-        object.key("name").string(var_8.as_str());
-    }
-    if let Some(var_9) = &input.network_configuration {
-        #[allow(unused_mut)]
-        let mut object_10 = object.key("networkConfiguration").start_object();
-        crate::protocol_serde::shape_code_interpreter_network_configuration::ser_code_interpreter_network_configuration(&mut object_10, var_9)?;
-        object_10.finish();
-    }
-    if let Some(var_11) = &input.tags {
-        #[allow(unused_mut)]
-        let mut object_12 = object.key("tags").start_object();
-        for (key_13, value_14) in var_11 {
+    if let Some(var_8) = &input.filesystem_configurations {
+        let mut array_9 = object.key("filesystemConfigurations").start_array();
+        for item_10 in var_8 {
             {
-                object_12.key(key_13.as_str()).string(value_14.as_str());
+                #[allow(unused_mut)]
+                let mut object_11 = array_9.value().start_object();
+                crate::protocol_serde::shape_tools_file_system_configuration::ser_tools_file_system_configuration(&mut object_11, item_10)?;
+                object_11.finish();
             }
         }
-        object_12.finish();
+        array_9.finish();
+    }
+    if let Some(var_12) = &input.name {
+        object.key("name").string(var_12.as_str());
+    }
+    if let Some(var_13) = &input.network_configuration {
+        #[allow(unused_mut)]
+        let mut object_14 = object.key("networkConfiguration").start_object();
+        crate::protocol_serde::shape_code_interpreter_network_configuration::ser_code_interpreter_network_configuration(&mut object_14, var_13)?;
+        object_14.finish();
+    }
+    if let Some(var_15) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_16 = object.key("tags").start_object();
+        for (key_17, value_18) in var_15 {
+            {
+                object_16.key(key_17.as_str()).string(value_18.as_str());
+            }
+        }
+        object_16.finish();
     }
     Ok(())
 }

@@ -6,7 +6,7 @@ pub fn de_create_user_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<crate::operation::create_user::CreateUserOutput, crate::operation::create_user::CreateUserError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+    let mut generic_builder = crate::cbor_errors::parse_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::create_user::CreateUserError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
@@ -22,7 +22,7 @@ pub fn de_create_user_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidAccountStatusExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_account_status_exception::de_invalid_account_status_exception_json_err(
+                output = crate::protocol_serde::shape_invalid_account_status_exception::de_invalid_account_status_exception_cbor_err(
                     _response_body,
                     output,
                 )
@@ -40,7 +40,7 @@ pub fn de_create_user_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidParameterCombinationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_combination_exception::de_invalid_parameter_combination_exception_json_err(
+                output = crate::protocol_serde::shape_invalid_parameter_combination_exception::de_invalid_parameter_combination_exception_cbor_err(
                     _response_body,
                     output,
                 )
@@ -58,7 +58,7 @@ pub fn de_create_user_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_cbor_err(_response_body, output)
                     .map_err(crate::operation::create_user::CreateUserError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
@@ -73,7 +73,7 @@ pub fn de_create_user_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::OperationNotPermittedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_operation_not_permitted_exception::de_operation_not_permitted_exception_json_err(
+                output = crate::protocol_serde::shape_operation_not_permitted_exception::de_operation_not_permitted_exception_cbor_err(
                     _response_body,
                     output,
                 )
@@ -91,7 +91,7 @@ pub fn de_create_user_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ResourceAlreadyExistsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_already_exists_exception::de_resource_already_exists_exception_json_err(
+                output = crate::protocol_serde::shape_resource_already_exists_exception::de_resource_already_exists_exception_cbor_err(
                     _response_body,
                     output,
                 )
@@ -125,9 +125,10 @@ pub fn de_create_user_http_response(
 pub fn ser_create_user_input(
     input: &crate::operation::create_user::CreateUserInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_create_user_input::ser_create_user_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
+    let mut encoder = ::aws_smithy_cbor::Encoder::new(Vec::new());
+    {
+        let encoder = &mut encoder;
+        crate::protocol_serde::shape_create_user_input::ser_create_user_input_input(encoder, input)?;
+    }
+    Ok(::aws_smithy_types::body::SdkBody::from(encoder.into_writer()))
 }

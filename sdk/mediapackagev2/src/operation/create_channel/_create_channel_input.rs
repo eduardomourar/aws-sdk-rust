@@ -24,6 +24,15 @@ pub struct CreateChannelInput {
     pub input_switch_configuration: ::std::option::Option<crate::types::InputSwitchConfiguration>,
     /// <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
     pub output_header_configuration: ::std::option::Option<crate::types::OutputHeaderConfiguration>,
+    /// <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p></li>
+    /// </ul>
+    pub output_locking_mode: ::std::option::Option<crate::types::OutputLockingMode>,
     /// <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
     /// <p><code>"Key1": "Value1",</code></p>
     /// <p><code>"Key2": "Value2"</code></p>
@@ -65,6 +74,17 @@ impl CreateChannelInput {
     pub fn output_header_configuration(&self) -> ::std::option::Option<&crate::types::OutputHeaderConfiguration> {
         self.output_header_configuration.as_ref()
     }
+    /// <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p></li>
+    /// </ul>
+    pub fn output_locking_mode(&self) -> ::std::option::Option<&crate::types::OutputLockingMode> {
+        self.output_locking_mode.as_ref()
+    }
     /// <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
     /// <p><code>"Key1": "Value1",</code></p>
     /// <p><code>"Key2": "Value2"</code></p>
@@ -90,6 +110,7 @@ pub struct CreateChannelInputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) input_switch_configuration: ::std::option::Option<crate::types::InputSwitchConfiguration>,
     pub(crate) output_header_configuration: ::std::option::Option<crate::types::OutputHeaderConfiguration>,
+    pub(crate) output_locking_mode: ::std::option::Option<crate::types::OutputLockingMode>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateChannelInputBuilder {
@@ -214,6 +235,41 @@ impl CreateChannelInputBuilder {
     pub fn get_output_header_configuration(&self) -> &::std::option::Option<crate::types::OutputHeaderConfiguration> {
         &self.output_header_configuration
     }
+    /// <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p></li>
+    /// </ul>
+    pub fn output_locking_mode(mut self, input: crate::types::OutputLockingMode) -> Self {
+        self.output_locking_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p></li>
+    /// </ul>
+    pub fn set_output_locking_mode(mut self, input: ::std::option::Option<crate::types::OutputLockingMode>) -> Self {
+        self.output_locking_mode = input;
+        self
+    }
+    /// <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p></li>
+    /// </ul>
+    pub fn get_output_locking_mode(&self) -> &::std::option::Option<crate::types::OutputLockingMode> {
+        &self.output_locking_mode
+    }
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
@@ -252,6 +308,7 @@ impl CreateChannelInputBuilder {
             description: self.description,
             input_switch_configuration: self.input_switch_configuration,
             output_header_configuration: self.output_header_configuration,
+            output_locking_mode: self.output_locking_mode,
             tags: self.tags,
         })
     }

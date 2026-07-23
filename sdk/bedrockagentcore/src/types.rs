@@ -185,6 +185,8 @@ pub use crate::types::_proxy_bypass::ProxyBypass;
 
 pub use crate::types::_certificate::Certificate;
 
+pub use crate::types::_tools_file_system_configuration::ToolsFileSystemConfiguration;
+
 pub use crate::types::_mouse_click_arguments::MouseClickArguments;
 
 pub use crate::types::_mouse_move_arguments::MouseMoveArguments;
@@ -348,6 +350,10 @@ pub use crate::types::_automation_stream_status::AutomationStreamStatus;
 pub use crate::types::_proxy::Proxy;
 
 pub use crate::types::_certificate_location::CertificateLocation;
+
+pub use crate::types::_s3_files_configuration::S3FilesConfiguration;
+
+pub use crate::types::_efs_configuration::EfsConfiguration;
 
 pub use crate::types::_mouse_button::MouseButton;
 
@@ -733,6 +739,8 @@ mod _descriptor_type;
 
 mod _descriptors;
 
+mod _efs_configuration;
+
 mod _embedded_crypto_wallet;
 
 mod _evaluation_content;
@@ -1091,6 +1099,8 @@ mod _role;
 
 mod _root_cause_cluster;
 
+mod _s3_files_configuration;
+
 mod _s3_location;
 
 mod _screenshot_arguments;
@@ -1168,6 +1178,8 @@ mod _tool_name;
 mod _tool_result_structured_content;
 
 mod _tools_definition;
+
+mod _tools_file_system_configuration;
 
 mod _unit;
 

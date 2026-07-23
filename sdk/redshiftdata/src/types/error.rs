@@ -15,11 +15,15 @@ pub use crate::types::error::_database_connection_exception::DatabaseConnectionE
 
 pub use crate::types::error::_query_timeout_exception::QueryTimeoutException;
 
+pub use crate::types::error::_active_waiting_requests_exceeded_exception::ActiveWaitingRequestsExceededException;
+
 pub use crate::types::error::_execute_statement_exception::ExecuteStatementException;
 
 mod _active_sessions_exceeded_exception;
 
 mod _active_statements_exceeded_exception;
+
+mod _active_waiting_requests_exceeded_exception;
 
 mod _batch_execute_statement_exception;
 

@@ -25,6 +25,15 @@ pub struct ChannelListConfiguration {
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
     /// </ul>
     pub input_type: ::std::option::Option<crate::types::InputType>,
+    /// <p>The output locking mode configured for the channel.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p></li>
+    /// </ul>
+    pub output_locking_mode: ::std::option::Option<crate::types::OutputLockingMode>,
 }
 impl ChannelListConfiguration {
     /// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
@@ -65,6 +74,17 @@ impl ChannelListConfiguration {
     pub fn input_type(&self) -> ::std::option::Option<&crate::types::InputType> {
         self.input_type.as_ref()
     }
+    /// <p>The output locking mode configured for the channel.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p></li>
+    /// </ul>
+    pub fn output_locking_mode(&self) -> ::std::option::Option<&crate::types::OutputLockingMode> {
+        self.output_locking_mode.as_ref()
+    }
 }
 impl ChannelListConfiguration {
     /// Creates a new builder-style object to manufacture [`ChannelListConfiguration`](crate::types::ChannelListConfiguration).
@@ -84,6 +104,7 @@ pub struct ChannelListConfigurationBuilder {
     pub(crate) modified_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) input_type: ::std::option::Option<crate::types::InputType>,
+    pub(crate) output_locking_mode: ::std::option::Option<crate::types::OutputLockingMode>,
 }
 impl ChannelListConfigurationBuilder {
     /// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
@@ -210,6 +231,41 @@ impl ChannelListConfigurationBuilder {
     pub fn get_input_type(&self) -> &::std::option::Option<crate::types::InputType> {
         &self.input_type
     }
+    /// <p>The output locking mode configured for the channel.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p></li>
+    /// </ul>
+    pub fn output_locking_mode(mut self, input: crate::types::OutputLockingMode) -> Self {
+        self.output_locking_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The output locking mode configured for the channel.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p></li>
+    /// </ul>
+    pub fn set_output_locking_mode(mut self, input: ::std::option::Option<crate::types::OutputLockingMode>) -> Self {
+        self.output_locking_mode = input;
+        self
+    }
+    /// <p>The output locking mode configured for the channel.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p></li>
+    /// <li>
+    /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p></li>
+    /// </ul>
+    pub fn get_output_locking_mode(&self) -> &::std::option::Option<crate::types::OutputLockingMode> {
+        &self.output_locking_mode
+    }
     /// Consumes the builder and constructs a [`ChannelListConfiguration`](crate::types::ChannelListConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::types::builders::ChannelListConfigurationBuilder::arn)
@@ -251,6 +307,7 @@ impl ChannelListConfigurationBuilder {
             })?,
             description: self.description,
             input_type: self.input_type,
+            output_locking_mode: self.output_locking_mode,
         })
     }
 }

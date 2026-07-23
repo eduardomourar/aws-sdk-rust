@@ -7,6 +7,8 @@ pub enum Error {
     ActiveSessionsExceededException(crate::types::error::ActiveSessionsExceededException),
     /// <p>The number of active statements exceeds the limit.</p>
     ActiveStatementsExceededException(crate::types::error::ActiveStatementsExceededException),
+    /// <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
+    ActiveWaitingRequestsExceededException(crate::types::error::ActiveWaitingRequestsExceededException),
     /// <p>An SQL statement encountered an environmental error while running.</p>
     BatchExecuteStatementException(crate::types::error::BatchExecuteStatementException),
     /// <p>Connection to a database failed.</p>
@@ -35,6 +37,7 @@ impl ::std::fmt::Display for Error {
         match self {
             Error::ActiveSessionsExceededException(inner) => inner.fmt(f),
             Error::ActiveStatementsExceededException(inner) => inner.fmt(f),
+            Error::ActiveWaitingRequestsExceededException(inner) => inner.fmt(f),
             Error::BatchExecuteStatementException(inner) => inner.fmt(f),
             Error::DatabaseConnectionException(inner) => inner.fmt(f),
             Error::ExecuteStatementException(inner) => inner.fmt(f),
@@ -65,6 +68,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
         match self {
             Self::ActiveSessionsExceededException(inner) => inner.meta(),
             Self::ActiveStatementsExceededException(inner) => inner.meta(),
+            Self::ActiveWaitingRequestsExceededException(inner) => inner.meta(),
             Self::BatchExecuteStatementException(inner) => inner.meta(),
             Self::DatabaseConnectionException(inner) => inner.meta(),
             Self::ExecuteStatementException(inner) => inner.meta(),
@@ -158,6 +162,9 @@ where
 impl From<crate::operation::describe_statement::DescribeStatementError> for Error {
     fn from(err: crate::operation::describe_statement::DescribeStatementError) -> Self {
         match err {
+            crate::operation::describe_statement::DescribeStatementError::ActiveWaitingRequestsExceededException(inner) => {
+                Error::ActiveWaitingRequestsExceededException(inner)
+            }
             crate::operation::describe_statement::DescribeStatementError::InternalServerException(inner) => Error::InternalServerException(inner),
             crate::operation::describe_statement::DescribeStatementError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::describe_statement::DescribeStatementError::ValidationException(inner) => Error::ValidationException(inner),
@@ -239,6 +246,9 @@ where
 impl From<crate::operation::get_statement_result::GetStatementResultError> for Error {
     fn from(err: crate::operation::get_statement_result::GetStatementResultError) -> Self {
         match err {
+            crate::operation::get_statement_result::GetStatementResultError::ActiveWaitingRequestsExceededException(inner) => {
+                Error::ActiveWaitingRequestsExceededException(inner)
+            }
             crate::operation::get_statement_result::GetStatementResultError::InternalServerException(inner) => Error::InternalServerException(inner),
             crate::operation::get_statement_result::GetStatementResultError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
@@ -267,6 +277,9 @@ where
 impl From<crate::operation::get_statement_result_v2::GetStatementResultV2Error> for Error {
     fn from(err: crate::operation::get_statement_result_v2::GetStatementResultV2Error) -> Self {
         match err {
+            crate::operation::get_statement_result_v2::GetStatementResultV2Error::ActiveWaitingRequestsExceededException(inner) => {
+                Error::ActiveWaitingRequestsExceededException(inner)
+            }
             crate::operation::get_statement_result_v2::GetStatementResultV2Error::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
             }
@@ -330,6 +343,30 @@ impl From<crate::operation::list_schemas::ListSchemasError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sessions::ListSessionsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sessions::ListSessionsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_sessions::ListSessionsError> for Error {
+    fn from(err: crate::operation::list_sessions::ListSessionsError) -> Self {
+        match err {
+            crate::operation::list_sessions::ListSessionsError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_sessions::ListSessionsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_sessions::ListSessionsError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_sessions::ListSessionsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_statements::ListStatementsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -385,6 +422,7 @@ impl ::std::error::Error for Error {
         match self {
             Error::ActiveSessionsExceededException(inner) => inner.source(),
             Error::ActiveStatementsExceededException(inner) => inner.source(),
+            Error::ActiveWaitingRequestsExceededException(inner) => inner.source(),
             Error::BatchExecuteStatementException(inner) => inner.source(),
             Error::DatabaseConnectionException(inner) => inner.source(),
             Error::ExecuteStatementException(inner) => inner.source(),
@@ -401,6 +439,7 @@ impl ::aws_types::request_id::RequestId for Error {
         match self {
             Self::ActiveSessionsExceededException(e) => e.request_id(),
             Self::ActiveStatementsExceededException(e) => e.request_id(),
+            Self::ActiveWaitingRequestsExceededException(e) => e.request_id(),
             Self::BatchExecuteStatementException(e) => e.request_id(),
             Self::DatabaseConnectionException(e) => e.request_id(),
             Self::ExecuteStatementException(e) => e.request_id(),

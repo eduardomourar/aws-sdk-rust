@@ -30,6 +30,7 @@ impl super::Client {
     ///   - [`parameters(Option<HashMap::<String, String>>)`](crate::operation::create_notebook::CreateNotebookOutput::parameters): <p>The sensitive parameters of the notebook.</p>
     ///   - [`environment_configuration(Option<EnvironmentConfig>)`](crate::operation::create_notebook::CreateNotebookOutput::environment_configuration): <p>The environment configuration of the notebook.</p>
     ///   - [`error(Option<NotebookError>)`](crate::operation::create_notebook::CreateNotebookOutput::error): <p>The error details if the notebook creation failed.</p>
+    ///   - [`git_metadata(Option<GitMetadata>)`](crate::operation::create_notebook::CreateNotebookOutput::git_metadata): <p>The Git metadata associated with the notebook.</p>
     /// - On failure, responds with [`SdkError<CreateNotebookError>`](crate::operation::create_notebook::CreateNotebookError)
     pub fn create_notebook(&self) -> crate::operation::create_notebook::builders::CreateNotebookFluentBuilder {
         crate::operation::create_notebook::builders::CreateNotebookFluentBuilder::new(self.handle.clone())

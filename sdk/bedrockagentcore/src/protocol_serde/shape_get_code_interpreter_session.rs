@@ -155,6 +155,15 @@ pub(crate) fn de_get_code_interpreter_session(
                         ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                     )?);
                 }
+                "filesystemConfigurations" => {
+                    builder = builder.set_filesystem_configurations(
+                        crate::protocol_serde::shape_tools_file_system_configurations::de_tools_file_system_configurations(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
                 "name" => {
                     builder = builder.set_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

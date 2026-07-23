@@ -353,6 +353,8 @@ pub(crate) mod shape_start_notebook_import;
 
 pub(crate) mod shape_start_notebook_run;
 
+pub(crate) mod shape_start_notebook_sync;
+
 pub(crate) mod shape_stop_notebook_run;
 
 pub(crate) mod shape_tag_resource;
@@ -534,6 +536,8 @@ pub(crate) mod shape_start_notebook_export_input;
 pub(crate) mod shape_start_notebook_import_input;
 
 pub(crate) mod shape_start_notebook_run_input;
+
+pub(crate) mod shape_start_notebook_sync_input;
 
 pub(crate) mod shape_stop_notebook_run_input;
 
@@ -736,6 +740,8 @@ pub(crate) mod shape_form_input;
 pub(crate) mod shape_form_output_list;
 
 pub(crate) mod shape_forms_output_map;
+
+pub(crate) mod shape_git_metadata;
 
 pub(crate) mod shape_glossary_terms;
 

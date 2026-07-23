@@ -199,6 +199,13 @@ pub(crate) fn de_start_stream_session(
                             .transpose()?,
                     );
                 }
+                "DisplayConfiguration" => {
+                    builder = builder.set_display_configuration(crate::protocol_serde::shape_display_configuration::de_display_configuration(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "ExportFilesMetadata" => {
                     builder = builder.set_export_files_metadata(crate::protocol_serde::shape_export_files_metadata::de_export_files_metadata(
                         tokens,

@@ -266,6 +266,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeState
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum DescribeStatementError {
+    /// <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
+    ActiveWaitingRequestsExceededException(crate::types::error::ActiveWaitingRequestsExceededException),
     /// <p>The Amazon Redshift Data API operation failed due to invalid input.</p>
     InternalServerException(crate::types::error::InternalServerException),
     /// <p>The Amazon Redshift Data API operation failed due to a missing resource.</p>
@@ -305,11 +307,16 @@ impl DescribeStatementError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::ActiveWaitingRequestsExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `DescribeStatementError::ActiveWaitingRequestsExceededException`.
+    pub fn is_active_waiting_requests_exceeded_exception(&self) -> bool {
+        matches!(self, Self::ActiveWaitingRequestsExceededException(_))
     }
     /// Returns `true` if the error kind is `DescribeStatementError::InternalServerException`.
     pub fn is_internal_server_exception(&self) -> bool {
@@ -327,6 +334,7 @@ impl DescribeStatementError {
 impl ::std::error::Error for DescribeStatementError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::ActiveWaitingRequestsExceededException(_inner) => ::std::option::Option::Some(_inner),
             Self::InternalServerException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
@@ -337,6 +345,7 @@ impl ::std::error::Error for DescribeStatementError {
 impl ::std::fmt::Display for DescribeStatementError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::ActiveWaitingRequestsExceededException(_inner) => _inner.fmt(f),
             Self::InternalServerException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
             Self::ValidationException(_inner) => _inner.fmt(f),
@@ -361,6 +370,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DescribeStatementError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DescribeStatementError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::ActiveWaitingRequestsExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InternalServerException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ValidationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

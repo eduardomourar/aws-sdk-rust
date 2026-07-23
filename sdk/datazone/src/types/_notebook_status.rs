@@ -14,6 +14,8 @@
 /// match notebookstatus {
 ///     NotebookStatus::Active => { /* ... */ },
 ///     NotebookStatus::Archived => { /* ... */ },
+///     NotebookStatus::SyncFailed => { /* ... */ },
+///     NotebookStatus::SyncInProgress => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -46,6 +48,10 @@ pub enum NotebookStatus {
     Active,
     /// <p>The notebook is archived.</p>
     Archived,
+    /// <p>The notebook sync failed.</p>
+    SyncFailed,
+    /// <p>The notebook sync is in progress.</p>
+    SyncInProgress,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -55,6 +61,8 @@ impl ::std::convert::From<&str> for NotebookStatus {
         match s {
             "ACTIVE" => NotebookStatus::Active,
             "ARCHIVED" => NotebookStatus::Archived,
+            "SYNC_FAILED" => NotebookStatus::SyncFailed,
+            "SYNC_IN_PROGRESS" => NotebookStatus::SyncInProgress,
             other => NotebookStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -72,12 +80,14 @@ impl NotebookStatus {
         match self {
             NotebookStatus::Active => "ACTIVE",
             NotebookStatus::Archived => "ARCHIVED",
+            NotebookStatus::SyncFailed => "SYNC_FAILED",
+            NotebookStatus::SyncInProgress => "SYNC_IN_PROGRESS",
             NotebookStatus::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ACTIVE", "ARCHIVED"]
+        &["ACTIVE", "ARCHIVED", "SYNC_FAILED", "SYNC_IN_PROGRESS"]
     }
 }
 impl ::std::convert::AsRef<str> for NotebookStatus {
@@ -102,6 +112,8 @@ impl ::std::fmt::Display for NotebookStatus {
         match self {
             NotebookStatus::Active => write!(f, "ACTIVE"),
             NotebookStatus::Archived => write!(f, "ARCHIVED"),
+            NotebookStatus::SyncFailed => write!(f, "SYNC_FAILED"),
+            NotebookStatus::SyncInProgress => write!(f, "SYNC_IN_PROGRESS"),
             NotebookStatus::Unknown(value) => write!(f, "{value}"),
         }
     }

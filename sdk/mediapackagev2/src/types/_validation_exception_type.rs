@@ -79,12 +79,16 @@
 ///     ValidationExceptionType::MemberMissing => { /* ... */ },
 ///     ValidationExceptionType::MissingCertificateDomainName => { /* ... */ },
 ///     ValidationExceptionType::NoneModeWithTimingSource => { /* ... */ },
+///     ValidationExceptionType::NonEpochLockedWithForceEndpointErrorConfiguration => { /* ... */ },
 ///     ValidationExceptionType::NumManifestsHigh => { /* ... */ },
 ///     ValidationExceptionType::NumManifestsLow => { /* ... */ },
 ///     ValidationExceptionType::OnlyCmafInputTypeAllowForceEndpointErrorConfiguration => { /* ... */ },
 ///     ValidationExceptionType::OnlyCmafInputTypeAllowMqcsInputSwitching => { /* ... */ },
 ///     ValidationExceptionType::OnlyCmafInputTypeAllowMqcsOutputConfiguration => { /* ... */ },
+///     ValidationExceptionType::OnlyCmafInputTypeAllowOutputLockingMode => { /* ... */ },
 ///     ValidationExceptionType::OnlyCmafInputTypeAllowPreferredInputConfiguration => { /* ... */ },
+///     ValidationExceptionType::OnlyNonEpochLockedAllowOutputTimestampMode => { /* ... */ },
+///     ValidationExceptionType::OutputTimestampModeImmutable => { /* ... */ },
 ///     ValidationExceptionType::PeriodTriggersNoneSpecifiedWithAdditionalValues => { /* ... */ },
 ///     ValidationExceptionType::ResourceNotInSameRegion => { /* ... */ },
 ///     ValidationExceptionType::RoleArnInvalidFormat => { /* ... */ },
@@ -275,6 +279,8 @@ pub enum ValidationExceptionType {
     #[allow(missing_docs)] // documentation missing in model
     NoneModeWithTimingSource,
     #[allow(missing_docs)] // documentation missing in model
+    NonEpochLockedWithForceEndpointErrorConfiguration,
+    #[allow(missing_docs)] // documentation missing in model
     NumManifestsHigh,
     #[allow(missing_docs)] // documentation missing in model
     NumManifestsLow,
@@ -285,7 +291,13 @@ pub enum ValidationExceptionType {
     #[allow(missing_docs)] // documentation missing in model
     OnlyCmafInputTypeAllowMqcsOutputConfiguration,
     #[allow(missing_docs)] // documentation missing in model
+    OnlyCmafInputTypeAllowOutputLockingMode,
+    #[allow(missing_docs)] // documentation missing in model
     OnlyCmafInputTypeAllowPreferredInputConfiguration,
+    #[allow(missing_docs)] // documentation missing in model
+    OnlyNonEpochLockedAllowOutputTimestampMode,
+    #[allow(missing_docs)] // documentation missing in model
+    OutputTimestampModeImmutable,
     #[allow(missing_docs)] // documentation missing in model
     PeriodTriggersNoneSpecifiedWithAdditionalValues,
     #[allow(missing_docs)] // documentation missing in model
@@ -418,6 +430,7 @@ impl ::std::convert::From<&str> for ValidationExceptionType {
             "MEMBER_MISSING" => ValidationExceptionType::MemberMissing,
             "MISSING_CERTIFICATE_DOMAIN_NAME" => ValidationExceptionType::MissingCertificateDomainName,
             "NONE_MODE_WITH_TIMING_SOURCE" => ValidationExceptionType::NoneModeWithTimingSource,
+            "NON_EPOCH_LOCKED_WITH_FORCE_ENDPOINT_ERROR_CONFIGURATION" => ValidationExceptionType::NonEpochLockedWithForceEndpointErrorConfiguration,
             "NUM_MANIFESTS_HIGH" => ValidationExceptionType::NumManifestsHigh,
             "NUM_MANIFESTS_LOW" => ValidationExceptionType::NumManifestsLow,
             "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION" => {
@@ -425,7 +438,10 @@ impl ::std::convert::From<&str> for ValidationExceptionType {
             }
             "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING" => ValidationExceptionType::OnlyCmafInputTypeAllowMqcsInputSwitching,
             "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION" => ValidationExceptionType::OnlyCmafInputTypeAllowMqcsOutputConfiguration,
+            "ONLY_CMAF_INPUT_TYPE_ALLOW_OUTPUT_LOCKING_MODE" => ValidationExceptionType::OnlyCmafInputTypeAllowOutputLockingMode,
             "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION" => ValidationExceptionType::OnlyCmafInputTypeAllowPreferredInputConfiguration,
+            "ONLY_NON_EPOCH_LOCKED_ALLOW_OUTPUT_TIMESTAMP_MODE" => ValidationExceptionType::OnlyNonEpochLockedAllowOutputTimestampMode,
+            "OUTPUT_TIMESTAMP_MODE_IMMUTABLE" => ValidationExceptionType::OutputTimestampModeImmutable,
             "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES" => ValidationExceptionType::PeriodTriggersNoneSpecifiedWithAdditionalValues,
             "RESOURCE_NOT_IN_SAME_REGION" => ValidationExceptionType::ResourceNotInSameRegion,
             "ROLE_ARN_INVALID_FORMAT" => ValidationExceptionType::RoleArnInvalidFormat,
@@ -539,6 +555,7 @@ impl ValidationExceptionType {
             ValidationExceptionType::MemberMissing => "MEMBER_MISSING",
             ValidationExceptionType::MissingCertificateDomainName => "MISSING_CERTIFICATE_DOMAIN_NAME",
             ValidationExceptionType::NoneModeWithTimingSource => "NONE_MODE_WITH_TIMING_SOURCE",
+            ValidationExceptionType::NonEpochLockedWithForceEndpointErrorConfiguration => "NON_EPOCH_LOCKED_WITH_FORCE_ENDPOINT_ERROR_CONFIGURATION",
             ValidationExceptionType::NumManifestsHigh => "NUM_MANIFESTS_HIGH",
             ValidationExceptionType::NumManifestsLow => "NUM_MANIFESTS_LOW",
             ValidationExceptionType::OnlyCmafInputTypeAllowForceEndpointErrorConfiguration => {
@@ -546,7 +563,10 @@ impl ValidationExceptionType {
             }
             ValidationExceptionType::OnlyCmafInputTypeAllowMqcsInputSwitching => "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING",
             ValidationExceptionType::OnlyCmafInputTypeAllowMqcsOutputConfiguration => "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION",
+            ValidationExceptionType::OnlyCmafInputTypeAllowOutputLockingMode => "ONLY_CMAF_INPUT_TYPE_ALLOW_OUTPUT_LOCKING_MODE",
             ValidationExceptionType::OnlyCmafInputTypeAllowPreferredInputConfiguration => "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION",
+            ValidationExceptionType::OnlyNonEpochLockedAllowOutputTimestampMode => "ONLY_NON_EPOCH_LOCKED_ALLOW_OUTPUT_TIMESTAMP_MODE",
+            ValidationExceptionType::OutputTimestampModeImmutable => "OUTPUT_TIMESTAMP_MODE_IMMUTABLE",
             ValidationExceptionType::PeriodTriggersNoneSpecifiedWithAdditionalValues => "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
             ValidationExceptionType::ResourceNotInSameRegion => "RESOURCE_NOT_IN_SAME_REGION",
             ValidationExceptionType::RoleArnInvalidFormat => "ROLE_ARN_INVALID_FORMAT",
@@ -647,12 +667,16 @@ impl ValidationExceptionType {
             "MEMBER_MISSING",
             "MISSING_CERTIFICATE_DOMAIN_NAME",
             "NONE_MODE_WITH_TIMING_SOURCE",
+            "NON_EPOCH_LOCKED_WITH_FORCE_ENDPOINT_ERROR_CONFIGURATION",
             "NUM_MANIFESTS_HIGH",
             "NUM_MANIFESTS_LOW",
             "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
             "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING",
             "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION",
+            "ONLY_CMAF_INPUT_TYPE_ALLOW_OUTPUT_LOCKING_MODE",
             "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION",
+            "ONLY_NON_EPOCH_LOCKED_ALLOW_OUTPUT_TIMESTAMP_MODE",
+            "OUTPUT_TIMESTAMP_MODE_IMMUTABLE",
             "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
             "RESOURCE_NOT_IN_SAME_REGION",
             "ROLE_ARN_INVALID_FORMAT",
@@ -778,6 +802,9 @@ impl ::std::fmt::Display for ValidationExceptionType {
             ValidationExceptionType::MemberMissing => write!(f, "MEMBER_MISSING"),
             ValidationExceptionType::MissingCertificateDomainName => write!(f, "MISSING_CERTIFICATE_DOMAIN_NAME"),
             ValidationExceptionType::NoneModeWithTimingSource => write!(f, "NONE_MODE_WITH_TIMING_SOURCE"),
+            ValidationExceptionType::NonEpochLockedWithForceEndpointErrorConfiguration => {
+                write!(f, "NON_EPOCH_LOCKED_WITH_FORCE_ENDPOINT_ERROR_CONFIGURATION")
+            }
             ValidationExceptionType::NumManifestsHigh => write!(f, "NUM_MANIFESTS_HIGH"),
             ValidationExceptionType::NumManifestsLow => write!(f, "NUM_MANIFESTS_LOW"),
             ValidationExceptionType::OnlyCmafInputTypeAllowForceEndpointErrorConfiguration => {
@@ -787,9 +814,12 @@ impl ::std::fmt::Display for ValidationExceptionType {
             ValidationExceptionType::OnlyCmafInputTypeAllowMqcsOutputConfiguration => {
                 write!(f, "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION")
             }
+            ValidationExceptionType::OnlyCmafInputTypeAllowOutputLockingMode => write!(f, "ONLY_CMAF_INPUT_TYPE_ALLOW_OUTPUT_LOCKING_MODE"),
             ValidationExceptionType::OnlyCmafInputTypeAllowPreferredInputConfiguration => {
                 write!(f, "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION")
             }
+            ValidationExceptionType::OnlyNonEpochLockedAllowOutputTimestampMode => write!(f, "ONLY_NON_EPOCH_LOCKED_ALLOW_OUTPUT_TIMESTAMP_MODE"),
+            ValidationExceptionType::OutputTimestampModeImmutable => write!(f, "OUTPUT_TIMESTAMP_MODE_IMMUTABLE"),
             ValidationExceptionType::PeriodTriggersNoneSpecifiedWithAdditionalValues => {
                 write!(f, "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES")
             }

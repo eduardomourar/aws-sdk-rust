@@ -159,6 +159,15 @@ pub(crate) fn de_get_browser_session(
                         depth + 1,
                     )?);
                 }
+                "filesystemConfigurations" => {
+                    builder = builder.set_filesystem_configurations(
+                        crate::protocol_serde::shape_tools_file_system_configurations::de_tools_file_system_configurations(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
                 "lastUpdatedAt" => {
                     builder = builder.set_last_updated_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),

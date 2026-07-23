@@ -18,6 +18,15 @@ pub struct Segment {
     pub scte: ::std::option::Option<crate::types::Scte>,
     /// <p>The parameters for encrypting content.</p>
     pub encryption: ::std::option::Option<crate::types::Encryption>,
+    /// <p>The output timestamp mode for the origin endpoint's segments. This setting is only configurable on channels with <code>OutputLockingMode</code> set to <code>NON_EPOCH_LOCKED</code>. This value is immutable after endpoint creation. If you don't specify a value, the default is <code>PASSTHROUGH</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>PASSTHROUGH</code> - Output PTS (Presentation Timestamp) values pass through unchanged from the input.</p></li>
+    /// <li>
+    /// <p><code>REBASED_TO_CHANNEL_START</code> - Output PTS is rebased relative to the channel start time.</p></li>
+    /// </ul>
+    pub output_timestamp_mode: ::std::option::Option<crate::types::OutputTimestampMode>,
 }
 impl Segment {
     /// <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
@@ -48,6 +57,17 @@ impl Segment {
     pub fn encryption(&self) -> ::std::option::Option<&crate::types::Encryption> {
         self.encryption.as_ref()
     }
+    /// <p>The output timestamp mode for the origin endpoint's segments. This setting is only configurable on channels with <code>OutputLockingMode</code> set to <code>NON_EPOCH_LOCKED</code>. This value is immutable after endpoint creation. If you don't specify a value, the default is <code>PASSTHROUGH</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>PASSTHROUGH</code> - Output PTS (Presentation Timestamp) values pass through unchanged from the input.</p></li>
+    /// <li>
+    /// <p><code>REBASED_TO_CHANNEL_START</code> - Output PTS is rebased relative to the channel start time.</p></li>
+    /// </ul>
+    pub fn output_timestamp_mode(&self) -> ::std::option::Option<&crate::types::OutputTimestampMode> {
+        self.output_timestamp_mode.as_ref()
+    }
 }
 impl Segment {
     /// Creates a new builder-style object to manufacture [`Segment`](crate::types::Segment).
@@ -67,6 +87,7 @@ pub struct SegmentBuilder {
     pub(crate) ts_include_dvb_subtitles: ::std::option::Option<bool>,
     pub(crate) scte: ::std::option::Option<crate::types::Scte>,
     pub(crate) encryption: ::std::option::Option<crate::types::Encryption>,
+    pub(crate) output_timestamp_mode: ::std::option::Option<crate::types::OutputTimestampMode>,
 }
 impl SegmentBuilder {
     /// <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
@@ -167,6 +188,41 @@ impl SegmentBuilder {
     pub fn get_encryption(&self) -> &::std::option::Option<crate::types::Encryption> {
         &self.encryption
     }
+    /// <p>The output timestamp mode for the origin endpoint's segments. This setting is only configurable on channels with <code>OutputLockingMode</code> set to <code>NON_EPOCH_LOCKED</code>. This value is immutable after endpoint creation. If you don't specify a value, the default is <code>PASSTHROUGH</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>PASSTHROUGH</code> - Output PTS (Presentation Timestamp) values pass through unchanged from the input.</p></li>
+    /// <li>
+    /// <p><code>REBASED_TO_CHANNEL_START</code> - Output PTS is rebased relative to the channel start time.</p></li>
+    /// </ul>
+    pub fn output_timestamp_mode(mut self, input: crate::types::OutputTimestampMode) -> Self {
+        self.output_timestamp_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The output timestamp mode for the origin endpoint's segments. This setting is only configurable on channels with <code>OutputLockingMode</code> set to <code>NON_EPOCH_LOCKED</code>. This value is immutable after endpoint creation. If you don't specify a value, the default is <code>PASSTHROUGH</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>PASSTHROUGH</code> - Output PTS (Presentation Timestamp) values pass through unchanged from the input.</p></li>
+    /// <li>
+    /// <p><code>REBASED_TO_CHANNEL_START</code> - Output PTS is rebased relative to the channel start time.</p></li>
+    /// </ul>
+    pub fn set_output_timestamp_mode(mut self, input: ::std::option::Option<crate::types::OutputTimestampMode>) -> Self {
+        self.output_timestamp_mode = input;
+        self
+    }
+    /// <p>The output timestamp mode for the origin endpoint's segments. This setting is only configurable on channels with <code>OutputLockingMode</code> set to <code>NON_EPOCH_LOCKED</code>. This value is immutable after endpoint creation. If you don't specify a value, the default is <code>PASSTHROUGH</code>.</p>
+    /// <p>The allowed values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>PASSTHROUGH</code> - Output PTS (Presentation Timestamp) values pass through unchanged from the input.</p></li>
+    /// <li>
+    /// <p><code>REBASED_TO_CHANNEL_START</code> - Output PTS is rebased relative to the channel start time.</p></li>
+    /// </ul>
+    pub fn get_output_timestamp_mode(&self) -> &::std::option::Option<crate::types::OutputTimestampMode> {
+        &self.output_timestamp_mode
+    }
     /// Consumes the builder and constructs a [`Segment`](crate::types::Segment).
     pub fn build(self) -> crate::types::Segment {
         crate::types::Segment {
@@ -177,6 +233,7 @@ impl SegmentBuilder {
             ts_include_dvb_subtitles: self.ts_include_dvb_subtitles,
             scte: self.scte,
             encryption: self.encryption,
+            output_timestamp_mode: self.output_timestamp_mode,
         }
     }
 }

@@ -244,6 +244,13 @@ pub(crate) fn de_update_channel(
                         crate::protocol_serde::shape_output_header_configuration::de_output_header_configuration(tokens, _value, depth + 1)?,
                     );
                 }
+                "OutputLockingMode" => {
+                    builder = builder.set_output_locking_mode(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::OutputLockingMode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "tags" => {
                     builder = builder.set_tags(crate::protocol_serde::shape_tag_map::de_tag_map(tokens, _value, depth + 1)?);
                 }

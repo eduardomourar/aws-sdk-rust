@@ -230,6 +230,28 @@ impl CreateBrowserFluentBuilder {
     pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Certificate>> {
         self.inner.get_certificates()
     }
+    ///
+    /// Appends an item to `filesystemConfigurations`.
+    ///
+    /// To override the contents of this collection use [`set_filesystem_configurations`](Self::set_filesystem_configurations).
+    ///
+    /// <p>The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+    pub fn filesystem_configurations(mut self, input: crate::types::ToolsFileSystemConfiguration) -> Self {
+        self.inner = self.inner.filesystem_configurations(input);
+        self
+    }
+    /// <p>The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+    pub fn set_filesystem_configurations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
+    ) -> Self {
+        self.inner = self.inner.set_filesystem_configurations(input);
+        self
+    }
+    /// <p>The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+    pub fn get_filesystem_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>> {
+        self.inner.get_filesystem_configurations()
+    }
     /// <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_token(input.into());

@@ -214,6 +214,23 @@ pub(crate) fn de_execute_statement(
                             .transpose()?,
                     );
                 }
+                "Status" => {
+                    builder = builder.set_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::StatementStatusString::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "RedshiftPid" => {
+                    builder = builder.set_redshift_pid(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?,
+                    );
+                }
+                "HasResultSet" => {
+                    builder = builder.set_has_result_set(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

@@ -221,6 +221,10 @@ pub use crate::types::_content_delta_event::ContentDeltaEventBuilder;
 
 pub use crate::types::_content_stop_event::ContentStopEventBuilder;
 
+pub use crate::types::_s3_files_configuration::S3FilesConfigurationBuilder;
+
+pub use crate::types::_efs_configuration::EfsConfigurationBuilder;
+
 pub use crate::types::_variant_configuration::VariantConfigurationBuilder;
 
 pub use crate::types::_per_variant_online_evaluation_config::PerVariantOnlineEvaluationConfigBuilder;

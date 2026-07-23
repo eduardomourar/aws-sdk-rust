@@ -53,6 +53,13 @@ where
                         "Encryption" => {
                             builder = builder.set_encryption(crate::protocol_serde::shape_encryption::de_encryption(tokens, _value, depth + 1)?);
                         }
+                        "OutputTimestampMode" => {
+                            builder = builder.set_output_timestamp_mode(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::OutputTimestampMode::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {
@@ -103,6 +110,9 @@ pub fn ser_segment(
         let mut object_9 = object.key("Encryption").start_object();
         crate::protocol_serde::shape_encryption::ser_encryption(&mut object_9, var_8)?;
         object_9.finish();
+    }
+    if let Some(var_10) = &input.output_timestamp_mode {
+        object.key("OutputTimestampMode").string(var_10.as_str());
     }
     Ok(())
 }

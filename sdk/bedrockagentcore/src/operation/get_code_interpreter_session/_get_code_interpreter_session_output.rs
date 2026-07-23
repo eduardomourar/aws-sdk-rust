@@ -17,6 +17,8 @@ pub struct GetCodeInterpreterSessionOutput {
     pub status: ::std::option::Option<crate::types::CodeInterpreterSessionStatus>,
     /// <p>The list of certificates installed in the code interpreter session.</p>
     pub certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    /// <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+    pub filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     _request_id: Option<String>,
 }
 impl GetCodeInterpreterSessionOutput {
@@ -52,6 +54,12 @@ impl GetCodeInterpreterSessionOutput {
     pub fn certificates(&self) -> &[crate::types::Certificate] {
         self.certificates.as_deref().unwrap_or_default()
     }
+    /// <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filesystem_configurations.is_none()`.
+    pub fn filesystem_configurations(&self) -> &[crate::types::ToolsFileSystemConfiguration] {
+        self.filesystem_configurations.as_deref().unwrap_or_default()
+    }
 }
 impl ::aws_types::request_id::RequestId for GetCodeInterpreterSessionOutput {
     fn request_id(&self) -> Option<&str> {
@@ -76,6 +84,7 @@ pub struct GetCodeInterpreterSessionOutputBuilder {
     pub(crate) session_timeout_seconds: ::std::option::Option<i32>,
     pub(crate) status: ::std::option::Option<crate::types::CodeInterpreterSessionStatus>,
     pub(crate) certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    pub(crate) filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     _request_id: Option<String>,
 }
 impl GetCodeInterpreterSessionOutputBuilder {
@@ -186,6 +195,29 @@ impl GetCodeInterpreterSessionOutputBuilder {
     pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Certificate>> {
         &self.certificates
     }
+    /// Appends an item to `filesystem_configurations`.
+    ///
+    /// To override the contents of this collection use [`set_filesystem_configurations`](Self::set_filesystem_configurations).
+    ///
+    /// <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+    pub fn filesystem_configurations(mut self, input: crate::types::ToolsFileSystemConfiguration) -> Self {
+        let mut v = self.filesystem_configurations.unwrap_or_default();
+        v.push(input);
+        self.filesystem_configurations = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+    pub fn set_filesystem_configurations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
+    ) -> Self {
+        self.filesystem_configurations = input;
+        self
+    }
+    /// <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+    pub fn get_filesystem_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>> {
+        &self.filesystem_configurations
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -229,6 +261,7 @@ impl GetCodeInterpreterSessionOutputBuilder {
             session_timeout_seconds: self.session_timeout_seconds,
             status: self.status,
             certificates: self.certificates,
+            filesystem_configurations: self.filesystem_configurations,
             _request_id: self._request_id,
         })
     }

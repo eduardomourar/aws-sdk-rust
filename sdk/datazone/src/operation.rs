@@ -493,6 +493,9 @@ pub mod start_notebook_import;
 /// Types for the `StartNotebookRun` operation.
 pub mod start_notebook_run;
 
+/// Types for the `StartNotebookSync` operation.
+pub mod start_notebook_sync;
+
 /// Types for the `StopNotebookRun` operation.
 pub mod stop_notebook_run;
 

@@ -452,6 +452,16 @@ pub struct Capabilities {
     pub self_upgrade_user_role: ::std::option::Option<crate::types::CapabilityState>,
     /// <p>The ability to perform Extension-related actions.</p>
     pub extension: ::std::option::Option<crate::types::CapabilityState>,
+    /// <p>The ability to use Amazon Quick through the browser extension for Chrome, Firefox, and Edge.</p>
+    pub use_browser_extension: ::std::option::Option<crate::types::CapabilityState>,
+    /// <p>The ability to use Amazon Quick through the Microsoft Word add-in.</p>
+    pub use_word_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
+    /// <p>The ability to use Amazon Quick through the Microsoft Outlook add-in.</p>
+    pub use_outlook_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
+    /// <p>The ability to use Amazon Quick through the Microsoft Excel add-in.</p>
+    pub use_excel_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
+    /// <p>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</p>
+    pub use_powerpoint_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
     /// <p>The ability to create, update, delete and view shared folders (both restricted and unrestricted), ability to add any asset to shared folders, and ability to share the folders.</p>
     /// <p><b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others share with them through folder membership.</p>
     pub manage_shared_folders: ::std::option::Option<crate::types::CapabilityState>,
@@ -1367,6 +1377,26 @@ impl Capabilities {
     pub fn extension(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
         self.extension.as_ref()
     }
+    /// <p>The ability to use Amazon Quick through the browser extension for Chrome, Firefox, and Edge.</p>
+    pub fn use_browser_extension(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
+        self.use_browser_extension.as_ref()
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Word add-in.</p>
+    pub fn use_word_add_in_extension(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
+        self.use_word_add_in_extension.as_ref()
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Outlook add-in.</p>
+    pub fn use_outlook_add_in_extension(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
+        self.use_outlook_add_in_extension.as_ref()
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Excel add-in.</p>
+    pub fn use_excel_add_in_extension(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
+        self.use_excel_add_in_extension.as_ref()
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</p>
+    pub fn use_powerpoint_add_in_extension(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
+        self.use_powerpoint_add_in_extension.as_ref()
+    }
     /// <p>The ability to create, update, delete and view shared folders (both restricted and unrestricted), ability to add any asset to shared folders, and ability to share the folders.</p>
     /// <p><b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others share with them through folder membership.</p>
     pub fn manage_shared_folders(&self) -> ::std::option::Option<&crate::types::CapabilityState> {
@@ -1636,6 +1666,11 @@ pub struct CapabilitiesBuilder {
     pub(crate) research: ::std::option::Option<crate::types::CapabilityState>,
     pub(crate) self_upgrade_user_role: ::std::option::Option<crate::types::CapabilityState>,
     pub(crate) extension: ::std::option::Option<crate::types::CapabilityState>,
+    pub(crate) use_browser_extension: ::std::option::Option<crate::types::CapabilityState>,
+    pub(crate) use_word_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
+    pub(crate) use_outlook_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
+    pub(crate) use_excel_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
+    pub(crate) use_powerpoint_add_in_extension: ::std::option::Option<crate::types::CapabilityState>,
     pub(crate) manage_shared_folders: ::std::option::Option<crate::types::CapabilityState>,
     pub(crate) generate_analyses: ::std::option::Option<crate::types::CapabilityState>,
     pub(crate) story: ::std::option::Option<crate::types::CapabilityState>,
@@ -4782,6 +4817,76 @@ impl CapabilitiesBuilder {
     pub fn get_extension(&self) -> &::std::option::Option<crate::types::CapabilityState> {
         &self.extension
     }
+    /// <p>The ability to use Amazon Quick through the browser extension for Chrome, Firefox, and Edge.</p>
+    pub fn use_browser_extension(mut self, input: crate::types::CapabilityState) -> Self {
+        self.use_browser_extension = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the browser extension for Chrome, Firefox, and Edge.</p>
+    pub fn set_use_browser_extension(mut self, input: ::std::option::Option<crate::types::CapabilityState>) -> Self {
+        self.use_browser_extension = input;
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the browser extension for Chrome, Firefox, and Edge.</p>
+    pub fn get_use_browser_extension(&self) -> &::std::option::Option<crate::types::CapabilityState> {
+        &self.use_browser_extension
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Word add-in.</p>
+    pub fn use_word_add_in_extension(mut self, input: crate::types::CapabilityState) -> Self {
+        self.use_word_add_in_extension = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Word add-in.</p>
+    pub fn set_use_word_add_in_extension(mut self, input: ::std::option::Option<crate::types::CapabilityState>) -> Self {
+        self.use_word_add_in_extension = input;
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Word add-in.</p>
+    pub fn get_use_word_add_in_extension(&self) -> &::std::option::Option<crate::types::CapabilityState> {
+        &self.use_word_add_in_extension
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Outlook add-in.</p>
+    pub fn use_outlook_add_in_extension(mut self, input: crate::types::CapabilityState) -> Self {
+        self.use_outlook_add_in_extension = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Outlook add-in.</p>
+    pub fn set_use_outlook_add_in_extension(mut self, input: ::std::option::Option<crate::types::CapabilityState>) -> Self {
+        self.use_outlook_add_in_extension = input;
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Outlook add-in.</p>
+    pub fn get_use_outlook_add_in_extension(&self) -> &::std::option::Option<crate::types::CapabilityState> {
+        &self.use_outlook_add_in_extension
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Excel add-in.</p>
+    pub fn use_excel_add_in_extension(mut self, input: crate::types::CapabilityState) -> Self {
+        self.use_excel_add_in_extension = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Excel add-in.</p>
+    pub fn set_use_excel_add_in_extension(mut self, input: ::std::option::Option<crate::types::CapabilityState>) -> Self {
+        self.use_excel_add_in_extension = input;
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft Excel add-in.</p>
+    pub fn get_use_excel_add_in_extension(&self) -> &::std::option::Option<crate::types::CapabilityState> {
+        &self.use_excel_add_in_extension
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</p>
+    pub fn use_powerpoint_add_in_extension(mut self, input: crate::types::CapabilityState) -> Self {
+        self.use_powerpoint_add_in_extension = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</p>
+    pub fn set_use_powerpoint_add_in_extension(mut self, input: ::std::option::Option<crate::types::CapabilityState>) -> Self {
+        self.use_powerpoint_add_in_extension = input;
+        self
+    }
+    /// <p>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</p>
+    pub fn get_use_powerpoint_add_in_extension(&self) -> &::std::option::Option<crate::types::CapabilityState> {
+        &self.use_powerpoint_add_in_extension
+    }
     /// <p>The ability to create, update, delete and view shared folders (both restricted and unrestricted), ability to add any asset to shared folders, and ability to share the folders.</p>
     /// <p><b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others share with them through folder membership.</p>
     pub fn manage_shared_folders(mut self, input: crate::types::CapabilityState) -> Self {
@@ -5124,6 +5229,11 @@ impl CapabilitiesBuilder {
             research: self.research,
             self_upgrade_user_role: self.self_upgrade_user_role,
             extension: self.extension,
+            use_browser_extension: self.use_browser_extension,
+            use_word_add_in_extension: self.use_word_add_in_extension,
+            use_outlook_add_in_extension: self.use_outlook_add_in_extension,
+            use_excel_add_in_extension: self.use_excel_add_in_extension,
+            use_powerpoint_add_in_extension: self.use_powerpoint_add_in_extension,
             manage_shared_folders: self.manage_shared_folders,
             generate_analyses: self.generate_analyses,
             story: self.story,

@@ -18,13 +18,25 @@ pub fn ser_start_code_interpreter_session_input_input(
     if let Some(var_5) = &input.client_token {
         object.key("clientToken").string(var_5.as_str());
     }
-    if let Some(var_6) = &input.name {
-        object.key("name").string(var_6.as_str());
+    if let Some(var_6) = &input.filesystem_configurations {
+        let mut array_7 = object.key("filesystemConfigurations").start_array();
+        for item_8 in var_6 {
+            {
+                #[allow(unused_mut)]
+                let mut object_9 = array_7.value().start_object();
+                crate::protocol_serde::shape_tools_file_system_configuration::ser_tools_file_system_configuration(&mut object_9, item_8)?;
+                object_9.finish();
+            }
+        }
+        array_7.finish();
     }
-    if let Some(var_7) = &input.session_timeout_seconds {
+    if let Some(var_10) = &input.name {
+        object.key("name").string(var_10.as_str());
+    }
+    if let Some(var_11) = &input.session_timeout_seconds {
         object.key("sessionTimeoutSeconds").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_7).into()),
+            ::aws_smithy_types::Number::NegInt((*var_11).into()),
         );
     }
     Ok(())

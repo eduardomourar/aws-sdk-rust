@@ -49,6 +49,16 @@ pub(crate) fn reflens_list_schemas_output_output_next_token(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn reflens_list_sessions_output_output_next_token(
+    input: &crate::operation::list_sessions::ListSessionsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn reflens_list_statements_output_output_next_token(
     input: &crate::operation::list_statements::ListStatementsOutput,
 ) -> ::std::option::Option<&::std::string::String> {
@@ -101,6 +111,13 @@ pub(crate) fn lens_list_schemas_output_output_schemas(
     input: crate::operation::list_schemas::ListSchemasOutput,
 ) -> ::std::option::Option<::std::vec::Vec<::std::string::String>> {
     let input = input.schemas?;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_sessions_output_output_sessions(
+    input: crate::operation::list_sessions::ListSessionsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::SessionData>> {
+    let input = input.sessions;
     ::std::option::Option::Some(input)
 }
 

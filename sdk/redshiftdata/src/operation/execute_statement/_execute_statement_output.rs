@@ -21,6 +21,26 @@ pub struct ExecuteStatementOutput {
     pub workgroup_name: ::std::option::Option<::std::string::String>,
     /// <p>The session identifier of the query.</p>
     pub session_id: ::std::option::Option<::std::string::String>,
+    /// <p>The status of the SQL statement. Status values are defined as follows:</p>
+    /// <ul>
+    /// <li>
+    /// <p>ABORTED - The query run was stopped by the user.</p></li>
+    /// <li>
+    /// <p>FAILED - The query run failed.</p></li>
+    /// <li>
+    /// <p>FINISHED - The query has finished running.</p></li>
+    /// <li>
+    /// <p>PICKED - The query has been chosen to be run.</p></li>
+    /// <li>
+    /// <p>STARTED - The query run has started.</p></li>
+    /// <li>
+    /// <p>SUBMITTED - The query was submitted, but not yet processed.</p></li>
+    /// </ul>
+    pub status: ::std::option::Option<crate::types::StatementStatusString>,
+    /// <p>The process identifier from Amazon Redshift.</p>
+    pub redshift_pid: ::std::option::Option<i64>,
+    /// <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+    pub has_result_set: ::std::option::Option<bool>,
     _request_id: Option<String>,
 }
 impl ExecuteStatementOutput {
@@ -62,6 +82,32 @@ impl ExecuteStatementOutput {
     pub fn session_id(&self) -> ::std::option::Option<&str> {
         self.session_id.as_deref()
     }
+    /// <p>The status of the SQL statement. Status values are defined as follows:</p>
+    /// <ul>
+    /// <li>
+    /// <p>ABORTED - The query run was stopped by the user.</p></li>
+    /// <li>
+    /// <p>FAILED - The query run failed.</p></li>
+    /// <li>
+    /// <p>FINISHED - The query has finished running.</p></li>
+    /// <li>
+    /// <p>PICKED - The query has been chosen to be run.</p></li>
+    /// <li>
+    /// <p>STARTED - The query run has started.</p></li>
+    /// <li>
+    /// <p>SUBMITTED - The query was submitted, but not yet processed.</p></li>
+    /// </ul>
+    pub fn status(&self) -> ::std::option::Option<&crate::types::StatementStatusString> {
+        self.status.as_ref()
+    }
+    /// <p>The process identifier from Amazon Redshift.</p>
+    pub fn redshift_pid(&self) -> ::std::option::Option<i64> {
+        self.redshift_pid
+    }
+    /// <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+    pub fn has_result_set(&self) -> ::std::option::Option<bool> {
+        self.has_result_set
+    }
 }
 impl ::aws_types::request_id::RequestId for ExecuteStatementOutput {
     fn request_id(&self) -> Option<&str> {
@@ -88,6 +134,9 @@ pub struct ExecuteStatementOutputBuilder {
     pub(crate) secret_arn: ::std::option::Option<::std::string::String>,
     pub(crate) workgroup_name: ::std::option::Option<::std::string::String>,
     pub(crate) session_id: ::std::option::Option<::std::string::String>,
+    pub(crate) status: ::std::option::Option<crate::types::StatementStatusString>,
+    pub(crate) redshift_pid: ::std::option::Option<i64>,
+    pub(crate) has_result_set: ::std::option::Option<bool>,
     _request_id: Option<String>,
 }
 impl ExecuteStatementOutputBuilder {
@@ -223,6 +272,90 @@ impl ExecuteStatementOutputBuilder {
     pub fn get_session_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.session_id
     }
+    /// <p>The status of the SQL statement. Status values are defined as follows:</p>
+    /// <ul>
+    /// <li>
+    /// <p>ABORTED - The query run was stopped by the user.</p></li>
+    /// <li>
+    /// <p>FAILED - The query run failed.</p></li>
+    /// <li>
+    /// <p>FINISHED - The query has finished running.</p></li>
+    /// <li>
+    /// <p>PICKED - The query has been chosen to be run.</p></li>
+    /// <li>
+    /// <p>STARTED - The query run has started.</p></li>
+    /// <li>
+    /// <p>SUBMITTED - The query was submitted, but not yet processed.</p></li>
+    /// </ul>
+    pub fn status(mut self, input: crate::types::StatementStatusString) -> Self {
+        self.status = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The status of the SQL statement. Status values are defined as follows:</p>
+    /// <ul>
+    /// <li>
+    /// <p>ABORTED - The query run was stopped by the user.</p></li>
+    /// <li>
+    /// <p>FAILED - The query run failed.</p></li>
+    /// <li>
+    /// <p>FINISHED - The query has finished running.</p></li>
+    /// <li>
+    /// <p>PICKED - The query has been chosen to be run.</p></li>
+    /// <li>
+    /// <p>STARTED - The query run has started.</p></li>
+    /// <li>
+    /// <p>SUBMITTED - The query was submitted, but not yet processed.</p></li>
+    /// </ul>
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatementStatusString>) -> Self {
+        self.status = input;
+        self
+    }
+    /// <p>The status of the SQL statement. Status values are defined as follows:</p>
+    /// <ul>
+    /// <li>
+    /// <p>ABORTED - The query run was stopped by the user.</p></li>
+    /// <li>
+    /// <p>FAILED - The query run failed.</p></li>
+    /// <li>
+    /// <p>FINISHED - The query has finished running.</p></li>
+    /// <li>
+    /// <p>PICKED - The query has been chosen to be run.</p></li>
+    /// <li>
+    /// <p>STARTED - The query run has started.</p></li>
+    /// <li>
+    /// <p>SUBMITTED - The query was submitted, but not yet processed.</p></li>
+    /// </ul>
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatementStatusString> {
+        &self.status
+    }
+    /// <p>The process identifier from Amazon Redshift.</p>
+    pub fn redshift_pid(mut self, input: i64) -> Self {
+        self.redshift_pid = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The process identifier from Amazon Redshift.</p>
+    pub fn set_redshift_pid(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.redshift_pid = input;
+        self
+    }
+    /// <p>The process identifier from Amazon Redshift.</p>
+    pub fn get_redshift_pid(&self) -> &::std::option::Option<i64> {
+        &self.redshift_pid
+    }
+    /// <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+    pub fn has_result_set(mut self, input: bool) -> Self {
+        self.has_result_set = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+    pub fn set_has_result_set(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.has_result_set = input;
+        self
+    }
+    /// <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+    pub fn get_has_result_set(&self) -> &::std::option::Option<bool> {
+        &self.has_result_set
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -244,6 +377,9 @@ impl ExecuteStatementOutputBuilder {
             secret_arn: self.secret_arn,
             workgroup_name: self.workgroup_name,
             session_id: self.session_id,
+            status: self.status,
+            redshift_pid: self.redshift_pid,
+            has_result_set: self.has_result_set,
             _request_id: self._request_id,
         }
     }

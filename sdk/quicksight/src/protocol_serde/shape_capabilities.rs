@@ -675,29 +675,44 @@ pub fn ser_capabilities(
     if let Some(var_224) = &input.extension {
         object.key("Extension").string(var_224.as_str());
     }
-    if let Some(var_225) = &input.manage_shared_folders {
-        object.key("ManageSharedFolders").string(var_225.as_str());
+    if let Some(var_225) = &input.use_browser_extension {
+        object.key("UseBrowserExtension").string(var_225.as_str());
     }
-    if let Some(var_226) = &input.generate_analyses {
-        object.key("GenerateAnalyses").string(var_226.as_str());
+    if let Some(var_226) = &input.use_word_add_in_extension {
+        object.key("UseWordAddInExtension").string(var_226.as_str());
     }
-    if let Some(var_227) = &input.story {
-        object.key("Story").string(var_227.as_str());
+    if let Some(var_227) = &input.use_outlook_add_in_extension {
+        object.key("UseOutlookAddInExtension").string(var_227.as_str());
     }
-    if let Some(var_228) = &input.scenario {
-        object.key("Scenario").string(var_228.as_str());
+    if let Some(var_228) = &input.use_excel_add_in_extension {
+        object.key("UseExcelAddInExtension").string(var_228.as_str());
     }
-    if let Some(var_229) = &input.trigger {
-        object.key("Trigger").string(var_229.as_str());
+    if let Some(var_229) = &input.use_powerpoint_add_in_extension {
+        object.key("UsePowerpointAddInExtension").string(var_229.as_str());
     }
-    if let Some(var_230) = &input.schedule_trigger {
-        object.key("ScheduleTrigger").string(var_230.as_str());
+    if let Some(var_230) = &input.manage_shared_folders {
+        object.key("ManageSharedFolders").string(var_230.as_str());
     }
-    if let Some(var_231) = &input.inbound_email_trigger {
-        object.key("InboundEmailTrigger").string(var_231.as_str());
+    if let Some(var_231) = &input.generate_analyses {
+        object.key("GenerateAnalyses").string(var_231.as_str());
     }
-    if let Some(var_232) = &input.quick_event_trigger {
-        object.key("QuickEventTrigger").string(var_232.as_str());
+    if let Some(var_232) = &input.story {
+        object.key("Story").string(var_232.as_str());
+    }
+    if let Some(var_233) = &input.scenario {
+        object.key("Scenario").string(var_233.as_str());
+    }
+    if let Some(var_234) = &input.trigger {
+        object.key("Trigger").string(var_234.as_str());
+    }
+    if let Some(var_235) = &input.schedule_trigger {
+        object.key("ScheduleTrigger").string(var_235.as_str());
+    }
+    if let Some(var_236) = &input.inbound_email_trigger {
+        object.key("InboundEmailTrigger").string(var_236.as_str());
+    }
+    if let Some(var_237) = &input.quick_event_trigger {
+        object.key("QuickEventTrigger").string(var_237.as_str());
     }
     Ok(())
 }
@@ -2287,6 +2302,41 @@ where
                         }
                         "Extension" => {
                             builder = builder.set_extension(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CapabilityState::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "UseBrowserExtension" => {
+                            builder = builder.set_use_browser_extension(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CapabilityState::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "UseWordAddInExtension" => {
+                            builder = builder.set_use_word_add_in_extension(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CapabilityState::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "UseOutlookAddInExtension" => {
+                            builder = builder.set_use_outlook_add_in_extension(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CapabilityState::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "UseExcelAddInExtension" => {
+                            builder = builder.set_use_excel_add_in_extension(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::CapabilityState::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "UsePowerpointAddInExtension" => {
+                            builder = builder.set_use_powerpoint_add_in_extension(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::CapabilityState::from(u.as_ref())))
                                     .transpose()?,

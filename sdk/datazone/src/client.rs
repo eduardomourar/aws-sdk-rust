@@ -491,6 +491,8 @@ mod start_notebook_import;
 
 mod start_notebook_run;
 
+mod start_notebook_sync;
+
 mod stop_notebook_run;
 
 mod tag_resource;

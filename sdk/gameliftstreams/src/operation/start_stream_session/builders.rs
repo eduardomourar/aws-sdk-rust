@@ -414,4 +414,21 @@ impl StartStreamSessionFluentBuilder {
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_role_arn()
     }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn display_configuration(mut self, input: crate::types::DisplayConfiguration) -> Self {
+        self.inner = self.inner.display_configuration(input);
+        self
+    }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn set_display_configuration(mut self, input: ::std::option::Option<crate::types::DisplayConfiguration>) -> Self {
+        self.inner = self.inner.set_display_configuration(input);
+        self
+    }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn get_display_configuration(&self) -> &::std::option::Option<crate::types::DisplayConfiguration> {
+        self.inner.get_display_configuration()
+    }
 }

@@ -13,6 +13,7 @@ impl super::Client {
     ///   - [`session_timeout_seconds(Option<i32>)`](crate::operation::get_code_interpreter_session::GetCodeInterpreterSessionOutput::session_timeout_seconds): <p>The timeout period for the code interpreter session in seconds.</p>
     ///   - [`status(Option<CodeInterpreterSessionStatus>)`](crate::operation::get_code_interpreter_session::GetCodeInterpreterSessionOutput::status): <p>The current status of the code interpreter session. Possible values include ACTIVE, STOPPING, and STOPPED.</p>
     ///   - [`certificates(Option<Vec::<Certificate>>)`](crate::operation::get_code_interpreter_session::GetCodeInterpreterSessionOutput::certificates): <p>The list of certificates installed in the code interpreter session.</p>
+    ///   - [`filesystem_configurations(Option<Vec::<ToolsFileSystemConfiguration>>)`](crate::operation::get_code_interpreter_session::GetCodeInterpreterSessionOutput::filesystem_configurations): <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
     /// - On failure, responds with [`SdkError<GetCodeInterpreterSessionError>`](crate::operation::get_code_interpreter_session::GetCodeInterpreterSessionError)
     pub fn get_code_interpreter_session(&self) -> crate::operation::get_code_interpreter_session::builders::GetCodeInterpreterSessionFluentBuilder {
         crate::operation::get_code_interpreter_session::builders::GetCodeInterpreterSessionFluentBuilder::new(self.handle.clone())

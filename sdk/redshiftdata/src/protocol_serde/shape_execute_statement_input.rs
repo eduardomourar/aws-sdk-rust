@@ -54,5 +54,11 @@ pub fn ser_execute_statement_input_input(
     if let Some(var_16) = &input.session_id {
         object.key("SessionId").string(var_16.as_str());
     }
+    if let Some(var_17) = &input.wait_time_seconds {
+        object.key("WaitTimeSeconds").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_17).into()),
+        );
+    }
     Ok(())
 }

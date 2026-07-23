@@ -41,6 +41,8 @@ pub(crate) mod shape_list_databases;
 
 pub(crate) mod shape_list_schemas;
 
+pub(crate) mod shape_list_sessions;
+
 pub(crate) mod shape_list_statements;
 
 pub(crate) mod shape_list_tables;
@@ -56,6 +58,8 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
 pub(crate) mod shape_active_sessions_exceeded_exception;
 
 pub(crate) mod shape_active_statements_exceeded_exception;
+
+pub(crate) mod shape_active_waiting_requests_exceeded_exception;
 
 pub(crate) mod shape_batch_execute_statement_exception;
 
@@ -83,6 +87,8 @@ pub(crate) mod shape_list_databases_input;
 
 pub(crate) mod shape_list_schemas_input;
 
+pub(crate) mod shape_list_sessions_input;
+
 pub(crate) mod shape_list_statements_input;
 
 pub(crate) mod shape_list_tables_input;
@@ -105,6 +111,8 @@ pub(crate) mod shape_formatted_sql_records;
 
 pub(crate) mod shape_schema_list;
 
+pub(crate) mod shape_session_list;
+
 pub(crate) mod shape_sql_parameter;
 
 pub(crate) mod shape_sql_parameters_list;
@@ -122,6 +130,8 @@ pub(crate) mod shape_column_metadata;
 pub(crate) mod shape_field_list;
 
 pub(crate) mod shape_query_records;
+
+pub(crate) mod shape_session_data;
 
 pub(crate) mod shape_statement_data;
 

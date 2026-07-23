@@ -3,7 +3,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct BatchExecuteStatementInput {
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub sqls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.</p>
     pub cluster_identifier: ::std::option::Option<::std::string::String>,
@@ -17,7 +17,7 @@ pub struct BatchExecuteStatementInput {
     pub with_event: ::std::option::Option<bool>,
     /// <p>The name of the SQL statements. You can name the SQL statements when you create them to identify the query.</p>
     pub statement_name: ::std::option::Option<::std::string::String>,
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub parameters: ::std::option::Option<::std::vec::Vec<crate::types::SqlParameter>>,
     /// <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
     pub workgroup_name: ::std::option::Option<::std::string::String>,
@@ -29,9 +29,13 @@ pub struct BatchExecuteStatementInput {
     pub session_keep_alive_seconds: ::std::option::Option<i32>,
     /// <p>The session identifier of the query.</p>
     pub session_id: ::std::option::Option<::std::string::String>,
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub execution_mode: ::std::option::Option<crate::types::ExecutionMode>,
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub wait_time_seconds: ::std::option::Option<i32>,
 }
 impl BatchExecuteStatementInput {
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.sqls.is_none()`.
     pub fn sqls(&self) -> &[::std::string::String] {
@@ -61,7 +65,7 @@ impl BatchExecuteStatementInput {
     pub fn statement_name(&self) -> ::std::option::Option<&str> {
         self.statement_name.as_deref()
     }
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
     pub fn parameters(&self) -> &[crate::types::SqlParameter] {
@@ -86,6 +90,14 @@ impl BatchExecuteStatementInput {
     /// <p>The session identifier of the query.</p>
     pub fn session_id(&self) -> ::std::option::Option<&str> {
         self.session_id.as_deref()
+    }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn execution_mode(&self) -> ::std::option::Option<&crate::types::ExecutionMode> {
+        self.execution_mode.as_ref()
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn wait_time_seconds(&self) -> ::std::option::Option<i32> {
+        self.wait_time_seconds
     }
 }
 impl BatchExecuteStatementInput {
@@ -112,25 +124,27 @@ pub struct BatchExecuteStatementInputBuilder {
     pub(crate) result_format: ::std::option::Option<crate::types::ResultFormatString>,
     pub(crate) session_keep_alive_seconds: ::std::option::Option<i32>,
     pub(crate) session_id: ::std::option::Option<::std::string::String>,
+    pub(crate) execution_mode: ::std::option::Option<crate::types::ExecutionMode>,
+    pub(crate) wait_time_seconds: ::std::option::Option<i32>,
 }
 impl BatchExecuteStatementInputBuilder {
     /// Appends an item to `sqls`.
     ///
     /// To override the contents of this collection use [`set_sqls`](Self::set_sqls).
     ///
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub fn sqls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.sqls.unwrap_or_default();
         v.push(input.into());
         self.sqls = ::std::option::Option::Some(v);
         self
     }
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub fn set_sqls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.sqls = input;
         self
     }
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub fn get_sqls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.sqls
     }
@@ -222,19 +236,19 @@ impl BatchExecuteStatementInputBuilder {
     ///
     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
     ///
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub fn parameters(mut self, input: crate::types::SqlParameter) -> Self {
         let mut v = self.parameters.unwrap_or_default();
         v.push(input);
         self.parameters = ::std::option::Option::Some(v);
         self
     }
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SqlParameter>>) -> Self {
         self.parameters = input;
         self
     }
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SqlParameter>> {
         &self.parameters
     }
@@ -308,6 +322,34 @@ impl BatchExecuteStatementInputBuilder {
     pub fn get_session_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.session_id
     }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn execution_mode(mut self, input: crate::types::ExecutionMode) -> Self {
+        self.execution_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn set_execution_mode(mut self, input: ::std::option::Option<crate::types::ExecutionMode>) -> Self {
+        self.execution_mode = input;
+        self
+    }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn get_execution_mode(&self) -> &::std::option::Option<crate::types::ExecutionMode> {
+        &self.execution_mode
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn wait_time_seconds(mut self, input: i32) -> Self {
+        self.wait_time_seconds = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn set_wait_time_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.wait_time_seconds = input;
+        self
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn get_wait_time_seconds(&self) -> &::std::option::Option<i32> {
+        &self.wait_time_seconds
+    }
     /// Consumes the builder and constructs a [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
     pub fn build(
         self,
@@ -327,6 +369,8 @@ impl BatchExecuteStatementInputBuilder {
             result_format: self.result_format,
             session_keep_alive_seconds: self.session_keep_alive_seconds,
             session_id: self.session_id,
+            execution_mode: self.execution_mode,
+            wait_time_seconds: self.wait_time_seconds,
         })
     }
 }

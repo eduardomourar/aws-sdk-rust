@@ -61,6 +61,8 @@ pub struct DescribeStatementOutput {
     pub result_format: ::std::option::Option<crate::types::ResultFormatString>,
     /// <p>The session identifier of the query.</p>
     pub session_id: ::std::option::Option<::std::string::String>,
+    /// <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+    pub execution_mode: ::std::option::Option<crate::types::ExecutionMode>,
     _request_id: Option<String>,
 }
 impl DescribeStatementOutput {
@@ -169,6 +171,10 @@ impl DescribeStatementOutput {
     pub fn session_id(&self) -> ::std::option::Option<&str> {
         self.session_id.as_deref()
     }
+    /// <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+    pub fn execution_mode(&self) -> ::std::option::Option<&crate::types::ExecutionMode> {
+        self.execution_mode.as_ref()
+    }
 }
 impl ::aws_types::request_id::RequestId for DescribeStatementOutput {
     fn request_id(&self) -> Option<&str> {
@@ -207,6 +213,7 @@ pub struct DescribeStatementOutputBuilder {
     pub(crate) workgroup_name: ::std::option::Option<::std::string::String>,
     pub(crate) result_format: ::std::option::Option<crate::types::ResultFormatString>,
     pub(crate) session_id: ::std::option::Option<::std::string::String>,
+    pub(crate) execution_mode: ::std::option::Option<crate::types::ExecutionMode>,
     _request_id: Option<String>,
 }
 impl DescribeStatementOutputBuilder {
@@ -565,6 +572,20 @@ impl DescribeStatementOutputBuilder {
     pub fn get_session_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.session_id
     }
+    /// <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+    pub fn execution_mode(mut self, input: crate::types::ExecutionMode) -> Self {
+        self.execution_mode = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+    pub fn set_execution_mode(mut self, input: ::std::option::Option<crate::types::ExecutionMode>) -> Self {
+        self.execution_mode = input;
+        self
+    }
+    /// <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+    pub fn get_execution_mode(&self) -> &::std::option::Option<crate::types::ExecutionMode> {
+        &self.execution_mode
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -607,6 +628,7 @@ impl DescribeStatementOutputBuilder {
             workgroup_name: self.workgroup_name,
             result_format: self.result_format,
             session_id: self.session_id,
+            execution_mode: self.execution_mode,
             _request_id: self._request_id,
         })
     }

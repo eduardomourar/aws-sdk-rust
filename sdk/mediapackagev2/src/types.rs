@@ -11,6 +11,8 @@ pub use crate::types::_input_switch_configuration::InputSwitchConfiguration;
 
 pub use crate::types::_output_header_configuration::OutputHeaderConfiguration;
 
+pub use crate::types::_output_locking_mode::OutputLockingMode;
+
 pub use crate::types::_harvest_job_status::HarvestJobStatus;
 
 pub use crate::types::_harvested_manifests::HarvestedManifests;
@@ -44,6 +46,8 @@ pub use crate::types::_origin_endpoint_list_configuration::OriginEndpointListCon
 pub use crate::types::_scte::Scte;
 
 pub use crate::types::_encryption::Encryption;
+
+pub use crate::types::_output_timestamp_mode::OutputTimestampMode;
 
 pub use crate::types::_create_hls_manifest_configuration::CreateHlsManifestConfiguration;
 
@@ -272,6 +276,10 @@ mod _mss_manifest_layout;
 mod _origin_endpoint_list_configuration;
 
 mod _output_header_configuration;
+
+mod _output_locking_mode;
+
+mod _output_timestamp_mode;
 
 mod _preset_speke20_audio;
 

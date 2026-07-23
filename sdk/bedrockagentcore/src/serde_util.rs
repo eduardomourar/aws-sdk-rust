@@ -1606,6 +1606,21 @@ pub(crate) fn code_interpreter_result_correct_errors(
     builder
 }
 
+pub(crate) fn efs_configuration_correct_errors(
+    mut builder: crate::types::builders::EfsConfigurationBuilder,
+) -> crate::types::builders::EfsConfigurationBuilder {
+    if builder.access_point_arn.is_none() {
+        builder.access_point_arn = Some(Default::default())
+    }
+    if builder.mount_path.is_none() {
+        builder.mount_path = Some(Default::default())
+    }
+    if builder.file_system_arn.is_none() {
+        builder.file_system_arn = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn embedded_crypto_wallet_correct_errors(
     mut builder: crate::types::builders::EmbeddedCryptoWalletBuilder,
 ) -> crate::types::builders::EmbeddedCryptoWalletBuilder {
@@ -1776,6 +1791,21 @@ pub(crate) fn recommendation_result_configuration_bundle_correct_errors(
     }
     if builder.version_id.is_none() {
         builder.version_id = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn s3_files_configuration_correct_errors(
+    mut builder: crate::types::builders::S3FilesConfigurationBuilder,
+) -> crate::types::builders::S3FilesConfigurationBuilder {
+    if builder.access_point_arn.is_none() {
+        builder.access_point_arn = Some(Default::default())
+    }
+    if builder.mount_path.is_none() {
+        builder.mount_path = Some(Default::default())
+    }
+    if builder.file_system_arn.is_none() {
+        builder.file_system_arn = Some(Default::default())
     }
     builder
 }

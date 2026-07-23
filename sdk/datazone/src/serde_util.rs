@@ -2351,6 +2351,22 @@ pub(crate) fn data_source_error_message_correct_errors(
     builder
 }
 
+pub(crate) fn git_metadata_correct_errors(mut builder: crate::types::builders::GitMetadataBuilder) -> crate::types::builders::GitMetadataBuilder {
+    if builder.connection_id.is_none() {
+        builder.connection_id = Some(Default::default())
+    }
+    if builder.repository.is_none() {
+        builder.repository = Some(Default::default())
+    }
+    if builder.branch.is_none() {
+        builder.branch = Some(Default::default())
+    }
+    if builder.commit_hash.is_none() {
+        builder.commit_hash = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn job_run_error_correct_errors(mut builder: crate::types::builders::JobRunErrorBuilder) -> crate::types::builders::JobRunErrorBuilder {
     if builder.message.is_none() {
         builder.message = Some(Default::default())

@@ -273,6 +273,8 @@ pub use crate::types::_browser_enterprise_policy::BrowserEnterprisePolicy;
 
 pub use crate::types::_certificate::Certificate;
 
+pub use crate::types::_tools_file_system_configuration::ToolsFileSystemConfiguration;
+
 pub use crate::types::_code_interpreter_summary::CodeInterpreterSummary;
 
 pub use crate::types::_code_interpreter_network_mode::CodeInterpreterNetworkMode;
@@ -486,6 +488,10 @@ pub use crate::types::_resource_location::ResourceLocation;
 pub use crate::types::_browser_enterprise_policy_type::BrowserEnterprisePolicyType;
 
 pub use crate::types::_certificate_location::CertificateLocation;
+
+pub use crate::types::_s3_files_configuration::S3FilesConfiguration;
+
+pub use crate::types::_efs_configuration::EfsConfiguration;
 
 pub use crate::types::_evaluator_type::EvaluatorType;
 
@@ -1105,6 +1111,8 @@ mod _draft_status;
 
 mod _efs_access_point_configuration;
 
+mod _efs_configuration;
+
 mod _endpoint_ip_address_type;
 
 mod _enforcement_mode;
@@ -1585,6 +1593,8 @@ mod _s3_configuration;
 
 mod _s3_files_access_point_configuration;
 
+mod _s3_files_configuration;
+
 mod _s3_location;
 
 mod _s3_source;
@@ -1710,6 +1720,8 @@ mod _tool_definition;
 mod _tool_schema;
 
 mod _tools_definition;
+
+mod _tools_file_system_configuration;
 
 mod _traffic_split_entry;
 

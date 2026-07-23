@@ -19,6 +19,8 @@ pub struct GetCodeInterpreterOutput {
     pub status: crate::types::CodeInterpreterStatus,
     /// <p>The list of certificates configured for the code interpreter.</p>
     pub certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    /// <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+    pub filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     /// <p>The reason for failure if the code interpreter is in a failed state.</p>
     pub failure_reason: ::std::option::Option<::std::string::String>,
     /// <p>The timestamp when the code interpreter was created.</p>
@@ -65,6 +67,12 @@ impl GetCodeInterpreterOutput {
     pub fn certificates(&self) -> &[crate::types::Certificate] {
         self.certificates.as_deref().unwrap_or_default()
     }
+    /// <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filesystem_configurations.is_none()`.
+    pub fn filesystem_configurations(&self) -> &[crate::types::ToolsFileSystemConfiguration] {
+        self.filesystem_configurations.as_deref().unwrap_or_default()
+    }
     /// <p>The reason for failure if the code interpreter is in a failed state.</p>
     pub fn failure_reason(&self) -> ::std::option::Option<&str> {
         self.failure_reason.as_deref()
@@ -89,6 +97,7 @@ impl ::std::fmt::Debug for GetCodeInterpreterOutput {
         formatter.field("network_configuration", &self.network_configuration);
         formatter.field("status", &self.status);
         formatter.field("certificates", &self.certificates);
+        formatter.field("filesystem_configurations", &self.filesystem_configurations);
         formatter.field("failure_reason", &self.failure_reason);
         formatter.field("created_at", &self.created_at);
         formatter.field("last_updated_at", &self.last_updated_at);
@@ -120,6 +129,7 @@ pub struct GetCodeInterpreterOutputBuilder {
     pub(crate) network_configuration: ::std::option::Option<crate::types::CodeInterpreterNetworkConfiguration>,
     pub(crate) status: ::std::option::Option<crate::types::CodeInterpreterStatus>,
     pub(crate) certificates: ::std::option::Option<::std::vec::Vec<crate::types::Certificate>>,
+    pub(crate) filesystem_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
     pub(crate) failure_reason: ::std::option::Option<::std::string::String>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) last_updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -249,6 +259,29 @@ impl GetCodeInterpreterOutputBuilder {
     pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Certificate>> {
         &self.certificates
     }
+    /// Appends an item to `filesystem_configurations`.
+    ///
+    /// To override the contents of this collection use [`set_filesystem_configurations`](Self::set_filesystem_configurations).
+    ///
+    /// <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+    pub fn filesystem_configurations(mut self, input: crate::types::ToolsFileSystemConfiguration) -> Self {
+        let mut v = self.filesystem_configurations.unwrap_or_default();
+        v.push(input);
+        self.filesystem_configurations = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+    pub fn set_filesystem_configurations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>>,
+    ) -> Self {
+        self.filesystem_configurations = input;
+        self
+    }
+    /// <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+    pub fn get_filesystem_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolsFileSystemConfiguration>> {
+        &self.filesystem_configurations
+    }
     /// <p>The reason for failure if the code interpreter is in a failed state.</p>
     pub fn failure_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.failure_reason = ::std::option::Option::Some(input.into());
@@ -343,6 +376,7 @@ impl GetCodeInterpreterOutputBuilder {
                 )
             })?,
             certificates: self.certificates,
+            filesystem_configurations: self.filesystem_configurations,
             failure_reason: self.failure_reason,
             created_at: self.created_at.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -371,6 +405,7 @@ impl ::std::fmt::Debug for GetCodeInterpreterOutputBuilder {
         formatter.field("network_configuration", &self.network_configuration);
         formatter.field("status", &self.status);
         formatter.field("certificates", &self.certificates);
+        formatter.field("filesystem_configurations", &self.filesystem_configurations);
         formatter.field("failure_reason", &self.failure_reason);
         formatter.field("created_at", &self.created_at);
         formatter.field("last_updated_at", &self.last_updated_at);

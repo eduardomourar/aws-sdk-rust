@@ -38,6 +38,9 @@ pub struct StartStreamSessionInput {
     pub performance_stats_configuration: ::std::option::Option<crate::types::PerformanceStatsConfiguration>,
     /// <p>The ARN of an AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on your behalf during the stream session. The role grants Amazon GameLift Streams permission to obtain temporary credentials for your application. The role's trust policy must allow the <code>gameliftstreams.amazonaws.com</code> service principal to assume it. The role name must start with <code>GameLiftStreams-</code>.</p>
     pub role_arn: ::std::option::Option<::std::string::String>,
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub display_configuration: ::std::option::Option<crate::types::DisplayConfiguration>,
 }
 impl StartStreamSessionInput {
     /// <p>A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field.</p>
@@ -109,6 +112,11 @@ impl StartStreamSessionInput {
     pub fn role_arn(&self) -> ::std::option::Option<&str> {
         self.role_arn.as_deref()
     }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn display_configuration(&self) -> ::std::option::Option<&crate::types::DisplayConfiguration> {
+        self.display_configuration.as_ref()
+    }
 }
 impl ::std::fmt::Debug for StartStreamSessionInput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -127,6 +135,7 @@ impl ::std::fmt::Debug for StartStreamSessionInput {
         formatter.field("additional_environment_variables", &self.additional_environment_variables);
         formatter.field("performance_stats_configuration", &self.performance_stats_configuration);
         formatter.field("role_arn", &"*** Sensitive Data Redacted ***");
+        formatter.field("display_configuration", &self.display_configuration);
         formatter.finish()
     }
 }
@@ -155,6 +164,7 @@ pub struct StartStreamSessionInputBuilder {
     pub(crate) additional_environment_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) performance_stats_configuration: ::std::option::Option<crate::types::PerformanceStatsConfiguration>,
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) display_configuration: ::std::option::Option<crate::types::DisplayConfiguration>,
 }
 impl StartStreamSessionInputBuilder {
     /// <p>A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field.</p>
@@ -405,6 +415,23 @@ impl StartStreamSessionInputBuilder {
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
     }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn display_configuration(mut self, input: crate::types::DisplayConfiguration) -> Self {
+        self.display_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn set_display_configuration(mut self, input: ::std::option::Option<crate::types::DisplayConfiguration>) -> Self {
+        self.display_configuration = input;
+        self
+    }
+    /// <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p>
+    /// <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+    pub fn get_display_configuration(&self) -> &::std::option::Option<crate::types::DisplayConfiguration> {
+        &self.display_configuration
+    }
     /// Consumes the builder and constructs a [`StartStreamSessionInput`](crate::operation::start_stream_session::StartStreamSessionInput).
     pub fn build(
         self,
@@ -425,6 +452,7 @@ impl StartStreamSessionInputBuilder {
             additional_environment_variables: self.additional_environment_variables,
             performance_stats_configuration: self.performance_stats_configuration,
             role_arn: self.role_arn,
+            display_configuration: self.display_configuration,
         })
     }
 }
@@ -445,6 +473,7 @@ impl ::std::fmt::Debug for StartStreamSessionInputBuilder {
         formatter.field("additional_environment_variables", &self.additional_environment_variables);
         formatter.field("performance_stats_configuration", &self.performance_stats_configuration);
         formatter.field("role_arn", &"*** Sensitive Data Redacted ***");
+        formatter.field("display_configuration", &self.display_configuration);
         formatter.finish()
     }
 }

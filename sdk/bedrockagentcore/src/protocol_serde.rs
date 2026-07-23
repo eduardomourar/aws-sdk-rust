@@ -465,6 +465,10 @@ pub(crate) mod shape_token_balance;
 
 pub(crate) mod shape_tool_arguments;
 
+pub(crate) mod shape_tools_file_system_configuration;
+
+pub(crate) mod shape_tools_file_system_configurations;
+
 pub(crate) mod shape_user_identifier;
 
 pub(crate) mod shape_user_intent_clustering_result_content;
@@ -516,6 +520,8 @@ pub(crate) mod shape_conversational;
 pub(crate) mod shape_crypto_x402_payment_input;
 
 pub(crate) mod shape_crypto_x402_payment_output;
+
+pub(crate) mod shape_efs_configuration;
 
 pub(crate) mod shape_embedded_crypto_wallet;
 
@@ -642,6 +648,8 @@ pub(crate) mod shape_registry_record_summary;
 pub(crate) mod shape_resource_location;
 
 pub(crate) mod shape_response_chunk;
+
+pub(crate) mod shape_s3_files_configuration;
 
 pub(crate) mod shape_screenshot_arguments;
 

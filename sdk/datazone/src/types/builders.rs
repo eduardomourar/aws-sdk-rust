@@ -21,6 +21,8 @@ pub use crate::types::_environment_config::EnvironmentConfigBuilder;
 
 pub use crate::types::_notebook_error::NotebookErrorBuilder;
 
+pub use crate::types::_git_metadata::GitMetadataBuilder;
+
 pub use crate::types::_notebook_export_error::NotebookExportErrorBuilder;
 
 pub use crate::types::_compute_config::ComputeConfigBuilder;

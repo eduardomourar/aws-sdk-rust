@@ -37,38 +37,44 @@ pub fn ser_start_stream_session_input_input(
     if let Some(var_11) = &input.description {
         object.key("Description").string(var_11.as_str());
     }
-    if let Some(var_12) = &input.locations {
-        let mut array_13 = object.key("Locations").start_array();
-        for item_14 in var_12 {
+    if let Some(var_12) = &input.display_configuration {
+        #[allow(unused_mut)]
+        let mut object_13 = object.key("DisplayConfiguration").start_object();
+        crate::protocol_serde::shape_display_configuration::ser_display_configuration(&mut object_13, var_12)?;
+        object_13.finish();
+    }
+    if let Some(var_14) = &input.locations {
+        let mut array_15 = object.key("Locations").start_array();
+        for item_16 in var_14 {
             {
-                array_13.value().string(item_14.as_str());
+                array_15.value().string(item_16.as_str());
             }
         }
-        array_13.finish();
+        array_15.finish();
     }
-    if let Some(var_15) = &input.performance_stats_configuration {
+    if let Some(var_17) = &input.performance_stats_configuration {
         #[allow(unused_mut)]
-        let mut object_16 = object.key("PerformanceStatsConfiguration").start_object();
-        crate::protocol_serde::shape_performance_stats_configuration::ser_performance_stats_configuration(&mut object_16, var_15)?;
-        object_16.finish();
+        let mut object_18 = object.key("PerformanceStatsConfiguration").start_object();
+        crate::protocol_serde::shape_performance_stats_configuration::ser_performance_stats_configuration(&mut object_18, var_17)?;
+        object_18.finish();
     }
-    if let Some(var_17) = &input.protocol {
-        object.key("Protocol").string(var_17.as_str());
+    if let Some(var_19) = &input.protocol {
+        object.key("Protocol").string(var_19.as_str());
     }
-    if let Some(var_18) = &input.role_arn {
-        object.key("RoleArn").string(var_18.as_str());
+    if let Some(var_20) = &input.role_arn {
+        object.key("RoleArn").string(var_20.as_str());
     }
-    if let Some(var_19) = &input.session_length_seconds {
+    if let Some(var_21) = &input.session_length_seconds {
         object.key("SessionLengthSeconds").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_19).into()),
+            ::aws_smithy_types::Number::NegInt((*var_21).into()),
         );
     }
-    if let Some(var_20) = &input.signal_request {
-        object.key("SignalRequest").string(var_20.as_str());
+    if let Some(var_22) = &input.signal_request {
+        object.key("SignalRequest").string(var_22.as_str());
     }
-    if let Some(var_21) = &input.user_id {
-        object.key("UserId").string(var_21.as_str());
+    if let Some(var_23) = &input.user_id {
+        object.key("UserId").string(var_23.as_str());
     }
     Ok(())
 }

@@ -60,5 +60,14 @@ pub fn ser_batch_execute_statement_input_input(
     if let Some(var_18) = &input.session_id {
         object.key("SessionId").string(var_18.as_str());
     }
+    if let Some(var_19) = &input.execution_mode {
+        object.key("ExecutionMode").string(var_19.as_str());
+    }
+    if let Some(var_20) = &input.wait_time_seconds {
+        object.key("WaitTimeSeconds").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_20).into()),
+        );
+    }
     Ok(())
 }

@@ -128,17 +128,17 @@ impl BatchExecuteStatementFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_sqls`](Self::set_sqls).
     ///
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub fn sqls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sqls(input.into());
         self
     }
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub fn set_sqls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_sqls(input);
         self
     }
-    /// <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+    /// <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
     pub fn get_sqls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_sqls()
     }
@@ -231,17 +231,17 @@ impl BatchExecuteStatementFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
     ///
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub fn parameters(mut self, input: crate::types::SqlParameter) -> Self {
         self.inner = self.inner.parameters(input);
         self
     }
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SqlParameter>>) -> Self {
         self.inner = self.inner.set_parameters(input);
         self
     }
-    /// <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+    /// <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
     pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SqlParameter>> {
         self.inner.get_parameters()
     }
@@ -314,5 +314,33 @@ impl BatchExecuteStatementFluentBuilder {
     /// <p>The session identifier of the query.</p>
     pub fn get_session_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_session_id()
+    }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn execution_mode(mut self, input: crate::types::ExecutionMode) -> Self {
+        self.inner = self.inner.execution_mode(input);
+        self
+    }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn set_execution_mode(mut self, input: ::std::option::Option<crate::types::ExecutionMode>) -> Self {
+        self.inner = self.inner.set_execution_mode(input);
+        self
+    }
+    /// <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+    pub fn get_execution_mode(&self) -> &::std::option::Option<crate::types::ExecutionMode> {
+        self.inner.get_execution_mode()
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn wait_time_seconds(mut self, input: i32) -> Self {
+        self.inner = self.inner.wait_time_seconds(input);
+        self
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn set_wait_time_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.inner = self.inner.set_wait_time_seconds(input);
+        self
+    }
+    /// <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+    pub fn get_wait_time_seconds(&self) -> &::std::option::Option<i32> {
+        self.inner.get_wait_time_seconds()
     }
 }

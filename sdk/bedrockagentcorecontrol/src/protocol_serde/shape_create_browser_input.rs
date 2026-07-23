@@ -42,30 +42,42 @@ pub fn ser_create_browser_input_input(
     if let Some(var_13) = &input.execution_role_arn {
         object.key("executionRoleArn").string(var_13.as_str());
     }
-    if let Some(var_14) = &input.name {
-        object.key("name").string(var_14.as_str());
-    }
-    if let Some(var_15) = &input.network_configuration {
-        #[allow(unused_mut)]
-        let mut object_16 = object.key("networkConfiguration").start_object();
-        crate::protocol_serde::shape_browser_network_configuration::ser_browser_network_configuration(&mut object_16, var_15)?;
-        object_16.finish();
-    }
-    if let Some(var_17) = &input.recording {
-        #[allow(unused_mut)]
-        let mut object_18 = object.key("recording").start_object();
-        crate::protocol_serde::shape_recording_config::ser_recording_config(&mut object_18, var_17)?;
-        object_18.finish();
-    }
-    if let Some(var_19) = &input.tags {
-        #[allow(unused_mut)]
-        let mut object_20 = object.key("tags").start_object();
-        for (key_21, value_22) in var_19 {
+    if let Some(var_14) = &input.filesystem_configurations {
+        let mut array_15 = object.key("filesystemConfigurations").start_array();
+        for item_16 in var_14 {
             {
-                object_20.key(key_21.as_str()).string(value_22.as_str());
+                #[allow(unused_mut)]
+                let mut object_17 = array_15.value().start_object();
+                crate::protocol_serde::shape_tools_file_system_configuration::ser_tools_file_system_configuration(&mut object_17, item_16)?;
+                object_17.finish();
             }
         }
+        array_15.finish();
+    }
+    if let Some(var_18) = &input.name {
+        object.key("name").string(var_18.as_str());
+    }
+    if let Some(var_19) = &input.network_configuration {
+        #[allow(unused_mut)]
+        let mut object_20 = object.key("networkConfiguration").start_object();
+        crate::protocol_serde::shape_browser_network_configuration::ser_browser_network_configuration(&mut object_20, var_19)?;
         object_20.finish();
+    }
+    if let Some(var_21) = &input.recording {
+        #[allow(unused_mut)]
+        let mut object_22 = object.key("recording").start_object();
+        crate::protocol_serde::shape_recording_config::ser_recording_config(&mut object_22, var_21)?;
+        object_22.finish();
+    }
+    if let Some(var_23) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_24 = object.key("tags").start_object();
+        for (key_25, value_26) in var_23 {
+            {
+                object_24.key(key_25.as_str()).string(value_26.as_str());
+            }
+        }
+        object_24.finish();
     }
     Ok(())
 }

@@ -16,7 +16,7 @@ pub struct UpdateTrailOutput {
     /// <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The following is the format of a topic ARN.</p>
     /// <p><code>arn:aws:sns:us-east-2:123456789012:MyTopic</code></p>
     pub sns_topic_arn: ::std::option::Option<::std::string::String>,
-    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
+    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files. Setting this value to <code>true</code> only delivers global service events to the trail if the trail is multi-Region or if the trail's home Region is the partition leader Region (for example, us-east-1).</p>
     pub include_global_service_events: ::std::option::Option<bool>,
     /// <p>Specifies whether the trail exists in one Region or in all Regions.</p>
     pub is_multi_region_trail: ::std::option::Option<bool>,
@@ -34,6 +34,8 @@ pub struct UpdateTrailOutput {
     pub kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether the trail is an organization trail.</p>
     pub is_organization_trail: ::std::option::Option<bool>,
+    /// <p>Specifies whether recursive logging is enabled for the trail.</p>
+    pub recursive_logging: ::std::option::Option<bool>,
     _request_id: Option<String>,
 }
 impl UpdateTrailOutput {
@@ -59,7 +61,7 @@ impl UpdateTrailOutput {
     pub fn sns_topic_arn(&self) -> ::std::option::Option<&str> {
         self.sns_topic_arn.as_deref()
     }
-    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
+    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files. Setting this value to <code>true</code> only delivers global service events to the trail if the trail is multi-Region or if the trail's home Region is the partition leader Region (for example, us-east-1).</p>
     pub fn include_global_service_events(&self) -> ::std::option::Option<bool> {
         self.include_global_service_events
     }
@@ -93,6 +95,10 @@ impl UpdateTrailOutput {
     pub fn is_organization_trail(&self) -> ::std::option::Option<bool> {
         self.is_organization_trail
     }
+    /// <p>Specifies whether recursive logging is enabled for the trail.</p>
+    pub fn recursive_logging(&self) -> ::std::option::Option<bool> {
+        self.recursive_logging
+    }
 }
 impl ::aws_types::request_id::RequestId for UpdateTrailOutput {
     fn request_id(&self) -> Option<&str> {
@@ -123,6 +129,7 @@ pub struct UpdateTrailOutputBuilder {
     pub(crate) cloud_watch_logs_role_arn: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) is_organization_trail: ::std::option::Option<bool>,
+    pub(crate) recursive_logging: ::std::option::Option<bool>,
     _request_id: Option<String>,
 }
 impl UpdateTrailOutputBuilder {
@@ -202,17 +209,17 @@ impl UpdateTrailOutputBuilder {
     pub fn get_sns_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.sns_topic_arn
     }
-    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
+    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files. Setting this value to <code>true</code> only delivers global service events to the trail if the trail is multi-Region or if the trail's home Region is the partition leader Region (for example, us-east-1).</p>
     pub fn include_global_service_events(mut self, input: bool) -> Self {
         self.include_global_service_events = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
+    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files. Setting this value to <code>true</code> only delivers global service events to the trail if the trail is multi-Region or if the trail's home Region is the partition leader Region (for example, us-east-1).</p>
     pub fn set_include_global_service_events(mut self, input: ::std::option::Option<bool>) -> Self {
         self.include_global_service_events = input;
         self
     }
-    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
+    /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files. Setting this value to <code>true</code> only delivers global service events to the trail if the trail is multi-Region or if the trail's home Region is the partition leader Region (for example, us-east-1).</p>
     pub fn get_include_global_service_events(&self) -> &::std::option::Option<bool> {
         &self.include_global_service_events
     }
@@ -320,6 +327,20 @@ impl UpdateTrailOutputBuilder {
     pub fn get_is_organization_trail(&self) -> &::std::option::Option<bool> {
         &self.is_organization_trail
     }
+    /// <p>Specifies whether recursive logging is enabled for the trail.</p>
+    pub fn recursive_logging(mut self, input: bool) -> Self {
+        self.recursive_logging = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether recursive logging is enabled for the trail.</p>
+    pub fn set_recursive_logging(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.recursive_logging = input;
+        self
+    }
+    /// <p>Specifies whether recursive logging is enabled for the trail.</p>
+    pub fn get_recursive_logging(&self) -> &::std::option::Option<bool> {
+        &self.recursive_logging
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -345,6 +366,7 @@ impl UpdateTrailOutputBuilder {
             cloud_watch_logs_role_arn: self.cloud_watch_logs_role_arn,
             kms_key_id: self.kms_key_id,
             is_organization_trail: self.is_organization_trail,
+            recursive_logging: self.recursive_logging,
             _request_id: self._request_id,
         }
     }

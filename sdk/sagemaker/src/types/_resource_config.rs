@@ -39,6 +39,13 @@ pub struct ResourceConfig {
     pub training_plan_arn: ::std::option::Option<::std::string::String>,
     /// <p>Configuration for how training job instances are placed and allocated within UltraServers. Only applicable for UltraServer capacity.</p>
     pub instance_placement_config: ::std::option::Option<crate::types::InstancePlacementConfig>,
+    /// <p>An ordered list of ML compute instance types for the training job, in priority order. SageMaker launches the training job on the first instance type in the list that has available capacity. If capacity is insufficient, SageMaker evaluates the next instance type in the preferred list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>, <code>InstanceGroups</code>, <code>InstancePlacementConfig</code>, and <code>EnableManagedSpotTraining</code>, and supports only Flexible Training Plans (FTP) and On-Demand capacity.</p>
+    pub instance_preferences: ::std::option::Option<::std::vec::Vec<crate::types::InstancePreference>>,
+    /// <p>The instance type that SageMaker selected for the job from the provided <code>InstancePreferences</code>. The job is billed for this instance type and count. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub selected_instance_type: ::std::option::Option<crate::types::TrainingInstanceType>,
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the training job launched with. The job is billed for this instance type and count. Returned by <code>DescribeTrainingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub selected_instance_count: ::std::option::Option<i32>,
 }
 impl ResourceConfig {
     /// <p>The ML compute instance type.</p>
@@ -94,6 +101,21 @@ impl ResourceConfig {
     pub fn instance_placement_config(&self) -> ::std::option::Option<&crate::types::InstancePlacementConfig> {
         self.instance_placement_config.as_ref()
     }
+    /// <p>An ordered list of ML compute instance types for the training job, in priority order. SageMaker launches the training job on the first instance type in the list that has available capacity. If capacity is insufficient, SageMaker evaluates the next instance type in the preferred list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>, <code>InstanceGroups</code>, <code>InstancePlacementConfig</code>, and <code>EnableManagedSpotTraining</code>, and supports only Flexible Training Plans (FTP) and On-Demand capacity.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.instance_preferences.is_none()`.
+    pub fn instance_preferences(&self) -> &[crate::types::InstancePreference] {
+        self.instance_preferences.as_deref().unwrap_or_default()
+    }
+    /// <p>The instance type that SageMaker selected for the job from the provided <code>InstancePreferences</code>. The job is billed for this instance type and count. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn selected_instance_type(&self) -> ::std::option::Option<&crate::types::TrainingInstanceType> {
+        self.selected_instance_type.as_ref()
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the training job launched with. The job is billed for this instance type and count. Returned by <code>DescribeTrainingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn selected_instance_count(&self) -> ::std::option::Option<i32> {
+        self.selected_instance_count
+    }
 }
 impl ResourceConfig {
     /// Creates a new builder-style object to manufacture [`ResourceConfig`](crate::types::ResourceConfig).
@@ -114,6 +136,9 @@ pub struct ResourceConfigBuilder {
     pub(crate) instance_groups: ::std::option::Option<::std::vec::Vec<crate::types::InstanceGroup>>,
     pub(crate) training_plan_arn: ::std::option::Option<::std::string::String>,
     pub(crate) instance_placement_config: ::std::option::Option<crate::types::InstancePlacementConfig>,
+    pub(crate) instance_preferences: ::std::option::Option<::std::vec::Vec<crate::types::InstancePreference>>,
+    pub(crate) selected_instance_type: ::std::option::Option<crate::types::TrainingInstanceType>,
+    pub(crate) selected_instance_count: ::std::option::Option<i32>,
 }
 impl ResourceConfigBuilder {
     /// <p>The ML compute instance type.</p>
@@ -291,6 +316,57 @@ impl ResourceConfigBuilder {
     pub fn get_instance_placement_config(&self) -> &::std::option::Option<crate::types::InstancePlacementConfig> {
         &self.instance_placement_config
     }
+    /// Appends an item to `instance_preferences`.
+    ///
+    /// To override the contents of this collection use [`set_instance_preferences`](Self::set_instance_preferences).
+    ///
+    /// <p>An ordered list of ML compute instance types for the training job, in priority order. SageMaker launches the training job on the first instance type in the list that has available capacity. If capacity is insufficient, SageMaker evaluates the next instance type in the preferred list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>, <code>InstanceGroups</code>, <code>InstancePlacementConfig</code>, and <code>EnableManagedSpotTraining</code>, and supports only Flexible Training Plans (FTP) and On-Demand capacity.</p>
+    pub fn instance_preferences(mut self, input: crate::types::InstancePreference) -> Self {
+        let mut v = self.instance_preferences.unwrap_or_default();
+        v.push(input);
+        self.instance_preferences = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>An ordered list of ML compute instance types for the training job, in priority order. SageMaker launches the training job on the first instance type in the list that has available capacity. If capacity is insufficient, SageMaker evaluates the next instance type in the preferred list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>, <code>InstanceGroups</code>, <code>InstancePlacementConfig</code>, and <code>EnableManagedSpotTraining</code>, and supports only Flexible Training Plans (FTP) and On-Demand capacity.</p>
+    pub fn set_instance_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InstancePreference>>) -> Self {
+        self.instance_preferences = input;
+        self
+    }
+    /// <p>An ordered list of ML compute instance types for the training job, in priority order. SageMaker launches the training job on the first instance type in the list that has available capacity. If capacity is insufficient, SageMaker evaluates the next instance type in the preferred list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>, <code>InstanceGroups</code>, <code>InstancePlacementConfig</code>, and <code>EnableManagedSpotTraining</code>, and supports only Flexible Training Plans (FTP) and On-Demand capacity.</p>
+    pub fn get_instance_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstancePreference>> {
+        &self.instance_preferences
+    }
+    /// <p>The instance type that SageMaker selected for the job from the provided <code>InstancePreferences</code>. The job is billed for this instance type and count. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn selected_instance_type(mut self, input: crate::types::TrainingInstanceType) -> Self {
+        self.selected_instance_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The instance type that SageMaker selected for the job from the provided <code>InstancePreferences</code>. The job is billed for this instance type and count. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn set_selected_instance_type(mut self, input: ::std::option::Option<crate::types::TrainingInstanceType>) -> Self {
+        self.selected_instance_type = input;
+        self
+    }
+    /// <p>The instance type that SageMaker selected for the job from the provided <code>InstancePreferences</code>. The job is billed for this instance type and count. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn get_selected_instance_type(&self) -> &::std::option::Option<crate::types::TrainingInstanceType> {
+        &self.selected_instance_type
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the training job launched with. The job is billed for this instance type and count. Returned by <code>DescribeTrainingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn selected_instance_count(mut self, input: i32) -> Self {
+        self.selected_instance_count = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the training job launched with. The job is billed for this instance type and count. Returned by <code>DescribeTrainingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn set_selected_instance_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.selected_instance_count = input;
+        self
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the training job launched with. The job is billed for this instance type and count. Returned by <code>DescribeTrainingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateTrainingJob</code> requests.</p>
+    pub fn get_selected_instance_count(&self) -> &::std::option::Option<i32> {
+        &self.selected_instance_count
+    }
     /// Consumes the builder and constructs a [`ResourceConfig`](crate::types::ResourceConfig).
     pub fn build(self) -> crate::types::ResourceConfig {
         crate::types::ResourceConfig {
@@ -302,6 +378,9 @@ impl ResourceConfigBuilder {
             instance_groups: self.instance_groups,
             training_plan_arn: self.training_plan_arn,
             instance_placement_config: self.instance_placement_config,
+            instance_preferences: self.instance_preferences,
+            selected_instance_type: self.selected_instance_type,
+            selected_instance_count: self.selected_instance_count,
         }
     }
 }

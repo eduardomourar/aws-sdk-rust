@@ -226,6 +226,25 @@ impl RequestPhoneNumberFluentBuilder {
     pub fn get_registration_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_registration_id()
     }
+    ///
+    /// Appends an item to `NumberPreference`.
+    ///
+    /// To override the contents of this collection use [`set_number_preference`](Self::set_number_preference).
+    ///
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub fn number_preference(mut self, input: crate::types::NumberPreferenceItem) -> Self {
+        self.inner = self.inner.number_preference(input);
+        self
+    }
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub fn set_number_preference(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NumberPreferenceItem>>) -> Self {
+        self.inner = self.inner.set_number_preference(input);
+        self
+    }
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub fn get_number_preference(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NumberPreferenceItem>> {
+        self.inner.get_number_preference()
+    }
     /// <p>By default this is set to false. When set to true the international sending of phone number is Enabled.</p>
     pub fn international_sending_enabled(mut self, input: bool) -> Self {
         self.inner = self.inner.international_sending_enabled(input);

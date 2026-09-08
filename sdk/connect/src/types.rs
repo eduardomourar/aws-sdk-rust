@@ -1239,6 +1239,8 @@ pub use crate::types::_evaluation_review_notification_recipient_value::Evaluatio
 
 pub use crate::types::_behavior_type::BehaviorType;
 
+pub use crate::types::_workload_type_concurrency::WorkloadTypeConcurrency;
+
 pub use crate::types::_notification_delivery_type::NotificationDeliveryType;
 
 pub use crate::types::_notification_content_type::NotificationContentType;
@@ -1393,6 +1395,8 @@ pub use crate::types::_question_points_configuration::QuestionPointsConfiguratio
 
 pub use crate::types::_metric_filter::MetricFilter;
 
+pub use crate::types::_cross_channel_workload_behavior::CrossChannelWorkloadBehavior;
+
 pub use crate::types::_field_value::FieldValue;
 
 pub use crate::types::_sla_type::SlaType;
@@ -1464,6 +1468,8 @@ pub use crate::types::_metric_filter_number_condition::MetricFilterNumberConditi
 pub use crate::types::_metric_filter_string_condition::MetricFilterStringCondition;
 
 pub use crate::types::_metric_filter_boolean_condition::MetricFilterBooleanCondition;
+
+pub use crate::types::_channel_workload_behavior_type::ChannelWorkloadBehaviorType;
 
 pub use crate::types::_field_value_union::FieldValueUnion;
 
@@ -1737,6 +1743,8 @@ mod _case_sla_configuration;
 
 mod _channel;
 
+mod _channel_workload_behavior_type;
+
 mod _chat_contact_metrics;
 
 mod _chat_entry_point_parameters;
@@ -1878,6 +1886,8 @@ mod _created_by_info;
 mod _credentials;
 
 mod _cross_channel_behavior;
+
+mod _cross_channel_workload_behavior;
 
 mod _current_metric;
 
@@ -3100,6 +3110,8 @@ mod _web_notification_source;
 mod _widget_destination;
 
 mod _wisdom_info;
+
+mod _workload_type_concurrency;
 
 mod _workspace;
 

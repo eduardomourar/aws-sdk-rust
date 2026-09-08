@@ -40,6 +40,8 @@ pub struct PhoneNumberInformation {
     pub pool_id: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier for the registration.</p>
     pub registration_id: ::std::option::Option<::std::string::String>,
+    /// <p>The messaging limits that apply to the phone number, including the per-capability send rates and any advisory per-provider daily message caps.</p>
+    pub messaging_limits: ::std::option::Option<crate::types::MessagingLimits>,
     /// <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     pub created_timestamp: ::aws_smithy_types::DateTime,
 }
@@ -122,6 +124,10 @@ impl PhoneNumberInformation {
     pub fn registration_id(&self) -> ::std::option::Option<&str> {
         self.registration_id.as_deref()
     }
+    /// <p>The messaging limits that apply to the phone number, including the per-capability send rates and any advisory per-provider daily message caps.</p>
+    pub fn messaging_limits(&self) -> ::std::option::Option<&crate::types::MessagingLimits> {
+        self.messaging_limits.as_ref()
+    }
     /// <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     pub fn created_timestamp(&self) -> &::aws_smithy_types::DateTime {
         &self.created_timestamp
@@ -156,6 +162,7 @@ pub struct PhoneNumberInformationBuilder {
     pub(crate) deletion_protection_enabled: ::std::option::Option<bool>,
     pub(crate) pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) registration_id: ::std::option::Option<::std::string::String>,
+    pub(crate) messaging_limits: ::std::option::Option<crate::types::MessagingLimits>,
     pub(crate) created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl PhoneNumberInformationBuilder {
@@ -428,6 +435,20 @@ impl PhoneNumberInformationBuilder {
     pub fn get_registration_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.registration_id
     }
+    /// <p>The messaging limits that apply to the phone number, including the per-capability send rates and any advisory per-provider daily message caps.</p>
+    pub fn messaging_limits(mut self, input: crate::types::MessagingLimits) -> Self {
+        self.messaging_limits = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The messaging limits that apply to the phone number, including the per-capability send rates and any advisory per-provider daily message caps.</p>
+    pub fn set_messaging_limits(mut self, input: ::std::option::Option<crate::types::MessagingLimits>) -> Self {
+        self.messaging_limits = input;
+        self
+    }
+    /// <p>The messaging limits that apply to the phone number, including the per-capability send rates and any advisory per-provider daily message caps.</p>
+    pub fn get_messaging_limits(&self) -> &::std::option::Option<crate::types::MessagingLimits> {
+        &self.messaging_limits
+    }
     /// <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     /// This field is required.
     pub fn created_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
@@ -520,6 +541,7 @@ impl PhoneNumberInformationBuilder {
             deletion_protection_enabled: self.deletion_protection_enabled.unwrap_or_default(),
             pool_id: self.pool_id,
             registration_id: self.registration_id,
+            messaging_limits: self.messaging_limits,
             created_timestamp: self.created_timestamp.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "created_timestamp",

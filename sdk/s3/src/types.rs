@@ -25,6 +25,8 @@ pub use crate::types::_object_lock_mode::ObjectLockMode;
 
 pub use crate::types::_object_lock_legal_hold_status::ObjectLockLegalHoldStatus;
 
+pub use crate::types::_object_lock_event_hold::ObjectLockEventHold;
+
 pub use crate::types::_copy_object_result::CopyObjectResult;
 
 pub use crate::types::_bucket_canned_acl::BucketCannedAcl;
@@ -230,6 +232,8 @@ pub use crate::types::_object_lock_enabled::ObjectLockEnabled;
 pub use crate::types::_object_lock_rule::ObjectLockRule;
 
 pub use crate::types::_object_lock_retention_mode::ObjectLockRetentionMode;
+
+pub use crate::types::_event_hold_duration::EventHoldDuration;
 
 pub use crate::types::_bucket::Bucket;
 
@@ -611,6 +615,8 @@ mod _event;
 
 mod _event_bridge_configuration;
 
+mod _event_hold_duration;
+
 mod _existing_object_replication;
 
 mod _existing_object_replication_status;
@@ -762,6 +768,8 @@ mod _object_identifier;
 mod _object_lock_configuration;
 
 mod _object_lock_enabled;
+
+mod _object_lock_event_hold;
 
 mod _object_lock_legal_hold;
 

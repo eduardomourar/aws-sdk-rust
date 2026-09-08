@@ -2871,6 +2871,8 @@ pub use crate::types::_application_status_check_enum::ApplicationStatusCheckEnum
 
 pub use crate::types::_application_status_reason::ApplicationStatusReason;
 
+pub use crate::types::_network_card_interface_type::NetworkCardInterfaceType;
+
 pub use crate::types::_instance_attachment_ena_srd_udp_specification::InstanceAttachmentEnaSrdUdpSpecification;
 
 pub use crate::types::_rule_option::RuleOption;
@@ -4612,6 +4614,8 @@ mod _network_bandwidth_gbps;
 mod _network_bandwidth_gbps_request;
 
 mod _network_card_info;
+
+mod _network_card_interface_type;
 
 mod _network_info;
 

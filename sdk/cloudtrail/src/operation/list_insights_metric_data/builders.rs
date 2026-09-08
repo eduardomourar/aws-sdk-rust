@@ -39,7 +39,9 @@ impl crate::operation::list_insights_metric_data::builders::ListInsightsMetricDa
 /// <p>If <code>ListInsightsMetricData</code> is invoked with <code>TrailName</code> parameter, access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action and <code>cloudtrail:ListInsightsData</code>. To use this operation, you must have permissions to perform the <code>cloudtrail:LookupEvents</code> and <code>cloudtrail:ListInsightsData</code> action on the specific trail.</p></li>
 /// <li>
 /// <p>If <code>ListInsightsMetricData</code> is invoked without <code>TrailName</code> parameter, access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action only. To use this operation, you must have permissions to perform the <code>cloudtrail:LookupEvents</code> action.</p></li>
-/// </ul>
+/// </ul><note>
+/// <p>For data event Insights on organization trails, only the management account and delegated administrator accounts can call <code>ListInsightsMetricData</code>. For these callers, the API returns Insights metrics only for the caller's own account. Member accounts cannot call this API on organization trails.</p>
+/// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListInsightsMetricDataFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,

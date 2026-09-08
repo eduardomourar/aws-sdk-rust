@@ -139,6 +139,8 @@ pub use crate::types::_object_lambda_transformation_configuration::ObjectLambdaT
 
 pub use crate::types::_s3_object_metadata::S3ObjectMetadataBuilder;
 
+pub use crate::types::_s3_object_lock_event_hold_duration::S3ObjectLockEventHoldDurationBuilder;
+
 pub use crate::types::_s3_access_control_policy::S3AccessControlPolicyBuilder;
 
 pub use crate::types::_s3_object_lock_legal_hold::S3ObjectLockLegalHoldBuilder;
@@ -204,6 +206,8 @@ pub use crate::types::_storage_lens_table_destination::StorageLensTableDestinati
 pub use crate::types::_s3_grant::S3GrantBuilder;
 
 pub use crate::types::_s3_access_control_list::S3AccessControlListBuilder;
+
+pub use crate::types::_s3_object_lock_retention_event_hold_duration::S3ObjectLockRetentionEventHoldDurationBuilder;
 
 pub use crate::types::_s3_update_object_encryption_ssekms::S3UpdateObjectEncryptionSsekmsBuilder;
 

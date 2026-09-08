@@ -240,6 +240,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for StartRunTelem
                 captured.insert("configurationName", value);
             }
         }
+        if requested.should_capture("sessionPolicy") {
+            if let ::std::option::Option::Some(value) = input.session_policy.as_deref() {
+                captured.insert("sessionPolicy", value);
+            }
+        }
 
         cfg.interceptor_state().store_put(captured);
         ::std::result::Result::Ok(())
@@ -377,7 +382,7 @@ pub enum StartRunError {
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
     /// <p>The request was denied due to request throttling.</p>
     ThrottlingException(crate::types::error::ThrottlingException),
-    /// <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+    /// <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \

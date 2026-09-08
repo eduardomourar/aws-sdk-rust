@@ -42,6 +42,16 @@ where
                                     .transpose()?,
                             );
                         }
+                        "volumeInitializationRate" => {
+                            builder = builder.set_volume_initialization_rate(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "deleteOnTermination" => {
+                            builder = builder.set_delete_on_termination(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {
@@ -77,6 +87,15 @@ pub fn ser_launch_template_disk_conf(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
+    }
+    if let Some(var_4) = &input.volume_initialization_rate {
+        object.key("volumeInitializationRate").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        );
+    }
+    if let Some(var_5) = &input.delete_on_termination {
+        object.key("deleteOnTermination").boolean(*var_5);
     }
     Ok(())
 }

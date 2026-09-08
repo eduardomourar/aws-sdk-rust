@@ -70,6 +70,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "MessagingLimits" => {
+                            builder = builder.set_messaging_limits(crate::protocol_serde::shape_messaging_limits::de_messaging_limits(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

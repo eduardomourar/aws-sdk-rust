@@ -9,7 +9,7 @@ pub struct StartRunInput {
     pub workflow_type: ::std::option::Option<crate::types::WorkflowType>,
     /// <p>The ID of a run to duplicate.</p>
     pub run_id: ::std::option::Option<::std::string::String>,
-    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
     pub role_arn: ::std::option::Option<::std::string::String>,
     /// <p>A name for the run. This is recommended to view and organize runs in the Amazon Web Services HealthOmics console and CloudWatch logs.</p>
     pub name: ::std::option::Option<::std::string::String>,
@@ -49,6 +49,8 @@ pub struct StartRunInput {
     pub scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
     /// <p>Optional configuration name to use for the workflow run.</p>
     pub configuration_name: ::std::option::Option<::std::string::String>,
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub session_policy: ::std::option::Option<::std::string::String>,
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
 }
@@ -65,7 +67,7 @@ impl StartRunInput {
     pub fn run_id(&self) -> ::std::option::Option<&str> {
         self.run_id.as_deref()
     }
-    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
     pub fn role_arn(&self) -> ::std::option::Option<&str> {
         self.role_arn.as_deref()
     }
@@ -143,6 +145,10 @@ impl StartRunInput {
     pub fn configuration_name(&self) -> ::std::option::Option<&str> {
         self.configuration_name.as_deref()
     }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn session_policy(&self) -> ::std::option::Option<&str> {
+        self.session_policy.as_deref()
+    }
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub fn engine_settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.engine_settings.as_ref()
@@ -181,6 +187,7 @@ pub struct StartRunInputBuilder {
     pub(crate) networking_mode: ::std::option::Option<crate::types::NetworkingMode>,
     pub(crate) scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
     pub(crate) configuration_name: ::std::option::Option<::std::string::String>,
+    pub(crate) session_policy: ::std::option::Option<::std::string::String>,
     pub(crate) engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl StartRunInputBuilder {
@@ -226,18 +233,18 @@ impl StartRunInputBuilder {
     pub fn get_run_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.run_id
     }
-    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
     /// This field is required.
     pub fn role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_arn = input;
         self
     }
-    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+    /// <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
     }
@@ -507,6 +514,20 @@ impl StartRunInputBuilder {
     pub fn get_configuration_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_name
     }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn session_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.session_policy = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn set_session_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.session_policy = input;
+        self
+    }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn get_session_policy(&self) -> &::std::option::Option<::std::string::String> {
+        &self.session_policy
+    }
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub fn engine_settings(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.engine_settings = ::std::option::Option::Some(input);
@@ -546,6 +567,7 @@ impl StartRunInputBuilder {
             networking_mode: self.networking_mode,
             scratch_storage_mode: self.scratch_storage_mode,
             configuration_name: self.configuration_name,
+            session_policy: self.session_policy,
             engine_settings: self.engine_settings,
         })
     }

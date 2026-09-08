@@ -6,8 +6,11 @@ pub fn ser_snowflake_connector_profile_credentials(
     {
         object.key("username").string(input.username.as_str());
     }
-    {
-        object.key("password").string(input.password.as_str());
+    if let Some(var_1) = &input.password {
+        object.key("password").string(var_1.as_str());
+    }
+    if let Some(var_2) = &input.private_key {
+        object.key("privateKey").string(var_2.as_str());
     }
     Ok(())
 }

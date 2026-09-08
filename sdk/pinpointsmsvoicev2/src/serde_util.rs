@@ -588,6 +588,15 @@ pub(crate) fn get_protect_configuration_country_rule_set_output_output_correct_e
     builder
 }
 
+pub(crate) fn list_available_phone_numbers_output_output_correct_errors(
+    mut builder: crate::operation::list_available_phone_numbers::builders::ListAvailablePhoneNumbersOutputBuilder,
+) -> crate::operation::list_available_phone_numbers::builders::ListAvailablePhoneNumbersOutputBuilder {
+    if builder.available_phone_numbers.is_none() {
+        builder.available_phone_numbers = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_protect_configuration_rule_set_number_overrides_output_output_correct_errors(
     mut builder: crate::operation::list_protect_configuration_rule_set_number_overrides::builders::ListProtectConfigurationRuleSetNumberOverridesOutputBuilder,
 ) -> crate::operation::list_protect_configuration_rule_set_number_overrides::builders::ListProtectConfigurationRuleSetNumberOverridesOutputBuilder {

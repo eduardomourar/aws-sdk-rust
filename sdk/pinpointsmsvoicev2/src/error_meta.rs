@@ -2620,6 +2620,48 @@ impl From<crate::operation::get_resource_policy::GetResourcePolicyError> for Err
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError, R>,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError> for Error {
+    fn from(err: crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError) -> Self {
+        match err {
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::ConflictException(inner) => {
+                Error::ConflictException(inner)
+            }
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::list_available_phone_numbers::ListAvailablePhoneNumbersError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_notify_countries::ListNotifyCountriesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

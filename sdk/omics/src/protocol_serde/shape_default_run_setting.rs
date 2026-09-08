@@ -153,6 +153,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "sessionPolicy" => {
+                            builder = builder.set_session_policy(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
                         "engineSettings" => {
                             builder = builder.set_engine_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
@@ -259,11 +266,14 @@ pub fn ser_default_run_setting(
     if let Some(var_21) = &input.configuration_name {
         object.key("configurationName").string(var_21.as_str());
     }
-    if let Some(var_22) = &input.engine_settings {
-        object.key("engineSettings").document(var_22);
+    if let Some(var_22) = &input.session_policy {
+        object.key("sessionPolicy").string(var_22.as_str());
     }
-    if let Some(var_23) = &input.scratch_storage_mode {
-        object.key("scratchStorageMode").string(var_23.as_str());
+    if let Some(var_23) = &input.engine_settings {
+        object.key("engineSettings").document(var_23);
+    }
+    if let Some(var_24) = &input.scratch_storage_mode {
+        object.key("scratchStorageMode").string(var_24.as_str());
     }
     Ok(())
 }

@@ -22,6 +22,9 @@ impl crate::operation::delete_event_data_store::builders::DeleteEventDataStoreIn
 }
 /// Fluent builder constructing a request to `DeleteEventDataStore`.
 ///
+/// <important>
+/// <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+/// </important>
 /// <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait period of seven days. <code>TerminationProtectionEnabled</code> must be set to <code>False</code> on the event data store and the <code>FederationStatus</code> must be <code>DISABLED</code>. You cannot delete an event data store if <code>TerminationProtectionEnabled</code> is <code>True</code> or the <code>FederationStatus</code> is <code>ENABLED</code>.</p>
 /// <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run <code>ListQueries</code>, <code>DescribeQuery</code>, or <code>GetQueryResults</code> on queries that are using an event data store in a <code>PENDING_DELETION</code> state. An event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]

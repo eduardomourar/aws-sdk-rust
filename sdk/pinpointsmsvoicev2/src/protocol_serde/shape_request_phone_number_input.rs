@@ -30,26 +30,38 @@ pub fn ser_request_phone_number_input_input(
     if let Some(var_9) = &input.registration_id {
         object.key("RegistrationId").string(var_9.as_str());
     }
-    if let Some(var_10) = &input.international_sending_enabled {
-        object.key("InternationalSendingEnabled").boolean(*var_10);
-    }
-    if let Some(var_11) = &input.deletion_protection_enabled {
-        object.key("DeletionProtectionEnabled").boolean(*var_11);
-    }
-    if let Some(var_12) = &input.tags {
-        let mut array_13 = object.key("Tags").start_array();
-        for item_14 in var_12 {
+    if let Some(var_10) = &input.number_preference {
+        let mut array_11 = object.key("NumberPreference").start_array();
+        for item_12 in var_10 {
             {
                 #[allow(unused_mut)]
-                let mut object_15 = array_13.value().start_object();
-                crate::protocol_serde::shape_tag::ser_tag(&mut object_15, item_14)?;
-                object_15.finish();
+                let mut object_13 = array_11.value().start_object();
+                crate::protocol_serde::shape_number_preference_item::ser_number_preference_item(&mut object_13, item_12)?;
+                object_13.finish();
             }
         }
-        array_13.finish();
+        array_11.finish();
     }
-    if let Some(var_16) = &input.client_token {
-        object.key("ClientToken").string(var_16.as_str());
+    if let Some(var_14) = &input.international_sending_enabled {
+        object.key("InternationalSendingEnabled").boolean(*var_14);
+    }
+    if let Some(var_15) = &input.deletion_protection_enabled {
+        object.key("DeletionProtectionEnabled").boolean(*var_15);
+    }
+    if let Some(var_16) = &input.tags {
+        let mut array_17 = object.key("Tags").start_array();
+        for item_18 in var_16 {
+            {
+                #[allow(unused_mut)]
+                let mut object_19 = array_17.value().start_object();
+                crate::protocol_serde::shape_tag::ser_tag(&mut object_19, item_18)?;
+                object_19.finish();
+            }
+        }
+        array_17.finish();
+    }
+    if let Some(var_20) = &input.client_token {
+        object.key("ClientToken").string(var_20.as_str());
     }
     Ok(())
 }

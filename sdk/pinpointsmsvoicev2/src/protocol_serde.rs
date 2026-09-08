@@ -155,6 +155,8 @@ pub(crate) mod shape_get_protect_configuration_country_rule_set;
 
 pub(crate) mod shape_get_resource_policy;
 
+pub(crate) mod shape_list_available_phone_numbers;
+
 pub(crate) mod shape_list_notify_countries;
 
 pub(crate) mod shape_list_pool_origination_identities;
@@ -375,6 +377,8 @@ pub(crate) mod shape_get_resource_policy_input;
 
 pub(crate) mod shape_internal_server_exception;
 
+pub(crate) mod shape_list_available_phone_numbers_input;
+
 pub(crate) mod shape_list_notify_countries_input;
 
 pub(crate) mod shape_list_pool_origination_identities_input;
@@ -473,6 +477,8 @@ pub(crate) mod shape_account_attribute_list;
 
 pub(crate) mod shape_account_limit_list;
 
+pub(crate) mod shape_available_phone_number_list;
+
 pub(crate) mod shape_cloud_watch_logs_destination;
 
 pub(crate) mod shape_configuration_set_filter;
@@ -510,6 +516,8 @@ pub(crate) mod shape_notify_template_filter;
 pub(crate) mod shape_notify_template_information_list;
 
 pub(crate) mod shape_number_capability_list;
+
+pub(crate) mod shape_number_preference_item;
 
 pub(crate) mod shape_opt_out_list_information_list;
 
@@ -669,6 +677,8 @@ pub(crate) mod shape_carrier_status_information_list;
 
 pub(crate) mod shape_conditional_behavior;
 
+pub(crate) mod shape_messaging_limits;
+
 pub(crate) mod shape_notify_configuration_tier_list;
 
 pub(crate) mod shape_notify_tier_list;
@@ -718,6 +728,8 @@ pub(crate) mod shape_voice_id_list;
 pub(crate) mod shape_carrier_status_information;
 
 pub(crate) mod shape_conditional_rule_list;
+
+pub(crate) mod shape_long_map;
 
 pub(crate) mod shape_rcs_card_content;
 

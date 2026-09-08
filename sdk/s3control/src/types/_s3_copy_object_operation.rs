@@ -24,6 +24,11 @@ pub struct S3CopyObjectOperation {
     pub access_control_grants: ::std::option::Option<::std::vec::Vec<crate::types::S3Grant>>,
     /// <p></p>
     pub metadata_directive: ::std::option::Option<crate::types::S3MetadataDirective>,
+    /// <p>Specifies whether the Batch Operations copy job copies object annotations from the source object or skips them. If this property isn't specified, <code>COPY</code> is the default behavior.</p>
+    /// <p>Valid Values: <code>COPY | EXCLUDE</code></p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub annotation_directive: ::std::option::Option<crate::types::S3AnnotationDirective>,
     /// <p></p>
     pub modified_since_constraint: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>If you don't provide this parameter, Amazon S3 copies all the metadata from the original objects. If you specify an empty set, the new objects will have no tags. Otherwise, Amazon S3 assigns the supplied tags to the new objects.</p>
@@ -71,6 +76,14 @@ pub struct S3CopyObjectOperation {
     pub bucket_key_enabled: bool,
     /// <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub checksum_algorithm: ::std::option::Option<crate::types::S3ChecksumAlgorithm>,
+    /// <p>The event hold status to be applied to all objects in the Batch Operations copy job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub object_lock_event_hold: ::std::option::Option<crate::types::S3ObjectLockEventHold>,
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations copy job. The duration specifies how long the object remains protected after the event hold is released.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub object_lock_event_hold_duration: ::std::option::Option<crate::types::S3ObjectLockEventHoldDuration>,
 }
 impl S3CopyObjectOperation {
     /// <p>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.</p>
@@ -102,6 +115,13 @@ impl S3CopyObjectOperation {
     /// <p></p>
     pub fn metadata_directive(&self) -> ::std::option::Option<&crate::types::S3MetadataDirective> {
         self.metadata_directive.as_ref()
+    }
+    /// <p>Specifies whether the Batch Operations copy job copies object annotations from the source object or skips them. If this property isn't specified, <code>COPY</code> is the default behavior.</p>
+    /// <p>Valid Values: <code>COPY | EXCLUDE</code></p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn annotation_directive(&self) -> ::std::option::Option<&crate::types::S3AnnotationDirective> {
+        self.annotation_directive.as_ref()
     }
     /// <p></p>
     pub fn modified_since_constraint(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
@@ -180,6 +200,18 @@ impl S3CopyObjectOperation {
     pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::S3ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations copy job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn object_lock_event_hold(&self) -> ::std::option::Option<&crate::types::S3ObjectLockEventHold> {
+        self.object_lock_event_hold.as_ref()
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations copy job. The duration specifies how long the object remains protected after the event hold is released.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn object_lock_event_hold_duration(&self) -> ::std::option::Option<&crate::types::S3ObjectLockEventHoldDuration> {
+        self.object_lock_event_hold_duration.as_ref()
+    }
 }
 impl S3CopyObjectOperation {
     /// Creates a new builder-style object to manufacture [`S3CopyObjectOperation`](crate::types::S3CopyObjectOperation).
@@ -196,6 +228,7 @@ pub struct S3CopyObjectOperationBuilder {
     pub(crate) canned_access_control_list: ::std::option::Option<crate::types::S3CannedAccessControlList>,
     pub(crate) access_control_grants: ::std::option::Option<::std::vec::Vec<crate::types::S3Grant>>,
     pub(crate) metadata_directive: ::std::option::Option<crate::types::S3MetadataDirective>,
+    pub(crate) annotation_directive: ::std::option::Option<crate::types::S3AnnotationDirective>,
     pub(crate) modified_since_constraint: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) new_object_metadata: ::std::option::Option<crate::types::S3ObjectMetadata>,
     pub(crate) new_object_tagging: ::std::option::Option<::std::vec::Vec<crate::types::S3Tag>>,
@@ -210,6 +243,8 @@ pub struct S3CopyObjectOperationBuilder {
     pub(crate) object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::S3ChecksumAlgorithm>,
+    pub(crate) object_lock_event_hold: ::std::option::Option<crate::types::S3ObjectLockEventHold>,
+    pub(crate) object_lock_event_hold_duration: ::std::option::Option<crate::types::S3ObjectLockEventHoldDuration>,
 }
 impl S3CopyObjectOperationBuilder {
     /// <p>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.</p>
@@ -309,6 +344,29 @@ impl S3CopyObjectOperationBuilder {
     /// <p></p>
     pub fn get_metadata_directive(&self) -> &::std::option::Option<crate::types::S3MetadataDirective> {
         &self.metadata_directive
+    }
+    /// <p>Specifies whether the Batch Operations copy job copies object annotations from the source object or skips them. If this property isn't specified, <code>COPY</code> is the default behavior.</p>
+    /// <p>Valid Values: <code>COPY | EXCLUDE</code></p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn annotation_directive(mut self, input: crate::types::S3AnnotationDirective) -> Self {
+        self.annotation_directive = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether the Batch Operations copy job copies object annotations from the source object or skips them. If this property isn't specified, <code>COPY</code> is the default behavior.</p>
+    /// <p>Valid Values: <code>COPY | EXCLUDE</code></p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn set_annotation_directive(mut self, input: ::std::option::Option<crate::types::S3AnnotationDirective>) -> Self {
+        self.annotation_directive = input;
+        self
+    }
+    /// <p>Specifies whether the Batch Operations copy job copies object annotations from the source object or skips them. If this property isn't specified, <code>COPY</code> is the default behavior.</p>
+    /// <p>Valid Values: <code>COPY | EXCLUDE</code></p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn get_annotation_directive(&self) -> &::std::option::Option<crate::types::S3AnnotationDirective> {
+        &self.annotation_directive
     }
     /// <p></p>
     pub fn modified_since_constraint(mut self, input: ::aws_smithy_types::DateTime) -> Self {
@@ -569,6 +627,46 @@ impl S3CopyObjectOperationBuilder {
     pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::S3ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations copy job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn object_lock_event_hold(mut self, input: crate::types::S3ObjectLockEventHold) -> Self {
+        self.object_lock_event_hold = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations copy job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn set_object_lock_event_hold(mut self, input: ::std::option::Option<crate::types::S3ObjectLockEventHold>) -> Self {
+        self.object_lock_event_hold = input;
+        self
+    }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations copy job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn get_object_lock_event_hold(&self) -> &::std::option::Option<crate::types::S3ObjectLockEventHold> {
+        &self.object_lock_event_hold
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations copy job. The duration specifies how long the object remains protected after the event hold is released.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn object_lock_event_hold_duration(mut self, input: crate::types::S3ObjectLockEventHoldDuration) -> Self {
+        self.object_lock_event_hold_duration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations copy job. The duration specifies how long the object remains protected after the event hold is released.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn set_object_lock_event_hold_duration(mut self, input: ::std::option::Option<crate::types::S3ObjectLockEventHoldDuration>) -> Self {
+        self.object_lock_event_hold_duration = input;
+        self
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations copy job. The duration specifies how long the object remains protected after the event hold is released.</p><note>
+    /// <p>This functionality is not supported by directory buckets.</p>
+    /// </note>
+    pub fn get_object_lock_event_hold_duration(&self) -> &::std::option::Option<crate::types::S3ObjectLockEventHoldDuration> {
+        &self.object_lock_event_hold_duration
+    }
     /// Consumes the builder and constructs a [`S3CopyObjectOperation`](crate::types::S3CopyObjectOperation).
     pub fn build(self) -> crate::types::S3CopyObjectOperation {
         crate::types::S3CopyObjectOperation {
@@ -576,6 +674,7 @@ impl S3CopyObjectOperationBuilder {
             canned_access_control_list: self.canned_access_control_list,
             access_control_grants: self.access_control_grants,
             metadata_directive: self.metadata_directive,
+            annotation_directive: self.annotation_directive,
             modified_since_constraint: self.modified_since_constraint,
             new_object_metadata: self.new_object_metadata,
             new_object_tagging: self.new_object_tagging,
@@ -590,6 +689,8 @@ impl S3CopyObjectOperationBuilder {
             object_lock_retain_until_date: self.object_lock_retain_until_date,
             bucket_key_enabled: self.bucket_key_enabled.unwrap_or_default(),
             checksum_algorithm: self.checksum_algorithm,
+            object_lock_event_hold: self.object_lock_event_hold,
+            object_lock_event_hold_duration: self.object_lock_event_hold_duration,
         }
     }
 }

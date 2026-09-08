@@ -19,6 +19,7 @@
 ///     BatchStatus::Pending => { /* ... */ },
 ///     BatchStatus::Processed => { /* ... */ },
 ///     BatchStatus::RunsDeleted => { /* ... */ },
+///     BatchStatus::RunsDeleteFailed => { /* ... */ },
 ///     BatchStatus::RunsDeleting => { /* ... */ },
 ///     BatchStatus::Stopping => { /* ... */ },
 ///     BatchStatus::Submitting => { /* ... */ },
@@ -65,6 +66,8 @@ pub enum BatchStatus {
     #[allow(missing_docs)] // documentation missing in model
     RunsDeleted,
     #[allow(missing_docs)] // documentation missing in model
+    RunsDeleteFailed,
+    #[allow(missing_docs)] // documentation missing in model
     RunsDeleting,
     #[allow(missing_docs)] // documentation missing in model
     Stopping,
@@ -84,6 +87,7 @@ impl ::std::convert::From<&str> for BatchStatus {
             "PENDING" => BatchStatus::Pending,
             "PROCESSED" => BatchStatus::Processed,
             "RUNS_DELETED" => BatchStatus::RunsDeleted,
+            "RUNS_DELETE_FAILED" => BatchStatus::RunsDeleteFailed,
             "RUNS_DELETING" => BatchStatus::RunsDeleting,
             "STOPPING" => BatchStatus::Stopping,
             "SUBMITTING" => BatchStatus::Submitting,
@@ -109,6 +113,7 @@ impl BatchStatus {
             BatchStatus::Pending => "PENDING",
             BatchStatus::Processed => "PROCESSED",
             BatchStatus::RunsDeleted => "RUNS_DELETED",
+            BatchStatus::RunsDeleteFailed => "RUNS_DELETE_FAILED",
             BatchStatus::RunsDeleting => "RUNS_DELETING",
             BatchStatus::Stopping => "STOPPING",
             BatchStatus::Submitting => "SUBMITTING",
@@ -125,6 +130,7 @@ impl BatchStatus {
             "PENDING",
             "PROCESSED",
             "RUNS_DELETED",
+            "RUNS_DELETE_FAILED",
             "RUNS_DELETING",
             "STOPPING",
             "SUBMITTING",
@@ -158,6 +164,7 @@ impl ::std::fmt::Display for BatchStatus {
             BatchStatus::Pending => write!(f, "PENDING"),
             BatchStatus::Processed => write!(f, "PROCESSED"),
             BatchStatus::RunsDeleted => write!(f, "RUNS_DELETED"),
+            BatchStatus::RunsDeleteFailed => write!(f, "RUNS_DELETE_FAILED"),
             BatchStatus::RunsDeleting => write!(f, "RUNS_DELETING"),
             BatchStatus::Stopping => write!(f, "STOPPING"),
             BatchStatus::Submitting => write!(f, "SUBMITTING"),

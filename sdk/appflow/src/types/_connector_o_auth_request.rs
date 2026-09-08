@@ -2,12 +2,14 @@
 
 /// <p>Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ConnectorOAuthRequest {
     /// <p>The code provided by the connector when it has been authenticated via the connected app.</p>
     pub auth_code: ::std::option::Option<::std::string::String>,
     /// <p>The URL to which the authentication server redirects the browser after authorization has been granted.</p>
     pub redirect_uri: ::std::option::Option<::std::string::String>,
+    /// <p>The code verifier used in the PKCE (Proof Key for Code Exchange) OAuth flow.</p>
+    pub code_verifier: ::std::option::Option<::std::string::String>,
 }
 impl ConnectorOAuthRequest {
     /// <p>The code provided by the connector when it has been authenticated via the connected app.</p>
@@ -18,6 +20,19 @@ impl ConnectorOAuthRequest {
     pub fn redirect_uri(&self) -> ::std::option::Option<&str> {
         self.redirect_uri.as_deref()
     }
+    /// <p>The code verifier used in the PKCE (Proof Key for Code Exchange) OAuth flow.</p>
+    pub fn code_verifier(&self) -> ::std::option::Option<&str> {
+        self.code_verifier.as_deref()
+    }
+}
+impl ::std::fmt::Debug for ConnectorOAuthRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ConnectorOAuthRequest");
+        formatter.field("auth_code", &self.auth_code);
+        formatter.field("redirect_uri", &self.redirect_uri);
+        formatter.field("code_verifier", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
 }
 impl ConnectorOAuthRequest {
     /// Creates a new builder-style object to manufacture [`ConnectorOAuthRequest`](crate::types::ConnectorOAuthRequest).
@@ -27,11 +42,12 @@ impl ConnectorOAuthRequest {
 }
 
 /// A builder for [`ConnectorOAuthRequest`](crate::types::ConnectorOAuthRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ConnectorOAuthRequestBuilder {
     pub(crate) auth_code: ::std::option::Option<::std::string::String>,
     pub(crate) redirect_uri: ::std::option::Option<::std::string::String>,
+    pub(crate) code_verifier: ::std::option::Option<::std::string::String>,
 }
 impl ConnectorOAuthRequestBuilder {
     /// <p>The code provided by the connector when it has been authenticated via the connected app.</p>
@@ -62,11 +78,35 @@ impl ConnectorOAuthRequestBuilder {
     pub fn get_redirect_uri(&self) -> &::std::option::Option<::std::string::String> {
         &self.redirect_uri
     }
+    /// <p>The code verifier used in the PKCE (Proof Key for Code Exchange) OAuth flow.</p>
+    pub fn code_verifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.code_verifier = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The code verifier used in the PKCE (Proof Key for Code Exchange) OAuth flow.</p>
+    pub fn set_code_verifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code_verifier = input;
+        self
+    }
+    /// <p>The code verifier used in the PKCE (Proof Key for Code Exchange) OAuth flow.</p>
+    pub fn get_code_verifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code_verifier
+    }
     /// Consumes the builder and constructs a [`ConnectorOAuthRequest`](crate::types::ConnectorOAuthRequest).
     pub fn build(self) -> crate::types::ConnectorOAuthRequest {
         crate::types::ConnectorOAuthRequest {
             auth_code: self.auth_code,
             redirect_uri: self.redirect_uri,
+            code_verifier: self.code_verifier,
         }
+    }
+}
+impl ::std::fmt::Debug for ConnectorOAuthRequestBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ConnectorOAuthRequestBuilder");
+        formatter.field("auth_code", &self.auth_code);
+        formatter.field("redirect_uri", &self.redirect_uri);
+        formatter.field("code_verifier", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

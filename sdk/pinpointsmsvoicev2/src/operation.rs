@@ -199,6 +199,9 @@ pub mod get_protect_configuration_country_rule_set;
 /// Types for the `GetResourcePolicy` operation.
 pub mod get_resource_policy;
 
+/// Types for the `ListAvailablePhoneNumbers` operation.
+pub mod list_available_phone_numbers;
+
 /// Types for the `ListNotifyCountries` operation.
 pub mod list_notify_countries;
 

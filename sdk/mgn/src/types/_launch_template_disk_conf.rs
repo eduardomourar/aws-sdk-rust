@@ -10,6 +10,10 @@ pub struct LaunchTemplateDiskConf {
     pub iops: ::std::option::Option<i64>,
     /// <p>Launch template disk throughput configuration.</p>
     pub throughput: ::std::option::Option<i64>,
+    /// <p>Launch template disk volume initialization rate configuration.</p>
+    pub volume_initialization_rate: ::std::option::Option<i64>,
+    /// <p>Launch template disk delete on termination configuration.</p>
+    pub delete_on_termination: ::std::option::Option<bool>,
 }
 impl LaunchTemplateDiskConf {
     /// <p>Launch template disk volume type configuration.</p>
@@ -23,6 +27,14 @@ impl LaunchTemplateDiskConf {
     /// <p>Launch template disk throughput configuration.</p>
     pub fn throughput(&self) -> ::std::option::Option<i64> {
         self.throughput
+    }
+    /// <p>Launch template disk volume initialization rate configuration.</p>
+    pub fn volume_initialization_rate(&self) -> ::std::option::Option<i64> {
+        self.volume_initialization_rate
+    }
+    /// <p>Launch template disk delete on termination configuration.</p>
+    pub fn delete_on_termination(&self) -> ::std::option::Option<bool> {
+        self.delete_on_termination
     }
 }
 impl LaunchTemplateDiskConf {
@@ -39,6 +51,8 @@ pub struct LaunchTemplateDiskConfBuilder {
     pub(crate) volume_type: ::std::option::Option<crate::types::VolumeType>,
     pub(crate) iops: ::std::option::Option<i64>,
     pub(crate) throughput: ::std::option::Option<i64>,
+    pub(crate) volume_initialization_rate: ::std::option::Option<i64>,
+    pub(crate) delete_on_termination: ::std::option::Option<bool>,
 }
 impl LaunchTemplateDiskConfBuilder {
     /// <p>Launch template disk volume type configuration.</p>
@@ -83,12 +97,42 @@ impl LaunchTemplateDiskConfBuilder {
     pub fn get_throughput(&self) -> &::std::option::Option<i64> {
         &self.throughput
     }
+    /// <p>Launch template disk volume initialization rate configuration.</p>
+    pub fn volume_initialization_rate(mut self, input: i64) -> Self {
+        self.volume_initialization_rate = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Launch template disk volume initialization rate configuration.</p>
+    pub fn set_volume_initialization_rate(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.volume_initialization_rate = input;
+        self
+    }
+    /// <p>Launch template disk volume initialization rate configuration.</p>
+    pub fn get_volume_initialization_rate(&self) -> &::std::option::Option<i64> {
+        &self.volume_initialization_rate
+    }
+    /// <p>Launch template disk delete on termination configuration.</p>
+    pub fn delete_on_termination(mut self, input: bool) -> Self {
+        self.delete_on_termination = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Launch template disk delete on termination configuration.</p>
+    pub fn set_delete_on_termination(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.delete_on_termination = input;
+        self
+    }
+    /// <p>Launch template disk delete on termination configuration.</p>
+    pub fn get_delete_on_termination(&self) -> &::std::option::Option<bool> {
+        &self.delete_on_termination
+    }
     /// Consumes the builder and constructs a [`LaunchTemplateDiskConf`](crate::types::LaunchTemplateDiskConf).
     pub fn build(self) -> crate::types::LaunchTemplateDiskConf {
         crate::types::LaunchTemplateDiskConf {
             volume_type: self.volume_type,
             iops: self.iops,
             throughput: self.throughput,
+            volume_initialization_rate: self.volume_initialization_rate,
+            delete_on_termination: self.delete_on_termination,
         }
     }
 }

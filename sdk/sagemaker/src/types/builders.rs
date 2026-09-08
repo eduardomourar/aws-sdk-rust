@@ -1175,6 +1175,8 @@ pub use crate::types::_shuffle_config::ShuffleConfigBuilder;
 
 pub use crate::types::_instance_group::InstanceGroupBuilder;
 
+pub use crate::types::_instance_preference::InstancePreferenceBuilder;
+
 pub use crate::types::_collection_configuration::CollectionConfigurationBuilder;
 
 pub use crate::types::_transform_s3_data_source::TransformS3DataSourceBuilder;
@@ -1406,6 +1408,8 @@ pub use crate::types::_redshift_dataset_definition::RedshiftDatasetDefinitionBui
 pub use crate::types::_processing_s3_output::ProcessingS3OutputBuilder;
 
 pub use crate::types::_processing_feature_store_output::ProcessingFeatureStoreOutputBuilder;
+
+pub use crate::types::_processing_instance_preference::ProcessingInstancePreferenceBuilder;
 
 pub use crate::types::_space_idle_settings::SpaceIdleSettingsBuilder;
 

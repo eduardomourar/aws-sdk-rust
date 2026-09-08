@@ -6161,6 +6161,8 @@ pub(crate) mod shape_launch_template_overrides_list;
 
 pub(crate) mod shape_media_device_memory_info;
 
+pub(crate) mod shape_network_card_interface_type_list;
+
 pub(crate) mod shape_neuron_device_core_info;
 
 pub(crate) mod shape_neuron_device_memory_info;

@@ -8,7 +8,7 @@ pub struct DefaultRunSetting {
     pub workflow_id: ::std::string::String,
     /// <p>The type of the originating workflow. Batch runs are not supported with <code>READY2RUN</code> workflows.</p>
     pub workflow_type: ::std::option::Option<crate::types::WorkflowType>,
-    /// <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+    /// <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
     pub role_arn: ::std::string::String,
     /// <p>An optional user-friendly name applied to each workflow run. Can be overridden per run.</p>
     pub name: ::std::option::Option<::std::string::String>,
@@ -28,15 +28,15 @@ pub struct DefaultRunSetting {
     pub output_uri: ::std::option::Option<::std::string::String>,
     /// <p>The verbosity level for CloudWatch Logs emitted during each run.</p>
     pub log_level: ::std::option::Option<crate::types::RunLogLevel>,
-    /// <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+    /// <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
     pub run_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The retention behavior for runs after completion.</p>
     pub retention_mode: ::std::option::Option<crate::types::RunRetentionMode>,
     /// <p>The storage type for the workflow runs.</p>
     pub storage_type: ::std::option::Option<crate::types::StorageType>,
-    /// <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+    /// <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
     pub workflow_owner_id: ::std::option::Option<::std::string::String>,
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
     pub output_bucket_owner_id: ::std::option::Option<::std::string::String>,
     /// <p>The version name of the specified workflow.</p>
     pub workflow_version_name: ::std::option::Option<::std::string::String>,
@@ -44,6 +44,8 @@ pub struct DefaultRunSetting {
     pub networking_mode: ::std::option::Option<crate::types::NetworkingMode>,
     /// <p>Optional configuration name to use for the workflow run.</p>
     pub configuration_name: ::std::option::Option<::std::string::String>,
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub session_policy: ::std::option::Option<::std::string::String>,
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
@@ -59,7 +61,7 @@ impl DefaultRunSetting {
     pub fn workflow_type(&self) -> ::std::option::Option<&crate::types::WorkflowType> {
         self.workflow_type.as_ref()
     }
-    /// <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+    /// <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
     pub fn role_arn(&self) -> &str {
         use std::ops::Deref;
         self.role_arn.deref()
@@ -100,7 +102,7 @@ impl DefaultRunSetting {
     pub fn log_level(&self) -> ::std::option::Option<&crate::types::RunLogLevel> {
         self.log_level.as_ref()
     }
-    /// <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+    /// <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
     pub fn run_tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.run_tags.as_ref()
     }
@@ -112,11 +114,11 @@ impl DefaultRunSetting {
     pub fn storage_type(&self) -> ::std::option::Option<&crate::types::StorageType> {
         self.storage_type.as_ref()
     }
-    /// <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+    /// <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
     pub fn workflow_owner_id(&self) -> ::std::option::Option<&str> {
         self.workflow_owner_id.as_deref()
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
     pub fn output_bucket_owner_id(&self) -> ::std::option::Option<&str> {
         self.output_bucket_owner_id.as_deref()
     }
@@ -131,6 +133,10 @@ impl DefaultRunSetting {
     /// <p>Optional configuration name to use for the workflow run.</p>
     pub fn configuration_name(&self) -> ::std::option::Option<&str> {
         self.configuration_name.as_deref()
+    }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn session_policy(&self) -> ::std::option::Option<&str> {
+        self.session_policy.as_deref()
     }
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub fn engine_settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
@@ -172,6 +178,7 @@ pub struct DefaultRunSettingBuilder {
     pub(crate) workflow_version_name: ::std::option::Option<::std::string::String>,
     pub(crate) networking_mode: ::std::option::Option<crate::types::NetworkingMode>,
     pub(crate) configuration_name: ::std::option::Option<::std::string::String>,
+    pub(crate) session_policy: ::std::option::Option<::std::string::String>,
     pub(crate) engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) scratch_storage_mode: ::std::option::Option<crate::types::ScratchStorageMode>,
 }
@@ -205,18 +212,18 @@ impl DefaultRunSettingBuilder {
     pub fn get_workflow_type(&self) -> &::std::option::Option<crate::types::WorkflowType> {
         &self.workflow_type
     }
-    /// <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+    /// <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
     /// This field is required.
     pub fn role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+    /// <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_arn = input;
         self
     }
-    /// <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+    /// <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
     }
@@ -350,19 +357,19 @@ impl DefaultRunSettingBuilder {
     ///
     /// To override the contents of this collection use [`set_run_tags`](Self::set_run_tags).
     ///
-    /// <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+    /// <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
     pub fn run_tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.run_tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.run_tags = ::std::option::Option::Some(hash_map);
         self
     }
-    /// <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+    /// <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
     pub fn set_run_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.run_tags = input;
         self
     }
-    /// <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+    /// <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
     pub fn get_run_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.run_tags
     }
@@ -394,31 +401,31 @@ impl DefaultRunSettingBuilder {
     pub fn get_storage_type(&self) -> &::std::option::Option<crate::types::StorageType> {
         &self.storage_type
     }
-    /// <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+    /// <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
     pub fn workflow_owner_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.workflow_owner_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+    /// <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
     pub fn set_workflow_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.workflow_owner_id = input;
         self
     }
-    /// <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+    /// <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
     pub fn get_workflow_owner_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.workflow_owner_id
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
     pub fn output_bucket_owner_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.output_bucket_owner_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
     pub fn set_output_bucket_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.output_bucket_owner_id = input;
         self
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
     pub fn get_output_bucket_owner_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.output_bucket_owner_id
     }
@@ -463,6 +470,20 @@ impl DefaultRunSettingBuilder {
     /// <p>Optional configuration name to use for the workflow run.</p>
     pub fn get_configuration_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_name
+    }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn session_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.session_policy = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn set_session_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.session_policy = input;
+        self
+    }
+    /// Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+    pub fn get_session_policy(&self) -> &::std::option::Option<::std::string::String> {
+        &self.session_policy
     }
     /// <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
     pub fn engine_settings(mut self, input: ::aws_smithy_types::Document) -> Self {
@@ -528,6 +549,7 @@ impl DefaultRunSettingBuilder {
             workflow_version_name: self.workflow_version_name,
             networking_mode: self.networking_mode,
             configuration_name: self.configuration_name,
+            session_policy: self.session_policy,
             engine_settings: self.engine_settings,
             scratch_storage_mode: self.scratch_storage_mode,
         })

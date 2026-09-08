@@ -1769,6 +1769,8 @@ pub use crate::types::_shuffle_config::ShuffleConfig;
 
 pub use crate::types::_instance_group::InstanceGroup;
 
+pub use crate::types::_instance_preference::InstancePreference;
+
 pub use crate::types::_collection_configuration::CollectionConfiguration;
 
 pub use crate::types::_transform_s3_data_source::TransformS3DataSource;
@@ -2084,6 +2086,8 @@ pub use crate::types::_input_mode::InputMode;
 pub use crate::types::_processing_s3_output::ProcessingS3Output;
 
 pub use crate::types::_processing_feature_store_output::ProcessingFeatureStoreOutput;
+
+pub use crate::types::_processing_instance_preference::ProcessingInstancePreference;
 
 pub use crate::types::_space_idle_settings::SpaceIdleSettings;
 
@@ -3457,6 +3461,8 @@ mod _instance_pool;
 
 mod _instance_pool_summary;
 
+mod _instance_preference;
+
 mod _instance_requirements_eni_configuration;
 
 mod _instance_type;
@@ -4026,6 +4032,8 @@ mod _processing_cluster_config;
 mod _processing_feature_store_output;
 
 mod _processing_input;
+
+mod _processing_instance_preference;
 
 mod _processing_instance_type;
 

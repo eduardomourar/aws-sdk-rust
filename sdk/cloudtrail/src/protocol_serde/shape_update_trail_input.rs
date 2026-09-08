@@ -36,5 +36,8 @@ pub fn ser_update_trail_input_input(
     if let Some(var_11) = &input.is_organization_trail {
         object.key("IsOrganizationTrail").boolean(*var_11);
     }
+    if let Some(var_12) = &input.recursive_logging {
+        object.key("RecursiveLogging").boolean(*var_12);
+    }
     Ok(())
 }

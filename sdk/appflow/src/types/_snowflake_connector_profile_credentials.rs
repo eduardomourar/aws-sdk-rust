@@ -7,7 +7,9 @@ pub struct SnowflakeConnectorProfileCredentials {
     /// <p>The name of the user.</p>
     pub username: ::std::string::String,
     /// <p>The password that corresponds to the user name.</p>
-    pub password: ::std::string::String,
+    pub password: ::std::option::Option<::std::string::String>,
+    /// <p>The RSA private key used for key pair authentication with Snowflake. Provide this instead of a password when your Snowflake account uses key pair authentication.</p>
+    pub private_key: ::std::option::Option<::std::string::String>,
 }
 impl SnowflakeConnectorProfileCredentials {
     /// <p>The name of the user.</p>
@@ -16,9 +18,12 @@ impl SnowflakeConnectorProfileCredentials {
         self.username.deref()
     }
     /// <p>The password that corresponds to the user name.</p>
-    pub fn password(&self) -> &str {
-        use std::ops::Deref;
-        self.password.deref()
+    pub fn password(&self) -> ::std::option::Option<&str> {
+        self.password.as_deref()
+    }
+    /// <p>The RSA private key used for key pair authentication with Snowflake. Provide this instead of a password when your Snowflake account uses key pair authentication.</p>
+    pub fn private_key(&self) -> ::std::option::Option<&str> {
+        self.private_key.as_deref()
     }
 }
 impl ::std::fmt::Debug for SnowflakeConnectorProfileCredentials {
@@ -26,6 +31,7 @@ impl ::std::fmt::Debug for SnowflakeConnectorProfileCredentials {
         let mut formatter = f.debug_struct("SnowflakeConnectorProfileCredentials");
         formatter.field("username", &self.username);
         formatter.field("password", &"*** Sensitive Data Redacted ***");
+        formatter.field("private_key", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -42,6 +48,7 @@ impl SnowflakeConnectorProfileCredentials {
 pub struct SnowflakeConnectorProfileCredentialsBuilder {
     pub(crate) username: ::std::option::Option<::std::string::String>,
     pub(crate) password: ::std::option::Option<::std::string::String>,
+    pub(crate) private_key: ::std::option::Option<::std::string::String>,
 }
 impl SnowflakeConnectorProfileCredentialsBuilder {
     /// <p>The name of the user.</p>
@@ -60,7 +67,6 @@ impl SnowflakeConnectorProfileCredentialsBuilder {
         &self.username
     }
     /// <p>The password that corresponds to the user name.</p>
-    /// This field is required.
     pub fn password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.password = ::std::option::Option::Some(input.into());
         self
@@ -74,10 +80,23 @@ impl SnowflakeConnectorProfileCredentialsBuilder {
     pub fn get_password(&self) -> &::std::option::Option<::std::string::String> {
         &self.password
     }
+    /// <p>The RSA private key used for key pair authentication with Snowflake. Provide this instead of a password when your Snowflake account uses key pair authentication.</p>
+    pub fn private_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.private_key = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The RSA private key used for key pair authentication with Snowflake. Provide this instead of a password when your Snowflake account uses key pair authentication.</p>
+    pub fn set_private_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.private_key = input;
+        self
+    }
+    /// <p>The RSA private key used for key pair authentication with Snowflake. Provide this instead of a password when your Snowflake account uses key pair authentication.</p>
+    pub fn get_private_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.private_key
+    }
     /// Consumes the builder and constructs a [`SnowflakeConnectorProfileCredentials`](crate::types::SnowflakeConnectorProfileCredentials).
     /// This method will fail if any of the following fields are not set:
     /// - [`username`](crate::types::builders::SnowflakeConnectorProfileCredentialsBuilder::username)
-    /// - [`password`](crate::types::builders::SnowflakeConnectorProfileCredentialsBuilder::password)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::SnowflakeConnectorProfileCredentials, ::aws_smithy_types::error::operation::BuildError> {
@@ -88,12 +107,8 @@ impl SnowflakeConnectorProfileCredentialsBuilder {
                     "username was not specified but it is required when building SnowflakeConnectorProfileCredentials",
                 )
             })?,
-            password: self.password.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "password",
-                    "password was not specified but it is required when building SnowflakeConnectorProfileCredentials",
-                )
-            })?,
+            password: self.password,
+            private_key: self.private_key,
         })
     }
 }
@@ -102,6 +117,7 @@ impl ::std::fmt::Debug for SnowflakeConnectorProfileCredentialsBuilder {
         let mut formatter = f.debug_struct("SnowflakeConnectorProfileCredentialsBuilder");
         formatter.field("username", &self.username);
         formatter.field("password", &"*** Sensitive Data Redacted ***");
+        formatter.field("private_key", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

@@ -18,6 +18,18 @@ pub fn ser_media_concurrency(
         crate::protocol_serde::shape_cross_channel_behavior::ser_cross_channel_behavior(&mut object_2, var_1)?;
         object_2.finish();
     }
+    if let Some(var_3) = &input.workload_type_concurrencies {
+        let mut array_4 = object.key("WorkloadTypeConcurrencies").start_array();
+        for item_5 in var_3 {
+            {
+                #[allow(unused_mut)]
+                let mut object_6 = array_4.value().start_object();
+                crate::protocol_serde::shape_workload_type_concurrency::ser_workload_type_concurrency(&mut object_6, item_5)?;
+                object_6.finish();
+            }
+        }
+        array_4.finish();
+    }
     Ok(())
 }
 
@@ -60,6 +72,11 @@ where
                         "CrossChannelBehavior" => {
                             builder = builder.set_cross_channel_behavior(
                                 crate::protocol_serde::shape_cross_channel_behavior::de_cross_channel_behavior(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "WorkloadTypeConcurrencies" => {
+                            builder = builder.set_workload_type_concurrencies(
+                                crate::protocol_serde::shape_workload_type_concurrencies::de_workload_type_concurrencies(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

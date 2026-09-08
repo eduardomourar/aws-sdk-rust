@@ -118,6 +118,13 @@ where
                                 crate::protocol_serde::shape_testing_agent_information::de_testing_agent_information(tokens, _value, depth + 1)?,
                             );
                         }
+                        "MessagingLimits" => {
+                            builder = builder.set_messaging_limits(crate::protocol_serde::shape_messaging_limits::de_messaging_limits(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

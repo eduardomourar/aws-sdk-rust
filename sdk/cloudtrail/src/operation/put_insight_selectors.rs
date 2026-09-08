@@ -333,6 +333,8 @@ pub enum PutInsightSelectorsError {
     /// <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code></p>
     /// <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code></p>
     CloudTrailArnInvalidException(crate::types::error::CloudTrailArnInvalidException),
+    /// <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+    ConflictException(crate::types::error::ConflictException),
     /// <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p>
     /// <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
     InsufficientEncryptionPolicyException(crate::types::error::InsufficientEncryptionPolicyException),
@@ -411,6 +413,7 @@ impl PutInsightSelectorsError {
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::CloudTrailArnInvalidException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ConflictException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InsufficientEncryptionPolicyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InsufficientS3BucketPolicyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InvalidHomeRegionException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
@@ -432,6 +435,10 @@ impl PutInsightSelectorsError {
     /// Returns `true` if the error kind is `PutInsightSelectorsError::CloudTrailArnInvalidException`.
     pub fn is_cloud_trail_arn_invalid_exception(&self) -> bool {
         matches!(self, Self::CloudTrailArnInvalidException(_))
+    }
+    /// Returns `true` if the error kind is `PutInsightSelectorsError::ConflictException`.
+    pub fn is_conflict_exception(&self) -> bool {
+        matches!(self, Self::ConflictException(_))
     }
     /// Returns `true` if the error kind is `PutInsightSelectorsError::InsufficientEncryptionPolicyException`.
     pub fn is_insufficient_encryption_policy_exception(&self) -> bool {
@@ -498,6 +505,7 @@ impl ::std::error::Error for PutInsightSelectorsError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::CloudTrailArnInvalidException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ConflictException(_inner) => ::std::option::Option::Some(_inner),
             Self::InsufficientEncryptionPolicyException(_inner) => ::std::option::Option::Some(_inner),
             Self::InsufficientS3BucketPolicyException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidHomeRegionException(_inner) => ::std::option::Option::Some(_inner),
@@ -521,6 +529,7 @@ impl ::std::fmt::Display for PutInsightSelectorsError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::CloudTrailArnInvalidException(_inner) => _inner.fmt(f),
+            Self::ConflictException(_inner) => _inner.fmt(f),
             Self::InsufficientEncryptionPolicyException(_inner) => _inner.fmt(f),
             Self::InsufficientS3BucketPolicyException(_inner) => _inner.fmt(f),
             Self::InvalidHomeRegionException(_inner) => _inner.fmt(f),
@@ -558,6 +567,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PutInsightSel
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::CloudTrailArnInvalidException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::ConflictException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InsufficientEncryptionPolicyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InsufficientS3BucketPolicyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::InvalidHomeRegionException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),

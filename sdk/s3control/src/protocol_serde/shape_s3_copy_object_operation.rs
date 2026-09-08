@@ -26,66 +26,78 @@ pub fn ser_s3_copy_object_operation(
         let mut inner_writer = scope.start_el("MetadataDirective").finish();
         inner_writer.data(var_5.as_str());
     }
-    if let Some(var_6) = &input.modified_since_constraint {
+    if let Some(var_6) = &input.annotation_directive {
+        let mut inner_writer = scope.start_el("AnnotationDirective").finish();
+        inner_writer.data(var_6.as_str());
+    }
+    if let Some(var_7) = &input.modified_since_constraint {
         let mut inner_writer = scope.start_el("ModifiedSinceConstraint").finish();
-        inner_writer.data(var_6.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
+        inner_writer.data(var_7.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
     }
-    if let Some(var_7) = &input.new_object_metadata {
+    if let Some(var_8) = &input.new_object_metadata {
         let inner_writer = scope.start_el("NewObjectMetadata");
-        crate::protocol_serde::shape_s3_object_metadata::ser_s3_object_metadata(var_7, inner_writer)?
+        crate::protocol_serde::shape_s3_object_metadata::ser_s3_object_metadata(var_8, inner_writer)?
     }
-    if let Some(var_8) = &input.new_object_tagging {
+    if let Some(var_9) = &input.new_object_tagging {
         let mut inner_writer = scope.start_el("NewObjectTagging").finish();
-        for list_item_9 in var_8 {
+        for list_item_10 in var_9 {
             {
                 let inner_writer = inner_writer.start_el("member");
-                crate::protocol_serde::shape_s3_tag::ser_s3_tag(list_item_9, inner_writer)?
+                crate::protocol_serde::shape_s3_tag::ser_s3_tag(list_item_10, inner_writer)?
             }
         }
     }
-    if let Some(var_10) = &input.redirect_location {
+    if let Some(var_11) = &input.redirect_location {
         let mut inner_writer = scope.start_el("RedirectLocation").finish();
-        inner_writer.data(var_10.as_str());
+        inner_writer.data(var_11.as_str());
     }
     if input.requester_pays {
         let mut inner_writer = scope.start_el("RequesterPays").finish();
         inner_writer.data(::aws_smithy_types::primitive::Encoder::from(input.requester_pays).encode());
     }
-    if let Some(var_11) = &input.storage_class {
+    if let Some(var_12) = &input.storage_class {
         let mut inner_writer = scope.start_el("StorageClass").finish();
-        inner_writer.data(var_11.as_str());
+        inner_writer.data(var_12.as_str());
     }
-    if let Some(var_12) = &input.un_modified_since_constraint {
+    if let Some(var_13) = &input.un_modified_since_constraint {
         let mut inner_writer = scope.start_el("UnModifiedSinceConstraint").finish();
-        inner_writer.data(var_12.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
+        inner_writer.data(var_13.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
     }
-    if let Some(var_13) = &input.sse_aws_kms_key_id {
+    if let Some(var_14) = &input.sse_aws_kms_key_id {
         let mut inner_writer = scope.start_el("SSEAwsKmsKeyId").finish();
-        inner_writer.data(var_13.as_str());
-    }
-    if let Some(var_14) = &input.target_key_prefix {
-        let mut inner_writer = scope.start_el("TargetKeyPrefix").finish();
         inner_writer.data(var_14.as_str());
     }
-    if let Some(var_15) = &input.object_lock_legal_hold_status {
-        let mut inner_writer = scope.start_el("ObjectLockLegalHoldStatus").finish();
+    if let Some(var_15) = &input.target_key_prefix {
+        let mut inner_writer = scope.start_el("TargetKeyPrefix").finish();
         inner_writer.data(var_15.as_str());
     }
-    if let Some(var_16) = &input.object_lock_mode {
-        let mut inner_writer = scope.start_el("ObjectLockMode").finish();
+    if let Some(var_16) = &input.object_lock_legal_hold_status {
+        let mut inner_writer = scope.start_el("ObjectLockLegalHoldStatus").finish();
         inner_writer.data(var_16.as_str());
     }
-    if let Some(var_17) = &input.object_lock_retain_until_date {
+    if let Some(var_17) = &input.object_lock_mode {
+        let mut inner_writer = scope.start_el("ObjectLockMode").finish();
+        inner_writer.data(var_17.as_str());
+    }
+    if let Some(var_18) = &input.object_lock_retain_until_date {
         let mut inner_writer = scope.start_el("ObjectLockRetainUntilDate").finish();
-        inner_writer.data(var_17.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
+        inner_writer.data(var_18.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
     }
     if input.bucket_key_enabled {
         let mut inner_writer = scope.start_el("BucketKeyEnabled").finish();
         inner_writer.data(::aws_smithy_types::primitive::Encoder::from(input.bucket_key_enabled).encode());
     }
-    if let Some(var_18) = &input.checksum_algorithm {
+    if let Some(var_19) = &input.checksum_algorithm {
         let mut inner_writer = scope.start_el("ChecksumAlgorithm").finish();
-        inner_writer.data(var_18.as_str());
+        inner_writer.data(var_19.as_str());
+    }
+    if let Some(var_20) = &input.object_lock_event_hold {
+        let mut inner_writer = scope.start_el("ObjectLockEventHold").finish();
+        inner_writer.data(var_20.as_str());
+    }
+    if let Some(var_21) = &input.object_lock_event_hold_duration {
+        let inner_writer = scope.start_el("ObjectLockEventHoldDuration");
+        crate::protocol_serde::shape_s3_object_lock_event_hold_duration::ser_s3_object_lock_event_hold_duration(var_21, inner_writer)?
     }
     scope.finish();
     Ok(())
@@ -104,7 +116,7 @@ pub fn de_s3_copy_object_operation(
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("TargetResource") /* TargetResource com.amazonaws.s3control#S3CopyObjectOperation$TargetResource */ =>  {
-                let var_19 =
+                let var_22 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
@@ -113,11 +125,11 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_target_resource(var_19);
+                builder = builder.set_target_resource(var_22);
             }
             ,
             s if s.matches("CannedAccessControlList") /* CannedAccessControlList com.amazonaws.s3control#S3CopyObjectOperation$CannedAccessControlList */ =>  {
-                let var_20 =
+                let var_23 =
                     Some(
                         Result::<crate::types::S3CannedAccessControlList, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::S3CannedAccessControlList::from(
@@ -127,21 +139,21 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_canned_access_control_list(var_20);
+                builder = builder.set_canned_access_control_list(var_23);
             }
             ,
             s if s.matches("AccessControlGrants") /* AccessControlGrants com.amazonaws.s3control#S3CopyObjectOperation$AccessControlGrants */ =>  {
-                let var_21 =
+                let var_24 =
                     Some(
                         crate::protocol_serde::shape_s3_grant_list::de_s3_grant_list(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_access_control_grants(var_21);
+                builder = builder.set_access_control_grants(var_24);
             }
             ,
             s if s.matches("MetadataDirective") /* MetadataDirective com.amazonaws.s3control#S3CopyObjectOperation$MetadataDirective */ =>  {
-                let var_22 =
+                let var_25 =
                     Some(
                         Result::<crate::types::S3MetadataDirective, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::S3MetadataDirective::from(
@@ -151,11 +163,25 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_metadata_directive(var_22);
+                builder = builder.set_metadata_directive(var_25);
+            }
+            ,
+            s if s.matches("AnnotationDirective") /* AnnotationDirective com.amazonaws.s3control#S3CopyObjectOperation$AnnotationDirective */ =>  {
+                let var_26 =
+                    Some(
+                        Result::<crate::types::S3AnnotationDirective, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::S3AnnotationDirective::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_annotation_directive(var_26);
             }
             ,
             s if s.matches("ModifiedSinceConstraint") /* ModifiedSinceConstraint com.amazonaws.s3control#S3CopyObjectOperation$ModifiedSinceConstraint */ =>  {
-                let var_23 =
+                let var_27 =
                     Some(
                         ::aws_smithy_types::DateTime::from_str(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
@@ -165,86 +191,30 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_modified_since_constraint(var_23);
+                builder = builder.set_modified_since_constraint(var_27);
             }
             ,
             s if s.matches("NewObjectMetadata") /* NewObjectMetadata com.amazonaws.s3control#S3CopyObjectOperation$NewObjectMetadata */ =>  {
-                let var_24 =
+                let var_28 =
                     Some(
                         crate::protocol_serde::shape_s3_object_metadata::de_s3_object_metadata(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_new_object_metadata(var_24);
+                builder = builder.set_new_object_metadata(var_28);
             }
             ,
             s if s.matches("NewObjectTagging") /* NewObjectTagging com.amazonaws.s3control#S3CopyObjectOperation$NewObjectTagging */ =>  {
-                let var_25 =
+                let var_29 =
                     Some(
                         crate::protocol_serde::shape_s3_tag_set::de_s3_tag_set(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_new_object_tagging(var_25);
+                builder = builder.set_new_object_tagging(var_29);
             }
             ,
             s if s.matches("RedirectLocation") /* RedirectLocation com.amazonaws.s3control#S3CopyObjectOperation$RedirectLocation */ =>  {
-                let var_26 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_redirect_location(var_26);
-            }
-            ,
-            s if s.matches("RequesterPays") /* RequesterPays com.amazonaws.s3control#S3CopyObjectOperation$RequesterPays */ =>  {
-                let var_27 =
-                    Some(
-                         {
-                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
-                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            )
-                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.s3control#Boolean`)"))
-                        }
-                        ?
-                    )
-                ;
-                builder = builder.set_requester_pays(var_27);
-            }
-            ,
-            s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3control#S3CopyObjectOperation$StorageClass */ =>  {
-                let var_28 =
-                    Some(
-                        Result::<crate::types::S3StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::S3StorageClass::from(
-                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            )
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_storage_class(var_28);
-            }
-            ,
-            s if s.matches("UnModifiedSinceConstraint") /* UnModifiedSinceConstraint com.amazonaws.s3control#S3CopyObjectOperation$UnModifiedSinceConstraint */ =>  {
-                let var_29 =
-                    Some(
-                        ::aws_smithy_types::DateTime::from_str(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
-                        )
-                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.s3control#TimeStamp`)"))
-                        ?
-                    )
-                ;
-                builder = builder.set_un_modified_since_constraint(var_29);
-            }
-            ,
-            s if s.matches("SSEAwsKmsKeyId") /* SSEAwsKmsKeyId com.amazonaws.s3control#S3CopyObjectOperation$SSEAwsKmsKeyId */ =>  {
                 let var_30 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
@@ -254,66 +224,11 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_sse_aws_kms_key_id(var_30);
+                builder = builder.set_redirect_location(var_30);
             }
             ,
-            s if s.matches("TargetKeyPrefix") /* TargetKeyPrefix com.amazonaws.s3control#S3CopyObjectOperation$TargetKeyPrefix */ =>  {
+            s if s.matches("RequesterPays") /* RequesterPays com.amazonaws.s3control#S3CopyObjectOperation$RequesterPays */ =>  {
                 let var_31 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_target_key_prefix(var_31);
-            }
-            ,
-            s if s.matches("ObjectLockLegalHoldStatus") /* ObjectLockLegalHoldStatus com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockLegalHoldStatus */ =>  {
-                let var_32 =
-                    Some(
-                        Result::<crate::types::S3ObjectLockLegalHoldStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::S3ObjectLockLegalHoldStatus::from(
-                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            )
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_object_lock_legal_hold_status(var_32);
-            }
-            ,
-            s if s.matches("ObjectLockMode") /* ObjectLockMode com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockMode */ =>  {
-                let var_33 =
-                    Some(
-                        Result::<crate::types::S3ObjectLockMode, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::S3ObjectLockMode::from(
-                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            )
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_object_lock_mode(var_33);
-            }
-            ,
-            s if s.matches("ObjectLockRetainUntilDate") /* ObjectLockRetainUntilDate com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockRetainUntilDate */ =>  {
-                let var_34 =
-                    Some(
-                        ::aws_smithy_types::DateTime::from_str(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
-                        )
-                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.s3control#TimeStamp`)"))
-                        ?
-                    )
-                ;
-                builder = builder.set_object_lock_retain_until_date(var_34);
-            }
-            ,
-            s if s.matches("BucketKeyEnabled") /* BucketKeyEnabled com.amazonaws.s3control#S3CopyObjectOperation$BucketKeyEnabled */ =>  {
-                let var_35 =
                     Some(
                          {
                             <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
@@ -324,11 +239,122 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_bucket_key_enabled(var_35);
+                builder = builder.set_requester_pays(var_31);
+            }
+            ,
+            s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3control#S3CopyObjectOperation$StorageClass */ =>  {
+                let var_32 =
+                    Some(
+                        Result::<crate::types::S3StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::S3StorageClass::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_storage_class(var_32);
+            }
+            ,
+            s if s.matches("UnModifiedSinceConstraint") /* UnModifiedSinceConstraint com.amazonaws.s3control#S3CopyObjectOperation$UnModifiedSinceConstraint */ =>  {
+                let var_33 =
+                    Some(
+                        ::aws_smithy_types::DateTime::from_str(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
+                        )
+                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.s3control#TimeStamp`)"))
+                        ?
+                    )
+                ;
+                builder = builder.set_un_modified_since_constraint(var_33);
+            }
+            ,
+            s if s.matches("SSEAwsKmsKeyId") /* SSEAwsKmsKeyId com.amazonaws.s3control#S3CopyObjectOperation$SSEAwsKmsKeyId */ =>  {
+                let var_34 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_sse_aws_kms_key_id(var_34);
+            }
+            ,
+            s if s.matches("TargetKeyPrefix") /* TargetKeyPrefix com.amazonaws.s3control#S3CopyObjectOperation$TargetKeyPrefix */ =>  {
+                let var_35 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_target_key_prefix(var_35);
+            }
+            ,
+            s if s.matches("ObjectLockLegalHoldStatus") /* ObjectLockLegalHoldStatus com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockLegalHoldStatus */ =>  {
+                let var_36 =
+                    Some(
+                        Result::<crate::types::S3ObjectLockLegalHoldStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::S3ObjectLockLegalHoldStatus::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_object_lock_legal_hold_status(var_36);
+            }
+            ,
+            s if s.matches("ObjectLockMode") /* ObjectLockMode com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockMode */ =>  {
+                let var_37 =
+                    Some(
+                        Result::<crate::types::S3ObjectLockMode, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::S3ObjectLockMode::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_object_lock_mode(var_37);
+            }
+            ,
+            s if s.matches("ObjectLockRetainUntilDate") /* ObjectLockRetainUntilDate com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockRetainUntilDate */ =>  {
+                let var_38 =
+                    Some(
+                        ::aws_smithy_types::DateTime::from_str(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
+                        )
+                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.s3control#TimeStamp`)"))
+                        ?
+                    )
+                ;
+                builder = builder.set_object_lock_retain_until_date(var_38);
+            }
+            ,
+            s if s.matches("BucketKeyEnabled") /* BucketKeyEnabled com.amazonaws.s3control#S3CopyObjectOperation$BucketKeyEnabled */ =>  {
+                let var_39 =
+                    Some(
+                         {
+                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.s3control#Boolean`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_bucket_key_enabled(var_39);
             }
             ,
             s if s.matches("ChecksumAlgorithm") /* ChecksumAlgorithm com.amazonaws.s3control#S3CopyObjectOperation$ChecksumAlgorithm */ =>  {
-                let var_36 =
+                let var_40 =
                     Some(
                         Result::<crate::types::S3ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::S3ChecksumAlgorithm::from(
@@ -338,7 +364,31 @@ pub fn de_s3_copy_object_operation(
                         ?
                     )
                 ;
-                builder = builder.set_checksum_algorithm(var_36);
+                builder = builder.set_checksum_algorithm(var_40);
+            }
+            ,
+            s if s.matches("ObjectLockEventHold") /* ObjectLockEventHold com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockEventHold */ =>  {
+                let var_41 =
+                    Some(
+                        Result::<crate::types::S3ObjectLockEventHold, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::S3ObjectLockEventHold::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_object_lock_event_hold(var_41);
+            }
+            ,
+            s if s.matches("ObjectLockEventHoldDuration") /* ObjectLockEventHoldDuration com.amazonaws.s3control#S3CopyObjectOperation$ObjectLockEventHoldDuration */ =>  {
+                let var_42 =
+                    Some(
+                        crate::protocol_serde::shape_s3_object_lock_event_hold_duration::de_s3_object_lock_event_hold_duration(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_object_lock_event_hold_duration(var_42);
             }
             ,
             _ => {}

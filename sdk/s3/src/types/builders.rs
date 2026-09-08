@@ -151,6 +151,8 @@ pub use crate::types::_routing_rule::RoutingRuleBuilder;
 
 pub use crate::types::_object_lock_rule::ObjectLockRuleBuilder;
 
+pub use crate::types::_event_hold_duration::EventHoldDurationBuilder;
+
 pub use crate::types::_bucket::BucketBuilder;
 
 pub use crate::types::_multipart_upload::MultipartUploadBuilder;

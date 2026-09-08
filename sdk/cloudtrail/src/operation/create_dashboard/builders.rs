@@ -22,6 +22,9 @@ impl crate::operation::create_dashboard::builders::CreateDashboardInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateDashboard`.
 ///
+/// <important>
+/// <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+/// </important>
 /// <p>Creates a custom dashboard or the Highlights dashboard.</p>
 /// <ul>
 /// <li>

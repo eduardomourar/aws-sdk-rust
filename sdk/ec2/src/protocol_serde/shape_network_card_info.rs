@@ -144,6 +144,16 @@ pub fn de_network_card_info(
                 builder = builder.set_maximum_ena_queue_count_per_interface(var_9);
             }
             ,
+            s if s.matches("interfaceTypeSet") /* InterfaceTypes com.amazonaws.ec2#NetworkCardInfo$InterfaceTypes */ =>  {
+                let var_10 =
+                    Some(
+                        crate::protocol_serde::shape_network_card_interface_type_list::de_network_card_interface_type_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_interface_types(var_10);
+            }
+            ,
             _ => {}
         }
     }

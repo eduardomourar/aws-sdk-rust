@@ -20,6 +20,8 @@ pub struct SenderIdInformation {
     pub registered: bool,
     /// <p>The unique identifier for the registration.</p>
     pub registration_id: ::std::option::Option<::std::string::String>,
+    /// <p>The messaging limits that apply to the sender ID, including the per-capability send rates.</p>
+    pub messaging_limits: ::std::option::Option<crate::types::MessagingLimits>,
 }
 impl SenderIdInformation {
     /// <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
@@ -59,6 +61,10 @@ impl SenderIdInformation {
     pub fn registration_id(&self) -> ::std::option::Option<&str> {
         self.registration_id.as_deref()
     }
+    /// <p>The messaging limits that apply to the sender ID, including the per-capability send rates.</p>
+    pub fn messaging_limits(&self) -> ::std::option::Option<&crate::types::MessagingLimits> {
+        self.messaging_limits.as_ref()
+    }
 }
 impl SenderIdInformation {
     /// Creates a new builder-style object to manufacture [`SenderIdInformation`](crate::types::SenderIdInformation).
@@ -79,6 +85,7 @@ pub struct SenderIdInformationBuilder {
     pub(crate) deletion_protection_enabled: ::std::option::Option<bool>,
     pub(crate) registered: ::std::option::Option<bool>,
     pub(crate) registration_id: ::std::option::Option<::std::string::String>,
+    pub(crate) messaging_limits: ::std::option::Option<crate::types::MessagingLimits>,
 }
 impl SenderIdInformationBuilder {
     /// <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
@@ -205,6 +212,20 @@ impl SenderIdInformationBuilder {
     pub fn get_registration_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.registration_id
     }
+    /// <p>The messaging limits that apply to the sender ID, including the per-capability send rates.</p>
+    pub fn messaging_limits(mut self, input: crate::types::MessagingLimits) -> Self {
+        self.messaging_limits = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The messaging limits that apply to the sender ID, including the per-capability send rates.</p>
+    pub fn set_messaging_limits(mut self, input: ::std::option::Option<crate::types::MessagingLimits>) -> Self {
+        self.messaging_limits = input;
+        self
+    }
+    /// <p>The messaging limits that apply to the sender ID, including the per-capability send rates.</p>
+    pub fn get_messaging_limits(&self) -> &::std::option::Option<crate::types::MessagingLimits> {
+        &self.messaging_limits
+    }
     /// Consumes the builder and constructs a [`SenderIdInformation`](crate::types::SenderIdInformation).
     /// This method will fail if any of the following fields are not set:
     /// - [`sender_id_arn`](crate::types::builders::SenderIdInformationBuilder::sender_id_arn)
@@ -247,6 +268,7 @@ impl SenderIdInformationBuilder {
             deletion_protection_enabled: self.deletion_protection_enabled.unwrap_or_default(),
             registered: self.registered.unwrap_or_default(),
             registration_id: self.registration_id,
+            messaging_limits: self.messaging_limits,
         })
     }
 }

@@ -669,6 +669,9 @@ pub(crate) fn de_update_trail(
                 "IsOrganizationTrail" => {
                     builder = builder.set_is_organization_trail(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
+                "RecursiveLogging" => {
+                    builder = builder.set_recursive_logging(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {

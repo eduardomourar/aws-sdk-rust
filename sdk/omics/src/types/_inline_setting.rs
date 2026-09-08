@@ -14,9 +14,9 @@ pub struct InlineSetting {
     pub priority: ::std::option::Option<i32>,
     /// <p>Per-run workflow parameters. Merged with <code>defaultRunSetting.parameters</code>; values in this object take precedence when keys overlap.</p>
     pub parameters: ::std::option::Option<::aws_smithy_types::Document>,
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
     pub output_bucket_owner_id: ::std::option::Option<::std::string::String>,
-    /// <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+    /// <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
     pub run_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>Per-run engine-specific settings. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles). Overrides <code>defaultRunSetting.engineSettings</code> for this run.</p>
     pub engine_settings: ::std::option::Option<::aws_smithy_types::Document>,
@@ -43,11 +43,11 @@ impl InlineSetting {
     pub fn parameters(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.parameters.as_ref()
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
     pub fn output_bucket_owner_id(&self) -> ::std::option::Option<&str> {
         self.output_bucket_owner_id.as_deref()
     }
-    /// <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+    /// <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
     pub fn run_tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.run_tags.as_ref()
     }
@@ -148,17 +148,17 @@ impl InlineSettingBuilder {
     pub fn get_parameters(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.parameters
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
     pub fn output_bucket_owner_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.output_bucket_owner_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
     pub fn set_output_bucket_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.output_bucket_owner_id = input;
         self
     }
-    /// <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+    /// <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
     pub fn get_output_bucket_owner_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.output_bucket_owner_id
     }
@@ -166,19 +166,19 @@ impl InlineSettingBuilder {
     ///
     /// To override the contents of this collection use [`set_run_tags`](Self::set_run_tags).
     ///
-    /// <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+    /// <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
     pub fn run_tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.run_tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.run_tags = ::std::option::Option::Some(hash_map);
         self
     }
-    /// <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+    /// <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
     pub fn set_run_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.run_tags = input;
         self
     }
-    /// <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+    /// <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
     pub fn get_run_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.run_tags
     }

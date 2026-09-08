@@ -929,6 +929,8 @@ pub use crate::types::_evaluation_form_question_scoring_configuration::Evaluatio
 
 pub use crate::types::_evaluation_review_notification_recipient_value::EvaluationReviewNotificationRecipientValueBuilder;
 
+pub use crate::types::_workload_type_concurrency::WorkloadTypeConcurrencyBuilder;
+
 pub use crate::types::_notification_recipient_type::NotificationRecipientTypeBuilder;
 
 pub use crate::types::_case_sla_configuration::CaseSlaConfigurationBuilder;
@@ -1026,6 +1028,8 @@ pub use crate::types::_evaluation_form_item_enablement_condition::EvaluationForm
 pub use crate::types::_question_points_configuration::QuestionPointsConfigurationBuilder;
 
 pub use crate::types::_metric_filter::MetricFilterBuilder;
+
+pub use crate::types::_cross_channel_workload_behavior::CrossChannelWorkloadBehaviorBuilder;
 
 pub use crate::types::_field_value::FieldValueBuilder;
 

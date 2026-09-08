@@ -295,6 +295,8 @@ mod get_protect_configuration_country_rule_set;
 
 mod get_resource_policy;
 
+mod list_available_phone_numbers;
+
 mod list_notify_countries;
 
 mod list_pool_origination_identities;

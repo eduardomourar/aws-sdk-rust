@@ -48,6 +48,27 @@ pub fn ser_resource_config(
         crate::protocol_serde::shape_instance_placement_config::ser_instance_placement_config(&mut object_12, var_11)?;
         object_12.finish();
     }
+    if let Some(var_13) = &input.instance_preferences {
+        let mut array_14 = object.key("InstancePreferences").start_array();
+        for item_15 in var_13 {
+            {
+                #[allow(unused_mut)]
+                let mut object_16 = array_14.value().start_object();
+                crate::protocol_serde::shape_instance_preference::ser_instance_preference(&mut object_16, item_15)?;
+                object_16.finish();
+            }
+        }
+        array_14.finish();
+    }
+    if let Some(var_17) = &input.selected_instance_type {
+        object.key("SelectedInstanceType").string(var_17.as_str());
+    }
+    if let Some(var_18) = &input.selected_instance_count {
+        object.key("SelectedInstanceCount").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_18).into()),
+        );
+    }
     Ok(())
 }
 
@@ -125,6 +146,25 @@ where
                         "InstancePlacementConfig" => {
                             builder = builder.set_instance_placement_config(
                                 crate::protocol_serde::shape_instance_placement_config::de_instance_placement_config(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "InstancePreferences" => {
+                            builder = builder.set_instance_preferences(
+                                crate::protocol_serde::shape_instance_preference_list::de_instance_preference_list(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "SelectedInstanceType" => {
+                            builder = builder.set_selected_instance_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::TrainingInstanceType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "SelectedInstanceCount" => {
+                            builder = builder.set_selected_instance_count(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

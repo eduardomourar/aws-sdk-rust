@@ -2499,6 +2499,8 @@ pub(crate) mod shape_voice_enhancement_configs;
 
 pub(crate) mod shape_wisdom_info;
 
+pub(crate) mod shape_workload_type_concurrency;
+
 pub(crate) mod shape_workspace_association_search_summary;
 
 pub(crate) mod shape_workspace_page;
@@ -2564,6 +2566,8 @@ pub(crate) mod shape_contact_search_summary_ai_agent_info_list;
 pub(crate) mod shape_contact_search_summary_queue_info;
 
 pub(crate) mod shape_contact_search_summary_segment_attributes;
+
+pub(crate) mod shape_cross_channel_workload_behavior;
 
 pub(crate) mod shape_current_metric_data_collections;
 
@@ -2838,6 +2842,8 @@ pub(crate) mod shape_transcript_criteria;
 pub(crate) mod shape_validation_enum_values;
 
 pub(crate) mod shape_weekday_occurrence_list;
+
+pub(crate) mod shape_workload_type_concurrencies;
 
 pub(crate) mod shape_contact_references;
 

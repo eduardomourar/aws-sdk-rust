@@ -22,6 +22,9 @@ impl crate::operation::start_query::builders::StartQueryInputBuilder {
 }
 /// Fluent builder constructing a request to `StartQuery`.
 ///
+/// <important>
+/// <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+/// </important>
 /// <p>Starts a CloudTrail Lake query. Use the <code>QueryStatement</code> parameter to provide your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3 bucket.</p>
 /// <p><code>StartQuery</code> requires you specify either the <code>QueryStatement</code> parameter, or a <code>QueryAlias</code> and any <code>QueryParameters</code>. In the current release, the <code>QueryAlias</code> and <code>QueryParameters</code> parameters are used only for the queries that populate the CloudTrail Lake dashboards.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]

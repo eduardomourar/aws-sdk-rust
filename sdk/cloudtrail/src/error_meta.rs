@@ -2114,6 +2114,7 @@ impl From<crate::operation::put_insight_selectors::PutInsightSelectorsError> for
             crate::operation::put_insight_selectors::PutInsightSelectorsError::CloudTrailArnInvalidException(inner) => {
                 Error::CloudTrailArnInvalidException(inner)
             }
+            crate::operation::put_insight_selectors::PutInsightSelectorsError::ConflictException(inner) => Error::ConflictException(inner),
             crate::operation::put_insight_selectors::PutInsightSelectorsError::InsufficientEncryptionPolicyException(inner) => {
                 Error::InsufficientEncryptionPolicyException(inner)
             }

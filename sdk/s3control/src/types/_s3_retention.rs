@@ -8,6 +8,10 @@ pub struct S3Retention {
     pub retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The Object Lock retention mode to be applied to all objects in the Batch Operations job.</p>
     pub mode: ::std::option::Option<crate::types::S3ObjectLockRetentionMode>,
+    /// <p>The event hold status to be applied to all objects in the Batch Operations job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+    pub event_hold: ::std::option::Option<crate::types::S3ObjectLockRetentionEventHold>,
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations job. The duration specifies how long the object remains protected after the event hold is released.</p>
+    pub event_hold_duration: ::std::option::Option<crate::types::S3ObjectLockRetentionEventHoldDuration>,
 }
 impl S3Retention {
     /// <p>The date when the applied Object Lock retention will expire on all objects set by the Batch Operations job.</p>
@@ -17,6 +21,14 @@ impl S3Retention {
     /// <p>The Object Lock retention mode to be applied to all objects in the Batch Operations job.</p>
     pub fn mode(&self) -> ::std::option::Option<&crate::types::S3ObjectLockRetentionMode> {
         self.mode.as_ref()
+    }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+    pub fn event_hold(&self) -> ::std::option::Option<&crate::types::S3ObjectLockRetentionEventHold> {
+        self.event_hold.as_ref()
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations job. The duration specifies how long the object remains protected after the event hold is released.</p>
+    pub fn event_hold_duration(&self) -> ::std::option::Option<&crate::types::S3ObjectLockRetentionEventHoldDuration> {
+        self.event_hold_duration.as_ref()
     }
 }
 impl S3Retention {
@@ -32,6 +44,8 @@ impl S3Retention {
 pub struct S3RetentionBuilder {
     pub(crate) retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) mode: ::std::option::Option<crate::types::S3ObjectLockRetentionMode>,
+    pub(crate) event_hold: ::std::option::Option<crate::types::S3ObjectLockRetentionEventHold>,
+    pub(crate) event_hold_duration: ::std::option::Option<crate::types::S3ObjectLockRetentionEventHoldDuration>,
 }
 impl S3RetentionBuilder {
     /// <p>The date when the applied Object Lock retention will expire on all objects set by the Batch Operations job.</p>
@@ -62,11 +76,41 @@ impl S3RetentionBuilder {
     pub fn get_mode(&self) -> &::std::option::Option<crate::types::S3ObjectLockRetentionMode> {
         &self.mode
     }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+    pub fn event_hold(mut self, input: crate::types::S3ObjectLockRetentionEventHold) -> Self {
+        self.event_hold = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+    pub fn set_event_hold(mut self, input: ::std::option::Option<crate::types::S3ObjectLockRetentionEventHold>) -> Self {
+        self.event_hold = input;
+        self
+    }
+    /// <p>The event hold status to be applied to all objects in the Batch Operations job. Set to <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+    pub fn get_event_hold(&self) -> &::std::option::Option<crate::types::S3ObjectLockRetentionEventHold> {
+        &self.event_hold
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations job. The duration specifies how long the object remains protected after the event hold is released.</p>
+    pub fn event_hold_duration(mut self, input: crate::types::S3ObjectLockRetentionEventHoldDuration) -> Self {
+        self.event_hold_duration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations job. The duration specifies how long the object remains protected after the event hold is released.</p>
+    pub fn set_event_hold_duration(mut self, input: ::std::option::Option<crate::types::S3ObjectLockRetentionEventHoldDuration>) -> Self {
+        self.event_hold_duration = input;
+        self
+    }
+    /// <p>The event hold duration to be applied to all objects in the Batch Operations job. The duration specifies how long the object remains protected after the event hold is released.</p>
+    pub fn get_event_hold_duration(&self) -> &::std::option::Option<crate::types::S3ObjectLockRetentionEventHoldDuration> {
+        &self.event_hold_duration
+    }
     /// Consumes the builder and constructs a [`S3Retention`](crate::types::S3Retention).
     pub fn build(self) -> crate::types::S3Retention {
         crate::types::S3Retention {
             retain_until_date: self.retain_until_date,
             mode: self.mode,
+            event_hold: self.event_hold,
+            event_hold_duration: self.event_hold_duration,
         }
     }
 }

@@ -22,6 +22,9 @@ impl crate::operation::enable_federation::builders::EnableFederationInputBuilder
 }
 /// Fluent builder constructing a request to `EnableFederation`.
 ///
+/// <important>
+/// <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+/// </important>
 /// <p>Enables Lake query federation on the specified event data store. Federating an event data store lets you view the metadata associated with the event data store in the Glue <a href="https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro">Data Catalog</a> and run SQL queries against your event data using Amazon Athena. The table metadata stored in the Glue Data Catalog lets the Athena query engine know how to find, read, and process the data that you want to query.</p>
 /// <p>When you enable Lake query federation, CloudTrail creates a managed database named <code>aws:cloudtrail</code> (if the database doesn't already exist) and a managed federated table in the Glue Data Catalog. The event data store ID is used for the table name. CloudTrail registers the role ARN and event data store in <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation-lake-formation.html">Lake Formation</a>, the service responsible for allowing fine-grained access control of the federated resources in the Glue Data Catalog.</p>
 /// <p>For more information about Lake query federation, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html">Federate an event data store</a>.</p>

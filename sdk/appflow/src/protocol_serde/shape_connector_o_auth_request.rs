@@ -9,5 +9,8 @@ pub fn ser_connector_o_auth_request(
     if let Some(var_2) = &input.redirect_uri {
         object.key("redirectUri").string(var_2.as_str());
     }
+    if let Some(var_3) = &input.code_verifier {
+        object.key("codeVerifier").string(var_3.as_str());
+    }
     Ok(())
 }

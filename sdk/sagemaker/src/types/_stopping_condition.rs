@@ -25,6 +25,13 @@ pub struct StoppingCondition {
     /// <p>Between capacity reservations: Jobs temporarily back to <code>Pending</code> status between two capacity reservation periods</p></li>
     /// </ul>
     /// <p><code>MaxPendingTimeInSeconds</code> only increments when jobs are actively waiting for capacity in an <code>Active</code> plan.</p>
+    /// </note> <note>
+    /// <ul>
+    /// <li>
+    /// <p><code>MaxPendingTimeInSeconds</code> takes effect only for jobs that request accelerated computing instance types, such as instances in the <code>ml.p</code>, <code>ml.g</code>, and <code>ml.trn</code> families. It has no effect on jobs that request CPU-only instance types.</p></li>
+    /// <li>
+    /// <p>If the job specifies <code>InstancePreferences</code>, <code>MaxPendingTimeInSeconds</code> bounds the total time SageMaker spends working through your list of instance types. It is not applied per instance type preference, and takes effect only when the list includes at least one accelerated computing instance type.</p></li>
+    /// </ul>
     /// </note>
     pub max_pending_time_in_seconds: ::std::option::Option<i32>,
 }
@@ -50,6 +57,13 @@ impl StoppingCondition {
     /// <p>Between capacity reservations: Jobs temporarily back to <code>Pending</code> status between two capacity reservation periods</p></li>
     /// </ul>
     /// <p><code>MaxPendingTimeInSeconds</code> only increments when jobs are actively waiting for capacity in an <code>Active</code> plan.</p>
+    /// </note> <note>
+    /// <ul>
+    /// <li>
+    /// <p><code>MaxPendingTimeInSeconds</code> takes effect only for jobs that request accelerated computing instance types, such as instances in the <code>ml.p</code>, <code>ml.g</code>, and <code>ml.trn</code> families. It has no effect on jobs that request CPU-only instance types.</p></li>
+    /// <li>
+    /// <p>If the job specifies <code>InstancePreferences</code>, <code>MaxPendingTimeInSeconds</code> bounds the total time SageMaker spends working through your list of instance types. It is not applied per instance type preference, and takes effect only when the list includes at least one accelerated computing instance type.</p></li>
+    /// </ul>
     /// </note>
     pub fn max_pending_time_in_seconds(&self) -> ::std::option::Option<i32> {
         self.max_pending_time_in_seconds
@@ -120,6 +134,13 @@ impl StoppingConditionBuilder {
     /// <p>Between capacity reservations: Jobs temporarily back to <code>Pending</code> status between two capacity reservation periods</p></li>
     /// </ul>
     /// <p><code>MaxPendingTimeInSeconds</code> only increments when jobs are actively waiting for capacity in an <code>Active</code> plan.</p>
+    /// </note> <note>
+    /// <ul>
+    /// <li>
+    /// <p><code>MaxPendingTimeInSeconds</code> takes effect only for jobs that request accelerated computing instance types, such as instances in the <code>ml.p</code>, <code>ml.g</code>, and <code>ml.trn</code> families. It has no effect on jobs that request CPU-only instance types.</p></li>
+    /// <li>
+    /// <p>If the job specifies <code>InstancePreferences</code>, <code>MaxPendingTimeInSeconds</code> bounds the total time SageMaker spends working through your list of instance types. It is not applied per instance type preference, and takes effect only when the list includes at least one accelerated computing instance type.</p></li>
+    /// </ul>
     /// </note>
     pub fn max_pending_time_in_seconds(mut self, input: i32) -> Self {
         self.max_pending_time_in_seconds = ::std::option::Option::Some(input);
@@ -134,6 +155,13 @@ impl StoppingConditionBuilder {
     /// <p>Between capacity reservations: Jobs temporarily back to <code>Pending</code> status between two capacity reservation periods</p></li>
     /// </ul>
     /// <p><code>MaxPendingTimeInSeconds</code> only increments when jobs are actively waiting for capacity in an <code>Active</code> plan.</p>
+    /// </note> <note>
+    /// <ul>
+    /// <li>
+    /// <p><code>MaxPendingTimeInSeconds</code> takes effect only for jobs that request accelerated computing instance types, such as instances in the <code>ml.p</code>, <code>ml.g</code>, and <code>ml.trn</code> families. It has no effect on jobs that request CPU-only instance types.</p></li>
+    /// <li>
+    /// <p>If the job specifies <code>InstancePreferences</code>, <code>MaxPendingTimeInSeconds</code> bounds the total time SageMaker spends working through your list of instance types. It is not applied per instance type preference, and takes effect only when the list includes at least one accelerated computing instance type.</p></li>
+    /// </ul>
     /// </note>
     pub fn set_max_pending_time_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_pending_time_in_seconds = input;
@@ -148,6 +176,13 @@ impl StoppingConditionBuilder {
     /// <p>Between capacity reservations: Jobs temporarily back to <code>Pending</code> status between two capacity reservation periods</p></li>
     /// </ul>
     /// <p><code>MaxPendingTimeInSeconds</code> only increments when jobs are actively waiting for capacity in an <code>Active</code> plan.</p>
+    /// </note> <note>
+    /// <ul>
+    /// <li>
+    /// <p><code>MaxPendingTimeInSeconds</code> takes effect only for jobs that request accelerated computing instance types, such as instances in the <code>ml.p</code>, <code>ml.g</code>, and <code>ml.trn</code> families. It has no effect on jobs that request CPU-only instance types.</p></li>
+    /// <li>
+    /// <p>If the job specifies <code>InstancePreferences</code>, <code>MaxPendingTimeInSeconds</code> bounds the total time SageMaker spends working through your list of instance types. It is not applied per instance type preference, and takes effect only when the list includes at least one accelerated computing instance type.</p></li>
+    /// </ul>
     /// </note>
     pub fn get_max_pending_time_in_seconds(&self) -> &::std::option::Option<i32> {
         &self.max_pending_time_in_seconds

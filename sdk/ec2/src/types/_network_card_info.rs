@@ -22,6 +22,8 @@ pub struct NetworkCardInfo {
     pub maximum_ena_queue_count: ::std::option::Option<i32>,
     /// <p>The maximum number of the ENA queues for each interface.</p>
     pub maximum_ena_queue_count_per_interface: ::std::option::Option<i32>,
+    /// <p>The supported interface types for the network card.</p>
+    pub interface_types: ::std::option::Option<::std::vec::Vec<crate::types::NetworkCardInterfaceType>>,
 }
 impl NetworkCardInfo {
     /// <p>The index of the network card.</p>
@@ -60,6 +62,12 @@ impl NetworkCardInfo {
     pub fn maximum_ena_queue_count_per_interface(&self) -> ::std::option::Option<i32> {
         self.maximum_ena_queue_count_per_interface
     }
+    /// <p>The supported interface types for the network card.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.interface_types.is_none()`.
+    pub fn interface_types(&self) -> &[crate::types::NetworkCardInterfaceType] {
+        self.interface_types.as_deref().unwrap_or_default()
+    }
 }
 impl NetworkCardInfo {
     /// Creates a new builder-style object to manufacture [`NetworkCardInfo`](crate::types::NetworkCardInfo).
@@ -81,6 +89,7 @@ pub struct NetworkCardInfoBuilder {
     pub(crate) default_ena_queue_count_per_interface: ::std::option::Option<i32>,
     pub(crate) maximum_ena_queue_count: ::std::option::Option<i32>,
     pub(crate) maximum_ena_queue_count_per_interface: ::std::option::Option<i32>,
+    pub(crate) interface_types: ::std::option::Option<::std::vec::Vec<crate::types::NetworkCardInterfaceType>>,
 }
 impl NetworkCardInfoBuilder {
     /// <p>The index of the network card.</p>
@@ -209,6 +218,26 @@ impl NetworkCardInfoBuilder {
     pub fn get_maximum_ena_queue_count_per_interface(&self) -> &::std::option::Option<i32> {
         &self.maximum_ena_queue_count_per_interface
     }
+    /// Appends an item to `interface_types`.
+    ///
+    /// To override the contents of this collection use [`set_interface_types`](Self::set_interface_types).
+    ///
+    /// <p>The supported interface types for the network card.</p>
+    pub fn interface_types(mut self, input: crate::types::NetworkCardInterfaceType) -> Self {
+        let mut v = self.interface_types.unwrap_or_default();
+        v.push(input);
+        self.interface_types = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The supported interface types for the network card.</p>
+    pub fn set_interface_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkCardInterfaceType>>) -> Self {
+        self.interface_types = input;
+        self
+    }
+    /// <p>The supported interface types for the network card.</p>
+    pub fn get_interface_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkCardInterfaceType>> {
+        &self.interface_types
+    }
     /// Consumes the builder and constructs a [`NetworkCardInfo`](crate::types::NetworkCardInfo).
     pub fn build(self) -> crate::types::NetworkCardInfo {
         crate::types::NetworkCardInfo {
@@ -221,6 +250,7 @@ impl NetworkCardInfoBuilder {
             default_ena_queue_count_per_interface: self.default_ena_queue_count_per_interface,
             maximum_ena_queue_count: self.maximum_ena_queue_count,
             maximum_ena_queue_count_per_interface: self.maximum_ena_queue_count_per_interface,
+            interface_types: self.interface_types,
         }
     }
 }

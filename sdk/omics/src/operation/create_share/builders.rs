@@ -22,7 +22,7 @@ impl crate::operation::create_share::builders::CreateShareInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateShare`.
 ///
-/// <p>Creates a cross-account shared resource. The resource owner makes an offer to share the resource with the principal subscriber (an AWS user with a different account than the resource owner).</p>
+/// <p>Creates a cross-account shared resource. The resource owner makes an offer to share the resource with the principal subscriber (an Amazon Web Services user with a different account than the resource owner).</p>
 /// <p>The following resources support cross-account sharing:</p>
 /// <ul>
 /// <li>

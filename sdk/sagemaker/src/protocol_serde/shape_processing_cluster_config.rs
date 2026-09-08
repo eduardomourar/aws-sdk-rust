@@ -21,6 +21,27 @@ pub fn ser_processing_cluster_config(
     if let Some(var_4) = &input.volume_kms_key_id {
         object.key("VolumeKmsKeyId").string(var_4.as_str());
     }
+    if let Some(var_5) = &input.instance_preferences {
+        let mut array_6 = object.key("InstancePreferences").start_array();
+        for item_7 in var_5 {
+            {
+                #[allow(unused_mut)]
+                let mut object_8 = array_6.value().start_object();
+                crate::protocol_serde::shape_processing_instance_preference::ser_processing_instance_preference(&mut object_8, item_7)?;
+                object_8.finish();
+            }
+        }
+        array_6.finish();
+    }
+    if let Some(var_9) = &input.selected_instance_type {
+        object.key("SelectedInstanceType").string(var_9.as_str());
+    }
+    if let Some(var_10) = &input.selected_instance_count {
+        object.key("SelectedInstanceCount").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_10).into()),
+        );
+    }
     Ok(())
 }
 
@@ -71,6 +92,29 @@ where
                             builder = builder.set_volume_kms_key_id(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "InstancePreferences" => {
+                            builder = builder.set_instance_preferences(
+                                crate::protocol_serde::shape_processing_instance_preference_list::de_processing_instance_preference_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "SelectedInstanceType" => {
+                            builder = builder.set_selected_instance_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ProcessingInstanceType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "SelectedInstanceCount" => {
+                            builder = builder.set_selected_instance_count(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
                                     .transpose()?,
                             );
                         }

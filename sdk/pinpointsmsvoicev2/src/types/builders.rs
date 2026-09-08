@@ -99,6 +99,8 @@ pub use crate::types::_verified_destination_number_information::VerifiedDestinat
 
 pub use crate::types::_protect_configuration_country_rule_set_information::ProtectConfigurationCountryRuleSetInformationBuilder;
 
+pub use crate::types::_number_preference_item::NumberPreferenceItemBuilder;
+
 pub use crate::types::_notify_country_information::NotifyCountryInformationBuilder;
 
 pub use crate::types::_pool_origination_identities_filter::PoolOriginationIdentitiesFilterBuilder;
@@ -112,6 +114,8 @@ pub use crate::types::_protect_configuration_rule_set_number_override::ProtectCo
 pub use crate::types::_registration_association_filter::RegistrationAssociationFilterBuilder;
 
 pub use crate::types::_registration_association_metadata::RegistrationAssociationMetadataBuilder;
+
+pub use crate::types::_messaging_limits::MessagingLimitsBuilder;
 
 pub use crate::types::_testing_agent_information::TestingAgentInformationBuilder;
 

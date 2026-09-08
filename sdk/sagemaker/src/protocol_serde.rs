@@ -2895,6 +2895,10 @@ pub(crate) mod shape_instance_placement_config;
 
 pub(crate) mod shape_instance_pool;
 
+pub(crate) mod shape_instance_preference;
+
+pub(crate) mod shape_instance_preference_list;
+
 pub(crate) mod shape_job_config_schema_version_summary;
 
 pub(crate) mod shape_job_secondary_status_transition;
@@ -3589,6 +3593,10 @@ pub(crate) mod shape_prefix_aware_routing_config;
 
 pub(crate) mod shape_processing_feature_store_output;
 
+pub(crate) mod shape_processing_instance_preference;
+
+pub(crate) mod shape_processing_instance_preference_list;
+
 pub(crate) mod shape_processing_s3_output;
 
 pub(crate) mod shape_production_variant_capacity_reservation_summary;
@@ -3844,6 +3852,8 @@ pub(crate) mod shape_space_idle_settings;
 pub(crate) mod shape_target_tracking_scaling_policy_configuration;
 
 pub(crate) mod shape_training_job_step_metadata;
+
+pub(crate) mod shape_training_plan_arn_list;
 
 pub(crate) mod shape_transform_job;
 

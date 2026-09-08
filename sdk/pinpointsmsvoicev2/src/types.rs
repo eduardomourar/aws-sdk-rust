@@ -53,6 +53,8 @@ pub use crate::types::_owner::Owner;
 
 pub use crate::types::_number_capability::NumberCapability;
 
+pub use crate::types::_searchable_number_type::SearchableNumberType;
+
 pub use crate::types::_message_feedback_status::MessageFeedbackStatus;
 
 pub use crate::types::_number_status::NumberStatus;
@@ -161,6 +163,8 @@ pub use crate::types::_verified_destination_number_information::VerifiedDestinat
 
 pub use crate::types::_protect_configuration_country_rule_set_information::ProtectConfigurationCountryRuleSetInformation;
 
+pub use crate::types::_number_preference_item::NumberPreferenceItem;
+
 pub use crate::types::_notify_country_information::NotifyCountryInformation;
 
 pub use crate::types::_pool_origination_identities_filter::PoolOriginationIdentitiesFilter;
@@ -200,6 +204,8 @@ pub use crate::types::_notify_template_status::NotifyTemplateStatus;
 pub use crate::types::_opted_out_filter_name::OptedOutFilterName;
 
 pub use crate::types::_phone_number_filter_name::PhoneNumberFilterName;
+
+pub use crate::types::_messaging_limits::MessagingLimits;
 
 pub use crate::types::_pool_filter_name::PoolFilterName;
 
@@ -270,6 +276,8 @@ pub use crate::types::_testing_agent_status::TestingAgentStatus;
 pub use crate::types::_supported_association::SupportedAssociation;
 
 pub use crate::types::_registration_denied_reason_information::RegistrationDeniedReasonInformation;
+
+pub use crate::types::_preference_type::PreferenceType;
 
 pub use crate::types::_rcs_card_content::RcsCardContent;
 
@@ -379,6 +387,8 @@ mod _message_feedback_status;
 
 mod _message_type;
 
+mod _messaging_limits;
+
 mod _notify_configuration_filter;
 
 mod _notify_configuration_filter_name;
@@ -404,6 +414,8 @@ mod _notify_template_status;
 mod _notify_template_type;
 
 mod _number_capability;
+
+mod _number_preference_item;
 
 mod _number_status;
 
@@ -440,6 +452,8 @@ mod _pool_origination_identities_filter;
 mod _pool_origination_identities_filter_name;
 
 mod _pool_status;
+
+mod _preference_type;
 
 mod _protect_configuration_country_rule_set_information;
 
@@ -562,6 +576,8 @@ mod _registration_version_status_history;
 mod _requestable_number_type;
 
 mod _resource_type;
+
+mod _searchable_number_type;
 
 mod _select_option_description;
 

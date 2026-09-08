@@ -21,6 +21,8 @@
 ///     InventoryOptionalField::LastModifiedDate => { /* ... */ },
 ///     InventoryOptionalField::LifecycleExpirationDate => { /* ... */ },
 ///     InventoryOptionalField::ObjectAccessControlList => { /* ... */ },
+///     InventoryOptionalField::ObjectLockEventHoldDuration => { /* ... */ },
+///     InventoryOptionalField::ObjectLockEventHoldStatus => { /* ... */ },
 ///     InventoryOptionalField::ObjectLockLegalHoldStatus => { /* ... */ },
 ///     InventoryOptionalField::ObjectLockMode => { /* ... */ },
 ///     InventoryOptionalField::ObjectLockRetainUntilDate => { /* ... */ },
@@ -75,6 +77,10 @@ pub enum InventoryOptionalField {
     #[allow(missing_docs)] // documentation missing in model
     ObjectAccessControlList,
     #[allow(missing_docs)] // documentation missing in model
+    ObjectLockEventHoldDuration,
+    #[allow(missing_docs)] // documentation missing in model
+    ObjectLockEventHoldStatus,
+    #[allow(missing_docs)] // documentation missing in model
     ObjectLockLegalHoldStatus,
     #[allow(missing_docs)] // documentation missing in model
     ObjectLockMode,
@@ -104,6 +110,8 @@ impl ::std::convert::From<&str> for InventoryOptionalField {
             "LastModifiedDate" => InventoryOptionalField::LastModifiedDate,
             "LifecycleExpirationDate" => InventoryOptionalField::LifecycleExpirationDate,
             "ObjectAccessControlList" => InventoryOptionalField::ObjectAccessControlList,
+            "ObjectLockEventHoldDuration" => InventoryOptionalField::ObjectLockEventHoldDuration,
+            "ObjectLockEventHoldStatus" => InventoryOptionalField::ObjectLockEventHoldStatus,
             "ObjectLockLegalHoldStatus" => InventoryOptionalField::ObjectLockLegalHoldStatus,
             "ObjectLockMode" => InventoryOptionalField::ObjectLockMode,
             "ObjectLockRetainUntilDate" => InventoryOptionalField::ObjectLockRetainUntilDate,
@@ -135,6 +143,8 @@ impl InventoryOptionalField {
             InventoryOptionalField::LastModifiedDate => "LastModifiedDate",
             InventoryOptionalField::LifecycleExpirationDate => "LifecycleExpirationDate",
             InventoryOptionalField::ObjectAccessControlList => "ObjectAccessControlList",
+            InventoryOptionalField::ObjectLockEventHoldDuration => "ObjectLockEventHoldDuration",
+            InventoryOptionalField::ObjectLockEventHoldStatus => "ObjectLockEventHoldStatus",
             InventoryOptionalField::ObjectLockLegalHoldStatus => "ObjectLockLegalHoldStatus",
             InventoryOptionalField::ObjectLockMode => "ObjectLockMode",
             InventoryOptionalField::ObjectLockRetainUntilDate => "ObjectLockRetainUntilDate",
@@ -157,6 +167,8 @@ impl InventoryOptionalField {
             "LastModifiedDate",
             "LifecycleExpirationDate",
             "ObjectAccessControlList",
+            "ObjectLockEventHoldDuration",
+            "ObjectLockEventHoldStatus",
             "ObjectLockLegalHoldStatus",
             "ObjectLockMode",
             "ObjectLockRetainUntilDate",
@@ -196,6 +208,8 @@ impl ::std::fmt::Display for InventoryOptionalField {
             InventoryOptionalField::LastModifiedDate => write!(f, "LastModifiedDate"),
             InventoryOptionalField::LifecycleExpirationDate => write!(f, "LifecycleExpirationDate"),
             InventoryOptionalField::ObjectAccessControlList => write!(f, "ObjectAccessControlList"),
+            InventoryOptionalField::ObjectLockEventHoldDuration => write!(f, "ObjectLockEventHoldDuration"),
+            InventoryOptionalField::ObjectLockEventHoldStatus => write!(f, "ObjectLockEventHoldStatus"),
             InventoryOptionalField::ObjectLockLegalHoldStatus => write!(f, "ObjectLockLegalHoldStatus"),
             InventoryOptionalField::ObjectLockMode => write!(f, "ObjectLockMode"),
             InventoryOptionalField::ObjectLockRetainUntilDate => write!(f, "ObjectLockRetainUntilDate"),

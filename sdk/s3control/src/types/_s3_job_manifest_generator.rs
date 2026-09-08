@@ -4,7 +4,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct S3JobManifestGenerator {
-    /// <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else the job fails.</p>
+    /// <p>The Amazon Web Services account ID that owns the source bucket specified in <code>SourceBucket</code>. If provided, the manifest source bucket owner's Amazon Web Services account ID must match this value, else the job fails.</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the source bucket used by the ManifestGenerator.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets aren't supported as the source buckets used by <code>S3JobManifestGenerator</code> to generate the job manifest.</p>
@@ -18,7 +18,7 @@ pub struct S3JobManifestGenerator {
     pub enable_manifest_output: bool,
 }
 impl S3JobManifestGenerator {
-    /// <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else the job fails.</p>
+    /// <p>The Amazon Web Services account ID that owns the source bucket specified in <code>SourceBucket</code>. If provided, the manifest source bucket owner's Amazon Web Services account ID must match this value, else the job fails.</p>
     pub fn expected_bucket_owner(&self) -> ::std::option::Option<&str> {
         self.expected_bucket_owner.as_deref()
     }
@@ -60,17 +60,17 @@ pub struct S3JobManifestGeneratorBuilder {
     pub(crate) enable_manifest_output: ::std::option::Option<bool>,
 }
 impl S3JobManifestGeneratorBuilder {
-    /// <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else the job fails.</p>
+    /// <p>The Amazon Web Services account ID that owns the source bucket specified in <code>SourceBucket</code>. If provided, the manifest source bucket owner's Amazon Web Services account ID must match this value, else the job fails.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else the job fails.</p>
+    /// <p>The Amazon Web Services account ID that owns the source bucket specified in <code>SourceBucket</code>. If provided, the manifest source bucket owner's Amazon Web Services account ID must match this value, else the job fails.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
-    /// <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else the job fails.</p>
+    /// <p>The Amazon Web Services account ID that owns the source bucket specified in <code>SourceBucket</code>. If provided, the manifest source bucket owner's Amazon Web Services account ID must match this value, else the job fails.</p>
     pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
         &self.expected_bucket_owner
     }

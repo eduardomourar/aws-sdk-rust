@@ -6368,6 +6368,15 @@ pub(crate) fn instance_group_correct_errors(
     builder
 }
 
+pub(crate) fn instance_preference_correct_errors(
+    mut builder: crate::types::builders::InstancePreferenceBuilder,
+) -> crate::types::builders::InstancePreferenceBuilder {
+    if builder.instance_type.is_none() {
+        builder.instance_type = "no value was set".parse::<crate::types::TrainingInstanceType>().ok()
+    }
+    builder
+}
+
 pub(crate) fn kernel_spec_correct_errors(mut builder: crate::types::builders::KernelSpecBuilder) -> crate::types::builders::KernelSpecBuilder {
     if builder.name.is_none() {
         builder.name = Some(Default::default())
@@ -7122,6 +7131,15 @@ pub(crate) fn processing_feature_store_output_correct_errors(
 ) -> crate::types::builders::ProcessingFeatureStoreOutputBuilder {
     if builder.feature_group_name.is_none() {
         builder.feature_group_name = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn processing_instance_preference_correct_errors(
+    mut builder: crate::types::builders::ProcessingInstancePreferenceBuilder,
+) -> crate::types::builders::ProcessingInstancePreferenceBuilder {
+    if builder.instance_type.is_none() {
+        builder.instance_type = "no value was set".parse::<crate::types::ProcessingInstanceType>().ok()
     }
     builder
 }

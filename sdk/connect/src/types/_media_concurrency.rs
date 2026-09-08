@@ -13,6 +13,8 @@ pub struct MediaConcurrency {
     pub concurrency: i32,
     /// <p>Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.</p>
     pub cross_channel_behavior: ::std::option::Option<crate::types::CrossChannelBehavior>,
+    /// <p>Defines the list of workload type concurrency configurations for a channel. When provided, enables granular concurrency control based on workload type values.</p>
+    pub workload_type_concurrencies: ::std::option::Option<::std::vec::Vec<crate::types::WorkloadTypeConcurrency>>,
 }
 impl MediaConcurrency {
     /// <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
@@ -30,6 +32,12 @@ impl MediaConcurrency {
     pub fn cross_channel_behavior(&self) -> ::std::option::Option<&crate::types::CrossChannelBehavior> {
         self.cross_channel_behavior.as_ref()
     }
+    /// <p>Defines the list of workload type concurrency configurations for a channel. When provided, enables granular concurrency control based on workload type values.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.workload_type_concurrencies.is_none()`.
+    pub fn workload_type_concurrencies(&self) -> &[crate::types::WorkloadTypeConcurrency] {
+        self.workload_type_concurrencies.as_deref().unwrap_or_default()
+    }
 }
 impl MediaConcurrency {
     /// Creates a new builder-style object to manufacture [`MediaConcurrency`](crate::types::MediaConcurrency).
@@ -45,6 +53,7 @@ pub struct MediaConcurrencyBuilder {
     pub(crate) channel: ::std::option::Option<crate::types::Channel>,
     pub(crate) concurrency: ::std::option::Option<i32>,
     pub(crate) cross_channel_behavior: ::std::option::Option<crate::types::CrossChannelBehavior>,
+    pub(crate) workload_type_concurrencies: ::std::option::Option<::std::vec::Vec<crate::types::WorkloadTypeConcurrency>>,
 }
 impl MediaConcurrencyBuilder {
     /// <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
@@ -66,7 +75,6 @@ impl MediaConcurrencyBuilder {
     /// <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p>
     /// <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 10.</p>
     /// <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
-    /// This field is required.
     pub fn concurrency(mut self, input: i32) -> Self {
         self.concurrency = ::std::option::Option::Some(input);
         self
@@ -100,10 +108,29 @@ impl MediaConcurrencyBuilder {
     pub fn get_cross_channel_behavior(&self) -> &::std::option::Option<crate::types::CrossChannelBehavior> {
         &self.cross_channel_behavior
     }
+    /// Appends an item to `workload_type_concurrencies`.
+    ///
+    /// To override the contents of this collection use [`set_workload_type_concurrencies`](Self::set_workload_type_concurrencies).
+    ///
+    /// <p>Defines the list of workload type concurrency configurations for a channel. When provided, enables granular concurrency control based on workload type values.</p>
+    pub fn workload_type_concurrencies(mut self, input: crate::types::WorkloadTypeConcurrency) -> Self {
+        let mut v = self.workload_type_concurrencies.unwrap_or_default();
+        v.push(input);
+        self.workload_type_concurrencies = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>Defines the list of workload type concurrency configurations for a channel. When provided, enables granular concurrency control based on workload type values.</p>
+    pub fn set_workload_type_concurrencies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::WorkloadTypeConcurrency>>) -> Self {
+        self.workload_type_concurrencies = input;
+        self
+    }
+    /// <p>Defines the list of workload type concurrency configurations for a channel. When provided, enables granular concurrency control based on workload type values.</p>
+    pub fn get_workload_type_concurrencies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::WorkloadTypeConcurrency>> {
+        &self.workload_type_concurrencies
+    }
     /// Consumes the builder and constructs a [`MediaConcurrency`](crate::types::MediaConcurrency).
     /// This method will fail if any of the following fields are not set:
     /// - [`channel`](crate::types::builders::MediaConcurrencyBuilder::channel)
-    /// - [`concurrency`](crate::types::builders::MediaConcurrencyBuilder::concurrency)
     pub fn build(self) -> ::std::result::Result<crate::types::MediaConcurrency, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MediaConcurrency {
             channel: self.channel.ok_or_else(|| {
@@ -112,13 +139,9 @@ impl MediaConcurrencyBuilder {
                     "channel was not specified but it is required when building MediaConcurrency",
                 )
             })?,
-            concurrency: self.concurrency.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "concurrency",
-                    "concurrency was not specified but it is required when building MediaConcurrency",
-                )
-            })?,
+            concurrency: self.concurrency.unwrap_or_default(),
             cross_channel_behavior: self.cross_channel_behavior,
+            workload_type_concurrencies: self.workload_type_concurrencies,
         })
     }
 }

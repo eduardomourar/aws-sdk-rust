@@ -19,6 +19,13 @@ pub struct ProcessingClusterConfig {
     /// <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD Instance Store Volumes</a>.</p>
     /// </note>
     pub volume_kms_key_id: ::std::option::Option<::std::string::String>,
+    /// <p>An ordered list of ML compute instance types for the processing job, in priority order. Amazon SageMaker launches the job on the first instance type in the list that has available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next instance type in the list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>.</p>
+    pub instance_preferences: ::std::option::Option<::std::vec::Vec<crate::types::ProcessingInstancePreference>>,
+    /// <p>The instance type that Amazon SageMaker selected for the job from <code>InstancePreferences</code>. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub selected_instance_type: ::std::option::Option<crate::types::ProcessingInstanceType>,
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the job launched with. The job is billed for this instance type and count. Returned by <code>DescribeProcessingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub selected_instance_count: ::std::option::Option<i32>,
 }
 impl ProcessingClusterConfig {
     /// <p>The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.</p>
@@ -44,6 +51,21 @@ impl ProcessingClusterConfig {
     pub fn volume_kms_key_id(&self) -> ::std::option::Option<&str> {
         self.volume_kms_key_id.as_deref()
     }
+    /// <p>An ordered list of ML compute instance types for the processing job, in priority order. Amazon SageMaker launches the job on the first instance type in the list that has available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next instance type in the list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.instance_preferences.is_none()`.
+    pub fn instance_preferences(&self) -> &[crate::types::ProcessingInstancePreference] {
+        self.instance_preferences.as_deref().unwrap_or_default()
+    }
+    /// <p>The instance type that Amazon SageMaker selected for the job from <code>InstancePreferences</code>. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn selected_instance_type(&self) -> ::std::option::Option<&crate::types::ProcessingInstanceType> {
+        self.selected_instance_type.as_ref()
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the job launched with. The job is billed for this instance type and count. Returned by <code>DescribeProcessingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn selected_instance_count(&self) -> ::std::option::Option<i32> {
+        self.selected_instance_count
+    }
 }
 impl ProcessingClusterConfig {
     /// Creates a new builder-style object to manufacture [`ProcessingClusterConfig`](crate::types::ProcessingClusterConfig).
@@ -60,6 +82,9 @@ pub struct ProcessingClusterConfigBuilder {
     pub(crate) instance_type: ::std::option::Option<crate::types::ProcessingInstanceType>,
     pub(crate) volume_size_in_gb: ::std::option::Option<i32>,
     pub(crate) volume_kms_key_id: ::std::option::Option<::std::string::String>,
+    pub(crate) instance_preferences: ::std::option::Option<::std::vec::Vec<crate::types::ProcessingInstancePreference>>,
+    pub(crate) selected_instance_type: ::std::option::Option<crate::types::ProcessingInstanceType>,
+    pub(crate) selected_instance_count: ::std::option::Option<i32>,
 }
 impl ProcessingClusterConfigBuilder {
     /// <p>The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.</p>
@@ -140,6 +165,57 @@ impl ProcessingClusterConfigBuilder {
     pub fn get_volume_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.volume_kms_key_id
     }
+    /// Appends an item to `instance_preferences`.
+    ///
+    /// To override the contents of this collection use [`set_instance_preferences`](Self::set_instance_preferences).
+    ///
+    /// <p>An ordered list of ML compute instance types for the processing job, in priority order. Amazon SageMaker launches the job on the first instance type in the list that has available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next instance type in the list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>.</p>
+    pub fn instance_preferences(mut self, input: crate::types::ProcessingInstancePreference) -> Self {
+        let mut v = self.instance_preferences.unwrap_or_default();
+        v.push(input);
+        self.instance_preferences = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>An ordered list of ML compute instance types for the processing job, in priority order. Amazon SageMaker launches the job on the first instance type in the list that has available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next instance type in the list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>.</p>
+    pub fn set_instance_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProcessingInstancePreference>>) -> Self {
+        self.instance_preferences = input;
+        self
+    }
+    /// <p>An ordered list of ML compute instance types for the processing job, in priority order. Amazon SageMaker launches the job on the first instance type in the list that has available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next instance type in the list. Exactly one instance type is selected for the job.</p>
+    /// <p><code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>.</p>
+    pub fn get_instance_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProcessingInstancePreference>> {
+        &self.instance_preferences
+    }
+    /// <p>The instance type that Amazon SageMaker selected for the job from <code>InstancePreferences</code>. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn selected_instance_type(mut self, input: crate::types::ProcessingInstanceType) -> Self {
+        self.selected_instance_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The instance type that Amazon SageMaker selected for the job from <code>InstancePreferences</code>. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn set_selected_instance_type(mut self, input: ::std::option::Option<crate::types::ProcessingInstanceType>) -> Self {
+        self.selected_instance_type = input;
+        self
+    }
+    /// <p>The instance type that Amazon SageMaker selected for the job from <code>InstancePreferences</code>. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn get_selected_instance_type(&self) -> &::std::option::Option<crate::types::ProcessingInstanceType> {
+        &self.selected_instance_type
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the job launched with. The job is billed for this instance type and count. Returned by <code>DescribeProcessingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn selected_instance_count(mut self, input: i32) -> Self {
+        self.selected_instance_count = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the job launched with. The job is billed for this instance type and count. Returned by <code>DescribeProcessingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn set_selected_instance_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.selected_instance_count = input;
+        self
+    }
+    /// <p>The number of instances of <code>SelectedInstanceType</code> that the job launched with. The job is billed for this instance type and count. Returned by <code>DescribeProcessingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+    pub fn get_selected_instance_count(&self) -> &::std::option::Option<i32> {
+        &self.selected_instance_count
+    }
     /// Consumes the builder and constructs a [`ProcessingClusterConfig`](crate::types::ProcessingClusterConfig).
     pub fn build(self) -> crate::types::ProcessingClusterConfig {
         crate::types::ProcessingClusterConfig {
@@ -147,6 +223,9 @@ impl ProcessingClusterConfigBuilder {
             instance_type: self.instance_type,
             volume_size_in_gb: self.volume_size_in_gb,
             volume_kms_key_id: self.volume_kms_key_id,
+            instance_preferences: self.instance_preferences,
+            selected_instance_type: self.selected_instance_type,
+            selected_instance_count: self.selected_instance_count,
         }
     }
 }

@@ -36,6 +36,8 @@ pub struct RcsAgentInformation {
     pub two_way_rcs_events_enabled: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The testing agent information associated with the RCS agent.</p>
     pub testing_agent: ::std::option::Option<crate::types::TestingAgentInformation>,
+    /// <p>The messaging limits that apply to the RCS agent, including the per-capability send rates.</p>
+    pub messaging_limits: ::std::option::Option<crate::types::MessagingLimits>,
 }
 impl RcsAgentInformation {
     /// <p>The Amazon Resource Name (ARN) of the RCS agent.</p>
@@ -106,6 +108,10 @@ impl RcsAgentInformation {
     pub fn testing_agent(&self) -> ::std::option::Option<&crate::types::TestingAgentInformation> {
         self.testing_agent.as_ref()
     }
+    /// <p>The messaging limits that apply to the RCS agent, including the per-capability send rates.</p>
+    pub fn messaging_limits(&self) -> ::std::option::Option<&crate::types::MessagingLimits> {
+        self.messaging_limits.as_ref()
+    }
 }
 impl RcsAgentInformation {
     /// Creates a new builder-style object to manufacture [`RcsAgentInformation`](crate::types::RcsAgentInformation).
@@ -134,6 +140,7 @@ pub struct RcsAgentInformationBuilder {
     pub(crate) two_way_media_s3_role: ::std::option::Option<::std::string::String>,
     pub(crate) two_way_rcs_events_enabled: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) testing_agent: ::std::option::Option<crate::types::TestingAgentInformation>,
+    pub(crate) messaging_limits: ::std::option::Option<crate::types::MessagingLimits>,
 }
 impl RcsAgentInformationBuilder {
     /// <p>The Amazon Resource Name (ARN) of the RCS agent.</p>
@@ -373,6 +380,20 @@ impl RcsAgentInformationBuilder {
     pub fn get_testing_agent(&self) -> &::std::option::Option<crate::types::TestingAgentInformation> {
         &self.testing_agent
     }
+    /// <p>The messaging limits that apply to the RCS agent, including the per-capability send rates.</p>
+    pub fn messaging_limits(mut self, input: crate::types::MessagingLimits) -> Self {
+        self.messaging_limits = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The messaging limits that apply to the RCS agent, including the per-capability send rates.</p>
+    pub fn set_messaging_limits(mut self, input: ::std::option::Option<crate::types::MessagingLimits>) -> Self {
+        self.messaging_limits = input;
+        self
+    }
+    /// <p>The messaging limits that apply to the RCS agent, including the per-capability send rates.</p>
+    pub fn get_messaging_limits(&self) -> &::std::option::Option<crate::types::MessagingLimits> {
+        &self.messaging_limits
+    }
     /// Consumes the builder and constructs a [`RcsAgentInformation`](crate::types::RcsAgentInformation).
     /// This method will fail if any of the following fields are not set:
     /// - [`rcs_agent_arn`](crate::types::builders::RcsAgentInformationBuilder::rcs_agent_arn)
@@ -417,6 +438,7 @@ impl RcsAgentInformationBuilder {
             two_way_media_s3_role: self.two_way_media_s3_role,
             two_way_rcs_events_enabled: self.two_way_rcs_events_enabled,
             testing_agent: self.testing_agent,
+            messaging_limits: self.messaging_limits,
         })
     }
 }

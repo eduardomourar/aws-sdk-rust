@@ -2028,9 +2028,6 @@ pub(crate) fn media_concurrency_correct_errors(
     if builder.channel.is_none() {
         builder.channel = "no value was set".parse::<crate::types::Channel>().ok()
     }
-    if builder.concurrency.is_none() {
-        builder.concurrency = Some(Default::default())
-    }
     builder
 }
 
@@ -2553,6 +2550,18 @@ pub(crate) fn real_time_contact_analysis_issue_detected_correct_errors(
 ) -> crate::types::builders::RealTimeContactAnalysisIssueDetectedBuilder {
     if builder.transcript_items.is_none() {
         builder.transcript_items = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn workload_type_concurrency_correct_errors(
+    mut builder: crate::types::builders::WorkloadTypeConcurrencyBuilder,
+) -> crate::types::builders::WorkloadTypeConcurrencyBuilder {
+    if builder.workload_type.is_none() {
+        builder.workload_type = Some(Default::default())
+    }
+    if builder.concurrency.is_none() {
+        builder.concurrency = Some(Default::default())
     }
     builder
 }

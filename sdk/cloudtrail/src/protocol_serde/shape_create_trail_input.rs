@@ -48,5 +48,8 @@ pub fn ser_create_trail_input_input(
         }
         array_13.finish();
     }
+    if let Some(var_16) = &input.recursive_logging {
+        object.key("RecursiveLogging").boolean(*var_16);
+    }
     Ok(())
 }

@@ -555,6 +555,8 @@ pub(crate) mod shape_s3_grant;
 
 pub(crate) mod shape_s3_manifest_output_location;
 
+pub(crate) mod shape_s3_object_lock_event_hold_duration;
+
 pub(crate) mod shape_s3_object_lock_legal_hold;
 
 pub(crate) mod shape_s3_object_metadata;
@@ -624,6 +626,8 @@ pub(crate) mod shape_s3_access_control_list;
 pub(crate) mod shape_s3_grant_list;
 
 pub(crate) mod shape_s3_grantee;
+
+pub(crate) mod shape_s3_object_lock_retention_event_hold_duration;
 
 pub(crate) mod shape_s3_update_object_encryption_ssekms;
 

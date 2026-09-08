@@ -653,6 +653,8 @@ pub(crate) mod shape_csv_input;
 
 pub(crate) mod shape_csv_output;
 
+pub(crate) mod shape_event_hold_duration;
+
 pub(crate) mod shape_get_bucket_metadata_configuration_result;
 
 pub(crate) mod shape_get_bucket_metadata_table_configuration_result;

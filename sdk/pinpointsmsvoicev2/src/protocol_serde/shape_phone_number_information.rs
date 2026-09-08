@@ -132,6 +132,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "MessagingLimits" => {
+                            builder = builder.set_messaging_limits(crate::protocol_serde::shape_messaging_limits::de_messaging_limits(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         "CreatedTimestamp" => {
                             builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                                 tokens.next(),

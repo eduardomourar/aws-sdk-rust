@@ -181,6 +181,8 @@ pub use crate::types::_s3_canned_access_control_list::S3CannedAccessControlList;
 
 pub use crate::types::_s3_metadata_directive::S3MetadataDirective;
 
+pub use crate::types::_s3_annotation_directive::S3AnnotationDirective;
+
 pub use crate::types::_s3_object_metadata::S3ObjectMetadata;
 
 pub use crate::types::_s3_storage_class::S3StorageClass;
@@ -190,6 +192,10 @@ pub use crate::types::_s3_object_lock_legal_hold_status::S3ObjectLockLegalHoldSt
 pub use crate::types::_s3_object_lock_mode::S3ObjectLockMode;
 
 pub use crate::types::_s3_checksum_algorithm::S3ChecksumAlgorithm;
+
+pub use crate::types::_s3_object_lock_event_hold::S3ObjectLockEventHold;
+
+pub use crate::types::_s3_object_lock_event_hold_duration::S3ObjectLockEventHoldDuration;
 
 pub use crate::types::_s3_access_control_policy::S3AccessControlPolicy;
 
@@ -276,6 +282,10 @@ pub use crate::types::_s3_sse_algorithm::S3SseAlgorithm;
 pub use crate::types::_s3_access_control_list::S3AccessControlList;
 
 pub use crate::types::_s3_object_lock_retention_mode::S3ObjectLockRetentionMode;
+
+pub use crate::types::_s3_object_lock_retention_event_hold::S3ObjectLockRetentionEventHold;
+
+pub use crate::types::_s3_object_lock_retention_event_hold_duration::S3ObjectLockRetentionEventHoldDuration;
 
 pub use crate::types::_s3_update_object_encryption_ssekms::S3UpdateObjectEncryptionSsekms;
 
@@ -643,6 +653,8 @@ mod _s3_access_control_list;
 
 mod _s3_access_control_policy;
 
+mod _s3_annotation_directive;
+
 mod _s3_bucket_destination;
 
 mod _s3_canned_access_control_list;
@@ -673,11 +685,19 @@ mod _s3_manifest_output_location;
 
 mod _s3_metadata_directive;
 
+mod _s3_object_lock_event_hold;
+
+mod _s3_object_lock_event_hold_duration;
+
 mod _s3_object_lock_legal_hold;
 
 mod _s3_object_lock_legal_hold_status;
 
 mod _s3_object_lock_mode;
+
+mod _s3_object_lock_retention_event_hold;
+
+mod _s3_object_lock_retention_event_hold_duration;
 
 mod _s3_object_lock_retention_mode;
 

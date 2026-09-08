@@ -22,6 +22,8 @@ pub struct RequestPhoneNumberInput {
     pub pool_id: ::std::option::Option<::std::string::String>,
     /// <p>Use this field to attach your phone number for an external registration process.</p>
     pub registration_id: ::std::option::Option<::std::string::String>,
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub number_preference: ::std::option::Option<::std::vec::Vec<crate::types::NumberPreferenceItem>>,
     /// <p>By default this is set to false. When set to true the international sending of phone number is Enabled.</p>
     pub international_sending_enabled: ::std::option::Option<bool>,
     /// <p>By default this is set to false. When set to true the phone number can't be deleted.</p>
@@ -67,6 +69,12 @@ impl RequestPhoneNumberInput {
     pub fn registration_id(&self) -> ::std::option::Option<&str> {
         self.registration_id.as_deref()
     }
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.number_preference.is_none()`.
+    pub fn number_preference(&self) -> &[crate::types::NumberPreferenceItem] {
+        self.number_preference.as_deref().unwrap_or_default()
+    }
     /// <p>By default this is set to false. When set to true the international sending of phone number is Enabled.</p>
     pub fn international_sending_enabled(&self) -> ::std::option::Option<bool> {
         self.international_sending_enabled
@@ -104,6 +112,7 @@ pub struct RequestPhoneNumberInputBuilder {
     pub(crate) opt_out_list_name: ::std::option::Option<::std::string::String>,
     pub(crate) pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) registration_id: ::std::option::Option<::std::string::String>,
+    pub(crate) number_preference: ::std::option::Option<::std::vec::Vec<crate::types::NumberPreferenceItem>>,
     pub(crate) international_sending_enabled: ::std::option::Option<bool>,
     pub(crate) deletion_protection_enabled: ::std::option::Option<bool>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -232,6 +241,26 @@ impl RequestPhoneNumberInputBuilder {
     pub fn get_registration_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.registration_id
     }
+    /// Appends an item to `number_preference`.
+    ///
+    /// To override the contents of this collection use [`set_number_preference`](Self::set_number_preference).
+    ///
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub fn number_preference(mut self, input: crate::types::NumberPreferenceItem) -> Self {
+        let mut v = self.number_preference.unwrap_or_default();
+        v.push(input);
+        self.number_preference = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub fn set_number_preference(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NumberPreferenceItem>>) -> Self {
+        self.number_preference = input;
+        self
+    }
+    /// <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+    pub fn get_number_preference(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NumberPreferenceItem>> {
+        &self.number_preference
+    }
     /// <p>By default this is set to false. When set to true the international sending of phone number is Enabled.</p>
     pub fn international_sending_enabled(mut self, input: bool) -> Self {
         self.international_sending_enabled = ::std::option::Option::Some(input);
@@ -307,6 +336,7 @@ impl RequestPhoneNumberInputBuilder {
             opt_out_list_name: self.opt_out_list_name,
             pool_id: self.pool_id,
             registration_id: self.registration_id,
+            number_preference: self.number_preference,
             international_sending_enabled: self.international_sending_enabled,
             deletion_protection_enabled: self.deletion_protection_enabled,
             tags: self.tags,

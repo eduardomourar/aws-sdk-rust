@@ -12,9 +12,9 @@ pub struct VastRequestConfiguration {
     pub method_type: crate::types::MethodType,
     /// <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
     pub request_timeout_milliseconds: i32,
-    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
     pub url: ::std::string::String,
-    /// <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+    /// <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
     pub body: ::std::option::Option<::std::string::String>,
     /// <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with <code>X-Amz-</code> are reserved by the service, and method override headers are not allowed.</p>
     pub headers: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -36,12 +36,12 @@ impl VastRequestConfiguration {
     pub fn request_timeout_milliseconds(&self) -> i32 {
         self.request_timeout_milliseconds
     }
-    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
     pub fn url(&self) -> &str {
         use std::ops::Deref;
         self.url.deref()
     }
-    /// <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+    /// <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
     pub fn body(&self) -> ::std::option::Option<&str> {
         self.body.as_deref()
     }
@@ -135,32 +135,32 @@ impl VastRequestConfigurationBuilder {
     pub fn get_request_timeout_milliseconds(&self) -> &::std::option::Option<i32> {
         &self.request_timeout_milliseconds
     }
-    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
     /// This field is required.
     pub fn url(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.url = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
     pub fn set_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.url = input;
         self
     }
-    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+    /// <p>An expression that evaluates to the VAST endpoint URL. Use <code>{%...%}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
     pub fn get_url(&self) -> &::std::option::Option<::std::string::String> {
         &self.url
     }
-    /// <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+    /// <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
     pub fn body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.body = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+    /// <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
     pub fn set_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.body = input;
         self
     }
-    /// <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+    /// <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
     pub fn get_body(&self) -> &::std::option::Option<::std::string::String> {
         &self.body
     }

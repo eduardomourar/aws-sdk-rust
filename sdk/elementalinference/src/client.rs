@@ -202,6 +202,8 @@ mod delete_dictionary;
 
 mod delete_feed;
 
+mod delete_feed_policy;
+
 mod disassociate_feed;
 
 mod export_dictionary_entries;
@@ -210,6 +212,8 @@ mod get_dictionary;
 
 mod get_feed;
 
+mod get_feed_policy;
+
 mod get_fixture;
 
 mod list_dictionaries;
@@ -217,6 +221,8 @@ mod list_dictionaries;
 mod list_feeds;
 
 mod list_tags_for_resource;
+
+mod put_feed_policy;
 
 mod search_fixtures;
 

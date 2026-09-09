@@ -6,6 +6,8 @@
 pub enum OutputConfig {
     /// <p>The output config type that applies to the clipping feature.</p>
     Clipping(crate::types::ClippingConfig),
+    /// <p>The output config type that applies to the contextual metadata feature.</p>
+    ContextualMetadata(crate::types::ContextualMetadataConfig),
     /// <p>The output config type that applies to the cropping feature.</p>
     Cropping(crate::types::CroppingConfig),
     /// <p>The output config type that applies to the smart subtitling feature.</p>
@@ -33,6 +35,19 @@ impl OutputConfig {
     /// Returns true if this is a [`Clipping`](crate::types::OutputConfig::Clipping).
     pub fn is_clipping(&self) -> bool {
         self.as_clipping().is_ok()
+    }
+    /// Tries to convert the enum instance into [`ContextualMetadata`](crate::types::OutputConfig::ContextualMetadata), extracting the inner [`ContextualMetadataConfig`](crate::types::ContextualMetadataConfig).
+    /// Returns `Err(&Self)` if it can't be converted.
+    pub fn as_contextual_metadata(&self) -> ::std::result::Result<&crate::types::ContextualMetadataConfig, &Self> {
+        if let OutputConfig::ContextualMetadata(val) = &self {
+            ::std::result::Result::Ok(val)
+        } else {
+            ::std::result::Result::Err(self)
+        }
+    }
+    /// Returns true if this is a [`ContextualMetadata`](crate::types::OutputConfig::ContextualMetadata).
+    pub fn is_contextual_metadata(&self) -> bool {
+        self.as_contextual_metadata().is_ok()
     }
     /// Tries to convert the enum instance into [`Cropping`](crate::types::OutputConfig::Cropping), extracting the inner [`CroppingConfig`](crate::types::CroppingConfig).
     /// Returns `Err(&Self)` if it can't be converted.

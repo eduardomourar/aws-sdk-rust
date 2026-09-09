@@ -559,6 +559,8 @@ pub use crate::types::_data_table_value_summary::DataTableValueSummaryBuilder;
 
 pub use crate::types::_default_vocabulary::DefaultVocabularyBuilder;
 
+pub use crate::types::_evaluation_form_ai_version_summary::EvaluationFormAiVersionSummaryBuilder;
+
 pub use crate::types::_evaluation_form_summary::EvaluationFormSummaryBuilder;
 
 pub use crate::types::_evaluation_form_version_summary::EvaluationFormVersionSummaryBuilder;
@@ -869,6 +871,8 @@ pub use crate::types::_date_reference::DateReferenceBuilder;
 
 pub use crate::types::_email_reference::EmailReferenceBuilder;
 
+pub use crate::types::_evaluation_form_ai_version_lifecycle::EvaluationFormAiVersionLifecycleBuilder;
+
 pub use crate::types::_real_time_contact_analysis_segment_transcript::RealTimeContactAnalysisSegmentTranscriptBuilder;
 
 pub use crate::types::_real_time_contact_analysis_segment_categories::RealTimeContactAnalysisSegmentCategoriesBuilder;
@@ -926,6 +930,8 @@ pub use crate::types::_primary_value_response::PrimaryValueResponseBuilder;
 pub use crate::types::_evaluation_form_item_enablement_configuration::EvaluationFormItemEnablementConfigurationBuilder;
 
 pub use crate::types::_evaluation_form_question_scoring_configuration::EvaluationFormQuestionScoringConfigurationBuilder;
+
+pub use crate::types::_evaluation_form_metric_configuration::EvaluationFormMetricConfigurationBuilder;
 
 pub use crate::types::_evaluation_review_notification_recipient_value::EvaluationReviewNotificationRecipientValueBuilder;
 

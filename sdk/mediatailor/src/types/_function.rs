@@ -12,6 +12,8 @@ pub struct Function {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
     pub http_request_configuration: ::std::option::Option<crate::types::HttpRequestConfiguration>,
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+    pub aws_service_request_configuration: ::std::option::Option<crate::types::AwsServiceRequestConfiguration>,
     /// <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
     pub custom_output_configuration: ::std::option::Option<crate::types::CustomOutputConfiguration>,
     /// <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
@@ -42,6 +44,10 @@ impl Function {
     /// <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
     pub fn http_request_configuration(&self) -> ::std::option::Option<&crate::types::HttpRequestConfiguration> {
         self.http_request_configuration.as_ref()
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+    pub fn aws_service_request_configuration(&self) -> ::std::option::Option<&crate::types::AwsServiceRequestConfiguration> {
+        self.aws_service_request_configuration.as_ref()
     }
     /// <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
     pub fn custom_output_configuration(&self) -> ::std::option::Option<&crate::types::CustomOutputConfiguration> {
@@ -83,6 +89,7 @@ pub struct FunctionBuilder {
     pub(crate) function_type: ::std::option::Option<crate::types::FunctionType>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) http_request_configuration: ::std::option::Option<crate::types::HttpRequestConfiguration>,
+    pub(crate) aws_service_request_configuration: ::std::option::Option<crate::types::AwsServiceRequestConfiguration>,
     pub(crate) custom_output_configuration: ::std::option::Option<crate::types::CustomOutputConfiguration>,
     pub(crate) concurrent_executor_configuration: ::std::option::Option<crate::types::ConcurrentExecutorConfiguration>,
     pub(crate) sequential_executor_configuration: ::std::option::Option<crate::types::SequentialExecutorConfiguration>,
@@ -148,6 +155,20 @@ impl FunctionBuilder {
     /// <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
     pub fn get_http_request_configuration(&self) -> &::std::option::Option<crate::types::HttpRequestConfiguration> {
         &self.http_request_configuration
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+    pub fn aws_service_request_configuration(mut self, input: crate::types::AwsServiceRequestConfiguration) -> Self {
+        self.aws_service_request_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+    pub fn set_aws_service_request_configuration(mut self, input: ::std::option::Option<crate::types::AwsServiceRequestConfiguration>) -> Self {
+        self.aws_service_request_configuration = input;
+        self
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+    pub fn get_aws_service_request_configuration(&self) -> &::std::option::Option<crate::types::AwsServiceRequestConfiguration> {
+        &self.aws_service_request_configuration
     }
     /// <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
     pub fn custom_output_configuration(mut self, input: crate::types::CustomOutputConfiguration) -> Self {
@@ -259,6 +280,7 @@ impl FunctionBuilder {
             })?,
             description: self.description,
             http_request_configuration: self.http_request_configuration,
+            aws_service_request_configuration: self.aws_service_request_configuration,
             custom_output_configuration: self.custom_output_configuration,
             concurrent_executor_configuration: self.concurrent_executor_configuration,
             sequential_executor_configuration: self.sequential_executor_configuration,

@@ -33,6 +33,11 @@ where
                                 crate::protocol_serde::shape_list_of_audio_feed_input::de_list_of_audio_feed_input(tokens, _value, depth + 1)?,
                             );
                         }
+                        "enrichmentMethods" => {
+                            builder = builder.set_enrichment_methods(
+                                crate::protocol_serde::shape_list_of_enrichment_method::de_list_of_enrichment_method(tokens, _value, depth + 1)?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

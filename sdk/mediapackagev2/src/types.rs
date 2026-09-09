@@ -11,6 +11,8 @@ pub use crate::types::_input_switch_configuration::InputSwitchConfiguration;
 
 pub use crate::types::_output_header_configuration::OutputHeaderConfiguration;
 
+pub use crate::types::_multiview_configuration::MultiviewConfiguration;
+
 pub use crate::types::_output_locking_mode::OutputLockingMode;
 
 pub use crate::types::_harvest_job_status::HarvestJobStatus;
@@ -66,6 +68,8 @@ pub use crate::types::_get_low_latency_hls_manifest_configuration::GetLowLatency
 pub use crate::types::_get_dash_manifest_configuration::GetDashManifestConfiguration;
 
 pub use crate::types::_get_mss_manifest_configuration::GetMssManifestConfiguration;
+
+pub use crate::types::_multiview_layout_type::MultiviewLayoutType;
 
 pub use crate::types::_harvested_hls_manifest::HarvestedHlsManifest;
 
@@ -274,6 +278,10 @@ mod _list_low_latency_hls_manifest_configuration;
 mod _list_mss_manifest_configuration;
 
 mod _mss_manifest_layout;
+
+mod _multiview_configuration;
+
+mod _multiview_layout_type;
 
 mod _origin_endpoint_list_configuration;
 

@@ -313,4 +313,18 @@ impl UpdateEvaluationFormFluentBuilder {
     pub fn get_language_configuration(&self) -> &::std::option::Option<crate::types::EvaluationFormLanguageConfiguration> {
         self.inner.get_language_configuration()
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.ai_version(input.into());
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn set_ai_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_ai_version(input);
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn get_ai_version(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_ai_version()
+    }
 }

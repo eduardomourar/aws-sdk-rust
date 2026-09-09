@@ -8042,6 +8042,46 @@ impl From<crate::operation::list_entity_security_profiles::ListEntitySecurityPro
         }
     }
 }
+impl<R>
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError, R>>
+    for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError> for Error {
+    fn from(err: crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError) -> Self {
+        match err {
+            crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError::InternalServiceException(inner) => {
+                Error::InternalServiceException(inner)
+            }
+            crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::list_evaluation_form_ai_versions::ListEvaluationFormAIVersionsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_evaluation_forms::ListEvaluationFormsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,

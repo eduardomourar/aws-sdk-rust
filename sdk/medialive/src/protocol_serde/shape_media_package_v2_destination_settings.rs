@@ -15,6 +15,15 @@ pub fn ser_media_package_v2_destination_settings(
     if let Some(var_4) = &input.hls_default {
         object.key("hlsDefault").string(var_4.as_str());
     }
+    if let Some(var_5) = &input.output_usage {
+        let mut array_6 = object.key("outputUsage").start_array();
+        for item_7 in var_5 {
+            {
+                array_6.value().string(item_7.as_str());
+            }
+        }
+        array_6.finish();
+    }
     Ok(())
 }
 
@@ -67,6 +76,13 @@ where
                                     .map(|s| s.to_unescaped().map(|u| crate::types::HlsDefault::from(u.as_ref())))
                                     .transpose()?,
                             );
+                        }
+                        "outputUsage" => {
+                            builder = builder.set_output_usage(crate::protocol_serde::shape_list_of_output_usage::de_list_of_output_usage(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

@@ -193,4 +193,18 @@ impl UpdateChannelFluentBuilder {
     pub fn get_output_header_configuration(&self) -> &::std::option::Option<crate::types::OutputHeaderConfiguration> {
         self.inner.get_output_header_configuration()
     }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn multiview_configuration(mut self, input: crate::types::MultiviewConfiguration) -> Self {
+        self.inner = self.inner.multiview_configuration(input);
+        self
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn set_multiview_configuration(mut self, input: ::std::option::Option<crate::types::MultiviewConfiguration>) -> Self {
+        self.inner = self.inner.set_multiview_configuration(input);
+        self
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn get_multiview_configuration(&self) -> &::std::option::Option<crate::types::MultiviewConfiguration> {
+        self.inner.get_multiview_configuration()
+    }
 }

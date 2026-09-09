@@ -32,6 +32,8 @@ impl super::Client {
     ///   - [`sse_type(Option<SseType>)`](crate::operation::create_volume::CreateVolumeOutput::sse_type): <note>  <p>This parameter is not returned by CreateVolume.</p> </note> <p>Reserved for future use.</p>
     ///   - [`operator(Option<OperatorResponse>)`](crate::operation::create_volume::CreateVolumeOutput::operator): <p>The service provider that manages the volume.</p>
     ///   - [`volume_initialization_rate(Option<i32>)`](crate::operation::create_volume::CreateVolumeOutput::volume_initialization_rate): <p>The Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate) specified for the volume during creation, in MiB/s. If no volume initialization rate was specified, the value is <code>null</code>.</p>
+    ///   - [`volume_arn(Option<String>)`](crate::operation::create_volume::CreateVolumeOutput::volume_arn): <p>The Amazon Resource Name (ARN) of the volume.</p>
+    ///   - [`owner_id(Option<String>)`](crate::operation::create_volume::CreateVolumeOutput::owner_id): <p>The ID of the Amazon Web Services account that owns the volume.</p>
     ///   - [`volume_id(Option<String>)`](crate::operation::create_volume::CreateVolumeOutput::volume_id): <p>The ID of the volume.</p>
     ///   - [`size(Option<i32>)`](crate::operation::create_volume::CreateVolumeOutput::size): <p>The size of the volume, in GiBs.</p>
     ///   - [`snapshot_id(Option<String>)`](crate::operation::create_volume::CreateVolumeOutput::snapshot_id): <p>The snapshot from which the volume was created, if applicable.</p>

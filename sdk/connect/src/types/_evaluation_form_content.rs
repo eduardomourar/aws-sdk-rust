@@ -26,6 +26,8 @@ pub struct EvaluationFormContent {
     pub language_configuration: ::std::option::Option<crate::types::EvaluationFormLanguageConfiguration>,
     /// <p>Configuration for evaluation review settings of this evaluation form content.</p>
     pub review_configuration: ::std::option::Option<crate::types::EvaluationReviewConfiguration>,
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub ai_version: ::std::option::Option<::std::string::String>,
 }
 impl EvaluationFormContent {
     /// <p>A version of the evaluation form.</p>
@@ -76,6 +78,10 @@ impl EvaluationFormContent {
     pub fn review_configuration(&self) -> ::std::option::Option<&crate::types::EvaluationReviewConfiguration> {
         self.review_configuration.as_ref()
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(&self) -> ::std::option::Option<&str> {
+        self.ai_version.as_deref()
+    }
 }
 impl EvaluationFormContent {
     /// Creates a new builder-style object to manufacture [`EvaluationFormContent`](crate::types::EvaluationFormContent).
@@ -99,6 +105,7 @@ pub struct EvaluationFormContentBuilder {
     pub(crate) target_configuration: ::std::option::Option<crate::types::EvaluationFormTargetConfiguration>,
     pub(crate) language_configuration: ::std::option::Option<crate::types::EvaluationFormLanguageConfiguration>,
     pub(crate) review_configuration: ::std::option::Option<crate::types::EvaluationReviewConfiguration>,
+    pub(crate) ai_version: ::std::option::Option<::std::string::String>,
 }
 impl EvaluationFormContentBuilder {
     /// <p>A version of the evaluation form.</p>
@@ -268,6 +275,20 @@ impl EvaluationFormContentBuilder {
     pub fn get_review_configuration(&self) -> &::std::option::Option<crate::types::EvaluationReviewConfiguration> {
         &self.review_configuration
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.ai_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn set_ai_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ai_version = input;
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn get_ai_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ai_version
+    }
     /// Consumes the builder and constructs a [`EvaluationFormContent`](crate::types::EvaluationFormContent).
     /// This method will fail if any of the following fields are not set:
     /// - [`evaluation_form_id`](crate::types::builders::EvaluationFormContentBuilder::evaluation_form_id)
@@ -307,6 +328,7 @@ impl EvaluationFormContentBuilder {
             target_configuration: self.target_configuration,
             language_configuration: self.language_configuration,
             review_configuration: self.review_configuration,
+            ai_version: self.ai_version,
         })
     }
 }

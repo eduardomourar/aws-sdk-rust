@@ -3,6 +3,8 @@ pub use crate::types::_input_switch_configuration::InputSwitchConfigurationBuild
 
 pub use crate::types::_output_header_configuration::OutputHeaderConfigurationBuilder;
 
+pub use crate::types::_multiview_configuration::MultiviewConfigurationBuilder;
+
 pub use crate::types::_harvested_manifests::HarvestedManifestsBuilder;
 
 pub use crate::types::_harvester_schedule_configuration::HarvesterScheduleConfigurationBuilder;

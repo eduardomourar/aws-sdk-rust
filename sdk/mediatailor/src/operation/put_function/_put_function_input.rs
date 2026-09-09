@@ -6,12 +6,29 @@
 pub struct PutFunctionInput {
     /// <p>The identifier of the function. The identifier must be unique within your account.</p>
     pub function_id: ::std::option::Option<::std::string::String>,
-    /// <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+    /// <p>The type of the function, which determines what the function can do at runtime. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p></li>
+    /// <li>
+    /// <p><code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p></li>
+    /// <li>
+    /// <p><code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p></li>
+    /// <li>
+    /// <p><code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p></li>
+    /// </ul>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
     pub function_type: ::std::option::Option<crate::types::FunctionType>,
     /// <p>A description of the function.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>HTTP_REQUEST</code>.</p>
     pub http_request_configuration: ::std::option::Option<crate::types::HttpRequestConfiguration>,
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+    pub aws_service_request_configuration: ::std::option::Option<crate::types::AwsServiceRequestConfiguration>,
     /// <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. Specifies the runtime and output expressions. Required when <code>FunctionType</code> is <code>CUSTOM_OUTPUT</code>.</p>
     pub custom_output_configuration: ::std::option::Option<crate::types::CustomOutputConfiguration>,
     /// <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function. Specifies the list of child functions to run in parallel, the maximum concurrency, an optional output block, and a timeout. Required when <code>FunctionType</code> is <code>CONCURRENT_EXECUTOR</code>.</p>
@@ -28,7 +45,22 @@ impl PutFunctionInput {
     pub fn function_id(&self) -> ::std::option::Option<&str> {
         self.function_id.as_deref()
     }
-    /// <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+    /// <p>The type of the function, which determines what the function can do at runtime. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p></li>
+    /// <li>
+    /// <p><code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p></li>
+    /// <li>
+    /// <p><code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p></li>
+    /// <li>
+    /// <p><code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p></li>
+    /// </ul>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
     pub fn function_type(&self) -> ::std::option::Option<&crate::types::FunctionType> {
         self.function_type.as_ref()
     }
@@ -39,6 +71,10 @@ impl PutFunctionInput {
     /// <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>HTTP_REQUEST</code>.</p>
     pub fn http_request_configuration(&self) -> ::std::option::Option<&crate::types::HttpRequestConfiguration> {
         self.http_request_configuration.as_ref()
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+    pub fn aws_service_request_configuration(&self) -> ::std::option::Option<&crate::types::AwsServiceRequestConfiguration> {
+        self.aws_service_request_configuration.as_ref()
     }
     /// <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. Specifies the runtime and output expressions. Required when <code>FunctionType</code> is <code>CUSTOM_OUTPUT</code>.</p>
     pub fn custom_output_configuration(&self) -> ::std::option::Option<&crate::types::CustomOutputConfiguration> {
@@ -76,6 +112,7 @@ pub struct PutFunctionInputBuilder {
     pub(crate) function_type: ::std::option::Option<crate::types::FunctionType>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) http_request_configuration: ::std::option::Option<crate::types::HttpRequestConfiguration>,
+    pub(crate) aws_service_request_configuration: ::std::option::Option<crate::types::AwsServiceRequestConfiguration>,
     pub(crate) custom_output_configuration: ::std::option::Option<crate::types::CustomOutputConfiguration>,
     pub(crate) concurrent_executor_configuration: ::std::option::Option<crate::types::ConcurrentExecutorConfiguration>,
     pub(crate) sequential_executor_configuration: ::std::option::Option<crate::types::SequentialExecutorConfiguration>,
@@ -98,18 +135,63 @@ impl PutFunctionInputBuilder {
     pub fn get_function_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_id
     }
-    /// <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+    /// <p>The type of the function, which determines what the function can do at runtime. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p></li>
+    /// <li>
+    /// <p><code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p></li>
+    /// <li>
+    /// <p><code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p></li>
+    /// <li>
+    /// <p><code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p></li>
+    /// </ul>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
     /// This field is required.
     pub fn function_type(mut self, input: crate::types::FunctionType) -> Self {
         self.function_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+    /// <p>The type of the function, which determines what the function can do at runtime. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p></li>
+    /// <li>
+    /// <p><code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p></li>
+    /// <li>
+    /// <p><code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p></li>
+    /// <li>
+    /// <p><code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p></li>
+    /// </ul>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
     pub fn set_function_type(mut self, input: ::std::option::Option<crate::types::FunctionType>) -> Self {
         self.function_type = input;
         self
     }
-    /// <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+    /// <p>The type of the function, which determines what the function can do at runtime. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p></li>
+    /// <li>
+    /// <p><code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p></li>
+    /// <li>
+    /// <p><code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p></li>
+    /// <li>
+    /// <p><code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p></li>
+    /// <li>
+    /// <p><code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p></li>
+    /// </ul>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
     pub fn get_function_type(&self) -> &::std::option::Option<crate::types::FunctionType> {
         &self.function_type
     }
@@ -140,6 +222,20 @@ impl PutFunctionInputBuilder {
     /// <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>HTTP_REQUEST</code>.</p>
     pub fn get_http_request_configuration(&self) -> &::std::option::Option<crate::types::HttpRequestConfiguration> {
         &self.http_request_configuration
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+    pub fn aws_service_request_configuration(mut self, input: crate::types::AwsServiceRequestConfiguration) -> Self {
+        self.aws_service_request_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+    pub fn set_aws_service_request_configuration(mut self, input: ::std::option::Option<crate::types::AwsServiceRequestConfiguration>) -> Self {
+        self.aws_service_request_configuration = input;
+        self
+    }
+    /// <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+    pub fn get_aws_service_request_configuration(&self) -> &::std::option::Option<crate::types::AwsServiceRequestConfiguration> {
+        &self.aws_service_request_configuration
     }
     /// <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. Specifies the runtime and output expressions. Required when <code>FunctionType</code> is <code>CUSTOM_OUTPUT</code>.</p>
     pub fn custom_output_configuration(mut self, input: crate::types::CustomOutputConfiguration) -> Self {
@@ -224,6 +320,7 @@ impl PutFunctionInputBuilder {
             function_type: self.function_type,
             description: self.description,
             http_request_configuration: self.http_request_configuration,
+            aws_service_request_configuration: self.aws_service_request_configuration,
             custom_output_configuration: self.custom_output_configuration,
             concurrent_executor_configuration: self.concurrent_executor_configuration,
             sequential_executor_configuration: self.sequential_executor_configuration,

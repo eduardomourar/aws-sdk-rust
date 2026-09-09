@@ -12,6 +12,7 @@
 /// ```text
 /// # let functiontype = unimplemented!();
 /// match functiontype {
+///     FunctionType::AwsServiceRequest => { /* ... */ },
 ///     FunctionType::ConcurrentExecutor => { /* ... */ },
 ///     FunctionType::CustomOutput => { /* ... */ },
 ///     FunctionType::HttpRequest => { /* ... */ },
@@ -46,6 +47,8 @@
 )]
 pub enum FunctionType {
     #[allow(missing_docs)] // documentation missing in model
+    AwsServiceRequest,
+    #[allow(missing_docs)] // documentation missing in model
     ConcurrentExecutor,
     #[allow(missing_docs)] // documentation missing in model
     CustomOutput,
@@ -62,6 +65,7 @@ pub enum FunctionType {
 impl ::std::convert::From<&str> for FunctionType {
     fn from(s: &str) -> Self {
         match s {
+            "AWS_SERVICE_REQUEST" => FunctionType::AwsServiceRequest,
             "CONCURRENT_EXECUTOR" => FunctionType::ConcurrentExecutor,
             "CUSTOM_OUTPUT" => FunctionType::CustomOutput,
             "HTTP_REQUEST" => FunctionType::HttpRequest,
@@ -82,6 +86,7 @@ impl FunctionType {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            FunctionType::AwsServiceRequest => "AWS_SERVICE_REQUEST",
             FunctionType::ConcurrentExecutor => "CONCURRENT_EXECUTOR",
             FunctionType::CustomOutput => "CUSTOM_OUTPUT",
             FunctionType::HttpRequest => "HTTP_REQUEST",
@@ -93,6 +98,7 @@ impl FunctionType {
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
         &[
+            "AWS_SERVICE_REQUEST",
             "CONCURRENT_EXECUTOR",
             "CUSTOM_OUTPUT",
             "HTTP_REQUEST",
@@ -121,6 +127,7 @@ impl FunctionType {
 impl ::std::fmt::Display for FunctionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            FunctionType::AwsServiceRequest => write!(f, "AWS_SERVICE_REQUEST"),
             FunctionType::ConcurrentExecutor => write!(f, "CONCURRENT_EXECUTOR"),
             FunctionType::CustomOutput => write!(f, "CUSTOM_OUTPUT"),
             FunctionType::HttpRequest => write!(f, "HTTP_REQUEST"),

@@ -44,6 +44,8 @@ pub struct EvaluationForm {
     pub latest_validation_status: ::std::option::Option<crate::types::EvaluationFormValidationStatus>,
     /// <p>The timestamp when the most recent validation was started for this evaluation form.</p>
     pub last_validation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub ai_version: ::std::option::Option<::std::string::String>,
 }
 impl EvaluationForm {
     /// <p>The unique identifier for the evaluation form.</p>
@@ -132,6 +134,10 @@ impl EvaluationForm {
     pub fn last_validation_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.last_validation_time.as_ref()
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(&self) -> ::std::option::Option<&str> {
+        self.ai_version.as_deref()
+    }
 }
 impl EvaluationForm {
     /// Creates a new builder-style object to manufacture [`EvaluationForm`](crate::types::EvaluationForm).
@@ -164,6 +170,7 @@ pub struct EvaluationFormBuilder {
     pub(crate) language_configuration: ::std::option::Option<crate::types::EvaluationFormLanguageConfiguration>,
     pub(crate) latest_validation_status: ::std::option::Option<crate::types::EvaluationFormValidationStatus>,
     pub(crate) last_validation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) ai_version: ::std::option::Option<::std::string::String>,
 }
 impl EvaluationFormBuilder {
     /// <p>The unique identifier for the evaluation form.</p>
@@ -471,6 +478,20 @@ impl EvaluationFormBuilder {
     pub fn get_last_validation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_validation_time
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.ai_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn set_ai_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ai_version = input;
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn get_ai_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ai_version
+    }
     /// Consumes the builder and constructs a [`EvaluationForm`](crate::types::EvaluationForm).
     /// This method will fail if any of the following fields are not set:
     /// - [`evaluation_form_id`](crate::types::builders::EvaluationFormBuilder::evaluation_form_id)
@@ -549,6 +570,7 @@ impl EvaluationFormBuilder {
             language_configuration: self.language_configuration,
             latest_validation_status: self.latest_validation_status,
             last_validation_time: self.last_validation_time,
+            ai_version: self.ai_version,
         })
     }
 }

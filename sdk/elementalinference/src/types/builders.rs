@@ -23,6 +23,8 @@ pub use crate::types::_clipping_config::ClippingConfigBuilder;
 
 pub use crate::types::_subtitling_config::SubtitlingConfigBuilder;
 
+pub use crate::types::_contextual_metadata_config::ContextualMetadataConfigBuilder;
+
 pub use crate::types::_data_source_configuration::DataSourceConfigurationBuilder;
 
 pub use crate::types::_aspect_ratio::AspectRatioBuilder;

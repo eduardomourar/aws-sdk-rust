@@ -21,5 +21,21 @@ pub fn ser_compute_node_group_slurm_configuration_request(
         }
         array_3.finish();
     }
+    if let Some(var_6) = &input.gres_custom_settings {
+        let mut array_7 = object.key("gresCustomSettings").start_array();
+        for item_8 in var_6 {
+            {
+                #[allow(unused_mut)]
+                let mut object_9 = array_7.value().start_object();
+                for (key_10, value_11) in item_8 {
+                    {
+                        object_9.key(key_10.as_str()).string(value_11.as_str());
+                    }
+                }
+                object_9.finish();
+            }
+        }
+        array_7.finish();
+    }
     Ok(())
 }

@@ -16,6 +16,9 @@ pub mod delete_dictionary;
 /// Types for the `DeleteFeed` operation.
 pub mod delete_feed;
 
+/// Types for the `DeleteFeedPolicy` operation.
+pub mod delete_feed_policy;
+
 /// Types for the `DisassociateFeed` operation.
 pub mod disassociate_feed;
 
@@ -28,6 +31,9 @@ pub mod get_dictionary;
 /// Types for the `GetFeed` operation.
 pub mod get_feed;
 
+/// Types for the `GetFeedPolicy` operation.
+pub mod get_feed_policy;
+
 /// Types for the `GetFixture` operation.
 pub mod get_fixture;
 
@@ -39,6 +45,9 @@ pub mod list_feeds;
 
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
+
+/// Types for the `PutFeedPolicy` operation.
+pub mod put_feed_policy;
 
 /// Types for the `SearchFixtures` operation.
 pub mod search_fixtures;

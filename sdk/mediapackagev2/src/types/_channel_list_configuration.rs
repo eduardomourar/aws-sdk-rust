@@ -16,13 +16,15 @@ pub struct ChannelListConfiguration {
     pub modified_at: ::aws_smithy_types::DateTime,
     /// <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub input_type: ::std::option::Option<crate::types::InputType>,
     /// <p>The output locking mode configured for the channel.</p>
@@ -34,6 +36,10 @@ pub struct ChannelListConfiguration {
     /// <p><code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p></li>
     /// </ul>
     pub output_locking_mode: ::std::option::Option<crate::types::OutputLockingMode>,
+    /// <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+    pub multiview_configuration: ::std::option::Option<crate::types::MultiviewConfiguration>,
+    /// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field.</p>
+    pub attached_multiview_channels: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl ChannelListConfiguration {
     /// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
@@ -63,13 +69,15 @@ impl ChannelListConfiguration {
     pub fn description(&self) -> ::std::option::Option<&str> {
         self.description.as_deref()
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn input_type(&self) -> ::std::option::Option<&crate::types::InputType> {
         self.input_type.as_ref()
@@ -84,6 +92,16 @@ impl ChannelListConfiguration {
     /// </ul>
     pub fn output_locking_mode(&self) -> ::std::option::Option<&crate::types::OutputLockingMode> {
         self.output_locking_mode.as_ref()
+    }
+    /// <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+    pub fn multiview_configuration(&self) -> ::std::option::Option<&crate::types::MultiviewConfiguration> {
+        self.multiview_configuration.as_ref()
+    }
+    /// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_multiview_channels.is_none()`.
+    pub fn attached_multiview_channels(&self) -> &[::std::string::String] {
+        self.attached_multiview_channels.as_deref().unwrap_or_default()
     }
 }
 impl ChannelListConfiguration {
@@ -105,6 +123,8 @@ pub struct ChannelListConfigurationBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) input_type: ::std::option::Option<crate::types::InputType>,
     pub(crate) output_locking_mode: ::std::option::Option<crate::types::OutputLockingMode>,
+    pub(crate) multiview_configuration: ::std::option::Option<crate::types::MultiviewConfiguration>,
+    pub(crate) attached_multiview_channels: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl ChannelListConfigurationBuilder {
     /// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
@@ -196,37 +216,43 @@ impl ChannelListConfigurationBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn input_type(mut self, input: crate::types::InputType) -> Self {
         self.input_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn set_input_type(mut self, input: ::std::option::Option<crate::types::InputType>) -> Self {
         self.input_type = input;
         self
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn get_input_type(&self) -> &::std::option::Option<crate::types::InputType> {
         &self.input_type
@@ -265,6 +291,40 @@ impl ChannelListConfigurationBuilder {
     /// </ul>
     pub fn get_output_locking_mode(&self) -> &::std::option::Option<crate::types::OutputLockingMode> {
         &self.output_locking_mode
+    }
+    /// <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+    pub fn multiview_configuration(mut self, input: crate::types::MultiviewConfiguration) -> Self {
+        self.multiview_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+    pub fn set_multiview_configuration(mut self, input: ::std::option::Option<crate::types::MultiviewConfiguration>) -> Self {
+        self.multiview_configuration = input;
+        self
+    }
+    /// <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+    pub fn get_multiview_configuration(&self) -> &::std::option::Option<crate::types::MultiviewConfiguration> {
+        &self.multiview_configuration
+    }
+    /// Appends an item to `attached_multiview_channels`.
+    ///
+    /// To override the contents of this collection use [`set_attached_multiview_channels`](Self::set_attached_multiview_channels).
+    ///
+    /// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field.</p>
+    pub fn attached_multiview_channels(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.attached_multiview_channels.unwrap_or_default();
+        v.push(input.into());
+        self.attached_multiview_channels = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field.</p>
+    pub fn set_attached_multiview_channels(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.attached_multiview_channels = input;
+        self
+    }
+    /// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field.</p>
+    pub fn get_attached_multiview_channels(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.attached_multiview_channels
     }
     /// Consumes the builder and constructs a [`ChannelListConfiguration`](crate::types::ChannelListConfiguration).
     /// This method will fail if any of the following fields are not set:
@@ -308,6 +368,8 @@ impl ChannelListConfigurationBuilder {
             description: self.description,
             input_type: self.input_type,
             output_locking_mode: self.output_locking_mode,
+            multiview_configuration: self.multiview_configuration,
+            attached_multiview_channels: self.attached_multiview_channels,
         })
     }
 }

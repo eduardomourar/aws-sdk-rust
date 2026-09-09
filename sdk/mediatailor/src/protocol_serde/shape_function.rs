@@ -47,6 +47,15 @@ where
                                 crate::protocol_serde::shape_http_request_configuration::de_http_request_configuration(tokens, _value, depth + 1)?,
                             );
                         }
+                        "AwsServiceRequestConfiguration" => {
+                            builder = builder.set_aws_service_request_configuration(
+                                crate::protocol_serde::shape_aws_service_request_configuration::de_aws_service_request_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
                         "CustomOutputConfiguration" => {
                             builder = builder.set_custom_output_configuration(
                                 crate::protocol_serde::shape_custom_output_configuration::de_custom_output_configuration(tokens, _value, depth + 1)?,

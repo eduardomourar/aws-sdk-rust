@@ -15,6 +15,8 @@ pub struct UpdateChannelInput {
     pub input_switch_configuration: ::std::option::Option<crate::types::InputSwitchConfiguration>,
     /// <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
     pub output_header_configuration: ::std::option::Option<crate::types::OutputHeaderConfiguration>,
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub multiview_configuration: ::std::option::Option<crate::types::MultiviewConfiguration>,
 }
 impl UpdateChannelInput {
     /// <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
@@ -41,6 +43,10 @@ impl UpdateChannelInput {
     pub fn output_header_configuration(&self) -> ::std::option::Option<&crate::types::OutputHeaderConfiguration> {
         self.output_header_configuration.as_ref()
     }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn multiview_configuration(&self) -> ::std::option::Option<&crate::types::MultiviewConfiguration> {
+        self.multiview_configuration.as_ref()
+    }
 }
 impl UpdateChannelInput {
     /// Creates a new builder-style object to manufacture [`UpdateChannelInput`](crate::operation::update_channel::UpdateChannelInput).
@@ -59,6 +65,7 @@ pub struct UpdateChannelInputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) input_switch_configuration: ::std::option::Option<crate::types::InputSwitchConfiguration>,
     pub(crate) output_header_configuration: ::std::option::Option<crate::types::OutputHeaderConfiguration>,
+    pub(crate) multiview_configuration: ::std::option::Option<crate::types::MultiviewConfiguration>,
 }
 impl UpdateChannelInputBuilder {
     /// <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
@@ -147,6 +154,20 @@ impl UpdateChannelInputBuilder {
     pub fn get_output_header_configuration(&self) -> &::std::option::Option<crate::types::OutputHeaderConfiguration> {
         &self.output_header_configuration
     }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn multiview_configuration(mut self, input: crate::types::MultiviewConfiguration) -> Self {
+        self.multiview_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn set_multiview_configuration(mut self, input: ::std::option::Option<crate::types::MultiviewConfiguration>) -> Self {
+        self.multiview_configuration = input;
+        self
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+    pub fn get_multiview_configuration(&self) -> &::std::option::Option<crate::types::MultiviewConfiguration> {
+        &self.multiview_configuration
+    }
     /// Consumes the builder and constructs a [`UpdateChannelInput`](crate::operation::update_channel::UpdateChannelInput).
     pub fn build(
         self,
@@ -158,6 +179,7 @@ impl UpdateChannelInputBuilder {
             description: self.description,
             input_switch_configuration: self.input_switch_configuration,
             output_header_configuration: self.output_header_configuration,
+            multiview_configuration: self.multiview_configuration,
         })
     }
 }

@@ -173,7 +173,7 @@ pub fn de_volume(
                 builder = builder.set_volume_initialization_rate(var_12);
             }
             ,
-            s if s.matches("volumeId") /* VolumeId com.amazonaws.ec2#Volume$VolumeId */ =>  {
+            s if s.matches("volumeArn") /* VolumeArn com.amazonaws.ec2#Volume$VolumeArn */ =>  {
                 let var_13 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
@@ -183,11 +183,37 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_volume_id(var_13);
+                builder = builder.set_volume_arn(var_13);
+            }
+            ,
+            s if s.matches("ownerId") /* OwnerId com.amazonaws.ec2#Volume$OwnerId */ =>  {
+                let var_14 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_owner_id(var_14);
+            }
+            ,
+            s if s.matches("volumeId") /* VolumeId com.amazonaws.ec2#Volume$VolumeId */ =>  {
+                let var_15 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_volume_id(var_15);
             }
             ,
             s if s.matches("size") /* Size com.amazonaws.ec2#Volume$Size */ =>  {
-                let var_14 =
+                let var_16 =
                     Some(
                          {
                             <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
@@ -198,11 +224,11 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_size(var_14);
+                builder = builder.set_size(var_16);
             }
             ,
             s if s.matches("snapshotId") /* SnapshotId com.amazonaws.ec2#Volume$SnapshotId */ =>  {
-                let var_15 =
+                let var_17 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
@@ -211,11 +237,11 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_snapshot_id(var_15);
+                builder = builder.set_snapshot_id(var_17);
             }
             ,
             s if s.matches("availabilityZone") /* AvailabilityZone com.amazonaws.ec2#Volume$AvailabilityZone */ =>  {
-                let var_16 =
+                let var_18 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
@@ -224,11 +250,11 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_availability_zone(var_16);
+                builder = builder.set_availability_zone(var_18);
             }
             ,
             s if s.matches("status") /* State com.amazonaws.ec2#Volume$State */ =>  {
-                let var_17 =
+                let var_19 =
                     Some(
                         Result::<crate::types::VolumeState, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::VolumeState::from(
@@ -238,11 +264,11 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_state(var_17);
+                builder = builder.set_state(var_19);
             }
             ,
             s if s.matches("createTime") /* CreateTime com.amazonaws.ec2#Volume$CreateTime */ =>  {
-                let var_18 =
+                let var_20 =
                     Some(
                         ::aws_smithy_types::DateTime::from_str(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
@@ -252,21 +278,21 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_create_time(var_18);
+                builder = builder.set_create_time(var_20);
             }
             ,
             s if s.matches("attachmentSet") /* Attachments com.amazonaws.ec2#Volume$Attachments */ =>  {
-                let var_19 =
+                let var_21 =
                     Some(
                         crate::protocol_serde::shape_volume_attachment_list::de_volume_attachment_list(&mut tag, depth + 1)
                         ?
                     )
                 ;
-                builder = builder.set_attachments(var_19);
+                builder = builder.set_attachments(var_21);
             }
             ,
             s if s.matches("encrypted") /* Encrypted com.amazonaws.ec2#Volume$Encrypted */ =>  {
-                let var_20 =
+                let var_22 =
                     Some(
                          {
                             <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
@@ -277,11 +303,11 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_encrypted(var_20);
+                builder = builder.set_encrypted(var_22);
             }
             ,
             s if s.matches("kmsKeyId") /* KmsKeyId com.amazonaws.ec2#Volume$KmsKeyId */ =>  {
-                let var_21 =
+                let var_23 =
                     Some(
                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
@@ -290,7 +316,7 @@ pub fn de_volume(
                         ?
                     )
                 ;
-                builder = builder.set_kms_key_id(var_21);
+                builder = builder.set_kms_key_id(var_23);
             }
             ,
             _ => {}

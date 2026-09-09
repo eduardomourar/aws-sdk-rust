@@ -425,6 +425,8 @@ pub use crate::types::_linked_channel_type::LinkedChannelType;
 
 pub use crate::types::_audio_feed_input::AudioFeedInput;
 
+pub use crate::types::_enrichment_method::EnrichmentMethod;
+
 pub use crate::types::_interface_mapping_create_request::InterfaceMappingCreateRequest;
 
 pub use crate::types::_interface_mapping::InterfaceMapping;
@@ -849,7 +851,13 @@ pub use crate::types::_ebu_tt_d_fill_line_gap_control::EbuTtDFillLineGapControl;
 
 pub use crate::types::_ebu_tt_d_destination_style_control::EbuTtDDestinationStyleControl;
 
+pub use crate::types::_embedded_caption_position_settings::EmbeddedCaptionPositionSettings;
+
+pub use crate::types::_embedded_destination_style_control::EmbeddedDestinationStyleControl;
+
 pub use crate::types::_ttml_destination_style_control::TtmlDestinationStyleControl;
+
+pub use crate::types::_text_caption_position_settings::TextCaptionPositionSettings;
 
 pub use crate::types::_webvtt_destination_style_control::WebvttDestinationStyleControl;
 
@@ -1387,6 +1395,8 @@ pub use crate::types::_fmp4_timed_metadata_behavior::Fmp4TimedMetadataBehavior;
 
 pub use crate::types::_m3u8_settings::M3u8Settings;
 
+pub use crate::types::_output_usage::OutputUsage;
+
 pub use crate::types::_audio_pre_mixer_settings::AudioPreMixerSettings;
 
 pub use crate::types::_scte35_archive_allowed_flag::Scte35ArchiveAllowedFlag;
@@ -1809,9 +1819,13 @@ mod _ebu_tt_d_destination_style_control;
 
 mod _ebu_tt_d_fill_line_gap_control;
 
+mod _embedded_caption_position_settings;
+
 mod _embedded_convert608_to708;
 
 mod _embedded_destination_settings;
+
+mod _embedded_destination_style_control;
 
 mod _embedded_plus_scte20_destination_settings;
 
@@ -1820,6 +1834,8 @@ mod _embedded_scte20_detection;
 mod _embedded_source_settings;
 
 mod _encoder_settings;
+
+mod _enrichment_method;
 
 mod _epoch_locking_settings;
 
@@ -2489,6 +2505,8 @@ mod _output_locking_settings;
 
 mod _output_settings;
 
+mod _output_usage;
+
 mod _pass_through_settings;
 
 mod _pause_state_schedule_action_settings;
@@ -2740,6 +2758,8 @@ mod _temporal_filter_post_filter_sharpening;
 mod _temporal_filter_settings;
 
 mod _temporal_filter_strength;
+
+mod _text_caption_position_settings;
 
 mod _thumbnail;
 

@@ -53,6 +53,30 @@ pub(crate) fn ad_conditioning_configuration_correct_errors(
     builder
 }
 
+pub(crate) fn aws_service_request_configuration_correct_errors(
+    mut builder: crate::types::builders::AwsServiceRequestConfigurationBuilder,
+) -> crate::types::builders::AwsServiceRequestConfigurationBuilder {
+    if builder.runtime.is_none() {
+        builder.runtime = "no value was set".parse::<crate::types::RuntimeType>().ok()
+    }
+    if builder.method_type.is_none() {
+        builder.method_type = "no value was set".parse::<crate::types::MethodType>().ok()
+    }
+    if builder.request_timeout_milliseconds.is_none() {
+        builder.request_timeout_milliseconds = Some(Default::default())
+    }
+    if builder.url.is_none() {
+        builder.url = Some(Default::default())
+    }
+    if builder.target_service.is_none() {
+        builder.target_service = Some(Default::default())
+    }
+    if builder.target_region.is_none() {
+        builder.target_region = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn concurrent_executor_configuration_correct_errors(
     mut builder: crate::types::builders::ConcurrentExecutorConfigurationBuilder,
 ) -> crate::types::builders::ConcurrentExecutorConfigurationBuilder {

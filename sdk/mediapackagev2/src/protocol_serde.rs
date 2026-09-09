@@ -125,6 +125,8 @@ pub(crate) mod shape_update_origin_endpoint_input;
 
 pub(crate) mod shape_validation_exception;
 
+pub(crate) mod shape_attached_multiview_channel_list;
+
 pub(crate) mod shape_cdn_auth_configuration;
 
 pub(crate) mod shape_channel_groups_list;
@@ -160,6 +162,8 @@ pub(crate) mod shape_harvester_schedule_configuration;
 pub(crate) mod shape_ingest_endpoint_list;
 
 pub(crate) mod shape_input_switch_configuration;
+
+pub(crate) mod shape_multiview_configuration;
 
 pub(crate) mod shape_origin_endpoints_list;
 
@@ -216,6 +220,10 @@ pub(crate) mod shape_harvested_low_latency_hls_manifest;
 pub(crate) mod shape_harvested_low_latency_hls_manifests_list;
 
 pub(crate) mod shape_ingest_endpoint;
+
+pub(crate) mod shape_multiview_layout_list;
+
+pub(crate) mod shape_multiview_source_list;
 
 pub(crate) mod shape_origin_endpoint_list_configuration;
 

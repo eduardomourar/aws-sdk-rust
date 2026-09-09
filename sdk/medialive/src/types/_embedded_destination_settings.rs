@@ -3,7 +3,22 @@
 /// Embedded Destination Settings
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct EmbeddedDestinationSettings {}
+pub struct EmbeddedDestinationSettings {
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub position: ::std::option::Option<crate::types::EmbeddedCaptionPositionSettings>,
+    /// Controls the source of position and style information for the output captions. - "passthrough": Carry the caption position and style from the source captions. When the source captions are embedded, SCTE-20, or ancillary, the position and style are preserved exactly. When the source captions are another format, the position and any supported style are carried over. - "manual": Applies the specified styling and positioning. All other styling and positioning is given default values.
+    pub style_control: ::std::option::Option<crate::types::EmbeddedDestinationStyleControl>,
+}
+impl EmbeddedDestinationSettings {
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn position(&self) -> ::std::option::Option<&crate::types::EmbeddedCaptionPositionSettings> {
+        self.position.as_ref()
+    }
+    /// Controls the source of position and style information for the output captions. - "passthrough": Carry the caption position and style from the source captions. When the source captions are embedded, SCTE-20, or ancillary, the position and style are preserved exactly. When the source captions are another format, the position and any supported style are carried over. - "manual": Applies the specified styling and positioning. All other styling and positioning is given default values.
+    pub fn style_control(&self) -> ::std::option::Option<&crate::types::EmbeddedDestinationStyleControl> {
+        self.style_control.as_ref()
+    }
+}
 impl EmbeddedDestinationSettings {
     /// Creates a new builder-style object to manufacture [`EmbeddedDestinationSettings`](crate::types::EmbeddedDestinationSettings).
     pub fn builder() -> crate::types::builders::EmbeddedDestinationSettingsBuilder {
@@ -14,10 +29,44 @@ impl EmbeddedDestinationSettings {
 /// A builder for [`EmbeddedDestinationSettings`](crate::types::EmbeddedDestinationSettings).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
-pub struct EmbeddedDestinationSettingsBuilder {}
+pub struct EmbeddedDestinationSettingsBuilder {
+    pub(crate) position: ::std::option::Option<crate::types::EmbeddedCaptionPositionSettings>,
+    pub(crate) style_control: ::std::option::Option<crate::types::EmbeddedDestinationStyleControl>,
+}
 impl EmbeddedDestinationSettingsBuilder {
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn position(mut self, input: crate::types::EmbeddedCaptionPositionSettings) -> Self {
+        self.position = ::std::option::Option::Some(input);
+        self
+    }
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn set_position(mut self, input: ::std::option::Option<crate::types::EmbeddedCaptionPositionSettings>) -> Self {
+        self.position = input;
+        self
+    }
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn get_position(&self) -> &::std::option::Option<crate::types::EmbeddedCaptionPositionSettings> {
+        &self.position
+    }
+    /// Controls the source of position and style information for the output captions. - "passthrough": Carry the caption position and style from the source captions. When the source captions are embedded, SCTE-20, or ancillary, the position and style are preserved exactly. When the source captions are another format, the position and any supported style are carried over. - "manual": Applies the specified styling and positioning. All other styling and positioning is given default values.
+    pub fn style_control(mut self, input: crate::types::EmbeddedDestinationStyleControl) -> Self {
+        self.style_control = ::std::option::Option::Some(input);
+        self
+    }
+    /// Controls the source of position and style information for the output captions. - "passthrough": Carry the caption position and style from the source captions. When the source captions are embedded, SCTE-20, or ancillary, the position and style are preserved exactly. When the source captions are another format, the position and any supported style are carried over. - "manual": Applies the specified styling and positioning. All other styling and positioning is given default values.
+    pub fn set_style_control(mut self, input: ::std::option::Option<crate::types::EmbeddedDestinationStyleControl>) -> Self {
+        self.style_control = input;
+        self
+    }
+    /// Controls the source of position and style information for the output captions. - "passthrough": Carry the caption position and style from the source captions. When the source captions are embedded, SCTE-20, or ancillary, the position and style are preserved exactly. When the source captions are another format, the position and any supported style are carried over. - "manual": Applies the specified styling and positioning. All other styling and positioning is given default values.
+    pub fn get_style_control(&self) -> &::std::option::Option<crate::types::EmbeddedDestinationStyleControl> {
+        &self.style_control
+    }
     /// Consumes the builder and constructs a [`EmbeddedDestinationSettings`](crate::types::EmbeddedDestinationSettings).
     pub fn build(self) -> crate::types::EmbeddedDestinationSettings {
-        crate::types::EmbeddedDestinationSettings {}
+        crate::types::EmbeddedDestinationSettings {
+            position: self.position,
+            style_control: self.style_control,
+        }
     }
 }

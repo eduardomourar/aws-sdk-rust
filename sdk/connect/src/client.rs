@@ -583,6 +583,8 @@ mod list_default_vocabularies;
 
 mod list_entity_security_profiles;
 
+mod list_evaluation_form_ai_versions;
+
 mod list_evaluation_form_versions;
 
 mod list_evaluation_forms;

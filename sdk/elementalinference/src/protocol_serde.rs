@@ -33,6 +33,8 @@ pub(crate) mod shape_delete_dictionary;
 
 pub(crate) mod shape_delete_feed;
 
+pub(crate) mod shape_delete_feed_policy;
+
 pub(crate) mod shape_disassociate_feed;
 
 pub(crate) mod shape_export_dictionary_entries;
@@ -41,6 +43,8 @@ pub(crate) mod shape_get_dictionary;
 
 pub(crate) mod shape_get_feed;
 
+pub(crate) mod shape_get_feed_policy;
+
 pub(crate) mod shape_get_fixture;
 
 pub(crate) mod shape_list_dictionaries;
@@ -48,6 +52,8 @@ pub(crate) mod shape_list_dictionaries;
 pub(crate) mod shape_list_feeds;
 
 pub(crate) mod shape_list_tags_for_resource;
+
+pub(crate) mod shape_put_feed_policy;
 
 pub(crate) mod shape_search_fixtures;
 
@@ -82,6 +88,8 @@ pub(crate) mod shape_disassociate_feed_input;
 pub(crate) mod shape_gateway_timed_out_exception;
 
 pub(crate) mod shape_internal_server_error_exception;
+
+pub(crate) mod shape_put_feed_policy_input;
 
 pub(crate) mod shape_resource_not_found_exception;
 
@@ -138,6 +146,8 @@ pub(crate) mod shape_get_output;
 pub(crate) mod shape_output_config;
 
 pub(crate) mod shape_clipping_config;
+
+pub(crate) mod shape_contextual_metadata_config;
 
 pub(crate) mod shape_cropping_config;
 

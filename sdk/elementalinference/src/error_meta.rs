@@ -218,6 +218,34 @@ impl From<crate::operation::delete_feed::DeleteFeedError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_feed_policy::DeleteFeedPolicyError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_feed_policy::DeleteFeedPolicyError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::delete_feed_policy::DeleteFeedPolicyError> for Error {
+    fn from(err: crate::operation::delete_feed_policy::DeleteFeedPolicyError) -> Self {
+        match err {
+            crate::operation::delete_feed_policy::DeleteFeedPolicyError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_feed_policy::DeleteFeedPolicyError::InternalServerErrorException(inner) => {
+                Error::InternalServerErrorException(inner)
+            }
+            crate::operation::delete_feed_policy::DeleteFeedPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_feed_policy::DeleteFeedPolicyError::TooManyRequestException(inner) => Error::TooManyRequestException(inner),
+            crate::operation::delete_feed_policy::DeleteFeedPolicyError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::delete_feed_policy::DeleteFeedPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_feed::DisassociateFeedError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -337,6 +365,32 @@ impl From<crate::operation::get_feed::GetFeedError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_feed_policy::GetFeedPolicyError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_feed_policy::GetFeedPolicyError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::get_feed_policy::GetFeedPolicyError> for Error {
+    fn from(err: crate::operation::get_feed_policy::GetFeedPolicyError) -> Self {
+        match err {
+            crate::operation::get_feed_policy::GetFeedPolicyError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_feed_policy::GetFeedPolicyError::InternalServerErrorException(inner) => Error::InternalServerErrorException(inner),
+            crate::operation::get_feed_policy::GetFeedPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_feed_policy::GetFeedPolicyError::TooManyRequestException(inner) => Error::TooManyRequestException(inner),
+            crate::operation::get_feed_policy::GetFeedPolicyError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::get_feed_policy::GetFeedPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_fixture::GetFixtureError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -447,6 +501,33 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
             }
             crate::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_feed_policy::PutFeedPolicyError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_feed_policy::PutFeedPolicyError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::put_feed_policy::PutFeedPolicyError> for Error {
+    fn from(err: crate::operation::put_feed_policy::PutFeedPolicyError) -> Self {
+        match err {
+            crate::operation::put_feed_policy::PutFeedPolicyError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::put_feed_policy::PutFeedPolicyError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::put_feed_policy::PutFeedPolicyError::InternalServerErrorException(inner) => Error::InternalServerErrorException(inner),
+            crate::operation::put_feed_policy::PutFeedPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::put_feed_policy::PutFeedPolicyError::TooManyRequestException(inner) => Error::TooManyRequestException(inner),
+            crate::operation::put_feed_policy::PutFeedPolicyError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::put_feed_policy::PutFeedPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

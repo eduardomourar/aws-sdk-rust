@@ -18,24 +18,30 @@ pub fn ser_create_channel_input_input(
     if let Some(var_5) = &input.input_type {
         object.key("InputType").string(var_5.as_str());
     }
-    if let Some(var_6) = &input.output_header_configuration {
+    if let Some(var_6) = &input.multiview_configuration {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("OutputHeaderConfiguration").start_object();
-        crate::protocol_serde::shape_output_header_configuration::ser_output_header_configuration(&mut object_7, var_6)?;
+        let mut object_7 = object.key("MultiviewConfiguration").start_object();
+        crate::protocol_serde::shape_multiview_configuration::ser_multiview_configuration(&mut object_7, var_6)?;
         object_7.finish();
     }
-    if let Some(var_8) = &input.output_locking_mode {
-        object.key("OutputLockingMode").string(var_8.as_str());
-    }
-    if let Some(var_9) = &input.tags {
+    if let Some(var_8) = &input.output_header_configuration {
         #[allow(unused_mut)]
-        let mut object_10 = object.key("tags").start_object();
-        for (key_11, value_12) in var_9 {
+        let mut object_9 = object.key("OutputHeaderConfiguration").start_object();
+        crate::protocol_serde::shape_output_header_configuration::ser_output_header_configuration(&mut object_9, var_8)?;
+        object_9.finish();
+    }
+    if let Some(var_10) = &input.output_locking_mode {
+        object.key("OutputLockingMode").string(var_10.as_str());
+    }
+    if let Some(var_11) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_12 = object.key("tags").start_object();
+        for (key_13, value_14) in var_11 {
             {
-                object_10.key(key_11.as_str()).string(value_12.as_str());
+                object_12.key(key_13.as_str()).string(value_14.as_str());
             }
         }
-        object_10.finish();
+        object_12.finish();
     }
     Ok(())
 }

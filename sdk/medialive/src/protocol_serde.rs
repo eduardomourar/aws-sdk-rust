@@ -715,6 +715,8 @@ pub(crate) mod shape_list_of_audio_feed_input;
 
 pub(crate) mod shape_list_of_caption_description;
 
+pub(crate) mod shape_list_of_enrichment_method;
+
 pub(crate) mod shape_list_of_input_device_uhd_audio_channel_pair_config;
 
 pub(crate) mod shape_list_of_integer;
@@ -1099,6 +1101,8 @@ pub(crate) mod shape_cmaf_ingest_watermarking_settings;
 
 pub(crate) mod shape_dvb_sub_source_settings;
 
+pub(crate) mod shape_embedded_caption_position_settings;
+
 pub(crate) mod shape_embedded_source_settings;
 
 pub(crate) mod shape_frame_capture_cdn_settings;
@@ -1170,6 +1174,8 @@ pub(crate) mod shape_smart_subtitle_source_settings;
 pub(crate) mod shape_srt_output_settings;
 
 pub(crate) mod shape_teletext_source_settings;
+
+pub(crate) mod shape_text_caption_position_settings;
 
 pub(crate) mod shape_timecode_burnin_settings;
 
@@ -1298,3 +1304,5 @@ pub(crate) mod shape_list_of_output_location_ref;
 pub(crate) mod shape_m3u8_settings;
 
 pub(crate) mod shape_scte35_delivery_restrictions;
+
+pub(crate) mod shape_list_of_output_usage;

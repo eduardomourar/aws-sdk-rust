@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct UpdateSchedulerRequest {
     /// <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
-    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code></p>
+    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code></p>
     pub version: ::std::string::String,
 }
 impl UpdateSchedulerRequest {
     /// <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
-    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code></p>
+    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code></p>
     pub fn version(&self) -> &str {
         use std::ops::Deref;
         self.version.deref()
@@ -31,20 +31,20 @@ pub struct UpdateSchedulerRequestBuilder {
 }
 impl UpdateSchedulerRequestBuilder {
     /// <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
-    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code></p>
+    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code></p>
     /// This field is required.
     pub fn version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
-    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code></p>
+    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code></p>
     pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version = input;
         self
     }
     /// <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
-    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code></p>
+    /// <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code></p>
     pub fn get_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.version
     }

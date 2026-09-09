@@ -22,6 +22,8 @@ pub struct EvaluationFormQuestion {
     pub weight: f64,
     /// <p>The scoring configuration of the question.</p>
     pub scoring_configuration: ::std::option::Option<crate::types::EvaluationFormQuestionScoringConfiguration>,
+    /// <p>The metric configuration for the question. Use this to associate a business outcome metric with the question.</p>
+    pub metric_configuration: ::std::option::Option<crate::types::EvaluationFormMetricConfiguration>,
 }
 impl EvaluationFormQuestion {
     /// <p>The title of the question.</p>
@@ -62,6 +64,10 @@ impl EvaluationFormQuestion {
     pub fn scoring_configuration(&self) -> ::std::option::Option<&crate::types::EvaluationFormQuestionScoringConfiguration> {
         self.scoring_configuration.as_ref()
     }
+    /// <p>The metric configuration for the question. Use this to associate a business outcome metric with the question.</p>
+    pub fn metric_configuration(&self) -> ::std::option::Option<&crate::types::EvaluationFormMetricConfiguration> {
+        self.metric_configuration.as_ref()
+    }
 }
 impl EvaluationFormQuestion {
     /// Creates a new builder-style object to manufacture [`EvaluationFormQuestion`](crate::types::EvaluationFormQuestion).
@@ -83,6 +89,7 @@ pub struct EvaluationFormQuestionBuilder {
     pub(crate) enablement: ::std::option::Option<crate::types::EvaluationFormItemEnablementConfiguration>,
     pub(crate) weight: ::std::option::Option<f64>,
     pub(crate) scoring_configuration: ::std::option::Option<crate::types::EvaluationFormQuestionScoringConfiguration>,
+    pub(crate) metric_configuration: ::std::option::Option<crate::types::EvaluationFormMetricConfiguration>,
 }
 impl EvaluationFormQuestionBuilder {
     /// <p>The title of the question.</p>
@@ -214,6 +221,20 @@ impl EvaluationFormQuestionBuilder {
     pub fn get_scoring_configuration(&self) -> &::std::option::Option<crate::types::EvaluationFormQuestionScoringConfiguration> {
         &self.scoring_configuration
     }
+    /// <p>The metric configuration for the question. Use this to associate a business outcome metric with the question.</p>
+    pub fn metric_configuration(mut self, input: crate::types::EvaluationFormMetricConfiguration) -> Self {
+        self.metric_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The metric configuration for the question. Use this to associate a business outcome metric with the question.</p>
+    pub fn set_metric_configuration(mut self, input: ::std::option::Option<crate::types::EvaluationFormMetricConfiguration>) -> Self {
+        self.metric_configuration = input;
+        self
+    }
+    /// <p>The metric configuration for the question. Use this to associate a business outcome metric with the question.</p>
+    pub fn get_metric_configuration(&self) -> &::std::option::Option<crate::types::EvaluationFormMetricConfiguration> {
+        &self.metric_configuration
+    }
     /// Consumes the builder and constructs a [`EvaluationFormQuestion`](crate::types::EvaluationFormQuestion).
     /// This method will fail if any of the following fields are not set:
     /// - [`title`](crate::types::builders::EvaluationFormQuestionBuilder::title)
@@ -245,6 +266,7 @@ impl EvaluationFormQuestionBuilder {
             enablement: self.enablement,
             weight: self.weight.unwrap_or_default(),
             scoring_configuration: self.scoring_configuration,
+            metric_configuration: self.metric_configuration,
         })
     }
 }

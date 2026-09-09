@@ -187,6 +187,8 @@ pub(crate) mod shape_audiences;
 
 pub(crate) mod shape_avail_suppression;
 
+pub(crate) mod shape_aws_service_request_configuration;
+
 pub(crate) mod shape_bumper;
 
 pub(crate) mod shape_cdn_configuration;

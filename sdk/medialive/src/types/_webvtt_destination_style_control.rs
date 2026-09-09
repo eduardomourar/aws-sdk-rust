@@ -12,6 +12,7 @@
 /// ```text
 /// # let webvttdestinationstylecontrol = unimplemented!();
 /// match webvttdestinationstylecontrol {
+///     WebvttDestinationStyleControl::Manual => { /* ... */ },
 ///     WebvttDestinationStyleControl::NoStyleData => { /* ... */ },
 ///     WebvttDestinationStyleControl::Passthrough => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -43,6 +44,8 @@
 )]
 pub enum WebvttDestinationStyleControl {
     #[allow(missing_docs)] // documentation missing in model
+    Manual,
+    #[allow(missing_docs)] // documentation missing in model
     NoStyleData,
     #[allow(missing_docs)] // documentation missing in model
     Passthrough,
@@ -53,6 +56,7 @@ pub enum WebvttDestinationStyleControl {
 impl ::std::convert::From<&str> for WebvttDestinationStyleControl {
     fn from(s: &str) -> Self {
         match s {
+            "MANUAL" => WebvttDestinationStyleControl::Manual,
             "NO_STYLE_DATA" => WebvttDestinationStyleControl::NoStyleData,
             "PASSTHROUGH" => WebvttDestinationStyleControl::Passthrough,
             other => WebvttDestinationStyleControl::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -70,6 +74,7 @@ impl WebvttDestinationStyleControl {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            WebvttDestinationStyleControl::Manual => "MANUAL",
             WebvttDestinationStyleControl::NoStyleData => "NO_STYLE_DATA",
             WebvttDestinationStyleControl::Passthrough => "PASSTHROUGH",
             WebvttDestinationStyleControl::Unknown(value) => value.as_str(),
@@ -77,7 +82,7 @@ impl WebvttDestinationStyleControl {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["NO_STYLE_DATA", "PASSTHROUGH"]
+        &["MANUAL", "NO_STYLE_DATA", "PASSTHROUGH"]
     }
 }
 impl ::std::convert::AsRef<str> for WebvttDestinationStyleControl {
@@ -100,6 +105,7 @@ impl WebvttDestinationStyleControl {
 impl ::std::fmt::Display for WebvttDestinationStyleControl {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            WebvttDestinationStyleControl::Manual => write!(f, "MANUAL"),
             WebvttDestinationStyleControl::NoStyleData => write!(f, "NO_STYLE_DATA"),
             WebvttDestinationStyleControl::Passthrough => write!(f, "PASSTHROUGH"),
             WebvttDestinationStyleControl::Unknown(value) => write!(f, "{value}"),

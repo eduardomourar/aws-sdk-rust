@@ -52,6 +52,15 @@ pub(crate) fn de_get_function(
                             .transpose()?,
                     );
                 }
+                "AwsServiceRequestConfiguration" => {
+                    builder = builder.set_aws_service_request_configuration(
+                        crate::protocol_serde::shape_aws_service_request_configuration::de_aws_service_request_configuration(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
                 "ConcurrentExecutorConfiguration" => {
                     builder = builder.set_concurrent_executor_configuration(
                         crate::protocol_serde::shape_concurrent_executor_configuration::de_concurrent_executor_configuration(

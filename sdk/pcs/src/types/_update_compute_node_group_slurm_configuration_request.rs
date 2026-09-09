@@ -8,6 +8,8 @@ pub struct UpdateComputeNodeGroupSlurmConfigurationRequest {
     pub scale_down_idle_time_in_seconds: ::std::option::Option<i32>,
     /// <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
     pub slurm_custom_settings: ::std::option::Option<::std::vec::Vec<crate::types::SlurmCustomSetting>>,
+    /// <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+    pub gres_custom_settings: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, ::std::string::String>>>,
 }
 impl UpdateComputeNodeGroupSlurmConfigurationRequest {
     /// <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
@@ -19,6 +21,12 @@ impl UpdateComputeNodeGroupSlurmConfigurationRequest {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.slurm_custom_settings.is_none()`.
     pub fn slurm_custom_settings(&self) -> &[crate::types::SlurmCustomSetting] {
         self.slurm_custom_settings.as_deref().unwrap_or_default()
+    }
+    /// <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.gres_custom_settings.is_none()`.
+    pub fn gres_custom_settings(&self) -> &[::std::collections::HashMap<::std::string::String, ::std::string::String>] {
+        self.gres_custom_settings.as_deref().unwrap_or_default()
     }
 }
 impl UpdateComputeNodeGroupSlurmConfigurationRequest {
@@ -34,6 +42,8 @@ impl UpdateComputeNodeGroupSlurmConfigurationRequest {
 pub struct UpdateComputeNodeGroupSlurmConfigurationRequestBuilder {
     pub(crate) scale_down_idle_time_in_seconds: ::std::option::Option<i32>,
     pub(crate) slurm_custom_settings: ::std::option::Option<::std::vec::Vec<crate::types::SlurmCustomSetting>>,
+    pub(crate) gres_custom_settings:
+        ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, ::std::string::String>>>,
 }
 impl UpdateComputeNodeGroupSlurmConfigurationRequestBuilder {
     /// <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
@@ -70,11 +80,37 @@ impl UpdateComputeNodeGroupSlurmConfigurationRequestBuilder {
     pub fn get_slurm_custom_settings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SlurmCustomSetting>> {
         &self.slurm_custom_settings
     }
+    /// Appends an item to `gres_custom_settings`.
+    ///
+    /// To override the contents of this collection use [`set_gres_custom_settings`](Self::set_gres_custom_settings).
+    ///
+    /// <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+    pub fn gres_custom_settings(mut self, input: ::std::collections::HashMap<::std::string::String, ::std::string::String>) -> Self {
+        let mut v = self.gres_custom_settings.unwrap_or_default();
+        v.push(input);
+        self.gres_custom_settings = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+    pub fn set_gres_custom_settings(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, ::std::string::String>>>,
+    ) -> Self {
+        self.gres_custom_settings = input;
+        self
+    }
+    /// <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+    pub fn get_gres_custom_settings(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, ::std::string::String>>> {
+        &self.gres_custom_settings
+    }
     /// Consumes the builder and constructs a [`UpdateComputeNodeGroupSlurmConfigurationRequest`](crate::types::UpdateComputeNodeGroupSlurmConfigurationRequest).
     pub fn build(self) -> crate::types::UpdateComputeNodeGroupSlurmConfigurationRequest {
         crate::types::UpdateComputeNodeGroupSlurmConfigurationRequest {
             scale_down_idle_time_in_seconds: self.scale_down_idle_time_in_seconds,
             slurm_custom_settings: self.slurm_custom_settings,
+            gres_custom_settings: self.gres_custom_settings,
         }
     }
 }

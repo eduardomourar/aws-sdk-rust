@@ -443,6 +443,8 @@ pub(crate) mod shape_list_default_vocabularies;
 
 pub(crate) mod shape_list_entity_security_profiles;
 
+pub(crate) mod shape_list_evaluation_form_ai_versions;
+
 pub(crate) mod shape_list_evaluation_form_versions;
 
 pub(crate) mod shape_list_evaluation_forms;
@@ -1551,6 +1553,8 @@ pub(crate) mod shape_evaluation_answer_input;
 
 pub(crate) mod shape_evaluation_form;
 
+pub(crate) mod shape_evaluation_form_ai_version_summary_list;
+
 pub(crate) mod shape_evaluation_form_auto_evaluation_configuration;
 
 pub(crate) mod shape_evaluation_form_content;
@@ -2179,6 +2183,8 @@ pub(crate) mod shape_evaluation_answer_data;
 
 pub(crate) mod shape_evaluation_answers_output_map;
 
+pub(crate) mod shape_evaluation_form_ai_version_summary;
+
 pub(crate) mod shape_evaluation_form_items_list;
 
 pub(crate) mod shape_evaluation_form_question;
@@ -2597,7 +2603,11 @@ pub(crate) mod shape_evaluation_answer_output;
 
 pub(crate) mod shape_evaluation_contact_participant;
 
+pub(crate) mod shape_evaluation_form_ai_version_lifecycle;
+
 pub(crate) mod shape_evaluation_form_item_enablement_configuration;
+
+pub(crate) mod shape_evaluation_form_metric_configuration;
 
 pub(crate) mod shape_evaluation_form_question_scoring_configuration;
 

@@ -150,37 +150,43 @@ impl CreateChannelFluentBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn input_type(mut self, input: crate::types::InputType) -> Self {
         self.inner = self.inner.input_type(input);
         self
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn set_input_type(mut self, input: ::std::option::Option<crate::types::InputType>) -> Self {
         self.inner = self.inner.set_input_type(input);
         self
     }
-    /// <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+    /// <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p>
     /// <p>The allowed values are:</p>
     /// <ul>
     /// <li>
     /// <p><code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p></li>
     /// <li>
     /// <p><code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p></li>
+    /// <li>
+    /// <p><code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p></li>
     /// </ul>
     pub fn get_input_type(&self) -> &::std::option::Option<crate::types::InputType> {
         self.inner.get_input_type()
@@ -226,6 +232,20 @@ impl CreateChannelFluentBuilder {
     /// <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
     pub fn get_output_header_configuration(&self) -> &::std::option::Option<crate::types::OutputHeaderConfiguration> {
         self.inner.get_output_header_configuration()
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+    pub fn multiview_configuration(mut self, input: crate::types::MultiviewConfiguration) -> Self {
+        self.inner = self.inner.multiview_configuration(input);
+        self
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+    pub fn set_multiview_configuration(mut self, input: ::std::option::Option<crate::types::MultiviewConfiguration>) -> Self {
+        self.inner = self.inner.set_multiview_configuration(input);
+        self
+    }
+    /// <p>The multiview configuration for the channel. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+    pub fn get_multiview_configuration(&self) -> &::std::option::Option<crate::types::MultiviewConfiguration> {
+        self.inner.get_multiview_configuration()
     }
     /// <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p>
     /// <p>The allowed values are:</p>

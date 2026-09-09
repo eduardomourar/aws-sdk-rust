@@ -631,6 +631,9 @@ pub mod list_default_vocabularies;
 /// Types for the `ListEntitySecurityProfiles` operation.
 pub mod list_entity_security_profiles;
 
+/// Types for the `ListEvaluationFormAIVersions` operation.
+pub mod list_evaluation_form_ai_versions;
+
 /// Types for the `ListEvaluationFormVersions` operation.
 pub mod list_evaluation_form_versions;
 

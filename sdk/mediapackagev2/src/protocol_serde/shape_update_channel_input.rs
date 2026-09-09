@@ -12,11 +12,17 @@ pub fn ser_update_channel_input_input(
         crate::protocol_serde::shape_input_switch_configuration::ser_input_switch_configuration(&mut object_3, var_2)?;
         object_3.finish();
     }
-    if let Some(var_4) = &input.output_header_configuration {
+    if let Some(var_4) = &input.multiview_configuration {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("OutputHeaderConfiguration").start_object();
-        crate::protocol_serde::shape_output_header_configuration::ser_output_header_configuration(&mut object_5, var_4)?;
+        let mut object_5 = object.key("MultiviewConfiguration").start_object();
+        crate::protocol_serde::shape_multiview_configuration::ser_multiview_configuration(&mut object_5, var_4)?;
         object_5.finish();
+    }
+    if let Some(var_6) = &input.output_header_configuration {
+        #[allow(unused_mut)]
+        let mut object_7 = object.key("OutputHeaderConfiguration").start_object();
+        crate::protocol_serde::shape_output_header_configuration::ser_output_header_configuration(&mut object_7, var_6)?;
+        object_7.finish();
     }
     Ok(())
 }

@@ -27,6 +27,8 @@ pub struct CreateEvaluationFormInput {
     pub target_configuration: ::std::option::Option<crate::types::EvaluationFormTargetConfiguration>,
     /// <p>Configuration for language settings of the evaluation form.</p>
     pub language_configuration: ::std::option::Option<crate::types::EvaluationFormLanguageConfiguration>,
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub ai_version: ::std::option::Option<::std::string::String>,
 }
 impl CreateEvaluationFormInput {
     /// <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -79,6 +81,10 @@ impl CreateEvaluationFormInput {
     pub fn language_configuration(&self) -> ::std::option::Option<&crate::types::EvaluationFormLanguageConfiguration> {
         self.language_configuration.as_ref()
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(&self) -> ::std::option::Option<&str> {
+        self.ai_version.as_deref()
+    }
 }
 impl CreateEvaluationFormInput {
     /// Creates a new builder-style object to manufacture [`CreateEvaluationFormInput`](crate::operation::create_evaluation_form::CreateEvaluationFormInput).
@@ -103,6 +109,7 @@ pub struct CreateEvaluationFormInputBuilder {
     pub(crate) review_configuration: ::std::option::Option<crate::types::EvaluationReviewConfiguration>,
     pub(crate) target_configuration: ::std::option::Option<crate::types::EvaluationFormTargetConfiguration>,
     pub(crate) language_configuration: ::std::option::Option<crate::types::EvaluationFormLanguageConfiguration>,
+    pub(crate) ai_version: ::std::option::Option<::std::string::String>,
 }
 impl CreateEvaluationFormInputBuilder {
     /// <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -290,6 +297,20 @@ impl CreateEvaluationFormInputBuilder {
     pub fn get_language_configuration(&self) -> &::std::option::Option<crate::types::EvaluationFormLanguageConfiguration> {
         &self.language_configuration
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.ai_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn set_ai_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ai_version = input;
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn get_ai_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ai_version
+    }
     /// Consumes the builder and constructs a [`CreateEvaluationFormInput`](crate::operation::create_evaluation_form::CreateEvaluationFormInput).
     pub fn build(
         self,
@@ -308,6 +329,7 @@ impl CreateEvaluationFormInputBuilder {
             review_configuration: self.review_configuration,
             target_configuration: self.target_configuration,
             language_configuration: self.language_configuration,
+            ai_version: self.ai_version,
         })
     }
 }

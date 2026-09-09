@@ -49,6 +49,10 @@ pub struct CopyVolumesInput {
     pub throughput: ::std::option::Option<i32>,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html"> Ensure Idempotency</a>.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
+    /// <p>Indicates whether to encrypt the volume copy. If the source volume is encrypted, the service always encrypts the copy regardless of this value. Set to <code>true</code> to encrypt a copy of an unencrypted source volume during the copy operation. If you set <code>Encrypted</code> to <code>true</code> but do not specify <code>KmsKeyId</code>, the service uses the default KMS key for EBS encryption in your account.</p>
+    pub encrypted: ::std::option::Option<bool>,
+    /// <p>The identifier of the KMS key to use for encryption of the volume copy. Specify a symmetric encryption KMS key. You can specify a KMS key using the key ID, key ARN, alias name, or alias ARN. If you set <code>Encrypted</code> to <code>true</code> but do not specify this parameter, the service uses the default KMS key for EBS encryption in your account. For cross-account volume copies, this must be a KMS key in the calling account.</p>
+    pub kms_key_id: ::std::option::Option<::std::string::String>,
 }
 impl CopyVolumesInput {
     /// <p>The ID of the source EBS volume to copy.</p>
@@ -117,6 +121,14 @@ impl CopyVolumesInput {
     pub fn client_token(&self) -> ::std::option::Option<&str> {
         self.client_token.as_deref()
     }
+    /// <p>Indicates whether to encrypt the volume copy. If the source volume is encrypted, the service always encrypts the copy regardless of this value. Set to <code>true</code> to encrypt a copy of an unencrypted source volume during the copy operation. If you set <code>Encrypted</code> to <code>true</code> but do not specify <code>KmsKeyId</code>, the service uses the default KMS key for EBS encryption in your account.</p>
+    pub fn encrypted(&self) -> ::std::option::Option<bool> {
+        self.encrypted
+    }
+    /// <p>The identifier of the KMS key to use for encryption of the volume copy. Specify a symmetric encryption KMS key. You can specify a KMS key using the key ID, key ARN, alias name, or alias ARN. If you set <code>Encrypted</code> to <code>true</code> but do not specify this parameter, the service uses the default KMS key for EBS encryption in your account. For cross-account volume copies, this must be a KMS key in the calling account.</p>
+    pub fn kms_key_id(&self) -> ::std::option::Option<&str> {
+        self.kms_key_id.as_deref()
+    }
 }
 impl CopyVolumesInput {
     /// Creates a new builder-style object to manufacture [`CopyVolumesInput`](crate::operation::copy_volumes::CopyVolumesInput).
@@ -138,6 +150,8 @@ pub struct CopyVolumesInputBuilder {
     pub(crate) multi_attach_enabled: ::std::option::Option<bool>,
     pub(crate) throughput: ::std::option::Option<i32>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
+    pub(crate) encrypted: ::std::option::Option<bool>,
+    pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
 }
 impl CopyVolumesInputBuilder {
     /// <p>The ID of the source EBS volume to copy.</p>
@@ -357,6 +371,34 @@ impl CopyVolumesInputBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
+    /// <p>Indicates whether to encrypt the volume copy. If the source volume is encrypted, the service always encrypts the copy regardless of this value. Set to <code>true</code> to encrypt a copy of an unencrypted source volume during the copy operation. If you set <code>Encrypted</code> to <code>true</code> but do not specify <code>KmsKeyId</code>, the service uses the default KMS key for EBS encryption in your account.</p>
+    pub fn encrypted(mut self, input: bool) -> Self {
+        self.encrypted = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Indicates whether to encrypt the volume copy. If the source volume is encrypted, the service always encrypts the copy regardless of this value. Set to <code>true</code> to encrypt a copy of an unencrypted source volume during the copy operation. If you set <code>Encrypted</code> to <code>true</code> but do not specify <code>KmsKeyId</code>, the service uses the default KMS key for EBS encryption in your account.</p>
+    pub fn set_encrypted(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.encrypted = input;
+        self
+    }
+    /// <p>Indicates whether to encrypt the volume copy. If the source volume is encrypted, the service always encrypts the copy regardless of this value. Set to <code>true</code> to encrypt a copy of an unencrypted source volume during the copy operation. If you set <code>Encrypted</code> to <code>true</code> but do not specify <code>KmsKeyId</code>, the service uses the default KMS key for EBS encryption in your account.</p>
+    pub fn get_encrypted(&self) -> &::std::option::Option<bool> {
+        &self.encrypted
+    }
+    /// <p>The identifier of the KMS key to use for encryption of the volume copy. Specify a symmetric encryption KMS key. You can specify a KMS key using the key ID, key ARN, alias name, or alias ARN. If you set <code>Encrypted</code> to <code>true</code> but do not specify this parameter, the service uses the default KMS key for EBS encryption in your account. For cross-account volume copies, this must be a KMS key in the calling account.</p>
+    pub fn kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.kms_key_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The identifier of the KMS key to use for encryption of the volume copy. Specify a symmetric encryption KMS key. You can specify a KMS key using the key ID, key ARN, alias name, or alias ARN. If you set <code>Encrypted</code> to <code>true</code> but do not specify this parameter, the service uses the default KMS key for EBS encryption in your account. For cross-account volume copies, this must be a KMS key in the calling account.</p>
+    pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_id = input;
+        self
+    }
+    /// <p>The identifier of the KMS key to use for encryption of the volume copy. Specify a symmetric encryption KMS key. You can specify a KMS key using the key ID, key ARN, alias name, or alias ARN. If you set <code>Encrypted</code> to <code>true</code> but do not specify this parameter, the service uses the default KMS key for EBS encryption in your account. For cross-account volume copies, this must be a KMS key in the calling account.</p>
+    pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_id
+    }
     /// Consumes the builder and constructs a [`CopyVolumesInput`](crate::operation::copy_volumes::CopyVolumesInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::copy_volumes::CopyVolumesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::copy_volumes::CopyVolumesInput {
@@ -369,6 +411,8 @@ impl CopyVolumesInputBuilder {
             multi_attach_enabled: self.multi_attach_enabled,
             throughput: self.throughput,
             client_token: self.client_token,
+            encrypted: self.encrypted,
+            kms_key_id: self.kms_key_id,
         })
     }
 }

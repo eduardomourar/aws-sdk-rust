@@ -22,6 +22,12 @@ pub fn ser_output_config(
             crate::protocol_serde::shape_subtitling_config::ser_subtitling_config(&mut object_3, inner)?;
             object_3.finish();
         }
+        crate::types::OutputConfig::ContextualMetadata(inner) => {
+            #[allow(unused_mut)]
+            let mut object_4 = object_2.key("contextualMetadata").start_object();
+            crate::protocol_serde::shape_contextual_metadata_config::ser_contextual_metadata_config(&mut object_4, inner)?;
+            object_4.finish();
+        }
         crate::types::OutputConfig::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("OutputConfig")),
     }
     Ok(())
@@ -78,6 +84,12 @@ where
                             crate::protocol_serde::shape_subtitling_config::de_subtitling_config(tokens, _value, depth + 1)?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'subtitling' cannot be null")
                             })?,
+                        )),
+                        "contextualMetadata" => Some(crate::types::OutputConfig::ContextualMetadata(
+                            crate::protocol_serde::shape_contextual_metadata_config::de_contextual_metadata_config(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'contextualMetadata' cannot be null")
+                                })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

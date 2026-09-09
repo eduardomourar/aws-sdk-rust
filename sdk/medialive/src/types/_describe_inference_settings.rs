@@ -8,6 +8,8 @@ pub struct DescribeInferenceSettings {
     pub feed_arn: ::std::option::Option<::std::string::String>,
     /// A list of audio feed inputs that map audio selectors in the channel to feed inputs on the associated Elemental Inference feed.
     pub audio_feed_inputs: ::std::option::Option<::std::vec::Vec<crate::types::AudioFeedInput>>,
+    /// The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel uses the inference feed to augment its output with contextual metadata.
+    pub enrichment_methods: ::std::option::Option<::std::vec::Vec<crate::types::EnrichmentMethod>>,
 }
 impl DescribeInferenceSettings {
     /// The ARN of the feed resource that is associated with this channel. The feed is a resource in the Elemental Inference service.
@@ -19,6 +21,12 @@ impl DescribeInferenceSettings {
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.audio_feed_inputs.is_none()`.
     pub fn audio_feed_inputs(&self) -> &[crate::types::AudioFeedInput] {
         self.audio_feed_inputs.as_deref().unwrap_or_default()
+    }
+    /// The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel uses the inference feed to augment its output with contextual metadata.
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enrichment_methods.is_none()`.
+    pub fn enrichment_methods(&self) -> &[crate::types::EnrichmentMethod] {
+        self.enrichment_methods.as_deref().unwrap_or_default()
     }
 }
 impl DescribeInferenceSettings {
@@ -34,6 +42,7 @@ impl DescribeInferenceSettings {
 pub struct DescribeInferenceSettingsBuilder {
     pub(crate) feed_arn: ::std::option::Option<::std::string::String>,
     pub(crate) audio_feed_inputs: ::std::option::Option<::std::vec::Vec<crate::types::AudioFeedInput>>,
+    pub(crate) enrichment_methods: ::std::option::Option<::std::vec::Vec<crate::types::EnrichmentMethod>>,
 }
 impl DescribeInferenceSettingsBuilder {
     /// The ARN of the feed resource that is associated with this channel. The feed is a resource in the Elemental Inference service.
@@ -70,11 +79,32 @@ impl DescribeInferenceSettingsBuilder {
     pub fn get_audio_feed_inputs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AudioFeedInput>> {
         &self.audio_feed_inputs
     }
+    /// Appends an item to `enrichment_methods`.
+    ///
+    /// To override the contents of this collection use [`set_enrichment_methods`](Self::set_enrichment_methods).
+    ///
+    /// The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel uses the inference feed to augment its output with contextual metadata.
+    pub fn enrichment_methods(mut self, input: crate::types::EnrichmentMethod) -> Self {
+        let mut v = self.enrichment_methods.unwrap_or_default();
+        v.push(input);
+        self.enrichment_methods = ::std::option::Option::Some(v);
+        self
+    }
+    /// The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel uses the inference feed to augment its output with contextual metadata.
+    pub fn set_enrichment_methods(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EnrichmentMethod>>) -> Self {
+        self.enrichment_methods = input;
+        self
+    }
+    /// The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel uses the inference feed to augment its output with contextual metadata.
+    pub fn get_enrichment_methods(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EnrichmentMethod>> {
+        &self.enrichment_methods
+    }
     /// Consumes the builder and constructs a [`DescribeInferenceSettings`](crate::types::DescribeInferenceSettings).
     pub fn build(self) -> crate::types::DescribeInferenceSettings {
         crate::types::DescribeInferenceSettings {
             feed_arn: self.feed_arn,
             audio_feed_inputs: self.audio_feed_inputs,
+            enrichment_methods: self.enrichment_methods,
         }
     }
 }

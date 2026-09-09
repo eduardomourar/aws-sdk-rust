@@ -135,6 +135,11 @@ pub(crate) fn de_get_channel(
                             .transpose()?,
                     );
                 }
+                "AttachedMultiviewChannels" => {
+                    builder = builder.set_attached_multiview_channels(
+                        crate::protocol_serde::shape_attached_multiview_channel_list::de_attached_multiview_channel_list(tokens, _value, depth + 1)?,
+                    );
+                }
                 "ChannelGroupName" => {
                     builder = builder.set_channel_group_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -192,6 +197,13 @@ pub(crate) fn de_get_channel(
                     builder = builder.set_modified_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),
                         ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
+                }
+                "MultiviewConfiguration" => {
+                    builder = builder.set_multiview_configuration(crate::protocol_serde::shape_multiview_configuration::de_multiview_configuration(
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "OutputHeaderConfiguration" => {

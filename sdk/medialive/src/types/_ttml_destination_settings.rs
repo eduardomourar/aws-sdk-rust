@@ -4,13 +4,19 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct TtmlDestinationSettings {
-    /// This field is not currently supported and will not affect the output styling. Leave the default value.
+    /// Controls the source of style and position information for the output captions. PASSTHROUGH - Preserve the style and position from the source captions. USE_CONFIGURED - Don't pass through the style. The output captions will use the default styling. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
     pub style_control: ::std::option::Option<crate::types::TtmlDestinationStyleControl>,
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub position: ::std::option::Option<crate::types::TextCaptionPositionSettings>,
 }
 impl TtmlDestinationSettings {
-    /// This field is not currently supported and will not affect the output styling. Leave the default value.
+    /// Controls the source of style and position information for the output captions. PASSTHROUGH - Preserve the style and position from the source captions. USE_CONFIGURED - Don't pass through the style. The output captions will use the default styling. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
     pub fn style_control(&self) -> ::std::option::Option<&crate::types::TtmlDestinationStyleControl> {
         self.style_control.as_ref()
+    }
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn position(&self) -> ::std::option::Option<&crate::types::TextCaptionPositionSettings> {
+        self.position.as_ref()
     }
 }
 impl TtmlDestinationSettings {
@@ -25,26 +31,42 @@ impl TtmlDestinationSettings {
 #[non_exhaustive]
 pub struct TtmlDestinationSettingsBuilder {
     pub(crate) style_control: ::std::option::Option<crate::types::TtmlDestinationStyleControl>,
+    pub(crate) position: ::std::option::Option<crate::types::TextCaptionPositionSettings>,
 }
 impl TtmlDestinationSettingsBuilder {
-    /// This field is not currently supported and will not affect the output styling. Leave the default value.
+    /// Controls the source of style and position information for the output captions. PASSTHROUGH - Preserve the style and position from the source captions. USE_CONFIGURED - Don't pass through the style. The output captions will use the default styling. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
     pub fn style_control(mut self, input: crate::types::TtmlDestinationStyleControl) -> Self {
         self.style_control = ::std::option::Option::Some(input);
         self
     }
-    /// This field is not currently supported and will not affect the output styling. Leave the default value.
+    /// Controls the source of style and position information for the output captions. PASSTHROUGH - Preserve the style and position from the source captions. USE_CONFIGURED - Don't pass through the style. The output captions will use the default styling. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
     pub fn set_style_control(mut self, input: ::std::option::Option<crate::types::TtmlDestinationStyleControl>) -> Self {
         self.style_control = input;
         self
     }
-    /// This field is not currently supported and will not affect the output styling. Leave the default value.
+    /// Controls the source of style and position information for the output captions. PASSTHROUGH - Preserve the style and position from the source captions. USE_CONFIGURED - Don't pass through the style. The output captions will use the default styling. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
     pub fn get_style_control(&self) -> &::std::option::Option<crate::types::TtmlDestinationStyleControl> {
         &self.style_control
+    }
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn position(mut self, input: crate::types::TextCaptionPositionSettings) -> Self {
+        self.position = ::std::option::Option::Some(input);
+        self
+    }
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn set_position(mut self, input: ::std::option::Option<crate::types::TextCaptionPositionSettings>) -> Self {
+        self.position = input;
+        self
+    }
+    /// Specifies the position of the output captions. Applies only when styleControl is set to manual.
+    pub fn get_position(&self) -> &::std::option::Option<crate::types::TextCaptionPositionSettings> {
+        &self.position
     }
     /// Consumes the builder and constructs a [`TtmlDestinationSettings`](crate::types::TtmlDestinationSettings).
     pub fn build(self) -> crate::types::TtmlDestinationSettings {
         crate::types::TtmlDestinationSettings {
             style_control: self.style_control,
+            position: self.position,
         }
     }
 }

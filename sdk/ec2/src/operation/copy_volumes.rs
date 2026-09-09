@@ -199,6 +199,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CopyVolumesTe
                 captured.insert("ClientToken", value);
             }
         }
+        if requested.should_capture("KmsKeyId") {
+            if let ::std::option::Option::Some(value) = input.kms_key_id.as_deref() {
+                captured.insert("KmsKeyId", value);
+            }
+        }
 
         cfg.interceptor_state().store_put(captured);
         ::std::result::Result::Ok(())

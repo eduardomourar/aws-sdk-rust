@@ -12,6 +12,8 @@ pub struct MediaPackageV2DestinationSettings {
     pub hls_auto_select: ::std::option::Option<crate::types::HlsAutoSelect>,
     /// Specifies whether MediaPackage should set this output as the default rendition in the HLS manifest. YES means this must be the default. NO means this should never be the default. OMIT means MediaPackage decides what to set on this rendition. When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
     pub hls_default: ::std::option::Option<crate::types::HlsDefault>,
+    /// List of usage tags declaring how this MediaPackage V2 output is used. Currently these are all multiview-related (multiviewPrimaryView, multiviewSecondaryView, multiviewEqualSizeView) and enable multiview validations and augmentations to help ensure proper multiview configuration and compatibility with MediaPackage. Leave empty (the default) if this output has no multiview role. If any video-carrying MediaPackage V2 output in an output group specifies a multiview value, every video-carrying MediaPackage V2 output in the group must also specify a multiview value; place standalone video outputs in a separate output group.
+    pub output_usage: ::std::option::Option<::std::vec::Vec<crate::types::OutputUsage>>,
 }
 impl MediaPackageV2DestinationSettings {
     /// Applies only to an output that contains audio. If you want to put several audio encodes into one audio rendition group, decide on a name (ID) for the group. Then in every audio output that you want to belong to that group, enter that ID in this field. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
@@ -30,6 +32,12 @@ impl MediaPackageV2DestinationSettings {
     pub fn hls_default(&self) -> ::std::option::Option<&crate::types::HlsDefault> {
         self.hls_default.as_ref()
     }
+    /// List of usage tags declaring how this MediaPackage V2 output is used. Currently these are all multiview-related (multiviewPrimaryView, multiviewSecondaryView, multiviewEqualSizeView) and enable multiview validations and augmentations to help ensure proper multiview configuration and compatibility with MediaPackage. Leave empty (the default) if this output has no multiview role. If any video-carrying MediaPackage V2 output in an output group specifies a multiview value, every video-carrying MediaPackage V2 output in the group must also specify a multiview value; place standalone video outputs in a separate output group.
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.output_usage.is_none()`.
+    pub fn output_usage(&self) -> &[crate::types::OutputUsage] {
+        self.output_usage.as_deref().unwrap_or_default()
+    }
 }
 impl MediaPackageV2DestinationSettings {
     /// Creates a new builder-style object to manufacture [`MediaPackageV2DestinationSettings`](crate::types::MediaPackageV2DestinationSettings).
@@ -46,6 +54,7 @@ pub struct MediaPackageV2DestinationSettingsBuilder {
     pub(crate) audio_rendition_sets: ::std::option::Option<::std::string::String>,
     pub(crate) hls_auto_select: ::std::option::Option<crate::types::HlsAutoSelect>,
     pub(crate) hls_default: ::std::option::Option<crate::types::HlsDefault>,
+    pub(crate) output_usage: ::std::option::Option<::std::vec::Vec<crate::types::OutputUsage>>,
 }
 impl MediaPackageV2DestinationSettingsBuilder {
     /// Applies only to an output that contains audio. If you want to put several audio encodes into one audio rendition group, decide on a name (ID) for the group. Then in every audio output that you want to belong to that group, enter that ID in this field. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
@@ -104,6 +113,26 @@ impl MediaPackageV2DestinationSettingsBuilder {
     pub fn get_hls_default(&self) -> &::std::option::Option<crate::types::HlsDefault> {
         &self.hls_default
     }
+    /// Appends an item to `output_usage`.
+    ///
+    /// To override the contents of this collection use [`set_output_usage`](Self::set_output_usage).
+    ///
+    /// List of usage tags declaring how this MediaPackage V2 output is used. Currently these are all multiview-related (multiviewPrimaryView, multiviewSecondaryView, multiviewEqualSizeView) and enable multiview validations and augmentations to help ensure proper multiview configuration and compatibility with MediaPackage. Leave empty (the default) if this output has no multiview role. If any video-carrying MediaPackage V2 output in an output group specifies a multiview value, every video-carrying MediaPackage V2 output in the group must also specify a multiview value; place standalone video outputs in a separate output group.
+    pub fn output_usage(mut self, input: crate::types::OutputUsage) -> Self {
+        let mut v = self.output_usage.unwrap_or_default();
+        v.push(input);
+        self.output_usage = ::std::option::Option::Some(v);
+        self
+    }
+    /// List of usage tags declaring how this MediaPackage V2 output is used. Currently these are all multiview-related (multiviewPrimaryView, multiviewSecondaryView, multiviewEqualSizeView) and enable multiview validations and augmentations to help ensure proper multiview configuration and compatibility with MediaPackage. Leave empty (the default) if this output has no multiview role. If any video-carrying MediaPackage V2 output in an output group specifies a multiview value, every video-carrying MediaPackage V2 output in the group must also specify a multiview value; place standalone video outputs in a separate output group.
+    pub fn set_output_usage(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OutputUsage>>) -> Self {
+        self.output_usage = input;
+        self
+    }
+    /// List of usage tags declaring how this MediaPackage V2 output is used. Currently these are all multiview-related (multiviewPrimaryView, multiviewSecondaryView, multiviewEqualSizeView) and enable multiview validations and augmentations to help ensure proper multiview configuration and compatibility with MediaPackage. Leave empty (the default) if this output has no multiview role. If any video-carrying MediaPackage V2 output in an output group specifies a multiview value, every video-carrying MediaPackage V2 output in the group must also specify a multiview value; place standalone video outputs in a separate output group.
+    pub fn get_output_usage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OutputUsage>> {
+        &self.output_usage
+    }
     /// Consumes the builder and constructs a [`MediaPackageV2DestinationSettings`](crate::types::MediaPackageV2DestinationSettings).
     pub fn build(self) -> crate::types::MediaPackageV2DestinationSettings {
         crate::types::MediaPackageV2DestinationSettings {
@@ -111,6 +140,7 @@ impl MediaPackageV2DestinationSettingsBuilder {
             audio_rendition_sets: self.audio_rendition_sets,
             hls_auto_select: self.hls_auto_select,
             hls_default: self.hls_default,
+            output_usage: self.output_usage,
         }
     }
 }

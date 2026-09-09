@@ -426,6 +426,18 @@ pub(crate) fn cdn_auth_configuration_correct_errors(
     builder
 }
 
+pub(crate) fn multiview_configuration_correct_errors(
+    mut builder: crate::types::builders::MultiviewConfigurationBuilder,
+) -> crate::types::builders::MultiviewConfigurationBuilder {
+    if builder.available_sources.is_none() {
+        builder.available_sources = Some(Default::default())
+    }
+    if builder.available_layouts.is_none() {
+        builder.available_layouts = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn s3_destination_config_correct_errors(
     mut builder: crate::types::builders::S3DestinationConfigBuilder,
 ) -> crate::types::builders::S3DestinationConfigBuilder {

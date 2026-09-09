@@ -497,6 +497,15 @@ pub(crate) fn list_default_vocabularies_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_evaluation_form_ai_versions_output_output_correct_errors(
+    mut builder: crate::operation::list_evaluation_form_ai_versions::builders::ListEvaluationFormAiVersionsOutputBuilder,
+) -> crate::operation::list_evaluation_form_ai_versions::builders::ListEvaluationFormAiVersionsOutputBuilder {
+    if builder.ai_version_summaries.is_none() {
+        builder.ai_version_summaries = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_evaluation_form_versions_output_output_correct_errors(
     mut builder: crate::operation::list_evaluation_form_versions::builders::ListEvaluationFormVersionsOutputBuilder,
 ) -> crate::operation::list_evaluation_form_versions::builders::ListEvaluationFormVersionsOutputBuilder {
@@ -1346,6 +1355,23 @@ pub(crate) fn default_vocabulary_correct_errors(
     builder
 }
 
+pub(crate) fn evaluation_form_ai_version_summary_correct_errors(
+    mut builder: crate::types::builders::EvaluationFormAiVersionSummaryBuilder,
+) -> crate::types::builders::EvaluationFormAiVersionSummaryBuilder {
+    if builder.ai_version_name.is_none() {
+        builder.ai_version_name = Some(Default::default())
+    }
+    if builder.ai_version_lifecycle.is_none() {
+        builder.ai_version_lifecycle = {
+            let builder = crate::types::builders::EvaluationFormAiVersionLifecycleBuilder::default();
+            crate::serde_util::evaluation_form_ai_version_lifecycle_correct_errors(builder)
+                .build()
+                .ok()
+        }
+    }
+    builder
+}
+
 pub(crate) fn evaluation_form_auto_evaluation_configuration_correct_errors(
     mut builder: crate::types::builders::EvaluationFormAutoEvaluationConfigurationBuilder,
 ) -> crate::types::builders::EvaluationFormAutoEvaluationConfigurationBuilder {
@@ -1962,6 +1988,18 @@ pub(crate) fn evaluation_acknowledgement_correct_errors(
     builder
 }
 
+pub(crate) fn evaluation_form_ai_version_lifecycle_correct_errors(
+    mut builder: crate::types::builders::EvaluationFormAiVersionLifecycleBuilder,
+) -> crate::types::builders::EvaluationFormAiVersionLifecycleBuilder {
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::EvaluationFormAiVersionStatus>().ok()
+    }
+    if builder.start_of_life_time.is_none() {
+        builder.start_of_life_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
 pub(crate) fn evaluation_review_metadata_correct_errors(
     mut builder: crate::types::builders::EvaluationReviewMetadataBuilder,
 ) -> crate::types::builders::EvaluationReviewMetadataBuilder {
@@ -2483,6 +2521,18 @@ pub(crate) fn evaluation_form_item_enablement_configuration_correct_errors(
     }
     if builder.action.is_none() {
         builder.action = "no value was set".parse::<crate::types::EvaluationFormItemEnablementAction>().ok()
+    }
+    builder
+}
+
+pub(crate) fn evaluation_form_metric_configuration_correct_errors(
+    mut builder: crate::types::builders::EvaluationFormMetricConfigurationBuilder,
+) -> crate::types::builders::EvaluationFormMetricConfigurationBuilder {
+    if builder.metric_type.is_none() {
+        builder.metric_type = "no value was set".parse::<crate::types::EvaluationFormMetricType>().ok()
+    }
+    if builder.metric_name.is_none() {
+        builder.metric_name = Some(Default::default())
     }
     builder
 }

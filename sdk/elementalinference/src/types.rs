@@ -37,6 +37,8 @@ pub use crate::types::_clipping_config::ClippingConfig;
 
 pub use crate::types::_subtitling_config::SubtitlingConfig;
 
+pub use crate::types::_contextual_metadata_config::ContextualMetadataConfig;
+
 pub use crate::types::_data_source_configuration::DataSourceConfiguration;
 
 pub use crate::types::_transcription_language::TranscriptionLanguage;
@@ -45,6 +47,8 @@ pub use crate::types::_aspect_ratio::AspectRatio;
 
 pub use crate::types::_profanity_filter_mode::ProfanityFilterMode;
 
+pub use crate::types::_summary_generation_mode::SummaryGenerationMode;
+
 pub use crate::types::_template_group::TemplateGroup;
 
 mod _aspect_ratio;
@@ -52,6 +56,8 @@ mod _aspect_ratio;
 mod _clipping_config;
 
 mod _competitor;
+
+mod _contextual_metadata_config;
 
 mod _create_output;
 
@@ -88,6 +94,8 @@ mod _profanity_filter_mode;
 mod _search_filter;
 
 mod _subtitling_config;
+
+mod _summary_generation_mode;
 
 mod _template_group;
 

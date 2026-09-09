@@ -18,5 +18,14 @@ pub fn ser_inference_settings(
         }
         array_3.finish();
     }
+    if let Some(var_6) = &input.enrichment_methods {
+        let mut array_7 = object.key("enrichmentMethods").start_array();
+        for item_8 in var_6 {
+            {
+                array_7.value().string(item_8.as_str());
+            }
+        }
+        array_7.finish();
+    }
     Ok(())
 }

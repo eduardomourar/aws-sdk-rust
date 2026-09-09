@@ -12,6 +12,7 @@
 /// ```text
 /// # let ttmldestinationstylecontrol = unimplemented!();
 /// match ttmldestinationstylecontrol {
+///     TtmlDestinationStyleControl::Manual => { /* ... */ },
 ///     TtmlDestinationStyleControl::Passthrough => { /* ... */ },
 ///     TtmlDestinationStyleControl::UseConfigured => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
@@ -43,6 +44,8 @@
 )]
 pub enum TtmlDestinationStyleControl {
     #[allow(missing_docs)] // documentation missing in model
+    Manual,
+    #[allow(missing_docs)] // documentation missing in model
     Passthrough,
     #[allow(missing_docs)] // documentation missing in model
     UseConfigured,
@@ -53,6 +56,7 @@ pub enum TtmlDestinationStyleControl {
 impl ::std::convert::From<&str> for TtmlDestinationStyleControl {
     fn from(s: &str) -> Self {
         match s {
+            "MANUAL" => TtmlDestinationStyleControl::Manual,
             "PASSTHROUGH" => TtmlDestinationStyleControl::Passthrough,
             "USE_CONFIGURED" => TtmlDestinationStyleControl::UseConfigured,
             other => TtmlDestinationStyleControl::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
@@ -70,6 +74,7 @@ impl TtmlDestinationStyleControl {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
+            TtmlDestinationStyleControl::Manual => "MANUAL",
             TtmlDestinationStyleControl::Passthrough => "PASSTHROUGH",
             TtmlDestinationStyleControl::UseConfigured => "USE_CONFIGURED",
             TtmlDestinationStyleControl::Unknown(value) => value.as_str(),
@@ -77,7 +82,7 @@ impl TtmlDestinationStyleControl {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["PASSTHROUGH", "USE_CONFIGURED"]
+        &["MANUAL", "PASSTHROUGH", "USE_CONFIGURED"]
     }
 }
 impl ::std::convert::AsRef<str> for TtmlDestinationStyleControl {
@@ -100,6 +105,7 @@ impl TtmlDestinationStyleControl {
 impl ::std::fmt::Display for TtmlDestinationStyleControl {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
+            TtmlDestinationStyleControl::Manual => write!(f, "MANUAL"),
             TtmlDestinationStyleControl::Passthrough => write!(f, "PASSTHROUGH"),
             TtmlDestinationStyleControl::UseConfigured => write!(f, "USE_CONFIGURED"),
             TtmlDestinationStyleControl::Unknown(value) => write!(f, "{value}"),

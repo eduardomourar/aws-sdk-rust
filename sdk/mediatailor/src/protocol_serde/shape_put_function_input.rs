@@ -3,51 +3,57 @@ pub fn ser_put_function_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::operation::put_function::PutFunctionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.concurrent_executor_configuration {
+    if let Some(var_1) = &input.aws_service_request_configuration {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("ConcurrentExecutorConfiguration").start_object();
-        crate::protocol_serde::shape_concurrent_executor_configuration::ser_concurrent_executor_configuration(&mut object_2, var_1)?;
+        let mut object_2 = object.key("AwsServiceRequestConfiguration").start_object();
+        crate::protocol_serde::shape_aws_service_request_configuration::ser_aws_service_request_configuration(&mut object_2, var_1)?;
         object_2.finish();
     }
-    if let Some(var_3) = &input.custom_output_configuration {
+    if let Some(var_3) = &input.concurrent_executor_configuration {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("CustomOutputConfiguration").start_object();
-        crate::protocol_serde::shape_custom_output_configuration::ser_custom_output_configuration(&mut object_4, var_3)?;
+        let mut object_4 = object.key("ConcurrentExecutorConfiguration").start_object();
+        crate::protocol_serde::shape_concurrent_executor_configuration::ser_concurrent_executor_configuration(&mut object_4, var_3)?;
         object_4.finish();
     }
-    if let Some(var_5) = &input.description {
-        object.key("Description").string(var_5.as_str());
-    }
-    if let Some(var_6) = &input.function_type {
-        object.key("FunctionType").string(var_6.as_str());
-    }
-    if let Some(var_7) = &input.http_request_configuration {
+    if let Some(var_5) = &input.custom_output_configuration {
         #[allow(unused_mut)]
-        let mut object_8 = object.key("HttpRequestConfiguration").start_object();
-        crate::protocol_serde::shape_http_request_configuration::ser_http_request_configuration(&mut object_8, var_7)?;
-        object_8.finish();
+        let mut object_6 = object.key("CustomOutputConfiguration").start_object();
+        crate::protocol_serde::shape_custom_output_configuration::ser_custom_output_configuration(&mut object_6, var_5)?;
+        object_6.finish();
     }
-    if let Some(var_9) = &input.sequential_executor_configuration {
+    if let Some(var_7) = &input.description {
+        object.key("Description").string(var_7.as_str());
+    }
+    if let Some(var_8) = &input.function_type {
+        object.key("FunctionType").string(var_8.as_str());
+    }
+    if let Some(var_9) = &input.http_request_configuration {
         #[allow(unused_mut)]
-        let mut object_10 = object.key("SequentialExecutorConfiguration").start_object();
-        crate::protocol_serde::shape_sequential_executor_configuration::ser_sequential_executor_configuration(&mut object_10, var_9)?;
+        let mut object_10 = object.key("HttpRequestConfiguration").start_object();
+        crate::protocol_serde::shape_http_request_configuration::ser_http_request_configuration(&mut object_10, var_9)?;
         object_10.finish();
     }
-    if let Some(var_11) = &input.tags {
+    if let Some(var_11) = &input.sequential_executor_configuration {
         #[allow(unused_mut)]
-        let mut object_12 = object.key("tags").start_object();
-        for (key_13, value_14) in var_11 {
-            {
-                object_12.key(key_13.as_str()).string(value_14.as_str());
-            }
-        }
+        let mut object_12 = object.key("SequentialExecutorConfiguration").start_object();
+        crate::protocol_serde::shape_sequential_executor_configuration::ser_sequential_executor_configuration(&mut object_12, var_11)?;
         object_12.finish();
     }
-    if let Some(var_15) = &input.vast_request_configuration {
+    if let Some(var_13) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_16 = object.key("VastRequestConfiguration").start_object();
-        crate::protocol_serde::shape_vast_request_configuration::ser_vast_request_configuration(&mut object_16, var_15)?;
-        object_16.finish();
+        let mut object_14 = object.key("tags").start_object();
+        for (key_15, value_16) in var_13 {
+            {
+                object_14.key(key_15.as_str()).string(value_16.as_str());
+            }
+        }
+        object_14.finish();
+    }
+    if let Some(var_17) = &input.vast_request_configuration {
+        #[allow(unused_mut)]
+        let mut object_18 = object.key("VastRequestConfiguration").start_object();
+        crate::protocol_serde::shape_vast_request_configuration::ser_vast_request_configuration(&mut object_18, var_17)?;
+        object_18.finish();
     }
     Ok(())
 }

@@ -22,6 +22,8 @@ pub struct VideoDescription {
     pub crop_rectangle: ::std::option::Option<crate::types::VideoPositionRectangle>,
     /// Position of the encoded video within the output frame. The area outside the rectangle is filled with black. If not specified, the video fills the entire output frame. When used, both {@link width} and {@link height} of the VideoDescription must be explicitly specified so that the rectangle can be validated against the output frame.
     pub output_position_rectangle: ::std::option::Option<crate::types::VideoPositionRectangle>,
+    /// Specifies the number of pixels of black border that will be inserted around the edge of the encoded picture. Must be an even integer from 0 (no border, the default) up to 100. The width and height of the VideoDescription must each be greater than twice this value. Cannot be used together with {@link outputPositionRectangle} -- both govern the position of the encoded content within the output frame.
+    pub border: ::std::option::Option<i32>,
 }
 impl VideoDescription {
     /// Video codec settings.
@@ -60,6 +62,10 @@ impl VideoDescription {
     pub fn output_position_rectangle(&self) -> ::std::option::Option<&crate::types::VideoPositionRectangle> {
         self.output_position_rectangle.as_ref()
     }
+    /// Specifies the number of pixels of black border that will be inserted around the edge of the encoded picture. Must be an even integer from 0 (no border, the default) up to 100. The width and height of the VideoDescription must each be greater than twice this value. Cannot be used together with {@link outputPositionRectangle} -- both govern the position of the encoded content within the output frame.
+    pub fn border(&self) -> ::std::option::Option<i32> {
+        self.border
+    }
 }
 impl VideoDescription {
     /// Creates a new builder-style object to manufacture [`VideoDescription`](crate::types::VideoDescription).
@@ -81,6 +87,7 @@ pub struct VideoDescriptionBuilder {
     pub(crate) width: ::std::option::Option<i32>,
     pub(crate) crop_rectangle: ::std::option::Option<crate::types::VideoPositionRectangle>,
     pub(crate) output_position_rectangle: ::std::option::Option<crate::types::VideoPositionRectangle>,
+    pub(crate) border: ::std::option::Option<i32>,
 }
 impl VideoDescriptionBuilder {
     /// Video codec settings.
@@ -210,6 +217,20 @@ impl VideoDescriptionBuilder {
     pub fn get_output_position_rectangle(&self) -> &::std::option::Option<crate::types::VideoPositionRectangle> {
         &self.output_position_rectangle
     }
+    /// Specifies the number of pixels of black border that will be inserted around the edge of the encoded picture. Must be an even integer from 0 (no border, the default) up to 100. The width and height of the VideoDescription must each be greater than twice this value. Cannot be used together with {@link outputPositionRectangle} -- both govern the position of the encoded content within the output frame.
+    pub fn border(mut self, input: i32) -> Self {
+        self.border = ::std::option::Option::Some(input);
+        self
+    }
+    /// Specifies the number of pixels of black border that will be inserted around the edge of the encoded picture. Must be an even integer from 0 (no border, the default) up to 100. The width and height of the VideoDescription must each be greater than twice this value. Cannot be used together with {@link outputPositionRectangle} -- both govern the position of the encoded content within the output frame.
+    pub fn set_border(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.border = input;
+        self
+    }
+    /// Specifies the number of pixels of black border that will be inserted around the edge of the encoded picture. Must be an even integer from 0 (no border, the default) up to 100. The width and height of the VideoDescription must each be greater than twice this value. Cannot be used together with {@link outputPositionRectangle} -- both govern the position of the encoded content within the output frame.
+    pub fn get_border(&self) -> &::std::option::Option<i32> {
+        &self.border
+    }
     /// Consumes the builder and constructs a [`VideoDescription`](crate::types::VideoDescription).
     pub fn build(self) -> crate::types::VideoDescription {
         crate::types::VideoDescription {
@@ -222,6 +243,7 @@ impl VideoDescriptionBuilder {
             width: self.width,
             crop_rectangle: self.crop_rectangle,
             output_position_rectangle: self.output_position_rectangle,
+            border: self.border,
         }
     }
 }

@@ -251,6 +251,8 @@ pub use crate::types::_lex_version::LexVersion;
 
 pub use crate::types::_contact_flow_module_state::ContactFlowModuleState;
 
+pub use crate::types::_contact_interaction_type::ContactInteractionType;
+
 pub use crate::types::_metric_type::MetricType;
 
 pub use crate::types::_real_time_contact_analysis_output_type::RealTimeContactAnalysisOutputType;
@@ -531,8 +533,6 @@ pub use crate::types::_evaluation_form_scoring_mode::EvaluationFormScoringMode;
 
 pub use crate::types::_evaluation_form_scoring_status::EvaluationFormScoringStatus;
 
-pub use crate::types::_contact_interaction_type::ContactInteractionType;
-
 pub use crate::types::_evaluation_form_language_code::EvaluationFormLanguageCode;
 
 pub use crate::types::_extraction_definition_not_found_behavior::ExtractionDefinitionNotFoundBehavior;
@@ -740,6 +740,8 @@ pub use crate::types::_data_table_summary::DataTableSummary;
 pub use crate::types::_data_table_value_summary::DataTableValueSummary;
 
 pub use crate::types::_default_vocabulary::DefaultVocabulary;
+
+pub use crate::types::_evaluation_form_ai_version_summary::EvaluationFormAiVersionSummary;
 
 pub use crate::types::_evaluation_form_summary::EvaluationFormSummary;
 
@@ -1137,6 +1139,8 @@ pub use crate::types::_date_reference::DateReference;
 
 pub use crate::types::_email_reference::EmailReference;
 
+pub use crate::types::_evaluation_form_ai_version_lifecycle::EvaluationFormAiVersionLifecycle;
+
 pub use crate::types::_real_time_contact_analysis_segment_transcript::RealTimeContactAnalysisSegmentTranscript;
 
 pub use crate::types::_real_time_contact_analysis_segment_categories::RealTimeContactAnalysisSegmentCategories;
@@ -1230,6 +1234,8 @@ pub use crate::types::_evaluation_form_question_type_properties::EvaluationFormQ
 pub use crate::types::_evaluation_form_item_enablement_configuration::EvaluationFormItemEnablementConfiguration;
 
 pub use crate::types::_evaluation_form_question_scoring_configuration::EvaluationFormQuestionScoringConfiguration;
+
+pub use crate::types::_evaluation_form_metric_configuration::EvaluationFormMetricConfiguration;
 
 pub use crate::types::_performance_category_name::PerformanceCategoryName;
 
@@ -1329,6 +1335,8 @@ pub use crate::types::_metric_filter_v2::MetricFilterV2;
 
 pub use crate::types::_metric_data_v2::MetricDataV2;
 
+pub use crate::types::_evaluation_form_ai_version_status::EvaluationFormAiVersionStatus;
+
 pub use crate::types::_real_time_contact_analysis_time_data::RealTimeContactAnalysisTimeData;
 
 pub use crate::types::_real_time_contact_analysis_transcript_item_redaction::RealTimeContactAnalysisTranscriptItemRedaction;
@@ -1392,6 +1400,8 @@ pub use crate::types::_evaluation_form_item_enablement_condition::EvaluationForm
 pub use crate::types::_evaluation_form_item_enablement_action::EvaluationFormItemEnablementAction;
 
 pub use crate::types::_question_points_configuration::QuestionPointsConfiguration;
+
+pub use crate::types::_evaluation_form_metric_type::EvaluationFormMetricType;
 
 pub use crate::types::_metric_filter::MetricFilter;
 
@@ -2035,6 +2045,12 @@ mod _evaluation_contact_participant;
 
 mod _evaluation_form;
 
+mod _evaluation_form_ai_version_lifecycle;
+
+mod _evaluation_form_ai_version_status;
+
+mod _evaluation_form_ai_version_summary;
+
 mod _evaluation_form_auto_evaluation_configuration;
 
 mod _evaluation_form_content;
@@ -2066,6 +2082,10 @@ mod _evaluation_form_item_source_values_comparator;
 mod _evaluation_form_language_code;
 
 mod _evaluation_form_language_configuration;
+
+mod _evaluation_form_metric_configuration;
+
+mod _evaluation_form_metric_type;
 
 mod _evaluation_form_multi_select_question_automation;
 

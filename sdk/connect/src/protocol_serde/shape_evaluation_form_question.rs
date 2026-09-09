@@ -48,6 +48,12 @@ pub fn ser_evaluation_form_question(
         )?;
         object_7.finish();
     }
+    if let Some(var_8) = &input.metric_configuration {
+        #[allow(unused_mut)]
+        let mut object_9 = object.key("MetricConfiguration").start_object();
+        crate::protocol_serde::shape_evaluation_form_metric_configuration::ser_evaluation_form_metric_configuration(&mut object_9, var_8)?;
+        object_9.finish();
+    }
     Ok(())
 }
 
@@ -124,6 +130,15 @@ where
                             "ScoringConfiguration" => {
                                 builder = builder.set_scoring_configuration(
                                     crate::protocol_serde::shape_evaluation_form_question_scoring_configuration::de_evaluation_form_question_scoring_configuration(tokens, _value, depth + 1)?
+                                );
+                            }
+                            "MetricConfiguration" => {
+                                builder = builder.set_metric_configuration(
+                                    crate::protocol_serde::shape_evaluation_form_metric_configuration::de_evaluation_form_metric_configuration(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

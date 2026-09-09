@@ -206,6 +206,15 @@ pub(crate) fn get_feed_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn get_feed_policy_output_output_correct_errors(
+    mut builder: crate::operation::get_feed_policy::builders::GetFeedPolicyOutputBuilder,
+) -> crate::operation::get_feed_policy::builders::GetFeedPolicyOutputBuilder {
+    if builder.policy.is_none() {
+        builder.policy = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn gateway_timed_out_exception_correct_errors(
     mut builder: crate::types::error::builders::GatewayTimedOutExceptionBuilder,
 ) -> crate::types::error::builders::GatewayTimedOutExceptionBuilder {

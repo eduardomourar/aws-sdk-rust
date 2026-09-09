@@ -225,6 +225,8 @@ pub(crate) mod shape_cgroup_custom_settings;
 
 pub(crate) mod shape_error_info;
 
+pub(crate) mod shape_gres_custom_settings;
+
 pub(crate) mod shape_jwt_auth;
 
 pub(crate) mod shape_node_lifecycle_script;
@@ -240,6 +242,8 @@ pub(crate) mod shape_slurm_custom_settings;
 pub(crate) mod shape_slurm_rest;
 
 pub(crate) mod shape_slurmdbd_custom_settings;
+
+pub(crate) mod shape_gres_custom_setting_map;
 
 pub(crate) mod shape_jwt_key;
 

@@ -6,6 +6,12 @@ pub fn ser_ttml_destination_settings(
     if let Some(var_1) = &input.style_control {
         object.key("styleControl").string(var_1.as_str());
     }
+    if let Some(var_2) = &input.position {
+        #[allow(unused_mut)]
+        let mut object_3 = object.key("position").start_object();
+        crate::protocol_serde::shape_text_caption_position_settings::ser_text_caption_position_settings(&mut object_3, var_2)?;
+        object_3.finish();
+    }
     Ok(())
 }
 
@@ -36,6 +42,15 @@ where
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| crate::types::TtmlDestinationStyleControl::from(u.as_ref())))
                                     .transpose()?,
+                            );
+                        }
+                        "position" => {
+                            builder = builder.set_position(
+                                crate::protocol_serde::shape_text_caption_position_settings::de_text_caption_position_settings(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

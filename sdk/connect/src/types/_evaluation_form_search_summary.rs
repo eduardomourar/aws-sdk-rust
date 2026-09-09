@@ -38,6 +38,8 @@ pub struct EvaluationFormSearchSummary {
     pub contact_interaction_type: ::std::option::Option<crate::types::ContactInteractionType>,
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub ai_version: ::std::option::Option<::std::string::String>,
 }
 impl EvaluationFormSearchSummary {
     /// <p>The unique identifier for the evaluation form.</p>
@@ -113,6 +115,10 @@ impl EvaluationFormSearchSummary {
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(&self) -> ::std::option::Option<&str> {
+        self.ai_version.as_deref()
+    }
 }
 impl EvaluationFormSearchSummary {
     /// Creates a new builder-style object to manufacture [`EvaluationFormSearchSummary`](crate::types::EvaluationFormSearchSummary).
@@ -142,6 +148,7 @@ pub struct EvaluationFormSearchSummaryBuilder {
     pub(crate) evaluation_form_language: ::std::option::Option<crate::types::EvaluationFormLanguageCode>,
     pub(crate) contact_interaction_type: ::std::option::Option<crate::types::ContactInteractionType>,
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) ai_version: ::std::option::Option<::std::string::String>,
 }
 impl EvaluationFormSearchSummaryBuilder {
     /// <p>The unique identifier for the evaluation form.</p>
@@ -397,6 +404,20 @@ impl EvaluationFormSearchSummaryBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn ai_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.ai_version = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn set_ai_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ai_version = input;
+        self
+    }
+    /// <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+    pub fn get_ai_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ai_version
+    }
     /// Consumes the builder and constructs a [`EvaluationFormSearchSummary`](crate::types::EvaluationFormSearchSummary).
     /// This method will fail if any of the following fields are not set:
     /// - [`evaluation_form_id`](crate::types::builders::EvaluationFormSearchSummaryBuilder::evaluation_form_id)
@@ -472,6 +493,7 @@ impl EvaluationFormSearchSummaryBuilder {
             evaluation_form_language: self.evaluation_form_language,
             contact_interaction_type: self.contact_interaction_type,
             tags: self.tags,
+            ai_version: self.ai_version,
         })
     }
 }

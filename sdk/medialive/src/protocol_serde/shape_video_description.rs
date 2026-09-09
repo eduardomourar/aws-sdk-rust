@@ -48,6 +48,12 @@ pub fn ser_video_description(
         crate::protocol_serde::shape_video_position_rectangle::ser_video_position_rectangle(&mut object_12, var_11)?;
         object_12.finish();
     }
+    if let Some(var_13) = &input.border {
+        object.key("border").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_13).into()),
+        );
+    }
     Ok(())
 }
 
@@ -131,6 +137,13 @@ where
                             "outputPositionRectangle" => {
                                 builder = builder.set_output_position_rectangle(
                                     crate::protocol_serde::shape_video_position_rectangle::de_video_position_rectangle(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "border" => {
+                                builder = builder.set_border(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i32::try_from)
+                                        .transpose()?,
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -11,6 +11,8 @@ pub use crate::types::_log_configuration_for_channel::LogConfigurationForChannel
 
 pub use crate::types::_http_request_configuration::HttpRequestConfigurationBuilder;
 
+pub use crate::types::_aws_service_request_configuration::AwsServiceRequestConfigurationBuilder;
+
 pub use crate::types::_custom_output_configuration::CustomOutputConfigurationBuilder;
 
 pub use crate::types::_concurrent_executor_configuration::ConcurrentExecutorConfigurationBuilder;

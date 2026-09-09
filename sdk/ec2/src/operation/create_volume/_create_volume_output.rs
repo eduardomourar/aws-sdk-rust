@@ -34,6 +34,10 @@ pub struct CreateVolumeOutput {
     pub operator: ::std::option::Option<crate::types::OperatorResponse>,
     /// <p>The Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate) specified for the volume during creation, in MiB/s. If no volume initialization rate was specified, the value is <code>null</code>.</p>
     pub volume_initialization_rate: ::std::option::Option<i32>,
+    /// <p>The Amazon Resource Name (ARN) of the volume.</p>
+    pub volume_arn: ::std::option::Option<::std::string::String>,
+    /// <p>The ID of the Amazon Web Services account that owns the volume.</p>
+    pub owner_id: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the volume.</p>
     pub volume_id: ::std::option::Option<::std::string::String>,
     /// <p>The size of the volume, in GiBs.</p>
@@ -114,6 +118,14 @@ impl CreateVolumeOutput {
     pub fn volume_initialization_rate(&self) -> ::std::option::Option<i32> {
         self.volume_initialization_rate
     }
+    /// <p>The Amazon Resource Name (ARN) of the volume.</p>
+    pub fn volume_arn(&self) -> ::std::option::Option<&str> {
+        self.volume_arn.as_deref()
+    }
+    /// <p>The ID of the Amazon Web Services account that owns the volume.</p>
+    pub fn owner_id(&self) -> ::std::option::Option<&str> {
+        self.owner_id.as_deref()
+    }
     /// <p>The ID of the volume.</p>
     pub fn volume_id(&self) -> ::std::option::Option<&str> {
         self.volume_id.as_deref()
@@ -184,6 +196,8 @@ pub struct CreateVolumeOutputBuilder {
     pub(crate) sse_type: ::std::option::Option<crate::types::SseType>,
     pub(crate) operator: ::std::option::Option<crate::types::OperatorResponse>,
     pub(crate) volume_initialization_rate: ::std::option::Option<i32>,
+    pub(crate) volume_arn: ::std::option::Option<::std::string::String>,
+    pub(crate) owner_id: ::std::option::Option<::std::string::String>,
     pub(crate) volume_id: ::std::option::Option<::std::string::String>,
     pub(crate) size: ::std::option::Option<i32>,
     pub(crate) snapshot_id: ::std::option::Option<::std::string::String>,
@@ -388,6 +402,34 @@ impl CreateVolumeOutputBuilder {
     pub fn get_volume_initialization_rate(&self) -> &::std::option::Option<i32> {
         &self.volume_initialization_rate
     }
+    /// <p>The Amazon Resource Name (ARN) of the volume.</p>
+    pub fn volume_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.volume_arn = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the volume.</p>
+    pub fn set_volume_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.volume_arn = input;
+        self
+    }
+    /// <p>The Amazon Resource Name (ARN) of the volume.</p>
+    pub fn get_volume_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.volume_arn
+    }
+    /// <p>The ID of the Amazon Web Services account that owns the volume.</p>
+    pub fn owner_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.owner_id = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The ID of the Amazon Web Services account that owns the volume.</p>
+    pub fn set_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.owner_id = input;
+        self
+    }
+    /// <p>The ID of the Amazon Web Services account that owns the volume.</p>
+    pub fn get_owner_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.owner_id
+    }
     /// <p>The ID of the volume.</p>
     pub fn volume_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.volume_id = ::std::option::Option::Some(input.into());
@@ -553,6 +595,8 @@ impl CreateVolumeOutputBuilder {
             sse_type: self.sse_type,
             operator: self.operator,
             volume_initialization_rate: self.volume_initialization_rate,
+            volume_arn: self.volume_arn,
+            owner_id: self.owner_id,
             volume_id: self.volume_id,
             size: self.size,
             snapshot_id: self.snapshot_id,

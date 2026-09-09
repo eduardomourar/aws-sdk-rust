@@ -67,6 +67,16 @@ pub fn ser_copy_volumes_input_input_input(
     if let Some(var_21) = &input.client_token {
         scope_20.string(var_21);
     }
+    #[allow(unused_mut)]
+    let mut scope_22 = writer.prefix("Encrypted");
+    if let Some(var_23) = &input.encrypted {
+        scope_22.boolean(*var_23);
+    }
+    #[allow(unused_mut)]
+    let mut scope_24 = writer.prefix("KmsKeyId");
+    if let Some(var_25) = &input.kms_key_id {
+        scope_24.string(var_25);
+    }
     writer.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

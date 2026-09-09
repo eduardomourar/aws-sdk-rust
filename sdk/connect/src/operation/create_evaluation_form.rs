@@ -212,6 +212,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateEvaluat
                 captured.insert("ClientToken", value);
             }
         }
+        if requested.should_capture("AIVersion") {
+            if let ::std::option::Option::Some(value) = input.ai_version.as_deref() {
+                captured.insert("AIVersion", value);
+            }
+        }
 
         cfg.interceptor_state().store_put(captured);
         ::std::result::Result::Ok(())

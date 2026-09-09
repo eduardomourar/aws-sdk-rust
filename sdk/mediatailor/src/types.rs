@@ -19,6 +19,8 @@ pub use crate::types::_function_type::FunctionType;
 
 pub use crate::types::_http_request_configuration::HttpRequestConfiguration;
 
+pub use crate::types::_aws_service_request_configuration::AwsServiceRequestConfiguration;
+
 pub use crate::types::_custom_output_configuration::CustomOutputConfiguration;
 
 pub use crate::types::_concurrent_executor_configuration::ConcurrentExecutorConfiguration;
@@ -250,6 +252,8 @@ mod _audience_media;
 mod _avail_matching_criteria;
 
 mod _avail_suppression;
+
+mod _aws_service_request_configuration;
 
 mod _bumper;
 

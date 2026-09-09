@@ -517,6 +517,10 @@ pub use crate::types::_nielsen_nw_only::NielsenNwOnlyBuilder;
 
 pub use crate::types::_audio_channel_mapping::AudioChannelMappingBuilder;
 
+pub use crate::types::_embedded_caption_position_settings::EmbeddedCaptionPositionSettingsBuilder;
+
+pub use crate::types::_text_caption_position_settings::TextCaptionPositionSettingsBuilder;
+
 pub use crate::types::_archive_cdn_settings::ArchiveCdnSettingsBuilder;
 
 pub use crate::types::_output_location_ref::OutputLocationRefBuilder;

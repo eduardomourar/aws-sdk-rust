@@ -14,6 +14,7 @@
 /// match inputtype {
 ///     InputType::Cmaf => { /* ... */ },
 ///     InputType::Hls => { /* ... */ },
+///     InputType::Multiview => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -46,6 +47,8 @@ pub enum InputType {
     Cmaf,
     #[allow(missing_docs)] // documentation missing in model
     Hls,
+    #[allow(missing_docs)] // documentation missing in model
+    Multiview,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -55,6 +58,7 @@ impl ::std::convert::From<&str> for InputType {
         match s {
             "CMAF" => InputType::Cmaf,
             "HLS" => InputType::Hls,
+            "MULTIVIEW" => InputType::Multiview,
             other => InputType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -72,12 +76,13 @@ impl InputType {
         match self {
             InputType::Cmaf => "CMAF",
             InputType::Hls => "HLS",
+            InputType::Multiview => "MULTIVIEW",
             InputType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CMAF", "HLS"]
+        &["CMAF", "HLS", "MULTIVIEW"]
     }
 }
 impl ::std::convert::AsRef<str> for InputType {
@@ -102,6 +107,7 @@ impl ::std::fmt::Display for InputType {
         match self {
             InputType::Cmaf => write!(f, "CMAF"),
             InputType::Hls => write!(f, "HLS"),
+            InputType::Multiview => write!(f, "MULTIVIEW"),
             InputType::Unknown(value) => write!(f, "{value}"),
         }
     }

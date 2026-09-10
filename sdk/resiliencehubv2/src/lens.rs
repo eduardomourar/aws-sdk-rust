@@ -149,8 +149,28 @@ pub(crate) fn reflens_list_systems_output_output_next_token(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn reflens_list_test_run_dependencies_output_output_next_token(
+    input: &crate::operation::list_test_run_dependencies::ListTestRunDependenciesOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn reflens_list_test_run_events_output_output_next_token(
     input: &crate::operation::list_test_run_events::ListTestRunEventsOutput,
+) -> ::std::option::Option<&::std::string::String> {
+    let input = match &input.next_token {
+        ::std::option::Option::None => return ::std::option::Option::None,
+        ::std::option::Option::Some(t) => t,
+    };
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn reflens_list_test_run_source_events_output_output_next_token(
+    input: &crate::operation::list_test_run_source_events::ListTestRunSourceEventsOutput,
 ) -> ::std::option::Option<&::std::string::String> {
     let input = match &input.next_token {
         ::std::option::Option::None => return ::std::option::Option::None,
@@ -314,10 +334,24 @@ pub(crate) fn lens_list_systems_output_output_system_summaries(
     ::std::option::Option::Some(input)
 }
 
+pub(crate) fn lens_list_test_run_dependencies_output_output_dependencies(
+    input: crate::operation::list_test_run_dependencies::ListTestRunDependenciesOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::TestRunDependencySummary>> {
+    let input = input.dependencies;
+    ::std::option::Option::Some(input)
+}
+
 pub(crate) fn lens_list_test_run_events_output_output_events(
     input: crate::operation::list_test_run_events::ListTestRunEventsOutput,
 ) -> ::std::option::Option<::std::vec::Vec<crate::types::TestRunEvent>> {
     let input = input.events;
+    ::std::option::Option::Some(input)
+}
+
+pub(crate) fn lens_list_test_run_source_events_output_output_test_run_source_events(
+    input: crate::operation::list_test_run_source_events::ListTestRunSourceEventsOutput,
+) -> ::std::option::Option<::std::vec::Vec<crate::types::TestRunSourceEvent>> {
+    let input = input.test_run_source_events;
     ::std::option::Option::Some(input)
 }
 

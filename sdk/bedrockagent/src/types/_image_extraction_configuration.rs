@@ -4,11 +4,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ImageExtractionConfiguration {
-    /// Whether image extraction is enabled or disabled.
+    /// <p>Whether image extraction is enabled or disabled.</p>
     pub image_extraction_status: crate::types::EnabledOrDisabledState,
 }
 impl ImageExtractionConfiguration {
-    /// Whether image extraction is enabled or disabled.
+    /// <p>Whether image extraction is enabled or disabled.</p>
     pub fn image_extraction_status(&self) -> &crate::types::EnabledOrDisabledState {
         &self.image_extraction_status
     }
@@ -27,18 +27,18 @@ pub struct ImageExtractionConfigurationBuilder {
     pub(crate) image_extraction_status: ::std::option::Option<crate::types::EnabledOrDisabledState>,
 }
 impl ImageExtractionConfigurationBuilder {
-    /// Whether image extraction is enabled or disabled.
+    /// <p>Whether image extraction is enabled or disabled.</p>
     /// This field is required.
     pub fn image_extraction_status(mut self, input: crate::types::EnabledOrDisabledState) -> Self {
         self.image_extraction_status = ::std::option::Option::Some(input);
         self
     }
-    /// Whether image extraction is enabled or disabled.
+    /// <p>Whether image extraction is enabled or disabled.</p>
     pub fn set_image_extraction_status(mut self, input: ::std::option::Option<crate::types::EnabledOrDisabledState>) -> Self {
         self.image_extraction_status = input;
         self
     }
-    /// Whether image extraction is enabled or disabled.
+    /// <p>Whether image extraction is enabled or disabled.</p>
     pub fn get_image_extraction_status(&self) -> &::std::option::Option<crate::types::EnabledOrDisabledState> {
         &self.image_extraction_status
     }

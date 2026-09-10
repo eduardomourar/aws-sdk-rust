@@ -18,6 +18,8 @@ pub struct CatalogItem {
     pub supported_uplink_gbps: ::std::option::Option<::std::vec::Vec<i32>>,
     /// <p>The supported storage options for the catalog item.</p>
     pub supported_storage: ::std::option::Option<::std::vec::Vec<crate::types::SupportedStorageEnum>>,
+    /// <p>The rack scaling type supported by the catalog item. Valid values are <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+    pub rack_scaling_type: ::std::option::Option<crate::types::RackScalingType>,
 }
 impl CatalogItem {
     /// <p>The ID of the catalog item.</p>
@@ -54,6 +56,10 @@ impl CatalogItem {
     pub fn supported_storage(&self) -> &[crate::types::SupportedStorageEnum] {
         self.supported_storage.as_deref().unwrap_or_default()
     }
+    /// <p>The rack scaling type supported by the catalog item. Valid values are <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+    pub fn rack_scaling_type(&self) -> ::std::option::Option<&crate::types::RackScalingType> {
+        self.rack_scaling_type.as_ref()
+    }
 }
 impl CatalogItem {
     /// Creates a new builder-style object to manufacture [`CatalogItem`](crate::types::CatalogItem).
@@ -73,6 +79,7 @@ pub struct CatalogItemBuilder {
     pub(crate) weight_lbs: ::std::option::Option<i32>,
     pub(crate) supported_uplink_gbps: ::std::option::Option<::std::vec::Vec<i32>>,
     pub(crate) supported_storage: ::std::option::Option<::std::vec::Vec<crate::types::SupportedStorageEnum>>,
+    pub(crate) rack_scaling_type: ::std::option::Option<crate::types::RackScalingType>,
 }
 impl CatalogItemBuilder {
     /// <p>The ID of the catalog item.</p>
@@ -191,6 +198,20 @@ impl CatalogItemBuilder {
     pub fn get_supported_storage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SupportedStorageEnum>> {
         &self.supported_storage
     }
+    /// <p>The rack scaling type supported by the catalog item. Valid values are <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+    pub fn rack_scaling_type(mut self, input: crate::types::RackScalingType) -> Self {
+        self.rack_scaling_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The rack scaling type supported by the catalog item. Valid values are <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+    pub fn set_rack_scaling_type(mut self, input: ::std::option::Option<crate::types::RackScalingType>) -> Self {
+        self.rack_scaling_type = input;
+        self
+    }
+    /// <p>The rack scaling type supported by the catalog item. Valid values are <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+    pub fn get_rack_scaling_type(&self) -> &::std::option::Option<crate::types::RackScalingType> {
+        &self.rack_scaling_type
+    }
     /// Consumes the builder and constructs a [`CatalogItem`](crate::types::CatalogItem).
     pub fn build(self) -> crate::types::CatalogItem {
         crate::types::CatalogItem {
@@ -201,6 +222,7 @@ impl CatalogItemBuilder {
             weight_lbs: self.weight_lbs,
             supported_uplink_gbps: self.supported_uplink_gbps,
             supported_storage: self.supported_storage,
+            rack_scaling_type: self.rack_scaling_type,
         }
     }
 }

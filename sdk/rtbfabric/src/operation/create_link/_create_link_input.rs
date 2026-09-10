@@ -13,7 +13,7 @@ pub struct CreateLinkInput {
     pub http_responder_allowed: ::std::option::Option<bool>,
     /// <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    /// <p>Settings for the application logs.</p>
+    /// <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>{"applicationLogs":{"sampling":{"errorLog":0,"filterLog":0}}}</code>.</p>
     pub log_settings: ::std::option::Option<crate::types::LinkLogSettings>,
     /// <p>The timeout value in milliseconds.</p>
     pub timeout_in_millis: ::std::option::Option<i64>,
@@ -39,7 +39,7 @@ impl CreateLinkInput {
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
-    /// <p>Settings for the application logs.</p>
+    /// <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>{"applicationLogs":{"sampling":{"errorLog":0,"filterLog":0}}}</code>.</p>
     pub fn log_settings(&self) -> ::std::option::Option<&crate::types::LinkLogSettings> {
         self.log_settings.as_ref()
     }
@@ -146,18 +146,18 @@ impl CreateLinkInputBuilder {
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
-    /// <p>Settings for the application logs.</p>
+    /// <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>{"applicationLogs":{"sampling":{"errorLog":0,"filterLog":0}}}</code>.</p>
     /// This field is required.
     pub fn log_settings(mut self, input: crate::types::LinkLogSettings) -> Self {
         self.log_settings = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Settings for the application logs.</p>
+    /// <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>{"applicationLogs":{"sampling":{"errorLog":0,"filterLog":0}}}</code>.</p>
     pub fn set_log_settings(mut self, input: ::std::option::Option<crate::types::LinkLogSettings>) -> Self {
         self.log_settings = input;
         self
     }
-    /// <p>Settings for the application logs.</p>
+    /// <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>{"applicationLogs":{"sampling":{"errorLog":0,"filterLog":0}}}</code>.</p>
     pub fn get_log_settings(&self) -> &::std::option::Option<crate::types::LinkLogSettings> {
         &self.log_settings
     }

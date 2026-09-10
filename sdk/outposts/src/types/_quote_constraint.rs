@@ -4,13 +4,13 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QuoteConstraint {
-    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and <code>RACK_SPACE_CONSTRAINED</code>.</p>
     pub quote_constraint_type: ::std::option::Option<crate::types::QuoteConstraintType>,
     /// <p>The value of the constraint.</p>
     pub value: ::std::option::Option<::std::string::String>,
 }
 impl QuoteConstraint {
-    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and <code>RACK_SPACE_CONSTRAINED</code>.</p>
     pub fn quote_constraint_type(&self) -> ::std::option::Option<&crate::types::QuoteConstraintType> {
         self.quote_constraint_type.as_ref()
     }
@@ -34,17 +34,17 @@ pub struct QuoteConstraintBuilder {
     pub(crate) value: ::std::option::Option<::std::string::String>,
 }
 impl QuoteConstraintBuilder {
-    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and <code>RACK_SPACE_CONSTRAINED</code>.</p>
     pub fn quote_constraint_type(mut self, input: crate::types::QuoteConstraintType) -> Self {
         self.quote_constraint_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and <code>RACK_SPACE_CONSTRAINED</code>.</p>
     pub fn set_quote_constraint_type(mut self, input: ::std::option::Option<crate::types::QuoteConstraintType>) -> Self {
         self.quote_constraint_type = input;
         self
     }
-    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+    /// <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>, <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and <code>RACK_SPACE_CONSTRAINED</code>.</p>
     pub fn get_quote_constraint_type(&self) -> &::std::option::Option<crate::types::QuoteConstraintType> {
         &self.quote_constraint_type
     }

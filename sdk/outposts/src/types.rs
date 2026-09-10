@@ -67,6 +67,8 @@ pub use crate::types::_order_status::OrderStatus;
 
 pub use crate::types::_order_type::OrderType;
 
+pub use crate::types::_rack_scaling_type::RackScalingType;
+
 pub use crate::types::_vpc_information::VpcInformation;
 
 pub use crate::types::_private_connectivity_status::PrivateConnectivityStatus;
@@ -312,6 +314,8 @@ mod _quote_status;
 mod _quote_summary;
 
 mod _rack_physical_properties;
+
+mod _rack_scaling_type;
 
 mod _rack_specification_details;
 

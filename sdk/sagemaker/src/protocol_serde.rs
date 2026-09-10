@@ -29,6 +29,8 @@ pub(crate) mod shape_add_tags;
 
 pub(crate) mod shape_associate_trial_component;
 
+pub(crate) mod shape_attach_cluster_node_network_interface;
+
 pub(crate) mod shape_attach_cluster_node_volume;
 
 pub(crate) mod shape_batch_add_cluster_nodes;
@@ -842,6 +844,8 @@ pub(crate) mod shape_add_association_input;
 pub(crate) mod shape_add_tags_input;
 
 pub(crate) mod shape_associate_trial_component_input;
+
+pub(crate) mod shape_attach_cluster_node_network_interface_input;
 
 pub(crate) mod shape_attach_cluster_node_volume_input;
 

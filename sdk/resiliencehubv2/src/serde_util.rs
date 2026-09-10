@@ -452,11 +452,29 @@ pub(crate) fn list_systems_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_test_run_dependencies_output_output_correct_errors(
+    mut builder: crate::operation::list_test_run_dependencies::builders::ListTestRunDependenciesOutputBuilder,
+) -> crate::operation::list_test_run_dependencies::builders::ListTestRunDependenciesOutputBuilder {
+    if builder.dependencies.is_none() {
+        builder.dependencies = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_test_run_events_output_output_correct_errors(
     mut builder: crate::operation::list_test_run_events::builders::ListTestRunEventsOutputBuilder,
 ) -> crate::operation::list_test_run_events::builders::ListTestRunEventsOutputBuilder {
     if builder.events.is_none() {
         builder.events = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn list_test_run_source_events_output_output_correct_errors(
+    mut builder: crate::operation::list_test_run_source_events::builders::ListTestRunSourceEventsOutputBuilder,
+) -> crate::operation::list_test_run_source_events::builders::ListTestRunSourceEventsOutputBuilder {
+    if builder.test_run_source_events.is_none() {
+        builder.test_run_source_events = Some(Default::default())
     }
     builder
 }
@@ -1008,6 +1026,24 @@ pub(crate) fn system_summary_correct_errors(
     builder
 }
 
+pub(crate) fn test_run_dependency_summary_correct_errors(
+    mut builder: crate::types::builders::TestRunDependencySummaryBuilder,
+) -> crate::types::builders::TestRunDependencySummaryBuilder {
+    if builder.dependency_name.is_none() {
+        builder.dependency_name = Some(Default::default())
+    }
+    if builder.dns_name.is_none() {
+        builder.dns_name = Some(Default::default())
+    }
+    if builder.criticality.is_none() {
+        builder.criticality = "no value was set".parse::<crate::types::DependencyCriticality>().ok()
+    }
+    if builder.source.is_none() {
+        builder.source = "no value was set".parse::<crate::types::TestRunDependencySource>().ok()
+    }
+    builder
+}
+
 pub(crate) fn test_run_event_correct_errors(mut builder: crate::types::builders::TestRunEventBuilder) -> crate::types::builders::TestRunEventBuilder {
     if builder.event_id.is_none() {
         builder.event_id = Some(Default::default())
@@ -1029,6 +1065,24 @@ pub(crate) fn test_run_report_configuration_correct_errors(
 ) -> crate::types::builders::TestRunReportConfigurationBuilder {
     if builder.report_output.is_none() {
         builder.report_output = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn test_run_source_event_correct_errors(
+    mut builder: crate::types::builders::TestRunSourceEventBuilder,
+) -> crate::types::builders::TestRunSourceEventBuilder {
+    if builder.timestamp.is_none() {
+        builder.timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.source_arn.is_none() {
+        builder.source_arn = Some(Default::default())
+    }
+    if builder.event_type.is_none() {
+        builder.event_type = "no value was set".parse::<crate::types::TestRunSourceEventType>().ok()
+    }
+    if builder.detail.is_none() {
+        builder.detail = Some(crate::types::TestRunSourceEventDetail::Unknown)
     }
     builder
 }
@@ -1334,6 +1388,15 @@ pub(crate) fn test_template_parameter_correct_errors(
     builder
 }
 
+pub(crate) fn alarm_state_change_detail_correct_errors(
+    mut builder: crate::types::builders::AlarmStateChangeDetailBuilder,
+) -> crate::types::builders::AlarmStateChangeDetailBuilder {
+    if builder.state.is_none() {
+        builder.state = "no value was set".parse::<crate::types::AlarmState>().ok()
+    }
+    builder
+}
+
 pub(crate) fn cross_account_role_correct_errors(
     mut builder: crate::types::builders::CrossAccountRoleBuilder,
 ) -> crate::types::builders::CrossAccountRoleBuilder {
@@ -1349,6 +1412,18 @@ pub(crate) fn resource_tag_correct_errors(mut builder: crate::types::builders::R
     }
     if builder.values.is_none() {
         builder.values = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn test_run_source_event_error_correct_errors(
+    mut builder: crate::types::builders::TestRunSourceEventErrorBuilder,
+) -> crate::types::builders::TestRunSourceEventErrorBuilder {
+    if builder.error_code.is_none() {
+        builder.error_code = "no value was set".parse::<crate::types::TestRunSourceEventErrorCode>().ok()
+    }
+    if builder.error_message.is_none() {
+        builder.error_message = Some(Default::default())
     }
     builder
 }
@@ -1373,6 +1448,18 @@ pub(crate) fn s3_report_output_configuration_correct_errors(
     }
     if builder.bucket_owner.is_none() {
         builder.bucket_owner = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn eks_label_selector_requirement_correct_errors(
+    mut builder: crate::types::builders::EksLabelSelectorRequirementBuilder,
+) -> crate::types::builders::EksLabelSelectorRequirementBuilder {
+    if builder.key.is_none() {
+        builder.key = Some(Default::default())
+    }
+    if builder.operator.is_none() {
+        builder.operator = "no value was set".parse::<crate::types::EksLabelSelectorOperator>().ok()
     }
     builder
 }

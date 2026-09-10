@@ -10,7 +10,7 @@ pub struct ToolSpecification {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The input schema for the tool.</p>
     pub input_schema: ::std::option::Option<crate::types::ToolInputSchema>,
-    /// Whether to enforce strict JSON schema adherence for the tool input
+    /// <p>Whether the tool schema is strictly enforced.</p>
     pub strict: ::std::option::Option<bool>,
 }
 impl ToolSpecification {
@@ -27,7 +27,7 @@ impl ToolSpecification {
     pub fn input_schema(&self) -> ::std::option::Option<&crate::types::ToolInputSchema> {
         self.input_schema.as_ref()
     }
-    /// Whether to enforce strict JSON schema adherence for the tool input
+    /// <p>Whether the tool schema is strictly enforced.</p>
     pub fn strict(&self) -> ::std::option::Option<bool> {
         self.strict
     }
@@ -93,17 +93,17 @@ impl ToolSpecificationBuilder {
     pub fn get_input_schema(&self) -> &::std::option::Option<crate::types::ToolInputSchema> {
         &self.input_schema
     }
-    /// Whether to enforce strict JSON schema adherence for the tool input
+    /// <p>Whether the tool schema is strictly enforced.</p>
     pub fn strict(mut self, input: bool) -> Self {
         self.strict = ::std::option::Option::Some(input);
         self
     }
-    /// Whether to enforce strict JSON schema adherence for the tool input
+    /// <p>Whether the tool schema is strictly enforced.</p>
     pub fn set_strict(mut self, input: ::std::option::Option<bool>) -> Self {
         self.strict = input;
         self
     }
-    /// Whether to enforce strict JSON schema adherence for the tool input
+    /// <p>Whether the tool schema is strictly enforced.</p>
     pub fn get_strict(&self) -> &::std::option::Option<bool> {
         &self.strict
     }

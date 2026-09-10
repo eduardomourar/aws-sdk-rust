@@ -24,41 +24,46 @@ pub fn ser_create_image_input_input_input(
         scope_6.string(var_7.as_str());
     }
     #[allow(unused_mut)]
-    let mut scope_8 = writer.prefix("DryRun");
-    if let Some(var_9) = &input.dry_run {
-        scope_8.boolean(*var_9);
+    let mut scope_8 = writer.prefix("BootModeOverride");
+    if let Some(var_9) = &input.boot_mode_override {
+        scope_8.string(var_9.as_str());
     }
     #[allow(unused_mut)]
-    let mut scope_10 = writer.prefix("InstanceId");
-    if let Some(var_11) = &input.instance_id {
-        scope_10.string(var_11);
+    let mut scope_10 = writer.prefix("DryRun");
+    if let Some(var_11) = &input.dry_run {
+        scope_10.boolean(*var_11);
     }
     #[allow(unused_mut)]
-    let mut scope_12 = writer.prefix("Name");
-    if let Some(var_13) = &input.name {
+    let mut scope_12 = writer.prefix("InstanceId");
+    if let Some(var_13) = &input.instance_id {
         scope_12.string(var_13);
     }
     #[allow(unused_mut)]
-    let mut scope_14 = writer.prefix("Description");
-    if let Some(var_15) = &input.description {
+    let mut scope_14 = writer.prefix("Name");
+    if let Some(var_15) = &input.name {
         scope_14.string(var_15);
     }
     #[allow(unused_mut)]
-    let mut scope_16 = writer.prefix("NoReboot");
-    if let Some(var_17) = &input.no_reboot {
-        scope_16.boolean(*var_17);
+    let mut scope_16 = writer.prefix("Description");
+    if let Some(var_17) = &input.description {
+        scope_16.string(var_17);
     }
     #[allow(unused_mut)]
-    let mut scope_18 = writer.prefix("BlockDeviceMapping");
-    if let Some(var_19) = &input.block_device_mappings {
-        if !var_19.is_empty() {
-            let mut list_21 = scope_18.start_list(true, Some("BlockDeviceMapping"));
-            for item_20 in var_19 {
+    let mut scope_18 = writer.prefix("NoReboot");
+    if let Some(var_19) = &input.no_reboot {
+        scope_18.boolean(*var_19);
+    }
+    #[allow(unused_mut)]
+    let mut scope_20 = writer.prefix("BlockDeviceMapping");
+    if let Some(var_21) = &input.block_device_mappings {
+        if !var_21.is_empty() {
+            let mut list_23 = scope_20.start_list(true, Some("BlockDeviceMapping"));
+            for item_22 in var_21 {
                 #[allow(unused_mut)]
-                let mut entry_22 = list_21.entry();
-                crate::protocol_serde::shape_block_device_mapping::ser_block_device_mapping(entry_22, item_20)?;
+                let mut entry_24 = list_23.entry();
+                crate::protocol_serde::shape_block_device_mapping::ser_block_device_mapping(entry_24, item_22)?;
             }
-            list_21.finish();
+            list_23.finish();
         }
     }
     writer.finish();

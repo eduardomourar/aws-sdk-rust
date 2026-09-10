@@ -15,6 +15,12 @@ pub fn ser_eks_source(
         }
         array_1.finish();
     }
+    if let Some(var_3) = &input.label_selector {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("labelSelector").start_object();
+        crate::protocol_serde::shape_eks_label_selector::ser_eks_label_selector(&mut object_4, var_3)?;
+        object_4.finish();
+    }
     Ok(())
 }
 
@@ -49,6 +55,13 @@ where
                         }
                         "namespaces" => {
                             builder = builder.set_namespaces(crate::protocol_serde::shape_eks_namespace_list::de_eks_namespace_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "labelSelector" => {
+                            builder = builder.set_label_selector(crate::protocol_serde::shape_eks_label_selector::de_eks_label_selector(
                                 tokens,
                                 _value,
                                 depth + 1,

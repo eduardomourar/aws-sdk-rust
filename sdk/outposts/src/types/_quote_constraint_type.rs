@@ -15,6 +15,7 @@
 ///     QuoteConstraintType::RackMaximum => { /* ... */ },
 ///     QuoteConstraintType::RackMaxPowerKva => { /* ... */ },
 ///     QuoteConstraintType::RackMaxWeightLbs => { /* ... */ },
+///     QuoteConstraintType::RackSpaceConstrained => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -49,6 +50,8 @@ pub enum QuoteConstraintType {
     RackMaxPowerKva,
     #[allow(missing_docs)] // documentation missing in model
     RackMaxWeightLbs,
+    #[allow(missing_docs)] // documentation missing in model
+    RackSpaceConstrained,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -59,6 +62,7 @@ impl ::std::convert::From<&str> for QuoteConstraintType {
             "RACK_MAXIMUM" => QuoteConstraintType::RackMaximum,
             "RACK_MAX_POWER_KVA" => QuoteConstraintType::RackMaxPowerKva,
             "RACK_MAX_WEIGHT_LBS" => QuoteConstraintType::RackMaxWeightLbs,
+            "RACK_SPACE_CONSTRAINED" => QuoteConstraintType::RackSpaceConstrained,
             other => QuoteConstraintType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -77,12 +81,13 @@ impl QuoteConstraintType {
             QuoteConstraintType::RackMaximum => "RACK_MAXIMUM",
             QuoteConstraintType::RackMaxPowerKva => "RACK_MAX_POWER_KVA",
             QuoteConstraintType::RackMaxWeightLbs => "RACK_MAX_WEIGHT_LBS",
+            QuoteConstraintType::RackSpaceConstrained => "RACK_SPACE_CONSTRAINED",
             QuoteConstraintType::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["RACK_MAXIMUM", "RACK_MAX_POWER_KVA", "RACK_MAX_WEIGHT_LBS"]
+        &["RACK_MAXIMUM", "RACK_MAX_POWER_KVA", "RACK_MAX_WEIGHT_LBS", "RACK_SPACE_CONSTRAINED"]
     }
 }
 impl ::std::convert::AsRef<str> for QuoteConstraintType {
@@ -108,6 +113,7 @@ impl ::std::fmt::Display for QuoteConstraintType {
             QuoteConstraintType::RackMaximum => write!(f, "RACK_MAXIMUM"),
             QuoteConstraintType::RackMaxPowerKva => write!(f, "RACK_MAX_POWER_KVA"),
             QuoteConstraintType::RackMaxWeightLbs => write!(f, "RACK_MAX_WEIGHT_LBS"),
+            QuoteConstraintType::RackSpaceConstrained => write!(f, "RACK_SPACE_CONSTRAINED"),
             QuoteConstraintType::Unknown(value) => write!(f, "{value}"),
         }
     }

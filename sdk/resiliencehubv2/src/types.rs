@@ -137,9 +137,13 @@ pub use crate::types::_system_event::SystemEvent;
 
 pub use crate::types::_system_summary::SystemSummary;
 
+pub use crate::types::_test_run_dependency_summary::TestRunDependencySummary;
+
 pub use crate::types::_test_run_event::TestRunEvent;
 
 pub use crate::types::_test_run_summary::TestRunSummary;
+
+pub use crate::types::_test_run_source_event::TestRunSourceEvent;
 
 pub use crate::types::_test_run_source_summary::TestRunSourceSummary;
 
@@ -152,6 +156,8 @@ pub use crate::types::_test_template_summary::TestTemplateSummary;
 pub use crate::types::_user_journey_summary::UserJourneySummary;
 
 pub use crate::types::_resource_tag::ResourceTag;
+
+pub use crate::types::_eks_label_selector::EksLabelSelector;
 
 pub use crate::types::_s3_report_output::S3ReportOutput;
 
@@ -211,6 +217,12 @@ pub use crate::types::_service_event_details::ServiceEventDetails;
 
 pub use crate::types::_system_event_details::SystemEventDetails;
 
+pub use crate::types::_test_run_dependency_source::TestRunDependencySource;
+
+pub use crate::types::_test_run_source_event_type::TestRunSourceEventType;
+
+pub use crate::types::_test_run_source_event_detail::TestRunSourceEventDetail;
+
 pub use crate::types::_test_run_success_criteria_alarm_summary::TestRunSuccessCriteriaAlarmSummary;
 
 pub use crate::types::_test_run_observability_alarm_summary::TestRunObservabilityAlarmSummary;
@@ -235,7 +247,13 @@ pub use crate::types::_edge_property_summary::EdgePropertySummary;
 
 pub use crate::types::_system_event_metadata::SystemEventMetadata;
 
+pub use crate::types::_alarm_state_change_detail::AlarmStateChangeDetail;
+
+pub use crate::types::_test_run_source_event_error::TestRunSourceEventError;
+
 pub use crate::types::_test_source_outcome::TestSourceOutcome;
+
+pub use crate::types::_eks_label_selector_requirement::EksLabelSelectorRequirement;
 
 pub use crate::types::_query_data_point::QueryDataPoint;
 
@@ -297,6 +315,12 @@ pub use crate::types::_system_policy_associated_metadata::SystemPolicyAssociated
 
 pub use crate::types::_system_policy_disassociated_metadata::SystemPolicyDisassociatedMetadata;
 
+pub use crate::types::_alarm_state::AlarmState;
+
+pub use crate::types::_test_run_source_event_error_code::TestRunSourceEventErrorCode;
+
+pub use crate::types::_eks_label_selector_operator::EksLabelSelectorOperator;
+
 pub use crate::types::_user_journey_changes::UserJourneyChanges;
 
 pub use crate::types::_service_reference::ServiceReference;
@@ -312,6 +336,10 @@ mod _achievability;
 mod _achievability_status;
 
 mod _actor_type;
+
+mod _alarm_state;
+
+mod _alarm_state_change_detail;
 
 mod _assertion;
 
@@ -360,6 +388,12 @@ mod _disaster_recovery_source;
 mod _edge_property_summary;
 
 mod _effective_policy_values;
+
+mod _eks_label_selector;
+
+mod _eks_label_selector_operator;
+
+mod _eks_label_selector_requirement;
 
 mod _eks_source;
 
@@ -563,6 +597,10 @@ mod _test_action;
 
 mod _test_run;
 
+mod _test_run_dependency_source;
+
+mod _test_run_dependency_summary;
+
 mod _test_run_event;
 
 mod _test_run_observability_alarm_summary;
@@ -570,6 +608,16 @@ mod _test_run_observability_alarm_summary;
 mod _test_run_policy_snapshot;
 
 mod _test_run_report_configuration;
+
+mod _test_run_source_event;
+
+mod _test_run_source_event_detail;
+
+mod _test_run_source_event_error;
+
+mod _test_run_source_event_error_code;
+
+mod _test_run_source_event_type;
 
 mod _test_run_source_summary;
 

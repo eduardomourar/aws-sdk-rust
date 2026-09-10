@@ -36,6 +36,9 @@ pub fn ser_bedrock_embedding_model_configuration(
         }
         array_8.finish();
     }
+    if let Some(var_11) = &input.model_configuration {
+        object.key("modelConfiguration").document(var_11);
+    }
     Ok(())
 }
 
@@ -88,6 +91,9 @@ where
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "modelConfiguration" => {
+                            builder = builder.set_model_configuration(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

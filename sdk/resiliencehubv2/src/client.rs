@@ -307,7 +307,11 @@ mod list_systems;
 
 mod list_tags_for_resource;
 
+mod list_test_run_dependencies;
+
 mod list_test_run_events;
+
+mod list_test_run_source_events;
 
 mod list_test_run_sources;
 

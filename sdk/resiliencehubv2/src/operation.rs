@@ -139,8 +139,14 @@ pub mod list_systems;
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
 
+/// Types for the `ListTestRunDependencies` operation.
+pub mod list_test_run_dependencies;
+
 /// Types for the `ListTestRunEvents` operation.
 pub mod list_test_run_events;
+
+/// Types for the `ListTestRunSourceEvents` operation.
+pub mod list_test_run_source_events;
 
 /// Types for the `ListTestRunSources` operation.
 pub mod list_test_run_sources;

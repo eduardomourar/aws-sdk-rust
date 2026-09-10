@@ -162,6 +162,13 @@ pub(crate) fn de_create_responder_gateway(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "clientRoutingPolicy" => {
+                    builder = builder.set_client_routing_policy(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::ClientRoutingPolicy::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "externalInboundEndpoint" => {
                     builder = builder.set_external_inbound_endpoint(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

@@ -37,6 +37,7 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
+/// <p>The criticality classification of a dependency.</p>
 ///
 /// _Note: `DependencyCriticality::Unknown` has been renamed to `::UnknownValue`._
 #[non_exhaustive]

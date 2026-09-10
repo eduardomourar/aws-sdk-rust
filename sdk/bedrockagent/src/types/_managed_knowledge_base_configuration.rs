@@ -4,17 +4,19 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ManagedKnowledgeBaseConfiguration {
-    /// <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+    /// <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
     pub embedding_model_type: ::std::option::Option<crate::types::EmbeddingModelType>,
     /// <p>The ARN for the embeddings model.</p>
     pub embedding_model_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The configuration details for the embeddings model.</p>
+    /// <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
     pub embedding_model_configuration: ::std::option::Option<crate::types::EmbeddingModelConfiguration>,
     /// <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
     pub server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
+    /// <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+    pub supplemental_data_storage_configuration: ::std::option::Option<crate::types::SupplementalDataStorageConfiguration>,
 }
 impl ManagedKnowledgeBaseConfiguration {
-    /// <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+    /// <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
     pub fn embedding_model_type(&self) -> ::std::option::Option<&crate::types::EmbeddingModelType> {
         self.embedding_model_type.as_ref()
     }
@@ -22,13 +24,17 @@ impl ManagedKnowledgeBaseConfiguration {
     pub fn embedding_model_arn(&self) -> ::std::option::Option<&str> {
         self.embedding_model_arn.as_deref()
     }
-    /// <p>The configuration details for the embeddings model.</p>
+    /// <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
     pub fn embedding_model_configuration(&self) -> ::std::option::Option<&crate::types::EmbeddingModelConfiguration> {
         self.embedding_model_configuration.as_ref()
     }
     /// <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
     pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&crate::types::ServerSideEncryptionConfiguration> {
         self.server_side_encryption_configuration.as_ref()
+    }
+    /// <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+    pub fn supplemental_data_storage_configuration(&self) -> ::std::option::Option<&crate::types::SupplementalDataStorageConfiguration> {
+        self.supplemental_data_storage_configuration.as_ref()
     }
 }
 impl ManagedKnowledgeBaseConfiguration {
@@ -46,19 +52,20 @@ pub struct ManagedKnowledgeBaseConfigurationBuilder {
     pub(crate) embedding_model_arn: ::std::option::Option<::std::string::String>,
     pub(crate) embedding_model_configuration: ::std::option::Option<crate::types::EmbeddingModelConfiguration>,
     pub(crate) server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
+    pub(crate) supplemental_data_storage_configuration: ::std::option::Option<crate::types::SupplementalDataStorageConfiguration>,
 }
 impl ManagedKnowledgeBaseConfigurationBuilder {
-    /// <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+    /// <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
     pub fn embedding_model_type(mut self, input: crate::types::EmbeddingModelType) -> Self {
         self.embedding_model_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+    /// <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
     pub fn set_embedding_model_type(mut self, input: ::std::option::Option<crate::types::EmbeddingModelType>) -> Self {
         self.embedding_model_type = input;
         self
     }
-    /// <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+    /// <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
     pub fn get_embedding_model_type(&self) -> &::std::option::Option<crate::types::EmbeddingModelType> {
         &self.embedding_model_type
     }
@@ -76,17 +83,17 @@ impl ManagedKnowledgeBaseConfigurationBuilder {
     pub fn get_embedding_model_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.embedding_model_arn
     }
-    /// <p>The configuration details for the embeddings model.</p>
+    /// <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
     pub fn embedding_model_configuration(mut self, input: crate::types::EmbeddingModelConfiguration) -> Self {
         self.embedding_model_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The configuration details for the embeddings model.</p>
+    /// <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
     pub fn set_embedding_model_configuration(mut self, input: ::std::option::Option<crate::types::EmbeddingModelConfiguration>) -> Self {
         self.embedding_model_configuration = input;
         self
     }
-    /// <p>The configuration details for the embeddings model.</p>
+    /// <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
     pub fn get_embedding_model_configuration(&self) -> &::std::option::Option<crate::types::EmbeddingModelConfiguration> {
         &self.embedding_model_configuration
     }
@@ -104,6 +111,23 @@ impl ManagedKnowledgeBaseConfigurationBuilder {
     pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
         &self.server_side_encryption_configuration
     }
+    /// <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+    pub fn supplemental_data_storage_configuration(mut self, input: crate::types::SupplementalDataStorageConfiguration) -> Self {
+        self.supplemental_data_storage_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+    pub fn set_supplemental_data_storage_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::SupplementalDataStorageConfiguration>,
+    ) -> Self {
+        self.supplemental_data_storage_configuration = input;
+        self
+    }
+    /// <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+    pub fn get_supplemental_data_storage_configuration(&self) -> &::std::option::Option<crate::types::SupplementalDataStorageConfiguration> {
+        &self.supplemental_data_storage_configuration
+    }
     /// Consumes the builder and constructs a [`ManagedKnowledgeBaseConfiguration`](crate::types::ManagedKnowledgeBaseConfiguration).
     pub fn build(self) -> crate::types::ManagedKnowledgeBaseConfiguration {
         crate::types::ManagedKnowledgeBaseConfiguration {
@@ -111,6 +135,7 @@ impl ManagedKnowledgeBaseConfigurationBuilder {
             embedding_model_arn: self.embedding_model_arn,
             embedding_model_configuration: self.embedding_model_configuration,
             server_side_encryption_configuration: self.server_side_encryption_configuration,
+            supplemental_data_storage_configuration: self.supplemental_data_storage_configuration,
         }
     }
 }

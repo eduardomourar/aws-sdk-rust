@@ -10,6 +10,9 @@ pub mod add_tags;
 /// Types for the `AssociateTrialComponent` operation.
 pub mod associate_trial_component;
 
+/// Types for the `AttachClusterNodeNetworkInterface` operation.
+pub mod attach_cluster_node_network_interface;
+
 /// Types for the `AttachClusterNodeVolume` operation.
 pub mod attach_cluster_node_volume;
 

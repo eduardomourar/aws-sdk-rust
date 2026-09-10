@@ -7,6 +7,8 @@ pub struct UpdateResponderGatewayOutput {
     pub gateway_id: ::std::string::String,
     /// <p>The status of the request.</p>
     pub status: crate::types::ResponderGatewayStatus,
+    /// <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub client_routing_policy: ::std::option::Option<crate::types::ClientRoutingPolicy>,
     _request_id: Option<String>,
 }
 impl UpdateResponderGatewayOutput {
@@ -18,6 +20,10 @@ impl UpdateResponderGatewayOutput {
     /// <p>The status of the request.</p>
     pub fn status(&self) -> &crate::types::ResponderGatewayStatus {
         &self.status
+    }
+    /// <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn client_routing_policy(&self) -> ::std::option::Option<&crate::types::ClientRoutingPolicy> {
+        self.client_routing_policy.as_ref()
     }
 }
 impl ::aws_types::request_id::RequestId for UpdateResponderGatewayOutput {
@@ -38,6 +44,7 @@ impl UpdateResponderGatewayOutput {
 pub struct UpdateResponderGatewayOutputBuilder {
     pub(crate) gateway_id: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::ResponderGatewayStatus>,
+    pub(crate) client_routing_policy: ::std::option::Option<crate::types::ClientRoutingPolicy>,
     _request_id: Option<String>,
 }
 impl UpdateResponderGatewayOutputBuilder {
@@ -71,6 +78,20 @@ impl UpdateResponderGatewayOutputBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ResponderGatewayStatus> {
         &self.status
     }
+    /// <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn client_routing_policy(mut self, input: crate::types::ClientRoutingPolicy) -> Self {
+        self.client_routing_policy = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn set_client_routing_policy(mut self, input: ::std::option::Option<crate::types::ClientRoutingPolicy>) -> Self {
+        self.client_routing_policy = input;
+        self
+    }
+    /// <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn get_client_routing_policy(&self) -> &::std::option::Option<crate::types::ClientRoutingPolicy> {
+        &self.client_routing_policy
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -103,6 +124,7 @@ impl UpdateResponderGatewayOutputBuilder {
                     "status was not specified but it is required when building UpdateResponderGatewayOutput",
                 )
             })?,
+            client_routing_policy: self.client_routing_policy,
             _request_id: self._request_id,
         })
     }

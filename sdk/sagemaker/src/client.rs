@@ -243,6 +243,8 @@ mod add_tags;
 
 mod associate_trial_component;
 
+mod attach_cluster_node_network_interface;
+
 mod attach_cluster_node_volume;
 
 mod batch_add_cluster_nodes;

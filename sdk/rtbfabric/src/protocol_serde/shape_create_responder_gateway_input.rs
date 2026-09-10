@@ -3,75 +3,78 @@ pub fn ser_create_responder_gateway_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &crate::operation::create_responder_gateway::CreateResponderGatewayInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.client_token {
-        object.key("clientToken").string(var_1.as_str());
+    if let Some(var_1) = &input.client_routing_policy {
+        object.key("clientRoutingPolicy").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.description {
-        object.key("description").string(var_2.as_str());
+    if let Some(var_2) = &input.client_token {
+        object.key("clientToken").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.domain_name {
-        object.key("domainName").string(var_3.as_str());
+    if let Some(var_3) = &input.description {
+        object.key("description").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.gateway_type {
-        object.key("gatewayType").string(var_4.as_str());
+    if let Some(var_4) = &input.domain_name {
+        object.key("domainName").string(var_4.as_str());
     }
-    if let Some(var_5) = &input.listener_config {
+    if let Some(var_5) = &input.gateway_type {
+        object.key("gatewayType").string(var_5.as_str());
+    }
+    if let Some(var_6) = &input.listener_config {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("listenerConfig").start_object();
-        crate::protocol_serde::shape_listener_config::ser_listener_config(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_7 = object.key("listenerConfig").start_object();
+        crate::protocol_serde::shape_listener_config::ser_listener_config(&mut object_7, var_6)?;
+        object_7.finish();
     }
-    if let Some(var_7) = &input.managed_endpoint_configuration {
+    if let Some(var_8) = &input.managed_endpoint_configuration {
         #[allow(unused_mut)]
-        let mut object_8 = object.key("managedEndpointConfiguration").start_object();
-        crate::protocol_serde::shape_managed_endpoint_configuration::ser_managed_endpoint_configuration(&mut object_8, var_7)?;
-        object_8.finish();
+        let mut object_9 = object.key("managedEndpointConfiguration").start_object();
+        crate::protocol_serde::shape_managed_endpoint_configuration::ser_managed_endpoint_configuration(&mut object_9, var_8)?;
+        object_9.finish();
     }
-    if let Some(var_9) = &input.port {
+    if let Some(var_10) = &input.port {
         object.key("port").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_9).into()),
+            ::aws_smithy_types::Number::NegInt((*var_10).into()),
         );
     }
-    if let Some(var_10) = &input.protocol {
-        object.key("protocol").string(var_10.as_str());
+    if let Some(var_11) = &input.protocol {
+        object.key("protocol").string(var_11.as_str());
     }
-    if let Some(var_11) = &input.security_group_ids {
-        let mut array_12 = object.key("securityGroupIds").start_array();
-        for item_13 in var_11 {
+    if let Some(var_12) = &input.security_group_ids {
+        let mut array_13 = object.key("securityGroupIds").start_array();
+        for item_14 in var_12 {
             {
-                array_12.value().string(item_13.as_str());
+                array_13.value().string(item_14.as_str());
             }
         }
-        array_12.finish();
+        array_13.finish();
     }
-    if let Some(var_14) = &input.subnet_ids {
-        let mut array_15 = object.key("subnetIds").start_array();
-        for item_16 in var_14 {
+    if let Some(var_15) = &input.subnet_ids {
+        let mut array_16 = object.key("subnetIds").start_array();
+        for item_17 in var_15 {
             {
-                array_15.value().string(item_16.as_str());
+                array_16.value().string(item_17.as_str());
             }
         }
-        array_15.finish();
+        array_16.finish();
     }
-    if let Some(var_17) = &input.tags {
+    if let Some(var_18) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_18 = object.key("tags").start_object();
-        for (key_19, value_20) in var_17 {
+        let mut object_19 = object.key("tags").start_object();
+        for (key_20, value_21) in var_18 {
             {
-                object_18.key(key_19.as_str()).string(value_20.as_str());
+                object_19.key(key_20.as_str()).string(value_21.as_str());
             }
         }
-        object_18.finish();
+        object_19.finish();
     }
-    if let Some(var_21) = &input.trust_store_configuration {
+    if let Some(var_22) = &input.trust_store_configuration {
         #[allow(unused_mut)]
-        let mut object_22 = object.key("trustStoreConfiguration").start_object();
-        crate::protocol_serde::shape_trust_store_configuration::ser_trust_store_configuration(&mut object_22, var_21)?;
-        object_22.finish();
+        let mut object_23 = object.key("trustStoreConfiguration").start_object();
+        crate::protocol_serde::shape_trust_store_configuration::ser_trust_store_configuration(&mut object_23, var_22)?;
+        object_23.finish();
     }
-    if let Some(var_23) = &input.vpc_id {
-        object.key("vpcId").string(var_23.as_str());
+    if let Some(var_24) = &input.vpc_id {
+        object.key("vpcId").string(var_24.as_str());
     }
     Ok(())
 }

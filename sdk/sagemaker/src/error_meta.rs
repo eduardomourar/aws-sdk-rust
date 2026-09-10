@@ -128,6 +128,46 @@ impl From<crate::operation::associate_trial_component::AssociateTrialComponentEr
         }
     }
 }
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError,
+            R,
+        >,
+    > for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError,
+            R,
+        >,
+    ) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError> for Error {
+    fn from(err: crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError) -> Self {
+        match err {
+            crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError::ResourceLimitExceeded(inner) => {
+                Error::ResourceLimitExceeded(inner)
+            }
+            crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError::ResourceNotFound(inner) => {
+                Error::ResourceNotFound(inner)
+            }
+            crate::operation::attach_cluster_node_network_interface::AttachClusterNodeNetworkInterfaceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_cluster_node_volume::AttachClusterNodeVolumeError, R>>
     for Error
 where

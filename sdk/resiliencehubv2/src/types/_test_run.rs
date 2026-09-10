@@ -46,7 +46,7 @@ pub struct TestRun {
     pub permission_model: ::std::option::Option<crate::types::PermissionModel>,
     /// <p>The Regions snapshotted from the service when the run was started.</p>
     pub regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    /// Indicates whether this test run targets a single account or multiple accounts.
+    /// <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
     pub account_targeting: ::std::option::Option<crate::types::AccountTargeting>,
 }
 impl TestRun {
@@ -143,7 +143,7 @@ impl TestRun {
     pub fn regions(&self) -> &[::std::string::String] {
         self.regions.as_deref().unwrap_or_default()
     }
-    /// Indicates whether this test run targets a single account or multiple accounts.
+    /// <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
     pub fn account_targeting(&self) -> ::std::option::Option<&crate::types::AccountTargeting> {
         self.account_targeting.as_ref()
     }
@@ -511,17 +511,17 @@ impl TestRunBuilder {
     pub fn get_regions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.regions
     }
-    /// Indicates whether this test run targets a single account or multiple accounts.
+    /// <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
     pub fn account_targeting(mut self, input: crate::types::AccountTargeting) -> Self {
         self.account_targeting = ::std::option::Option::Some(input);
         self
     }
-    /// Indicates whether this test run targets a single account or multiple accounts.
+    /// <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
     pub fn set_account_targeting(mut self, input: ::std::option::Option<crate::types::AccountTargeting>) -> Self {
         self.account_targeting = input;
         self
     }
-    /// Indicates whether this test run targets a single account or multiple accounts.
+    /// <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
     pub fn get_account_targeting(&self) -> &::std::option::Option<crate::types::AccountTargeting> {
         &self.account_targeting
     }

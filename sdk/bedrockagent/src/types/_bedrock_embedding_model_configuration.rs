@@ -8,10 +8,25 @@ pub struct BedrockEmbeddingModelConfiguration {
     pub dimensions: ::std::option::Option<i32>,
     /// <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
     pub embedding_data_type: ::std::option::Option<crate::types::EmbeddingDataType>,
-    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub audio: ::std::option::Option<::std::vec::Vec<crate::types::AudioConfiguration>>,
-    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub video: ::std::option::Option<::std::vec::Vec<crate::types::VideoConfiguration>>,
+    /// <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p>
+    /// <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+    pub model_configuration: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl BedrockEmbeddingModelConfiguration {
     /// <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
@@ -22,17 +37,34 @@ impl BedrockEmbeddingModelConfiguration {
     pub fn embedding_data_type(&self) -> ::std::option::Option<&crate::types::EmbeddingDataType> {
         self.embedding_data_type.as_ref()
     }
-    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.audio.is_none()`.
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn audio(&self) -> &[crate::types::AudioConfiguration] {
         self.audio.as_deref().unwrap_or_default()
     }
-    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.video.is_none()`.
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn video(&self) -> &[crate::types::VideoConfiguration] {
         self.video.as_deref().unwrap_or_default()
+    }
+    /// <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p>
+    /// <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+    pub fn model_configuration(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
+        self.model_configuration.as_ref()
     }
 }
 impl BedrockEmbeddingModelConfiguration {
@@ -50,6 +82,7 @@ pub struct BedrockEmbeddingModelConfigurationBuilder {
     pub(crate) embedding_data_type: ::std::option::Option<crate::types::EmbeddingDataType>,
     pub(crate) audio: ::std::option::Option<::std::vec::Vec<crate::types::AudioConfiguration>>,
     pub(crate) video: ::std::option::Option<::std::vec::Vec<crate::types::VideoConfiguration>>,
+    pub(crate) model_configuration: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl BedrockEmbeddingModelConfigurationBuilder {
     /// <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
@@ -84,19 +117,37 @@ impl BedrockEmbeddingModelConfigurationBuilder {
     ///
     /// To override the contents of this collection use [`set_audio`](Self::set_audio).
     ///
-    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn audio(mut self, input: crate::types::AudioConfiguration) -> Self {
         let mut v = self.audio.unwrap_or_default();
         v.push(input);
         self.audio = ::std::option::Option::Some(v);
         self
     }
-    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn set_audio(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AudioConfiguration>>) -> Self {
         self.audio = input;
         self
     }
-    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing audio content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn get_audio(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AudioConfiguration>> {
         &self.audio
     }
@@ -104,21 +155,56 @@ impl BedrockEmbeddingModelConfigurationBuilder {
     ///
     /// To override the contents of this collection use [`set_video`](Self::set_video).
     ///
-    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn video(mut self, input: crate::types::VideoConfiguration) -> Self {
         let mut v = self.video.unwrap_or_default();
         v.push(input);
         self.video = ::std::option::Option::Some(v);
         self
     }
-    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn set_video(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VideoConfiguration>>) -> Self {
         self.video = input;
         self
     }
-    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+    /// <p>Configuration settings for processing video content in multimodal knowledge bases.</p><important>
+    /// <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p>
+    /// </important>
+    #[deprecated(
+        note = "Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html",
+        since = "2026-09-01"
+    )]
     pub fn get_video(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VideoConfiguration>> {
         &self.video
+    }
+    /// <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p>
+    /// <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+    pub fn model_configuration(mut self, input: ::aws_smithy_types::Document) -> Self {
+        self.model_configuration = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p>
+    /// <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+    pub fn set_model_configuration(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
+        self.model_configuration = input;
+        self
+    }
+    /// <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p>
+    /// <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+    pub fn get_model_configuration(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
+        &self.model_configuration
     }
     /// Consumes the builder and constructs a [`BedrockEmbeddingModelConfiguration`](crate::types::BedrockEmbeddingModelConfiguration).
     pub fn build(self) -> crate::types::BedrockEmbeddingModelConfiguration {
@@ -127,6 +213,7 @@ impl BedrockEmbeddingModelConfigurationBuilder {
             embedding_data_type: self.embedding_data_type,
             audio: self.audio,
             video: self.video,
+            model_configuration: self.model_configuration,
         }
     }
 }

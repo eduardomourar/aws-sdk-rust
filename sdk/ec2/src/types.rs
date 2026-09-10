@@ -179,6 +179,8 @@ pub use crate::types::_storage_location::StorageLocation;
 
 pub use crate::types::_snapshot_location_enum::SnapshotLocationEnum;
 
+pub use crate::types::_boot_mode_override_values::BootModeOverrideValues;
+
 pub use crate::types::_ip_address_type::IpAddressType;
 
 pub use crate::types::_ec2_instance_connect_endpoint::Ec2InstanceConnectEndpoint;
@@ -3100,6 +3102,8 @@ mod _block_device_mapping_response;
 mod _block_public_access_mode;
 
 mod _block_public_access_states;
+
+mod _boot_mode_override_values;
 
 mod _boot_mode_type;
 

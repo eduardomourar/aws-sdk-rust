@@ -8,6 +8,8 @@ pub struct EksSource {
     pub cluster_arn: ::std::string::String,
     /// <p>The list of Kubernetes namespaces within the EKS cluster.</p>
     pub namespaces: ::std::vec::Vec<::std::string::String>,
+    /// <p>Filters discovery to the Kubernetes objects whose labels match the selector. When omitted, all supported objects in the specified namespaces are discovered.</p>
+    pub label_selector: ::std::option::Option<crate::types::EksLabelSelector>,
 }
 impl EksSource {
     /// <p>ARN identifier.</p>
@@ -19,6 +21,10 @@ impl EksSource {
     pub fn namespaces(&self) -> &[::std::string::String] {
         use std::ops::Deref;
         self.namespaces.deref()
+    }
+    /// <p>Filters discovery to the Kubernetes objects whose labels match the selector. When omitted, all supported objects in the specified namespaces are discovered.</p>
+    pub fn label_selector(&self) -> ::std::option::Option<&crate::types::EksLabelSelector> {
+        self.label_selector.as_ref()
     }
 }
 impl EksSource {
@@ -34,6 +40,7 @@ impl EksSource {
 pub struct EksSourceBuilder {
     pub(crate) cluster_arn: ::std::option::Option<::std::string::String>,
     pub(crate) namespaces: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) label_selector: ::std::option::Option<crate::types::EksLabelSelector>,
 }
 impl EksSourceBuilder {
     /// <p>ARN identifier.</p>
@@ -71,6 +78,20 @@ impl EksSourceBuilder {
     pub fn get_namespaces(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.namespaces
     }
+    /// <p>Filters discovery to the Kubernetes objects whose labels match the selector. When omitted, all supported objects in the specified namespaces are discovered.</p>
+    pub fn label_selector(mut self, input: crate::types::EksLabelSelector) -> Self {
+        self.label_selector = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Filters discovery to the Kubernetes objects whose labels match the selector. When omitted, all supported objects in the specified namespaces are discovered.</p>
+    pub fn set_label_selector(mut self, input: ::std::option::Option<crate::types::EksLabelSelector>) -> Self {
+        self.label_selector = input;
+        self
+    }
+    /// <p>Filters discovery to the Kubernetes objects whose labels match the selector. When omitted, all supported objects in the specified namespaces are discovered.</p>
+    pub fn get_label_selector(&self) -> &::std::option::Option<crate::types::EksLabelSelector> {
+        &self.label_selector
+    }
     /// Consumes the builder and constructs a [`EksSource`](crate::types::EksSource).
     /// This method will fail if any of the following fields are not set:
     /// - [`cluster_arn`](crate::types::builders::EksSourceBuilder::cluster_arn)
@@ -89,6 +110,7 @@ impl EksSourceBuilder {
                     "namespaces was not specified but it is required when building EksSource",
                 )
             })?,
+            label_selector: self.label_selector,
         })
     }
 }

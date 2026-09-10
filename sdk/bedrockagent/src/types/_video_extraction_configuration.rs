@@ -4,11 +4,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct VideoExtractionConfiguration {
-    /// Whether video extraction is enabled or disabled.
+    /// <p>Whether video extraction is enabled or disabled.</p>
     pub video_extraction_status: crate::types::EnabledOrDisabledState,
 }
 impl VideoExtractionConfiguration {
-    /// Whether video extraction is enabled or disabled.
+    /// <p>Whether video extraction is enabled or disabled.</p>
     pub fn video_extraction_status(&self) -> &crate::types::EnabledOrDisabledState {
         &self.video_extraction_status
     }
@@ -27,18 +27,18 @@ pub struct VideoExtractionConfigurationBuilder {
     pub(crate) video_extraction_status: ::std::option::Option<crate::types::EnabledOrDisabledState>,
 }
 impl VideoExtractionConfigurationBuilder {
-    /// Whether video extraction is enabled or disabled.
+    /// <p>Whether video extraction is enabled or disabled.</p>
     /// This field is required.
     pub fn video_extraction_status(mut self, input: crate::types::EnabledOrDisabledState) -> Self {
         self.video_extraction_status = ::std::option::Option::Some(input);
         self
     }
-    /// Whether video extraction is enabled or disabled.
+    /// <p>Whether video extraction is enabled or disabled.</p>
     pub fn set_video_extraction_status(mut self, input: ::std::option::Option<crate::types::EnabledOrDisabledState>) -> Self {
         self.video_extraction_status = input;
         self
     }
-    /// Whether video extraction is enabled or disabled.
+    /// <p>Whether video extraction is enabled or disabled.</p>
     pub fn get_video_extraction_status(&self) -> &::std::option::Option<crate::types::EnabledOrDisabledState> {
         &self.video_extraction_status
     }

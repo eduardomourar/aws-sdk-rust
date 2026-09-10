@@ -11,6 +11,8 @@ pub use crate::types::_managed_endpoint_configuration::ManagedEndpointConfigurat
 
 pub use crate::types::_gateway_type::GatewayType;
 
+pub use crate::types::_client_routing_policy::ClientRoutingPolicy;
+
 pub use crate::types::_responder_gateway_status::ResponderGatewayStatus;
 
 pub use crate::types::_certificate_association_status::CertificateAssociationStatus;
@@ -82,6 +84,8 @@ mod _auto_scaling_groups_configuration;
 mod _certificate_association_status;
 
 mod _certificate_association_summary;
+
+mod _client_routing_policy;
 
 mod _connectivity_type;
 

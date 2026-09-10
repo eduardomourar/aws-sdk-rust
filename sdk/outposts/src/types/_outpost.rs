@@ -28,6 +28,10 @@ pub struct Outpost {
     pub site_arn: ::std::option::Option<::std::string::String>,
     /// <p>The hardware type.</p>
     pub supported_hardware_type: ::std::option::Option<crate::types::SupportedHardwareType>,
+    /// <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+    pub generation: ::std::option::Option<crate::types::OutpostGeneration>,
+    /// <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across multiple racks.</p>
+    pub rack_scaling_type: ::std::option::Option<crate::types::RackScalingType>,
 }
 impl Outpost {
     /// <p>The ID of the Outpost.</p>
@@ -78,6 +82,14 @@ impl Outpost {
     pub fn supported_hardware_type(&self) -> ::std::option::Option<&crate::types::SupportedHardwareType> {
         self.supported_hardware_type.as_ref()
     }
+    /// <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+    pub fn generation(&self) -> ::std::option::Option<&crate::types::OutpostGeneration> {
+        self.generation.as_ref()
+    }
+    /// <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across multiple racks.</p>
+    pub fn rack_scaling_type(&self) -> ::std::option::Option<&crate::types::RackScalingType> {
+        self.rack_scaling_type.as_ref()
+    }
 }
 impl Outpost {
     /// Creates a new builder-style object to manufacture [`Outpost`](crate::types::Outpost).
@@ -102,6 +114,8 @@ pub struct OutpostBuilder {
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) site_arn: ::std::option::Option<::std::string::String>,
     pub(crate) supported_hardware_type: ::std::option::Option<crate::types::SupportedHardwareType>,
+    pub(crate) generation: ::std::option::Option<crate::types::OutpostGeneration>,
+    pub(crate) rack_scaling_type: ::std::option::Option<crate::types::RackScalingType>,
 }
 impl OutpostBuilder {
     /// <p>The ID of the Outpost.</p>
@@ -278,6 +292,34 @@ impl OutpostBuilder {
     pub fn get_supported_hardware_type(&self) -> &::std::option::Option<crate::types::SupportedHardwareType> {
         &self.supported_hardware_type
     }
+    /// <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+    pub fn generation(mut self, input: crate::types::OutpostGeneration) -> Self {
+        self.generation = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+    pub fn set_generation(mut self, input: ::std::option::Option<crate::types::OutpostGeneration>) -> Self {
+        self.generation = input;
+        self
+    }
+    /// <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+    pub fn get_generation(&self) -> &::std::option::Option<crate::types::OutpostGeneration> {
+        &self.generation
+    }
+    /// <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across multiple racks.</p>
+    pub fn rack_scaling_type(mut self, input: crate::types::RackScalingType) -> Self {
+        self.rack_scaling_type = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across multiple racks.</p>
+    pub fn set_rack_scaling_type(mut self, input: ::std::option::Option<crate::types::RackScalingType>) -> Self {
+        self.rack_scaling_type = input;
+        self
+    }
+    /// <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across multiple racks.</p>
+    pub fn get_rack_scaling_type(&self) -> &::std::option::Option<crate::types::RackScalingType> {
+        &self.rack_scaling_type
+    }
     /// Consumes the builder and constructs a [`Outpost`](crate::types::Outpost).
     pub fn build(self) -> crate::types::Outpost {
         crate::types::Outpost {
@@ -293,6 +335,8 @@ impl OutpostBuilder {
             tags: self.tags,
             site_arn: self.site_arn,
             supported_hardware_type: self.supported_hardware_type,
+            generation: self.generation,
+            rack_scaling_type: self.rack_scaling_type,
         }
     }
 }

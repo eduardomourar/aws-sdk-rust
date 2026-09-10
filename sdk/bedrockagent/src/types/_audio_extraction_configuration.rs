@@ -4,11 +4,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AudioExtractionConfiguration {
-    /// Whether audio extraction is enabled or disabled.
+    /// <p>Whether audio extraction is enabled or disabled.</p>
     pub audio_extraction_status: crate::types::EnabledOrDisabledState,
 }
 impl AudioExtractionConfiguration {
-    /// Whether audio extraction is enabled or disabled.
+    /// <p>Whether audio extraction is enabled or disabled.</p>
     pub fn audio_extraction_status(&self) -> &crate::types::EnabledOrDisabledState {
         &self.audio_extraction_status
     }
@@ -27,18 +27,18 @@ pub struct AudioExtractionConfigurationBuilder {
     pub(crate) audio_extraction_status: ::std::option::Option<crate::types::EnabledOrDisabledState>,
 }
 impl AudioExtractionConfigurationBuilder {
-    /// Whether audio extraction is enabled or disabled.
+    /// <p>Whether audio extraction is enabled or disabled.</p>
     /// This field is required.
     pub fn audio_extraction_status(mut self, input: crate::types::EnabledOrDisabledState) -> Self {
         self.audio_extraction_status = ::std::option::Option::Some(input);
         self
     }
-    /// Whether audio extraction is enabled or disabled.
+    /// <p>Whether audio extraction is enabled or disabled.</p>
     pub fn set_audio_extraction_status(mut self, input: ::std::option::Option<crate::types::EnabledOrDisabledState>) -> Self {
         self.audio_extraction_status = input;
         self
     }
-    /// Whether audio extraction is enabled or disabled.
+    /// <p>Whether audio extraction is enabled or disabled.</p>
     pub fn get_audio_extraction_status(&self) -> &::std::option::Option<crate::types::EnabledOrDisabledState> {
         &self.audio_extraction_status
     }

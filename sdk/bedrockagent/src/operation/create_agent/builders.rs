@@ -22,6 +22,9 @@ impl crate::operation::create_agent::builders::CreateAgentInputBuilder {
 }
 /// Fluent builder constructing a request to `CreateAgent`.
 ///
+/// <note>
+/// <p>Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock AgentCore. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html">Amazon Bedrock Agents Classic availability change</a>.</p>
+/// </note>
 /// <p>Creates an agent that orchestrates interactions between foundation models, data sources, software applications, user conversations, and APIs to carry out tasks to help customers.</p>
 /// <ul>
 /// <li>

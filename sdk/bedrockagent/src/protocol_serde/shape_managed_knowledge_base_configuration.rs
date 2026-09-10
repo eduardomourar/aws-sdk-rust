@@ -21,6 +21,12 @@ pub fn ser_managed_knowledge_base_configuration(
         crate::protocol_serde::shape_server_side_encryption_configuration::ser_server_side_encryption_configuration(&mut object_6, var_5)?;
         object_6.finish();
     }
+    if let Some(var_7) = &input.supplemental_data_storage_configuration {
+        #[allow(unused_mut)]
+        let mut object_8 = object.key("supplementalDataStorageConfiguration").start_object();
+        crate::protocol_serde::shape_supplemental_data_storage_configuration::ser_supplemental_data_storage_configuration(&mut object_8, var_7)?;
+        object_8.finish();
+    }
     Ok(())
 }
 
@@ -72,6 +78,15 @@ where
                         "serverSideEncryptionConfiguration" => {
                             builder = builder.set_server_side_encryption_configuration(
                                 crate::protocol_serde::shape_server_side_encryption_configuration::de_server_side_encryption_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "supplementalDataStorageConfiguration" => {
+                            builder = builder.set_supplemental_data_storage_configuration(
+                                crate::protocol_serde::shape_supplemental_data_storage_configuration::de_supplemental_data_storage_configuration(
                                     tokens,
                                     _value,
                                     depth + 1,

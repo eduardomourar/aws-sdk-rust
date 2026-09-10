@@ -8,7 +8,7 @@ pub struct KnowledgeBaseConfiguration {
     pub r#type: crate::types::KnowledgeBaseType,
     /// <p>Contains details about the model that's used to convert the data source into vector embeddings.</p>
     pub vector_knowledge_base_configuration: ::std::option::Option<crate::types::VectorKnowledgeBaseConfiguration>,
-    /// <p>Configurations for a managed knowledge base.</p>
+    /// <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
     pub managed_knowledge_base_configuration: ::std::option::Option<crate::types::ManagedKnowledgeBaseConfiguration>,
     /// <p>Settings for an Amazon Kendra knowledge base.</p>
     pub kendra_knowledge_base_configuration: ::std::option::Option<crate::types::KendraKnowledgeBaseConfiguration>,
@@ -24,7 +24,7 @@ impl KnowledgeBaseConfiguration {
     pub fn vector_knowledge_base_configuration(&self) -> ::std::option::Option<&crate::types::VectorKnowledgeBaseConfiguration> {
         self.vector_knowledge_base_configuration.as_ref()
     }
-    /// <p>Configurations for a managed knowledge base.</p>
+    /// <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
     pub fn managed_knowledge_base_configuration(&self) -> ::std::option::Option<&crate::types::ManagedKnowledgeBaseConfiguration> {
         self.managed_knowledge_base_configuration.as_ref()
     }
@@ -84,17 +84,17 @@ impl KnowledgeBaseConfigurationBuilder {
     pub fn get_vector_knowledge_base_configuration(&self) -> &::std::option::Option<crate::types::VectorKnowledgeBaseConfiguration> {
         &self.vector_knowledge_base_configuration
     }
-    /// <p>Configurations for a managed knowledge base.</p>
+    /// <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
     pub fn managed_knowledge_base_configuration(mut self, input: crate::types::ManagedKnowledgeBaseConfiguration) -> Self {
         self.managed_knowledge_base_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Configurations for a managed knowledge base.</p>
+    /// <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
     pub fn set_managed_knowledge_base_configuration(mut self, input: ::std::option::Option<crate::types::ManagedKnowledgeBaseConfiguration>) -> Self {
         self.managed_knowledge_base_configuration = input;
         self
     }
-    /// <p>Configurations for a managed knowledge base.</p>
+    /// <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
     pub fn get_managed_knowledge_base_configuration(&self) -> &::std::option::Option<crate::types::ManagedKnowledgeBaseConfiguration> {
         &self.managed_knowledge_base_configuration
     }

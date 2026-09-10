@@ -115,7 +115,11 @@ pub(crate) mod shape_list_systems;
 
 pub(crate) mod shape_list_tags_for_resource;
 
+pub(crate) mod shape_list_test_run_dependencies;
+
 pub(crate) mod shape_list_test_run_events;
+
+pub(crate) mod shape_list_test_run_source_events;
 
 pub(crate) mod shape_list_test_run_sources;
 
@@ -327,7 +331,11 @@ pub(crate) mod shape_test;
 
 pub(crate) mod shape_test_run;
 
+pub(crate) mod shape_test_run_dependency_summary_list;
+
 pub(crate) mod shape_test_run_event_list;
+
+pub(crate) mod shape_test_run_source_event_list;
 
 pub(crate) mod shape_test_run_source_summary_list;
 
@@ -415,11 +423,15 @@ pub(crate) mod shape_test_action_list;
 
 pub(crate) mod shape_test_parameters;
 
+pub(crate) mod shape_test_run_dependency_summary;
+
 pub(crate) mod shape_test_run_event;
 
 pub(crate) mod shape_test_run_policy_snapshot;
 
 pub(crate) mod shape_test_run_report_configuration;
+
+pub(crate) mod shape_test_run_source_event;
 
 pub(crate) mod shape_test_run_source_summary;
 
@@ -444,6 +456,8 @@ pub(crate) mod shape_cross_account_role_list;
 pub(crate) mod shape_disaster_recovery_source;
 
 pub(crate) mod shape_edge_property_list;
+
+pub(crate) mod shape_eks_label_selector;
 
 pub(crate) mod shape_event_actor;
 
@@ -491,13 +505,19 @@ pub(crate) mod shape_test_run_event_attributes;
 
 pub(crate) mod shape_test_run_observability_alarm_summary;
 
+pub(crate) mod shape_test_run_source_event_detail;
+
 pub(crate) mod shape_test_run_success_criteria_alarm_summary;
 
 pub(crate) mod shape_test_template_parameter;
 
 pub(crate) mod shape_testing_recommendation;
 
+pub(crate) mod shape_alarm_state_change_detail;
+
 pub(crate) mod shape_edge_property_summary;
+
+pub(crate) mod shape_eks_label_selector_requirement;
 
 pub(crate) mod shape_eks_namespace_list;
 
@@ -509,6 +529,8 @@ pub(crate) mod shape_suggested_changes_list;
 
 pub(crate) mod shape_system_event_metadata;
 
+pub(crate) mod shape_test_run_source_event_error;
+
 pub(crate) mod shape_user_journey_id_list;
 
 pub(crate) mod shape_assertion_created_metadata;
@@ -516,6 +538,10 @@ pub(crate) mod shape_assertion_created_metadata;
 pub(crate) mod shape_assertion_deleted_metadata;
 
 pub(crate) mod shape_assertion_updated_metadata;
+
+pub(crate) mod shape_eks_label_map;
+
+pub(crate) mod shape_eks_label_selector_requirement_list;
 
 pub(crate) mod shape_query_data_point;
 
@@ -580,6 +606,8 @@ pub(crate) mod shape_service_reference_list;
 pub(crate) mod shape_user_journey_changes;
 
 pub(crate) mod shape_user_journey_name_list;
+
+pub(crate) mod shape_eks_label_value_list;
 
 pub(crate) mod shape_service_reference;
 

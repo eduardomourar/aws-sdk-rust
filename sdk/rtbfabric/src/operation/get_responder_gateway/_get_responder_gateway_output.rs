@@ -43,6 +43,8 @@ pub struct GetResponderGatewayOutput {
     pub gateway_type: ::std::option::Option<crate::types::GatewayType>,
     /// <p>The external inbound endpoint for the responder gateway.</p>
     pub external_inbound_endpoint: ::std::option::Option<::std::string::String>,
+    /// <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub client_routing_policy: ::std::option::Option<crate::types::ClientRoutingPolicy>,
     _request_id: Option<String>,
 }
 impl GetResponderGatewayOutput {
@@ -130,6 +132,10 @@ impl GetResponderGatewayOutput {
     pub fn external_inbound_endpoint(&self) -> ::std::option::Option<&str> {
         self.external_inbound_endpoint.as_deref()
     }
+    /// <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn client_routing_policy(&self) -> ::std::option::Option<&crate::types::ClientRoutingPolicy> {
+        self.client_routing_policy.as_ref()
+    }
 }
 impl ::aws_types::request_id::RequestId for GetResponderGatewayOutput {
     fn request_id(&self) -> Option<&str> {
@@ -167,6 +173,7 @@ pub struct GetResponderGatewayOutputBuilder {
     pub(crate) links_requested_count: ::std::option::Option<i32>,
     pub(crate) gateway_type: ::std::option::Option<crate::types::GatewayType>,
     pub(crate) external_inbound_endpoint: ::std::option::Option<::std::string::String>,
+    pub(crate) client_routing_policy: ::std::option::Option<crate::types::ClientRoutingPolicy>,
     _request_id: Option<String>,
 }
 impl GetResponderGatewayOutputBuilder {
@@ -473,6 +480,20 @@ impl GetResponderGatewayOutputBuilder {
     pub fn get_external_inbound_endpoint(&self) -> &::std::option::Option<::std::string::String> {
         &self.external_inbound_endpoint
     }
+    /// <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn client_routing_policy(mut self, input: crate::types::ClientRoutingPolicy) -> Self {
+        self.client_routing_policy = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn set_client_routing_policy(mut self, input: ::std::option::Option<crate::types::ClientRoutingPolicy>) -> Self {
+        self.client_routing_policy = input;
+        self
+    }
+    /// <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+    pub fn get_client_routing_policy(&self) -> &::std::option::Option<crate::types::ClientRoutingPolicy> {
+        &self.client_routing_policy
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -551,6 +572,7 @@ impl GetResponderGatewayOutputBuilder {
             links_requested_count: self.links_requested_count,
             gateway_type: self.gateway_type,
             external_inbound_endpoint: self.external_inbound_endpoint,
+            client_routing_policy: self.client_routing_policy,
             _request_id: self._request_id,
         })
     }

@@ -101,6 +101,20 @@ where
                                     .transpose()?,
                             );
                         }
+                        "Generation" => {
+                            builder = builder.set_generation(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::OutpostGeneration::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "RackScalingType" => {
+                            builder = builder.set_rack_scaling_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::RackScalingType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
                     other => {

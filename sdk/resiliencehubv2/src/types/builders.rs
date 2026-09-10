@@ -81,9 +81,13 @@ pub use crate::types::_system_event::SystemEventBuilder;
 
 pub use crate::types::_system_summary::SystemSummaryBuilder;
 
+pub use crate::types::_test_run_dependency_summary::TestRunDependencySummaryBuilder;
+
 pub use crate::types::_test_run_event::TestRunEventBuilder;
 
 pub use crate::types::_test_run_summary::TestRunSummaryBuilder;
+
+pub use crate::types::_test_run_source_event::TestRunSourceEventBuilder;
 
 pub use crate::types::_test_summary::TestSummaryBuilder;
 
@@ -92,6 +96,8 @@ pub use crate::types::_test_template_summary::TestTemplateSummaryBuilder;
 pub use crate::types::_user_journey_summary::UserJourneySummaryBuilder;
 
 pub use crate::types::_resource_tag::ResourceTagBuilder;
+
+pub use crate::types::_eks_label_selector::EksLabelSelectorBuilder;
 
 pub use crate::types::_s3_report_output::S3ReportOutputBuilder;
 
@@ -144,6 +150,12 @@ pub use crate::types::_observability_alarm_summary::ObservabilityAlarmSummaryBui
 pub use crate::types::_s3_report_output_configuration::S3ReportOutputConfigurationBuilder;
 
 pub use crate::types::_edge_property_summary::EdgePropertySummaryBuilder;
+
+pub use crate::types::_alarm_state_change_detail::AlarmStateChangeDetailBuilder;
+
+pub use crate::types::_test_run_source_event_error::TestRunSourceEventErrorBuilder;
+
+pub use crate::types::_eks_label_selector_requirement::EksLabelSelectorRequirementBuilder;
 
 pub use crate::types::_query_data_point::QueryDataPointBuilder;
 

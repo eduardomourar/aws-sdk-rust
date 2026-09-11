@@ -14,6 +14,10 @@ pub struct CodecMetadata {
     pub color_primaries: ::std::option::Option<crate::types::ColorPrimaries>,
     /// Content light level information (CTA-861.3). Describes the light level characteristics of the content.
     pub content_light_level: ::std::option::Option<crate::types::ContentLightLevel>,
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub display_aspect_ratio: ::std::option::Option<crate::types::AspectRatio>,
+    /// Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+    pub dolby_vision: ::std::option::Option<crate::types::DolbyVisionMetadata>,
     /// The field order of interlaced video, which indicates whether the top or bottom field is displayed first. Use this to select the correct deinterlacing behavior. One of "TopFieldFirst" or "BottomFieldFirst". This field is present only for interlaced video; it is omitted for progressive video and when the field order is not indicated by the source.
     pub field_order: ::std::option::Option<::std::string::String>,
     /// Indicates that HDR10+ (SMPTE ST 2094-40) dynamic metadata was detected in the HEVC bitstream. Present only when detected.
@@ -28,6 +32,8 @@ pub struct CodecMetadata {
     pub profile: ::std::option::Option<::std::string::String>,
     /// The clockwise rotation angle of the video, in degrees, as specified in the codec bitstream via a Display Orientation SEI message (payload type 47 for both H.264 and H.265). This field is null when the video essence does not contain a Display Orientation SEI message or when the rotation is 0 degrees.
     pub rotation: ::std::option::Option<i32>,
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub sample_aspect_ratio: ::std::option::Option<crate::types::AspectRatio>,
     /// The scanning method specified in the video essence, indicating whether the video uses progressive or interlaced scanning.
     pub scan_type: ::std::option::Option<::std::string::String>,
     /// The color space transfer characteristics of the video track, defining the relationship between linear light values and the encoded signal values. This affects brightness and contrast reproduction.
@@ -56,6 +62,14 @@ impl CodecMetadata {
     pub fn content_light_level(&self) -> ::std::option::Option<&crate::types::ContentLightLevel> {
         self.content_light_level.as_ref()
     }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn display_aspect_ratio(&self) -> ::std::option::Option<&crate::types::AspectRatio> {
+        self.display_aspect_ratio.as_ref()
+    }
+    /// Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+    pub fn dolby_vision(&self) -> ::std::option::Option<&crate::types::DolbyVisionMetadata> {
+        self.dolby_vision.as_ref()
+    }
     /// The field order of interlaced video, which indicates whether the top or bottom field is displayed first. Use this to select the correct deinterlacing behavior. One of "TopFieldFirst" or "BottomFieldFirst". This field is present only for interlaced video; it is omitted for progressive video and when the field order is not indicated by the source.
     pub fn field_order(&self) -> ::std::option::Option<&str> {
         self.field_order.as_deref()
@@ -83,6 +97,10 @@ impl CodecMetadata {
     /// The clockwise rotation angle of the video, in degrees, as specified in the codec bitstream via a Display Orientation SEI message (payload type 47 for both H.264 and H.265). This field is null when the video essence does not contain a Display Orientation SEI message or when the rotation is 0 degrees.
     pub fn rotation(&self) -> ::std::option::Option<i32> {
         self.rotation
+    }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn sample_aspect_ratio(&self) -> ::std::option::Option<&crate::types::AspectRatio> {
+        self.sample_aspect_ratio.as_ref()
     }
     /// The scanning method specified in the video essence, indicating whether the video uses progressive or interlaced scanning.
     pub fn scan_type(&self) -> ::std::option::Option<&str> {
@@ -113,6 +131,8 @@ pub struct CodecMetadataBuilder {
     pub(crate) coded_frame_rate: ::std::option::Option<crate::types::FrameRate>,
     pub(crate) color_primaries: ::std::option::Option<crate::types::ColorPrimaries>,
     pub(crate) content_light_level: ::std::option::Option<crate::types::ContentLightLevel>,
+    pub(crate) display_aspect_ratio: ::std::option::Option<crate::types::AspectRatio>,
+    pub(crate) dolby_vision: ::std::option::Option<crate::types::DolbyVisionMetadata>,
     pub(crate) field_order: ::std::option::Option<::std::string::String>,
     pub(crate) hdr10_plus_presence: ::std::option::Option<crate::types::Hdr10PlusPresence>,
     pub(crate) height: ::std::option::Option<i32>,
@@ -120,6 +140,7 @@ pub struct CodecMetadataBuilder {
     pub(crate) matrix_coefficients: ::std::option::Option<crate::types::MatrixCoefficients>,
     pub(crate) profile: ::std::option::Option<::std::string::String>,
     pub(crate) rotation: ::std::option::Option<i32>,
+    pub(crate) sample_aspect_ratio: ::std::option::Option<crate::types::AspectRatio>,
     pub(crate) scan_type: ::std::option::Option<::std::string::String>,
     pub(crate) transfer_characteristics: ::std::option::Option<crate::types::TransferCharacteristics>,
     pub(crate) width: ::std::option::Option<i32>,
@@ -194,6 +215,34 @@ impl CodecMetadataBuilder {
     /// Content light level information (CTA-861.3). Describes the light level characteristics of the content.
     pub fn get_content_light_level(&self) -> &::std::option::Option<crate::types::ContentLightLevel> {
         &self.content_light_level
+    }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn display_aspect_ratio(mut self, input: crate::types::AspectRatio) -> Self {
+        self.display_aspect_ratio = ::std::option::Option::Some(input);
+        self
+    }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn set_display_aspect_ratio(mut self, input: ::std::option::Option<crate::types::AspectRatio>) -> Self {
+        self.display_aspect_ratio = input;
+        self
+    }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn get_display_aspect_ratio(&self) -> &::std::option::Option<crate::types::AspectRatio> {
+        &self.display_aspect_ratio
+    }
+    /// Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+    pub fn dolby_vision(mut self, input: crate::types::DolbyVisionMetadata) -> Self {
+        self.dolby_vision = ::std::option::Option::Some(input);
+        self
+    }
+    /// Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+    pub fn set_dolby_vision(mut self, input: ::std::option::Option<crate::types::DolbyVisionMetadata>) -> Self {
+        self.dolby_vision = input;
+        self
+    }
+    /// Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+    pub fn get_dolby_vision(&self) -> &::std::option::Option<crate::types::DolbyVisionMetadata> {
+        &self.dolby_vision
     }
     /// The field order of interlaced video, which indicates whether the top or bottom field is displayed first. Use this to select the correct deinterlacing behavior. One of "TopFieldFirst" or "BottomFieldFirst". This field is present only for interlaced video; it is omitted for progressive video and when the field order is not indicated by the source.
     pub fn field_order(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -293,6 +342,20 @@ impl CodecMetadataBuilder {
     pub fn get_rotation(&self) -> &::std::option::Option<i32> {
         &self.rotation
     }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn sample_aspect_ratio(mut self, input: crate::types::AspectRatio) -> Self {
+        self.sample_aspect_ratio = ::std::option::Option::Some(input);
+        self
+    }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn set_sample_aspect_ratio(mut self, input: ::std::option::Option<crate::types::AspectRatio>) -> Self {
+        self.sample_aspect_ratio = input;
+        self
+    }
+    /// An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+    pub fn get_sample_aspect_ratio(&self) -> &::std::option::Option<crate::types::AspectRatio> {
+        &self.sample_aspect_ratio
+    }
     /// The scanning method specified in the video essence, indicating whether the video uses progressive or interlaced scanning.
     pub fn scan_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.scan_type = ::std::option::Option::Some(input.into());
@@ -343,6 +406,8 @@ impl CodecMetadataBuilder {
             coded_frame_rate: self.coded_frame_rate,
             color_primaries: self.color_primaries,
             content_light_level: self.content_light_level,
+            display_aspect_ratio: self.display_aspect_ratio,
+            dolby_vision: self.dolby_vision,
             field_order: self.field_order,
             hdr10_plus_presence: self.hdr10_plus_presence,
             height: self.height,
@@ -350,6 +415,7 @@ impl CodecMetadataBuilder {
             matrix_coefficients: self.matrix_coefficients,
             profile: self.profile,
             rotation: self.rotation,
+            sample_aspect_ratio: self.sample_aspect_ratio,
             scan_type: self.scan_type,
             transfer_characteristics: self.transfer_characteristics,
             width: self.width,

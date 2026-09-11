@@ -16,6 +16,16 @@ pub struct ExpressGatewayServiceConfiguration {
     pub cpu: ::std::option::Option<::std::string::String>,
     /// <p>The memory allocation for tasks in this service revision.</p>
     pub memory: ::std::option::Option<::std::string::String>,
+    /// <p>The CPU architecture that the tasks in this service revision run on. This is the architecture from the task definition that the service revision uses, so it reflects the default or the previously configured architecture when the request that created the revision didn't specify one.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>This value isn't returned when the task definition for the service revision doesn't specify a runtime platform. Because the architecture comes from each service revision's own task definition, revisions of the same service can report different architectures.</p>
+    pub cpu_architecture: ::std::option::Option<crate::types::ExpressCpuArchitecture>,
     /// <p>The network configuration for tasks in this service revision.</p>
     pub network_configuration: ::std::option::Option<crate::types::ExpressGatewayServiceNetworkConfiguration>,
     /// <p>The health check path for this service revision.</p>
@@ -53,6 +63,18 @@ impl ExpressGatewayServiceConfiguration {
     /// <p>The memory allocation for tasks in this service revision.</p>
     pub fn memory(&self) -> ::std::option::Option<&str> {
         self.memory.as_deref()
+    }
+    /// <p>The CPU architecture that the tasks in this service revision run on. This is the architecture from the task definition that the service revision uses, so it reflects the default or the previously configured architecture when the request that created the revision didn't specify one.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>This value isn't returned when the task definition for the service revision doesn't specify a runtime platform. Because the architecture comes from each service revision's own task definition, revisions of the same service can report different architectures.</p>
+    pub fn cpu_architecture(&self) -> ::std::option::Option<&crate::types::ExpressCpuArchitecture> {
+        self.cpu_architecture.as_ref()
     }
     /// <p>The network configuration for tasks in this service revision.</p>
     pub fn network_configuration(&self) -> ::std::option::Option<&crate::types::ExpressGatewayServiceNetworkConfiguration> {
@@ -98,6 +120,7 @@ pub struct ExpressGatewayServiceConfigurationBuilder {
     pub(crate) task_definition_arn: ::std::option::Option<::std::string::String>,
     pub(crate) cpu: ::std::option::Option<::std::string::String>,
     pub(crate) memory: ::std::option::Option<::std::string::String>,
+    pub(crate) cpu_architecture: ::std::option::Option<crate::types::ExpressCpuArchitecture>,
     pub(crate) network_configuration: ::std::option::Option<crate::types::ExpressGatewayServiceNetworkConfiguration>,
     pub(crate) health_check_path: ::std::option::Option<::std::string::String>,
     pub(crate) primary_container: ::std::option::Option<crate::types::ExpressGatewayContainer>,
@@ -189,6 +212,44 @@ impl ExpressGatewayServiceConfigurationBuilder {
     /// <p>The memory allocation for tasks in this service revision.</p>
     pub fn get_memory(&self) -> &::std::option::Option<::std::string::String> {
         &self.memory
+    }
+    /// <p>The CPU architecture that the tasks in this service revision run on. This is the architecture from the task definition that the service revision uses, so it reflects the default or the previously configured architecture when the request that created the revision didn't specify one.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>This value isn't returned when the task definition for the service revision doesn't specify a runtime platform. Because the architecture comes from each service revision's own task definition, revisions of the same service can report different architectures.</p>
+    pub fn cpu_architecture(mut self, input: crate::types::ExpressCpuArchitecture) -> Self {
+        self.cpu_architecture = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The CPU architecture that the tasks in this service revision run on. This is the architecture from the task definition that the service revision uses, so it reflects the default or the previously configured architecture when the request that created the revision didn't specify one.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>This value isn't returned when the task definition for the service revision doesn't specify a runtime platform. Because the architecture comes from each service revision's own task definition, revisions of the same service can report different architectures.</p>
+    pub fn set_cpu_architecture(mut self, input: ::std::option::Option<crate::types::ExpressCpuArchitecture>) -> Self {
+        self.cpu_architecture = input;
+        self
+    }
+    /// <p>The CPU architecture that the tasks in this service revision run on. This is the architecture from the task definition that the service revision uses, so it reflects the default or the previously configured architecture when the request that created the revision didn't specify one.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>This value isn't returned when the task definition for the service revision doesn't specify a runtime platform. Because the architecture comes from each service revision's own task definition, revisions of the same service can report different architectures.</p>
+    pub fn get_cpu_architecture(&self) -> &::std::option::Option<crate::types::ExpressCpuArchitecture> {
+        &self.cpu_architecture
     }
     /// <p>The network configuration for tasks in this service revision.</p>
     pub fn network_configuration(mut self, input: crate::types::ExpressGatewayServiceNetworkConfiguration) -> Self {
@@ -289,6 +350,7 @@ impl ExpressGatewayServiceConfigurationBuilder {
             task_definition_arn: self.task_definition_arn,
             cpu: self.cpu,
             memory: self.memory,
+            cpu_architecture: self.cpu_architecture,
             network_configuration: self.network_configuration,
             health_check_path: self.health_check_path,
             primary_container: self.primary_container,

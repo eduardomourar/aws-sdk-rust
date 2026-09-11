@@ -13,6 +13,8 @@ pub use crate::types::error::_service_quota_exceeded_exception::ServiceQuotaExce
 
 pub use crate::types::error::_too_many_requests_exception::TooManyRequestsException;
 
+pub use crate::types::error::_unprocessable_entity_exception::UnprocessableEntityException;
+
 mod _bad_request_exception;
 
 mod _conflict_exception;
@@ -26,6 +28,8 @@ mod _not_found_exception;
 mod _service_quota_exceeded_exception;
 
 mod _too_many_requests_exception;
+
+mod _unprocessable_entity_exception;
 
 /// Builders
 pub mod builders;

@@ -126,6 +126,22 @@ pub fn de_probe_http_error(
             }
             tmp
         }),
+        "UnprocessableEntityException" => crate::operation::probe::ProbeError::UnprocessableEntityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::UnprocessableEntityExceptionBuilder::default();
+                output =
+                    crate::protocol_serde::shape_unprocessable_entity_exception::de_unprocessable_entity_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::probe::ProbeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::probe::ProbeError::generic(generic),
     })
 }

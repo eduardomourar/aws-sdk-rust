@@ -753,6 +753,8 @@ pub(crate) mod shape_disk_snapshot_list;
 
 pub(crate) mod shape_distribution_bundle_list;
 
+pub(crate) mod shape_distribution_custom_error_response;
+
 pub(crate) mod shape_distribution_list;
 
 pub(crate) mod shape_domain;
@@ -894,6 +896,8 @@ pub(crate) mod shape_container_service_state_detail;
 pub(crate) mod shape_cookie_object;
 
 pub(crate) mod shape_distribution_bundle;
+
+pub(crate) mod shape_distribution_custom_error_response_list;
 
 pub(crate) mod shape_domain_entry_list;
 

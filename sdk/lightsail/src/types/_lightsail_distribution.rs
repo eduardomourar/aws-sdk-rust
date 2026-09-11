@@ -51,6 +51,10 @@ pub struct LightsailDistribution {
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     /// <p>The minimum TLS protocol version that the distribution can use to communicate with viewers.</p>
     pub viewer_minimum_tls_protocol_version: ::std::option::Option<::std::string::String>,
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object.</p>
+    pub default_root_object: ::std::option::Option<::std::string::String>,
+    /// <p>An array of objects that describe the custom error responses configured for the distribution.</p>
+    pub custom_error_responses: ::std::option::Option<::std::vec::Vec<crate::types::DistributionCustomErrorResponse>>,
 }
 impl LightsailDistribution {
     /// <p>The name of the distribution.</p>
@@ -148,6 +152,16 @@ impl LightsailDistribution {
     pub fn viewer_minimum_tls_protocol_version(&self) -> ::std::option::Option<&str> {
         self.viewer_minimum_tls_protocol_version.as_deref()
     }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object.</p>
+    pub fn default_root_object(&self) -> ::std::option::Option<&str> {
+        self.default_root_object.as_deref()
+    }
+    /// <p>An array of objects that describe the custom error responses configured for the distribution.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.custom_error_responses.is_none()`.
+    pub fn custom_error_responses(&self) -> &[crate::types::DistributionCustomErrorResponse] {
+        self.custom_error_responses.as_deref().unwrap_or_default()
+    }
 }
 impl LightsailDistribution {
     /// Creates a new builder-style object to manufacture [`LightsailDistribution`](crate::types::LightsailDistribution).
@@ -181,6 +195,8 @@ pub struct LightsailDistributionBuilder {
     pub(crate) ip_address_type: ::std::option::Option<crate::types::IpAddressType>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     pub(crate) viewer_minimum_tls_protocol_version: ::std::option::Option<::std::string::String>,
+    pub(crate) default_root_object: ::std::option::Option<::std::string::String>,
+    pub(crate) custom_error_responses: ::std::option::Option<::std::vec::Vec<crate::types::DistributionCustomErrorResponse>>,
 }
 impl LightsailDistributionBuilder {
     /// <p>The name of the distribution.</p>
@@ -510,6 +526,43 @@ impl LightsailDistributionBuilder {
     pub fn get_viewer_minimum_tls_protocol_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.viewer_minimum_tls_protocol_version
     }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object.</p>
+    pub fn default_root_object(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.default_root_object = ::std::option::Option::Some(input.into());
+        self
+    }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object.</p>
+    pub fn set_default_root_object(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.default_root_object = input;
+        self
+    }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object.</p>
+    pub fn get_default_root_object(&self) -> &::std::option::Option<::std::string::String> {
+        &self.default_root_object
+    }
+    /// Appends an item to `custom_error_responses`.
+    ///
+    /// To override the contents of this collection use [`set_custom_error_responses`](Self::set_custom_error_responses).
+    ///
+    /// <p>An array of objects that describe the custom error responses configured for the distribution.</p>
+    pub fn custom_error_responses(mut self, input: crate::types::DistributionCustomErrorResponse) -> Self {
+        let mut v = self.custom_error_responses.unwrap_or_default();
+        v.push(input);
+        self.custom_error_responses = ::std::option::Option::Some(v);
+        self
+    }
+    /// <p>An array of objects that describe the custom error responses configured for the distribution.</p>
+    pub fn set_custom_error_responses(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DistributionCustomErrorResponse>>,
+    ) -> Self {
+        self.custom_error_responses = input;
+        self
+    }
+    /// <p>An array of objects that describe the custom error responses configured for the distribution.</p>
+    pub fn get_custom_error_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DistributionCustomErrorResponse>> {
+        &self.custom_error_responses
+    }
     /// Consumes the builder and constructs a [`LightsailDistribution`](crate::types::LightsailDistribution).
     pub fn build(self) -> crate::types::LightsailDistribution {
         crate::types::LightsailDistribution {
@@ -534,6 +587,8 @@ impl LightsailDistributionBuilder {
             ip_address_type: self.ip_address_type,
             tags: self.tags,
             viewer_minimum_tls_protocol_version: self.viewer_minimum_tls_protocol_version,
+            default_root_object: self.default_root_object,
+            custom_error_responses: self.custom_error_responses,
         }
     }
 }

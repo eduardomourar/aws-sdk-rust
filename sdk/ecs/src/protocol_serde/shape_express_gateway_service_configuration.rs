@@ -63,6 +63,13 @@ where
                                     .transpose()?,
                             );
                         }
+                        "cpuArchitecture" => {
+                            builder = builder.set_cpu_architecture(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExpressCpuArchitecture::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
                         "networkConfiguration" => {
                             builder = builder.set_network_configuration(
                                     crate::protocol_serde::shape_express_gateway_service_network_configuration::de_express_gateway_service_network_configuration(tokens, _value, depth + 1)?

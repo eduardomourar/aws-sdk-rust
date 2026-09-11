@@ -12,3 +12,5 @@ pub use crate::types::error::_not_found_exception::NotFoundExceptionBuilder;
 pub use crate::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededExceptionBuilder;
 
 pub use crate::types::error::_too_many_requests_exception::TooManyRequestsExceptionBuilder;
+
+pub use crate::types::error::_unprocessable_entity_exception::UnprocessableEntityExceptionBuilder;

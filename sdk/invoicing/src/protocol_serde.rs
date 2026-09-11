@@ -45,6 +45,10 @@ pub(crate) mod shape_list_invoice_units;
 
 pub(crate) mod shape_list_procurement_portal_preferences;
 
+pub(crate) mod shape_list_procurement_portal_suppliers;
+
+pub(crate) mod shape_list_procurement_portals;
+
 pub(crate) mod shape_list_tags_for_resource;
 
 pub(crate) mod shape_put_procurement_portal_preference;
@@ -97,6 +101,10 @@ pub(crate) mod shape_list_invoice_units_input;
 
 pub(crate) mod shape_list_procurement_portal_preferences_input;
 
+pub(crate) mod shape_list_procurement_portal_suppliers_input;
+
+pub(crate) mod shape_list_procurement_portals_input;
+
 pub(crate) mod shape_list_tags_for_resource_input;
 
 pub(crate) mod shape_put_procurement_portal_preference_input;
@@ -145,6 +153,10 @@ pub(crate) mod shape_procurement_portal_preference_selector;
 
 pub(crate) mod shape_procurement_portal_preference_summaries;
 
+pub(crate) mod shape_procurement_portal_suppliers;
+
+pub(crate) mod shape_procurement_portals;
+
 pub(crate) mod shape_profile_list;
 
 pub(crate) mod shape_resource_tag;
@@ -167,7 +179,11 @@ pub(crate) mod shape_invoice_summary;
 
 pub(crate) mod shape_invoice_unit;
 
+pub(crate) mod shape_procurement_portal;
+
 pub(crate) mod shape_procurement_portal_preference_summary;
+
+pub(crate) mod shape_procurement_portal_supplier;
 
 pub(crate) mod shape_purchase_order_data_source;
 
@@ -187,6 +203,8 @@ pub(crate) mod shape_einvoice_delivery_document_types;
 
 pub(crate) mod shape_entity;
 
+pub(crate) mod shape_feature_configurations;
+
 pub(crate) mod shape_invoice_currency_amount;
 
 pub(crate) mod shape_invoice_unit_arns;
@@ -202,6 +220,8 @@ pub(crate) mod shape_supplemental_document;
 pub(crate) mod shape_amount_breakdown;
 
 pub(crate) mod shape_currency_exchange_details;
+
+pub(crate) mod shape_invoice_configuration;
 
 pub(crate) mod shape_discounts_breakdown;
 

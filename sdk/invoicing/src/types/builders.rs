@@ -37,6 +37,10 @@ pub use crate::types::_invoice_unit::InvoiceUnitBuilder;
 
 pub use crate::types::_procurement_portal_preference_summary::ProcurementPortalPreferenceSummaryBuilder;
 
+pub use crate::types::_procurement_portal::ProcurementPortalBuilder;
+
+pub use crate::types::_procurement_portal_supplier::ProcurementPortalSupplierBuilder;
+
 pub use crate::types::_receiver_address::ReceiverAddressBuilder;
 
 pub use crate::types::_purchase_order_data_source::PurchaseOrderDataSourceBuilder;
@@ -47,9 +51,13 @@ pub use crate::types::_entity::EntityBuilder;
 
 pub use crate::types::_invoice_currency_amount::InvoiceCurrencyAmountBuilder;
 
+pub use crate::types::_feature_configurations::FeatureConfigurationsBuilder;
+
 pub use crate::types::_amount_breakdown::AmountBreakdownBuilder;
 
 pub use crate::types::_currency_exchange_details::CurrencyExchangeDetailsBuilder;
+
+pub use crate::types::_invoice_configuration::InvoiceConfigurationBuilder;
 
 pub use crate::types::_discounts_breakdown::DiscountsBreakdownBuilder;
 

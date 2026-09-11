@@ -1367,6 +1367,8 @@ pub use crate::types::_hls_i_frame_only_manifest::HlsIFrameOnlyManifest;
 
 pub use crate::types::_content_light_level::ContentLightLevel;
 
+pub use crate::types::_dolby_vision_metadata::DolbyVisionMetadata;
+
 pub use crate::types::_hdr10_plus_presence::Hdr10PlusPresence;
 
 pub use crate::types::_mastering_display_color_volume::MasteringDisplayColorVolume;
@@ -1382,6 +1384,8 @@ pub use crate::types::_s3_server_side_encryption_type::S3ServerSideEncryptionTyp
 pub use crate::types::_preset_speke20_audio::PresetSpeke20Audio;
 
 pub use crate::types::_preset_speke20_video::PresetSpeke20Video;
+
+pub use crate::types::_dolby_vision_presence::DolbyVisionPresence;
 
 pub use crate::types::_required_flag::RequiredFlag;
 
@@ -1768,6 +1772,10 @@ mod _dolby_vision_level6_metadata;
 mod _dolby_vision_level6_mode;
 
 mod _dolby_vision_mapping;
+
+mod _dolby_vision_metadata;
+
+mod _dolby_vision_presence;
 
 mod _dolby_vision_profile;
 

@@ -99,6 +99,8 @@ pub use crate::types::_query_string_object::QueryStringObjectBuilder;
 
 pub use crate::types::_cache_behavior_per_path::CacheBehaviorPerPathBuilder;
 
+pub use crate::types::_distribution_custom_error_response::DistributionCustomErrorResponseBuilder;
+
 pub use crate::types::_origin::OriginBuilder;
 
 pub use crate::types::_session::SessionBuilder;

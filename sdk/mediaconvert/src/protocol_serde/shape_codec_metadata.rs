@@ -53,6 +53,20 @@ where
                                 depth + 1,
                             )?);
                         }
+                        "displayAspectRatio" => {
+                            builder = builder.set_display_aspect_ratio(crate::protocol_serde::shape_aspect_ratio::de_aspect_ratio(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "dolbyVision" => {
+                            builder = builder.set_dolby_vision(crate::protocol_serde::shape_dolby_vision_metadata::de_dolby_vision_metadata(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
                         "fieldOrder" => {
                             builder = builder.set_field_order(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -101,6 +115,13 @@ where
                                     .map(i32::try_from)
                                     .transpose()?,
                             );
+                        }
+                        "sampleAspectRatio" => {
+                            builder = builder.set_sample_aspect_ratio(crate::protocol_serde::shape_aspect_ratio::de_aspect_ratio(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "scanType" => {
                             builder = builder.set_scan_type(

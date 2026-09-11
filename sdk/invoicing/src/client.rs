@@ -185,6 +185,10 @@ mod list_invoice_units;
 
 mod list_procurement_portal_preferences;
 
+mod list_procurement_portal_suppliers;
+
+mod list_procurement_portals;
+
 mod list_tags_for_resource;
 
 mod put_procurement_portal_preference;

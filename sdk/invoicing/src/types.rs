@@ -55,6 +55,10 @@ pub use crate::types::_invoice_unit::InvoiceUnit;
 
 pub use crate::types::_procurement_portal_preference_summary::ProcurementPortalPreferenceSummary;
 
+pub use crate::types::_procurement_portal::ProcurementPortal;
+
+pub use crate::types::_procurement_portal_supplier::ProcurementPortalSupplier;
+
 pub use crate::types::_receiver_address::ReceiverAddress;
 
 pub use crate::types::_einvoice_delivery_document_type::EinvoiceDeliveryDocumentType;
@@ -79,6 +83,10 @@ pub use crate::types::_tax_authority_status::TaxAuthorityStatus;
 
 pub use crate::types::_invoice_currency_amount::InvoiceCurrencyAmount;
 
+pub use crate::types::_feature_configurations::FeatureConfigurations;
+
+pub use crate::types::_procurement_portal_env::ProcurementPortalEnv;
+
 pub use crate::types::_purchase_order_data_source_type::PurchaseOrderDataSourceType;
 
 pub use crate::types::_supplemental_document_type::SupplementalDocumentType;
@@ -88,6 +96,8 @@ pub use crate::types::_billing_entity::BillingEntity;
 pub use crate::types::_amount_breakdown::AmountBreakdown;
 
 pub use crate::types::_currency_exchange_details::CurrencyExchangeDetails;
+
+pub use crate::types::_invoice_configuration::InvoiceConfiguration;
 
 pub use crate::types::_discounts_breakdown::DiscountsBreakdown;
 
@@ -133,11 +143,15 @@ mod _einvoice_delivery_status;
 
 mod _entity;
 
+mod _feature_configurations;
+
 mod _fees_breakdown;
 
 mod _fees_breakdown_amount;
 
 mod _filters;
+
+mod _invoice_configuration;
 
 mod _invoice_currency_amount;
 
@@ -161,6 +175,10 @@ mod _invoice_unit_rule;
 
 mod _list_invoice_summaries_resource_type;
 
+mod _procurement_portal;
+
+mod _procurement_portal_env;
+
 mod _procurement_portal_name;
 
 mod _procurement_portal_preference;
@@ -170,6 +188,8 @@ mod _procurement_portal_preference_selector;
 mod _procurement_portal_preference_status;
 
 mod _procurement_portal_preference_summary;
+
+mod _procurement_portal_supplier;
 
 mod _protocol;
 

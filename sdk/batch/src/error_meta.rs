@@ -71,6 +71,29 @@ impl From<crate::operation::cancel_job::CancelJobError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_jobs::CancelJobsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_jobs::CancelJobsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::cancel_jobs::CancelJobsError> for Error {
+    fn from(err: crate::operation::cancel_jobs::CancelJobsError) -> Self {
+        match err {
+            crate::operation::cancel_jobs::CancelJobsError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::cancel_jobs::CancelJobsError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::cancel_jobs::CancelJobsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_compute_environment::CreateComputeEnvironmentError, R>>
     for Error
 where
@@ -941,6 +964,29 @@ impl From<crate::operation::terminate_job::TerminateJobError> for Error {
         }
     }
 }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_jobs::TerminateJobsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_jobs::TerminateJobsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::terminate_jobs::TerminateJobsError> for Error {
+    fn from(err: crate::operation::terminate_jobs::TerminateJobsError) -> Self {
+        match err {
+            crate::operation::terminate_jobs::TerminateJobsError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::terminate_jobs::TerminateJobsError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::terminate_jobs::TerminateJobsError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
 impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_service_job::TerminateServiceJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -961,6 +1007,29 @@ impl From<crate::operation::terminate_service_job::TerminateServiceJobError> for
             crate::operation::terminate_service_job::TerminateServiceJobError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::terminate_service_job::TerminateServiceJobError::ServerException(inner) => Error::ServerException(inner),
             crate::operation::terminate_service_job::TerminateServiceJobError::Unhandled(inner) => Error::Unhandled(inner),
+        }
+    }
+}
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_service_jobs::TerminateServiceJobsError, R>> for Error
+where
+    R: Send + Sync + std::fmt::Debug + 'static,
+{
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_service_jobs::TerminateServiceJobsError, R>) -> Self {
+        match err {
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                source: err.into(),
+            }),
+        }
+    }
+}
+impl From<crate::operation::terminate_service_jobs::TerminateServiceJobsError> for Error {
+    fn from(err: crate::operation::terminate_service_jobs::TerminateServiceJobsError) -> Self {
+        match err {
+            crate::operation::terminate_service_jobs::TerminateServiceJobsError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::terminate_service_jobs::TerminateServiceJobsError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::terminate_service_jobs::TerminateServiceJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

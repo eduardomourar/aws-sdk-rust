@@ -427,6 +427,8 @@ pub use crate::types::_encryption_contract_configuration::EncryptionContractConf
 
 pub use crate::types::_content_light_level::ContentLightLevelBuilder;
 
+pub use crate::types::_dolby_vision_metadata::DolbyVisionMetadataBuilder;
+
 pub use crate::types::_mastering_display_color_volume::MasteringDisplayColorVolumeBuilder;
 
 pub use crate::types::_allowed_rendition_size::AllowedRenditionSizeBuilder;

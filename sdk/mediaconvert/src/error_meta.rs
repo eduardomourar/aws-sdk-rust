@@ -17,6 +17,8 @@ pub enum Error {
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
     /// Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
+    /// The input file was recognized but appears to be malformed or corrupt.
+    UnprocessableEntityException(crate::types::error::UnprocessableEntityException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -36,6 +38,7 @@ impl ::std::fmt::Display for Error {
             Error::NotFoundException(inner) => inner.fmt(f),
             Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
             Error::TooManyRequestsException(inner) => inner.fmt(f),
+            Error::UnprocessableEntityException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -64,6 +67,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::NotFoundException(inner) => inner.meta(),
             Self::ServiceQuotaExceededException(inner) => inner.meta(),
             Self::TooManyRequestsException(inner) => inner.meta(),
+            Self::UnprocessableEntityException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
@@ -845,6 +849,7 @@ impl From<crate::operation::probe::ProbeError> for Error {
             crate::operation::probe::ProbeError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::probe::ProbeError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
             crate::operation::probe::ProbeError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::probe::ProbeError::UnprocessableEntityException(inner) => Error::UnprocessableEntityException(inner),
             crate::operation::probe::ProbeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -1091,6 +1096,7 @@ impl ::std::error::Error for Error {
             Error::NotFoundException(inner) => inner.source(),
             Error::ServiceQuotaExceededException(inner) => inner.source(),
             Error::TooManyRequestsException(inner) => inner.source(),
+            Error::UnprocessableEntityException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -1105,6 +1111,7 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::NotFoundException(e) => e.request_id(),
             Self::ServiceQuotaExceededException(e) => e.request_id(),
             Self::TooManyRequestsException(e) => e.request_id(),
+            Self::UnprocessableEntityException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

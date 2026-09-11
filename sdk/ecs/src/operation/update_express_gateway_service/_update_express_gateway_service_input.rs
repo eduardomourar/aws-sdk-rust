@@ -19,11 +19,22 @@ pub struct UpdateExpressGatewayServiceInput {
     pub cpu: ::std::option::Option<::std::string::String>,
     /// <p>The amount of memory (in MiB) used by the task.</p>
     pub memory: ::std::option::Option<::std::string::String>,
+    /// <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the service keeps the architecture that it currently runs on.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>Changing the architecture starts a new deployment that replaces the running tasks. Make sure that the container image that the service uses supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p>
+    /// <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+    pub cpu_architecture: ::std::option::Option<crate::types::ExpressCpuArchitecture>,
     /// <p>The auto-scaling configuration for the Express service.</p>
     pub scaling_target: ::std::option::Option<crate::types::ExpressGatewayScalingTarget>,
     /// <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p>
     /// <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p>
-    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, <code>memory</code>, or <code>cpuArchitecture</code>.</p>
     pub task_definition_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateExpressGatewayServiceInput {
@@ -59,13 +70,26 @@ impl UpdateExpressGatewayServiceInput {
     pub fn memory(&self) -> ::std::option::Option<&str> {
         self.memory.as_deref()
     }
+    /// <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the service keeps the architecture that it currently runs on.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>Changing the architecture starts a new deployment that replaces the running tasks. Make sure that the container image that the service uses supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p>
+    /// <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+    pub fn cpu_architecture(&self) -> ::std::option::Option<&crate::types::ExpressCpuArchitecture> {
+        self.cpu_architecture.as_ref()
+    }
     /// <p>The auto-scaling configuration for the Express service.</p>
     pub fn scaling_target(&self) -> ::std::option::Option<&crate::types::ExpressGatewayScalingTarget> {
         self.scaling_target.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p>
     /// <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p>
-    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, <code>memory</code>, or <code>cpuArchitecture</code>.</p>
     pub fn task_definition_arn(&self) -> ::std::option::Option<&str> {
         self.task_definition_arn.as_deref()
     }
@@ -89,6 +113,7 @@ pub struct UpdateExpressGatewayServiceInputBuilder {
     pub(crate) network_configuration: ::std::option::Option<crate::types::ExpressGatewayServiceNetworkConfiguration>,
     pub(crate) cpu: ::std::option::Option<::std::string::String>,
     pub(crate) memory: ::std::option::Option<::std::string::String>,
+    pub(crate) cpu_architecture: ::std::option::Option<crate::types::ExpressCpuArchitecture>,
     pub(crate) scaling_target: ::std::option::Option<crate::types::ExpressGatewayScalingTarget>,
     pub(crate) task_definition_arn: ::std::option::Option<::std::string::String>,
 }
@@ -206,6 +231,47 @@ impl UpdateExpressGatewayServiceInputBuilder {
     pub fn get_memory(&self) -> &::std::option::Option<::std::string::String> {
         &self.memory
     }
+    /// <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the service keeps the architecture that it currently runs on.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>Changing the architecture starts a new deployment that replaces the running tasks. Make sure that the container image that the service uses supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p>
+    /// <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+    pub fn cpu_architecture(mut self, input: crate::types::ExpressCpuArchitecture) -> Self {
+        self.cpu_architecture = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the service keeps the architecture that it currently runs on.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>Changing the architecture starts a new deployment that replaces the running tasks. Make sure that the container image that the service uses supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p>
+    /// <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+    pub fn set_cpu_architecture(mut self, input: ::std::option::Option<crate::types::ExpressCpuArchitecture>) -> Self {
+        self.cpu_architecture = input;
+        self
+    }
+    /// <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the service keeps the architecture that it currently runs on.</p>
+    /// <p>Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>X86_64</code> - The x86 64-bit architecture.</p></li>
+    /// <li>
+    /// <p><code>ARM64</code> - The 64-bit ARM architecture.</p></li>
+    /// </ul>
+    /// <p>Changing the architecture starts a new deployment that replaces the running tasks. Make sure that the container image that the service uses supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p>
+    /// <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+    pub fn get_cpu_architecture(&self) -> &::std::option::Option<crate::types::ExpressCpuArchitecture> {
+        &self.cpu_architecture
+    }
     /// <p>The auto-scaling configuration for the Express service.</p>
     pub fn scaling_target(mut self, input: crate::types::ExpressGatewayScalingTarget) -> Self {
         self.scaling_target = ::std::option::Option::Some(input);
@@ -222,21 +288,21 @@ impl UpdateExpressGatewayServiceInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p>
     /// <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p>
-    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, <code>memory</code>, or <code>cpuArchitecture</code>.</p>
     pub fn task_definition_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.task_definition_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p>
     /// <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p>
-    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, <code>memory</code>, or <code>cpuArchitecture</code>.</p>
     pub fn set_task_definition_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.task_definition_arn = input;
         self
     }
     /// <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p>
     /// <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p>
-    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+    /// <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, <code>memory</code>, or <code>cpuArchitecture</code>.</p>
     pub fn get_task_definition_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.task_definition_arn
     }
@@ -256,6 +322,7 @@ impl UpdateExpressGatewayServiceInputBuilder {
             network_configuration: self.network_configuration,
             cpu: self.cpu,
             memory: self.memory,
+            cpu_architecture: self.cpu_architecture,
             scaling_target: self.scaling_target,
             task_definition_arn: self.task_definition_arn,
         })

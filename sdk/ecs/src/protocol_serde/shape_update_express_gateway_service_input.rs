@@ -36,14 +36,17 @@ pub fn ser_update_express_gateway_service_input_input(
     if let Some(var_10) = &input.memory {
         object.key("memory").string(var_10.as_str());
     }
-    if let Some(var_11) = &input.scaling_target {
-        #[allow(unused_mut)]
-        let mut object_12 = object.key("scalingTarget").start_object();
-        crate::protocol_serde::shape_express_gateway_scaling_target::ser_express_gateway_scaling_target(&mut object_12, var_11)?;
-        object_12.finish();
+    if let Some(var_11) = &input.cpu_architecture {
+        object.key("cpuArchitecture").string(var_11.as_str());
     }
-    if let Some(var_13) = &input.task_definition_arn {
-        object.key("taskDefinitionArn").string(var_13.as_str());
+    if let Some(var_12) = &input.scaling_target {
+        #[allow(unused_mut)]
+        let mut object_13 = object.key("scalingTarget").start_object();
+        crate::protocol_serde::shape_express_gateway_scaling_target::ser_express_gateway_scaling_target(&mut object_13, var_12)?;
+        object_13.finish();
+    }
+    if let Some(var_14) = &input.task_definition_arn {
+        object.key("taskDefinitionArn").string(var_14.as_str());
     }
     Ok(())
 }

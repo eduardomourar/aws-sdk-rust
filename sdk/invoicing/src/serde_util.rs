@@ -47,6 +47,24 @@ pub(crate) fn list_invoice_summaries_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_procurement_portal_suppliers_output_output_correct_errors(
+    mut builder: crate::operation::list_procurement_portal_suppliers::builders::ListProcurementPortalSuppliersOutputBuilder,
+) -> crate::operation::list_procurement_portal_suppliers::builders::ListProcurementPortalSuppliersOutputBuilder {
+    if builder.procurement_portal_suppliers.is_none() {
+        builder.procurement_portal_suppliers = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn list_procurement_portals_output_output_correct_errors(
+    mut builder: crate::operation::list_procurement_portals::builders::ListProcurementPortalsOutputBuilder,
+) -> crate::operation::list_procurement_portals::builders::ListProcurementPortalsOutputBuilder {
+    if builder.procurement_portals.is_none() {
+        builder.procurement_portals = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn put_procurement_portal_preference_output_output_correct_errors(
     mut builder: crate::operation::put_procurement_portal_preference::builders::PutProcurementPortalPreferenceOutputBuilder,
 ) -> crate::operation::put_procurement_portal_preference::builders::PutProcurementPortalPreferenceOutputBuilder {
@@ -146,6 +164,18 @@ pub(crate) fn einvoice_delivery_preference_correct_errors(
     builder
 }
 
+pub(crate) fn procurement_portal_correct_errors(
+    mut builder: crate::types::builders::ProcurementPortalBuilder,
+) -> crate::types::builders::ProcurementPortalBuilder {
+    if builder.portal_identifier.is_none() {
+        builder.portal_identifier = Some(Default::default())
+    }
+    if builder.portal_name.is_none() {
+        builder.portal_name = "no value was set".parse::<crate::types::ProcurementPortalName>().ok()
+    }
+    builder
+}
+
 pub(crate) fn procurement_portal_preference_summary_correct_errors(
     mut builder: crate::types::builders::ProcurementPortalPreferenceSummaryBuilder,
 ) -> crate::types::builders::ProcurementPortalPreferenceSummaryBuilder {
@@ -184,6 +214,15 @@ pub(crate) fn procurement_portal_preference_summary_correct_errors(
     }
     if builder.last_update_date.is_none() {
         builder.last_update_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn procurement_portal_supplier_correct_errors(
+    mut builder: crate::types::builders::ProcurementPortalSupplierBuilder,
+) -> crate::types::builders::ProcurementPortalSupplierBuilder {
+    if builder.supplier_identifier.is_none() {
+        builder.supplier_identifier = Some(Default::default())
     }
     builder
 }

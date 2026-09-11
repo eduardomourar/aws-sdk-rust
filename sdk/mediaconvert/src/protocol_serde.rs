@@ -135,6 +135,8 @@ pub(crate) mod shape_tag_resource_input;
 
 pub(crate) mod shape_too_many_requests_exception;
 
+pub(crate) mod shape_unprocessable_entity_exception;
+
 pub(crate) mod shape_untag_resource_input;
 
 pub(crate) mod shape_update_job_template_input;
@@ -686,6 +688,8 @@ pub(crate) mod shape_s3_destination_access_control;
 pub(crate) mod shape_s3_encryption_settings;
 
 pub(crate) mod shape_content_light_level;
+
+pub(crate) mod shape_dolby_vision_metadata;
 
 pub(crate) mod shape_list_of_video_overlay_input_clipping;
 

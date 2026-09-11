@@ -283,4 +283,63 @@ impl CreateDistributionFluentBuilder {
     pub fn get_viewer_minimum_tls_protocol_version(&self) -> &::std::option::Option<crate::types::ViewerMinimumTlsProtocolVersionEnum> {
         self.inner.get_viewer_minimum_tls_protocol_version()
     }
+    /// <p>Specifies whether to enable private origin access for the distribution. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>Lightsail grants the distribution permission to read the bucket's objects. Enabling private origin access doesn't change the bucket's access settings, and you can still retrieve publicly accessible objects directly from the bucket's endpoint.</p><note>
+    /// <p>You can enable private origin access only when the distribution's origin is a Lightsail bucket. If the origin is another resource type, the request fails.</p>
+    /// </note>
+    pub fn enable_private_origin_access(mut self, input: bool) -> Self {
+        self.inner = self.inner.enable_private_origin_access(input);
+        self
+    }
+    /// <p>Specifies whether to enable private origin access for the distribution. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>Lightsail grants the distribution permission to read the bucket's objects. Enabling private origin access doesn't change the bucket's access settings, and you can still retrieve publicly accessible objects directly from the bucket's endpoint.</p><note>
+    /// <p>You can enable private origin access only when the distribution's origin is a Lightsail bucket. If the origin is another resource type, the request fails.</p>
+    /// </note>
+    pub fn set_enable_private_origin_access(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.inner = self.inner.set_enable_private_origin_access(input);
+        self
+    }
+    /// <p>Specifies whether to enable private origin access for the distribution. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>Lightsail grants the distribution permission to read the bucket's objects. Enabling private origin access doesn't change the bucket's access settings, and you can still retrieve publicly accessible objects directly from the bucket's endpoint.</p><note>
+    /// <p>You can enable private origin access only when the distribution's origin is a Lightsail bucket. If the origin is another resource type, the request fails.</p>
+    /// </note>
+    pub fn get_enable_private_origin_access(&self) -> &::std::option::Option<bool> {
+        self.inner.get_enable_private_origin_access()
+    }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object. The object that you specify must be available from the origin.</p>
+    pub fn default_root_object(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.default_root_object(input.into());
+        self
+    }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object. The object that you specify must be available from the origin.</p>
+    pub fn set_default_root_object(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_default_root_object(input);
+        self
+    }
+    /// <p>The object (for example, <code>index.html</code>) that the distribution returns when a viewer requests the root URL of the distribution (<code>/</code>) instead of a specific object. The object that you specify must be available from the origin.</p>
+    pub fn get_default_root_object(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_default_root_object()
+    }
+    ///
+    /// Appends an item to `customErrorResponses`.
+    ///
+    /// To override the contents of this collection use [`set_custom_error_responses`](Self::set_custom_error_responses).
+    ///
+    /// <p>An array of objects that describe the custom error responses for the distribution. With a custom error response, you can specify the page to return when the origin responds with a given HTTP error code. You can also specify the HTTP status code to send to the viewer.</p>
+    pub fn custom_error_responses(mut self, input: crate::types::DistributionCustomErrorResponse) -> Self {
+        self.inner = self.inner.custom_error_responses(input);
+        self
+    }
+    /// <p>An array of objects that describe the custom error responses for the distribution. With a custom error response, you can specify the page to return when the origin responds with a given HTTP error code. You can also specify the HTTP status code to send to the viewer.</p>
+    pub fn set_custom_error_responses(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DistributionCustomErrorResponse>>,
+    ) -> Self {
+        self.inner = self.inner.set_custom_error_responses(input);
+        self
+    }
+    /// <p>An array of objects that describe the custom error responses for the distribution. With a custom error response, you can specify the page to return when the origin responds with a given HTTP error code. You can also specify the HTTP status code to send to the viewer.</p>
+    pub fn get_custom_error_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DistributionCustomErrorResponse>> {
+        self.inner.get_custom_error_responses()
+    }
 }

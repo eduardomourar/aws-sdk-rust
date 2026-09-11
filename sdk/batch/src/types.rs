@@ -81,6 +81,8 @@ pub use crate::types::_compute_resource_update::ComputeResourceUpdate;
 
 pub use crate::types::_update_policy::UpdatePolicy;
 
+pub use crate::types::_cancel_jobs_error_detail::CancelJobsErrorDetail;
+
 pub use crate::types::_cr_type::CrType;
 
 pub use crate::types::_cr_allocation_strategy::CrAllocationStrategy;
@@ -166,6 +168,10 @@ pub use crate::types::_eks_pod_properties::EksPodProperties;
 pub use crate::types::_job_dependency::JobDependency;
 
 pub use crate::types::_eks_pod_properties_override::EksPodPropertiesOverride;
+
+pub use crate::types::_terminate_jobs_error_detail::TerminateJobsErrorDetail;
+
+pub use crate::types::_terminate_service_jobs_error_detail::TerminateServiceJobsErrorDetail;
 
 pub use crate::types::_cr_update_allocation_strategy::CrUpdateAllocationStrategy;
 
@@ -376,6 +382,8 @@ mod _attempt_detail;
 mod _attempt_ecs_task_details;
 
 mod _attempt_task_container_details;
+
+mod _cancel_jobs_error_detail;
 
 mod _capacity_limit;
 
@@ -706,6 +714,10 @@ mod _task_container_overrides;
 mod _task_container_properties;
 
 mod _task_properties_override;
+
+mod _terminate_jobs_error_detail;
+
+mod _terminate_service_jobs_error_detail;
 
 mod _tmpfs;
 

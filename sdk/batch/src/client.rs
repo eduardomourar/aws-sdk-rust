@@ -138,6 +138,8 @@ impl Client {
 
 mod cancel_job;
 
+mod cancel_jobs;
+
 mod create_compute_environment;
 
 mod create_consumable_resource;
@@ -235,7 +237,11 @@ mod tag_resource;
 
 mod terminate_job;
 
+mod terminate_jobs;
+
 mod terminate_service_job;
+
+mod terminate_service_jobs;
 
 mod untag_resource;
 

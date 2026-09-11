@@ -25,6 +25,8 @@ pub fn parse_http_error_metadata(
 
 pub(crate) mod shape_cancel_job;
 
+pub(crate) mod shape_cancel_jobs;
+
 pub(crate) mod shape_create_compute_environment;
 
 pub(crate) mod shape_create_consumable_resource;
@@ -95,7 +97,11 @@ pub(crate) mod shape_tag_resource;
 
 pub(crate) mod shape_terminate_job;
 
+pub(crate) mod shape_terminate_jobs;
+
 pub(crate) mod shape_terminate_service_job;
+
+pub(crate) mod shape_terminate_service_jobs;
 
 pub(crate) mod shape_untag_resource;
 
@@ -122,6 +128,8 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
         data
     }
 }
+
+pub(crate) mod shape_cancel_jobs_input;
 
 pub(crate) mod shape_client_exception;
 
@@ -195,7 +203,11 @@ pub(crate) mod shape_tag_resource_input;
 
 pub(crate) mod shape_terminate_job_input;
 
+pub(crate) mod shape_terminate_jobs_input;
+
 pub(crate) mod shape_terminate_service_job_input;
+
+pub(crate) mod shape_terminate_service_jobs_input;
 
 pub(crate) mod shape_update_compute_environment_input;
 
@@ -212,6 +224,8 @@ pub(crate) mod shape_update_service_environment_input;
 pub(crate) mod shape_update_service_job_input;
 
 pub(crate) mod shape_array_properties;
+
+pub(crate) mod shape_cancel_jobs_error_detail_list;
 
 pub(crate) mod shape_capacity_limit;
 
@@ -311,9 +325,17 @@ pub(crate) mod shape_service_job_summary_list;
 
 pub(crate) mod shape_service_job_timeout;
 
+pub(crate) mod shape_string_list;
+
 pub(crate) mod shape_tagris_tags_map;
 
+pub(crate) mod shape_terminate_jobs_error_detail_list;
+
+pub(crate) mod shape_terminate_service_jobs_error_detail_list;
+
 pub(crate) mod shape_update_policy;
+
+pub(crate) mod shape_cancel_jobs_error_detail;
 
 pub(crate) mod shape_compute_environment_detail;
 
@@ -408,6 +430,10 @@ pub(crate) mod shape_service_resource_id;
 pub(crate) mod shape_share_attributes;
 
 pub(crate) mod shape_task_properties_override;
+
+pub(crate) mod shape_terminate_jobs_error_detail;
+
+pub(crate) mod shape_terminate_service_jobs_error_detail;
 
 pub(crate) mod shape_ulimit;
 
@@ -568,8 +594,6 @@ pub(crate) mod shape_secret_list;
 pub(crate) mod shape_service_job_capacity_usage_summary;
 
 pub(crate) mod shape_share_attributes_list;
-
-pub(crate) mod shape_string_list;
 
 pub(crate) mod shape_tags_map;
 

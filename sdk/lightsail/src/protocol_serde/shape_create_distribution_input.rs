@@ -60,5 +60,23 @@ pub fn ser_create_distribution_input_input(
     if let Some(var_19) = &input.viewer_minimum_tls_protocol_version {
         object.key("viewerMinimumTlsProtocolVersion").string(var_19.as_str());
     }
+    if let Some(var_20) = &input.enable_private_origin_access {
+        object.key("enablePrivateOriginAccess").boolean(*var_20);
+    }
+    if let Some(var_21) = &input.default_root_object {
+        object.key("defaultRootObject").string(var_21.as_str());
+    }
+    if let Some(var_22) = &input.custom_error_responses {
+        let mut array_23 = object.key("customErrorResponses").start_array();
+        for item_24 in var_22 {
+            {
+                #[allow(unused_mut)]
+                let mut object_25 = array_23.value().start_object();
+                crate::protocol_serde::shape_distribution_custom_error_response::ser_distribution_custom_error_response(&mut object_25, item_24)?;
+                object_25.finish();
+            }
+        }
+        array_23.finish();
+    }
     Ok(())
 }

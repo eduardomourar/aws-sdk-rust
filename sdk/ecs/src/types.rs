@@ -67,6 +67,8 @@ pub use crate::types::_express_gateway_container::ExpressGatewayContainer;
 
 pub use crate::types::_express_gateway_service_network_configuration::ExpressGatewayServiceNetworkConfiguration;
 
+pub use crate::types::_express_cpu_architecture::ExpressCpuArchitecture;
+
 pub use crate::types::_express_gateway_scaling_target::ExpressGatewayScalingTarget;
 
 pub use crate::types::_ecs_express_gateway_service::EcsExpressGatewayService;
@@ -844,6 +846,8 @@ mod _execute_command_configuration;
 mod _execute_command_log_configuration;
 
 mod _execute_command_logging;
+
+mod _express_cpu_architecture;
 
 mod _express_gateway_container;
 

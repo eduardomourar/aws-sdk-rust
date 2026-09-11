@@ -42,26 +42,29 @@ pub fn ser_create_express_gateway_service_input_input(
     if let Some(var_12) = &input.memory {
         object.key("memory").string(var_12.as_str());
     }
-    if let Some(var_13) = &input.scaling_target {
-        #[allow(unused_mut)]
-        let mut object_14 = object.key("scalingTarget").start_object();
-        crate::protocol_serde::shape_express_gateway_scaling_target::ser_express_gateway_scaling_target(&mut object_14, var_13)?;
-        object_14.finish();
+    if let Some(var_13) = &input.cpu_architecture {
+        object.key("cpuArchitecture").string(var_13.as_str());
     }
-    if let Some(var_15) = &input.tags {
-        let mut array_16 = object.key("tags").start_array();
-        for item_17 in var_15 {
+    if let Some(var_14) = &input.scaling_target {
+        #[allow(unused_mut)]
+        let mut object_15 = object.key("scalingTarget").start_object();
+        crate::protocol_serde::shape_express_gateway_scaling_target::ser_express_gateway_scaling_target(&mut object_15, var_14)?;
+        object_15.finish();
+    }
+    if let Some(var_16) = &input.tags {
+        let mut array_17 = object.key("tags").start_array();
+        for item_18 in var_16 {
             {
                 #[allow(unused_mut)]
-                let mut object_18 = array_16.value().start_object();
-                crate::protocol_serde::shape_tag::ser_tag(&mut object_18, item_17)?;
-                object_18.finish();
+                let mut object_19 = array_17.value().start_object();
+                crate::protocol_serde::shape_tag::ser_tag(&mut object_19, item_18)?;
+                object_19.finish();
             }
         }
-        array_16.finish();
+        array_17.finish();
     }
-    if let Some(var_19) = &input.task_definition_arn {
-        object.key("taskDefinitionArn").string(var_19.as_str());
+    if let Some(var_20) = &input.task_definition_arn {
+        object.key("taskDefinitionArn").string(var_20.as_str());
     }
     Ok(())
 }

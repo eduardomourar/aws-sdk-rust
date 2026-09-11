@@ -175,6 +175,8 @@ pub use crate::types::_query_string_object::QueryStringObject;
 
 pub use crate::types::_cache_behavior_per_path::CacheBehaviorPerPath;
 
+pub use crate::types::_distribution_custom_error_response::DistributionCustomErrorResponse;
+
 pub use crate::types::_origin::Origin;
 
 pub use crate::types::_session::Session;
@@ -568,6 +570,8 @@ mod _disk_snapshot_state;
 mod _disk_state;
 
 mod _distribution_bundle;
+
+mod _distribution_custom_error_response;
 
 mod _distribution_metric_name;
 

@@ -18,6 +18,9 @@ pub struct Origin {
     /// <p>The IP address type that the distribution uses when connecting to the origin.</p>
     /// <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only, and <code>dualstack</code> for IPv4 and IPv6.</p>
     pub ip_address_type: ::std::option::Option<crate::types::OriginIpAddressTypeEnum>,
+    /// <p>Specifies whether private origin access is enabled for the distribution's origin. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>This applies when you set the bucket's <code>getObject</code> access rule to <code>private</code>. It also applies when you set <code>getObject</code> to <code>public</code> but set individual objects to private.</p>
+    pub is_private_origin_access_enabled: ::std::option::Option<bool>,
 }
 impl Origin {
     /// <p>The name of the origin resource.</p>
@@ -45,6 +48,11 @@ impl Origin {
     pub fn ip_address_type(&self) -> ::std::option::Option<&crate::types::OriginIpAddressTypeEnum> {
         self.ip_address_type.as_ref()
     }
+    /// <p>Specifies whether private origin access is enabled for the distribution's origin. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>This applies when you set the bucket's <code>getObject</code> access rule to <code>private</code>. It also applies when you set <code>getObject</code> to <code>public</code> but set individual objects to private.</p>
+    pub fn is_private_origin_access_enabled(&self) -> ::std::option::Option<bool> {
+        self.is_private_origin_access_enabled
+    }
 }
 impl Origin {
     /// Creates a new builder-style object to manufacture [`Origin`](crate::types::Origin).
@@ -63,6 +71,7 @@ pub struct OriginBuilder {
     pub(crate) protocol_policy: ::std::option::Option<crate::types::OriginProtocolPolicyEnum>,
     pub(crate) response_timeout: ::std::option::Option<i32>,
     pub(crate) ip_address_type: ::std::option::Option<crate::types::OriginIpAddressTypeEnum>,
+    pub(crate) is_private_origin_access_enabled: ::std::option::Option<bool>,
 }
 impl OriginBuilder {
     /// <p>The name of the origin resource.</p>
@@ -152,6 +161,23 @@ impl OriginBuilder {
     pub fn get_ip_address_type(&self) -> &::std::option::Option<crate::types::OriginIpAddressTypeEnum> {
         &self.ip_address_type
     }
+    /// <p>Specifies whether private origin access is enabled for the distribution's origin. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>This applies when you set the bucket's <code>getObject</code> access rule to <code>private</code>. It also applies when you set <code>getObject</code> to <code>public</code> but set individual objects to private.</p>
+    pub fn is_private_origin_access_enabled(mut self, input: bool) -> Self {
+        self.is_private_origin_access_enabled = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>Specifies whether private origin access is enabled for the distribution's origin. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>This applies when you set the bucket's <code>getObject</code> access rule to <code>private</code>. It also applies when you set <code>getObject</code> to <code>public</code> but set individual objects to private.</p>
+    pub fn set_is_private_origin_access_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_private_origin_access_enabled = input;
+        self
+    }
+    /// <p>Specifies whether private origin access is enabled for the distribution's origin. With private origin access, the distribution can serve objects that aren't publicly accessible from a Lightsail bucket.</p>
+    /// <p>This applies when you set the bucket's <code>getObject</code> access rule to <code>private</code>. It also applies when you set <code>getObject</code> to <code>public</code> but set individual objects to private.</p>
+    pub fn get_is_private_origin_access_enabled(&self) -> &::std::option::Option<bool> {
+        &self.is_private_origin_access_enabled
+    }
     /// Consumes the builder and constructs a [`Origin`](crate::types::Origin).
     pub fn build(self) -> crate::types::Origin {
         crate::types::Origin {
@@ -161,6 +187,7 @@ impl OriginBuilder {
             protocol_policy: self.protocol_policy,
             response_timeout: self.response_timeout,
             ip_address_type: self.ip_address_type,
+            is_private_origin_access_enabled: self.is_private_origin_access_enabled,
         }
     }
 }

@@ -34,6 +34,12 @@ pub mod list_invoice_units;
 /// Types for the `ListProcurementPortalPreferences` operation.
 pub mod list_procurement_portal_preferences;
 
+/// Types for the `ListProcurementPortalSuppliers` operation.
+pub mod list_procurement_portal_suppliers;
+
+/// Types for the `ListProcurementPortals` operation.
+pub mod list_procurement_portals;
+
 /// Types for the `ListTagsForResource` operation.
 pub mod list_tags_for_resource;
 

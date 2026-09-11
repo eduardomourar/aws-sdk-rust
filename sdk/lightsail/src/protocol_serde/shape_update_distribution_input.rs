@@ -48,5 +48,23 @@ pub fn ser_update_distribution_input_input(
     if let Some(var_15) = &input.use_default_certificate {
         object.key("useDefaultCertificate").boolean(*var_15);
     }
+    if let Some(var_16) = &input.enable_private_origin_access {
+        object.key("enablePrivateOriginAccess").boolean(*var_16);
+    }
+    if let Some(var_17) = &input.default_root_object {
+        object.key("defaultRootObject").string(var_17.as_str());
+    }
+    if let Some(var_18) = &input.custom_error_responses {
+        let mut array_19 = object.key("customErrorResponses").start_array();
+        for item_20 in var_18 {
+            {
+                #[allow(unused_mut)]
+                let mut object_21 = array_19.value().start_object();
+                crate::protocol_serde::shape_distribution_custom_error_response::ser_distribution_custom_error_response(&mut object_21, item_20)?;
+                object_21.finish();
+            }
+        }
+        array_19.finish();
+    }
     Ok(())
 }
